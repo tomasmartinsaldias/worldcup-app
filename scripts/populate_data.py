@@ -87,10 +87,16 @@ def get_wikipedia_url(team_name):
     # Limpiar nombres de selecciones con caracteres especiales de codificación
     team_name = team_name.replace("Cte d'Ivoire", "Côte d'Ivoire")
     team_name = team_name.replace("Curaao", "Curaçao")
+    # Limpieza robusta ante posibles caracteres corruptos
+    team_name = re.sub(r"C.te d'Ivoire", "Côte d'Ivoire", team_name)
+    team_name = re.sub(r"Cura.ao", "Curaçao", team_name)
     
     special_cases = {
         'USA': 'United_States_men%27s_national_soccer_team',
         'Canada': 'Canada_men%27s_national_soccer_team',
+        'Australia': 'Australia_men%27s_national_soccer_team',
+        'Sweden': 'Sweden_men%27s_national_football_team',
+        'New Zealand': 'New_Zealand_men%27s_national_football_team',
         'IR Iran': 'Iran_national_football_team',
         'Cabo Verde': 'Cape_Verde_national_football_team',
         "Côte d'Ivoire": 'Ivory_Coast_national_football_team',
@@ -111,16 +117,17 @@ nationality_keywords = {
     'NED': ['Netherlands'], 'CRO': ['Croatia'], 'JPN': ['Japan'], 
     'USA': ['United States', 'US'], 'MEX': ['Mexico'], 'MAR': ['Morocco'], 
     'COL': ['Colombia'], 'BEL': ['Belgium'], 'NOR': ['Norway'], 'SEN': ['Senegal'], 
-    'EGY': ['Egypt'], 'SWE': ['Sweden'], 'KOR': ['Korea, South', 'South Korea'], 
-    'TUR': ['Turkey'], 'SUI': ['Switzerland'], 'CAN': ['Canada'], 'ECU': ['Ecuador'], 
-    'AUT': ['Austria'], 'ALG': ['Algeria'], 'CIV': ['Cote d\'Ivoire', 'Ivory Coast'], 
+    'EGY': ['Egypt'], 'SWE': ['Sweden'], 'KOR': ['Korea, South', 'South Korea', 'Korea'], 
+    'TUR': ['Turkey', 'Türkiye'], 'SUI': ['Switzerland'], 'CAN': ['Canada'], 'ECU': ['Ecuador'], 
+    'AUT': ['Austria'], 'ALG': ['Algeria'], 'CIV': ['Cote d\'Ivoire', 'Ivory Coast', 'Côte d\'Ivoire'], 
     'SCO': ['Scotland'], 'AUS': ['Australia'], 'GHA': ['Ghana'], 'KSA': ['Saudi Arabia'], 
-    'PAR': ['Paraguay'], 'CZE': ['Czech Republic'], 'COD': ['DR Congo', 'Congo, Democratic Republic'], 
-    'BIH': ['Bosnia-Herzegovina'], 'CPV': ['Cape Verde'], 'TUN': ['Tunisia'], 
+    'PAR': ['Paraguay'], 'CZE': ['Czech Republic', 'Czechia'], 'COD': ['DR Congo', 'Congo, Democratic Republic'], 
+    'BIH': ['Bosnia-Herzegovina', 'Bosnia'], 'CPV': ['Cape Verde', 'Cabo Verde'], 'TUN': ['Tunisia'], 
     'IRQ': ['Iraq'], 'RSA': ['South Africa'], 'UZB': ['Uzbekistan'], 'QAT': ['Qatar'], 
     'NZL': ['New Zealand'], 'JOR': ['Jordan'], 'PAN': ['Panama'], 'HAI': ['Haiti'], 
-    'CUR': ['Curacao']
+    'CUR': ['Curacao', 'Curaçao'], 'IRN': ['Iran']
 }
+
 
 # Bonus de coincidencia de clubes
 def check_club_bonus(wiki_club, cand_club):
@@ -437,7 +444,10 @@ def main():
     superstars = ['Lionel Messi', 'Kylian Mbappé', 'Kylian Mbappe', 'Jude Bellingham', 'Vinícius Júnior', 'Vinícius Jr', 'Rodri', 'Erling Haaland', 'Cristiano Ronaldo']
     
     for team_name_raw, code in teams:
+        # Limpiar nombres de selecciones con caracteres especiales de codificación
         team_name = team_name_raw.replace("Cte d'Ivoire", "Côte d'Ivoire").replace("Curaao", "Curaçao")
+        team_name = re.sub(r"C.te d'Ivoire", "Côte d'Ivoire", team_name)
+        team_name = re.sub(r"Cura.ao", "Curaçao", team_name)
         print(f"Procesando {team_name} ({code})...")
         
         url = get_wikipedia_url(team_name)
@@ -447,14 +457,22 @@ def main():
         try:
             r = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5)
             if r.status_code == 200:
-                dfs = pd.read_html(io.StringIO(r.text))
-                
-                # Buscar la tabla del plantel actual
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(r.text, 'html.parser')
+                tables = soup.find_all('table')
                 squad_df = None
-                for df in dfs:
-                    if len(df.columns) >= 6 and any('Player' in str(c) for c in df.columns) and any('Club' in str(c) for c in df.columns):
-                        squad_df = df
-                        break
+                
+                # Iterar y tratar de parsear cada tabla por separado
+                for t in tables:
+                    try:
+                        dfs = pd.read_html(io.StringIO(str(t)))
+                        if dfs:
+                            df = dfs[0]
+                            if len(df.columns) >= 6 and any('Player' in str(c) for c in df.columns) and any('Club' in str(c) for c in df.columns):
+                                squad_df = df
+                                break
+                    except Exception as table_err:
+                        continue
                 
                 if squad_df is not None:
                     squad_df.columns = [str(c).strip() for c in squad_df.columns]
@@ -519,7 +537,11 @@ def main():
                         caps = 0
                         if col_caps:
                             try:
-                                caps = int(re.sub(r'[^\d]', '', str(row[col_caps])))
+                                val_str = str(row[col_caps])
+                                if '.' in val_str:
+                                    caps = int(float(val_str))
+                                else:
+                                    caps = int(re.sub(r'[^\d]', '', val_str))
                             except ValueError:
                                 caps = 0
                                 
@@ -527,12 +549,16 @@ def main():
                         goals = 0
                         if col_goals:
                             try:
-                                goals = int(re.sub(r'[^\d]', '', str(row[col_goals])))
+                                val_str = str(row[col_goals])
+                                if '.' in val_str:
+                                    goals = int(float(val_str))
+                                else:
+                                    goals = int(re.sub(r'[^\d]', '', val_str))
                             except ValueError:
                                 goals = 0
                                 
-                        # Lesionado (Simulado 8% + Christian Pulisic forzado lesionado para Match Recommender)
-                        is_injured = 1 if (code == 'USA' and 'pulisic' in name_cleaned.lower()) or (random.random() < 0.08) else 0
+                        # Lesionado (Christian Pulisic forzado lesionado para Match Recommender de prueba)
+                        is_injured = 1 if (code == 'USA' and 'pulisic' in name_cleaned.lower()) else 0
                         
                         players.append({
                             'name': name_cleaned,
@@ -570,7 +596,7 @@ def main():
                 age = int(np.clip(np.random.normal(26.5, 3.5), 18, 38))
                 caps = random.randint(0, 75)
                 goals = random.randint(0, 15) if pos in ['Centrocampista', 'Delantero'] else random.randint(0, 2)
-                is_injured = 1 if random.random() < 0.08 else 0
+                is_injured = 0
                 
                 players.append({
                     'name': name,

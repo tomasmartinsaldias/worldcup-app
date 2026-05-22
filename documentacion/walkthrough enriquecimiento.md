@@ -135,7 +135,7 @@ Todos los componentes de software desarrollados en esta fase se encuentran vincu
 
 - **Script de Ingesta**: [populate_data.py](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/scripts/populate_data.py) – Carga y enriquece planteles y métricas avanzadas.
 - **Exportador JSON**: [export_to_json.py](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/scripts/export_to_json.py) – Consolida datos y calcula records H2H históricos.
-- **Diccionario de Base de Datos**: [info_db.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/data/info_db.md) – Detalla la estructura del modelo SQLite simplificado de 22 tablas.
+- **Diccionario de Base de Datos**: [README.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/README.md) – Detalla la estructura del modelo SQLite simplificado de 22 tablas y cómo ejecutar la aplicación.
 - **Frontend HTML**: [index.html](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/index.html) – Estructura semántica de la interfaz.
 - **Frontend Estilos**: [style.css](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/style.css) – Hojas de estilo modo oscuro premium y micro-animaciones.
 - **Frontend Lógica**: [app.js](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/app.js) – Motor del Recomendador, Algoritmo Smart Score, búsquedas y renderizado.

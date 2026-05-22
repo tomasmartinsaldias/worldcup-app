@@ -58,7 +58,7 @@ def main():
     print("Ganadores de Playoffs actualizados en wc2026_teams.")
     
     print("\n--- 3. Cargando archivos CSV de resultados internacionales ---")
-    intl_dir = os.path.join(data_dir, "internation-results")
+    intl_dir = os.path.join(data_dir, "international-results")
     csv_files = {
         "former_names.csv": "intl_former_names",
         "goalscorers.csv": "intl_goalscorers",

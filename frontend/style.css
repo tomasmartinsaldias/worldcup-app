@@ -867,6 +867,21 @@ table.players-table tbody tr:hover {
   color: var(--text-secondary);
 }
 
+.efficiency-excellent {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green);
+}
+
+.efficiency-good {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-teal);
+}
+
+.efficiency-average {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
 /* Card propensity bar */
 .card-prop-bar-container {
   width: 100px;

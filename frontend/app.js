@@ -17,23 +17,27 @@ function calculateSmartScore(match, teams) {
     return 6.0;
   }
   
-  // 1. Squad Value (0 to 3.0 points)
+  // 1. Squad Value (0 to 2.5 points)
   const combVal = (home.metrics.market_value_eur || 0) + (away.metrics.market_value_eur || 0);
-  const valScore = Math.min((combVal / 850.0) * 3.0, 3.0); // Max points at 850M+ combined
+  const valScore = Math.min((combVal / 850.0) * 2.5, 2.5); // Max points at 850M+ combined
   
-  // 2. Global Popularity (0 to 2.5 points)
+  // 2. Global Popularity (0 to 2.0 points)
   const avgPop = ((home.metrics.global_popularity_score || 50) + (away.metrics.global_popularity_score || 50)) / 2;
-  const popScore = (avgPop / 100.0) * 2.5;
+  const popScore = (avgPop / 100.0) * 2.0;
   
-  // 3. Offensive Style (0 to 2.0 points)
+  // 3. Offensive Style (xG) (0 to 1.5 points)
   const avgXg = ((home.metrics.recent_xg_avg || 1.1) + (away.metrics.recent_xg_avg || 1.1)) / 2;
-  const xgScore = Math.min((avgXg / 2.0) * 2.0, 2.0); // Max points at 2.0 xG
+  const xgScore = Math.min((avgXg / 2.0) * 1.5, 1.5); // Max points at 2.0 xG
   
-  // 4. Historical Card/Friction Intensity (0 to 1.5 points)
+  // 4. Recent Performance / Current Form (0 to 1.5 points)
+  const avgEff = ((home.metrics.efficiency_score_avg || 0.19) + (away.metrics.efficiency_score_avg || 0.19)) / 2;
+  const effScore = Math.min((avgEff / 0.50) * 1.5, 1.5); // Max points at 0.50 average efficiency
+  
+  // 5. Historical Card/Friction Intensity (0 to 1.0 points)
   const combCards = ((home.metrics.cards_per_match_avg || 1.3) + (away.metrics.cards_per_match_avg || 1.3)) / 2;
-  const cardsScore = Math.min((combCards / 2.4) * 1.5, 1.5); // Max points at 2.4 cards per match
+  const cardsScore = Math.min((combCards / 2.4) * 1.0, 1.0); // Max points at 2.4 cards per match
   
-  // 5. Star Player count (0 to 1.0 points)
+  // 6. Star Player count (0 to 1.0 points)
   const homeStars = home.squad ? home.squad.filter(p => p.is_star_player).length : 0;
   const awayStars = away.squad ? away.squad.filter(p => p.is_star_player).length : 0;
   const starScore = Math.min(((homeStars + awayStars) / 8.0) * 1.0, 1.0); // Max points at 8 stars
@@ -41,7 +45,7 @@ function calculateSmartScore(match, teams) {
   // Stage Bonus (0.5 for knockout)
   const stageBonus = (match.stage && match.stage !== 'Group Stage') ? 0.5 : 0;
   
-  let finalScore = valScore + popScore + xgScore + cardsScore + starScore + stageBonus;
+  let finalScore = valScore + popScore + xgScore + effScore + cardsScore + starScore + stageBonus;
   finalScore = Math.min(Math.max(finalScore, 1.0), 10.0);
   return parseFloat(finalScore.toFixed(1));
 }
@@ -544,6 +548,16 @@ function openCountrySquad(code) {
         sofaBadge = '<span class="player-unresolved-label">N/A</span>';
       }
       
+      let efficiencyBadge = '';
+      if (p.efficiency_score !== null) {
+        let cat = 'efficiency-average';
+        if (p.efficiency_score >= 0.40) cat = 'efficiency-excellent';
+        else if (p.efficiency_score >= 0.15) cat = 'efficiency-good';
+        efficiencyBadge = `<span class="player-stat-badge ${cat}">${p.efficiency_score.toFixed(2)}</span>`;
+      } else {
+        efficiencyBadge = '<span class="player-unresolved-label">N/A</span>';
+      }
+      
       let cardBar = '';
       if (p.cards_propensity !== null) {
         let cat = 'safe';
@@ -575,6 +589,9 @@ function openCountrySquad(code) {
         <td style="font-weight: 500;">${p.age || 'N/A'}</td>
         <td>${p.caps !== null ? p.caps : 'N/A'}</td>
         <td>${p.goals !== null ? p.goals : 'N/A'}</td>
+        <td style="font-weight: 500;">${p.minutes_recent !== null ? p.minutes_recent : 'N/A'}</td>
+        <td style="font-weight: 500;">${p.assists_recent !== null ? p.assists_recent : 'N/A'}</td>
+        <td>${efficiencyBadge}</td>
         <td class="player-val-cell">${valText}</td>
         <td>${sofaBadge}</td>
         <td style="font-weight: 600;">${p.progressive_passes_per_90 !== null ? p.progressive_passes_per_90.toFixed(1) : '<span class="player-unresolved-label">N/A</span>'}</td>

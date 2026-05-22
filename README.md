@@ -1,10 +1,55 @@
-## ¿Como ejecutar la aplicación?
-1. Abre tu terminal de PowerShell en la raíz del proyecto.
-2. Inicia el servidor web estático de Python:
+# Sistema de Recomendación de Partidos - Mundial 2026
+
+## 🚀 ¿Cómo ejecutar la aplicación?
+
+1. **Levantar el servidor web de la aplicación**:
+   Abre tu terminal en la raíz del proyecto y ejecuta el servidor web estático de Python:
+   ```powershell
+   python -m http.server 8080
+   ```
+   Abre tu navegador e ingresa a: **`http://localhost:8080/frontend/`**
+
+2. **Asegurar que la API local de Transfermarkt esté corriendo** (necesaria para `populate_data.py` y `enrich_with_golden_dataset.py` al rescatar jugadores sin valor):
+   ```powershell
+   .venv\Scripts\python.exe -m uvicorn app.main:app --port 8000 --host 127.0.0.1
+   ```
+---
+
+## ⚙️ Pipeline de Ingesta y Enriquecimiento
+
+El sistema cuenta con un pipeline de scripts modulares en Python (`scripts/`) para poblar, enriquecer y exportar los datos del Mundial 2026:
+
+### 1. Ingesta Inicial (`scripts/populate_data.py`)
+- Extrae la información de planteles probables actualizados para las 48 selecciones desde Wikipedia.
+- Llama a la API local de Transfermarkt en el puerto `8000` para resolver el valor de mercado real, edad oficial y club actual de cada jugador.
+- Guarda en `scraped_unresolved_players` los jugadores no vinculados para auditoría posterior y almacena en caché SQLite (`cache_transfermarkt`) las búsquedas exitosas para optimizar ejecuciones futuras.
+
+### 2. Enriquecimiento con Estadísticas Recientes (`scripts/enrich_with_golden_dataset.py`)
+- Consume el **Golden Dataset** (`data/worldcup-2026-predicts/fifa_world_cup_2026_golden_dataset.csv`).
+- Aplica reglas de coincidencia de nombres avanzada y tolerante para resolver discrepancias ortográficas:
+  - **Filtro por Selección**: Mapea y restringe candidatos a la selección nacional del jugador para evitar colisiones internacionales.
+  - **Wildcards Regex**: Reemplaza caracteres corruptos de codificación (`?` y `\ufffd`) por comodines (`.`) para emparejamientos exactos.
+  - **Mapeo de Apodos (Nicknames)**: Resuelve variantes comunes en español e inglés (ej. *Andy* <-> *Andrew*, *Álex* <-> *Alejandro*).
+  - **Similitud Jaccard de Palabras**: Aplica una comparación de tokens con umbral de $\ge 0.49$ como fallback.
+  - **Control de Duplicados**: Garantiza que no existan colisiones cuando hay dos jugadores del mismo nombre en una selección (ej. *Danilo* en Brasil).
+- Guarda y actualiza las columnas `assists_recent`, `minutes_recent` y `efficiency_score` en la base de datos SQLite y recalcula los promedios globales de eficiencia por país en `scraped_team_metrics`.
+
+### 3. Consolidación y Exportación (`scripts/export_to_json.py`)
+- Lee de la base de datos relacional y consolida equipos, planteles, estadios, fixtures y récords H2H históricos en un único archivo JSON en **`data/wc2026_data.json`**. Este archivo es el consumido directamente por el Frontend.
+
+#### Orden de ejecución para actualizar los datos:
+```powershell
+# 1. Poblar Wikipedia y Transfermarkt
+python scripts/populate_data.py
+
+# 2. Enriquecer con el Golden Dataset
+python scripts/enrich_with_golden_dataset.py
+
+# 3. Exportar JSON para el Frontend
+python scripts/export_to_json.py
 ```
-python -m http.server 8080
-```
-3. Abre tu navegador e ingresa a: http://localhost:8080/frontend/
+
+---
 
 # Diccionario de Datos de la Copa del Mundo (`worldcup_combined.db`) - Versión Simplificada
 
@@ -79,34 +124,6 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 
 ## Resultados Internacionales (intl_)
 
-### Tabla `intl_former_names`
-**Descripción**: Vinculación de nombres de selecciones actuales con sus identidades antiguas o disueltas.
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `current` | TEXT |  |  |
-| `former` | TEXT |  |  |
-| `start_date` | TEXT |  |  |
-| `end_date` | TEXT |  |  |
-
-### Tabla `intl_goalscorers`
-**Descripción**: Listado detallado de los goles anotados en todos los partidos internacionales (1872-2026).
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `date` | TEXT |  |  |
-| `home_team` | TEXT |  |  |
-| `away_team` | TEXT |  |  |
-| `team` | TEXT |  |  |
-| `scorer` | TEXT |  |  |
-| `minute` | REAL |  |  |
-| `own_goal` | INTEGER |  |  |
-| `penalty` | INTEGER |  |  |
-
 ### Tabla `intl_results`
 **Descripción**: Historial de más de 49,000 partidos internacionales jugados en todo el mundo desde 1872 hasta 2026 (útil para rachas y H2H).
 
@@ -123,20 +140,6 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `city` | TEXT |  |  |
 | `country` | TEXT |  |  |
 | `neutral` | INTEGER |  |  |
-
-### Tabla `intl_shootouts`
-**Descripción**: Tandas de penales jugadas en partidos internacionales oficiales y amistosos.
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `date` | TEXT |  |  |
-| `home_team` | TEXT |  |  |
-| `away_team` | TEXT |  |  |
-| `winner` | TEXT |  |  |
-| `first_shooter` | TEXT |  |  |
-
 
 ---
 
@@ -157,6 +160,8 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `progressive_passes_per_90_avg` | REAL |  | Promedio de pases progresivos por 90 minutos de los jugadores del plantel |
 | `sofascore_rating_avg` | REAL |  | Calificación de Sofascore promedio de la temporada para la selección |
 | `cards_per_match_avg` | REAL |  | Promedio histórico de tarjetas amarillas/rojas recibidas por partido en mundiales |
+| `efficiency_score_avg` | REAL |  | Promedio de la puntuación de eficiencia de rendimiento reciente de los jugadores de la selección |
+
 
 ### Tabla `scraped_wc2026_probable_squads`
 **Descripción**: Plantel de jugadores probables convocados para el Mundial 2026 (extraídos de Wikipedia y cruzados con Transfermarkt API local), incluyendo club, edad, estadísticas en selección (PJ, goles), valor de mercado, lesión, condición de estrella y métricas avanzadas enriquecidas. Si un jugador no pudo ser resuelto por Transfermarkt, sus campos de mercado y estadísticas avanzadas se almacenan como `NULL`.
@@ -179,6 +184,10 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `progressive_passes_per_90` | REAL |  | Pases progresivos completados por 90 minutos (proxy de estilo de juego de FBref) |
 | `sofascore_rating` | REAL |  | Calificación promedio del jugador en Sofascore durante la última temporada |
 | `cards_propensity` | REAL |  | Índice de propensión a recibir tarjetas por 90 minutos (basado en caché de FBref/historial) |
+| `assists_recent` | INTEGER |  | Cantidad de asistencias en partidos recientes (del Golden Dataset) |
+| `minutes_recent` | INTEGER |  | Minutos jugados en partidos recientes (del Golden Dataset) |
+| `efficiency_score` | REAL |  | Puntuación de eficiencia de rendimiento reciente (del Golden Dataset) |
+
 
 ### Tabla `scraped_unresolved_players`
 **Descripción**: Registro de integridad de datos que almacena los jugadores de Wikipedia que no pudieron ser vinculados en la API local de Transfermarkt tras aplicar filtros estrictos de coincidencia por nacionalidad, nombre y rango de edad. Permite auditar y resolver discrepancias de nombres.
@@ -250,17 +259,6 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `second_yellow_card` | BOOLEAN |  |  |
 | `sending_off` | BOOLEAN |  |  |
 
-### Tabla `confederations`
-**Descripción**: Las 6 confederaciones de fútbol afiliadas a la FIFA.
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `confederation_id` | TEXT | 🔑 PK | NOT NULL |
-| `confederation_name` | TEXT |  |  |
-| `confederation_code` | TEXT |  |  |
-| `confederation_wikipedia_link` | TEXT |  |  |
 
 ### Tabla `matches`
 **Descripción**: Sin descripción.
@@ -337,31 +335,7 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `list_tournaments` | TEXT |  |  |
 | `player_wikipedia_link` | TEXT |  |  |
 
-### Tabla `qualified_teams`
-**Descripción**: Rendimiento y fase máxima alcanzada por cada selección en cada edición de los mundiales.
 
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `tournament_id` | TEXT | 🔑 PK | NOT NULL |
-| `team_id` | TEXT | 🔑 PK | NOT NULL |
-| `count_matches` | INTEGER |  |  |
-| `performance` | TEXT |  |  |
-
-### Tabla `squads`
-**Descripción**: Composición de los planteles convocados por selección en cada torneo (número de camiseta y posición).
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `tournament_id` | TEXT | 🔑 PK | NOT NULL |
-| `team_id` | TEXT | 🔑 PK | NOT NULL |
-| `player_id` | TEXT | 🔑 PK | NOT NULL |
-| `shirt_number` | INTEGER |  |  |
-| `position_name` | TEXT |  |  |
-| `position_code` | TEXT |  |  |
 
 ### Tabla `teams`
 **Descripción**: Registro de las 85 selecciones históricas que han participado en mundiales con sus federaciones.
@@ -379,52 +353,7 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `team_wikipedia_link` | TEXT |  |  |
 | `federation_wikipedia_link` | TEXT |  |  |
 
-### Tabla `tournament_stages`
-**Descripción**: Sin descripción.
 
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `tournament_id` | TEXT | 🔑 PK | NOT NULL |
-| `stage_number` | INTEGER | 🔑 PK |  |
-| `stage_name` | TEXT |  |  |
-| `group_stage` | BOOLEAN |  |  |
-| `knockout_stage` | BOOLEAN |  |  |
-| `unbalanced_groups` | BOOLEAN |  |  |
-| `start_date` | DATE |  |  |
-| `end_date` | DATE |  |  |
-| `count_matches` | INTEGER |  |  |
-| `count_teams` | INTEGER |  |  |
-| `count_scheduled` | INTEGER |  |  |
-| `count_replays` | INTEGER |  |  |
-| `count_playoffs` | INTEGER |  |  |
-| `count_walkovers` | INTEGER |  |  |
-
-### Tabla `tournaments`
-**Descripción**: Registro de los 22 torneos disputados (1930-2022); incluye organizador, ganador, fechas y formato.
-
-**Esquema de Columnas**:
-
-| Columna | Tipo | Clave | Restricciones |
-| :--- | :--- | :--- | :--- |
-| `tournament_id` | TEXT | 🔑 PK | NOT NULL |
-| `tournament_name` | TEXT |  |  |
-| `year` | INTEGER |  |  |
-| `start_date` | DATE |  |  |
-| `end_date` | DATE |  |  |
-| `host_country` | TEXT |  |  |
-| `winner` | TEXT |  |  |
-| `host_won` | BOOLEAN |  |  |
-| `count_teams` | INTEGER |  |  |
-| `group_stage` | BOOLEAN |  |  |
-| `second_group_stage` | BOOLEAN |  |  |
-| `final_round` | BOOLEAN |  |  |
-| `round_of_16` | BOOLEAN |  |  |
-| `quarter_finals` | BOOLEAN |  |  |
-| `semi_finals` | BOOLEAN |  |  |
-| `third_place_match` | BOOLEAN |  |  |
-| `final` | BOOLEAN |  |  |
 
 
 ---
