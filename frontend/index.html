@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundial 2026 – Match Recommender & Squad Analytics</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- App Header & Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" id="app-logo">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Mundial 2026</span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="recommender">
+          <i class="fa-solid fa-star"></i> Recomendador
+        </button>
+        <button class="nav-btn" data-tab="groups">
+          <i class="fa-solid fa-circle-nodes"></i> Grupos
+        </button>
+        <button class="nav-btn" data-tab="squads">
+          <i class="fa-solid fa-users"></i> Planteles
+        </button>
+        <button class="nav-btn" data-tab="unresolved">
+          <i class="fa-solid fa-circle-question"></i> No Resueltos
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="app-container">
+
+    <!-- 1. Match Recommender Tab -->
+    <section id="tab-recommender" class="tab-panel active">
+      <div class="hero-section recommender-accent">
+        <div class="hero-tag">Algoritmo de Interés Premium</div>
+        <h1 class="hero-title">Match Recommender Mundial 2026</h1>
+        <p class="hero-desc">
+          Descubre los partidos más atractivos e intensos del torneo. Nuestro algoritmo evalúa el valor total de las plantillas reales, popularidad global, estadísticas de tarjetas históricas y potencial ofensivo reciente (xG/posesión).
+        </p>
+      </div>
+
+      <!-- Filters Panel -->
+      <div class="filters-bar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="search-matches" class="search-input" placeholder="Buscar selecciones, estadios o grupos...">
+        </div>
+        <div class="filter-groups">
+          <select id="filter-stage" class="filter-select">
+            <option value="all">Todas las Fases</option>
+            <option value="Group Stage">Fase de Grupos</option>
+            <option value="Knockout">Fases de Eliminación</option>
+          </select>
+          <select id="filter-region" class="filter-select">
+            <option value="all">Todas las Regiones</option>
+            <option value="East">Este (Miami, Boston, NY/NJ, etc)</option>
+            <option value="Central">Central (CDMX, Dallas, Houston, etc)</option>
+            <option value="West">Oeste (LA, SF, Seattle, Vancouver)</option>
+          </select>
+          <select id="sort-matches" class="filter-select">
+            <option value="interest-desc">Interés: Mayor a Menor</option>
+            <option value="match-asc">Número de Partido (Orden Cronológico)</option>
+            <option value="value-desc">Valor de Plantilla Combinado</option>
+            <option value="cards-desc">Intensidad (Tarjetas Históricas)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Match Cards Grid -->
+      <div class="matches-grid" id="matches-container">
+        <!-- Match Cards populated by Javascript -->
+        <div class="no-history-msg">Cargando partidos del Mundial 2026...</div>
+      </div>
+    </section>
+
+    <!-- 2. Groups Tab -->
+    <section id="tab-groups" class="tab-panel">
+      <div class="hero-section">
+        <div class="hero-tag">Fase de Grupos</div>
+        <h1 class="hero-title">Grupos del Mundial (A a L)</h1>
+        <p class="hero-desc">Explora la distribución de las 48 selecciones clasificadas a la Copa del Mundo de Estados Unidos, México y Canadá 2026.</p>
+      </div>
+
+      <div class="groups-container" id="groups-container">
+        <!-- Group Cards populated by Javascript -->
+      </div>
+    </section>
+
+    <!-- 3. Squads Tab -->
+    <section id="tab-squads" class="tab-panel">
+      <div class="hero-section">
+        <div class="hero-tag">Planteles Probables</div>
+        <h1 class="hero-title">Selecciones y Valores de Mercado</h1>
+        <p class="hero-desc">Busca y examina los planteles probables extraídos de Wikipedia, enriquecidos con valores de mercado reales de la API de Transfermarkt y estadísticas de rendimiento.</p>
+      </div>
+
+      <div class="filters-bar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="search-teams" class="search-input" placeholder="Buscar país o confederación...">
+        </div>
+      </div>
+
+      <div class="countries-grid" id="countries-container">
+        <!-- Country cards populated by Javascript -->
+      </div>
+    </section>
+
+    <!-- 4. Squad Details Sub-tab (Toggled dynamically) -->
+    <section id="squad-details-view" class="squad-view-container">
+      <button class="back-btn" id="back-to-countries-btn">
+        <i class="fa-solid fa-arrow-left"></i> Volver a Selecciones
+      </button>
+
+      <div class="squad-header" id="squad-header-container">
+        <!-- Squad summary statistics dynamically populated -->
+      </div>
+
+      <div class="squad-list-title">
+        <span>Plantel Probable de 26 Jugadores</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">* Datos de valor de mercado en millones de Euros (M€).</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="players-table">
+          <thead>
+            <tr>
+              <th>Jugador</th>
+              <th>Posición</th>
+              <th>Club Actual</th>
+              <th>Edad</th>
+              <th>PJ Int.</th>
+              <th>Goles Int.</th>
+              <th>Valor de Mercado</th>
+              <th>Calificación Sofa</th>
+              <th>Pases Prog. (90')</th>
+              <th>Propensión Tarjetas</th>
+            </tr>
+          </thead>
+          <tbody id="players-table-body">
+            <!-- Player rows populated by Javascript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. Unresolved Players Tab -->
+    <section id="tab-unresolved" class="tab-panel">
+      <div class="hero-section">
+        <div class="hero-tag">Integridad de Datos</div>
+        <h1 class="hero-title">Registro de Jugadores No Resueltos</h1>
+        <p class="hero-desc">
+          En cumplimiento con las políticas de precisión de datos, no estimamos ni inventamos valores de mercado o métricas avanzadas. Si un jugador no pudo resolverse en la API de Transfermarkt de manera certera, se guarda aquí con el motivo detallado de error, insertándose en su selección con valores nulos (NULL).
+        </p>
+      </div>
+
+      <div class="table-wrapper" style="margin-bottom: 2rem;">
+        <div style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-glass); font-family: var(--font-primary); font-weight: 700; font-size: 1.2rem; color: var(--accent-gold); display: flex; justify-content: space-between; align-items: center;">
+          <span>Jugadores Sin Coincidencia en API (Null-Value log)</span>
+          <span class="injured-badge" id="unresolved-count-badge">0 Registros</span>
+        </div>
+        <div class="modal-body" style="padding: 1.5rem 2rem;">
+          <div class="unresolved-list" id="unresolved-list-container">
+            <!-- Unresolved players populated by Javascript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Match H2H Modal -->
+  <div class="modal-overlay" id="h2h-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-match-title">Detalles del Partido</h3>
+        <button class="close-btn" id="close-modal-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Teams VS banner -->
+        <div class="modal-teams-vs">
+          <div class="modal-team-block" id="modal-team-home">
+            <!-- Flag & Name -->
+          </div>
+          <div class="modal-vs-divider">VS</div>
+          <div class="modal-team-block" id="modal-team-away">
+            <!-- Flag & Name -->
+          </div>
+        </div>
+
+        <!-- Smart Recommendation Breakdown -->
+        <div class="h2h-title">
+          <i class="fa-solid fa-brain"></i> Análisis del Algoritmo Match Recommender
+        </div>
+        
+        <div class="h2h-stats-summary">
+          <div>
+            <div class="h2h-summary-val" id="modal-match-score" style="color: var(--accent-gold); font-size: 2.25rem;">0.0</div>
+            <div class="h2h-summary-lbl">Smart Score</div>
+          </div>
+          <div>
+            <div class="h2h-summary-val" id="modal-match-rank" style="color: var(--accent-teal);">#0</div>
+            <div class="h2h-summary-lbl">Ranking Interés</div>
+          </div>
+          <div>
+            <div class="h2h-summary-val" id="modal-squad-comb-val">0M€</div>
+            <div class="h2h-summary-lbl">Planteles Combinados</div>
+          </div>
+        </div>
+
+        <!-- Metric comparison grids -->
+        <div class="h2h-title">
+          <i class="fa-solid fa-chart-simple"></i> Comparativa de Métricas Recientes
+        </div>
+        <div class="h2h-comparisons-grid">
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Valor de Plantilla (M€)</div>
+            <div class="comp-metric-vs">
+              <span class="comp-val-left" id="comp-val-mkt-home">0.0M€</span>
+              <span style="color: var(--text-muted)">vs</span>
+              <span class="comp-val-right" id="comp-val-mkt-away">0.0M€</span>
+            </div>
+          </div>
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Promedio Goles Esperados (xG)</div>
+            <div class="comp-metric-vs">
+              <span class="comp-val-left" id="comp-val-xg-home">0.0</span>
+              <span style="color: var(--text-muted)">vs</span>
+              <span class="comp-val-right" id="comp-val-xg-away">0.0</span>
+            </div>
+          </div>
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Porcentaje de Posesión</div>
+            <div class="comp-metric-vs">
+              <span class="comp-val-left" id="comp-val-poss-home">0%</span>
+              <span style="color: var(--text-muted)">vs</span>
+              <span class="comp-val-right" id="comp-val-poss-away">0%</span>
+            </div>
+          </div>
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Popularidad Global</div>
+            <div class="comp-metric-vs">
+              <span class="comp-val-left" id="comp-val-pop-home">0</span>
+              <span style="color: var(--text-muted)">vs</span>
+              <span class="comp-val-right" id="comp-val-pop-away">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Head to Head History (intl_results & Fjelstul WC) -->
+        <div class="h2h-title">
+          <i class="fa-solid fa-history"></i> Historial Cara a Cara (H2H) General
+        </div>
+        
+        <div class="h2h-stats-summary" style="margin-bottom: 1rem;">
+          <div>
+            <div class="h2h-summary-val" id="h2h-total-games">0</div>
+            <div class="h2h-summary-lbl">Partidos</div>
+          </div>
+          <div>
+            <div class="h2h-summary-val" id="h2h-home-wins" style="color: var(--accent-cyan);">0</div>
+            <div class="h2h-summary-lbl" id="h2h-home-lbl">Victoria Local</div>
+          </div>
+          <div>
+            <div class="h2h-summary-val" id="h2h-draws" style="color: var(--text-secondary);">0</div>
+            <div class="h2h-summary-lbl">Empates</div>
+          </div>
+          <div>
+            <div class="h2h-summary-val" id="h2h-away-wins" style="color: var(--accent-gold);">0</div>
+            <div class="h2h-summary-lbl" id="h2h-away-lbl">Victoria Vis.</div>
+          </div>
+        </div>
+
+        <!-- Visual H2H distribution bar -->
+        <div class="h2h-bar-chart">
+          <div class="h2h-bar-home" id="h2h-bar-home-w" style="width: 33%"></div>
+          <div class="h2h-bar-draw" id="h2h-bar-draws-w" style="width: 34%"></div>
+          <div class="h2h-bar-away" id="h2h-bar-away-w" style="width: 33%"></div>
+        </div>
+
+        <div class="h2h-title">
+          <i class="fa-solid fa-soccer-ball"></i> Historial en Copas del Mundo Anteriores
+        </div>
+        <div class="h2h-stats-summary" id="modal-wc-h2h-summary">
+          <!-- WC H2H metrics -->
+        </div>
+
+        <div class="h2h-title">
+          <i class="fa-solid fa-list-check"></i> Últimos Enfrentamientos Directos
+        </div>
+        <div class="table-wrapper" style="border-radius: 12px;">
+          <div id="h2h-past-matches-container">
+            <!-- List of past games -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- App Footer -->
+  <footer>
+    <p>Mundial 2026 Match Recommender &copy; 2026. Diseñado en modo Ultra Premium.</p>
+    <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
