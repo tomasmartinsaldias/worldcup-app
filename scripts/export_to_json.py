@@ -31,8 +31,7 @@ def main():
         SELECT 
             t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder,
             m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, 
-            m.global_popularity_score, m.progressive_passes_per_90_avg, 
-            m.sofascore_rating_avg, m.cards_per_match_avg, m.efficiency_score_avg
+            m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -41,7 +40,7 @@ def main():
     groups_dict = {}
     
     for row in cursor.fetchall():
-        tid, name, code, group_letter, is_placeholder, val, xg, poss, pop, prog, sofa, cards, eff_avg = row
+        tid, name, code, group_letter, is_placeholder, val, xg, poss, pop, cards, eff_avg = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -56,8 +55,6 @@ def main():
                 "recent_xg_avg": xg,
                 "recent_possession_avg": poss,
                 "global_popularity_score": pop,
-                "progressive_passes_per_90_avg": prog,
-                "sofascore_rating_avg": sofa,
                 "cards_per_match_avg": cards,
                 "efficiency_score_avg": eff_avg
             }
@@ -77,14 +74,13 @@ def main():
     cursor.execute("""
         SELECT 
             player_id, player_name, fifa_code, position, club, age, caps, goals,
-            market_value_eur, is_star_player, is_injured, progressive_passes_per_90, 
-            sofascore_rating, cards_propensity, assists_recent, minutes_recent, 
-            efficiency_score
+            market_value_eur, is_star_player, is_injured, cards_propensity,
+            assists_recent, minutes_recent, efficiency_score
         FROM scraped_wc2026_probable_squads;
     """)
     
     for row in cursor.fetchall():
-        pid, name, code, pos, club, age, caps, goals, val, star, injured, prog, sofa, cards, assists_rec, mins_rec, eff_rec = row
+        pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec, eff_rec = row
         if code in teams_dict:
             teams_dict[code]["squad"].append({
                 "id": pid,
@@ -97,8 +93,6 @@ def main():
                 "market_value_eur": val,
                 "is_star_player": bool(star) if star is not None else None,
                 "is_injured": bool(injured) if injured is not None else False,
-                "progressive_passes_per_90": prog,
-                "sofascore_rating": sofa,
                 "cards_propensity": cards,
                 "assists_recent": assists_rec,
                 "minutes_recent": mins_rec,

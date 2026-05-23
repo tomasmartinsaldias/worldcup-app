@@ -738,24 +738,11 @@ def main():
                 # Marcar estrella
                 p['is_star'] = 1 if (p['val'] is not None and p['val'] >= q75) or (p['name'] in superstars) else 0
                 
-                # 1. Sofascore (Log-scaled según valor de mercado)
-                if p['val'] is not None:
-                    base_rating = 6.4 + 0.6 * (np.log1p(p['val']) / np.log1p(180.0))
-                    if p['is_star']:
-                        base_rating += 0.2
-                    p['sofascore'] = round(np.clip(base_rating + random.uniform(-0.15, 0.15), 6.0, 8.5), 2)
-                else:
-                    p['sofascore'] = 6.6 # default si no tiene valor de mercado listado
+                # 1. Calificación Sofascore (Establecido a None por veracidad de datos)
+                p['sofascore'] = None
                 
-                # 2. Pases progresivos por 90 minutos (según posición)
-                if p['position'] == 'Portero':
-                    p['prog_passes'] = round(random.uniform(0.1, 1.2), 1)
-                elif p['position'] == 'Defensa':
-                    p['prog_passes'] = round(random.uniform(2.8, 5.8), 1)
-                elif p['position'] == 'Centrocampista':
-                    p['prog_passes'] = round(random.uniform(4.5, 8.9), 1)
-                else:
-                    p['prog_passes'] = round(random.uniform(1.2, 3.2), 1)
+                # 2. Pases progresivos por 90 minutos (Establecido a None por veracidad de datos)
+                p['prog_passes'] = None
                 
                 # 3. Propensión a tarjetas (Cruzando FBref caché o historial mundiales)
                 hist_cards = get_player_historical_cards(cursor, p['name'])
@@ -818,31 +805,15 @@ def main():
                 # recent_xg_avg derivado de goles_por_partido * 0.9
                 team_xg_avg = round((stats_22['Gls'] / stats_22['MP']) * 0.9, 2)
                 
-        # Fallbacks rank-based para equipos no clasificados en 2022 o sin registros
+        # Fallbacks rank-based para equipos no clasificados en 2022 o sin registros (Establecidos a None)
         pop = team_popularity.get(code, 40.0)
         
-        if team_possession_avg is None:
-            if pop >= 90.0:
-                team_possession_avg = round(random.uniform(57.0, 64.5), 1)
-            elif pop >= 60.0:
-                team_possession_avg = round(random.uniform(48.0, 55.0), 1)
-            else:
-                team_possession_avg = round(random.uniform(42.0, 47.0), 1)
-                
-        if team_xg_avg is None:
-            if pop >= 90.0:
-                team_xg_avg = round(random.uniform(1.7, 2.3), 2)
-            elif pop >= 60.0:
-                team_xg_avg = round(random.uniform(1.3, 1.7), 2)
-            else:
-                team_xg_avg = round(random.uniform(0.9, 1.2), 2)
-                
         # 3. Promedios del plantel
         resolved_prog_passes = [p['prog_passes'] for p in processed_squad if p['prog_passes'] is not None]
         resolved_sofascore = [p['sofascore'] for p in processed_squad if p['sofascore'] is not None]
         
-        team_prog_passes_avg = round(sum(resolved_prog_passes) / len(resolved_prog_passes), 2) if resolved_prog_passes else 3.5
-        team_sofascore_avg = round(sum(resolved_sofascore) / len(resolved_sofascore), 2) if resolved_sofascore else 6.7
+        team_prog_passes_avg = round(sum(resolved_prog_passes) / len(resolved_prog_passes), 2) if resolved_prog_passes else None
+        team_sofascore_avg = round(sum(resolved_sofascore) / len(resolved_sofascore), 2) if resolved_sofascore else None
         
         # 4. Tarjetas de la selección (historial real en mundiales)
         team_cards_avg = get_historical_card_rate(cursor, code)

@@ -146,7 +146,7 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 ## Scraping y Auxiliares (scraped_ y team_mappings)
 
 ### Tabla `scraped_team_metrics`
-**Descripción**: Métricas de rendimiento reciente (xG, posesión, pases progresivos y calificación de Sofascore promediados del plantel), valor de mercado total de la selección y popularidad global por selección para el Mundial 2026.
+**Descripción**: Métricas de rendimiento reciente (xG, posesión,), valor de mercado total de la selección y popularidad global por selección para el Mundial 2026.
 
 **Esquema de Columnas**:
 
@@ -157,8 +157,6 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `recent_xg_avg` | REAL |  | Goles esperados promedio por partido recientes (basado en mundial 2022 o ranking) |
 | `recent_possession_avg` | REAL |  | Porcentaje de posesión promedio reciente de la selección |
 | `global_popularity_score` | REAL |  | Índice de popularidad global (0 a 100) según el interés global |
-| `progressive_passes_per_90_avg` | REAL |  | Promedio de pases progresivos por 90 minutos de los jugadores del plantel |
-| `sofascore_rating_avg` | REAL |  | Calificación de Sofascore promedio de la temporada para la selección |
 | `cards_per_match_avg` | REAL |  | Promedio histórico de tarjetas amarillas/rojas recibidas por partido en mundiales |
 | `efficiency_score_avg` | REAL |  | Promedio de la puntuación de eficiencia de rendimiento reciente de los jugadores de la selección |
 
@@ -181,8 +179,6 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `market_value_eur` | REAL |  | Valor de mercado real en millones de euros (M€) |
 | `is_star_player` | BOOLEAN |  | Verdadero si el jugador está en el cuartil superior (Q75) de valor en su selección |
 | `is_injured` | BOOLEAN |  | Verdadero si presenta lesiones de último momento o baja médica |
-| `progressive_passes_per_90` | REAL |  | Pases progresivos completados por 90 minutos (proxy de estilo de juego de FBref) |
-| `sofascore_rating` | REAL |  | Calificación promedio del jugador en Sofascore durante la última temporada |
 | `cards_propensity` | REAL |  | Índice de propensión a recibir tarjetas por 90 minutos (basado en caché de FBref/historial) |
 | `assists_recent` | INTEGER |  | Cantidad de asistencias en partidos recientes (del Golden Dataset) |
 | `minutes_recent` | INTEGER |  | Minutos jugados en partidos recientes (del Golden Dataset) |

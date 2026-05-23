@@ -525,7 +525,7 @@ function openCountrySquad(code) {
   tbody.innerHTML = '';
   
   if (!t.squad || t.squad.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="10" style="text-align: center; color: var(--text-muted);">No se encontraron jugadores probables para esta selección.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: var(--text-muted);">No se encontraron jugadores probables para esta selección.</td></tr>`;
   } else {
     t.squad.forEach(p => {
       const row = document.createElement('tr');
@@ -538,16 +538,7 @@ function openCountrySquad(code) {
         valText = `${p.market_value_eur.toFixed(1)} M€`;
       }
       
-      let sofaBadge = '';
-      if (p.sofascore_rating !== null) {
-        let cat = 'sofascore-average';
-        if (p.sofascore_rating >= 7.20) cat = 'sofascore-excellent';
-        else if (p.sofascore_rating >= 6.70) cat = 'sofascore-good';
-        sofaBadge = `<span class="player-stat-badge ${cat}">${p.sofascore_rating.toFixed(2)}</span>`;
-      } else {
-        sofaBadge = '<span class="player-unresolved-label">N/A</span>';
-      }
-      
+
       let efficiencyBadge = '';
       if (p.efficiency_score !== null) {
         let cat = 'efficiency-average';
@@ -593,8 +584,6 @@ function openCountrySquad(code) {
         <td style="font-weight: 500;">${p.assists_recent !== null ? p.assists_recent : 'N/A'}</td>
         <td>${efficiencyBadge}</td>
         <td class="player-val-cell">${valText}</td>
-        <td>${sofaBadge}</td>
-        <td style="font-weight: 600;">${p.progressive_passes_per_90 !== null ? p.progressive_passes_per_90.toFixed(1) : '<span class="player-unresolved-label">N/A</span>'}</td>
         <td>${cardBar}</td>
       `;
       
