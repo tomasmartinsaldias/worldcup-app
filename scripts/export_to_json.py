@@ -76,7 +76,8 @@ def main():
             player_id, player_name, fifa_code, position, club, age, caps, goals,
             market_value_eur, is_star_player, is_injured, cards_propensity,
             assists_recent, minutes_recent, efficiency_score
-        FROM scraped_wc2026_probable_squads;
+        FROM scraped_wc2026_probable_squads
+        WHERE efficiency_score IS NOT NULL OR caps >= 5;
     """)
     
     for row in cursor.fetchall():
