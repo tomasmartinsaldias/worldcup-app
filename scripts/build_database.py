@@ -4,7 +4,7 @@ import sqlite3
 import pandas as pd
 
 def main():
-    base_dir = "c:/Users/tomas/Desktop/proyectos/worldcup-app"
+    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
     data_dir = os.path.join(base_dir, "data")
     
     src_wc_db = os.path.join(data_dir, "worldcup", "data-sqlite", "worldcup.db")

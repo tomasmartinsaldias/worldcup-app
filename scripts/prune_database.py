@@ -3,7 +3,7 @@ import sqlite3
 import sys
 
 def main():
-    base_dir = "c:/Users/tomas/Desktop/proyectos/worldcup-app"
+    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     
     if not os.path.exists(db_path):

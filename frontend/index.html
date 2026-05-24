@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mundial 2026 – Match Recommender & Squad Analytics</title>
+  <meta name="description" content="Descubre los partidos más atractivos e intensos del Mundial 2026. Analiza el valor de plantillas, xG, posesión y estado de forma.">
+  <meta property="og:title" content="Mundial 2026 – Match Recommender">
+  <meta property="og:description" content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
+  <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -44,6 +48,41 @@
         <p class="hero-desc">
           Descubre los partidos más atractivos e intensos del torneo. Nuestro algoritmo evalúa el valor total de las plantillas reales, popularidad global, estadísticas de tarjetas históricas, potencial ofensivo reciente (xG/posesión) y estado de forma de los jugadores (eficiencia reciente).
         </p>
+      </div>
+
+      <!-- Preferences Panel -->
+      <div class="preferences-panel">
+        <h3 class="preferences-title"><i class="fa-solid fa-sliders"></i> Personalizar Recomendaciones</h3>
+        <div class="preferences-grid">
+          <div class="pref-item">
+            <label for="pref-team">Selección Favorita</label>
+            <select id="pref-team" class="filter-select">
+              <option value="">Ninguna</option>
+              <!-- Populated by JS -->
+            </select>
+          </div>
+          <div class="pref-item">
+            <label for="pref-style">Estilo de Partido</label>
+            <select id="pref-style" class="filter-select">
+              <option value="all">Cualquiera</option>
+              <option value="closed">Cerrado / Táctico (Bajo xG, más roce)</option>
+              <option value="chaotic">Abierto / Caótico (Alto xG)</option>
+            </select>
+          </div>
+          <div class="pref-item">
+            <label for="pref-time">Horarios Disponibles</label>
+            <select id="pref-time" class="filter-select" multiple size="3" style="height: auto;">
+              <option value="morning">Mañana (antes de 12:00)</option>
+              <option value="afternoon">Tarde (12:00 a 18:00)</option>
+              <option value="evening">Noche (después de 18:00)</option>
+            </select>
+            <small style="font-size: 0.75rem; color: var(--text-muted);">Usa Ctrl para selección múltiple</small>
+          </div>
+          <div class="pref-item">
+            <label for="pref-players">Jugadores Favoritos</label>
+            <input type="text" id="pref-players" class="search-input" placeholder="Ej: Messi, Mbappe, Saka">
+          </div>
+        </div>
       </div>
 
       <!-- Filters Panel -->
@@ -121,6 +160,10 @@
 
       <div class="squad-header" id="squad-header-container">
         <!-- Squad summary statistics dynamically populated -->
+      </div>
+
+      <div class="squad-lineup-container" id="squad-lineup-container">
+        <!-- Pitch and starting XI populated by JS -->
       </div>
 
       <div class="squad-list-title">
@@ -315,6 +358,6 @@
     <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

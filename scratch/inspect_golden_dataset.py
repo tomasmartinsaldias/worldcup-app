@@ -23,7 +23,7 @@ def normalize_text(text):
     return text
 
 def main():
-    base_dir = "c:/Users/tomas/Desktop/proyectos/worldcup-app"
+    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
     csv_path = os.path.join(base_dir, "data", "worldcup-2026-predicts", "fifa_world_cup_2026_golden_dataset.csv")
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     

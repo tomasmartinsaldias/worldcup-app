@@ -3,7 +3,7 @@ import sqlite3
 import json
 
 def main():
-    base_dir = "c:/Users/tomas/Desktop/proyectos/worldcup-app"
+    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     output_path = os.path.join(base_dir, "data", "wc2026_data.json")
     

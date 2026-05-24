@@ -1,7 +1,7 @@
 import sqlite3
 
 def run_test_query():
-    db_path = "c:/Users/tomas/Desktop/proyectos/worldcup-app/data/worldcup_combined.db"
+    db_path = "c:/Users/User/Downloads/app_mundial/worldcup-app/data/worldcup_combined.db"
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
