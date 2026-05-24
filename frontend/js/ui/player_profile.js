@@ -59,8 +59,7 @@ function drawRadarChart(player, ratingVal) {
     radarChart.destroy();
   }
 
-  // Generate some realistic fake stats based on position and rating if we don't have detailed FBref data
-  // In a real app, these would come directly from the JSON.
+  // Calculate stats deterministically based on real data
   const base = ratingVal * 10; // 65 - 95
   
   let atk = base;
@@ -71,17 +70,36 @@ function drawRadarChart(player, ratingVal) {
 
   const pos = (player.position || '').toLowerCase();
   if (pos.includes('delantero') || pos.includes('ataque')) {
-    atk += 10; def -= 20; pas += 5;
-  } else if (pos.includes('defensa') || pos.includes('central')) {
-    atk -= 20; def += 15; phy += 10;
-  } else if (pos.includes('medio') || pos.includes('centro')) {
-    pas += 15; tac += 10; atk -= 5;
+    atk += 15; def -= 25; pas += 5;
+  } else if (pos.includes('defensa') || pos.includes('central') || pos.includes('lateral')) {
+    atk -= 20; def += 20; phy += 10; tac += 5;
+  } else if (pos.includes('medio') || pos.includes('centro') || pos.includes('pivote')) {
+    pas += 20; tac += 15; atk -= 5;
   } else if (pos.includes('portero')) {
-    atk = 10; def = 85; pas = 60; phy = 70; tac = 80;
+    atk = 15; def = 85; pas = 60; phy = 70; tac = 85;
   }
 
-  // Cap at 99
-  const cap = (v) => Math.min(Math.max(v + (Math.random()*10 - 5), 40), 99);
+  // Apply actual statistics modifiers (Deterministic)
+  const goals = player.goals || 0;
+  const assists = player.assists_recent || 0;
+  const minutes = player.minutes_recent || 0;
+  const caps = player.caps || 0;
+  
+  // Attack is influenced by actual goals scored
+  if (goals > 0) atk += Math.min(goals * 2, 20);
+  
+  // Passing is influenced by recent assists
+  if (assists > 0) pas += Math.min(assists * 5, 20);
+  
+  // Physicality scales with minutes played recently
+  if (minutes > 0) phy += Math.min(minutes / 100, 15);
+  else phy -= 10; // Penalize physicality if 0 minutes
+  
+  // Tactics/Experience scales with international caps
+  if (caps > 0) tac += Math.min(caps / 5, 15);
+
+  // Hard Cap min 30, max 99 (No Math.random used)
+  const cap = (v) => Math.min(Math.max(v, 30), 99);
 
   const data = {
     labels: ['Ataque', 'Técnica/Pase', 'Defensa', 'Físico', 'Táctica'],
