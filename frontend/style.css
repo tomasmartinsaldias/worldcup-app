@@ -1457,3 +1457,66 @@ footer a:hover {
   font-weight: bold;
   margin-top: 0.2rem;
 }
+
+.official-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Sofascore Lineup Style */
+.sofascore-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 80px;
+}
+.sofascore-player:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+.sofa-photo-circle {
+  width: 48px;
+  height: 48px;
+  background-color: var(--bg-card);
+  border: 2px solid var(--accent-navy);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  color: var(--accent-navy);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.sofa-rating-badge {
+  position: absolute;
+  bottom: -8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.rating-green { background-color: #2e7d32; }
+.rating-yellow { background-color: #fbc02d; color: #333;}
+.rating-red { background-color: #c62828; }
+.sofa-player-name {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.1;
+  background: var(--bg-glass);
+  padding: 2px 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.sofa-player-num {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  margin-right: 2px;
+}

@@ -120,11 +120,11 @@ export function renderMatches() {
       </div>
       
       <div class="match-teams">
-        <div class="team-row">
+        <div class="team-row" onclick="event.stopPropagation(); if(!${m.home_team.is_placeholder}) window.openCountrySquad('${m.home_team.fifa_code}')">
           ${flagHome}
           <span class="team-name ${m.home_team.is_placeholder ? 'placeholder-name' : ''}">${m.home_team.name}</span>
         </div>
-        <div class="team-row">
+        <div class="team-row" onclick="event.stopPropagation(); if(!${m.away_team.is_placeholder}) window.openCountrySquad('${m.away_team.fifa_code}')">
           ${flagAway}
           <span class="team-name ${m.away_team.is_placeholder ? 'placeholder-name' : ''}">${m.away_team.name}</span>
         </div>

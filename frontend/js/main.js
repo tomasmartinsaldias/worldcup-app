@@ -2,15 +2,18 @@ import { state } from './state.js';
 import { calculateSmartScore } from './recommender.js';
 import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
 import { renderGroups } from './ui/groups.js';
-import { renderCountries, filterTeams, closeSquadDetails } from './ui/squads.js';
+import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js';
 import { renderUnresolved } from './ui/unresolved.js';
 import { closeModal } from './ui/modal.js';
+import { openPlayerProfile } from './ui/player_profile.js';
+
+window.openCountrySquad = openCountrySquad;
+window.openPlayerProfile = openPlayerProfile;
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabListeners();
   loadData();
   
-  // Restore filters from localStorage if exist
   const savedSort = localStorage.getItem('sort-matches');
   if (savedSort) document.getElementById('sort-matches').value = savedSort;
   

@@ -27,9 +27,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 793,
+          "efficiency_score": 0.29
         },
         {
           "id": 55,
@@ -59,9 +59,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.42,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 995,
+          "efficiency_score": 0.74
         },
         {
           "id": 10,
@@ -75,9 +75,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1572,
+          "efficiency_score": 0.83
         },
         {
           "id": 53,
@@ -91,9 +91,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 2329,
+          "efficiency_score": 0.69
         },
         {
           "id": 52,
@@ -107,9 +107,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 891,
+          "efficiency_score": 0.7
         },
         {
           "id": 31,
@@ -155,9 +155,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 846,
+          "efficiency_score": 0.22
         },
         {
           "id": 49,
@@ -203,9 +203,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.31,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 946,
+          "efficiency_score": 0.73
         },
         {
           "id": 37,
@@ -219,9 +219,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2228,
+          "efficiency_score": 0.73
         },
         {
           "id": 26,
@@ -251,9 +251,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1871,
+          "efficiency_score": 0.1
         },
         {
           "id": 30,
@@ -267,9 +267,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2951,
+          "efficiency_score": 0.54
         },
         {
           "id": 28,
@@ -283,9 +283,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2975,
+          "efficiency_score": 0.75
         },
         {
           "id": 24,
@@ -299,9 +299,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 796,
+          "efficiency_score": 0.46
         },
         {
           "id": 33,
@@ -315,9 +315,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 1878,
+          "efficiency_score": 0.48
         },
         {
           "id": 11,
@@ -363,9 +363,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2436,
+          "efficiency_score": 0.22
         },
         {
           "id": 25,
@@ -379,9 +379,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 921,
+          "efficiency_score": 0.76
         },
         {
           "id": 51,
@@ -395,9 +395,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3367,
+          "efficiency_score": 0.26
         },
         {
           "id": 15,
@@ -411,9 +411,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2780,
+          "efficiency_score": 0.49
         },
         {
           "id": 35,
@@ -427,9 +427,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 665,
+          "efficiency_score": 0.77
         },
         {
           "id": 12,
@@ -443,9 +443,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2729,
+          "efficiency_score": 0.53
         },
         {
           "id": 14,
@@ -459,9 +459,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.26,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 658,
+          "efficiency_score": 0.44
         },
         {
           "id": 48,
@@ -475,9 +475,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.32,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 870,
+          "efficiency_score": 0.37
         },
         {
           "id": 27,
@@ -539,9 +539,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2785,
+          "efficiency_score": 0.56
         },
         {
           "id": 54,
@@ -571,9 +571,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1641,
+          "efficiency_score": 0.21
         }
       ]
     },
@@ -620,9 +620,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 602,
+          "efficiency_score": 0.43
         },
         {
           "id": 63,
@@ -828,9 +828,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 726,
+          "efficiency_score": 0.76
         },
         {
           "id": 85,
@@ -892,9 +892,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 652,
+          "efficiency_score": 0.27
         },
         {
           "id": 66,
@@ -956,9 +956,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2444,
+          "efficiency_score": 0.43
         },
         {
           "id": 57,
@@ -1117,9 +1117,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2449,
+          "efficiency_score": 0.46
         },
         {
           "id": 93,
@@ -1401,13 +1401,13 @@
           "age": 28,
           "caps": 16,
           "goals": 3,
-          "market_value_eur": null,
+          "market_value_eur": 28.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1006,
+          "efficiency_score": 0.3
         }
       ]
     },
@@ -1438,9 +1438,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1465,
+          "efficiency_score": 0.14
         },
         {
           "id": 137,
@@ -1454,9 +1454,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1120,
+          "efficiency_score": 0.21
         },
         {
           "id": 130,
@@ -1470,9 +1470,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 991,
+          "efficiency_score": 0.43
         },
         {
           "id": 138,
@@ -1486,9 +1486,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2289,
+          "efficiency_score": 0.71
         },
         {
           "id": 126,
@@ -1502,9 +1502,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 3222,
+          "efficiency_score": 0.3
         },
         {
           "id": 124,
@@ -1518,9 +1518,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 998,
+          "efficiency_score": 0.52
         },
         {
           "id": 128,
@@ -1534,9 +1534,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1096,
+          "efficiency_score": 0.19
         },
         {
           "id": 129,
@@ -1550,9 +1550,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2606,
+          "efficiency_score": 0.62
         },
         {
           "id": 120,
@@ -1566,9 +1566,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.26,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 916,
+          "efficiency_score": 0.61
         },
         {
           "id": 114,
@@ -1582,9 +1582,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2273,
+          "efficiency_score": 0.81
         },
         {
           "id": 131,
@@ -1598,9 +1598,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1847,
+          "efficiency_score": 0.52
         },
         {
           "id": 122,
@@ -1614,9 +1614,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.18,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1078,
+          "efficiency_score": 0.76
         },
         {
           "id": 141,
@@ -1630,9 +1630,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2767,
+          "efficiency_score": 0.2
         },
         {
           "id": 123,
@@ -1646,9 +1646,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2213,
+          "efficiency_score": 0.7
         },
         {
           "id": 139,
@@ -1662,9 +1662,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2119,
+          "efficiency_score": 0.22
         },
         {
           "id": 140,
@@ -1678,9 +1678,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1070,
+          "efficiency_score": 0.86
         },
         {
           "id": 117,
@@ -1694,9 +1694,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.26,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1709,
+          "efficiency_score": 0.39
         },
         {
           "id": 115,
@@ -1710,9 +1710,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.01,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2861,
+          "efficiency_score": 0.83
         },
         {
           "id": 118,
@@ -1726,9 +1726,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1925,
+          "efficiency_score": 0.71
         },
         {
           "id": 121,
@@ -1742,9 +1742,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1942,
+          "efficiency_score": 0.41
         },
         {
           "id": 127,
@@ -1758,9 +1758,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 913,
+          "efficiency_score": 0.3
         }
       ]
     },
@@ -2187,13 +2187,13 @@
           "age": 27,
           "caps": 56,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 12.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2573,
+          "efficiency_score": 0.72
         },
         {
           "id": 158,
@@ -2219,13 +2219,13 @@
           "age": 26,
           "caps": 19,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 15.7,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 819,
+          "efficiency_score": 0.8
         }
       ]
     },
@@ -2256,9 +2256,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 512,
+          "efficiency_score": 0.41
         },
         {
           "id": 179,
@@ -2272,9 +2272,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.21,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1570,
+          "efficiency_score": 0.14
         },
         {
           "id": 177,
@@ -2288,9 +2288,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2616,
+          "efficiency_score": 0.23
         },
         {
           "id": 192,
@@ -2304,9 +2304,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3156,
+          "efficiency_score": 0.69
         },
         {
           "id": 175,
@@ -2320,9 +2320,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.17,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3169,
+          "efficiency_score": 0.84
         },
         {
           "id": 189,
@@ -2336,9 +2336,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 3499,
+          "efficiency_score": 0.28
         },
         {
           "id": 190,
@@ -2352,9 +2352,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2231,
+          "efficiency_score": 0.49
         },
         {
           "id": 185,
@@ -2368,9 +2368,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2464,
+          "efficiency_score": 0.45
         },
         {
           "id": 172,
@@ -2384,9 +2384,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.01,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 2039,
+          "efficiency_score": 0.18
         },
         {
           "id": 184,
@@ -2400,9 +2400,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 2856,
+          "efficiency_score": 0.65
         },
         {
           "id": 197,
@@ -2416,9 +2416,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 3281,
+          "efficiency_score": 0.17
         },
         {
           "id": 186,
@@ -2432,9 +2432,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2755,
+          "efficiency_score": 0.87
         },
         {
           "id": 181,
@@ -2448,9 +2448,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 865,
+          "efficiency_score": 0.23
         },
         {
           "id": 191,
@@ -2464,9 +2464,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 585,
+          "efficiency_score": 0.76
         },
         {
           "id": 178,
@@ -2480,9 +2480,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2355,
+          "efficiency_score": 0.36
         },
         {
           "id": 194,
@@ -2496,9 +2496,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 3337,
+          "efficiency_score": 0.48
         },
         {
           "id": 196,
@@ -2512,9 +2512,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2716,
+          "efficiency_score": 0.41
         },
         {
           "id": 176,
@@ -2528,9 +2528,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3025,
+          "efficiency_score": 0.74
         },
         {
           "id": 187,
@@ -2544,9 +2544,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2234,
+          "efficiency_score": 0.59
         },
         {
           "id": 188,
@@ -2560,9 +2560,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 1535,
+          "efficiency_score": 0.74
         },
         {
           "id": 180,
@@ -2576,9 +2576,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1345,
+          "efficiency_score": 0.73
         }
       ]
     },
@@ -2625,9 +2625,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2394,
+          "efficiency_score": 0.85
         },
         {
           "id": 231,
@@ -2673,9 +2673,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1853,
+          "efficiency_score": 0.67
         },
         {
           "id": 221,
@@ -2769,9 +2769,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2417,
+          "efficiency_score": 0.13
         },
         {
           "id": 229,
@@ -2817,9 +2817,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3441,
+          "efficiency_score": 0.36
         },
         {
           "id": 209,
@@ -2897,9 +2897,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 3357,
+          "efficiency_score": 0.58
         },
         {
           "id": 211,
@@ -2929,9 +2929,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 988,
+          "efficiency_score": 0.88
         },
         {
           "id": 213,
@@ -2961,9 +2961,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 658,
+          "efficiency_score": 0.82
         },
         {
           "id": 228,
@@ -2993,9 +2993,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 2441,
+          "efficiency_score": 0.87
         },
         {
           "id": 216,
@@ -3005,13 +3005,13 @@
           "age": 35,
           "caps": 116,
           "goals": 11,
-          "market_value_eur": null,
+          "market_value_eur": 7.0,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 2823,
+          "efficiency_score": 0.65
         },
         {
           "id": 220,
@@ -3021,13 +3021,13 @@
           "age": 33,
           "caps": 46,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 18.3,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2600,
+          "efficiency_score": 0.24
         },
         {
           "id": 224,
@@ -3037,13 +3037,13 @@
           "age": 35,
           "caps": 184,
           "goals": 41,
-          "market_value_eur": null,
+          "market_value_eur": 17.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 501,
+          "efficiency_score": 0.87
         },
         {
           "id": 208,
@@ -3053,13 +3053,13 @@
           "age": 26,
           "caps": 66,
           "goals": 3,
-          "market_value_eur": null,
+          "market_value_eur": 15.2,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1634,
+          "efficiency_score": 0.42
         },
         {
           "id": 205,
@@ -3069,13 +3069,13 @@
           "age": 35,
           "caps": 97,
           "goals": 3,
-          "market_value_eur": null,
+          "market_value_eur": 2.2,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2863,
+          "efficiency_score": 0.26
         }
       ]
     },
@@ -3282,9 +3282,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 3171,
+          "efficiency_score": 0.82
         },
         {
           "id": 243,
@@ -3458,9 +3458,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1285,
+          "efficiency_score": 0.49
         },
         {
           "id": 259,
@@ -3474,9 +3474,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2717,
+          "efficiency_score": 0.7
         },
         {
           "id": 237,
@@ -3555,9 +3555,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.39,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 3255,
+          "efficiency_score": 0.57
         },
         {
           "id": 274,
@@ -3571,9 +3571,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 2725,
+          "efficiency_score": 0.65
         },
         {
           "id": 266,
@@ -3587,9 +3587,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3257,
+          "efficiency_score": 0.56
         },
         {
           "id": 281,
@@ -3667,9 +3667,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1957,
+          "efficiency_score": 0.15
         },
         {
           "id": 267,
@@ -3715,9 +3715,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.34,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 985,
+          "efficiency_score": 0.28
         },
         {
           "id": 263,
@@ -3779,9 +3779,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1306,
+          "efficiency_score": 0.56
         },
         {
           "id": 269,
@@ -3859,9 +3859,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.35,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 728,
+          "efficiency_score": 0.73
         },
         {
           "id": 272,
@@ -3923,9 +3923,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2411,
+          "efficiency_score": 0.54
         },
         {
           "id": 262,
@@ -3939,9 +3939,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.01,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 3212,
+          "efficiency_score": 0.36
         }
       ]
     },
@@ -4785,7 +4785,7 @@
           "age": 26,
           "caps": 6,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 8.0,
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
@@ -4801,7 +4801,7 @@
           "age": 21,
           "caps": 1,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 11.9,
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.22,
@@ -4886,9 +4886,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.63,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 884,
+          "efficiency_score": 0.59
         },
         {
           "id": 360,
@@ -4902,9 +4902,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2653,
+          "efficiency_score": 0.21
         },
         {
           "id": 354,
@@ -5046,9 +5046,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2334,
+          "efficiency_score": 0.12
         },
         {
           "id": 353,
@@ -5222,9 +5222,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.01,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1228,
+          "efficiency_score": 0.68
         }
       ]
     },
@@ -5651,13 +5651,13 @@
           "age": 25,
           "caps": 18,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 8.4,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1878,
+          "efficiency_score": 0.31
         }
       ]
     },
@@ -5784,9 +5784,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3160,
+          "efficiency_score": 0.76
         },
         {
           "id": 395,
@@ -5832,9 +5832,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2339,
+          "efficiency_score": 0.78
         },
         {
           "id": 440,
@@ -5848,9 +5848,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 681,
+          "efficiency_score": 0.69
         },
         {
           "id": 419,
@@ -5864,9 +5864,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1157,
+          "efficiency_score": 0.44
         },
         {
           "id": 399,
@@ -5896,9 +5896,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3016,
+          "efficiency_score": 0.18
         },
         {
           "id": 417,
@@ -5912,9 +5912,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 622,
+          "efficiency_score": 0.68
         },
         {
           "id": 423,
@@ -5976,9 +5976,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2987,
+          "efficiency_score": 0.12
         },
         {
           "id": 412,
@@ -6056,9 +6056,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3176,
+          "efficiency_score": 0.67
         },
         {
           "id": 401,
@@ -6088,9 +6088,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 502,
+          "efficiency_score": 0.74
         },
         {
           "id": 438,
@@ -6104,9 +6104,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2750,
+          "efficiency_score": 0.25
         },
         {
           "id": 444,
@@ -6152,9 +6152,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 1285,
+          "efficiency_score": 0.52
         },
         {
           "id": 425,
@@ -6168,9 +6168,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2169,
+          "efficiency_score": 0.47
         },
         {
           "id": 434,
@@ -6184,9 +6184,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 1539,
+          "efficiency_score": 0.16
         },
         {
           "id": 398,
@@ -6248,9 +6248,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2436,
+          "efficiency_score": 0.29
         },
         {
           "id": 430,
@@ -6276,13 +6276,13 @@
           "age": 38,
           "caps": 30,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 26.2,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 3246,
+          "efficiency_score": 0.42
         }
       ]
     },
@@ -6746,9 +6746,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 2215,
+          "efficiency_score": 0.53
         },
         {
           "id": 502,
@@ -6762,9 +6762,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2895,
+          "efficiency_score": 0.45
         },
         {
           "id": 500,
@@ -6778,9 +6778,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 847,
+          "efficiency_score": 0.5
         },
         {
           "id": 483,
@@ -6794,9 +6794,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1242,
+          "efficiency_score": 0.18
         },
         {
           "id": 493,
@@ -6810,9 +6810,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2256,
+          "efficiency_score": 0.31
         },
         {
           "id": 498,
@@ -6826,9 +6826,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3402,
+          "efficiency_score": 0.46
         },
         {
           "id": 491,
@@ -6842,9 +6842,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.18,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1833,
+          "efficiency_score": 0.4
         },
         {
           "id": 503,
@@ -6858,9 +6858,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1343,
+          "efficiency_score": 0.26
         },
         {
           "id": 474,
@@ -6874,9 +6874,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.02,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2384,
+          "efficiency_score": 0.82
         },
         {
           "id": 494,
@@ -6890,9 +6890,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2969,
+          "efficiency_score": 0.74
         },
         {
           "id": 479,
@@ -6906,9 +6906,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2386,
+          "efficiency_score": 0.13
         },
         {
           "id": 480,
@@ -6922,9 +6922,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1108,
+          "efficiency_score": 0.83
         },
         {
           "id": 484,
@@ -6938,9 +6938,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.51,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1400,
+          "efficiency_score": 0.14
         },
         {
           "id": 476,
@@ -6954,9 +6954,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.03,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 3191,
+          "efficiency_score": 0.5
         },
         {
           "id": 482,
@@ -6970,9 +6970,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2633,
+          "efficiency_score": 0.44
         },
         {
           "id": 504,
@@ -6986,9 +6986,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 1979,
+          "efficiency_score": 0.33
         },
         {
           "id": 485,
@@ -7002,9 +7002,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3472,
+          "efficiency_score": 0.5
         },
         {
           "id": 505,
@@ -7018,9 +7018,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2817,
+          "efficiency_score": 0.26
         },
         {
           "id": 486,
@@ -7034,9 +7034,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2498,
+          "efficiency_score": 0.44
         },
         {
           "id": 506,
@@ -7050,9 +7050,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1419,
+          "efficiency_score": 0.41
         },
         {
           "id": 495,
@@ -7066,9 +7066,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1957,
+          "efficiency_score": 0.16
         },
         {
           "id": 481,
@@ -7082,9 +7082,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1592,
+          "efficiency_score": 0.71
         },
         {
           "id": 499,
@@ -7098,9 +7098,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1061,
+          "efficiency_score": 0.9
         },
         {
           "id": 492,
@@ -7114,9 +7114,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2948,
+          "efficiency_score": 0.13
         },
         {
           "id": 487,
@@ -7130,9 +7130,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2028,
+          "efficiency_score": 0.64
         },
         {
           "id": 475,
@@ -7146,9 +7146,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 1129,
+          "efficiency_score": 0.35
         }
       ]
     },
@@ -7179,9 +7179,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 3024,
+          "efficiency_score": 0.2
         },
         {
           "id": 522,
@@ -7211,9 +7211,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.44,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2416,
+          "efficiency_score": 0.3
         },
         {
           "id": 532,
@@ -7275,9 +7275,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 885,
+          "efficiency_score": 0.63
         },
         {
           "id": 531,
@@ -7355,9 +7355,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 1064,
+          "efficiency_score": 0.62
         },
         {
           "id": 518,
@@ -7467,9 +7467,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.32,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1884,
+          "efficiency_score": 0.38
         },
         {
           "id": 520,
@@ -7531,9 +7531,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2320,
+          "efficiency_score": 0.49
         },
         {
           "id": 523,
@@ -7596,9 +7596,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 3251,
+          "efficiency_score": 0.6
         },
         {
           "id": 547,
@@ -7612,9 +7612,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2262,
+          "efficiency_score": 0.79
         },
         {
           "id": 542,
@@ -7628,9 +7628,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.21,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1169,
+          "efficiency_score": 0.53
         },
         {
           "id": 557,
@@ -7644,9 +7644,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3095,
+          "efficiency_score": 0.27
         },
         {
           "id": 541,
@@ -7660,9 +7660,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.17,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 769,
+          "efficiency_score": 0.54
         },
         {
           "id": 556,
@@ -7676,9 +7676,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2378,
+          "efficiency_score": 0.37
         },
         {
           "id": 540,
@@ -7692,9 +7692,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2972,
+          "efficiency_score": 0.22
         },
         {
           "id": 552,
@@ -7708,9 +7708,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 715,
+          "efficiency_score": 0.24
         },
         {
           "id": 551,
@@ -7724,9 +7724,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3337,
+          "efficiency_score": 0.73
         },
         {
           "id": 553,
@@ -7740,9 +7740,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1277,
+          "efficiency_score": 0.71
         },
         {
           "id": 550,
@@ -7756,9 +7756,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3075,
+          "efficiency_score": 0.43
         },
         {
           "id": 538,
@@ -7772,9 +7772,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3298,
+          "efficiency_score": 0.86
         },
         {
           "id": 549,
@@ -7788,9 +7788,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 3310,
+          "efficiency_score": 0.17
         },
         {
           "id": 539,
@@ -7804,9 +7804,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.17,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1100,
+          "efficiency_score": 0.5
         },
         {
           "id": 554,
@@ -7820,9 +7820,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1345,
+          "efficiency_score": 0.58
         },
         {
           "id": 548,
@@ -7836,9 +7836,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3180,
+          "efficiency_score": 0.81
         },
         {
           "id": 555,
@@ -7852,9 +7852,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3015,
+          "efficiency_score": 0.49
         },
         {
           "id": 558,
@@ -7868,9 +7868,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2686,
+          "efficiency_score": 0.87
         },
         {
           "id": 546,
@@ -7884,9 +7884,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 3436,
+          "efficiency_score": 0.1
         },
         {
           "id": 535,
@@ -7900,9 +7900,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.03,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 641,
+          "efficiency_score": 0.3
         },
         {
           "id": 536,
@@ -7916,9 +7916,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 1343,
+          "efficiency_score": 0.66
         }
       ]
     },
@@ -7949,9 +7949,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 683,
+          "efficiency_score": 0.42
         },
         {
           "id": 582,
@@ -7965,9 +7965,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 2585,
+          "efficiency_score": 0.2
         },
         {
           "id": 570,
@@ -7981,9 +7981,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2393,
+          "efficiency_score": 0.39
         },
         {
           "id": 584,
@@ -7997,9 +7997,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2981,
+          "efficiency_score": 0.87
         },
         {
           "id": 567,
@@ -8013,9 +8013,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2960,
+          "efficiency_score": 0.14
         },
         {
           "id": 581,
@@ -8029,9 +8029,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2316,
+          "efficiency_score": 0.27
         },
         {
           "id": 580,
@@ -8045,9 +8045,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1626,
+          "efficiency_score": 0.6
         },
         {
           "id": 576,
@@ -8061,9 +8061,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.18,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1676,
+          "efficiency_score": 0.48
         },
         {
           "id": 566,
@@ -8077,9 +8077,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.41,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1456,
+          "efficiency_score": 0.43
         },
         {
           "id": 574,
@@ -8093,9 +8093,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.52,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2541,
+          "efficiency_score": 0.38
         },
         {
           "id": 569,
@@ -8109,9 +8109,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1426,
+          "efficiency_score": 0.31
         },
         {
           "id": 565,
@@ -8125,9 +8125,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2642,
+          "efficiency_score": 0.38
         },
         {
           "id": 568,
@@ -8141,9 +8141,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.03,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2852,
+          "efficiency_score": 0.59
         },
         {
           "id": 572,
@@ -8157,9 +8157,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2989,
+          "efficiency_score": 0.67
         },
         {
           "id": 571,
@@ -8173,9 +8173,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.17,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2846,
+          "efficiency_score": 0.16
         },
         {
           "id": 575,
@@ -8189,9 +8189,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 1875,
+          "efficiency_score": 0.24
         },
         {
           "id": 578,
@@ -8205,9 +8205,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3237,
+          "efficiency_score": 0.35
         },
         {
           "id": 579,
@@ -8221,9 +8221,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1834,
+          "efficiency_score": 0.51
         },
         {
           "id": 577,
@@ -8237,9 +8237,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1308,
+          "efficiency_score": 0.63
         },
         {
           "id": 561,
@@ -8253,9 +8253,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.03,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2892,
+          "efficiency_score": 0.24
         },
         {
           "id": 564,
@@ -8269,9 +8269,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2837,
+          "efficiency_score": 0.45
         },
         {
           "id": 573,
@@ -8285,9 +8285,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2655,
+          "efficiency_score": 0.4
         }
       ]
     },
@@ -8574,9 +8574,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1190,
+          "efficiency_score": 0.8
         },
         {
           "id": 597,
@@ -9135,9 +9135,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 938,
+          "efficiency_score": 0.25
         },
         {
           "id": 618,
@@ -9216,9 +9216,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3340,
+          "efficiency_score": 0.6
         },
         {
           "id": 663,
@@ -9376,9 +9376,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.51,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1132,
+          "efficiency_score": 0.6
         },
         {
           "id": 654,
@@ -9456,9 +9456,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.31,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3136,
+          "efficiency_score": 0.39
         },
         {
           "id": 652,
@@ -9504,9 +9504,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.52,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 733,
+          "efficiency_score": 0.71
         },
         {
           "id": 657,
@@ -9616,9 +9616,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.35,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2866,
+          "efficiency_score": 0.64
         },
         {
           "id": 646,
@@ -9632,9 +9632,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3452,
+          "efficiency_score": 0.53
         }
       ]
     },
@@ -9665,9 +9665,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 1302,
+          "efficiency_score": 0.32
         },
         {
           "id": 693,
@@ -9809,9 +9809,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.48,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3480,
+          "efficiency_score": 0.75
         },
         {
           "id": 671,
@@ -9825,9 +9825,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 3018,
+          "efficiency_score": 0.81
         },
         {
           "id": 687,
@@ -9857,9 +9857,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.41,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1623,
+          "efficiency_score": 0.68
         },
         {
           "id": 674,
@@ -9969,9 +9969,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 760,
+          "efficiency_score": 0.69
         },
         {
           "id": 682,
@@ -10049,9 +10049,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 771,
+          "efficiency_score": 0.57
         },
         {
           "id": 672,
@@ -10098,9 +10098,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 1.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 1653,
+          "efficiency_score": 0.24
         },
         {
           "id": 700,
@@ -10114,9 +10114,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2697,
+          "efficiency_score": 0.41
         },
         {
           "id": 709,
@@ -10194,9 +10194,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1022,
+          "efficiency_score": 0.82
         },
         {
           "id": 711,
@@ -10338,9 +10338,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3201,
+          "efficiency_score": 0.66
         },
         {
           "id": 717,
@@ -10478,13 +10478,13 @@
           "age": 26,
           "caps": 7,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 14.3,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1310,
+          "efficiency_score": 0.14
         }
       ]
     },
@@ -10691,9 +10691,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2852,
+          "efficiency_score": 0.29
         },
         {
           "id": 734,
@@ -10723,9 +10723,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 545,
+          "efficiency_score": 0.82
         },
         {
           "id": 733,
@@ -10771,9 +10771,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.24,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1075,
+          "efficiency_score": 0.47
         },
         {
           "id": 736,
@@ -10819,9 +10819,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2531,
+          "efficiency_score": 0.63
         },
         {
           "id": 731,
@@ -10916,9 +10916,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 2892,
+          "efficiency_score": 0.77
         },
         {
           "id": 769,
@@ -11124,9 +11124,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3323,
+          "efficiency_score": 0.81
         },
         {
           "id": 753,
@@ -11216,13 +11216,13 @@
           "age": 28,
           "caps": 38,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 9.1,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1825,
+          "efficiency_score": 0.87
         },
         {
           "id": 766,
@@ -11232,13 +11232,13 @@
           "age": 30,
           "caps": 11,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 17.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2739,
+          "efficiency_score": 0.22
         },
         {
           "id": 762,
@@ -11248,13 +11248,13 @@
           "age": 27,
           "caps": 32,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 12.0,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 680,
+          "efficiency_score": 0.17
         },
         {
           "id": 750,
@@ -11264,13 +11264,13 @@
           "age": 26,
           "caps": 7,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 13.4,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 2863,
+          "efficiency_score": 0.45
         }
       ]
     },
@@ -11301,9 +11301,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 3171,
+          "efficiency_score": 0.84
         },
         {
           "id": 795,
@@ -11317,9 +11317,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.22,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2166,
+          "efficiency_score": 0.81
         },
         {
           "id": 799,
@@ -11333,9 +11333,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3435,
+          "efficiency_score": 0.58
         },
         {
           "id": 801,
@@ -11381,9 +11381,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2669,
+          "efficiency_score": 0.68
         },
         {
           "id": 791,
@@ -11397,9 +11397,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.61,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2500,
+          "efficiency_score": 0.5
         },
         {
           "id": 797,
@@ -11557,9 +11557,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.45,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 1628,
+          "efficiency_score": 0.12
         },
         {
           "id": 804,
@@ -11649,13 +11649,13 @@
           "age": 24,
           "caps": 12,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 10.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1938,
+          "efficiency_score": 0.17
         },
         {
           "id": 783,
@@ -11665,13 +11665,13 @@
           "age": 32,
           "caps": 63,
           "goals": 6,
-          "market_value_eur": null,
+          "market_value_eur": 11.7,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3269,
+          "efficiency_score": 0.52
         },
         {
           "id": 792,
@@ -11681,13 +11681,13 @@
           "age": 31,
           "caps": 51,
           "goals": 7,
-          "market_value_eur": null,
+          "market_value_eur": 30.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 564,
+          "efficiency_score": 0.29
         },
         {
           "id": 793,
@@ -11697,13 +11697,13 @@
           "age": 32,
           "caps": 40,
           "goals": 3,
-          "market_value_eur": null,
+          "market_value_eur": 21.4,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 3371,
+          "efficiency_score": 0.39
         },
         {
           "id": 790,
@@ -11713,13 +11713,13 @@
           "age": 29,
           "caps": 81,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 26.2,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 1451,
+          "efficiency_score": 0.3
         },
         {
           "id": 784,
@@ -11729,13 +11729,13 @@
           "age": 37,
           "caps": 56,
           "goals": 2,
-          "market_value_eur": null,
+          "market_value_eur": 6.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1987,
+          "efficiency_score": 0.49
         }
       ]
     },
@@ -11766,9 +11766,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2467,
+          "efficiency_score": 0.82
         },
         {
           "id": 818,
@@ -11798,9 +11798,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1228,
+          "efficiency_score": 0.87
         },
         {
           "id": 820,
@@ -12006,9 +12006,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1677,
+          "efficiency_score": 0.1
         },
         {
           "id": 821,
@@ -12022,9 +12022,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2400,
+          "efficiency_score": 0.9
         },
         {
           "id": 829,
@@ -12070,9 +12070,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1816,
+          "efficiency_score": 0.78
         },
         {
           "id": 809,
@@ -12150,9 +12150,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2339,
+          "efficiency_score": 0.47
         },
         {
           "id": 817,
@@ -12166,9 +12166,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.25,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3449,
+          "efficiency_score": 0.77
         }
       ]
     },
@@ -12632,9 +12632,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1191,
+          "efficiency_score": 0.29
         },
         {
           "id": 867,
@@ -12648,9 +12648,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 754,
+          "efficiency_score": 0.38
         },
         {
           "id": 868,
@@ -12664,9 +12664,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2191,
+          "efficiency_score": 0.6
         },
         {
           "id": 873,
@@ -12680,9 +12680,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 842,
+          "efficiency_score": 0.7
         },
         {
           "id": 872,
@@ -12696,9 +12696,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 3331,
+          "efficiency_score": 0.5
         },
         {
           "id": 866,
@@ -12712,9 +12712,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.27,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 670,
+          "efficiency_score": 0.3
         },
         {
           "id": 882,
@@ -12728,9 +12728,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3393,
+          "efficiency_score": 0.25
         },
         {
           "id": 864,
@@ -12744,9 +12744,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2637,
+          "efficiency_score": 0.28
         },
         {
           "id": 874,
@@ -12760,9 +12760,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2440,
+          "efficiency_score": 0.68
         },
         {
           "id": 878,
@@ -12776,9 +12776,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 679,
+          "efficiency_score": 0.47
         },
         {
           "id": 880,
@@ -12792,9 +12792,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1100,
+          "efficiency_score": 0.66
         },
         {
           "id": 881,
@@ -12808,9 +12808,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3073,
+          "efficiency_score": 0.2
         },
         {
           "id": 870,
@@ -12824,9 +12824,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 2502,
+          "efficiency_score": 0.72
         },
         {
           "id": 879,
@@ -12840,9 +12840,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2835,
+          "efficiency_score": 0.66
         },
         {
           "id": 883,
@@ -12856,9 +12856,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 970,
+          "efficiency_score": 0.57
         },
         {
           "id": 877,
@@ -12872,9 +12872,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 779,
+          "efficiency_score": 0.62
         },
         {
           "id": 859,
@@ -12888,9 +12888,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.02,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3146,
+          "efficiency_score": 0.47
         },
         {
           "id": 875,
@@ -12904,9 +12904,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2699,
+          "efficiency_score": 0.47
         },
         {
           "id": 876,
@@ -12920,9 +12920,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 3042,
+          "efficiency_score": 0.75
         },
         {
           "id": 861,
@@ -12936,9 +12936,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3120,
+          "efficiency_score": 0.71
         },
         {
           "id": 858,
@@ -12952,9 +12952,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.03,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1752,
+          "efficiency_score": 0.16
         },
         {
           "id": 863,
@@ -12964,13 +12964,13 @@
           "age": 27,
           "caps": 40,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 26.2,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 936,
+          "efficiency_score": 0.2
         },
         {
           "id": 871,
@@ -12980,13 +12980,13 @@
           "age": 29,
           "caps": 30,
           "goals": 2,
-          "market_value_eur": null,
+          "market_value_eur": 12.5,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 1545,
+          "efficiency_score": 0.31
         },
         {
           "id": 862,
@@ -12996,13 +12996,13 @@
           "age": 33,
           "caps": 44,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 4.5,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1766,
+          "efficiency_score": 0.8
         }
       ]
     },
@@ -13113,9 +13113,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 3123,
+          "efficiency_score": 0.82
         },
         {
           "id": 891,
@@ -13353,9 +13353,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.1,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2778,
+          "efficiency_score": 0.66
         },
         {
           "id": 884,
@@ -13385,9 +13385,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.04,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2957,
+          "efficiency_score": 0.82
         },
         {
           "id": 886,
@@ -13878,13 +13878,13 @@
           "age": 26,
           "caps": 28,
           "goals": 3,
-          "market_value_eur": null,
+          "market_value_eur": 22.0,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2446,
+          "efficiency_score": 0.7
         }
       ]
     },
@@ -13979,9 +13979,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 516,
+          "efficiency_score": 0.74
         },
         {
           "id": 955,
@@ -14011,9 +14011,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.33,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1322,
+          "efficiency_score": 0.21
         },
         {
           "id": 947,
@@ -14043,9 +14043,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3180,
+          "efficiency_score": 0.43
         },
         {
           "id": 966,
@@ -14123,9 +14123,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.35,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 1556,
+          "efficiency_score": 0.74
         },
         {
           "id": 960,
@@ -14524,9 +14524,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2984,
+          "efficiency_score": 0.19
         },
         {
           "id": 970,
@@ -15021,9 +15021,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1861,
+          "efficiency_score": 0.39
         },
         {
           "id": 1008,
@@ -15101,9 +15101,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1460,
+          "efficiency_score": 0.65
         },
         {
           "id": 1015,
@@ -15117,9 +15117,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2391,
+          "efficiency_score": 0.63
         },
         {
           "id": 1007,
@@ -15129,13 +15129,13 @@
           "age": 28,
           "caps": 68,
           "goals": 12,
-          "market_value_eur": null,
+          "market_value_eur": 32.5,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2188,
+          "efficiency_score": 0.67
         }
       ]
     },
@@ -15182,9 +15182,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3093,
+          "efficiency_score": 0.33
         },
         {
           "id": 1047,
@@ -15326,9 +15326,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2231,
+          "efficiency_score": 0.59
         },
         {
           "id": 1031,
@@ -15502,9 +15502,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1059,
+          "efficiency_score": 0.15
         },
         {
           "id": 1023,
@@ -15599,9 +15599,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.17,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1775,
+          "efficiency_score": 0.15
         },
         {
           "id": 1076,
@@ -15615,9 +15615,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.31,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 2847,
+          "efficiency_score": 0.34
         },
         {
           "id": 1082,
@@ -15679,9 +15679,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2753,
+          "efficiency_score": 0.85
         },
         {
           "id": 1094,
@@ -15711,9 +15711,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.42,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1232,
+          "efficiency_score": 0.89
         },
         {
           "id": 1068,
@@ -15823,9 +15823,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.36,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 3109,
+          "efficiency_score": 0.83
         },
         {
           "id": 1063,
@@ -15839,9 +15839,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.32,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1723,
+          "efficiency_score": 0.79
         },
         {
           "id": 1081,
@@ -15855,9 +15855,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 2322,
+          "efficiency_score": 0.12
         },
         {
           "id": 1048,
@@ -15967,9 +15967,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.36,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2834,
+          "efficiency_score": 0.78
         },
         {
           "id": 1067,
@@ -16015,9 +16015,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.29,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 890,
+          "efficiency_score": 0.64
         },
         {
           "id": 1074,
@@ -16063,9 +16063,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.56,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 786,
+          "efficiency_score": 0.76
         },
         {
           "id": 1062,
@@ -16159,9 +16159,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1403,
+          "efficiency_score": 0.55
         },
         {
           "id": 1092,
@@ -16171,13 +16171,13 @@
           "age": 27,
           "caps": 50,
           "goals": 6,
-          "market_value_eur": null,
+          "market_value_eur": 33.5,
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 11,
+          "minutes_recent": 1346,
+          "efficiency_score": 0.24
         }
       ]
     },
@@ -16272,9 +16272,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.07,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 3427,
+          "efficiency_score": 0.54
         },
         {
           "id": 1117,
@@ -16604,7 +16604,7 @@
           "age": 19,
           "caps": 0,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 25.0,
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
@@ -16620,13 +16620,13 @@
           "age": 22,
           "caps": 5,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 16.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 783,
+          "efficiency_score": 0.57
         }
       ]
     },
@@ -17106,9 +17106,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.08,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 903,
+          "efficiency_score": 0.8
         },
         {
           "id": 1173,
@@ -17266,9 +17266,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 2151,
+          "efficiency_score": 0.61
         },
         {
           "id": 1164,
@@ -17298,9 +17298,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.19,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1858,
+          "efficiency_score": 0.76
         },
         {
           "id": 1156,
@@ -17438,13 +17438,13 @@
           "age": 32,
           "caps": 90,
           "goals": 2,
-          "market_value_eur": null,
+          "market_value_eur": 9.4,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 609,
+          "efficiency_score": 0.7
         },
         {
           "id": 1182,
@@ -17454,13 +17454,13 @@
           "age": 28,
           "caps": 39,
           "goals": 5,
-          "market_value_eur": null,
+          "market_value_eur": 1.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 3213,
+          "efficiency_score": 0.72
         },
         {
           "id": 1180,
@@ -17470,13 +17470,13 @@
           "age": 28,
           "caps": 90,
           "goals": 24,
-          "market_value_eur": null,
+          "market_value_eur": 2.3,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1872,
+          "efficiency_score": 0.22
         },
         {
           "id": 1184,
@@ -17486,13 +17486,13 @@
           "age": 20,
           "caps": 8,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 13.5,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1640,
+          "efficiency_score": 0.52
         },
         {
           "id": 1166,
@@ -17502,13 +17502,13 @@
           "age": 34,
           "caps": 9,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 9.1,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 913,
+          "efficiency_score": 0.45
         }
       ]
     },
@@ -17587,9 +17587,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.18,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 1602,
+          "efficiency_score": 0.38
         },
         {
           "id": 1210,
@@ -17619,9 +17619,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1692,
+          "efficiency_score": 0.84
         },
         {
           "id": 1196,
@@ -17667,9 +17667,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.02,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 557,
+          "efficiency_score": 0.27
         },
         {
           "id": 1195,
@@ -17779,9 +17779,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1540,
+          "efficiency_score": 0.7
         },
         {
           "id": 1206,
@@ -17859,9 +17859,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.5,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 508,
+          "efficiency_score": 0.43
         },
         {
           "id": 1191,
@@ -17923,9 +17923,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.35,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2181,
+          "efficiency_score": 0.74
         },
         {
           "id": 1187,
@@ -18212,9 +18212,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1598,
+          "efficiency_score": 0.11
         },
         {
           "id": 1243,
@@ -18324,9 +18324,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.01,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 1504,
+          "efficiency_score": 0.25
         },
         {
           "id": 1218,
@@ -18356,9 +18356,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 992,
+          "efficiency_score": 0.66
         },
         {
           "id": 1216,
@@ -18416,13 +18416,13 @@
           "age": 24,
           "caps": 5,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 21.7,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2547,
+          "efficiency_score": 0.49
         },
         {
           "id": 1226,
@@ -18432,13 +18432,13 @@
           "age": 27,
           "caps": 11,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 18.5,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1533,
+          "efficiency_score": 0.87
         },
         {
           "id": 1236,
@@ -18448,13 +18448,13 @@
           "age": 28,
           "caps": 8,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 27.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1253,
+          "efficiency_score": 0.27
         },
         {
           "id": 1223,
@@ -18464,13 +18464,13 @@
           "age": 25,
           "caps": 19,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 14.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 664,
+          "efficiency_score": 0.4
         }
       ]
     },
@@ -18517,9 +18517,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 1569,
+          "efficiency_score": 0.69
         },
         {
           "id": 1284,
@@ -18629,9 +18629,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.14,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 3227,
+          "efficiency_score": 0.58
         },
         {
           "id": 1269,
@@ -18693,9 +18693,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.18,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2886,
+          "efficiency_score": 0.25
         },
         {
           "id": 1276,
@@ -18709,9 +18709,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 3220,
+          "efficiency_score": 0.69
         },
         {
           "id": 1251,
@@ -18773,9 +18773,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.15,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1385,
+          "efficiency_score": 0.32
         },
         {
           "id": 1261,
@@ -18917,9 +18917,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.06,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 1196,
+          "efficiency_score": 0.54
         },
         {
           "id": 1248,
@@ -18929,13 +18929,13 @@
           "age": 25,
           "caps": 7,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 19.3,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 1550,
+          "efficiency_score": 0.31
         },
         {
           "id": 1274,
@@ -18945,13 +18945,13 @@
           "age": 28,
           "caps": 11,
           "goals": 2,
-          "market_value_eur": null,
+          "market_value_eur": 17.8,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 879,
+          "efficiency_score": 0.45
         },
         {
           "id": 1273,
@@ -18961,13 +18961,13 @@
           "age": 28,
           "caps": 18,
           "goals": 0,
-          "market_value_eur": null,
+          "market_value_eur": 22.4,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 6,
+          "minutes_recent": 2150,
+          "efficiency_score": 0.76
         },
         {
           "id": 1253,
@@ -18977,13 +18977,13 @@
           "age": 29,
           "caps": 40,
           "goals": 2,
-          "market_value_eur": null,
+          "market_value_eur": 6.6,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 3,
+          "minutes_recent": 587,
+          "efficiency_score": 0.88
         },
         {
           "id": 1267,
@@ -18993,13 +18993,13 @@
           "age": 30,
           "caps": 71,
           "goals": 1,
-          "market_value_eur": null,
+          "market_value_eur": 27.7,
           "is_star_player": null,
           "is_injured": false,
           "cards_propensity": null,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 5,
+          "minutes_recent": 3328,
+          "efficiency_score": 0.64
         }
       ]
     },
@@ -19078,9 +19078,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 2827,
+          "efficiency_score": 0.75
         },
         {
           "id": 1298,
@@ -19126,9 +19126,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 1168,
+          "efficiency_score": 0.32
         },
         {
           "id": 1293,
@@ -19174,9 +19174,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.28,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1971,
+          "efficiency_score": 0.33
         },
         {
           "id": 1302,
@@ -19286,9 +19286,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.26,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 1632,
+          "efficiency_score": 0.8
         },
         {
           "id": 1313,
@@ -19302,9 +19302,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.35,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 7,
+          "minutes_recent": 1241,
+          "efficiency_score": 0.57
         },
         {
           "id": 1319,
@@ -19382,9 +19382,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.09,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 8,
+          "minutes_recent": 3004,
+          "efficiency_score": 0.53
         },
         {
           "id": 1330,
@@ -19398,9 +19398,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 1994,
+          "efficiency_score": 0.45
         },
         {
           "id": 1295,
@@ -19414,9 +19414,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.36,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 2214,
+          "efficiency_score": 0.45
         },
         {
           "id": 1289,
@@ -19510,9 +19510,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.2,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1101,
+          "efficiency_score": 0.43
         },
         {
           "id": 1294,
@@ -19542,9 +19542,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.33,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1182,
+          "efficiency_score": 0.25
         },
         {
           "id": 1288,
@@ -19719,9 +19719,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 2313,
+          "efficiency_score": 0.67
         },
         {
           "id": 1360,
@@ -19751,9 +19751,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 1.0,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 1,
+          "minutes_recent": 1254,
+          "efficiency_score": 0.54
         },
         {
           "id": 1359,
@@ -19879,9 +19879,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.11,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 4,
+          "minutes_recent": 978,
+          "efficiency_score": 0.45
         },
         {
           "id": 1343,
@@ -19927,9 +19927,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.31,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 3380,
+          "efficiency_score": 0.28
         },
         {
           "id": 1345,
@@ -20024,9 +20024,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.12,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 2655,
+          "efficiency_score": 0.2
         },
         {
           "id": 1377,
@@ -20120,9 +20120,9 @@
           "is_star_player": true,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 12,
+          "minutes_recent": 1675,
+          "efficiency_score": 0.51
         },
         {
           "id": 1393,
@@ -20505,9 +20505,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.16,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 0,
+          "minutes_recent": 1826,
+          "efficiency_score": 0.85
         },
         {
           "id": 1412,
@@ -20521,9 +20521,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.05,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 9,
+          "minutes_recent": 2182,
+          "efficiency_score": 0.75
         },
         {
           "id": 1414,
@@ -20553,9 +20553,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.13,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 10,
+          "minutes_recent": 2139,
+          "efficiency_score": 0.55
         },
         {
           "id": 1394,
@@ -20585,9 +20585,9 @@
           "is_star_player": false,
           "is_injured": false,
           "cards_propensity": 0.23,
-          "assists_recent": null,
-          "minutes_recent": null,
-          "efficiency_score": null
+          "assists_recent": 2,
+          "minutes_recent": 660,
+          "efficiency_score": 0.36
         }
       ]
     },

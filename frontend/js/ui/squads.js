@@ -62,6 +62,7 @@ export function filterTeams() {
 
 // 4. Open Squad Details Sub-tab
 export function openCountrySquad(code) {
+  window.switchTab('squads');
   state.selectedCountryCode = code;
   const t = state.appData.teams[code];
   if (!t) return;
@@ -168,6 +169,9 @@ export function openCountrySquad(code) {
         cardBar = '<span class="player-unresolved-label">N/A</span>';
       }
       
+      row.style.cursor = 'pointer';
+      row.onclick = () => window.openPlayerProfile(code, p.id);
+      
       row.innerHTML = `
         <td>
           <div class="player-name-cell">
@@ -241,12 +245,29 @@ function renderLineup(team) {
   const createPlayerHTML = (p, num) => {
     if (!p) return '';
     const lastName = p.name.split(' ').pop();
-    const val = p.market_value_eur ? p.market_value_eur.toFixed(1) + 'M' : '';
+    // Simulate rating from efficiency (0-1) to Sofascore (1-10)
+    let ratingVal = p.efficiency_score !== null ? (p.efficiency_score * 4 + 5.5) : 6.5; 
+    let rating = ratingVal.toFixed(1);
+    
+    let ratingClass = 'rating-yellow';
+    if (ratingVal >= 7.0) ratingClass = 'rating-green';
+    else if (ratingVal < 6.0) ratingClass = 'rating-red';
+
+    const parts = p.name.split(' ');
+    const initials = parts.length > 1 ? parts[0][0] + parts[parts.length-1][0] : parts[0].substring(0, 2);
+
+    // Escape name for string passing
+    const safeName = p.name.replace(/'/g, "\\'");
+    
     return `
-      <div class="lineup-player" title="${p.name} - ${p.club}">
-        <div class="lineup-player-number">${num}</div>
-        <div class="lineup-player-name">${lastName}</div>
-        <div class="lineup-player-val">${val}</div>
+      <div class="sofascore-player" title="${p.name} - ${p.club}" onclick="window.openPlayerProfile('${team.fifa_code}', ${p.id})">
+        <div class="sofa-photo-circle">
+          <span>${initials.toUpperCase()}</span>
+          <div class="sofa-rating-badge ${ratingClass}">${rating}</div>
+        </div>
+        <div class="sofa-player-name">
+          <span class="sofa-player-num">${num}</span> ${lastName}
+        </div>
       </div>
     `;
   };
