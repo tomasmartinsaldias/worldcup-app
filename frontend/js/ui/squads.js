@@ -32,7 +32,7 @@ export function renderCountries() {
   filtered.forEach(t => {
     const card = document.createElement('div');
     card.className = 'country-card';
-    card.addEventListener('click', () => openCountrySquad(t.fifa_code));
+    card.addEventListener('click', () => openCountrySquad(t.fifa_code, 'squads'));
     
     const flag = createFlagElement(t);
     const mval = t.metrics?.market_value_eur;
@@ -61,7 +61,8 @@ export function filterTeams() {
 }
 
 // 4. Open Squad Details Sub-tab
-export function openCountrySquad(code) {
+export function openCountrySquad(code, origin = 'squads') {
+  sessionStorage.setItem('squad_origin', origin);
   window.switchTab('squads');
   state.selectedCountryCode = code;
   const t = state.appData.teams[code];
@@ -88,6 +89,9 @@ export function openCountrySquad(code) {
         <h2>${t.name}</h2>
         <p style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">
           FIFA Code: ${t.fifa_code} &bull; Grupo: ${t.group || 'N/A'}
+        </p>
+        <p style="color: var(--accent-gold); font-size: 0.9rem; font-weight: 600; margin-top: 0.25rem;">
+          DT: ${t.manager || 'No Asignado'}
         </p>
       </div>
     </div>
@@ -199,8 +203,8 @@ export function openCountrySquad(code) {
 
 export function closeSquadDetails() {
   state.selectedCountryCode = null;
-  document.getElementById('squad-details-view').classList.remove('active');
-  document.getElementById('tab-squads').classList.add('active');
+  const origin = sessionStorage.getItem('squad_origin') || 'squads';
+  window.switchTab(origin);
 }
 
 function renderLineup(team) {
@@ -212,40 +216,69 @@ function renderLineup(team) {
     return;
   }
 
-  // Sort available players by market_value
-  const sorted = [...team.squad].filter(p => !p.is_injured).sort((a, b) => {
-    return (b.market_value_eur || 0) - (a.market_value_eur || 0);
-  });
-
-  const goalkeepers = sorted.filter(p => p.position && p.position.toLowerCase().includes('portero'));
-  const defenders = sorted.filter(p => p.position && p.position.toLowerCase().includes('defensa'));
-  const midfielders = sorted.filter(p => p.position && (p.position.toLowerCase().includes('centro') || p.position.toLowerCase().includes('medio')));
-  const forwards = sorted.filter(p => p.position && p.position.toLowerCase().includes('delantero'));
-
-  // 4-3-3 formation base
-  let gk = goalkeepers.slice(0, 1);
-  let defs = defenders.slice(0, 4);
-  let mids = midfielders.slice(0, 3);
-  let fwds = forwards.slice(0, 3);
-
-  // Fill gaps if missing specific positions
-  const selectedIds = new Set([...gk, ...defs, ...mids, ...fwds].map(p => p.id));
-  let remainingNeeded = 11 - selectedIds.size;
-  if (remainingNeeded > 0) {
-    const extra = sorted.filter(p => !selectedIds.has(p.id)).slice(0, remainingNeeded);
-    mids = [...mids, ...extra]; // shove extras in midfield visually
+  const lineup = team.last_known_lineup;
+  let formationStr = lineup ? lineup.formation : "4-3-3";
+  let startingNames = lineup ? lineup.starting_xi : [];
+  
+  // Find full player objects from startingNames
+  let startingPlayers = [];
+  if (startingNames.length > 0) {
+      startingNames.forEach(name => {
+          const p = team.squad.find(s => s.name === name);
+          if (p) startingPlayers.push(p);
+      });
+  }
+  
+  // Fallback if players missing or not 11
+  if (startingPlayers.length < 11) {
+      const sorted = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p)).sort((a, b) => {
+          return (b.market_value_eur || 0) - (a.market_value_eur || 0);
+      });
+      startingPlayers = [...startingPlayers, ...sorted].slice(0, 11);
   }
 
-  // If no GK, just put a generic one visually
-  if (gk.length === 0) {
-    if (mids.length > 0) gk = [mids.pop()];
-    else if (defs.length > 0) gk = [defs.pop()];
+  // Asegurarnos de que los jugadores estén ordenados tácticamente: Portero -> Defensas -> Medios -> Delanteros
+  const getPosOrder = (p) => {
+     let pos = (p.position || '').toLowerCase();
+     if(pos.includes('portero')) return 1;
+     if(pos.includes('defensa')) return 2;
+     if(pos.includes('centro') || pos.includes('medio')) return 3;
+     if(pos.includes('delantero')) return 4;
+     return 5;
+  };
+  startingPlayers.sort((a,b) => getPosOrder(a) - getPosOrder(b));
+
+  let formParts = formationStr.split('-').map(Number);
+  if (formParts.length < 3 || formParts.some(isNaN)) {
+      formParts = [4, 3, 3];
+  }
+
+  let playerIdx = 0;
+  // Extraemos el portero (1)
+  let gk = startingPlayers.slice(playerIdx, playerIdx + 1);
+  playerIdx += 1;
+
+  // Extraemos los jugadores por cada línea de la formación
+  let renderedLines = [];
+  for(let i=0; i<formParts.length; i++) {
+     let numInLine = formParts[i];
+     let linePlayers = startingPlayers.slice(playerIdx, playerIdx + numInLine);
+     playerIdx += numInLine;
+     renderedLines.push(linePlayers);
+  }
+
+  // Si sobraron jugadores por desajustes numéricos, los metemos a la última línea
+  if (playerIdx < startingPlayers.length) {
+      if (renderedLines.length > 0) {
+          renderedLines[renderedLines.length-1].push(...startingPlayers.slice(playerIdx));
+      } else {
+          renderedLines.push(startingPlayers.slice(playerIdx));
+      }
   }
 
   const createPlayerHTML = (p, num) => {
     if (!p) return '';
     const lastName = p.name.split(' ').pop();
-    // Simulate rating from efficiency (0-1) to Sofascore (1-10)
     let ratingVal = p.efficiency_score !== null ? (p.efficiency_score * 4 + 5.5) : 6.5; 
     let rating = ratingVal.toFixed(1);
     
@@ -255,9 +288,6 @@ function renderLineup(team) {
 
     const parts = p.name.split(' ');
     const initials = parts.length > 1 ? parts[0][0] + parts[parts.length-1][0] : parts[0].substring(0, 2);
-
-    // Escape name for string passing
-    const safeName = p.name.replace(/'/g, "\\'");
     
     return `
       <div class="sofascore-player" title="${p.name} - ${p.club}" onclick="window.openPlayerProfile('${team.fifa_code}', ${p.id})">
@@ -272,17 +302,27 @@ function renderLineup(team) {
     `;
   };
 
-  const renderRow = (players, startNum) => {
-    if (!players || players.length === 0) return '';
+  const renderRow = (playersWithNum) => {
+    if (!playersWithNum || playersWithNum.length === 0) return '';
     return `<div class="lineup-row">
-      ${players.map((p, i) => createPlayerHTML(p, startNum + i)).join('')}
+      ${playersWithNum.map(item => createPlayerHTML(item.p, item.num)).join('')}
     </div>`;
   };
 
-  container.innerHTML = `
-    ${renderRow(fwds, 9)}
-    ${renderRow(mids, 6)}
-    ${renderRow(defs, 2)}
-    ${renderRow(gk, 1)}
-  `;
+  // Asignar dorsales secuenciales de abajo hacia arriba
+  let currentNum = 1;
+  let numberedGk = gk.map(p => ({p, num: currentNum++}));
+  let numberedLines = renderedLines.map(line => {
+      return line.map(p => ({p, num: currentNum++}));
+  });
+
+  let html = `<div style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px; font-weight: bold; color: white; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3); z-index: 10; font-family: var(--font-primary);">Formación: ${formationStr}</div>`;
+
+  // Renderizar de arriba (ataque) hacia abajo (defensa)
+  for (let i = numberedLines.length - 1; i >= 0; i--) {
+      html += renderRow(numberedLines[i]);
+  }
+  html += renderRow(numberedGk);
+
+  container.innerHTML = html;
 }

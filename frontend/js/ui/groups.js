@@ -24,7 +24,7 @@ export function renderGroups() {
         const mval = t.metrics?.market_value_eur;
         const valText = mval ? `${mval.toFixed(1)}M€` : 'N/A';
         teamItemsHtml += `
-          <div class="group-team-item" onclick="openCountrySquad('${code}')">
+          <div class="group-team-item" onclick="openCountrySquad('${code}', 'groups')">
             <div class="group-team-left">
               ${flag}
               <span>${t.name}</span>
