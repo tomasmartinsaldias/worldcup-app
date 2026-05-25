@@ -43,6 +43,14 @@ export function openPlayerProfile(teamCode, playerId) {
     ratingBox.style.color = '#333';
   }
 
+  // Advanced stats (FBref)
+  document.getElementById('player-modal-xg').textContent = player.xG_intl !== null && player.xG_intl !== undefined ? player.xG_intl.toFixed(2) : 'N/A';
+  document.getElementById('player-modal-sca').textContent = player.sca_intl !== null && player.sca_intl !== undefined ? player.sca_intl : 'N/A';
+  document.getElementById('player-modal-gca').textContent = player.gca_intl !== null && player.gca_intl !== undefined ? player.gca_intl : 'N/A';
+  document.getElementById('player-modal-prog-passes').textContent = player.progressive_passes_intl !== null && player.progressive_passes_intl !== undefined ? player.progressive_passes_intl : 'N/A';
+  document.getElementById('player-modal-prog-carries').textContent = player.progressive_carries_intl !== null && player.progressive_carries_intl !== undefined ? player.progressive_carries_intl : 'N/A';
+  document.getElementById('player-modal-minutes').textContent = player.minutes_recent !== null && player.minutes_recent !== undefined ? player.minutes_recent : 'N/A';
+
   // Draw Radar Chart
   drawRadarChart(player, ratingVal);
 }

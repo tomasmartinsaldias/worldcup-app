@@ -94,7 +94,7 @@ def add_column_if_not_exists(cursor, table, col, col_type):
             raise e
 
 def main():
-    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     csv_path = os.path.join(base_dir, "data", "worldcup-2026-predicts", "fifa_world_cup_2026_golden_dataset.csv")
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     

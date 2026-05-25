@@ -80,12 +80,16 @@ export function openCountrySquad(code) {
   const starsList = t.squad.filter(p => p.is_star_player).map(p => p.name).slice(0, 3).join(', ');
   const starsText = starsList ? starsList : 'Ninguno';
   const injuredCount = t.squad.filter(p => p.is_injured).length;
-  
+
+  const confirmedBadge = t.is_confirmed_squad 
+    ? `<span style="background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80; font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; vertical-align: middle;"><i class="fa-solid fa-circle-check"></i> Oficial</span>`
+    : `<span style="background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.3); color: #fbbf24; font-size: 0.8rem; padding: 0.2rem 0.5rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; vertical-align: middle;"><i class="fa-solid fa-circle-question"></i> Probable</span>`;
+
   summaryContainer.innerHTML = `
     <div class="squad-header-title">
       ${createFlagElement(t)}
       <div>
-        <h2>${t.name}</h2>
+        <h2 style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">${t.name} ${confirmedBadge}</h2>
         <p style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;">
           FIFA Code: ${t.fifa_code} &bull; Grupo: ${t.group || 'N/A'}
         </p>
@@ -116,6 +120,28 @@ export function openCountrySquad(code) {
       <div class="stat-item" title="Bajas médicas o lesionados en el plantel probable">
         <div class="stat-val ${injuredCount > 0 ? 'purple' : ''}" style="color: ${injuredCount > 0 ? 'var(--accent-red)' : ''}">${injuredCount}</div>
         <div class="stat-lbl">Bajas / Lesionados</div>
+      </div>
+      <div class="stat-item" title="Racha invicta actual en partidos internacionales">
+        <div class="stat-val green">${t.metrics?.current_unbeaten_streak !== undefined ? `${t.metrics.current_unbeaten_streak} Part.` : 'N/A'}</div>
+        <div class="stat-lbl">Racha Invicta</div>
+      </div>
+      <div class="stat-item" title="Récord de victorias, empates y derrotas en los últimos 10 partidos">
+        <div class="stat-val" style="font-size: 0.95rem; padding: 0.3rem 0;">
+          ${t.metrics?.win_rate_last_10 !== undefined && t.metrics?.win_rate_last_10 !== null ? `${Math.round(t.metrics.win_rate_last_10 * 10)}V / ${Math.round(t.metrics.draw_rate_last_10 * 10)}E / ${Math.round(t.metrics.loss_rate_last_10 * 10)}D` : 'N/A'}
+        </div>
+        <div class="stat-lbl">Récord (V/E/D)</div>
+      </div>
+      <div class="stat-item" title="Goles marcados vs encajados promedio en los últimos 10 partidos">
+        <div class="stat-val" style="font-size: 0.95rem; padding: 0.3rem 0;">
+          ${t.metrics?.goals_scored_avg_last_10 !== undefined && t.metrics?.goals_scored_avg_last_10 !== null ? `${t.metrics.goals_scored_avg_last_10.toFixed(1)} / ${t.metrics.goals_conceded_avg_last_10.toFixed(1)}` : 'N/A'}
+        </div>
+        <div class="stat-lbl">Goles Prom. (F/C)</div>
+      </div>
+      <div class="stat-item" style="min-width: 140px;" title="Rival más fuerte derrotado en los últimos 20 encuentros">
+        <div class="stat-val gold" style="font-size: 0.85rem; padding: 0.35rem 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+          ${t.metrics?.top_opponent_beaten || 'N/A'}
+        </div>
+        <div class="stat-lbl">Top Rival Vencido</div>
       </div>
     </div>
   `;

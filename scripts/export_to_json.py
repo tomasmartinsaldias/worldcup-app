@@ -3,7 +3,7 @@ import sqlite3
 import json
 
 def main():
-    base_dir = "c:/Users/User/Downloads/app_mundial/worldcup-app"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     output_path = os.path.join(base_dir, "data", "wc2026_data.json")
     
@@ -29,9 +29,12 @@ def main():
     print("Cargando selecciones y sus métricas...")
     cursor.execute("""
         SELECT 
-            t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder,
+            t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder, t.is_confirmed_squad,
             m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, 
-            m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg
+            m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg,
+            m.win_rate_last_10, m.draw_rate_last_10, m.loss_rate_last_10,
+            m.goals_scored_avg_last_10, m.goals_conceded_avg_last_10,
+            m.current_unbeaten_streak, m.top_opponent_beaten
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -40,7 +43,8 @@ def main():
     groups_dict = {}
     
     for row in cursor.fetchall():
-        tid, name, code, group_letter, is_placeholder, val, xg, poss, pop, cards, eff_avg = row
+        (tid, name, code, group_letter, is_placeholder, is_confirmed, val, xg, poss, pop, cards, 
+         eff_avg, win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten) = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -49,14 +53,21 @@ def main():
             groups_dict[group_letter].append(code)
             
         metrics = None
-        if not is_placeholder and val is not None:
+        if not is_placeholder:
             metrics = {
                 "market_value_eur": val,
                 "recent_xg_avg": xg,
                 "recent_possession_avg": poss,
                 "global_popularity_score": pop,
                 "cards_per_match_avg": cards,
-                "efficiency_score_avg": eff_avg
+                "efficiency_score_avg": eff_avg,
+                "win_rate_last_10": win_rate,
+                "draw_rate_last_10": draw_rate,
+                "loss_rate_last_10": loss_rate,
+                "goals_scored_avg_last_10": gs_avg,
+                "goals_conceded_avg_last_10": gc_avg,
+                "current_unbeaten_streak": streak,
+                "top_opponent_beaten": top_beaten
             }
             
         teams_dict[code] = {
@@ -65,6 +76,7 @@ def main():
             "fifa_code": code,
             "group": group_letter,
             "is_placeholder": bool(is_placeholder),
+            "is_confirmed_squad": bool(is_confirmed),
             "metrics": metrics,
             "squad": []
         }
@@ -73,15 +85,20 @@ def main():
     print("Cargando planteles probables...")
     cursor.execute("""
         SELECT 
-            player_id, player_name, fifa_code, position, club, age, caps, goals,
-            market_value_eur, is_star_player, is_injured, cards_propensity,
-            assists_recent, minutes_recent, efficiency_score
-        FROM scraped_wc2026_probable_squads
-        WHERE efficiency_score IS NOT NULL OR caps >= 5;
+            ps.player_id, ps.player_name, ps.fifa_code, ps.position, ps.club, ps.age, ps.caps, ps.goals,
+            ps.market_value_eur, ps.is_star_player, ps.is_injured, ps.cards_propensity,
+            ps.assists_recent, ps.minutes_recent, ps.efficiency_score,
+            ps.xG_intl, ps.sca_intl, ps.gca_intl, ps.progressive_passes_intl, ps.progressive_carries_intl
+        FROM scraped_wc2026_probable_squads ps
+        JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code
+        WHERE t.is_confirmed_squad = 1 
+           OR ps.efficiency_score IS NOT NULL 
+           OR ps.caps >= 5;
     """)
     
     for row in cursor.fetchall():
-        pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec, eff_rec = row
+        (pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec, 
+         eff_rec, xg, sca, gca, prog_pass, prog_carr) = row
         if code in teams_dict:
             teams_dict[code]["squad"].append({
                 "id": pid,
@@ -97,7 +114,12 @@ def main():
                 "cards_propensity": cards,
                 "assists_recent": assists_rec,
                 "minutes_recent": mins_rec,
-                "efficiency_score": eff_rec
+                "efficiency_score": eff_rec,
+                "xG_intl": xg,
+                "sca_intl": sca,
+                "gca_intl": gca,
+                "progressive_passes_intl": prog_pass,
+                "progressive_carries_intl": prog_carr
             })
             
     # Ordenar planteles por valor de mercado desc, luego nombre

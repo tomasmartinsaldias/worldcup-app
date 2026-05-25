@@ -9,43 +9,79 @@
    ```
    Abre tu navegador e ingresa a: **`http://localhost:8080/frontend/`**
 
-2. **Asegurar que la API local de Transfermarkt esté corriendo** (necesaria para `populate_data.py` y `enrich_with_golden_dataset.py` al rescatar jugadores sin valor):
-   ```powershell
-   .venv\Scripts\python.exe -m uvicorn app.main:app --port 8000 --host 127.0.0.1
-   ```
+2. **API local de Transfermarkt y Limitación de Captcha (WAF)**:
+   La API local (`transfermarkt-api`) utiliza raspado de datos directo. Sin embargo, las consultas en vivo a Transfermarkt.com suelen ser bloqueadas por el firewall Cloudfront/WAF (`405 Method Not Allowed / Captcha`). 
+   * **Solución**: El pipeline está diseñado para consultar primero la tabla de caché SQLite (`cache_transfermarkt`) que ya cuenta con **más de 1680 registros** listos. Si necesitas levantar el servicio de API local para resolver registros faltantes o nuevos:
+     ```powershell
+     .venv\Scripts\python.exe -m uvicorn app.main:app --port 8000 --host 127.0.0.1
+     ```
+
 ---
 
 ## ⚙️ Pipeline de Ingesta y Enriquecimiento
 
-El sistema cuenta con un pipeline de scripts modulares en Python (`scripts/`) para poblar, enriquecer y exportar los datos del Mundial 2026:
+El sistema cuenta con un pipeline robusto de scripts modulares en Python y R (`scripts/`) para estructurar, poblar, enriquecer y exportar los datos del Mundial 2026:
 
-### 1. Ingesta Inicial (`scripts/populate_data.py`)
+### 1. Inicialización de Base de Datos (`scripts/build_database.py`)
+- Crea y estructura la base de datos SQLite unificada `worldcup_combined.db`.
+- Importa el fixture de partidos del Mundial 2026, ciudades sede y configuraciones iniciales.
+
+### 2. Ingesta Inicial (`scripts/populate_data.py`)
 - Extrae la información de planteles probables actualizados para las 48 selecciones desde Wikipedia.
-- Llama a la API local de Transfermarkt en el puerto `8000` para resolver el valor de mercado real, edad oficial y club actual de cada jugador.
-- Guarda en `scraped_unresolved_players` los jugadores no vinculados para auditoría posterior y almacena en caché SQLite (`cache_transfermarkt`) las búsquedas exitosas para optimizar ejecuciones futuras.
+- Llama a la API local de Transfermarkt en el puerto `8000` (usando el caché local prioritariamente para evadir el bloqueo de WAF) para resolver el valor de mercado real, edad oficial y club actual de cada jugador.
+- Guarda en `scraped_unresolved_players` los jugadores no vinculados para auditoría posterior.
 
-### 2. Enriquecimiento con Estadísticas Recientes (`scripts/enrich_with_golden_dataset.py`)
+### 3. Procesamiento de Convocados Confirmados (`scripts/parse_convocados.py`)
+- Toma como fuente de verdad el archivo [Lista de Convocados.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/Lista%20de%20Convocados.md).
+- Si la selección tiene estado **Confirmada**, marca `is_confirmed_squad = 1`, limpia los planteles de Wikipedia eliminando jugadores ficticios u omitidos, actualiza clubes y posiciones oficiales, e inserta a los nuevos convocados.
+- Si está **Sin confirmar**, marca `is_confirmed_squad = 0` y conserva el plantel probable.
+- Identifica y marca jugadores estrella (`is_star_player = 1`) cruzando la sección de "Destacados" del markdown, una lista interna de superestrellas globales, y el percentil 75 de valor de mercado en su país.
+
+### 4. Enriquecimiento con Estadísticas Recientes (`scripts/enrich_with_golden_dataset.py`)
 - Consume el **Golden Dataset** (`data/worldcup-2026-predicts/fifa_world_cup_2026_golden_dataset.csv`).
-- Aplica reglas de coincidencia de nombres avanzada y tolerante para resolver discrepancias ortográficas:
-  - **Filtro por Selección**: Mapea y restringe candidatos a la selección nacional del jugador para evitar colisiones internacionales.
-  - **Wildcards Regex**: Reemplaza caracteres corruptos de codificación (`?` y `\ufffd`) por comodines (`.`) para emparejamientos exactos.
-  - **Mapeo de Apodos (Nicknames)**: Resuelve variantes comunes en español e inglés (ej. *Andy* <-> *Andrew*, *Álex* <-> *Alejandro*).
-  - **Similitud Jaccard de Palabras**: Aplica una comparación de tokens con umbral de $\ge 0.49$ como fallback.
-  - **Control de Duplicados**: Garantiza que no existan colisiones cuando hay dos jugadores del mismo nombre en una selección (ej. *Danilo* en Brasil).
-- Guarda y actualiza las columnas `assists_recent`, `minutes_recent` y `efficiency_score` en la base de datos SQLite y recalcula los promedios globales de eficiencia por país en `scraped_team_metrics`.
+- Aplica reglas de coincidencia de nombres avanzada (limpieza de diacríticos, comodines regex para codificaciones corruptas como `?`, mapeo de apodos/variantes de pila como *Andy* -> *Andrew*, y similitud Jaccard de tokens).
+- Guarda y actualiza las columnas `assists_recent`, `minutes_recent` y `efficiency_score` de cada jugador. Recalcula el promedio de eficiencia por país en `scraped_team_metrics`.
 
-### 3. Consolidación y Exportación (`scripts/export_to_json.py`)
-- Lee de la base de datos relacional y consolida equipos, planteles, estadios, fixtures y récords H2H históricos en un único archivo JSON en **`data/wc2026_data.json`**. Este archivo es el consumido directamente por el Frontend.
+### 5. Métricas de Rendimiento Reciente de Selecciones (`scripts/enrich_team_stats.py`)
+- Analiza el historial completo de partidos internacionales en la tabla `intl_results`.
+- Calcula para cada selección en sus últimos 10 encuentros: tasas de victorias (`win_rate_last_10`), empates (`draw_rate_last_10`) y derrotas (`loss_rate_last_10`), y promedios de goles marcados (`goals_scored_avg_last_10`) y concedidos (`goals_conceded_avg_last_10`).
+- Calcula la racha invicta actual (`current_unbeaten_streak`) omitiendo partidos no disputados, e identifica el oponente más fuerte derrotado recientemente (`top_opponent_beaten`) en función de su popularidad global.
 
-#### Orden de ejecución para actualizar los datos:
+### 6. Raspado de Estadísticas Clasificatorias en R (`scripts/fetch_fbref_qualifiers.R`)
+- Script de R que utiliza la librería `worldfootballR` para realizar el scraping web de las estadísticas acumuladas en las eliminatorias de la Copa del Mundo (UEFA, CONMEBOL, etc.).
+- Debido a las restricciones y bloqueos de WAF en FBref, genera un caché de datos locales en [fbref_qualifiers_cache.csv](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/data/fbref_qualifiers_cache.csv) para alimentar el pipeline local.
+
+### 7. Integración de Métricas FBref (`scripts/enrich_with_fbref_cache.py`)
+- Consume el caché [fbref_qualifiers_cache.csv](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/data/fbref_qualifiers_cache.csv).
+- Mapea y enriquece los jugadores de la base de datos SQLite con sus métricas avanzadas internacionales: goles esperados (`xG_intl`), acciones de creación de tiro (`sca_intl`), acciones de creación de gol (`gca_intl`), pases progresivos (`progressive_passes_intl`) y conducciones progresivas (`progressive_carries_intl`).
+
+### 8. Consolidación y Exportación (`scripts/export_to_json.py`)
+- Lee de la base de datos relacional compacta y consolida equipos, planteles con sus estadísticas, estadios, fixtures y récords H2H históricos en un único archivo JSON unificado en **`data/wc2026_data.json`**. Este archivo es el consumido directamente por el Frontend.
+
+#### Orden de ejecución del pipeline completo para actualizar los datos:
 ```powershell
-# 1. Poblar Wikipedia y Transfermarkt
+# 1. Crear estructura e importar fixtures
+python scripts/build_database.py
+
+# 2. Poblar Wikipedia y valores Transfermarkt
 python scripts/populate_data.py
 
-# 2. Enriquecer con el Golden Dataset
+# 3. Aplicar las plantillas oficiales del archivo de Convocados
+python scripts/parse_convocados.py
+
+# 4. Enriquecer con goles/asistencias/minutos del Golden Dataset
 python scripts/enrich_with_golden_dataset.py
 
-# 3. Exportar JSON para el Frontend
+# 5. Calcular métricas de selecciones (rachas, win rates, etc.)
+python scripts/enrich_team_stats.py
+
+# 6. (Opcional) Regenerar caché de FBref con R (toma bastante tiempo o puede fallar por WAF)
+# Rscript scripts/fetch_fbref_qualifiers.R
+
+# 7. Integrar las estadísticas avanzadas internacionales desde el caché de FBref
+python scripts/enrich_with_fbref_cache.py
+
+# 8. Exportar JSON consolidado para el Frontend
 python scripts/export_to_json.py
 ```
 
@@ -107,6 +143,7 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `fifa_code` | TEXT |  |  |
 | `group_letter` | TEXT |  |  |
 | `is_placeholder` | INT |  |  |
+| `is_confirmed_squad` | INT |  | Indica si el plantel fue oficialmente confirmado a partir de la fuente de verdad (1) o sigue siendo un plantel estimado de Wikipedia (0) |
 
 ### Tabla `wc2026_tournament_stages`
 **Descripción**: Fases y orden cronológico de las etapas del Mundial 2026 (1: Grupos a 7: Final).
@@ -146,7 +183,7 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 ## Scraping y Auxiliares (scraped_ y team_mappings)
 
 ### Tabla `scraped_team_metrics`
-**Descripción**: Métricas de rendimiento reciente (xG, posesión,), valor de mercado total de la selección y popularidad global por selección para el Mundial 2026.
+**Descripción**: Métricas de rendimiento reciente (xG, posesión, tasas de victoria), valor de mercado total de la selección, popularidad global, racha invicta y mejor oponente derrotado recientemente para el Mundial 2026.
 
 **Esquema de Columnas**:
 
@@ -159,17 +196,24 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `global_popularity_score` | REAL |  | Índice de popularidad global (0 a 100) según el interés global |
 | `cards_per_match_avg` | REAL |  | Promedio histórico de tarjetas amarillas/rojas recibidas por partido en mundiales |
 | `efficiency_score_avg` | REAL |  | Promedio de la puntuación de eficiencia de rendimiento reciente de los jugadores de la selección |
+| `win_rate_last_10` | REAL |  | Tasa de victorias en los últimos 10 partidos oficiales de la selección |
+| `draw_rate_last_10` | REAL |  | Tasa de empates en los últimos 10 partidos oficiales de la selección |
+| `loss_rate_last_10` | REAL |  | Tasa de derrotas en los últimos 10 partidos oficiales de la selección |
+| `goals_scored_avg_last_10` | REAL |  | Promedio de goles anotados por partido en los últimos 10 encuentros |
+| `goals_conceded_avg_last_10` | REAL |  | Promedio de goles encajados por partido en los últimos 10 encuentros |
+| `current_unbeaten_streak` | INTEGER |  | Cantidad de partidos consecutivos invictos actuales de la selección |
+| `top_opponent_beaten` | TEXT |  | Nombre de la selección de mayor jerarquía (según popularidad global) vencida en los últimos 20 encuentros |
 
 
 ### Tabla `scraped_wc2026_probable_squads`
-**Descripción**: Plantel de jugadores probables convocados para el Mundial 2026 (extraídos de Wikipedia y cruzados con Transfermarkt API local), incluyendo club, edad, estadísticas en selección (PJ, goles), valor de mercado, lesión, condición de estrella y métricas avanzadas enriquecidas. Si un jugador no pudo ser resuelto por Transfermarkt, sus campos de mercado y estadísticas avanzadas se almacenan como `NULL`.
+**Descripción**: Plantel de jugadores probables convocados para el Mundial 2026 (extraídos de Wikipedia o de la Lista de Convocados confirmados, y cruzados con Transfermarkt API local), incluyendo club, edad, estadísticas en selección (PJ, goles), valor de mercado, lesión, condición de estrella, estadísticas recientes y métricas avanzadas internacionales (FBref). Si un jugador no pudo ser resuelto por Transfermarkt o no tiene datos en FBref, sus respectivos campos se almacenan como `NULL`.
 
 **Esquema de Columnas**:
 
 | Columna | Tipo | Clave | Restricciones |
 | :--- | :--- | :--- | :--- |
 | `player_id` | INTEGER | 🔑 PK | AUTOINCREMENT |
-| `player_name` | TEXT |  | Nombre del jugador en Wikipedia |
+| `player_name` | TEXT |  | Nombre del jugador |
 | `fifa_code` | TEXT |  | FOREIGN KEY -> wc2026_teams (fifa_code) |
 | `position` | TEXT |  | Posición limpia del jugador (Portero, Defensa, Centrocampista, Delantero) |
 | `club` | TEXT |  | Club actual del jugador (actualizado vía Transfermarkt o Wikipedia) |
@@ -177,12 +221,17 @@ Este documento detalla la estructura y el propósito de cada una de las **22 tab
 | `caps` | INTEGER |  | Partidos internacionales disputados con su selección |
 | `goals` | INTEGER |  | Goles anotados con su selección |
 | `market_value_eur` | REAL |  | Valor de mercado real en millones de euros (M€) |
-| `is_star_player` | BOOLEAN |  | Verdadero si el jugador está en el cuartil superior (Q75) de valor en su selección |
+| `is_star_player` | BOOLEAN |  | Verdadero si el jugador es destacado en la lista oficial de convocados, es considerado superestrella global, o está en el percentil superior (Q75) de valor en su selección |
 | `is_injured` | BOOLEAN |  | Verdadero si presenta lesiones de último momento o baja médica |
-| `cards_propensity` | REAL |  | Índice de propensión a recibir tarjetas por 90 minutos (basado en caché de FBref/historial) |
+| `cards_propensity` | REAL |  | Índice de propensión a recibir tarjetas por 90 minutos |
 | `assists_recent` | INTEGER |  | Cantidad de asistencias en partidos recientes (del Golden Dataset) |
 | `minutes_recent` | INTEGER |  | Minutos jugados en partidos recientes (del Golden Dataset) |
 | `efficiency_score` | REAL |  | Puntuación de eficiencia de rendimiento reciente (del Golden Dataset) |
+| `xG_intl` | REAL |  | Goles esperados acumulados en las clasificatorias para el Mundial 2026 (de FBref) |
+| `sca_intl` | INTEGER |  | Acciones de creación de tiros en las clasificatorias para el Mundial 2026 (de FBref) |
+| `gca_intl` | INTEGER |  | Acciones de creación de goles en las clasificatorias para el Mundial 2026 (de FBref) |
+| `progressive_passes_intl` | INTEGER |  | Cantidad de pases progresivos completados en clasificatorias (de FBref) |
+| `progressive_carries_intl` | INTEGER |  | Cantidad de conducciones progresivas completadas en clasificatorias (de FBref) |
 
 
 ### Tabla `scraped_unresolved_players`

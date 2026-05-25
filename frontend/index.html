@@ -389,8 +389,38 @@
         <div class="h2h-title">
           <i class="fa-solid fa-chart-radar"></i> Atributos Principales
         </div>
-        <div style="background: var(--bg-card); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-glass);">
+        <div style="background: var(--bg-card); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-glass); margin-bottom: 1.5rem;">
           <canvas id="playerRadarChart"></canvas>
+        </div>
+
+        <div class="h2h-title">
+          <i class="fa-solid fa-earth-americas"></i> Clasificatorias Copa del Mundo (FBref)
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 1.5rem;">
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">xG Promedio</div>
+            <div id="player-modal-xg" style="color: var(--accent-gold); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">Acciones Tiro (SCA)</div>
+            <div id="player-modal-sca" style="color: var(--accent-teal); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">Acciones Gol (GCA)</div>
+            <div id="player-modal-gca" style="color: var(--accent-cyan); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">Pases Progresivos</div>
+            <div id="player-modal-prog-passes" style="color: var(--text-primary); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">Conduc. Progresivas</div>
+            <div id="player-modal-prog-carries" style="color: var(--text-primary); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
+          <div class="comp-metric-card" style="padding: 0.5rem;">
+            <div class="comp-metric-header" style="font-size: 0.7rem;">Minutos Recientes</div>
+            <div id="player-modal-minutes" style="color: var(--text-secondary); font-size: 1.1rem; font-weight: bold; margin-top: 0.25rem;">-</div>
+          </div>
         </div>
       </div>
     </div>
