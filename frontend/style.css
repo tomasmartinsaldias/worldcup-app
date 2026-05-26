@@ -1,39 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* FIFA World Cup 2026 Official Palette */
+  /* FIFA World Cup 2026 - Paleta Oficial */
   --bg-primary: #f0f2f7;
   --bg-secondary: #ffffff;
   --bg-tertiary: #e4e6f0;
   --bg-card: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.92);
-  
-  --border-glass: rgba(13, 27, 62, 0.1);
-  --border-glow: rgba(107, 33, 217, 0.25);
-  
-  /* Colores primarios FIFA 2026 */
-  --accent-navy: #0D1B3E;      /* Navy oscuro - estructura */
-  --accent-red: #CC0000;        /* Rojo FIFA */
-  --accent-green: #00E566;      /* Verde neón vibrante */
-  --accent-gold: #6B21D9;       /* Púrpura FIFA - acentos dorados/CTA */
-  --accent-teal: #0D3B36;       /* Teal oscuro */
-  --accent-cyan: #00AADD;       /* Cyan medio */
-  --accent-purple: #6B21D9;     /* Púrpura FIFA principal */
-  --accent-magenta: #DD2266;    /* Magenta/hot pink */
-  --accent-lime: #BBDD00;       /* Lima vibrante */
-  --accent-orange: #FF4400;     /* Naranja FIFA */
-  
-  --text-primary: #0D1B3E;
+
+  --border-glass: rgba(0, 71, 171, 0.12);
+  --border-glow: rgba(0, 200, 83, 0.3);
+
+  /* ★ TRES COLORES PRINCIPALES FIFA 2026 ★ */
+  --fifa-blue:   #0047AB;   /* Azul royal - nav activa, estructura */
+  --fifa-red:    #E8192C;   /* Rojo potente - alertas, goles, badges */
+  --fifa-green:  #00C853;   /* Verde vibrante - valores, éxito, hover */
+
+  /* Alias para mantener compatibilidad con código existente */
+  --accent-navy:   #0D1B3E;
+  --accent-red:    #E8192C;
+  --accent-green:  #00C853;
+  --accent-gold:   #E8192C;   /* Antes era el rojo como acento gold */
+  --accent-teal:   #0047AB;   /* Teal → Blue FIFA */
+  --accent-cyan:   #00C853;   /* Cyan → Green FIFA */
+  --accent-purple: #0047AB;   /* Purple → Blue FIFA */
+  --accent-magenta:#E8192C;
+  --accent-lime:   #00C853;
+  --accent-orange: #FF4400;
+
+  --text-primary:   #0D1B3E;
   --text-secondary: #2d3a5e;
-  --text-muted: #6b7491;
-  
+  --text-muted:     #6b7491;
+
   --font-primary: 'Outfit', sans-serif;
   --font-secondary: 'Inter', sans-serif;
-  
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-fast:   all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-neon: 0 0 20px rgba(107, 33, 217, 0.2);
-  --shadow-card: 0 10px 25px -5px rgba(13, 27, 62, 0.08);
+  --shadow-neon: 0 0 20px rgba(0, 200, 83, 0.25);
+  --shadow-card: 0 10px 25px -5px rgba(0, 71, 171, 0.08);
 }
 
 /* Base Styles */
@@ -49,9 +54,9 @@ body {
   font-family: var(--font-secondary);
   overflow-x: hidden;
   background-image:
-    radial-gradient(circle at 10% 20%, rgba(107, 33, 217, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 90% 80%, rgba(0, 229, 102, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 50% 110%, rgba(0, 170, 221, 0.04) 0%, transparent 50%);
+    radial-gradient(circle at 5%  10%, rgba(232, 25, 44, 0.06)  0%, transparent 45%),
+    radial-gradient(circle at 95% 15%, rgba(0, 71, 171, 0.07)   0%, transparent 45%),
+    radial-gradient(circle at 50% 95%, rgba(0, 200, 83, 0.06)   0%, transparent 50%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -88,11 +93,22 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(107, 33, 217, 0.15);
-  box-shadow: 0 4px 20px -4px rgba(13, 27, 62, 0.1);
+  /* Tira de tres colores FIFA debajo del nav */
+  border-bottom: none;
+  box-shadow: 0 4px 20px -4px rgba(0, 71, 171, 0.12);
+  position: relative;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--fifa-red) 0%, var(--fifa-blue) 50%, var(--fifa-green) 100%);
 }
 
 .nav-container {
@@ -140,14 +156,14 @@ header {
 }
 
 .nav-btn:hover {
-  color: var(--text-primary);
-  background: rgba(107, 33, 217, 0.07);
+  color: var(--fifa-blue);
+  background: rgba(0, 71, 171, 0.08);
 }
 
 .nav-btn.active {
   color: #ffffff;
-  background: var(--accent-navy);
-  box-shadow: var(--shadow-card);
+  background: var(--fifa-blue);
+  box-shadow: 0 4px 14px rgba(0, 71, 171, 0.35);
 }
 
 /* App Main Content Container */
