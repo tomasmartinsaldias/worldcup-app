@@ -29,7 +29,7 @@ export function openH2HModal(match) {
   const awayTeamInfo = state.appData.teams[match.away_team.fifa_code];
   
   homeBlock.innerHTML = `
-    <div onclick="if(${!match.home_team.is_placeholder}) { window.closeModal(); window.openCountrySquad('${match.home_team.fifa_code}'); }" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    <div onclick="if(${!match.home_team.is_placeholder}) { window.closeModal(); window.openCountrySquad('${match.home_team.fifa_code}', state.activeTab); }" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       ${createFlagElement(match.home_team)}
       <div class="modal-team-name">${match.home_team.name}</div>
       ${match.home_team.group ? `<div style="font-size:0.75rem; color:var(--text-secondary);">Grupo ${match.home_team.group}</div>` : ''}
@@ -37,7 +37,7 @@ export function openH2HModal(match) {
   `;
   
   awayBlock.innerHTML = `
-    <div onclick="if(${!match.away_team.is_placeholder}) { window.closeModal(); window.openCountrySquad('${match.away_team.fifa_code}'); }" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    <div onclick="if(${!match.away_team.is_placeholder}) { window.closeModal(); window.openCountrySquad('${match.away_team.fifa_code}', state.activeTab); }" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       ${createFlagElement(match.away_team)}
       <div class="modal-team-name">${match.away_team.name}</div>
       ${match.away_team.group ? `<div style="font-size:0.75rem; color:var(--text-secondary);">Grupo ${match.away_team.group}</div>` : ''}

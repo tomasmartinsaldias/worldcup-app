@@ -1,34 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-primary: #f4f6f9;
+  /* FIFA World Cup 2026 - Paleta Oficial */
+  --bg-primary: #f0f2f7;
   --bg-secondary: #ffffff;
-  --bg-tertiary: #e2e8f0;
+  --bg-tertiary: #e4e6f0;
   --bg-card: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.9);
-  
-  --border-glass: rgba(26, 43, 76, 0.08);
-  --border-glow: rgba(211, 32, 42, 0.15);
-  
-  --accent-navy: #1a2b4c;
-  --accent-red: #d3202a;
-  --accent-green: #007749;
-  --accent-gold: #d3202a;
-  --accent-teal: #007749;
-  --accent-cyan: #1a2b4c;
-  --accent-purple: #6b21a8;
-  
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-muted: #6b7280;
-  
+  --bg-glass: rgba(255, 255, 255, 0.92);
+
+  --border-glass: rgba(0, 71, 171, 0.12);
+  --border-glow: rgba(0, 200, 83, 0.3);
+
+  /* ★ TRES COLORES PRINCIPALES FIFA 2026 ★ */
+  --fifa-blue:   #0047AB;   /* Azul royal - nav activa, estructura */
+  --fifa-red:    #E8192C;   /* Rojo potente - alertas, goles, badges */
+  --fifa-green:  #00C853;   /* Verde vibrante - valores, éxito, hover */
+
+  /* Alias para mantener compatibilidad con código existente */
+  --accent-navy:   #0D1B3E;
+  --accent-red:    #E8192C;
+  --accent-green:  #00C853;
+  --accent-gold:   #E8192C;   /* Antes era el rojo como acento gold */
+  --accent-teal:   #0047AB;   /* Teal → Blue FIFA */
+  --accent-cyan:   #00C853;   /* Cyan → Green FIFA */
+  --accent-purple: #0047AB;   /* Purple → Blue FIFA */
+  --accent-magenta:#E8192C;
+  --accent-lime:   #00C853;
+  --accent-orange: #FF4400;
+
+  --text-primary:   #0D1B3E;
+  --text-secondary: #2d3a5e;
+  --text-muted:     #6b7491;
+
   --font-primary: 'Outfit', sans-serif;
   --font-secondary: 'Inter', sans-serif;
-  
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-fast:   all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-neon: 0 0 15px rgba(211, 32, 42, 0.15);
-  --shadow-card: 0 10px 25px -5px rgba(26, 43, 76, 0.05);
+  --shadow-neon: 0 0 20px rgba(0, 200, 83, 0.25);
+  --shadow-card: 0 10px 25px -5px rgba(0, 71, 171, 0.08);
 }
 
 /* Base Styles */
@@ -43,7 +53,10 @@ body {
   color: var(--text-primary);
   font-family: var(--font-secondary);
   overflow-x: hidden;
-  background-image: radial-gradient(circle at 10% 20%, rgba(211, 32, 42, 0.03) 0%, transparent 50%), radial-gradient(circle at 90% 80%, rgba(0, 119, 73, 0.03) 0%, transparent 50%);
+  background-image:
+    radial-gradient(circle at 5%  10%, rgba(232, 25, 44, 0.06)  0%, transparent 45%),
+    radial-gradient(circle at 95% 15%, rgba(0, 71, 171, 0.07)   0%, transparent 45%),
+    radial-gradient(circle at 50% 95%, rgba(0, 200, 83, 0.06)   0%, transparent 50%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -80,11 +93,22 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-glass);
-  box-shadow: 0 4px 6px -1px rgba(26, 43, 76, 0.05);
+  /* Tira de tres colores FIFA debajo del nav */
+  border-bottom: none;
+  box-shadow: 0 4px 20px -4px rgba(0, 71, 171, 0.12);
+  position: relative;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--fifa-red) 0%, var(--fifa-blue) 50%, var(--fifa-green) 100%);
 }
 
 .nav-container {
@@ -132,14 +156,14 @@ header {
 }
 
 .nav-btn:hover {
-  color: var(--text-primary);
-  background: rgba(26, 43, 76, 0.05);
+  color: var(--fifa-blue);
+  background: rgba(0, 71, 171, 0.08);
 }
 
 .nav-btn.active {
   color: #ffffff;
-  background: var(--accent-navy);
-  box-shadow: var(--shadow-card);
+  background: var(--fifa-blue);
+  box-shadow: 0 4px 14px rgba(0, 71, 171, 0.35);
 }
 
 /* App Main Content Container */
@@ -188,7 +212,7 @@ main.app-container {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(0, 119, 73, 0.05) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(107, 33, 217, 0.06) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -259,8 +283,8 @@ main.app-container {
 
 .search-input:focus {
   outline: none;
-  border-color: var(--accent-teal);
-  box-shadow: 0 0 12px rgba(0, 119, 73, 0.2);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 12px rgba(107, 33, 217, 0.2);
 }
 
 .filter-groups {
@@ -330,8 +354,8 @@ main.app-container {
 
 .match-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 119, 73, 0.3);
-  box-shadow: 0 15px 35px -10px rgba(26, 43, 76, 0.1), var(--shadow-neon);
+  border-color: rgba(107, 33, 217, 0.3);
+  box-shadow: 0 15px 35px -10px rgba(13, 27, 62, 0.12), var(--shadow-neon);
 }
 
 .match-card:hover::after {
@@ -346,12 +370,12 @@ main.app-container {
 }
 
 .match-badge {
-  background: rgba(26, 43, 76, 0.05);
+  background: rgba(107, 33, 217, 0.08);
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   font-family: var(--font-primary);
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--accent-purple);
 }
 
 .match-date-time {
@@ -384,14 +408,14 @@ main.app-container {
   font-family: var(--font-primary);
   font-weight: 800;
   font-size: 1.15rem;
-  border: 3px solid var(--accent-teal);
-  box-shadow: 0 0 10px rgba(0, 119, 73, 0.2);
+  border: 3px solid var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 170, 221, 0.25);
 }
 
 .interest-ring.high-interest {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-  box-shadow: 0 0 10px rgba(211, 32, 42, 0.2);
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+  box-shadow: 0 0 14px rgba(107, 33, 217, 0.3);
 }
 
 .interest-ring.medium-interest {
@@ -438,8 +462,8 @@ main.app-container {
   font-size: 0.7rem;
   font-weight: 800;
   color: var(--text-muted);
-  border: 1px solid rgba(26,43,76,0.05);
-  box-shadow: 0 2px 4px rgba(26,43,76,0.08);
+  border: 1px solid rgba(13,27,62,0.07);
+  box-shadow: 0 2px 4px rgba(13,27,62,0.1);
 }
 
 .team-flag-real {
@@ -447,8 +471,8 @@ main.app-container {
   height: 24px;
   object-fit: cover;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(26,43,76,0.08);
-  border: 1px solid rgba(26,43,76,0.05);
+  box-shadow: 0 2px 4px rgba(13,27,62,0.1);
+  border: 1px solid rgba(13,27,62,0.07);
 }
 
 .team-name {
@@ -488,7 +512,7 @@ main.app-container {
 }
 
 .metric-pill {
-  background: rgba(26, 43, 76, 0.03);
+  background: rgba(13, 27, 62, 0.04);
   border: 1px solid var(--border-glass);
   border-radius: 8px;
   padding: 0.35rem 0.65rem;
@@ -553,7 +577,7 @@ main.app-container {
 }
 
 .group-team-item:hover {
-  background: rgba(26, 43, 76, 0.05);
+  background: rgba(107, 33, 217, 0.06);
 }
 
 .group-team-left {
@@ -595,7 +619,7 @@ main.app-container {
 
 .country-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(0, 119, 73, 0.25);
+  border-color: rgba(107, 33, 217, 0.3);
   box-shadow: var(--shadow-neon);
 }
 
@@ -610,8 +634,8 @@ main.app-container {
   height: 32px;
   border-radius: 6px;
   object-fit: cover;
-  box-shadow: 0 4px 6px rgba(26,43,76,0.08);
-  border: 1px solid rgba(26,43,76,0.05);
+  box-shadow: 0 4px 6px rgba(13,27,62,0.1);
+  border: 1px solid rgba(13,27,62,0.07);
 }
 
 .country-name-title {

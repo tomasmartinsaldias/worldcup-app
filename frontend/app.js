@@ -62,9 +62,9 @@ function createFlagElement(team) {
   if (team.is_placeholder) {
     return `<div class="team-flag-placeholder"><i class="fa-solid fa-hourglass-half"></i></div>`;
   }
-  // Try loading real flag image, fallback to placeholder if error
+  // Try loading real flag image from API data, fallback to mapping if error
   const code = team.fifa_code;
-  const flagUrl = `https://flagcdn.com/w40/${getCountryIsoCode(code)}.png`;
+  const flagUrl = team.flag_url || `https://flagcdn.com/w40/${getCountryIsoCode(code)}.png`;
   return `<img src="${flagUrl}" class="team-flag-real" onerror="this.outerHTML='<div class=team-flag-placeholder>${code}</div>'">`;
 }
 
