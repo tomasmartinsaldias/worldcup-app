@@ -29,7 +29,7 @@ def main():
     print("Cargando selecciones y sus métricas...")
     cursor.execute("""
         SELECT 
-            t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder,
+            t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder, t.flag_url,
             m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, 
             m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg
         FROM wc2026_teams t
@@ -40,7 +40,7 @@ def main():
     groups_dict = {}
     
     for row in cursor.fetchall():
-        tid, name, code, group_letter, is_placeholder, val, xg, poss, pop, cards, eff_avg = row
+        tid, name, code, group_letter, is_placeholder, flag_url, val, xg, poss, pop, cards, eff_avg = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -65,6 +65,7 @@ def main():
             "fifa_code": code,
             "group": group_letter,
             "is_placeholder": bool(is_placeholder),
+            "flag_url": flag_url,
             "metrics": metrics,
             "squad": []
         }
@@ -257,13 +258,15 @@ def main():
                 "fifa_code": home_code,
                 "name": home_team["name"] if home_team else "TBD",
                 "is_placeholder": home_team["is_placeholder"] if home_team else True,
-                "group": home_team["group"] if home_team else None
+                "group": home_team["group"] if home_team else None,
+                "flag_url": home_team["flag_url"] if home_team else None
             },
             "away_team": {
                 "fifa_code": away_code,
                 "name": away_team["name"] if away_team else "TBD",
                 "is_placeholder": away_team["is_placeholder"] if away_team else True,
-                "group": away_team["group"] if away_team else None
+                "group": away_team["group"] if away_team else None,
+                "flag_url": away_team["flag_url"] if away_team else None
             },
             "stadium": stadium,
             "h2h": h2h_data
