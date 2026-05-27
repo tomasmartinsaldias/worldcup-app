@@ -9,6 +9,21 @@ let userPreferences = {
   preferredTime: [] // array of 'morning', 'afternoon', 'evening'
 };
 
+export async function loadData() {
+  try {
+    const [mainRes, logosRes] = await Promise.all([
+      fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
+      fetch(`data/club_logos.json?t=${new Date().getTime()}`)
+    ]);
+    state.appData = await mainRes.json();
+    state.appData.clubLogos = await logosRes.json();
+    console.log('Main data loaded:', state.appData);
+    console.log('Club logos loaded:', Object.keys(state.appData.clubLogos).length);
+  } catch (err) {
+    console.error('Error loading data:', err);
+  }
+}
+
 export const state = {
   get appData() { return appData; },
   set appData(val) { appData = val; },

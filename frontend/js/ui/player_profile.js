@@ -38,9 +38,19 @@ export function openPlayerProfile(teamCode, playerId) {
   }
   
   if (clubName && clubName !== 'Agente Libre') {
-    const initial = clubName.charAt(0).toUpperCase();
-    clubIconContainer.innerHTML = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-weight:bold; color:white; background:linear-gradient(135deg, var(--fifa-blue), var(--accent-cyan)); font-size:1.2rem;">${initial}</div>`;
-    clubIconContainer.style.background = 'transparent';
+    let logoUrl = null;
+    if (state.appData.clubLogos) {
+      logoUrl = state.appData.clubLogos[clubName] || state.appData.clubLogos[clubName.toLowerCase()];
+    }
+
+    if (logoUrl) {
+      clubIconContainer.innerHTML = `<img src="${logoUrl}" style="width: 100%; height: 100%; object-fit: contain;">`;
+      clubIconContainer.style.background = 'transparent';
+    } else {
+      const initial = clubName.charAt(0).toUpperCase();
+      clubIconContainer.innerHTML = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-weight:bold; color:white; background:linear-gradient(135deg, var(--fifa-blue), var(--accent-cyan)); font-size:1.2rem;">${initial}</div>`;
+      clubIconContainer.style.background = 'transparent';
+    }
   } else {
     clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
     clubIconContainer.style.background = '#e0e0e0';
