@@ -759,23 +759,7 @@
           "progressive_carries_intl": 0
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Raúl Rangel",
-          "Johan Vásquez",
-          "Julián Araujo",
-          "César Montes",
-          "Israel Reyes",
-          "Edson Álvarez",
-          "Érik Lira",
-          "Gilberto Mora",
-          "Santiago Giménez",
-          "Armando González",
-          "Germán Berterame"
-        ]
-      }
+      "last_known_lineup": null
     },
     "RSA": {
       "id": 2,
@@ -1326,23 +1310,7 @@
           "progressive_carries_intl": 41
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Ronwen Williams",
-          "Mbekezeli Mbokazi",
-          "Ime Okon",
-          "Samukele Kabini",
-          "Aubrey Modiba",
-          "Teboho Mokoena",
-          "Thalente Mbatha",
-          "Jayden Adams",
-          "Yaya Sithole",
-          "Lyle Foster",
-          "Iqraam Rayners"
-        ]
-      }
+      "last_known_lineup": null
     },
     "KOR": {
       "id": 3,
@@ -1914,23 +1882,7 @@
           "progressive_carries_intl": 95
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Song Bum-keun",
-          "Kim Min-jae",
-          "Jens Castrop",
-          "Seol Young-woo",
-          "Lee Han-beom",
-          "Lee Kang-in",
-          "Hwang Hee-chan",
-          "Hwang In-beom",
-          "Yang Hyun-jun",
-          "Son Heung-min",
-          "Cho Kyu-sung"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CZE": {
       "id": 4,
@@ -2565,23 +2517,7 @@
           "progressive_carries_intl": 78
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Lukáš Horníček",
-          "Ladislav Krejčí",
-          "Robin Hranáč",
-          "Štěpán Chaloupek",
-          "David Zima",
-          "Pavel Šulc",
-          "Tomáš Souček",
-          "Lukáš Provod",
-          "Lukáš Červ",
-          "Pavel Bucha",
-          "Patrik Schick"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CAN": {
       "id": 5,
@@ -3195,23 +3131,7 @@
           "progressive_carries_intl": 30
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Dayne St. Clair",
-          "Niko Sigur",
-          "Derek Cornelius",
-          "Joel Waterman",
-          "Kamal Miller",
-          "Ismaël Koné",
-          "Tajon Buchanan",
-          "Nathan Saliba",
-          "Marcelo Flores",
-          "Jonathan David",
-          "Tani Oluwaseyi"
-        ]
-      }
+      "last_known_lineup": null
     },
     "BIH": {
       "id": 6,
@@ -3783,23 +3703,7 @@
           "progressive_carries_intl": 0
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-5-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Nikola Vasilj",
-          "Tarik Muharemović",
-          "Amar Dedić",
-          "Sead Kolašinac",
-          "Kerim Alajbegović",
-          "Ermin Mahmić",
-          "Esmir Bajraktarević",
-          "Amar Memić",
-          "Benjamin Tahirović",
-          "Ermedin Demirović",
-          "Haris Tabaković"
-        ]
-      }
+      "last_known_lineup": null
     },
     "QAT": {
       "id": 7,
@@ -4455,23 +4359,7 @@
           "progressive_carries_intl": 10
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-5-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Meshaal Barsham",
-          "Tarek Salman",
-          "Ayoub Al-Oui",
-          "Bassam Al-Rawi",
-          "Jassem Gaber",
-          "Mohamed Al-Mannai",
-          "Mohammed Waad",
-          "Assim Madibo",
-          "Karim Boudiaf",
-          "Akram Afif",
-          "Almoez Ali"
-        ]
-      }
+      "last_known_lineup": null
     },
     "SUI": {
       "id": 8,
@@ -5043,22 +4931,7 @@
           "progressive_carries_intl": 39
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-4-2-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Gregor Kobel",
-          "Manuel Akanji",
-          "Granit Xhaka",
-          "Luca Jaquez",
-          "Dan Ndoye",
-          "Johan Manzambi",
-          "Ardon Jashari",
-          "Denis Zakaria",
-          "Noah Okafor",
-          "Breel Embolo"
-        ]
-      }
+      "last_known_lineup": null
     },
     "BRA": {
       "id": 9,
@@ -5630,23 +5503,7 @@
           "progressive_carries_intl": 106
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Alisson",
-          "Gabriel Magalhães",
-          "Wesley",
-          "Bremer",
-          "Marquinhos",
-          "Bruno Guimarães",
-          "Lucas Paquetá",
-          "Danilo Santos",
-          "Fabinho",
-          "Casemiro",
-          "Raphinha"
-        ]
-      }
+      "last_known_lineup": null
     },
     "MAR": {
       "id": 10,
@@ -6310,23 +6167,7 @@
           "exact_position": "GK"
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-1-4-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Yassine Bounou",
-          "Achraf Hakimi",
-          "Noussair Mazraoui",
-          "Souffian El Karouani",
-          "Zakaria El Ouahdi",
-          "Bilal El Khannouss",
-          "Ismael Saibari",
-          "Neil El Aynaoui",
-          "Samir El Mourabet",
-          "Oussama Targhalline",
-          "Brahim Díaz"
-        ]
-      }
+      "last_known_lineup": null
     },
     "HAI": {
       "id": 11,
@@ -6898,23 +6739,7 @@
           "progressive_carries_intl": 68
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Alexandre Pierre",
-          "Hannes Delcroix",
-          "Jean-Kévin Duverne",
-          "Carlens Arcus",
-          "Wilguens Paugain",
-          "Jean‐Ricner Bellegarde",
-          "Danley Jean Jacques",
-          "Dominique Simon",
-          "Wilson Isidor",
-          "Josué Casimir",
-          "Lenny Joseph"
-        ]
-      }
+      "last_known_lineup": null
     },
     "SCO": {
       "id": 12,
@@ -7486,23 +7311,7 @@
           "progressive_carries_intl": 45
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Angus Gunn",
-          "Aaron Hickey",
-          "Andy Robertson",
-          "Nathan Patterson",
-          "Kieran Tierney",
-          "Scott McTominay",
-          "Billy Gilmour",
-          "Lewis Ferguson",
-          "Ben Gannon-Doak",
-          "John McGinn",
-          "Ché Adams"
-        ]
-      }
+      "last_known_lineup": null
     },
     "USA": {
       "id": 13,
@@ -8074,23 +7883,7 @@
           "progressive_carries_intl": 15
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Patrick Schulte",
-          "Antonee Robinson",
-          "Chris Richards",
-          "Joe Scally",
-          "Auston Trusty",
-          "Malik Tillman",
-          "Weston McKennie",
-          "Tanner Tessmann",
-          "Folarin Balogun",
-          "Ricardo Pepi",
-          "Timothy Weah"
-        ]
-      }
+      "last_known_lineup": null
     },
     "PAR": {
       "id": 14,
@@ -8914,23 +8707,7 @@
           "progressive_carries_intl": 3
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Orlando Gill",
-          "Omar Alderete",
-          "Gustavo Gómez",
-          "Juan Cáceres",
-          "Agustín Sández",
-          "Diego Gómez",
-          "Maurício",
-          "Ramón Sosa",
-          "Miguel Almirón",
-          "Julio Enciso",
-          "Isidro Pitta"
-        ]
-      }
+      "last_known_lineup": null
     },
     "AUS": {
       "id": 15,
@@ -9502,23 +9279,7 @@
           "progressive_carries_intl": 63
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Mathew Ryan",
-          "Alessandro Circati",
-          "Jordan Bos",
-          "Cameron Burgess",
-          "Lucas Herrington",
-          "Patrick Yazbek",
-          "Aiden O'Neill",
-          "Riley McGree",
-          "Connor Metcalfe",
-          "Nestory Irankunda",
-          "Ante Šuto"
-        ]
-      }
+      "last_known_lineup": null
     },
     "TUR": {
       "id": 16,
@@ -10090,23 +9851,7 @@
           "progressive_carries_intl": 3
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-5-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Uğurcan Çakır",
-          "Ferdi Kadıoğlu",
-          "Merih Demiral",
-          "Zeki Çelik",
-          "Orkun Kökçü",
-          "Hakan Çalhanoğlu",
-          "İsmail Yüksek",
-          "Salih Özcan",
-          "Kaan Ayhan",
-          "Arda Güler",
-          "Kenan Yıldız"
-        ]
-      }
+      "last_known_lineup": null
     },
     "GER": {
       "id": 17,
@@ -10678,23 +10423,7 @@
           "progressive_carries_intl": 0
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Alexander Nübel",
-          "Nico Schlotterbeck",
-          "Malick Thiaw",
-          "Nathaniel Brown",
-          "Jonathan Tah",
-          "Jamal Musiala",
-          "Florian Wirtz",
-          "Aleksandar Pavlović",
-          "Lennart Karl",
-          "Felix Nmecha",
-          "Nick Woltemade"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CUR": {
       "id": 18,
@@ -11266,23 +10995,7 @@
           "progressive_carries_intl": 3
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Eloy Room",
-          "Armando Obispo",
-          "Riechedly Bazoer",
-          "Shurandy Sambo",
-          "Deveron Fonville",
-          "Juninho Bacuna",
-          "Tyrese Noslin",
-          "Ar'jany Martha",
-          "Tahith Chong",
-          "Sontje Hansen",
-          "Jeremy Antonisse"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CIV": {
       "id": 19,
@@ -11854,23 +11567,7 @@
           "progressive_carries_intl": 114
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-1-4-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Yahia Fofana",
-          "Ousmane Diomande",
-          "Evan Ndicka",
-          "Wilfried Singo",
-          "Guéla Doué",
-          "Christ Inao Oulaï",
-          "Ibrahim Sangaré",
-          "Franck Kessié",
-          "Seko Fofana",
-          "Parfait Guiagon",
-          "Yan Diomande"
-        ]
-      }
+      "last_known_lineup": null
     },
     "ECU": {
       "id": 20,
@@ -12484,23 +12181,7 @@
           "progressive_carries_intl": 2
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Gonzalo Valle",
-          "Willian Pacho",
-          "Joel Ordóñez",
-          "Pervis Estupiñán",
-          "Ángelo Preciado",
-          "Moisés Caicedo",
-          "Gonzalo Plata",
-          "Kendry Páez",
-          "Pedro Vite",
-          "John Yeboah",
-          "Jeremy Arévalo"
-        ]
-      }
+      "last_known_lineup": null
     },
     "NED": {
       "id": 21,
@@ -13072,23 +12753,7 @@
           "progressive_carries_intl": 107
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-4-2-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Bart Verbruggen",
-          "Micky van de Ven",
-          "Jan Paul van Hecke",
-          "Jeremie Frimpong",
-          "Ryan Gravenberch",
-          "Tijjani Reijnders",
-          "Xavi Simons",
-          "Kees Smit",
-          "Quinten Timber",
-          "Jerdy Schouten",
-          "Cody Gakpo"
-        ]
-      }
+      "last_known_lineup": null
     },
     "JPN": {
       "id": 22,
@@ -13686,23 +13351,7 @@
           "exact_position": "CB"
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-4-2-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Zion Suzuki",
-          "Hiroki Itō",
-          "Kō Itakura",
-          "Tsuyoshi Watanabe",
-          "Takefusa Kubo",
-          "Kaishu Sano",
-          "Ritsu Dōan",
-          "Daichi Kamada",
-          "Ao Tanaka",
-          "Keito Nakamura",
-          "Yuito Suzuki"
-        ]
-      }
+      "last_known_lineup": null
     },
     "SWE": {
       "id": 23,
@@ -14274,23 +13923,7 @@
           "progressive_carries_intl": 2
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-5-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Viktor Johansson",
-          "Daniel Svensson",
-          "Isak Hien",
-          "Gabriel Gudmundsson",
-          "Lucas Bergvall",
-          "Yasin Ayari",
-          "Benjamin Nygren",
-          "Mattias Svanberg",
-          "Besfort Zeneli",
-          "Alexander Isak",
-          "Viktor Gyökeres"
-        ]
-      }
+      "last_known_lineup": null
     },
     "TUN": {
       "id": 24,
@@ -14862,23 +14495,7 @@
           "progressive_carries_intl": 83
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-4-2-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Sabri Ben Hessen",
-          "Montassar Talbi",
-          "Adem Arous",
-          "Ali Abdi",
-          "Hannibal Mejbri",
-          "Ellyes Skhiri",
-          "Ismaël Gharbi",
-          "Anis Ben Slimane",
-          "Rani Khedira",
-          "Mortadha Ben Ouanes",
-          "Sebastian Tounekti"
-        ]
-      }
+      "last_known_lineup": null
     },
     "BEL": {
       "id": 25,
@@ -15450,23 +15067,7 @@
           "progressive_carries_intl": 139
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Senne Lammens",
-          "Zeno Debast",
-          "Koni De Winter",
-          "Maxim De Cuyper",
-          "Arthur Theate",
-          "Amadou Onana",
-          "Youri Tielemans",
-          "Nicolas Raskin",
-          "Kevin De Bruyne",
-          "Hans Vanaken",
-          "Jérémy Doku"
-        ]
-      }
+      "last_known_lineup": null
     },
     "EGY": {
       "id": 26,
@@ -16017,23 +15618,7 @@
           "progressive_carries_intl": 49
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Mohamed Alaa",
-          "Mohamed Salah",
-          "Hossam Abdelmaguid",
-          "Mohamed Hany",
-          "Karim Hafez",
-          "Trézéguet",
-          "Haissem Hassan",
-          "Ibrahim Adel",
-          "Mohanad Lasheen",
-          "Omar Marmoush",
-          "Hamza Abdelkarim"
-        ]
-      }
+      "last_known_lineup": null
     },
     "IRN": {
       "id": 27,
@@ -16647,23 +16232,7 @@
           "progressive_carries_intl": 22
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Alireza Beiranvand",
-          "Danial Eiri",
-          "Milad Mohammadi",
-          "Saleh Hardani",
-          "Ali Nemati",
-          "Mohammad Mohebi",
-          "Mohammad Ghorbani",
-          "Saman Ghoddos",
-          "Amirmohammad Razzaghinia",
-          "Hadi Habibinejad",
-          "Mehdi Ghayedi"
-        ]
-      }
+      "last_known_lineup": null
     },
     "NZL": {
       "id": 28,
@@ -17235,23 +16804,7 @@
           "progressive_carries_intl": 78
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Max Crocombe",
-          "Liberato Cacace",
-          "Finn Surman",
-          "Tyler Bindon",
-          "Francis de Vries",
-          "Joe Bell",
-          "Marko Stamenić",
-          "Ryan Thomas",
-          "Alex Rufer",
-          "Sarpreet Singh",
-          "Chris Wood"
-        ]
-      }
+      "last_known_lineup": null
     },
     "ESP": {
       "id": 29,
@@ -17823,23 +17376,7 @@
           "progressive_carries_intl": 47
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Joan Garcia",
-          "Pau Cubarsí",
-          "Marc Cucurella",
-          "Pedro Porro",
-          "Alejandro Grimaldo",
-          "Pedri",
-          "Dani Olmo",
-          "Álex Baena",
-          "Lamine Yamal",
-          "Ferran Torres",
-          "Yéremy Pino"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CPV": {
       "id": 30,
@@ -18411,23 +17948,7 @@
           "progressive_carries_intl": 50
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Márcio Rosa",
-          "Logan Costa",
-          "Wagner Pina",
-          "Sidny Lopes Cabral",
-          "Steven Moreira",
-          "Telmo Arcanjo",
-          "Deroy Duarte",
-          "Laros Duarte",
-          "Jamiro Monteiro",
-          "Hélio Varela",
-          "Willy Semedo"
-        ]
-      }
+      "last_known_lineup": null
     },
     "KSA": {
       "id": 31,
@@ -18978,23 +18499,7 @@
           "progressive_carries_intl": 52
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Nawaf Al-Aqidi",
-          "Saud Abdulhamid",
-          "Nawaf Boushal",
-          "Ali Majrashi",
-          "Abdulelah Al-Amri",
-          "Musab Al-Juwayr",
-          "Murad Hawsawi",
-          "Ayman Yahya",
-          "Firas Al-Buraikan",
-          "Saleh Al-Shehri",
-          "Abdullah Al-Hamdan"
-        ]
-      }
+      "last_known_lineup": null
     },
     "URU": {
       "id": 32,
@@ -19608,23 +19113,7 @@
           "progressive_carries_intl": 75
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Santiago Mele",
-          "Ronald Araújo",
-          "Mathías Olivera",
-          "Joaquín Piquerez",
-          "José María Giménez",
-          "Federico Valverde",
-          "Manuel Ugarte",
-          "Giorgian de Arrascaeta",
-          "Nicolás de la Cruz",
-          "Emiliano Martínez",
-          "Darwin Núñez"
-        ]
-      }
+      "last_known_lineup": null
     },
     "FRA": {
       "id": 33,
@@ -20196,23 +19685,7 @@
           "progressive_carries_intl": 41
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Mike Maignan",
-          "William Saliba",
-          "Dayot Upamecano",
-          "Jules Koundé",
-          "Ibrahima Konaté",
-          "Aurélien Tchouaméni",
-          "Warren Zaïre-Emery",
-          "Manu Koné",
-          "Adrien Rabiot",
-          "N'Golo Kanté",
-          "Kylian Mbappé"
-        ]
-      }
+      "last_known_lineup": null
     },
     "SEN": {
       "id": 34,
@@ -20826,23 +20299,7 @@
           "progressive_carries_intl": 109
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Yehvann Diouf",
-          "El Hadji Malick Diouf",
-          "Mamadou Sarr",
-          "Moussa Niakhaté",
-          "Ismail Jakobs",
-          "Pape Gueye",
-          "Lamine Camara",
-          "Habib Diarra",
-          "Pape Matar Sarr",
-          "Pathé Ciss",
-          "Iliman Ndiaye"
-        ]
-      }
+      "last_known_lineup": null
     },
     "COD": {
       "id": 35,
@@ -21414,23 +20871,7 @@
           "progressive_carries_intl": 3
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-1-4-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Matthieu Epolo",
-          "Aaron Wan-Bissaka",
-          "Axel Tuanzebe",
-          "Arthur Masuaku",
-          "Chancel Mbemba",
-          "Noah Sadiki",
-          "Ngal'ayel Mukau",
-          "Edo Kayembe",
-          "Théo Bongonda",
-          "Charles Pickel",
-          "Yoane Wissa"
-        ]
-      }
+      "last_known_lineup": null
     },
     "NOR": {
       "id": 36,
@@ -22002,23 +21443,7 @@
           "progressive_carries_intl": 12
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-1-4-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Sander Tangvik",
-          "Julian Ryerson",
-          "Kristoffer Vassbakk Ajer",
-          "David Møller Wolfe",
-          "Henrik Falchener",
-          "Antonio Nusa",
-          "Oscar Bobb",
-          "Sander Berge",
-          "Andreas Schjelderup",
-          "Fredrik Aursnes",
-          "Erling Braut Haaland"
-        ]
-      }
+      "last_known_lineup": null
     },
     "ARG": {
       "id": 37,
@@ -22902,23 +22327,7 @@
           "exact_position": "LM"
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Emiliano Martínez",
-          "Cristian Romero",
-          "Lisandro Martínez",
-          "Valentín Barco",
-          "Marcos Senesi",
-          "Enzo Fernández",
-          "Alexis Mac Allister",
-          "Nico Paz",
-          "Exequiel Palacios",
-          "Julián Alvarez",
-          "Lautaro Martínez"
-        ]
-      }
+      "last_known_lineup": null
     },
     "ALG": {
       "id": 38,
@@ -23511,23 +22920,7 @@
           "progressive_carries_intl": 42
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Luca Zidane",
-          "Rayan Aït-Nouri",
-          "Rafik Belghali",
-          "Ramy Bensebaini",
-          "Mehdi Dorval",
-          "Ibrahim Maza",
-          "Farès Chaïbi",
-          "Hicham Boudaoui",
-          "Houssem Aouar",
-          "Ramiz Zerrouki",
-          "Amine Gouiri"
-        ]
-      }
+      "last_known_lineup": null
     },
     "AUT": {
       "id": 39,
@@ -24099,23 +23492,7 @@
           "progressive_carries_intl": 56
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-4-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Alexander Schlager",
-          "Kevin Danso",
-          "Marco Friedl",
-          "Philipp Lienhart",
-          "David Affengruber",
-          "Konrad Laimer",
-          "Christoph Baumgartner",
-          "Nicolas Seiwald",
-          "Carney Chukwuemeka",
-          "Marko Arnautović",
-          "Saša Kalajdžić"
-        ]
-      }
+      "last_known_lineup": null
     },
     "JOR": {
       "id": 40,
@@ -24708,23 +24085,7 @@
           "progressive_carries_intl": 26
         }
       ],
-      "last_known_lineup": {
-        "formation": "3-5-2",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Yazeed Abulaila",
-          "Yazan Al-Arab",
-          "Abdallah Nasib",
-          "Saed Al-Rosan",
-          "Nizar Al-Rashdan",
-          "Amer Jamous",
-          "Mohammad Abu Hashish",
-          "Mohannad Abu Taha",
-          "Noor Al-Rawabdeh",
-          "Ali Olwan",
-          "Ibrahim Sabra"
-        ]
-      }
+      "last_known_lineup": null
     },
     "POR": {
       "id": 41,
@@ -25317,23 +24678,7 @@
           "progressive_carries_intl": 0
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Diogo Costa",
-          "Nuno Mendes",
-          "Rúben Dias",
-          "Matheus Nunes",
-          "Gonçalo Inácio",
-          "João Neves",
-          "Vitinha",
-          "Bruno Fernandes",
-          "Rafael Leão",
-          "Pedro Neto",
-          "Francisco Trincão"
-        ]
-      }
+      "last_known_lineup": null
     },
     "IRQ": {
       "id": 42,
@@ -26010,23 +25355,7 @@
           "progressive_carries_intl": 44
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-1-4-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Ahmed Basil",
-          "Merchas Doski",
-          "Zaid Tahseen",
-          "Ahmed Yahya",
-          "Frans Putros",
-          "Marko Farji",
-          "Aimar Sher",
-          "Zidane Iqbal",
-          "Ibrahim Bayesh",
-          "Amir Al-Ammari",
-          "Ali Al-Hamadi"
-        ]
-      }
+      "last_known_lineup": null
     },
     "UZB": {
       "id": 43,
@@ -26724,23 +26053,7 @@
           "progressive_carries_intl": 118
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Botirali Ergashev",
-          "Abdukodir Khusanov",
-          "Sherzod Nasrullaev",
-          "Ibrokhimkhalil Yuldoshev",
-          "Rustam Ashurmatov",
-          "Abbosbek Fayzullaev",
-          "Oston Urunov",
-          "Otabek Shukurov",
-          "Akmal Mozgovoy",
-          "Jaloliddin Masharipov",
-          "Eldor Shomurodov"
-        ]
-      }
+      "last_known_lineup": null
     },
     "COL": {
       "id": 44,
@@ -27312,23 +26625,7 @@
           "progressive_carries_intl": 27
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Álvaro Montero",
-          "Daniel Muñoz",
-          "Jhon Lucumí",
-          "Davinson Sánchez",
-          "Willer Ditta",
-          "Richard Ríos",
-          "Jhon Arias",
-          "Jorge Carrascal",
-          "Jefferson Lerma",
-          "Gustavo Puerta",
-          "Luis Díaz"
-        ]
-      }
+      "last_known_lineup": null
     },
     "ENG": {
       "id": 45,
@@ -27879,23 +27176,7 @@
           "progressive_carries_intl": 61
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Dean Henderson",
-          "Marc Guéhi",
-          "Reece James",
-          "Nico O'Reilly",
-          "Ezri Konsa",
-          "Jude Bellingham",
-          "Declan Rice",
-          "Morgan Rogers",
-          "Eberechi Eze",
-          "Elliot Anderson",
-          "Bukayo Saka"
-        ]
-      }
+      "last_known_lineup": null
     },
     "CRO": {
       "id": 46,
@@ -28467,23 +27748,7 @@
           "progressive_carries_intl": 3
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-3-3",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Dominik Kotarski",
-          "Joško Gvardiol",
-          "Luka Vušković",
-          "Josip Stanišić",
-          "Josip Šutalo",
-          "Petar Sučić",
-          "Martin Baturina",
-          "Mateo Kovačić",
-          "Igor Matanović",
-          "Petar Musa",
-          "Marco Pašalić"
-        ]
-      }
+      "last_known_lineup": null
     },
     "GHA": {
       "id": 47,
@@ -28719,20 +27984,7 @@
           "progressive_carries_intl": 55
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Benjamin Asare",
-          "Manu Duah",
-          "Ebenezer Annan",
-          "Razak Simpson",
-          "Augustine Boakye",
-          "Jesurun Rak-Sakyi",
-          "Majeed Ashimeru",
-          "Francis Amuzu"
-        ]
-      }
+      "last_known_lineup": null
     },
     "PAN": {
       "id": 48,
@@ -29241,23 +28493,7 @@
           "progressive_carries_intl": 49
         }
       ],
-      "last_known_lineup": {
-        "formation": "4-2-3-1",
-        "source": "inferred_realistic",
-        "starting_xi": [
-          "Orlando Mosquera",
-          "Amir Murillo",
-          "José Córdoba",
-          "César Blackman",
-          "Andrés Andrade",
-          "Adalberto Carrasquilla",
-          "José Luis Rodríguez",
-          "Cristian Martínez",
-          "Yoel Bárcenas",
-          "Carlos Harvey",
-          "Ismael Díaz"
-        ]
-      }
+      "last_known_lineup": null
     }
   },
   "stadiums": [
