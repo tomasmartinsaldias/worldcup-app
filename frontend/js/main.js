@@ -90,7 +90,7 @@ async function loadData() {
   </div>`;
   
   try {
-    const response = await fetch('../data/wc2026_data.json');
+    const response = await fetch('../data/wc2026_data.json?t=' + new Date().getTime());
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
