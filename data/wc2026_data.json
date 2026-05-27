@@ -5820,7 +5820,7 @@
           "gca_intl": 4,
           "progressive_passes_intl": 174,
           "progressive_carries_intl": 124,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 301,
@@ -5864,7 +5864,7 @@
           "gca_intl": 3,
           "progressive_passes_intl": 42,
           "progressive_carries_intl": 140,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 307,
@@ -5886,7 +5886,7 @@
           "gca_intl": 9,
           "progressive_passes_intl": 71,
           "progressive_carries_intl": 48,
-          "exact_position": "LW"
+          "exact_position": "ST"
         },
         {
           "id": 314,
@@ -5930,7 +5930,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 175,
           "progressive_carries_intl": 89,
-          "exact_position": "CAM"
+          "exact_position": "CM"
         },
         {
           "id": 290,
@@ -5974,7 +5974,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 193,
           "progressive_carries_intl": 63,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 294,
@@ -5996,7 +5996,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 37,
           "progressive_carries_intl": 13,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 293,
@@ -6062,7 +6062,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 107,
           "progressive_carries_intl": 23,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 302,
@@ -6106,7 +6106,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 70,
           "progressive_carries_intl": 19,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 300,
@@ -6194,7 +6194,7 @@
           "gca_intl": 8,
           "progressive_passes_intl": 58,
           "progressive_carries_intl": 146,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 308,
@@ -6216,7 +6216,7 @@
           "gca_intl": 11,
           "progressive_passes_intl": 33,
           "progressive_carries_intl": 46,
-          "exact_position": "LW"
+          "exact_position": "ST"
         },
         {
           "id": 313,
@@ -6260,7 +6260,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 182,
           "progressive_carries_intl": 76,
-          "exact_position": "CAM"
+          "exact_position": "CM"
         },
         {
           "id": 286,
@@ -6326,7 +6326,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 61,
           "progressive_carries_intl": 47,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 288,
@@ -6370,7 +6370,7 @@
           "gca_intl": 3,
           "progressive_passes_intl": 104,
           "progressive_carries_intl": 39,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 287,
@@ -13316,7 +13316,7 @@
           "gca_intl": 3,
           "progressive_passes_intl": 160,
           "progressive_carries_intl": 84,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 658,
@@ -13338,7 +13338,7 @@
           "gca_intl": 5,
           "progressive_passes_intl": 81,
           "progressive_carries_intl": 38,
-          "exact_position": "CM"
+          "exact_position": "RM"
         },
         {
           "id": 643,
@@ -13404,7 +13404,7 @@
           "gca_intl": 5,
           "progressive_passes_intl": 76,
           "progressive_carries_intl": 119,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 664,
@@ -13470,7 +13470,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 216,
           "progressive_carries_intl": 30,
-          "exact_position": "CAM"
+          "exact_position": "LCM"
         },
         {
           "id": 661,
@@ -13492,7 +13492,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 126,
           "progressive_carries_intl": 53,
-          "exact_position": "CDM"
+          "exact_position": "RCM"
         },
         {
           "id": 649,
@@ -13536,7 +13536,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 54,
           "progressive_carries_intl": 55,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 662,
@@ -13558,7 +13558,7 @@
           "gca_intl": 5,
           "progressive_passes_intl": 208,
           "progressive_carries_intl": 113,
-          "exact_position": "CM"
+          "exact_position": "LM"
         },
         {
           "id": 668,
@@ -13580,7 +13580,7 @@
           "gca_intl": 9,
           "progressive_passes_intl": 55,
           "progressive_carries_intl": 47,
-          "exact_position": "LW"
+          "exact_position": "ST"
         },
         {
           "id": 669,
@@ -13734,7 +13734,7 @@
           "gca_intl": 3,
           "progressive_passes_intl": 33,
           "progressive_carries_intl": 119,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 655,
@@ -13844,7 +13844,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 116,
           "progressive_carries_intl": 41,
-          "exact_position": "RB"
+          "exact_position": "CB"
         }
       ],
       "last_known_lineup": null
@@ -22311,7 +22311,7 @@
           "gca_intl": 5,
           "progressive_passes_intl": 181,
           "progressive_carries_intl": 96,
-          "exact_position": "CDM"
+          "exact_position": "RCM"
         },
         {
           "id": 1091,
@@ -22333,7 +22333,7 @@
           "gca_intl": 8,
           "progressive_passes_intl": 55,
           "progressive_carries_intl": 34,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 1090,
@@ -22355,7 +22355,7 @@
           "gca_intl": 6,
           "progressive_passes_intl": 67,
           "progressive_carries_intl": 129,
-          "exact_position": "LW"
+          "exact_position": "LS"
         },
         {
           "id": 1076,
@@ -22377,7 +22377,7 @@
           "gca_intl": 3,
           "progressive_passes_intl": 135,
           "progressive_carries_intl": 52,
-          "exact_position": "CM"
+          "exact_position": "LCM"
         },
         {
           "id": 1082,
@@ -22421,7 +22421,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 65,
           "progressive_carries_intl": 42,
-          "exact_position": "LB"
+          "exact_position": "RCB"
         },
         {
           "id": 1095,
@@ -22487,7 +22487,7 @@
           "gca_intl": 6,
           "progressive_passes_intl": 53,
           "progressive_carries_intl": 52,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 1061,
@@ -22509,7 +22509,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 41,
           "progressive_carries_intl": 10,
-          "exact_position": "CB"
+          "exact_position": "LCB"
         },
         {
           "id": 1068,
@@ -22531,7 +22531,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 109,
           "progressive_carries_intl": 26,
-          "exact_position": "CB"
+          "exact_position": "LB"
         },
         {
           "id": 1078,
@@ -22553,7 +22553,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 148,
           "progressive_carries_intl": 82,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 1084,
@@ -22597,7 +22597,7 @@
           "gca_intl": 5,
           "progressive_passes_intl": 32,
           "progressive_carries_intl": 130,
-          "exact_position": "LW"
+          "exact_position": "ST"
         },
         {
           "id": 1065,
@@ -22619,7 +22619,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 92,
           "progressive_carries_intl": 21,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 1080,
@@ -22641,7 +22641,7 @@
           "gca_intl": 4,
           "progressive_passes_intl": 89,
           "progressive_carries_intl": 74,
-          "exact_position": "CAM"
+          "exact_position": "CM"
         },
         {
           "id": 1064,
@@ -22663,7 +22663,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 112,
           "progressive_carries_intl": 22,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 1063,
@@ -22707,7 +22707,7 @@
           "gca_intl": 1,
           "progressive_passes_intl": 192,
           "progressive_carries_intl": 130,
-          "exact_position": "CDM"
+          "exact_position": "CM"
         },
         {
           "id": 1048,
@@ -22751,7 +22751,7 @@
           "gca_intl": 4,
           "progressive_passes_intl": 47,
           "progressive_carries_intl": 48,
-          "exact_position": "ST"
+          "exact_position": "RS"
         },
         {
           "id": 1057,
@@ -22773,7 +22773,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 106,
           "progressive_carries_intl": 24,
-          "exact_position": "CB"
+          "exact_position": "RB"
         },
         {
           "id": 1073,
@@ -22817,7 +22817,7 @@
           "gca_intl": 10,
           "progressive_passes_intl": 52,
           "progressive_carries_intl": 66,
-          "exact_position": "RW"
+          "exact_position": "ST"
         },
         {
           "id": 1066,
@@ -22839,7 +22839,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 57,
           "progressive_carries_intl": 57,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 1075,
@@ -22883,7 +22883,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 89,
           "progressive_carries_intl": 27,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 1049,
@@ -22949,7 +22949,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 166,
           "progressive_carries_intl": 94,
-          "exact_position": "CAM"
+          "exact_position": "CM"
         },
         {
           "id": 1055,
@@ -22971,7 +22971,7 @@
           "gca_intl": 0,
           "progressive_passes_intl": 72,
           "progressive_carries_intl": 23,
-          "exact_position": "CB"
+          "exact_position": "LB"
         },
         {
           "id": 1060,
@@ -23015,7 +23015,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 91,
           "progressive_carries_intl": 24,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 1069,
@@ -23037,7 +23037,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 54,
           "progressive_carries_intl": 12,
-          "exact_position": "LB"
+          "exact_position": "CB"
         },
         {
           "id": 1050,
@@ -23125,7 +23125,7 @@
           "gca_intl": 2,
           "progressive_passes_intl": 71,
           "progressive_carries_intl": 54,
-          "exact_position": "RB"
+          "exact_position": "CB"
         },
         {
           "id": 1092,
@@ -23147,7 +23147,7 @@
           "gca_intl": 10,
           "progressive_passes_intl": 15,
           "progressive_carries_intl": 46,
-          "exact_position": "LW"
+          "exact_position": "LM"
         }
       ],
       "last_known_lineup": null

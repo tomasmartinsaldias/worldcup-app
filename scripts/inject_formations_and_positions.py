@@ -155,31 +155,36 @@ def patch_json():
         
         squad = sorted(team.get('squad', []), key=lambda x: x.get('market_value_eur') or 0, reverse=True)
         
-        # Categorize
+        # Categorize only those who don't have a specific position
         defs, mids, fwds = [], [], []
         for p in squad:
             norm = normalize(p['name'])
             # 1. Apply AI mapping if available
+            matched = False
             if norm in ai_normalized:
                 p['exact_position'] = ai_normalized[norm]
+                matched = True
             else:
-                matched = False
                 for ai_name, pos in ai_normalized.items():
                     if ai_name in norm or norm in ai_name:
                         p['exact_position'] = pos
                         matched = True
                         break
+                        
+            # If the player already has a specific scraped position (e.g. RB, ST), KEEP IT!
+            ep = p.get('exact_position') or ''
+            if ep and len(ep) <= 3 and ep not in ['DEF', 'MID', 'FWD']:
+                continue
                 
-                # 2. If no AI mapping, we rely on generic positional assignment 
-                # but we will ENHANCE it dynamically to guarantee RB/LB/CB presence for unknown teams
-                if not matched:
-                    pos_str = (p.get('position', '') or '').lower()
-                    if 'defensa' in pos_str or 'lateral' in pos_str or 'central' in pos_str:
-                        defs.append(p)
-                    elif 'centro' in pos_str or 'medio' in pos_str or 'volante' in pos_str:
-                        mids.append(p)
-                    elif 'delantero' in pos_str or 'extremo' in pos_str or 'atacante' in pos_str:
-                        fwds.append(p)
+            # 2. If no AI mapping and no specific position, apply generic heuristic
+            if not matched:
+                pos_str = (p.get('position', '') or '').lower()
+                if 'defensa' in pos_str or 'lateral' in pos_str or 'central' in pos_str:
+                    defs.append(p)
+                elif 'centro' in pos_str or 'medio' in pos_str or 'volante' in pos_str:
+                    mids.append(p)
+                elif 'delantero' in pos_str or 'extremo' in pos_str or 'atacante' in pos_str:
+                    fwds.append(p)
 
         # Distribute fallback defenders to LB, CB, RB
         if len(defs) > 0:

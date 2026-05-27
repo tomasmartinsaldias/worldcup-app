@@ -54,9 +54,9 @@ FWD (4): Raphinha (RW), Matheus Cunha (RW), Igor Thiago (LW), Gabriel Martinelli
 
 === Morocco (4-3-3) ===
 GK: Yassine Bounou
-DEF (4): Noussair Mazraoui (LB), Achraf Hakimi (RB), Souffian El Karouani (LB), Chadi Riad (RB)
-MID (3): Bilal El Khannouss (CDM), Samir El Mourabet (CDM), Ismael Saibari (CM)
-FWD (3): Chemsdine Talbi (LW), Gessime Yassine (ST), Abde Ezzalzouli (RW)
+DEF (4): Noussair Mazraoui (LB), Achraf Hakimi (RB), Souffian El Karouani (CB), Zakaria El Ouahdi (CB)
+MID (3): Bilal El Khannouss (CM), Ismael Saibari (CM), Neil El Aynaoui (CM)
+FWD (3): Amine Adli (RW), Abde Ezzalzouli (ST), Brahim Díaz (CAM)
 
 === Haiti (4-3-3) ===
 GK: Alexandre Pierre
@@ -127,8 +127,8 @@ FWD (3): Cody Gakpo (LW), Memphis Depay (ST), Donyell Malen (RW)
 === Japan (4-2-3-1) ===
 GK: Zion Suzuki
 DEF (4): Hiroki Itō (LB), Shōgo Taniguchi (LCB), Kō Itakura (RCB), Takehiro Tomiyasu (RB)
-MID (2): Takefusa Kubo (RW), Kaishu Sano (CDM)
-FWD (4): Yuito Suzuki (RW), Ayase Ueda (ST), Daizen Maeda (ST), Keisuke Gotō (LW)
+MID (2): Takefusa Kubo (RW), Kaishu Sano (CM)
+FWD (4): Yuito Suzuki (ST), Ayase Ueda (ST), Daizen Maeda (ST), Keisuke Gotō (ST)
 
 === Sweden (4-3-3) ===
 GK: Viktor Johansson
@@ -216,9 +216,9 @@ FWD (3): Jørgen Strand Larsen (RW), Erling Braut Haaland (ST), Alexander Sorlot
 
 === Argentina (4-4-2) ===
 GK: Emiliano Martínez
-DEF (4): Cristian Romero (LB), Lisandro Martínez (CB), Valentín Barco (CB), Marcos Senesi (RB)
-MID (4): Enzo Fernández (CDM), Alexis Mac Allister (CM), Nico Paz (CAM), Exequiel Palacios (CDM)
-FWD (2): Julián Alvarez (RW), Lautaro Martínez (LW)
+DEF (4): Valentín Barco (LB), Lisandro Martínez (LCB), Cristian Romero (RCB), Nahuel Molina (RB)
+MID (4): Enzo Fernández (RCM), Alexis Mac Allister (LCM), Nico Paz (CAM), Exequiel Palacios (CM)
+FWD (2): Lautaro Martínez (LS), Lionel Messi (RS)
 
 === Algeria (4-3-3) ===
 GK: Luca Zidane
