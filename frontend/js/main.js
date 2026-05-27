@@ -1,9 +1,9 @@
 import { state } from './state.js';
-import { calculateSmartScore } from './recommender.js';
-import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
-import { renderGroups } from './ui/groups.js';
-import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js';
-import { renderUnresolved } from './ui/unresolved.js';
+import { calculateSmartScore } from './recommender.js?v=2';
+import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=2';
+import { renderGroups } from './ui/groups.js?v=2';
+import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js?v=2';
+import { renderUnresolved } from './ui/unresolved.js?v=2';
 import { closeModal } from './ui/modal.js';
 import { openPlayerProfile } from './ui/player_profile.js';
 
