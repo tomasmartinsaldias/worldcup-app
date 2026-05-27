@@ -320,35 +320,259 @@ function renderLineup(team) {
 
   startingPlayers.sort((a,b) => getPosOrder(getPosCategory(a)) - getPosOrder(getPosCategory(b)));
 
-  let formParts = formationStr.split('-').map(Number);
-  if (formParts.length < 3 || formParts.some(isNaN)) {
-      formParts = [4, 3, 3];
-  }
+  const SLOT_COORDS = {
+      'GK': { x: 50, y: 5 },
+      'RB': { x: 85, y: 20 }, 'RCB': { x: 65, y: 15 }, 'CB': { x: 50, y: 15 }, 'LCB': { x: 35, y: 15 }, 'LB': { x: 15, y: 20 },
+      'RWB': { x: 90, y: 35 }, 'LWB': { x: 10, y: 35 },
+      'CDM': { x: 50, y: 35 }, 'RDM': { x: 65, y: 35 }, 'LDM': { x: 35, y: 35 },
+      'CM': { x: 50, y: 50 }, 'RCM': { x: 65, y: 50 }, 'LCM': { x: 35, y: 50 },
+      'RM': { x: 85, y: 60 }, 'LM': { x: 15, y: 60 },
+      'CAM': { x: 50, y: 70 }, 'RAM': { x: 68, y: 70 }, 'LAM': { x: 32, y: 70 },
+      'RW': { x: 85, y: 80 }, 'LW': { x: 15, y: 80 },
+      'ST': { x: 50, y: 85 }, 'CF': { x: 50, y: 85 }, 'RS': { x: 65, y: 85 }, 'LS': { x: 35, y: 85 },
+      'RF': { x: 70, y: 80 }, 'LF': { x: 30, y: 80 }
+  };
 
-  let playerIdx = 0;
-  // Extraemos el portero (1)
-  let gk = startingPlayers.slice(playerIdx, playerIdx + 1);
-  playerIdx += 1;
+  const FORMATION_SLOTS = {
+      '4-3-3': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'CDM', 'RCM', 'LCM', 'RW', 'ST', 'LW'],
+      '4-4-2': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'RM', 'RCM', 'LCM', 'LM', 'RS', 'LS'],
+      '4-2-3-1': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'RDM', 'LDM', 'RM', 'CAM', 'LM', 'ST'],
+      '3-4-2-1': ['GK', 'RCB', 'CB', 'LCB', 'RM', 'RCM', 'LCM', 'LM', 'RAM', 'LAM', 'ST'],
+      '3-4-3': ['GK', 'RCB', 'CB', 'LCB', 'RM', 'RCM', 'LCM', 'LM', 'RW', 'ST', 'LW'],
+      '4-1-4-1': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'CDM', 'RM', 'RCM', 'LCM', 'LM', 'ST'],
+      '3-5-2': ['GK', 'RCB', 'CB', 'LCB', 'RWB', 'RDM', 'LDM', 'LWB', 'CAM', 'RS', 'LS'],
+      '5-4-1': ['GK', 'RWB', 'RCB', 'CB', 'LCB', 'LWB', 'RM', 'RCM', 'LCM', 'LM', 'ST'],
+      '5-3-2': ['GK', 'RWB', 'RCB', 'CB', 'LCB', 'LWB', 'RCM', 'CM', 'LCM', 'RS', 'LS'],
+  };
 
-  // Extraemos los jugadores por cada línea de la formación
-  let renderedLines = [];
-  for(let i=0; i<formParts.length; i++) {
-     let numInLine = formParts[i];
-     let linePlayers = startingPlayers.slice(playerIdx, playerIdx + numInLine);
-     playerIdx += numInLine;
-     renderedLines.push(linePlayers);
-  }
-
-  // Si sobraron jugadores por desajustes numéricos, los metemos a la última línea
-  if (playerIdx < startingPlayers.length) {
-      if (renderedLines.length > 0) {
-          renderedLines[renderedLines.length-1].push(...startingPlayers.slice(playerIdx));
+  let targetSlots = FORMATION_SLOTS[formationStr] || FORMATION_SLOTS['4-3-3'];
+  let availableSlots = [...targetSlots];
+  
+  let assignedPlayers = [];
+  
+  startingPlayers.forEach(p => {
+      let prefPos = (p.exact_position || '').toUpperCase();
+      let assignedSlot = null;
+      
+      if (availableSlots.includes(prefPos)) {
+          assignedSlot = prefPos;
       } else {
-          renderedLines.push(startingPlayers.slice(playerIdx));
+          let cat = getPosCategory(p);
+          let candidates = [];
+          if (cat === 'GK') candidates = availableSlots.filter(s => s === 'GK');
+          else if (cat === 'DEF') candidates = availableSlots.filter(s => s.includes('B'));
+          else if (cat === 'MID') candidates = availableSlots.filter(s => s.includes('M'));
+          else if (cat === 'FWD') candidates = availableSlots.filter(s => s.includes('S') || s.includes('F') || s.includes('W') || s.includes('T'));
+          
+          if (candidates.length > 0) {
+              assignedSlot = candidates[0];
+          } else {
+              assignedSlot = availableSlots[0];
+          }
       }
+      
+      if (assignedSlot) {
+          availableSlots = availableSlots.filter(s => s !== assignedSlot);
+          assignedPlayers.push({ player: p, slot: assignedSlot });
+      }
+  });
+
+  const createPlayerHTML = (p, label, num) => {
+    if (!p) return '';
+    const lastName = p.name.split(' ').pop();
+    let ratingVal = p.efficiency_score !== null ? (p.efficiency_score * 4 + 5.5) : 6.5; 
+    let rating = ratingVal.toFixed(1);
+    
+    let ratingClass = 'rating-yellow';
+    if (ratingVal >= 7.0) ratingClass = 'rating-green';
+    else if (ratingVal < 6.0) ratingClass = 'rating-red';
+
+    const parts = p.name.split(' ');
+    const initials = parts.length > 1 ? parts[0][0] + parts[parts.length-1][0] : parts[0].substring(0, 2);
+    
+} else {
+        cardBar = '<span class="player-unresolved-label">N/A</span>';
+      }
+      
+      row.style.cursor = 'pointer';
+      row.onclick = () => window.openPlayerProfile(code, p.id);
+      
+      row.innerHTML = `
+        <td>
+          <div class="player-name-cell">
+            <span class="player-name-val">${p.name}</span>
+            ${starIcon}
+            ${injuredBadge}
+          </div>
+        </td>
+        <td><span class="player-club-cell">${p.position}</span></td>
+        <td><span class="player-club-cell">${p.club}</span></td>
+        <td style="font-weight: 500;">${p.age || 'N/A'}</td>
+        <td>${p.caps !== null ? p.caps : 'N/A'}</td>
+        <td>${p.goals !== null ? p.goals : 'N/A'}</td>
+        <td style="font-weight: 500;">${p.minutes_recent !== null ? p.minutes_recent : 'N/A'}</td>
+        <td style="font-weight: 500;">${p.assists_recent !== null ? p.assists_recent : 'N/A'}</td>
+        <td>${efficiencyBadge}</td>
+        <td class="player-val-cell">${valText}</td>
+        <td>${cardBar}</td>
+      `;
+      
+      tbody.appendChild(row);
+    });
+  }
+}
+
+export function closeSquadDetails() {
+  state.selectedCountryCode = null;
+  const origin = sessionStorage.getItem('squad_origin') || 'squads';
+  window.switchTab(origin);
+}
+
+function renderLineup(team) {
+  const container = document.getElementById('squad-lineup-container');
+  if (!container) return;
+  
+  if (!team.squad || team.squad.length === 0) {
+    container.innerHTML = '<div style="color: white; text-align: center; margin: auto;">Sin datos para la alineación</div>';
+    return;
   }
 
-  const createPlayerHTML = (p, num) => {
+  // Formaciones preferidas conocidas por selección (basadas en historial reciente)
+  const KNOWN_FORMATIONS = {
+    'ARG': '4-4-2', 'BRA': '4-2-3-1', 'FRA': '4-3-3', 'ENG': '4-3-3',
+    'ESP': '4-3-3', 'GER': '4-2-3-1', 'POR': '4-3-3', 'ITA': '4-3-3',
+    'NED': '4-3-3', 'BEL': '4-3-3', 'URU': '4-4-2', 'COL': '4-2-3-1',
+    'MEX': '4-3-3', 'USA': '4-3-3', 'CAN': '4-2-3-1', 'JAP': '4-2-3-1',
+    'MAR': '4-1-4-1', 'SEN': '4-3-3', 'NGA': '4-3-3', 'EGY': '4-2-3-1',
+    'AUS': '4-3-3', 'KOR': '4-2-3-1', 'CRO': '4-3-3', 'SUI': '3-4-3',
+    'DEN': '4-3-3', 'SWE': '4-4-2', 'POL': '4-2-3-1', 'SRB': '3-4-3',
+    'ECU': '4-3-3', 'VEN': '4-3-3', 'BOL': '4-4-2', 'PAR': '4-3-3',
+    'PER': '4-3-3', 'CHI': '4-3-3',
+  };
+
+  // Helper: categoriza la posición de un jugador
+  const getPosCategory = (p) => {
+     let pos = (p.position || '').toLowerCase();
+     if(pos.includes('portero') || pos.includes('arquero') || pos.includes('goalkeeper')) return 'GK';
+     if(pos.includes('delantero') || pos.includes('extremo') || pos.includes('atacante') || pos.includes('forward') || pos.includes('winger')) return 'FWD';
+     if(pos.includes('centrocampista') || pos.includes('medio') || pos.includes('volante') || pos.includes('pivote') || pos.includes('midfielder')) return 'MID';
+     if(pos.includes('defensa') || pos.includes('lateral') || pos.includes('central') || pos.includes('carrilero') || pos.includes('defender')) return 'DEF';
+     return 'MID'; // fallback
+  };
+
+  const getPosOrder = (cat) => {
+     if(cat === 'GK') return 1; if(cat === 'DEF') return 2;
+     if(cat === 'MID') return 3; if(cat === 'FWD') return 4;
+     return 5;
+  };
+
+  const lineup = team.last_known_lineup;
+  let startingNames = lineup ? lineup.starting_xi : [];
+  let startingPlayers = [];
+
+  // Si hay alineación oficial, usarla
+  if (startingNames.length > 0) {
+      startingNames.forEach(name => {
+          const p = team.squad.find(s => s.name === name);
+          if (p) startingPlayers.push(p);
+      });
+  }
+
+  // --- FALLBACK: elegir 11 jugadores respetando la formación preferida del equipo ---
+  if (startingPlayers.length < 11) {
+      const fifa_code = team.fifa_code || '';
+      const preferredFormation = KNOWN_FORMATIONS[fifa_code] || '4-3-3';
+      const formSlots = preferredFormation.split('-').map(Number); // ej: [4,4,2]
+      const needDef = formSlots[0] || 4;
+      const needMid = formSlots[1] || 3;
+      const needFwd = formSlots.slice(2).reduce((a,b)=>a+b, 0) || 3;
+
+      // Separar plantel disponible por posición, ordenado por valor de mercado
+      const available = [...team.squad].filter(p => !p.is_injured);
+      const byPos = { GK: [], DEF: [], MID: [], FWD: [] };
+      available.forEach(p => { const cat = getPosCategory(p); if(byPos[cat]) byPos[cat].push(p); });
+      Object.values(byPos).forEach(arr => arr.sort((a,b) => (b.market_value_eur||0)-(a.market_value_eur||0)));
+
+      startingPlayers = [];
+      startingPlayers.push(...byPos['GK'].slice(0, 1));   // 1 arquero
+      startingPlayers.push(...byPos['DEF'].slice(0, needDef));
+      startingPlayers.push(...byPos['MID'].slice(0, needMid));
+      startingPlayers.push(...byPos['FWD'].slice(0, needFwd));
+
+      // Si alguna posición no tiene suficientes jugadores, completar con lo que haya
+      if (startingPlayers.length < 11) {
+          const used = new Set(startingPlayers.map(p => p.name));
+          const extra = available.filter(p => !used.has(p.name))
+                                 .sort((a,b) => (b.market_value_eur||0)-(a.market_value_eur||0));
+          while (startingPlayers.length < 11 && extra.length > 0) startingPlayers.push(extra.shift());
+      }
+
+      // La formación string viene de la preferida
+      var formationStr = preferredFormation;
+  } else {
+      var formationStr = lineup ? lineup.formation : '4-3-3';
+  }
+
+  startingPlayers.sort((a,b) => getPosOrder(getPosCategory(a)) - getPosOrder(getPosCategory(b)));
+
+  const SLOT_COORDS = {
+      'GK': { x: 50, y: 5 },
+      'RB': { x: 85, y: 20 }, 'RCB': { x: 65, y: 15 }, 'CB': { x: 50, y: 15 }, 'LCB': { x: 35, y: 15 }, 'LB': { x: 15, y: 20 },
+      'RWB': { x: 90, y: 35 }, 'LWB': { x: 10, y: 35 },
+      'CDM': { x: 50, y: 35 }, 'RDM': { x: 65, y: 35 }, 'LDM': { x: 35, y: 35 },
+      'CM': { x: 50, y: 50 }, 'RCM': { x: 65, y: 50 }, 'LCM': { x: 35, y: 50 },
+      'RM': { x: 85, y: 60 }, 'LM': { x: 15, y: 60 },
+      'CAM': { x: 50, y: 70 }, 'RAM': { x: 68, y: 70 }, 'LAM': { x: 32, y: 70 },
+      'RW': { x: 85, y: 80 }, 'LW': { x: 15, y: 80 },
+      'ST': { x: 50, y: 85 }, 'CF': { x: 50, y: 85 }, 'RS': { x: 65, y: 85 }, 'LS': { x: 35, y: 85 },
+      'RF': { x: 70, y: 80 }, 'LF': { x: 30, y: 80 }
+  };
+
+  const FORMATION_SLOTS = {
+      '4-3-3': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'CDM', 'RCM', 'LCM', 'RW', 'ST', 'LW'],
+      '4-4-2': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'RM', 'RCM', 'LCM', 'LM', 'RS', 'LS'],
+      '4-2-3-1': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'RDM', 'LDM', 'RM', 'CAM', 'LM', 'ST'],
+      '3-4-2-1': ['GK', 'RCB', 'CB', 'LCB', 'RM', 'RCM', 'LCM', 'LM', 'RAM', 'LAM', 'ST'],
+      '3-4-3': ['GK', 'RCB', 'CB', 'LCB', 'RM', 'RCM', 'LCM', 'LM', 'RW', 'ST', 'LW'],
+      '4-1-4-1': ['GK', 'RB', 'RCB', 'LCB', 'LB', 'CDM', 'RM', 'RCM', 'LCM', 'LM', 'ST'],
+      '3-5-2': ['GK', 'RCB', 'CB', 'LCB', 'RWB', 'RDM', 'LDM', 'LWB', 'CAM', 'RS', 'LS'],
+      '5-4-1': ['GK', 'RWB', 'RCB', 'CB', 'LCB', 'LWB', 'RM', 'RCM', 'LCM', 'LM', 'ST'],
+      '5-3-2': ['GK', 'RWB', 'RCB', 'CB', 'LCB', 'LWB', 'RCM', 'CM', 'LCM', 'RS', 'LS'],
+  };
+
+  let targetSlots = FORMATION_SLOTS[formationStr] || FORMATION_SLOTS['4-3-3'];
+  let availableSlots = [...targetSlots];
+  
+  let assignedPlayers = [];
+  
+  startingPlayers.forEach(p => {
+      let prefPos = (p.exact_position || '').toUpperCase();
+      let assignedSlot = null;
+      
+      if (availableSlots.includes(prefPos)) {
+          assignedSlot = prefPos;
+      } else {
+          let cat = getPosCategory(p);
+          let candidates = [];
+          if (cat === 'GK') candidates = availableSlots.filter(s => s === 'GK');
+          else if (cat === 'DEF') candidates = availableSlots.filter(s => s.includes('B'));
+          else if (cat === 'MID') candidates = availableSlots.filter(s => s.includes('M'));
+          else if (cat === 'FWD') candidates = availableSlots.filter(s => s.includes('S') || s.includes('F') || s.includes('W') || s.includes('T'));
+          
+          if (candidates.length > 0) {
+              assignedSlot = candidates[0];
+          } else {
+              assignedSlot = availableSlots[0];
+          }
+      }
+      
+      if (assignedSlot) {
+          availableSlots = availableSlots.filter(s => s !== assignedSlot);
+          assignedPlayers.push({ player: p, slot: assignedSlot });
+      }
+  });
+
+  const createPlayerHTML = (p, label, num) => {
     if (!p) return '';
     const lastName = p.name.split(' ').pop();
     let ratingVal = p.efficiency_score !== null ? (p.efficiency_score * 4 + 5.5) : 6.5; 
@@ -374,27 +598,30 @@ function renderLineup(team) {
     `;
   };
 
-  const renderRow = (playersWithNum) => {
-    if (!playersWithNum || playersWithNum.length === 0) return '';
-    return `<div class="lineup-row">
-      ${playersWithNum.map(item => createPlayerHTML(item.p, item.num)).join('')}
-    </div>`;
-  };
+  // Clear container
+  container.innerHTML = '';
 
-  // Asignar dorsales secuenciales de abajo hacia arriba
-  let currentNum = 1;
-  let numberedGk = gk.map(p => ({p, num: currentNum++}));
-  let numberedLines = renderedLines.map(line => {
-      return line.map(p => ({p, num: currentNum++}));
+  // Add formation badge
+  const badge = document.createElement('div');
+  badge.style.cssText = 'position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px; font-weight: bold; color: white; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3); z-index: 10; font-family: var(--font-primary);';
+  badge.textContent = `Formación: ${formationStr}`;
+  container.appendChild(badge);
+
+  // Assign numbers (1 to 11) for display based on Y coordinate to be somewhat realistic
+  assignedPlayers.sort((a,b) => SLOT_COORDS[a.slot].y - SLOT_COORDS[b.slot].y);
+  
+  assignedPlayers.forEach((item, index) => {
+      let coords = SLOT_COORDS[item.slot] || { x: 50, y: 50 };
+      
+      const playerWrapper = document.createElement('div');
+      playerWrapper.style.position = 'absolute';
+      playerWrapper.style.left = `${coords.x}%`;
+      playerWrapper.style.bottom = `${coords.y}%`;
+      playerWrapper.style.transform = 'translate(-50%, 50%)'; // Center precisely on coordinate
+      playerWrapper.style.zIndex = '10';
+      
+      let num = index + 1;
+      playerWrapper.innerHTML = createPlayerHTML(item.player, item.slot, num);
+      container.appendChild(playerWrapper);
   });
-
-  let html = `<div style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px; font-weight: bold; color: white; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3); z-index: 10; font-family: var(--font-primary);">Formación: ${formationStr}</div>`;
-
-  // Renderizar de arriba (ataque) hacia abajo (defensa)
-  for (let i = numberedLines.length - 1; i >= 0; i--) {
-      html += renderRow(numberedLines[i]);
-  }
-  html += renderRow(numberedGk);
-
-  container.innerHTML = html;
 }

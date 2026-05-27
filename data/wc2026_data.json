@@ -5690,7 +5690,8 @@
           "sca_intl": 15,
           "gca_intl": 1,
           "progressive_passes_intl": 113,
-          "progressive_carries_intl": 36
+          "progressive_carries_intl": 36,
+          "exact_position": "RB"
         },
         {
           "id": 309,
@@ -5711,7 +5712,8 @@
           "sca_intl": 59,
           "gca_intl": 11,
           "progressive_passes_intl": 56,
-          "progressive_carries_intl": 127
+          "progressive_carries_intl": 127,
+          "exact_position": "CAM"
         },
         {
           "id": 303,
@@ -5732,7 +5734,8 @@
           "sca_intl": 19,
           "gca_intl": 4,
           "progressive_passes_intl": 174,
-          "progressive_carries_intl": 124
+          "progressive_carries_intl": 124,
+          "exact_position": "CM"
         },
         {
           "id": 301,
@@ -5753,7 +5756,8 @@
           "sca_intl": 30,
           "gca_intl": 5,
           "progressive_passes_intl": 142,
-          "progressive_carries_intl": 27
+          "progressive_carries_intl": 27,
+          "exact_position": "CM"
         },
         {
           "id": 311,
@@ -5774,7 +5778,8 @@
           "sca_intl": 26,
           "gca_intl": 3,
           "progressive_passes_intl": 42,
-          "progressive_carries_intl": 140
+          "progressive_carries_intl": 140,
+          "exact_position": "ST"
         },
         {
           "id": 307,
@@ -5795,7 +5800,8 @@
           "sca_intl": 26,
           "gca_intl": 9,
           "progressive_passes_intl": 71,
-          "progressive_carries_intl": 48
+          "progressive_carries_intl": 48,
+          "exact_position": "ST"
         },
         {
           "id": 314,
@@ -5816,7 +5822,8 @@
           "sca_intl": 36,
           "gca_intl": 7,
           "progressive_passes_intl": 34,
-          "progressive_carries_intl": 151
+          "progressive_carries_intl": 151,
+          "exact_position": "ST"
         },
         {
           "id": 304,
@@ -5837,7 +5844,8 @@
           "sca_intl": 52,
           "gca_intl": 1,
           "progressive_passes_intl": 175,
-          "progressive_carries_intl": 89
+          "progressive_carries_intl": 89,
+          "exact_position": "CM"
         },
         {
           "id": 290,
@@ -5858,7 +5866,8 @@
           "sca_intl": 6,
           "gca_intl": 0,
           "progressive_passes_intl": 82,
-          "progressive_carries_intl": 23
+          "progressive_carries_intl": 23,
+          "exact_position": "LB"
         },
         {
           "id": 305,
@@ -5879,7 +5888,8 @@
           "sca_intl": 54,
           "gca_intl": 1,
           "progressive_passes_intl": 193,
-          "progressive_carries_intl": 63
+          "progressive_carries_intl": 63,
+          "exact_position": "CM"
         },
         {
           "id": 294,
@@ -5900,7 +5910,8 @@
           "sca_intl": 12,
           "gca_intl": 2,
           "progressive_passes_intl": 37,
-          "progressive_carries_intl": 13
+          "progressive_carries_intl": 13,
+          "exact_position": "CB"
         },
         {
           "id": 293,
@@ -5921,7 +5932,8 @@
           "sca_intl": 3,
           "gca_intl": 1,
           "progressive_passes_intl": 46,
-          "progressive_carries_intl": 52
+          "progressive_carries_intl": 52,
+          "exact_position": "CB"
         },
         {
           "id": 297,
@@ -5942,7 +5954,8 @@
           "sca_intl": 15,
           "gca_intl": 0,
           "progressive_passes_intl": 77,
-          "progressive_carries_intl": 59
+          "progressive_carries_intl": 59,
+          "exact_position": "CB"
         },
         {
           "id": 295,
@@ -5963,7 +5976,8 @@
           "sca_intl": 5,
           "gca_intl": 0,
           "progressive_passes_intl": 107,
-          "progressive_carries_intl": 23
+          "progressive_carries_intl": 23,
+          "exact_position": "CB"
         },
         {
           "id": 302,
@@ -5984,7 +5998,8 @@
           "sca_intl": 18,
           "gca_intl": 2,
           "progressive_passes_intl": 167,
-          "progressive_carries_intl": 92
+          "progressive_carries_intl": 92,
+          "exact_position": "CM"
         },
         {
           "id": 298,
@@ -6005,7 +6020,8 @@
           "sca_intl": 11,
           "gca_intl": 0,
           "progressive_passes_intl": 70,
-          "progressive_carries_intl": 19
+          "progressive_carries_intl": 19,
+          "exact_position": "CB"
         },
         {
           "id": 300,
@@ -6026,7 +6042,8 @@
           "sca_intl": 16,
           "gca_intl": 2,
           "progressive_passes_intl": 63,
-          "progressive_carries_intl": 70
+          "progressive_carries_intl": 70,
+          "exact_position": "RCM"
         },
         {
           "id": 310,
@@ -6047,7 +6064,8 @@
           "sca_intl": 53,
           "gca_intl": 6,
           "progressive_passes_intl": 73,
-          "progressive_carries_intl": 159
+          "progressive_carries_intl": 159,
+          "exact_position": "ST"
         },
         {
           "id": 292,
@@ -6068,7 +6086,8 @@
           "sca_intl": 12,
           "gca_intl": 1,
           "progressive_passes_intl": 42,
-          "progressive_carries_intl": 35
+          "progressive_carries_intl": 35,
+          "exact_position": "CB"
         },
         {
           "id": 312,
@@ -6089,7 +6108,8 @@
           "sca_intl": 34,
           "gca_intl": 8,
           "progressive_passes_intl": 58,
-          "progressive_carries_intl": 146
+          "progressive_carries_intl": 146,
+          "exact_position": "ST"
         },
         {
           "id": 308,
@@ -6110,7 +6130,8 @@
           "sca_intl": 40,
           "gca_intl": 11,
           "progressive_passes_intl": 33,
-          "progressive_carries_intl": 46
+          "progressive_carries_intl": 46,
+          "exact_position": "ST"
         },
         {
           "id": 313,
@@ -6131,7 +6152,8 @@
           "sca_intl": 66,
           "gca_intl": 3,
           "progressive_passes_intl": 55,
-          "progressive_carries_intl": 139
+          "progressive_carries_intl": 139,
+          "exact_position": "ST"
         },
         {
           "id": 306,
@@ -6152,7 +6174,8 @@
           "sca_intl": 16,
           "gca_intl": 1,
           "progressive_passes_intl": 182,
-          "progressive_carries_intl": 76
+          "progressive_carries_intl": 76,
+          "exact_position": "CM"
         },
         {
           "id": 286,
@@ -6173,7 +6196,8 @@
           "sca_intl": 2,
           "gca_intl": 0,
           "progressive_passes_intl": 23,
-          "progressive_carries_intl": 3
+          "progressive_carries_intl": 3,
+          "exact_position": "GK"
         },
         {
           "id": 291,
@@ -6194,7 +6218,8 @@
           "sca_intl": 5,
           "gca_intl": 1,
           "progressive_passes_intl": 47,
-          "progressive_carries_intl": 53
+          "progressive_carries_intl": 53,
+          "exact_position": "CB"
         },
         {
           "id": 296,
@@ -6215,7 +6240,8 @@
           "sca_intl": 14,
           "gca_intl": 2,
           "progressive_passes_intl": 61,
-          "progressive_carries_intl": 47
+          "progressive_carries_intl": 47,
+          "exact_position": "CB"
         },
         {
           "id": 288,
@@ -6236,7 +6262,8 @@
           "sca_intl": 2,
           "gca_intl": 0,
           "progressive_passes_intl": 24,
-          "progressive_carries_intl": 3
+          "progressive_carries_intl": 3,
+          "exact_position": "GK"
         },
         {
           "id": 299,
@@ -6257,7 +6284,8 @@
           "sca_intl": 49,
           "gca_intl": 3,
           "progressive_passes_intl": 104,
-          "progressive_carries_intl": 39
+          "progressive_carries_intl": 39,
+          "exact_position": "CM"
         },
         {
           "id": 287,
@@ -6278,7 +6306,8 @@
           "sca_intl": 1,
           "gca_intl": 0,
           "progressive_passes_intl": 38,
-          "progressive_carries_intl": 3
+          "progressive_carries_intl": 3,
+          "exact_position": "GK"
         }
       ],
       "last_known_lineup": {
@@ -13103,7 +13132,8 @@
           "sca_intl": 40,
           "gca_intl": 7,
           "progressive_passes_intl": 144,
-          "progressive_carries_intl": 126
+          "progressive_carries_intl": 126,
+          "exact_position": "RAM"
         },
         {
           "id": 663,
@@ -13124,7 +13154,8 @@
           "sca_intl": 43,
           "gca_intl": 3,
           "progressive_passes_intl": 160,
-          "progressive_carries_intl": 84
+          "progressive_carries_intl": 84,
+          "exact_position": "CM"
         },
         {
           "id": 658,
@@ -13145,7 +13176,8 @@
           "sca_intl": 49,
           "gca_intl": 5,
           "progressive_passes_intl": 81,
-          "progressive_carries_intl": 38
+          "progressive_carries_intl": 38,
+          "exact_position": "RM"
         },
         {
           "id": 643,
@@ -13166,7 +13198,8 @@
           "sca_intl": 1,
           "gca_intl": 0,
           "progressive_passes_intl": 56,
-          "progressive_carries_intl": 1
+          "progressive_carries_intl": 1,
+          "exact_position": "GK"
         },
         {
           "id": 651,
@@ -13187,7 +13220,8 @@
           "sca_intl": 10,
           "gca_intl": 0,
           "progressive_passes_intl": 94,
-          "progressive_carries_intl": 55
+          "progressive_carries_intl": 55,
+          "exact_position": "LCB"
         },
         {
           "id": 667,
@@ -13208,7 +13242,8 @@
           "sca_intl": 49,
           "gca_intl": 5,
           "progressive_passes_intl": 76,
-          "progressive_carries_intl": 119
+          "progressive_carries_intl": 119,
+          "exact_position": "ST"
         },
         {
           "id": 664,
@@ -13229,7 +13264,8 @@
           "sca_intl": 57,
           "gca_intl": 10,
           "progressive_passes_intl": 34,
-          "progressive_carries_intl": 118
+          "progressive_carries_intl": 118,
+          "exact_position": "ST"
         },
         {
           "id": 665,
@@ -13250,7 +13286,8 @@
           "sca_intl": 50,
           "gca_intl": 3,
           "progressive_passes_intl": 52,
-          "progressive_carries_intl": 136
+          "progressive_carries_intl": 136,
+          "exact_position": "ST"
         },
         {
           "id": 659,
@@ -13271,7 +13308,8 @@
           "sca_intl": 37,
           "gca_intl": 2,
           "progressive_passes_intl": 216,
-          "progressive_carries_intl": 30
+          "progressive_carries_intl": 30,
+          "exact_position": "LCM"
         },
         {
           "id": 661,
@@ -13292,7 +13330,8 @@
           "sca_intl": 15,
           "gca_intl": 1,
           "progressive_passes_intl": 126,
-          "progressive_carries_intl": 53
+          "progressive_carries_intl": 53,
+          "exact_position": "RCM"
         },
         {
           "id": 649,
@@ -13313,7 +13352,8 @@
           "sca_intl": 14,
           "gca_intl": 1,
           "progressive_passes_intl": 81,
-          "progressive_carries_intl": 17
+          "progressive_carries_intl": 17,
+          "exact_position": "RCB"
         },
         {
           "id": 654,
@@ -13334,7 +13374,8 @@
           "sca_intl": 6,
           "gca_intl": 2,
           "progressive_passes_intl": 54,
-          "progressive_carries_intl": 55
+          "progressive_carries_intl": 55,
+          "exact_position": "CB"
         },
         {
           "id": 662,
@@ -13355,7 +13396,8 @@
           "sca_intl": 48,
           "gca_intl": 5,
           "progressive_passes_intl": 208,
-          "progressive_carries_intl": 113
+          "progressive_carries_intl": 113,
+          "exact_position": "LM"
         },
         {
           "id": 668,
@@ -13376,7 +13418,8 @@
           "sca_intl": 48,
           "gca_intl": 9,
           "progressive_passes_intl": 55,
-          "progressive_carries_intl": 47
+          "progressive_carries_intl": 47,
+          "exact_position": "ST"
         },
         {
           "id": 669,
@@ -13397,7 +13440,8 @@
           "sca_intl": 71,
           "gca_intl": 3,
           "progressive_passes_intl": 17,
-          "progressive_carries_intl": 117
+          "progressive_carries_intl": 117,
+          "exact_position": "ST"
         },
         {
           "id": 648,
@@ -13418,7 +13462,8 @@
           "sca_intl": 14,
           "gca_intl": 0,
           "progressive_passes_intl": 76,
-          "progressive_carries_intl": 34
+          "progressive_carries_intl": 34,
+          "exact_position": "CB"
         },
         {
           "id": 652,
@@ -13439,7 +13484,8 @@
           "sca_intl": 14,
           "gca_intl": 1,
           "progressive_passes_intl": 43,
-          "progressive_carries_intl": 60
+          "progressive_carries_intl": 60,
+          "exact_position": "CB"
         },
         {
           "id": 653,
@@ -13460,7 +13506,8 @@
           "sca_intl": 12,
           "gca_intl": 1,
           "progressive_passes_intl": 52,
-          "progressive_carries_intl": 50
+          "progressive_carries_intl": 50,
+          "exact_position": "CB"
         },
         {
           "id": 656,
@@ -13481,7 +13528,8 @@
           "sca_intl": 40,
           "gca_intl": 5,
           "progressive_passes_intl": 189,
-          "progressive_carries_intl": 113
+          "progressive_carries_intl": 113,
+          "exact_position": "CM"
         },
         {
           "id": 657,
@@ -13502,7 +13550,8 @@
           "sca_intl": 17,
           "gca_intl": 7,
           "progressive_passes_intl": 152,
-          "progressive_carries_intl": 114
+          "progressive_carries_intl": 114,
+          "exact_position": "CM"
         },
         {
           "id": 666,
@@ -13523,7 +13572,8 @@
           "sca_intl": 25,
           "gca_intl": 3,
           "progressive_passes_intl": 33,
-          "progressive_carries_intl": 119
+          "progressive_carries_intl": 119,
+          "exact_position": "ST"
         },
         {
           "id": 655,
@@ -13544,7 +13594,8 @@
           "sca_intl": 8,
           "gca_intl": 0,
           "progressive_passes_intl": 92,
-          "progressive_carries_intl": 48
+          "progressive_carries_intl": 48,
+          "exact_position": "CB"
         },
         {
           "id": 644,
@@ -13565,7 +13616,8 @@
           "sca_intl": 1,
           "gca_intl": 0,
           "progressive_passes_intl": 35,
-          "progressive_carries_intl": 1
+          "progressive_carries_intl": 1,
+          "exact_position": "GK"
         },
         {
           "id": 645,
@@ -13586,7 +13638,8 @@
           "sca_intl": 1,
           "gca_intl": 0,
           "progressive_passes_intl": 35,
-          "progressive_carries_intl": 1
+          "progressive_carries_intl": 1,
+          "exact_position": "GK"
         },
         {
           "id": 650,
@@ -13607,7 +13660,8 @@
           "sca_intl": 5,
           "gca_intl": 2,
           "progressive_passes_intl": 104,
-          "progressive_carries_intl": 21
+          "progressive_carries_intl": 21,
+          "exact_position": "CB"
         },
         {
           "id": 646,
@@ -13628,7 +13682,8 @@
           "sca_intl": 7,
           "gca_intl": 1,
           "progressive_passes_intl": 116,
-          "progressive_carries_intl": 41
+          "progressive_carries_intl": 41,
+          "exact_position": "CB"
         }
       ],
       "last_known_lineup": {
@@ -22007,7 +22062,8 @@
           "sca_intl": 54,
           "gca_intl": 5,
           "progressive_passes_intl": 181,
-          "progressive_carries_intl": 96
+          "progressive_carries_intl": 96,
+          "exact_position": "RCM"
         },
         {
           "id": 1091,
@@ -22028,7 +22084,8 @@
           "sca_intl": 45,
           "gca_intl": 8,
           "progressive_passes_intl": 55,
-          "progressive_carries_intl": 34
+          "progressive_carries_intl": 34,
+          "exact_position": "ST"
         },
         {
           "id": 1090,
@@ -22049,7 +22106,8 @@
           "sca_intl": 34,
           "gca_intl": 6,
           "progressive_passes_intl": 67,
-          "progressive_carries_intl": 129
+          "progressive_carries_intl": 129,
+          "exact_position": "LS"
         },
         {
           "id": 1076,
@@ -22070,7 +22128,8 @@
           "sca_intl": 36,
           "gca_intl": 3,
           "progressive_passes_intl": 135,
-          "progressive_carries_intl": 52
+          "progressive_carries_intl": 52,
+          "exact_position": "LCM"
         },
         {
           "id": 1082,
@@ -22091,7 +22150,8 @@
           "sca_intl": 47,
           "gca_intl": 7,
           "progressive_passes_intl": 190,
-          "progressive_carries_intl": 82
+          "progressive_carries_intl": 82,
+          "exact_position": "CAM"
         },
         {
           "id": 1058,
@@ -22112,7 +22172,8 @@
           "sca_intl": 10,
           "gca_intl": 1,
           "progressive_passes_intl": 65,
-          "progressive_carries_intl": 42
+          "progressive_carries_intl": 42,
+          "exact_position": "RCB"
         },
         {
           "id": 1095,
@@ -22133,7 +22194,8 @@
           "sca_intl": 48,
           "gca_intl": 8,
           "progressive_passes_intl": 65,
-          "progressive_carries_intl": 37
+          "progressive_carries_intl": 37,
+          "exact_position": "ST"
         },
         {
           "id": 1093,
@@ -22154,7 +22216,8 @@
           "sca_intl": 57,
           "gca_intl": 2,
           "progressive_passes_intl": 24,
-          "progressive_carries_intl": 121
+          "progressive_carries_intl": 121,
+          "exact_position": "ST"
         },
         {
           "id": 1094,
@@ -22175,7 +22238,8 @@
           "sca_intl": 26,
           "gca_intl": 6,
           "progressive_passes_intl": 53,
-          "progressive_carries_intl": 52
+          "progressive_carries_intl": 52,
+          "exact_position": "ST"
         },
         {
           "id": 1061,
@@ -22196,7 +22260,8 @@
           "sca_intl": 7,
           "gca_intl": 2,
           "progressive_passes_intl": 41,
-          "progressive_carries_intl": 10
+          "progressive_carries_intl": 10,
+          "exact_position": "LCB"
         },
         {
           "id": 1068,
@@ -22217,7 +22282,8 @@
           "sca_intl": 4,
           "gca_intl": 0,
           "progressive_passes_intl": 109,
-          "progressive_carries_intl": 26
+          "progressive_carries_intl": 26,
+          "exact_position": "LB"
         },
         {
           "id": 1078,
@@ -22238,7 +22304,8 @@
           "sca_intl": 15,
           "gca_intl": 1,
           "progressive_passes_intl": 148,
-          "progressive_carries_intl": 82
+          "progressive_carries_intl": 82,
+          "exact_position": "CM"
         },
         {
           "id": 1084,
@@ -22259,7 +22326,8 @@
           "sca_intl": 21,
           "gca_intl": 2,
           "progressive_passes_intl": 197,
-          "progressive_carries_intl": 93
+          "progressive_carries_intl": 93,
+          "exact_position": "CM"
         },
         {
           "id": 1096,
@@ -22280,7 +22348,8 @@
           "sca_intl": 54,
           "gca_intl": 5,
           "progressive_passes_intl": 32,
-          "progressive_carries_intl": 130
+          "progressive_carries_intl": 130,
+          "exact_position": "ST"
         },
         {
           "id": 1065,
@@ -22301,7 +22370,8 @@
           "sca_intl": 5,
           "gca_intl": 1,
           "progressive_passes_intl": 92,
-          "progressive_carries_intl": 21
+          "progressive_carries_intl": 21,
+          "exact_position": "CB"
         },
         {
           "id": 1080,
@@ -22322,7 +22392,8 @@
           "sca_intl": 35,
           "gca_intl": 4,
           "progressive_passes_intl": 89,
-          "progressive_carries_intl": 74
+          "progressive_carries_intl": 74,
+          "exact_position": "CM"
         },
         {
           "id": 1064,
@@ -22343,7 +22414,8 @@
           "sca_intl": 10,
           "gca_intl": 2,
           "progressive_passes_intl": 112,
-          "progressive_carries_intl": 22
+          "progressive_carries_intl": 22,
+          "exact_position": "CB"
         },
         {
           "id": 1063,
@@ -22364,7 +22436,8 @@
           "sca_intl": 13,
           "gca_intl": 2,
           "progressive_passes_intl": 117,
-          "progressive_carries_intl": 33
+          "progressive_carries_intl": 33,
+          "exact_position": "CB"
         },
         {
           "id": 1081,
@@ -22385,7 +22458,8 @@
           "sca_intl": 33,
           "gca_intl": 1,
           "progressive_passes_intl": 192,
-          "progressive_carries_intl": 130
+          "progressive_carries_intl": 130,
+          "exact_position": "CM"
         },
         {
           "id": 1048,
@@ -22406,7 +22480,8 @@
           "sca_intl": 2,
           "gca_intl": 0,
           "progressive_passes_intl": 22,
-          "progressive_carries_intl": 2
+          "progressive_carries_intl": 2,
+          "exact_position": "GK"
         },
         {
           "id": 1089,
@@ -22427,7 +22502,8 @@
           "sca_intl": 23,
           "gca_intl": 4,
           "progressive_passes_intl": 47,
-          "progressive_carries_intl": 48
+          "progressive_carries_intl": 48,
+          "exact_position": "RS"
         },
         {
           "id": 1057,
@@ -22448,7 +22524,8 @@
           "sca_intl": 12,
           "gca_intl": 2,
           "progressive_passes_intl": 106,
-          "progressive_carries_intl": 24
+          "progressive_carries_intl": 24,
+          "exact_position": "RB"
         },
         {
           "id": 1073,
@@ -22469,7 +22546,8 @@
           "sca_intl": 48,
           "gca_intl": 2,
           "progressive_passes_intl": 107,
-          "progressive_carries_intl": 91
+          "progressive_carries_intl": 91,
+          "exact_position": "RM"
         },
         {
           "id": 1097,
@@ -22490,7 +22568,8 @@
           "sca_intl": 74,
           "gca_intl": 10,
           "progressive_passes_intl": 52,
-          "progressive_carries_intl": 66
+          "progressive_carries_intl": 66,
+          "exact_position": "ST"
         },
         {
           "id": 1066,
@@ -22511,7 +22590,8 @@
           "sca_intl": 3,
           "gca_intl": 0,
           "progressive_passes_intl": 57,
-          "progressive_carries_intl": 57
+          "progressive_carries_intl": 57,
+          "exact_position": "CB"
         },
         {
           "id": 1075,
@@ -22532,7 +22612,8 @@
           "sca_intl": 20,
           "gca_intl": 3,
           "progressive_passes_intl": 116,
-          "progressive_carries_intl": 52
+          "progressive_carries_intl": 52,
+          "exact_position": "CM"
         },
         {
           "id": 1067,
@@ -22553,7 +22634,8 @@
           "sca_intl": 8,
           "gca_intl": 0,
           "progressive_passes_intl": 89,
-          "progressive_carries_intl": 27
+          "progressive_carries_intl": 27,
+          "exact_position": "CB"
         },
         {
           "id": 1049,
@@ -22574,7 +22656,8 @@
           "sca_intl": 2,
           "gca_intl": 0,
           "progressive_passes_intl": 45,
-          "progressive_carries_intl": 3
+          "progressive_carries_intl": 3,
+          "exact_position": "GK"
         },
         {
           "id": 1079,
@@ -22595,7 +22678,8 @@
           "sca_intl": 54,
           "gca_intl": 5,
           "progressive_passes_intl": 122,
-          "progressive_carries_intl": 30
+          "progressive_carries_intl": 30,
+          "exact_position": "CM"
         },
         {
           "id": 1074,
@@ -22616,7 +22700,8 @@
           "sca_intl": 47,
           "gca_intl": 2,
           "progressive_passes_intl": 166,
-          "progressive_carries_intl": 94
+          "progressive_carries_intl": 94,
+          "exact_position": "CM"
         },
         {
           "id": 1055,
@@ -22637,7 +22722,8 @@
           "sca_intl": 15,
           "gca_intl": 0,
           "progressive_passes_intl": 72,
-          "progressive_carries_intl": 23
+          "progressive_carries_intl": 23,
+          "exact_position": "LB"
         },
         {
           "id": 1060,
@@ -22658,7 +22744,8 @@
           "sca_intl": 8,
           "gca_intl": 1,
           "progressive_passes_intl": 88,
-          "progressive_carries_intl": 60
+          "progressive_carries_intl": 60,
+          "exact_position": "CB"
         },
         {
           "id": 1062,
@@ -22679,7 +22766,8 @@
           "sca_intl": 5,
           "gca_intl": 2,
           "progressive_passes_intl": 91,
-          "progressive_carries_intl": 24
+          "progressive_carries_intl": 24,
+          "exact_position": "CB"
         },
         {
           "id": 1069,
@@ -22700,7 +22788,8 @@
           "sca_intl": 9,
           "gca_intl": 2,
           "progressive_passes_intl": 54,
-          "progressive_carries_intl": 12
+          "progressive_carries_intl": 12,
+          "exact_position": "CB"
         },
         {
           "id": 1050,
@@ -22721,7 +22810,8 @@
           "sca_intl": 2,
           "gca_intl": 0,
           "progressive_passes_intl": 49,
-          "progressive_carries_intl": 2
+          "progressive_carries_intl": 2,
+          "exact_position": "GK"
         },
         {
           "id": 1056,
@@ -22742,7 +22832,8 @@
           "sca_intl": 2,
           "gca_intl": 1,
           "progressive_passes_intl": 92,
-          "progressive_carries_intl": 16
+          "progressive_carries_intl": 16,
+          "exact_position": "CB"
         },
         {
           "id": 1054,
@@ -22763,7 +22854,8 @@
           "sca_intl": 14,
           "gca_intl": 0,
           "progressive_passes_intl": 71,
-          "progressive_carries_intl": 53
+          "progressive_carries_intl": 53,
+          "exact_position": "CB"
         },
         {
           "id": 1059,
@@ -22784,7 +22876,8 @@
           "sca_intl": 14,
           "gca_intl": 2,
           "progressive_passes_intl": 71,
-          "progressive_carries_intl": 54
+          "progressive_carries_intl": 54,
+          "exact_position": "CB"
         },
         {
           "id": 1092,
@@ -22805,7 +22898,8 @@
           "sca_intl": 27,
           "gca_intl": 10,
           "progressive_passes_intl": 15,
-          "progressive_carries_intl": 46
+          "progressive_carries_intl": 46,
+          "exact_position": "LM"
         }
       ],
       "last_known_lineup": {
