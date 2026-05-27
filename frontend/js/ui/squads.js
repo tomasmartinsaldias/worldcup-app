@@ -257,10 +257,27 @@ function renderLineup(team) {
   
   // Fallback if players missing or not 11
   if (startingPlayers.length < 11) {
-      const sorted = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p)).sort((a, b) => {
-          return (b.market_value_eur || 0) - (a.market_value_eur || 0);
-      });
-      startingPlayers = [...startingPlayers, ...sorted].slice(0, 11);
+      // Find a goalkeeper if we don't have one
+      const getPosCat = (p) => {
+         let pos = (p.position || '').toLowerCase();
+         if(pos.includes('portero') || pos.includes('arquero')) return 'GK';
+         return 'OUTFIELD';
+      };
+      
+      let hasGk = startingPlayers.some(p => getPosCat(p) === 'GK');
+      let availableGks = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p) && getPosCat(p) === 'GK');
+      let availableOutfield = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p) && getPosCat(p) !== 'GK');
+      
+      availableGks.sort((a, b) => (b.market_value_eur || 0) - (a.market_value_eur || 0));
+      availableOutfield.sort((a, b) => (b.market_value_eur || 0) - (a.market_value_eur || 0));
+      
+      if (!hasGk && availableGks.length > 0) {
+          startingPlayers.push(availableGks[0]);
+      }
+      
+      while (startingPlayers.length < 11 && availableOutfield.length > 0) {
+          startingPlayers.push(availableOutfield.shift());
+      }
   }
 
   // Asegurarnos de que los jugadores estén ordenados tácticamente: Portero -> Defensas -> Medios -> Delanteros
@@ -286,18 +303,14 @@ function renderLineup(team) {
   // Calcular la formación de forma automática basándose en las posiciones reales de los 11 jugadores
   if (!lineup || !lineup.formation) {
       let defs = 0, mids = 0, fwds = 0;
-      startingPlayers.forEach(p => {
-          let cat = getPosCategory(p);
+      // Skip the first player (Index 0 is always the GK after sorting)
+      for (let i = 1; i < startingPlayers.length; i++) {
+          let cat = getPosCategory(startingPlayers[i]);
           if (cat === 'DEF') defs++;
           if (cat === 'MID') mids++;
           if (cat === 'FWD') fwds++;
-      });
-      // Fallback a 4-3-3 si hubo un problema al contar (ej. menos de 10 jugadores de campo)
-      if (defs + mids + fwds === 10) {
-          formationStr = `${defs}-${mids}-${fwds}`;
-      } else {
-          formationStr = "4-3-3";
       }
+      formationStr = `${defs}-${mids}-${fwds}`;
   }
 
   let formParts = formationStr.split('-').map(Number);
