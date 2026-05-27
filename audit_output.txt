@@ -1,0 +1,287 @@
+=== Mexico (4-3-3) ===
+GK: Raúl Rangel
+DEF (4): Israel Reyes (LB), Johan Vásquez (LCB), César Montes (RCB), Julián Araujo (RB)
+MID (3): Edson Álvarez (CDM), Érik Lira (CDM), Gilberto Mora (CM)
+FWD (3): Germán Berterame (LW), Santiago Giménez (ST), Armando González (RW)
+
+=== South Africa (4-3-3) ===
+GK: Ronwen Williams
+DEF (4): Mbekezeli Mbokazi (LB), Ime Okon (CB), Samukele Kabini (CB), Aubrey Modiba (RB)
+MID (3): Teboho Mokoena (CDM), Yaya Sithole (CDM), Thalente Mbatha (CM)
+FWD (3): Iqraam Rayners (LW), Oswin Appollis (ST), Lyle Foster (RW)
+
+=== South Korea (4-4-2) ===
+GK: Song Bum-keun
+DEF (4): Jens Castrop (LB), Kim Min-jae (CB), Seol Young-woo (LB), Jo Yu-min (RB)
+MID (4): Hwang Hee-chan (LW), Hwang In-beom (CDM), Yang Hyun-jun (CM), Lee Kang-in (RW)
+FWD (2): Son Heung-min (LW), Cho Kyu-sung (RW)
+
+=== Czech Republic (4-3-3) ===
+GK: Lukáš Horníček
+DEF (4): Ladislav Krejčí (LB), Robin Hranáč (CB), Štěpán Chaloupek (CB), David Zima (RB)
+MID (3): Pavel Šulc (CDM), Lukáš Červ (CDM), Tomáš Souček (CM)
+FWD (3): Adam Hložek (LW), Mojmír Chytil (ST), Patrik Schick (RW)
+
+=== Canada (4-3-3) ===
+GK: Dayne St. Clair
+DEF (4): Jahkeele Marshall-Rutty (LB), Derek Cornelius (LCB), Joel Waterman (RCB), Niko Sigur (RB)
+MID (3): Ismaël Koné (CM), Nathan Saliba (CDM), Marcelo Flores (CM)
+FWD (3): Daniel Jebbison (LW), Jonathan David (ST), Tani Oluwaseyi (RW)
+
+=== Bosnia and Herzegovina (4-3-3) ===
+GK: Nikola Vasilj
+DEF (4): Tarik Muharemović (LB), Amar Dedić (CB), Sead Kolašinac (CB), Nidal Čelik (RB)
+MID (3): Kerim Alajbegović (CDM), Amar Memić (CDM), Ermin Mahmić (CM)
+FWD (3): Haris Tabaković (LW), Edin Džeko (ST), Ermedin Demirović (RW)
+
+=== Qatar (4-3-3) ===
+GK: Meshaal Barsham
+DEF (4): Tarek Salman (LB), Ayoub Al-Oui (CB), Bassam Al-Rawi (CB), Lucas Mendes (RB)
+MID (3): Jassem Gaber (CDM), Assim Madibo (CDM), Mohamed Al-Mannai (CM)
+FWD (3): Almoez Ali (LW), Edmilson Junior (ST), Akram Afif (RW)
+
+=== Switzerland (3-4-3) ===
+GK: Gregor Kobel
+DEF (3): Ricardo Rodriguez (LCB), Manuel Akanji (CB), Nico Elvedi (RCB)
+MID (4): Dan Ndoye (CDM), Johan Manzambi (CM), Ardon Jashari (CAM), Denis Zakaria (CDM)
+FWD (3): 
+
+=== Brazil (4-2-3-1) ===
+GK: Alisson
+DEF (4): Wesley (LB), Gabriel Magalhães (LCB), Marquinhos (RCB), Douglas Santos (RB)
+MID (2): Bruno Guimarães (CM), Lucas Paquetá (CAM)
+FWD (4): Raphinha (RW), Matheus Cunha (RW), Igor Thiago (LW), Gabriel Martinelli (LW)
+
+=== Morocco (4-3-3) ===
+GK: Yassine Bounou
+DEF (4): Noussair Mazraoui (LB), Achraf Hakimi (RB), Souffian El Karouani (LB), Chadi Riad (RB)
+MID (3): Bilal El Khannouss (CDM), Samir El Mourabet (CDM), Ismael Saibari (CM)
+FWD (3): Chemsdine Talbi (LW), Gessime Yassine (ST), Abde Ezzalzouli (RW)
+
+=== Haiti (4-3-3) ===
+GK: Alexandre Pierre
+DEF (4): Hannes Delcroix (LB), Jean-Kévin Duverne (CB), Carlens Arcus (CB), Wilguens Paugain (RB)
+MID (3): Jean‐Ricner Bellegarde (CDM), Leverton Pierre (CDM), Danley Jean Jacques (CM)
+FWD (3): Josué Casimir (LW), Lenny Joseph (ST), Wilson Isidor (RW)
+
+=== Scotland (4-3-3) ===
+GK: Angus Gunn
+DEF (4): Andy Robertson (LB), Kieran Tierney (LCB), Aaron Hickey (RB), Nathan Patterson (RB)
+MID (3): Scott McTominay (CM), Lewis Ferguson (CDM), Billy Gilmour (CM)
+FWD (3): Lawrence Shankland (LW), Ché Adams (ST), George Hirst (RW)
+
+=== USA (4-3-3) ===
+GK: Patrick Schulte
+DEF (4): Antonee Robinson (LB), Tim Ream (LCB), Chris Richards (RCB), Joe Scally (RB)
+MID (3): Malik Tillman (CDM), Sebastian Berhalter (CDM), Weston McKennie (CM)
+FWD (3): Patrick Agyemang (LW), Folarin Balogun (ST), Timothy Weah (RW)
+
+=== Paraguay (4-3-3) ===
+GK: Orlando Gill
+DEF (4): Juan Cáceres (LB), Omar Alderete (CB), Gustavo Gómez (CB), José Canale (RB)
+MID (3): Diego Gómez (CDM), Andrés Cubas (CDM), Maurício (CM)
+FWD (3): Julio Enciso (LW), Álex Arce (ST), Isidro Pitta (RW)
+
+=== Australia (4-3-3) ===
+GK: Mathew Ryan
+DEF (4): Jordan Bos (LB), Alessandro Circati (CB), Cameron Burgess (LB), Miloš Degenek (RB)
+MID (3): Patrick Yazbek (CDM), Connor Metcalfe (CDM), Aiden O'Neill (CM)
+FWD (3): Ante Šuto (LW), Nishan Velupillay (ST), Nestory Irankunda (RW)
+
+=== Turkey (4-3-3) ===
+GK: Uğurcan Çakır
+DEF (4): Ferdi Kadıoğlu (LB), Merih Demiral (CB), Zeki Çelik (RB), Çağlar Söyüncü (RB)
+MID (3): Orkun Kökçü (CM), İsmail Yüksek (CDM), Hakan Çalhanoğlu (CAM)
+FWD (3): Kenan Yıldız (LW), Barış Alper Yılmaz (ST), Arda Güler (RW)
+
+=== Germany (4-2-3-1) ===
+GK: Alexander Nübel
+DEF (4): Malick Thiaw (LB), Jonathan Tah (LCB), Antonio Rüdiger (RCB), Nico Schlotterbeck (CB)
+MID (2): Jamal Musiala (CAM), Florian Wirtz (CAM)
+FWD (4): Nick Woltemade (RW), Kai Havertz (ST), Jamie Leweling (LW), Maximilian Beier (ST)
+
+=== Curaçao (4-3-3) ===
+GK: Eloy Room
+DEF (4): Armando Obispo (LB), Riechedly Bazoer (CB), Shurandy Sambo (CB), Deveron Fonville (RB)
+MID (3): Juninho Bacuna (CDM), Livano Comenencia (CDM), Tyrese Noslin (CM)
+FWD (3): Sontje Hansen (LW), Jeremy Antonisse (ST), Tahith Chong (RW)
+
+=== Côte d'Ivoire (4-3-3) ===
+GK: Yahia Fofana
+DEF (4): Ousmane Diomande (LB), Evan Ndicka (CB), Wilfried Singo (CB), Guéla Doué (RB)
+MID (3): Christ Inao Oulaï (CDM), Seko Fofana (CDM), Ibrahim Sangaré (CM)
+FWD (3): Amad Diallo (LW), Ange-Yoan Bonny (ST), Yan Diomande (RW)
+
+=== Ecuador (4-3-3) ===
+GK: Gonzalo Valle
+DEF (4): Joel Ordóñez (LB), Willian Pacho (CB), Pervis Estupiñán (LB), Ángelo Preciado (RB)
+MID (3): Moisés Caicedo (CDM), Gonzalo Plata (CDM), Kendry Páez (CAM)
+FWD (3): John Mercado (LW), Jordy Caicedo (ST), Jeremy Arévalo (RW)
+
+=== Netherlands (4-3-3) ===
+GK: Bart Verbruggen
+DEF (4): Micky van de Ven (LB), Nathan Aké (LCB), Stefan de Vrij (RCB), Jan Paul van Hecke (LB)
+MID (3): Ryan Gravenberch (CDM), Jerdy Schouten (CDM), Tijjani Reijnders (CM)
+FWD (3): Cody Gakpo (LW), Memphis Depay (ST), Donyell Malen (RW)
+
+=== Japan (4-2-3-1) ===
+GK: Zion Suzuki
+DEF (4): Hiroki Itō (LB), Shōgo Taniguchi (LCB), Kō Itakura (RCB), Takehiro Tomiyasu (RB)
+MID (2): Takefusa Kubo (RW), Kaishu Sano (CDM)
+FWD (4): Yuito Suzuki (RW), Ayase Ueda (ST), Daizen Maeda (ST), Keisuke Gotō (LW)
+
+=== Sweden (4-3-3) ===
+GK: Viktor Johansson
+DEF (4): Daniel Svensson (LB), Isak Hien (CB), Gabriel Gudmundsson (LB), Emil Holm (RB)
+MID (3): Lucas Bergvall (CDM), Mattias Svanberg (CDM), Yasin Ayari (CM)
+FWD (3): Anthony Elanga (LW), Alexander Isak (ST), Alexander Bernhardsson (RW)
+
+=== Tunisia (4-3-3) ===
+GK: Sabri Ben Hessen
+DEF (4): Montassar Talbi (LB), Adem Arous (CB), Ali Abdi (CB), Yan Valery (RB)
+MID (3): Hannibal Mejbri (CDM), Anis Ben Slimane (CDM), Ellyes Skhiri (CM)
+FWD (3): Elias Achouri (LW), Elias Saad (ST), Sebastian Tounekti (RW)
+
+=== Belgium (4-2-3-1) ===
+GK: Senne Lammens
+DEF (4): Koni De Winter (LB), Zeno Debast (CB), Maxim De Cuyper (CB), Joaquin Seys (RB)
+MID (2): Amadou Onana (CDM), Youri Tielemans (CM)
+FWD (4): Jérémy Doku (RW), Charles De Ketelaere (RW), Alexis Saelemaekers (LW), Diego Moreira (ST)
+
+=== Egypt (4-3-3) ===
+GK: Mohamed Alaa
+DEF (4): Mohamed Salah (LB), Hossam Abdelmaguid (CB), Mohamed Hany (CB), Karim Hafez (RB)
+MID (3): Trézéguet (CDM), Mohanad Lasheen (CDM), Haissem Hassan (CM)
+FWD (3): Hamza Abdelkarim (LW), Aqtay Abdallah (ST), Omar Marmoush (RW)
+
+=== IR Iran (4-3-3) ===
+GK: Alireza Beiranvand
+DEF (4): Danial Eiri (LB), Milad Mohammadi (CB), Saleh Hardani (CB), Ali Nemati (RB)
+MID (3): Mohammad Mohebi (CDM), Amirmohammad Razzaghinia (CDM), Mohammad Ghorbani (CM)
+FWD (3): Mehdi Taremi (LW), Amirhossein Hosseinzadeh (ST), Mehdi Ghayedi (RW)
+
+=== New Zealand (4-3-3) ===
+GK: Max Crocombe
+DEF (4): Liberato Cacace (LB), Finn Surman (CB), Tyler Bindon (CB), Francis de Vries (RB)
+MID (3): Joe Bell (CDM), Alex Rufer (CDM), Marko Stamenić (CM)
+FWD (3): Callum McCowatt (LW), Ben Old (ST), Chris Wood (RW)
+
+=== Spain (4-3-3) ===
+GK: Joan Garcia
+DEF (4): Marc Cucurella (LB), Aymeric Laporte (LCB), Pau Cubarsí (CB), Marc Pubill (RB)
+MID (3): Pedri (CM), Álex Baena (CDM), Dani Olmo (CAM)
+FWD (3): Mikel Oyarzabal (LW), Borja Iglesias (ST), Lamine Yamal (RW)
+
+=== Cabo Verde (4-3-3) ===
+GK: Márcio Rosa
+DEF (4): Logan Costa (LB), Wagner Pina (CB), Sidny Lopes Cabral (CB), Steven Moreira (RB)
+MID (3): Telmo Arcanjo (CDM), Jamiro Monteiro (CDM), Deroy Duarte (CM)
+FWD (3): Willy Semedo (LW), Benchimol (ST), Hélio Varela (RW)
+
+=== Saudi Arabia (4-3-3) ===
+GK: Nawaf Al-Aqidi
+DEF (4): Saud Abdulhamid (LB), Nawaf Boushal (CB), Ali Majrashi (CB), Abdulelah Al-Amri (RB)
+MID (3): Musab Al-Juwayr (CDM), Marwan Al-Sahafi (CDM), Murad Hawsawi (CM)
+FWD (3): Saleh Al-Shehri (LW), Abdullah Al-Hamdan (ST), Firas Al-Buraikan (RW)
+
+=== Uruguay (4-2-3-1) ===
+GK: Santiago Mele
+DEF (4): Joaquín Piquerez (LB), José María Giménez (LCB), Ronald Araújo (RCB), Guillermo Varela (RB)
+MID (2): Federico Valverde (CM), Manuel Ugarte (CDM)
+FWD (4): Darwin Núñez (ST), Facundo Torres (RW), Brian Rodríguez (CDM), Agustín Canobbio (LW)
+
+=== France (4-2-3-1) ===
+GK: Mike Maignan
+DEF (4): Maxence Lacroix (LB), William Saliba (LCB), Dayot Upamecano (RCB), Jules Koundé (RB)
+MID (2): Aurélien Tchouaméni (CDM), Warren Zaïre-Emery (CDM)
+FWD (4): Kylian Mbappé (ST), Michael Olise (RW), Ousmane Dembélé (RW), Désiré Doué (LW)
+
+=== Senegal (4-3-3) ===
+GK: Yehvann Diouf
+DEF (4): El Hadji Malick Diouf (LB), Mamadou Sarr (CB), Moussa Niakhaté (CB), Ismail Jakobs (RB)
+MID (3): Pape Gueye (CDM), Pape Matar Sarr (CDM), Lamine Camara (CM)
+FWD (3): Nicolas Jackson (LW), Ismaïla Sarr (ST), Iliman Ndiaye (RW)
+
+=== DR Congo (4-3-3) ===
+GK: Matthieu Epolo
+DEF (4): Aaron Wan-Bissaka (LB), Axel Tuanzebe (CB), Arthur Masuaku (CB), Chancel Mbemba (RB)
+MID (3): Noah Sadiki (CDM), Théo Bongonda (CDM), Ngal'ayel Mukau (CM)
+FWD (3): Simon Banza (LW), Fiston Mayele (ST), Yoane Wissa (RW)
+
+=== Norway (4-3-3) ===
+GK: Sander Tangvik
+DEF (4): David Møller Wolfe (LB), Julian Ryerson (RB), Kristoffer Vassbakk Ajer (CB), Fredrik Bjorkan (RB)
+MID (3): Antonio Nusa (CDM), Andreas Schjelderup (CDM), Oscar Bobb (CM)
+FWD (3): Jørgen Strand Larsen (RW), Erling Braut Haaland (ST), Alexander Sorloth (Atlético de Madrid/ESP).Sin confirmar (ST)
+
+=== Argentina (4-4-2) ===
+GK: Emiliano Martínez
+DEF (4): Cristian Romero (LB), Lisandro Martínez (CB), Valentín Barco (CB), Marcos Senesi (RB)
+MID (4): Enzo Fernández (CDM), Alexis Mac Allister (CM), Nico Paz (CAM), Exequiel Palacios (CDM)
+FWD (2): Julián Alvarez (RW), Lautaro Martínez (LW)
+
+=== Algeria (4-3-3) ===
+GK: Luca Zidane
+DEF (4): Rayan Aït-Nouri (LB), Rafik Belghali (LB), Ramy Bensebaini (CB), Zineddine Belaïd (RB)
+MID (3): Ibrahim Maza (CDM), Adil Aouchiche (CDM), Farès Chaïbi (CAM)
+FWD (3): Anis Hadj Moussa (LW), Amine Gouiri (ST), Mohamed Amoura (RW)
+
+=== Austria (4-3-3) ===
+GK: Alexander Schlager
+DEF (4): Marco Friedl (LB), Kevin Danso (CB), Philipp Lienhart (CB), Stefan Posch (RB)
+MID (3): Konrad Laimer (CM), Nicolas Seiwald (CDM), Christoph Baumgartner (CAM)
+FWD (3): Michael Gregoritsh (LW), Marko Arnautović (ST), Saša Kalajdžić (RW)
+
+=== Jordan (4-3-3) ===
+GK: Yazeed Abulaila
+DEF (4): Yazan Al-Arab (LB), Abdallah Nasib (CB), Saed Al-Rosan (CB), Husam Abu Dahab (RB)
+MID (3): Nizar Al-Rashdan (CDM), Mohannad Abu Taha (CDM), Amer Jamous (CM)
+FWD (3): Ibrahim Sabra (LW), Mahmoud Al-Mardi (ST), Ali Olwan (RW)
+
+=== Portugal (4-3-3) ===
+GK: Diogo Costa
+DEF (4): Nuno Mendes (LB), Rúben Dias (LCB), Gonçalo Inácio (CB), Diogo Dalot (RB)
+MID (3): João Neves (CDM), Rúben Neves (CDM), Vitinha (CM)
+FWD (3): Rafael Leão (LW), Gonçalo Ramos (ST), Pedro Neto (RW)
+
+=== Iraq (4-3-3) ===
+GK: Ahmed Basil
+DEF (4): Merchas Doski (LB), Zaid Tahseen (CB), Ahmed Yahya (CB), Frans Putros (RB)
+MID (3): Marko Farji (CDM), Ibrahim Bayesh (CDM), Aimar Sher (CM)
+FWD (3): Mohanad Ali (LW), Aymen Hussein (ST), Ali Al-Hamadi (RW)
+
+=== Uzbekistan (4-3-3) ===
+GK: Botirali Ergashev
+DEF (4): Abdukodir Khusanov (LB), Sherzod Nasrullaev (CB), Ibrokhimkhalil Yuldoshev (CB), Rustam Ashurmatov (RB)
+MID (3): Abbosbek Fayzullaev (CDM), Akmal Mozgovoy (CDM), Oston Urunov (CM)
+FWD (3): Igor Sergeev (LW), Sherzod Temirov (ST), Eldor Shomurodov (RW)
+
+=== Colombia (4-2-3-1) ===
+GK: Álvaro Montero
+DEF (4): Willer Ditta (LB), Jhon Lucumí (LCB), Davinson Sánchez (RCB), Daniel Muñoz (RB)
+MID (2): Richard Ríos (CM), Jhon Arias (RW)
+FWD (4): Luis Díaz (LW), Luis Suárez (ST), Jhon Córdoba (ST), Jaminton Campaz (RW)
+
+=== England (4-2-3-1) ===
+GK: Dean Henderson
+DEF (4): Reece James (LB), Marc Guéhi (LCB), John Stones (RCB), Djed Spence (RB)
+MID (2): Jude Bellingham (CAM), Declan Rice (CDM)
+FWD (4): Bukayo Saka (RW), Harry Kane (ST), Anthony Gordon (RW), Noni Madueke (LW)
+
+=== Croatia (4-3-3) ===
+GK: Dominik Kotarski
+DEF (4): Joško Gvardiol (LB), Marin Pongračić (LCB), Josip Šutalo (RCB), Josip Stanišić (RB)
+MID (3): Petar Sučić (CDM), Nikola Vlašić (CDM), Martin Baturina (CM)
+FWD (3): Petar Musa (LW), Marco Pašalić (ST), Igor Matanović (RW)
+
+=== Ghana (4-3-3) ===
+GK: Benjamin Asare
+DEF (4): Manu Duah (LB), Ebenezer Annan (CB), Razak Simpson (CB)
+MID (3): Augustine Boakye (CDM), Jesurun Rak-Sakyi (CM), Majeed Ashimeru (CAM)
+FWD (3): Felix Afena-Gyan (LW), Dan Agyei (ST), Francis Amuzu (RW)
+
+=== Panama (4-3-3) ===
+GK: Orlando Mosquera
+DEF (4): Amir Murillo (LB), José Córdoba (CB), César Blackman (CB), Andrés Andrade (RB)
+MID (3): Adalberto Carrasquilla (CDM), José Luis Rodríguez (CDM), Cristian Martínez (CM)
+FWD (3): Kadir Barría (LW), José Fajardo (ST), Ismael Díaz (RW)
