@@ -38,22 +38,9 @@ export function openPlayerProfile(teamCode, playerId) {
   }
   
   if (clubName && clubName !== 'Agente Libre') {
-    clubIconContainer.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color:#666"></i>';
+    const initial = clubName.charAt(0).toUpperCase();
+    clubIconContainer.innerHTML = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-weight:bold; color:white; background:linear-gradient(135deg, var(--fifa-blue), var(--accent-cyan)); font-size:1.2rem;">${initial}</div>`;
     clubIconContainer.style.background = 'transparent';
-    fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(clubName)}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.teams && data.teams[0] && data.teams[0].strBadge) {
-           clubIconContainer.innerHTML = `<img src="${data.teams[0].strBadge}/preview" style="width: 100%; height: 100%; object-fit: contain;">`;
-        } else {
-           clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
-           clubIconContainer.style.background = '#e0e0e0';
-        }
-      })
-      .catch(() => {
-        clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
-        clubIconContainer.style.background = '#e0e0e0';
-      });
   } else {
     clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
     clubIconContainer.style.background = '#e0e0e0';

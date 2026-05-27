@@ -339,24 +339,37 @@ function renderLineup(team) {
 
       // Funciones de ayuda para encajar jugadores en sus roles
       const pickBestForRoles = (pool, roles, count) => {
-          let selected = [];
+          let selected = new Array(roles.length).fill(null);
           let remainingPool = [...pool];
-          roles.forEach(role => {
+          
+          // Pass 1: Exact matches
+          roles.forEach((role, i) => {
               let matchIdx = remainingPool.findIndex(p => p.exact_position === role);
               if (matchIdx >= 0) {
-                  selected.push(remainingPool.splice(matchIdx, 1)[0]);
-              } else {
-                  // Partial match (e.g. LCB matches CB or LB)
+                  selected[i] = remainingPool.splice(matchIdx, 1)[0];
+              }
+          });
+          
+          // Pass 2: Partial matches
+          roles.forEach((role, i) => {
+              if (!selected[i]) {
                   let fallbackIdx = remainingPool.findIndex(p => (p.exact_position||'').includes(role.replace('B','').replace('M','').replace('W','')) || (p.exact_position||'').endsWith(role.slice(-1)));
                   if (fallbackIdx >= 0) {
-                      selected.push(remainingPool.splice(fallbackIdx, 1)[0]);
-                  } else {
-                     if(remainingPool.length > 0) selected.push(remainingPool.shift());
+                      selected[i] = remainingPool.splice(fallbackIdx, 1)[0];
                   }
               }
           });
-          while(selected.length < count && remainingPool.length > 0) selected.push(remainingPool.shift());
-          return selected;
+          
+          // Pass 3: Fill empty slots with highest value players
+          roles.forEach((role, i) => {
+              if (!selected[i] && remainingPool.length > 0) {
+                  selected[i] = remainingPool.shift();
+              }
+          });
+          
+          let finalSelected = selected.filter(Boolean);
+          while(finalSelected.length < count && remainingPool.length > 0) finalSelected.push(remainingPool.shift());
+          return finalSelected;
       };
 
       const DEF_ROLES = { 3: ['LCB', 'CB', 'RCB'], 4: ['LB', 'LCB', 'RCB', 'RB'], 5: ['LWB', 'LCB', 'CB', 'RCB', 'RWB'] };
