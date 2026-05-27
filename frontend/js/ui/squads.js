@@ -360,8 +360,8 @@ function renderLineup(team) {
       };
 
       const DEF_ROLES = { 3: ['LCB', 'CB', 'RCB'], 4: ['LB', 'LCB', 'RCB', 'RB'], 5: ['LWB', 'LCB', 'CB', 'RCB', 'RWB'] };
-      const MID_ROLES = { 3: ['LCM', 'CDM', 'RCM'], 4: ['LM', 'LCM', 'RCM', 'RM'], 5: ['LM', 'LCM', 'CDM', 'RCM', 'RM'] };
-      const FWD_ROLES = { 1: ['ST'], 2: ['LS', 'RS'], 3: ['LW', 'ST', 'RW'] };
+      const MID_ROLES = { 2: ['CDM', 'CM'], 3: ['LCM', 'CDM', 'RCM'], 4: ['LM', 'LCM', 'RCM', 'RM'], 5: ['LM', 'LCM', 'CDM', 'RCM', 'RM'] };
+      const FWD_ROLES = { 1: ['ST'], 2: ['LS', 'RS'], 3: ['LW', 'ST', 'RW'], 4: ['LW', 'CAM', 'RW', 'ST'] };
 
       startingPlayers = [];
       startingPlayers.push(...byPos['GK'].slice(0, 1));   // 1 arquero

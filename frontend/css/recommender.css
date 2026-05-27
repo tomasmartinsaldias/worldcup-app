@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #1a0b2e; /* WC26 Deep Purple */
+    --meter-bg: #2a1b3d;
+    --accent-cyan: #00e5ff;
+    --accent-green: #39ff14;
+    --accent-pink: #ff007f;
+    --accent-yellow: #fce803;
+    --text-light: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    overflow: hidden; /* Prevent scrolling during swipe */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    pointer-events: none;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.back-btn {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* Meters */
+.meters-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    z-index: 10;
+    background: rgba(26, 11, 46, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.meter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22%;
+}
+
+.meter-icon { font-size: 1.5rem; margin-bottom: 5px; }
+.meter-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 5px;}
+
+.meter-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: var(--meter-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-bar {
+    height: 100%;
+    background: var(--accent-yellow);
+    border-radius: 4px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Cards Deck */
+.deck-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    perspective: 1000px;
+}
+
+.swipe-card {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    background: linear-gradient(135deg, #2a1b3d 0%, #3e1f5e 100%);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(0, 229, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transform-origin: 50% 100%;
+    cursor: grab;
+    user-select: none;
+    /* Entry Float Animation */
+    animation: floatEntry 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.swipe-card:active {
+    cursor: grabbing;
+}
+
+@keyframes floatEntry {
+    0% { transform: translateY(100vh) scale(0.8) rotate(5deg); opacity: 0; }
+    100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    text-shadow: 2px 2px 0px var(--accent-pink);
+}
+
+.card-desc {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.card-indicator {
+    position: absolute;
+    top: 30px;
+    font-size: 2rem;
+    font-weight: 900;
+    opacity: 0;
+    text-transform: uppercase;
+    border: 4px solid;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.indicator-like {
+    right: 30px;
+    color: var(--accent-green);
+    border-color: var(--accent-green);
+    transform: rotate(15deg);
+}
+.indicator-nope {
+    left: 30px;
+    color: var(--accent-pink);
+    border-color: var(--accent-pink);
+    transform: rotate(-15deg);
+}
+
+/* Glitch Effect Screen */
+#match-found-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#match-found-screen.hidden {
+    display: none;
+}
+
+.glitch-wrapper {
+    text-align: center;
+}
+
+.glitch {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+    color: white;
+    text-shadow: 0.05em 0 0 var(--accent-cyan), -0.025em -0.05em 0 var(--accent-pink),
+                 0.025em 0.05em 0 var(--accent-yellow);
+    animation: glitch 1s infinite;
+}
+
+.glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 0.05em 0 0 var(--accent-cyan), -0.05em -0.025em 0 var(--accent-pink),
+                     -0.025em 0.05em 0 var(--accent-yellow); }
+    14% { text-shadow: 0.05em 0 0 var(--accent-cyan), -0.05em -0.025em 0 var(--accent-pink),
+                     -0.025em 0.05em 0 var(--accent-yellow); }
+    15% { text-shadow: -0.05em -0.025em 0 var(--accent-cyan), 0.025em 0.025em 0 var(--accent-pink),
+                     -0.05em -0.05em 0 var(--accent-yellow); }
+    49% { text-shadow: -0.05em -0.025em 0 var(--accent-cyan), 0.025em 0.025em 0 var(--accent-pink),
+                     -0.05em -0.05em 0 var(--accent-yellow); }
+    50% { text-shadow: 0.025em 0.05em 0 var(--accent-cyan), 0.05em 0 0 var(--accent-pink),
+                     0 -0.05em 0 var(--accent-yellow); }
+    99% { text-shadow: 0.025em 0.05em 0 var(--accent-cyan), 0.05em 0 0 var(--accent-pink),
+                     0 -0.05em 0 var(--accent-yellow); }
+    100% { text-shadow: -0.025em 0 0 var(--accent-cyan), -0.025em -0.025em 0 var(--accent-pink),
+                     -0.025em -0.05em 0 var(--accent-yellow); }
+}
+
+.btn-primary {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: var(--accent-pink);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--accent-pink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--accent-pink);
+}
+
+#match-found-details {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: var(--accent-yellow);
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Match Recommender - World Cup 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/recommender.css">
+</head>
+<body>
+    <div id="background-overlay"></div>
+
+    <nav class="top-nav">
+        <a href="index.html" class="back-btn">&larr; Volver</a>
+        <h1 class="glitch-text" data-text="SWIPE MATCH">SWIPE MATCH</h1>
+    </nav>
+
+    <!-- UI: Meters -->
+    <div class="meters-container">
+        <div class="meter-box">
+            <div class="meter-icon">🔥</div>
+            <div class="meter-label">Hype</div>
+            <div class="meter-bar-bg"><div class="meter-bar" id="bar-hype" style="width: 50%"></div></div>
+        </div>
+        <div class="meter-box">
+            <div class="meter-icon">🧠</div>
+            <div class="meter-label">Táctica</div>
+            <div class="meter-bar-bg"><div class="meter-bar" id="bar-tactica" style="width: 50%"></div></div>
+        </div>
+        <div class="meter-box">
+            <div class="meter-icon">🎭</div>
+            <div class="meter-label">Sorpresa</div>
+            <div class="meter-bar-bg"><div class="meter-bar" id="bar-sorpresa" style="width: 50%"></div></div>
+        </div>
+        <div class="meter-box">
+            <div class="meter-icon">🛋️</div>
+            <div class="meter-label">Confort</div>
+            <div class="meter-bar-bg"><div class="meter-bar" id="bar-logistica" style="width: 50%"></div></div>
+        </div>
+    </div>
+
+    <!-- UI: Cards Deck -->
+    <div class="deck-container" id="deck">
+        <!-- Cards will be injected by JS -->
+    </div>
+
+    <!-- UI: Glitch Screen (Match Found) -->
+    <div id="match-found-screen" class="hidden">
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-glitch="MATCH ENCONTRADO">MATCH ENCONTRADO</h1>
+            <p id="match-found-details"></p>
+            <button class="btn-primary" onclick="location.reload()">Reset</button>
+        </div>
+    </div>
+
+    <script src="js/recommender.js"></script>
+</body>
+</html>
