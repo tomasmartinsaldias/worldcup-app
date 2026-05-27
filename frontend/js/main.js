@@ -90,11 +90,23 @@ async function loadData() {
   </div>`;
   
   try {
-    const response = await fetch('../data/wc2026_data.json?t=' + new Date().getTime());
+    const [response, logosRes] = await Promise.all([
+      fetch('../data/wc2026_data.json?t=' + new Date().getTime()),
+      fetch('data/club_logos.json?t=' + new Date().getTime())
+    ]);
+    
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+    
     state.appData = await response.json();
+    try {
+      state.appData.clubLogos = await logosRes.json();
+    } catch(e) {
+      console.warn("Could not parse club logos", e);
+      state.appData.clubLogos = {};
+    }
+    
     populateTeamPreference();
     
     state.appData.matches.forEach(m => {
