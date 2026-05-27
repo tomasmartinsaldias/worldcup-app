@@ -58,8 +58,8 @@ def infer_lineup(team_data, team_code=""):
         nFwd = formParts[3]
         
     gk = [p for p in valid_players if p.get('position') and 'portero' in p.get('position').lower()][:1]
-    defenders = [p for p in valid_players if p.get('position') and 'defensa' in p.get('position').lower()][:nDef]
-    mids = [p for p in valid_players if p.get('position') and ('centro' in p.get('position').lower() or 'medio' in p.get('position').lower())][:nMid]
+    defenders = [p for p in valid_players if p.get('position') and 'defensa' in p.get('position').lower() and 'centrocampista' not in p.get('position').lower()][:nDef]
+    mids = [p for p in valid_players if p.get('position') and ('centrocampista' in p.get('position').lower() or 'medio' in p.get('position').lower() or 'volante' in p.get('position').lower())][:nMid]
     fwds = [p for p in valid_players if p.get('position') and 'delantero' in p.get('position').lower()][:nFwd]
     
     starting_xi = [p['name'] for p in gk + defenders + mids + fwds]
