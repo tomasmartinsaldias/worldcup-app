@@ -242,76 +242,83 @@ function renderLineup(team) {
     return;
   }
 
+  // Formaciones preferidas conocidas por selección (basadas en historial reciente)
+  const KNOWN_FORMATIONS = {
+    'ARG': '4-4-2', 'BRA': '4-2-3-1', 'FRA': '4-3-3', 'ENG': '4-3-3',
+    'ESP': '4-3-3', 'GER': '4-2-3-1', 'POR': '4-3-3', 'ITA': '4-3-3',
+    'NED': '4-3-3', 'BEL': '4-3-3', 'URU': '4-4-2', 'COL': '4-2-3-1',
+    'MEX': '4-3-3', 'USA': '4-3-3', 'CAN': '4-2-3-1', 'JAP': '4-2-3-1',
+    'MAR': '4-1-4-1', 'SEN': '4-3-3', 'NGA': '4-3-3', 'EGY': '4-2-3-1',
+    'AUS': '4-3-3', 'KOR': '4-2-3-1', 'CRO': '4-3-3', 'SUI': '3-4-3',
+    'DEN': '4-3-3', 'SWE': '4-4-2', 'POL': '4-2-3-1', 'SRB': '3-4-3',
+    'ECU': '4-3-3', 'VEN': '4-3-3', 'BOL': '4-4-2', 'PAR': '4-3-3',
+    'PER': '4-3-3', 'CHI': '4-3-3',
+  };
+
+  // Helper: categoriza la posición de un jugador
+  const getPosCategory = (p) => {
+     let pos = (p.position || '').toLowerCase();
+     if(pos.includes('portero') || pos.includes('arquero') || pos.includes('goalkeeper')) return 'GK';
+     if(pos.includes('delantero') || pos.includes('extremo') || pos.includes('atacante') || pos.includes('forward') || pos.includes('winger')) return 'FWD';
+     if(pos.includes('centrocampista') || pos.includes('medio') || pos.includes('volante') || pos.includes('pivote') || pos.includes('midfielder')) return 'MID';
+     if(pos.includes('defensa') || pos.includes('lateral') || pos.includes('central') || pos.includes('carrilero') || pos.includes('defender')) return 'DEF';
+     return 'MID'; // fallback
+  };
+
+  const getPosOrder = (cat) => {
+     if(cat === 'GK') return 1; if(cat === 'DEF') return 2;
+     if(cat === 'MID') return 3; if(cat === 'FWD') return 4;
+     return 5;
+  };
+
   const lineup = team.last_known_lineup;
-  let formationStr = lineup ? lineup.formation : "4-3-3";
   let startingNames = lineup ? lineup.starting_xi : [];
-  
-  // Find full player objects from startingNames
   let startingPlayers = [];
+
+  // Si hay alineación oficial, usarla
   if (startingNames.length > 0) {
       startingNames.forEach(name => {
           const p = team.squad.find(s => s.name === name);
           if (p) startingPlayers.push(p);
       });
   }
-  
-  // Fallback if players missing or not 11
+
+  // --- FALLBACK: elegir 11 jugadores respetando la formación preferida del equipo ---
   if (startingPlayers.length < 11) {
-      // Find a goalkeeper if we don't have one
-      const getPosCat = (p) => {
-         let pos = (p.position || '').toLowerCase();
-         if(pos.includes('portero') || pos.includes('arquero')) return 'GK';
-         return 'OUTFIELD';
-      };
-      
-      let hasGk = startingPlayers.some(p => getPosCat(p) === 'GK');
-      let availableGks = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p) && getPosCat(p) === 'GK');
-      let availableOutfield = [...team.squad].filter(p => !p.is_injured && !startingPlayers.includes(p) && getPosCat(p) !== 'GK');
-      
-      availableGks.sort((a, b) => (b.market_value_eur || 0) - (a.market_value_eur || 0));
-      availableOutfield.sort((a, b) => (b.market_value_eur || 0) - (a.market_value_eur || 0));
-      
-      if (!hasGk && availableGks.length > 0) {
-          startingPlayers.push(availableGks[0]);
+      const fifa_code = team.fifa_code || '';
+      const preferredFormation = KNOWN_FORMATIONS[fifa_code] || '4-3-3';
+      const formSlots = preferredFormation.split('-').map(Number); // ej: [4,4,2]
+      const needDef = formSlots[0] || 4;
+      const needMid = formSlots[1] || 3;
+      const needFwd = formSlots.slice(2).reduce((a,b)=>a+b, 0) || 3;
+
+      // Separar plantel disponible por posición, ordenado por valor de mercado
+      const available = [...team.squad].filter(p => !p.is_injured);
+      const byPos = { GK: [], DEF: [], MID: [], FWD: [] };
+      available.forEach(p => { const cat = getPosCategory(p); if(byPos[cat]) byPos[cat].push(p); });
+      Object.values(byPos).forEach(arr => arr.sort((a,b) => (b.market_value_eur||0)-(a.market_value_eur||0)));
+
+      startingPlayers = [];
+      startingPlayers.push(...byPos['GK'].slice(0, 1));   // 1 arquero
+      startingPlayers.push(...byPos['DEF'].slice(0, needDef));
+      startingPlayers.push(...byPos['MID'].slice(0, needMid));
+      startingPlayers.push(...byPos['FWD'].slice(0, needFwd));
+
+      // Si alguna posición no tiene suficientes jugadores, completar con lo que haya
+      if (startingPlayers.length < 11) {
+          const used = new Set(startingPlayers.map(p => p.name));
+          const extra = available.filter(p => !used.has(p.name))
+                                 .sort((a,b) => (b.market_value_eur||0)-(a.market_value_eur||0));
+          while (startingPlayers.length < 11 && extra.length > 0) startingPlayers.push(extra.shift());
       }
-      
-      while (startingPlayers.length < 11 && availableOutfield.length > 0) {
-          startingPlayers.push(availableOutfield.shift());
-      }
+
+      // La formación string viene de la preferida
+      var formationStr = preferredFormation;
+  } else {
+      var formationStr = lineup ? lineup.formation : '4-3-3';
   }
-
-  // Asegurarnos de que los jugadores estén ordenados tácticamente: Portero -> Defensas -> Medios -> Delanteros
-  const getPosCategory = (p) => {
-     let pos = (p.position || '').toLowerCase();
-     if(pos.includes('portero') || pos.includes('arquero')) return 'GK';
-     if(pos.includes('delantero') || pos.includes('extremo') || pos.includes('atacante')) return 'FWD';
-     if(pos.includes('centro') || pos.includes('medio') || pos.includes('volante') || pos.includes('pivote')) return 'MID';
-     if(pos.includes('defensa') || pos.includes('lateral') || pos.includes('central') || pos.includes('carrilero')) return 'DEF';
-     return 'MID'; // fallback
-  };
-
-  const getPosOrder = (cat) => {
-     if(cat === 'GK') return 1;
-     if(cat === 'DEF') return 2;
-     if(cat === 'MID') return 3;
-     if(cat === 'FWD') return 4;
-     return 5;
-  };
 
   startingPlayers.sort((a,b) => getPosOrder(getPosCategory(a)) - getPosOrder(getPosCategory(b)));
-
-  // Calcular la formación de forma automática basándose en las posiciones reales de los 11 jugadores
-  if (!lineup || !lineup.formation) {
-      let defs = 0, mids = 0, fwds = 0;
-      // Skip the first player (Index 0 is always the GK after sorting)
-      for (let i = 1; i < startingPlayers.length; i++) {
-          let cat = getPosCategory(startingPlayers[i]);
-          if (cat === 'DEF') defs++;
-          if (cat === 'MID') mids++;
-          if (cat === 'FWD') fwds++;
-      }
-      formationStr = `${defs}-${mids}-${fwds}`;
-  }
 
   let formParts = formationStr.split('-').map(Number);
   if (formParts.length < 3 || formParts.some(isNaN)) {
