@@ -264,15 +264,41 @@ function renderLineup(team) {
   }
 
   // Asegurarnos de que los jugadores estén ordenados tácticamente: Portero -> Defensas -> Medios -> Delanteros
-  const getPosOrder = (p) => {
+  const getPosCategory = (p) => {
      let pos = (p.position || '').toLowerCase();
-     if(pos.includes('portero')) return 1;
-     if(pos.includes('defensa')) return 2;
-     if(pos.includes('centro') || pos.includes('medio')) return 3;
-     if(pos.includes('delantero')) return 4;
+     if(pos.includes('portero') || pos.includes('arquero')) return 'GK';
+     if(pos.includes('delantero') || pos.includes('extremo') || pos.includes('atacante')) return 'FWD';
+     if(pos.includes('centro') || pos.includes('medio') || pos.includes('volante') || pos.includes('pivote')) return 'MID';
+     if(pos.includes('defensa') || pos.includes('lateral') || pos.includes('central') || pos.includes('carrilero')) return 'DEF';
+     return 'MID'; // fallback
+  };
+
+  const getPosOrder = (cat) => {
+     if(cat === 'GK') return 1;
+     if(cat === 'DEF') return 2;
+     if(cat === 'MID') return 3;
+     if(cat === 'FWD') return 4;
      return 5;
   };
-  startingPlayers.sort((a,b) => getPosOrder(a) - getPosOrder(b));
+
+  startingPlayers.sort((a,b) => getPosOrder(getPosCategory(a)) - getPosOrder(getPosCategory(b)));
+
+  // Calcular la formación de forma automática basándose en las posiciones reales de los 11 jugadores
+  if (!lineup || !lineup.formation) {
+      let defs = 0, mids = 0, fwds = 0;
+      startingPlayers.forEach(p => {
+          let cat = getPosCategory(p);
+          if (cat === 'DEF') defs++;
+          if (cat === 'MID') mids++;
+          if (cat === 'FWD') fwds++;
+      });
+      // Fallback a 4-3-3 si hubo un problema al contar (ej. menos de 10 jugadores de campo)
+      if (defs + mids + fwds === 10) {
+          formationStr = `${defs}-${mids}-${fwds}`;
+      } else {
+          formationStr = "4-3-3";
+      }
+  }
 
   let formParts = formationStr.split('-').map(Number);
   if (formParts.length < 3 || formParts.some(isNaN)) {
