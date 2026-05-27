@@ -1,11 +1,11 @@
-import { state } from './state.js';
-import { calculateSmartScore } from './recommender.js?v=2';
-import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=2';
-import { renderGroups } from './ui/groups.js?v=2';
-import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js?v=2';
-import { renderUnresolved } from './ui/unresolved.js?v=2';
-import { closeModal } from './ui/modal.js';
-import { openPlayerProfile } from './ui/player_profile.js';
+import { state } from './state.js?v=4';
+import { calculateSmartScore } from './recommender.js?v=4';
+import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=4';
+import { renderGroups } from './ui/groups.js?v=4';
+import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js?v=4';
+import { renderUnresolved } from './ui/unresolved.js?v=4';
+import { closeModal } from './ui/modal.js?v=4';
+import { openPlayerProfile } from './ui/player_profile.js?v=4';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
