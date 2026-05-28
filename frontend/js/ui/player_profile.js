@@ -90,7 +90,11 @@ export function openPlayerProfile(teamCode, playerId) {
     } else if (pos.includes('defensa') || pos.includes('defender')) {
       performance = (progC90 * 0.2) + (progP90 * 0.2) + (sca90 * 0.3);
     } else if (pos.includes('portero') || pos.includes('goalkeeper')) {
-      performance = player.efficiency_score !== null ? (player.efficiency_score * 3) : 0.5;
+      // Goalkeepers use market value and caps as a proxy for form/quality if efficiency is missing or 0
+      let gkBase = 1.0;
+      if (player.market_value_eur) gkBase += Math.min(player.market_value_eur / 20.0, 1.5);
+      if (player.caps) gkBase += Math.min(player.caps / 50.0, 1.0);
+      performance = player.efficiency_score ? (player.efficiency_score * 3) : gkBase;
     } else {
       performance = (xG90 * 0.5) + (sca90 * 0.2) + (progP90 * 0.1);
     }
@@ -116,13 +120,6 @@ export function openPlayerProfile(teamCode, playerId) {
   } else {
     ratingBox.style.color = '#facc15'; // Yellow text
   }
-  // Advanced stats (FBref)
-  document.getElementById('player-modal-xg').textContent = player.xG_intl !== null && player.xG_intl !== undefined ? player.xG_intl.toFixed(2) : 'N/A';
-  document.getElementById('player-modal-sca').textContent = player.sca_intl !== null && player.sca_intl !== undefined ? player.sca_intl : 'N/A';
-  document.getElementById('player-modal-gca').textContent = player.gca_intl !== null && player.gca_intl !== undefined ? player.gca_intl : 'N/A';
-  document.getElementById('player-modal-prog-passes').textContent = player.progressive_passes_intl !== null && player.progressive_passes_intl !== undefined ? player.progressive_passes_intl : 'N/A';
-  document.getElementById('player-modal-prog-carries').textContent = player.progressive_carries_intl !== null && player.progressive_carries_intl !== undefined ? player.progressive_carries_intl : 'N/A';
-  document.getElementById('player-modal-minutes').textContent = player.minutes_recent !== null && player.minutes_recent !== undefined ? player.minutes_recent : 'N/A';
 }
 
 export function closePlayerProfile() {
