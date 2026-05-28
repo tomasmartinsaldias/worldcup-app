@@ -69,19 +69,6 @@ export function openPlayerProfile(teamCode, playerId) {
   document.getElementById('player-modal-caps-val').textContent = player.caps !== null ? player.caps : '-';
   document.getElementById('player-modal-goals-val').textContent = player.goals !== null ? player.goals : '-';
 
-  // Dynamic Form Rating
-  let ratingVal = calculateFormRating(player);
-  let ratingStr = ratingVal.toFixed(1);
-  const ratingBox = document.getElementById('player-modal-rating-val');
-  ratingBox.textContent = ratingStr;
-  
-  if (ratingVal >= 7.0) {
-    ratingBox.style.color = '#4ade80'; // Green text
-  } else if (ratingVal < 6.0) {
-    ratingBox.style.color = '#f87171'; // Red text
-  } else {
-    ratingBox.style.color = '#facc15'; // Yellow text
-  }
 }
 
 export function closePlayerProfile() {

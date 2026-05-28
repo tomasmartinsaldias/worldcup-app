@@ -439,13 +439,7 @@ function renderLineup(team) {
   const createPlayerHTML = (p, num) => {
     if (!p) return '';
     const lastName = p.name.split(' ').pop();
-    let ratingVal = calculateFormRating(p); 
-    let rating = ratingVal.toFixed(1);
     
-    let ratingClass = 'rating-yellow';
-    if (ratingVal >= 7.0) ratingClass = 'rating-green';
-    else if (ratingVal < 6.0) ratingClass = 'rating-red';
-
     const parts = p.name.split(' ');
     const initials = parts.length > 1 ? parts[0][0] + parts[parts.length-1][0] : parts[0].substring(0, 2);
     
@@ -453,7 +447,6 @@ function renderLineup(team) {
       <div class="sofascore-player" title="${p.name} - ${p.club}" onclick="window.openPlayerProfile('${team.fifa_code}', ${p.id})">
         <div class="sofa-photo-circle">
           <span>${initials.toUpperCase()}</span>
-          <div class="sofa-rating-badge ${ratingClass}">${rating}</div>
         </div>
         <div class="sofa-player-name">
           <span class="sofa-player-num">${num}</span> ${lastName}
