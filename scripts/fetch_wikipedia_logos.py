@@ -35,16 +35,25 @@ def fetch_logos():
             res_json = json.loads(resp)
             
             pages = res_json.get('query', {}).get('pages', {})
-            # Wikipedia might have resolved redirects. We need to map normalized titles back to original if needed.
-            # But the simplest way is to match the fetched title (or just map what we get)
+            normalized = {n['to']: n['from'] for n in res_json.get('query', {}).get('normalized', [])}
+            redirects = {r['to']: r['from'] for r in res_json.get('query', {}).get('redirects', [])}
             
             for page_id, page_info in pages.items():
                 title = page_info.get('title')
                 thumbnail = page_info.get('thumbnail')
                 if title and thumbnail:
-                    # Store exact title match and lowercased
+                    # Trace back the title through redirects and normalized
+                    original = title
+                    if title in redirects:
+                        original = redirects[title]
+                    if original in normalized:
+                        original = normalized[original]
+                        
+                    # Store exact title match, original requested name, and lowercased
                     logos[title] = thumbnail['source']
                     logos[title.lower()] = thumbnail['source']
+                    logos[original] = thumbnail['source']
+                    logos[original.lower()] = thumbnail['source']
             
             print(f"Processed batch {i//batch_size + 1}")
             time.sleep(0.1) # Respect API limits
