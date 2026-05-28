@@ -42,3 +42,42 @@ export function calculateSmartScore(match, teams) {
   finalScore = Math.min(Math.max(finalScore, 1.0), 10.0);
   return parseFloat(finalScore.toFixed(1));
 }
+
+export function calculateFormRating(player) {
+  let ratingVal = 6.5; // default fallback
+  
+  if (player.minutes_recent && player.minutes_recent > 0) {
+    const p90 = 90.0 / player.minutes_recent;
+    const xG90 = (player.xG_intl || 0) * p90;
+    const sca90 = (player.sca_intl || 0) * p90;
+    const gca90 = (player.gca_intl || 0) * p90;
+    const progP90 = (player.progressive_passes_intl || 0) * p90;
+    const progC90 = (player.progressive_carries_intl || 0) * p90;
+    
+    let baseScore = 6.0;
+    let performance = 0;
+    
+    const pos = (player.position || '').toLowerCase();
+    if (pos.includes('delantero') || pos.includes('forward') || pos.includes('atacante')) {
+      performance = (xG90 * 2.0) + (gca90 * 1.5) + (sca90 * 0.2);
+    } else if (pos.includes('centrocampista') || pos.includes('midfielder')) {
+      performance = (sca90 * 0.4) + (progP90 * 0.15) + (gca90 * 1.0) + (progC90 * 0.1);
+    } else if (pos.includes('defensa') || pos.includes('defender')) {
+      performance = (progC90 * 0.2) + (progP90 * 0.2) + (sca90 * 0.3);
+    } else if (pos.includes('portero') || pos.includes('goalkeeper')) {
+      let gkBase = 1.0;
+      if (player.market_value_eur) gkBase += Math.min(player.market_value_eur / 20.0, 1.5);
+      if (player.caps) gkBase += Math.min(player.caps / 50.0, 1.0);
+      performance = player.efficiency_score ? (player.efficiency_score * 3) : gkBase;
+    } else {
+      performance = (xG90 * 0.5) + (sca90 * 0.2) + (progP90 * 0.1);
+    }
+    
+    const effBonus = player.efficiency_score !== null ? (player.efficiency_score * 1.5) : 0;
+    ratingVal = baseScore + performance + effBonus;
+  } else if (player.efficiency_score !== null) {
+    ratingVal = player.efficiency_score * 4 + 5.5;
+  }
+
+  return Math.min(Math.max(ratingVal, 5.0), 9.9);
+}

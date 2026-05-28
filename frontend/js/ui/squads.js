@@ -1,4 +1,5 @@
 import { state } from '../state.js';
+import { calculateSmartScore, calculateFormRating } from '../scoring.js';
 import { createFlagElement } from '../utils.js';
 
 // 3. Render Countries / Squads Selection Tab
@@ -438,7 +439,7 @@ function renderLineup(team) {
   const createPlayerHTML = (p, num) => {
     if (!p) return '';
     const lastName = p.name.split(' ').pop();
-    let ratingVal = p.efficiency_score !== null ? (p.efficiency_score * 4 + 5.5) : 6.5; 
+    let ratingVal = calculateFormRating(p); 
     let rating = ratingVal.toFixed(1);
     
     let ratingClass = 'rating-yellow';
