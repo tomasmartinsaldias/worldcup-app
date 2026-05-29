@@ -1,0 +1,49 @@
+#	Nation	Squad size	Avg. age	Total value	Confederation Points
+1  	France France	26	27.0	€1.48bn	UEFA	1877
+2  	Spain Spain	26	26.7	€1.27bn	UEFA	1876
+3  	Argentina Argentina	26	29.0	€816.50m	CONMEBOL	1875
+4  	England England	26	27.1	€1.31bn	UEFA	1826
+5  	Portugal Portugal	26	28.0	€957.00m	UEFA	1764
+6  	Brazil Brazil	26	29.2	€909.20m	CONMEBOL	1761
+7  	Netherlands Netherlands	26	27.7	€837.20m	UEFA	1758
+8  	Morocco Morocco	26	26.4	€487.20m	CAF	1756
+9  	Belgium Belgium	26	27.6	€530.20m	UEFA	1735
+10  	Germany Germany	26	28.0	€998.00m	UEFA	1730
+11  	Croatia Croatia	26	28.3	€385.70m	UEFA	1717
+13  	Colombia Colombia	26	30.1	€305.45m	CONMEBOL	1693
+14  	Senegal Senegal	28	26.9	€468.00m	CAF	1689
+15  	Mexico Mexico	15	26.4	€121.60m	CONCACAF	1681
+16  	United States USA	26	26.9	€367.20m	CONCACAF	1673
+17  	Uruguay Uruguay	28	28.5	€371.10m	CONMEBOL	1673
+18  	Japan Japan	27	28.1	€279.05m	AFC	1660
+19  	Switzerland Switzerland	26	28.3	€331.10m	UEFA	1649
+21  	Iran Iran	30	29.2	€35.50m	AFC	1615
+22  	Turkiye Turkiye	35	27.1	€536.20m	UEFA	1599
+23  	Ecuador Ecuador	34	24.2	€257.05m	CONMEBOL	1595
+24  	Austria Austria	26	28.5	€271.70m	UEFA	1593
+25  	South Korea South Korea	26	28.2	€142.30m	AFC	1589
+27  	Australia Australia	27	27.0	€69.80m	AFC	1581
+28  	Algeria Algeria	26	26.0	€226.80m	CAF	1564
+29  	Egypt Egypt	27	28.8	€135.43m	CAF	1563
+30  	Canada Canada	32	26.3	€217.65m	CONCACAF	1556
+31  	Norway Norway	26	26.8	€601.00m	UEFA	1551
+33  	Panama Panama	26	30.4	€34.93m	CONCACAF	1541
+34  	Ivory Coast Ivory Coast	26	25.8	€525.90m	CAF	1533
+38  	Sweden Sweden	26	27.4	€436.38m	UEFA	1515
+40  	Paraguay Paraguay	25	28.9	€138.80m	CONMEBOL	1504
+41  	Czechia Czechia	29	27.5	€196.23m	UEFA	1501
+43  	Scotland Scotland	26	29.4	€196.23m	UEFA	1498
+44  	Tunisia Tunisia	26	26.6	€69.25m	CAF	1483
+46  	Democratic Republic of the Congo DR Congo	26	29.1	€147.05m	CAF	1478
+50  	Uzbekistan Uzbekistan	40	27.1	€78.73m	AFC	1465
+55  	Qatar Qatar	28	29.0	€20.48m	AFC	1455
+57  	Iraq Iraq	33	26.5	€23.90m	AFC	1447
+60  	South Africa South Africa	26	26.8	€45.80m	CAF	1430
+61  	Saudi Arabia Saudi Arabia	24	27.4	€31.25m	AFC	1421
+63  	Jordan Jordan	30	27.8	€18.35m	AFC	1391
+65  	Bosnia-Herzegovina Bosnia	27	26.6	€149.50m	UEFA	1386
+69  	Cape Verde Cape Verde	26	29.7	€56.18m	CAF	1366
+74  	Ghana Ghana	28	26.7	€234.75m	CAF	1346
+82  	Curaçao Curaçao	26	28.0	€26.03m	CONCACAF	1295
+83  	Haiti Haiti	26	27.6	€55.88m	CONCACAF	1292
+85  	New Zealand New Zealand	26	28.1	€35.35m	OFC	1282

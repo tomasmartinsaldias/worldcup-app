@@ -730,13 +730,12 @@ def main():
             
         # Determinar umbral del percentil 75 de mercado para clasificar estrellas de esta selección
         resolved_vals = [p['val'] for p in processed_squad if p['val'] is not None]
-        q75 = np.percentile(resolved_vals, 75) if resolved_vals else 10.0
         
         # Enriquecer estadísticas avanzadas individuales (FBref y Sofascore)
         for p in processed_squad:
             if p['resolved']:
-                # Marcar estrella
-                p['is_star'] = 1 if (p['val'] is not None and p['val'] >= q75) or (p['name'] in superstars) else 0
+                # Marcar estrella usando umbral absoluto global >= 40.0 M€ o superstars predefinidos
+                p['is_star'] = 1 if (p['val'] is not None and p['val'] >= 40.0) or (p['name'] in superstars) else 0
                 
                 # 1. Calificación Sofascore (Establecido a None por veracidad de datos)
                 p['sofascore'] = None

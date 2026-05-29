@@ -6,7 +6,16 @@ México
 Sin confirmar
 Sudáfrica
 
-Sin confirmar
+Arqueros: Ronwen Williams (Mamelodi Sundowns), Ricardo Goss (Siwelele FC), Sipho Chaine (Orlando Pirates FC)
+
+Defensores: Khuliso Mudau (Mamelodi Sundowns), Olwethu Makhanya (Philadelphia Union), Bradley Cross (Kaizer Chiefs), Aubrey Modiba (Mamelodi Sundowns), Thabang Matuludi (Polokwane City FC), Nkosinathi Sibisi (Orlando Pirates), Ime Okon (Hannover 96), Samukele Kabini (Molde), Mbekezeli Mbokazi (Chicago Fire), Kamolego Sebelebele (Orlando Pirates), Khulumani Ndamane (Mamelodi Sundowns)
+
+Mediocampistas: Teboho Mokoena (Mamelodi Sundowns), Thalente Mbatha (Orlando Pirates), Jayden Adams (Mamelodi Sundowns), Shephelo Sithole (CD Tondela)
+
+Delanteros: Oswin Appollis (Orlando Pirates), Tshepang Moremi (Orlando Pirates), Evidence Makgopa (Orlando Pirates), Lyle Foster (Burnley), Ioraam Rayners (Mamelodi Sundowns), Relebohile Mofokeng (Orlando Pirates), Themba Zawne (Mamelodi Sundowns) y Thapelo Maseko (AEL Limassol)
+
+Destacado: Lyle Foster
+
 Corea del Sur
 
 Arqueros: Jo Hyun-woo (Ulsan HD), Kim Seung-gyu (FC Tokyo), Song Bum-keun (Jeonbuk Hyundai)
@@ -73,7 +82,14 @@ Delanteros: Endrick (Lyon), Gabriel Martinelli (Arsenal), Igor Thiago (Brentford
 
 Marruecos
 
-Sin confirmar
+Arqueros: Yassine Bounou (Al-Hilal), Munir El Kajoui (RS Berkane), Ahmed Reda Tagnaouti (AS FAR).
+
+Defensores: Achraf Hakimi (Paris Sain Germain), Noussair Mazraoui (Manchester United), Anass Salah-Eddine (PSV), Youssef Belammari (Al-Ahly), Issa Diop (Fulham), Chadi Riad (Crystal Palace), Zakaria El Ouahdi (Genk), Redouane Halhal (KV Mechelen), Nayef Aguerd (Olympique Marsella).
+
+Mediocampistas: Neil El Aynaoui (Roma), Bilal El Khannouss (Suttgart), Azzedine Ounahi (Girona), Ayyoub Bouaddi (LOSC Lille), Ismael Saibari (PSV), Sofyan Amrabat (Real Betis), Samir El Mourabet (RC Estrasburgo).
+
+Delanteros: Brahim Díaz (Real Madrid), Ez Abde (Real Betis), Ayoube Amaimouni (Eintracht Frankfurt), Soufiane Rahimi (Al-Ain), Chemsdine Talbi (Sunderland), Gessime Yassine (RC Estrasburgo), Ayoub El Kaabi (Olympiakos).
+
 Haití
 
 Arqueros: Josué Duverger (Cosmos Koblenz), Alexandre Pierre (Sochaux), Johny Placide (Bastia)
@@ -101,7 +117,14 @@ Destacado: Andy Robertson
 Grupo D
 Estados Unidos
 
-Sin confirmar
+Porteros: Matt Freese (New York City FC), Matt Turner (New England Revolution) y Chris Brady (Chicago Fire FC).
+
+Defensas: Max Arfsten (Columbus Crew), Sergiño Dest (PSV), Alex Freeman (Villarreal), Mark McKenzie (Toulouse), Tim Ream (Charlotte FC), Chris Richards (Crystal Palace), Antonee Robinson (Fulham), Miles Robinson (FC Cincinnati), Joe Scally (Borussia Mönchengladbach), Auston Trusty (Celtic).
+
+Mediocampistas: Tyler Adams (AFC Bournemouth), Sebastian Berhalter (Vancouver Whitecaps), Weston McKennie (Juventus), Cristian Roldán (Seattle Sounders), Brenden Aaronson (Leeds United), Christian Pulisic (AC Milan), Gio Reyna (Borussia Mönchengladbach), Malik Tillman (Bayer Leverkusen), Tim Weah (Marseille), Alejandro Zendejas (Club América).
+
+Delanteros: Folarin Balogun (AS Monaco), Ricardo Pepi (PSV) y Haji Wright (Coventry City).
+
 Paraguay
 
 Sin confirmar
@@ -153,7 +176,13 @@ Ecuador
 
 Sin confirmar
 Grupo F
-Países Bajos
+Arqueros: Mark Flekken (Bayer Leverkusen), Robin Roefs (Sunderland), Bart Verbruggen (Brighton & Hove Albion).
+
+Defensores: Nathan Aké (Manchester City), Virgil van Dijk (Liverpool), Denzel Dumfries (Inter de Milán), Jorrel Hato (Chelsea), Jan Paul van Hecke (Brighton & Hove Albion), Jurriën Timber (Arsenal), Micky van de Ven (Tottenham Hotspur).
+
+Mediocampistas: Ryan Gravenberch (Liverpool), Frenkie de Jong (FC Barcelona), Justin Kluivert (Bournemouth), Teun Koopmeiners (Juventus), Marten de Roon (Atalanta), Guus Til (PSV), Quinten Timber (Olympique de Marsella), Mats Wieffer (Brighton & Hove Albion).
+
+Delanteros: Brian Brobbey (Sunderland), Memphis Depay (Corinthians), Cody Gakpo (Liverpool), Noa Lang (Galatasaray), Donyell Malen (AS Roma), Tijjani Reijnders (Manchester City), Crysencio Summerville (West Ham United), Wout Weghorst (Ajax).
 
 Sin confirmar
 Japón
@@ -299,7 +328,14 @@ Destacado: Erling Haaland
 Grupo J
 Argentina
 
-Sin confirmar
+Arqueros: Emiliano "Dibu" Martínez (Aston Villa), Gerónimo Rulli (Olympique de Marsella) y Juan Musso (Atlético de Madrid)
+
+Defensores: Leonardo Balerdi (Olympique de Marsella), Nicolás Tagliafico (Olympique de Lyon), Gonzalo Montiel (River), Lisandro Martínez (Manchester United), Cristian Romero (Tottenham), Nicolás Otamendi (Benfica), Facundo Medina (Olympique de Marsella) y Nahuel Molina (Atlético de Madrid)
+
+Mediocampistas: Leandro Paredes (Boca), Rodrigo De Paul (Inter Miami), Valentín Barco (Racing de Estrasburgo), Giovani Lo Celso (Real Betis), Exequiel Palacios (Bayer Leverkusen), Alexis Mac Allister (Liverpool) y Enzo Fernández (Chelsea)
+
+Delanteros: Julián Álvarez (Atlético de Madrid), Lionel Messi (Inter Miami), Nico González (Atlético de Madrid), Thiago Almada (Atlético de Madrid), Giuliano Simeone (Atlético de Madrid), Nico Paz (Como), José Manuel López (Palmeiras) y Lautaro Martínez (Inter)
+
 Argelia
 
 Sin confirmar
@@ -360,7 +396,14 @@ Delanteros:  Luis Díaz (Bayern Munich, ALE), Luis Suárez (Sporting CP, POR), C
 Grupo L
 Inglaterra
 
-Sin confirmar
+Arqueros: Dean Henderson (Crystal Palace, ING), Jordan Pickford (Everton, ING) y James Trafford (Manchester City, ING).
+
+Defensores: Dan Burn (Newcastle, ING), Marc Guéhi (Manchester City, ING), Reece James (Chelsea, ING), Ezri Konsa (Aston Villa, ING), Tino Livramento (Newcastle, ING), Nico O'Reilly (Manchester City, ING), Jarell Quansah (Bayer Leverkusen, ALE), Djed Spence (Tottenham, ING) y John Stones (Manchester City, ING).
+
+Mediocampistas: Elliot Anderson (Nottingham Forest, ING), Jude Bellingham (Real Madrid, ESP), Eberechi Eze (Arsenal, ING), Jordan Henderson (Brentford, ING), Kobbie Mainoo (Manchester United, ING), Declan Rice (Arsenal, ING) y Morgan Rogers (Aston Villa, ING).
+
+Delanteros: Anthony Gordon (Newcastle, ING), Harry Kane (Bayern Munich, ING), Noni Madueke (Arsenal, ING), Marcus Rashford (Barcelona, ESP), Bukayo Saka (Arsenal, ING), Ivan Toney (Al-Ahli Saudi FC, SAU) y Ollie Watkins (Aston Villa, ING).
+
 Croacia
 
 Arqueros: Dominic Livakovic (Dinamo), Dominik Kotarski (Kabenhavn), Ivor Pandur (Hull City)
@@ -378,4 +421,10 @@ Ghana
 Sin confirmar
 Panamá
 
-Sin confirmar
+Arqueros: Orlando Mosquera (Al-Fayha), Luis Mejía (Club Nacional de Fútbol), César Samudio (CD Marathon).
+
+Defensores: César Blackman (Slovan Bratislava), Jorge Gutiérrez (Deportivo La Guaira), Amir Murillo (Besiktas), Fidel Escobar (Deportivo Saprissa), Andrés Andrade (LASK), Edgardo Fariña (Nizhny Novgorod), José Córdoba (Norwich City), Eric Davis (CD Plaza Amador), Jiovany Ramos (Puerto Cabello), Roderick Miller (Turan Tovuz).
+
+Mediocampistas: Aníbal Godoy (San Diego FC), Adalberto Carrasquilla (Pumas), Carlos Harvey (Minnesota United), Cristian Martínez (Hapoel Ironi Kiryat Shmona), José Luis Rodríguez (FC Juárez), César Yanis (Cobresal), Yoel Bárcenas (Mazatlán FC), Alberto Quintero (CD Plaza Amador), Azarías Londoño (Universidad Católica).
+
+Delanteros: Ismael Díaz (León), Cecilio Waterman (Universidad de Concepción), José Fajardo (Universidad Católica), Tomás Rodríguez (Deportivo Saprissa).

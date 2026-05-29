@@ -34,7 +34,8 @@ def main():
             m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg,
             m.win_rate_last_10, m.draw_rate_last_10, m.loss_rate_last_10,
             m.goals_scored_avg_last_10, m.goals_conceded_avg_last_10,
-            m.current_unbeaten_streak, m.top_opponent_beaten
+            m.current_unbeaten_streak, m.top_opponent_beaten,
+            m.fifa_ranking, m.gnp_per_90, m.gc_per_90, m.drama_per_90
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -44,7 +45,8 @@ def main():
     
     for row in cursor.fetchall():
         (tid, name, code, group_letter, is_placeholder, is_confirmed, val, xg, poss, pop, cards, 
-         eff_avg, win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten) = row
+         eff_avg, win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten,
+         rank, gnp, gc_stat, drama) = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -67,7 +69,11 @@ def main():
                 "goals_scored_avg_last_10": gs_avg,
                 "goals_conceded_avg_last_10": gc_avg,
                 "current_unbeaten_streak": streak,
-                "top_opponent_beaten": top_beaten
+                "top_opponent_beaten": top_beaten,
+                "fifa_ranking": rank,
+                "gnp_per_90": gnp,
+                "gc_per_90": gc_stat,
+                "drama_per_90": drama
             }
             
         teams_dict[code] = {
@@ -155,6 +161,7 @@ def main():
         LEFT JOIN wc2026_teams t1 ON m.home_team_id = t1.id
         LEFT JOIN wc2026_teams t2 ON m.away_team_id = t2.id
         LEFT JOIN wc2026_tournament_stages s ON m.stage_id = s.id
+        WHERE s.stage_name = 'Group Stage'
         ORDER BY m.match_number;
     """)
     

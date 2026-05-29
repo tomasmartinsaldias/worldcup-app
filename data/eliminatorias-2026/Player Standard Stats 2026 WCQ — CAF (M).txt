@@ -1,0 +1,383 @@
+Rk 	Player 	Pos 	Squad 	Age 	Born 	MP 	Starts 	Min 	90s 	Gls 	Ast 	G+A 	G-PK 	PK 	PKatt 	CrdY 	CrdR 	Gls 	Ast 	G+A 	G-PK 	G+A-PK 	Matches
+183	Yoane Wissa	MF,FW	cd Congo DR	29	1996	8	8	560	6.2	3	2	5	3	0	0	0	0	0.48	0.32	0.80	0.48	0.80	Matches
+184	Aaron Wan-Bissaka	DF,MF	cd Congo DR	28	1997	6	6	549	6.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+185	Axel Tuanzebe	DF	cd Congo DR	28	1997	5	5	480	5.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+186	Aaron Tshibola	MF	cd Congo DR	31	1995	3	1	90	1.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+187	Noah Sadiki	MF	cd Congo DR	21	2004	5	4	373	4.1	0	1	1	0	0	0	0	0	0.00	0.24	0.24	0.00	0.24	Matches
+188	Charles Pickel	MF	cd Congo DR	28	1997	11	7	575	6.4	1	0	1	1	0	0	0	0	0.16	0.00	0.16	0.16	0.16	Matches
+189	Jackson Muleka	FW,MF	cd Congo DR	26	1999	1	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+190	Ngal'Ayel Mukau	MF	cd Congo DR	21	2004	4	2	174	1.9	0	1	1	0	0	0	0	0	0.00	0.52	0.52	0.00	0.52	Matches
+191	Lionel Mpasi	GK	cd Congo DR	31	1994	6	6	569	6.3	0	1	1	0	0	0	0	0	0.00	0.16	0.16	0.00	0.16	Matches
+192	Samuel Moutoussamy	MF	cd Congo DR	29	1996	11	11	1,019	11.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+193	Nathanael Mbuku	MF,FW	cd Congo DR	23	2002	6	4	357	4.0	1	0	1	1	0	0	0	0	0.25	0.00	0.25	0.25	0.25	Matches
+194	Chancel Mbemba	DF	cd Congo DR	31	1994	12	12	1,110	12.3	1	1	2	1	0	0	1	0	0.08	0.08	0.16	0.08	0.16	Matches
+195	Fiston Mayele	FW	cd Congo DR	31	1994	11	1	239	2.7	2	1	3	2	0	0	1	0	0.75	0.38	1.13	0.75	1.13	Matches
+196	Arthur Masuaku	DF,MF	cd Congo DR	32	1993	7	7	646	7.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+197	Joris Kayembe	DF	cd Congo DR	31	1994	9	6	571	6.3	0	1	1	0	0	0	1	0	0.00	0.16	0.16	0.00	0.16	Matches
+198	Edo Kayembe	MF,FW	cd Congo DR	27	1998	10	5	580	6.4	0	2	2	0	0	0	0	0	0.00	0.31	0.31	0.00	0.31	Matches
+199	Silas Katompa	MF	cd Congo DR	27	1998	3	1	80	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+200	Gedeon Kalulu	DF	cd Congo DR	28	1997	5	3	342	3.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+201	Gaël Kakuta	MF	cd Congo DR	34	1991	4	3	245	2.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+202	Baka Inonga	DF	cd Congo DR	31	1994	4	4	360	4.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+203	Timothy Fayulu	GK	cd Congo DR	26	1999	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+204	Samuel Essende	FW	cd Congo DR	28	1998	3	3	225	2.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+205	Meschak Elia	MF,FW	cd Congo DR	28	1997	11	7	636	7.1	2	0	2	2	0	0	2	0	0.28	0.00	0.28	0.28	0.28	Matches
+206	Grady Diangana	MF	cd Congo DR	27	1998	3	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+207	Brian Cipenga	MF	cd Congo DR	27	1998	3	0	91	1.0	0	1	1	0	0	0	0	0	0.00	0.99	0.99	0.00	0.99	Matches
+208	Rocky Bushiri	DF	cd Congo DR	26	1999	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+209	Theo Bongonda	MF,FW	cd Congo DR	30	1995	8	4	418	4.6	3	1	4	3	0	0	0	0	0.65	0.22	0.86	0.65	0.86	Matches
+210	Dimitry Bertaud	GK	cd Congo DR	27	1998	6	6	540	6.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+211	Dylan Batubinsika	DF	cd Congo DR	29	1996	4	4	360	4.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+212	Simon Banza	FW	cd Congo DR	29	1996	2	2	147	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+213	Michel-Ange Balikwisha	FW,MF	cd Congo DR	24	2001	1	0	15	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+214	Cédric Bakambu	FW	cd Congo DR	34	1991	9	7	533	5.9	4	2	6	4	0	0	2	0	0.68	0.34	1.01	0.68	1.01	Matches
+215	Chadrac Akolo	FW,MF	cd Congo DR	30	1995	2	0	28	0.3	0	1	1	0	0	0	0	0	0.00	3.21	3.21	0.00	3.21	Matches
+308	Pacôme Zouzoua	MF	ci Côte d'Ivoire	28	1997	2	1	120	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+309	Armel Zohouri	DF	ci Côte d'Ivoire	24	2001	2	1	94	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+310	Luck Zogbé	DF	ci Côte d'Ivoire	20	2005	2	2	150	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+311	Bazoumana Touré	FW	ci Côte d'Ivoire	19	2006	1	1	88	1.0	0	1	1	0	0	0	0	0	0.00	1.02	1.02	0.00	1.02	Matches
+312	Jean Thierry Lazare	MF	ci Côte d'Ivoire	27	1998	2	1	102	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+313	Wilfried Singo	DF,MF	ci Côte d'Ivoire	25	2000	6	4	392	4.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+314	Jean Seri	MF	ci Côte d'Ivoire	34	1991	4	1	120	1.3	0	1	1	0	0	0	0	0	0.00	0.75	0.75	0.00	0.75	Matches
+315	Ibrahim Sangaré	MF	ci Côte d'Ivoire	28	1997	7	6	451	5.0	2	0	2	1	1	1	0	0	0.40	0.00	0.40	0.20	0.20	Matches
+316	Nicolas Pépé	MF,FW	ci Côte d'Ivoire	30	1995	5	3	206	2.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+317	Christopher Operi	DF	ci Côte d'Ivoire	28	1997	3	1	98	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+318	Obite N'Dicka	DF	ci Côte d'Ivoire	26	1999	7	7	630	7.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+319	Emmanuel Latte Lath	FW	ci Côte d'Ivoire	27	1999	2	1	65	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+320	Alban Lafont	GK	ci Côte d'Ivoire	27	1999	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+321	Jean-Philippe Krasso	MF	ci Côte d'Ivoire	28	1997	3	1	132	1.5	1	1	2	0	1	1	0	0	0.68	0.68	1.36	0.00	0.68	Matches
+322	Christian Kouamé	MF	ci Côte d'Ivoire	28	1997	1	1	88	1.0	1	0	1	1	0	0	0	0	1.02	0.00	1.02	1.02	1.02	Matches
+323	Odilon Kossounou	DF	ci Côte d'Ivoire	25	2001	3	3	270	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+324	Karim Konaté	FW	ci Côte d'Ivoire	21	2004	2	1	116	1.3	2	2	4	1	1	1	1	0	1.55	1.55	3.10	0.78	2.33	Matches
+325	Ghislain Konan	DF,MF	ci Côte d'Ivoire	30	1995	5	5	445	4.9	0	1	1	0	0	0	0	0	0.00	0.20	0.20	0.00	0.20	Matches
+326	Franck Kessié	MF	ci Côte d'Ivoire	29	1996	10	9	781	8.7	2	2	4	2	0	0	1	0	0.23	0.23	0.46	0.23	0.46	Matches
+327	Hassane Kamara	DF,MF	ci Côte d'Ivoire	31	1994	4	3	240	2.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+328	Hamed Junior Traorè	MF	ci Côte d'Ivoire	25	2000	2	1	116	1.3	2	0	2	2	0	0	0	0	1.55	0.00	1.55	1.55	1.55	Matches
+329	Sébastien Haller	FW	ci Côte d'Ivoire	31	1994	8	5	419	4.7	2	1	3	1	1	1	0	0	0.43	0.21	0.64	0.21	0.43	Matches
+330	Parfait Guiagon	MF	ci Côte d'Ivoire	24	2001	1	0	24	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+331	Evann Guessand	FW,MF	ci Côte d'Ivoire	24	2001	6	3	313	3.5	2	0	2	2	0	0	1	0	0.58	0.00	0.58	0.58	0.58	Matches
+332	Jean-Philippe Gbamin	DF,MF	ci Côte d'Ivoire	30	1995	4	3	287	3.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+333	Yahia Fofana	GK	ci Côte d'Ivoire	25	2000	9	9	810	9.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+334	Seko Fofana	MF	ci Côte d'Ivoire	30	1995	6	5	423	4.7	3	1	4	3	0	0	0	0	0.64	0.21	0.85	0.64	0.85	Matches
+335	Guela Doué	MF,DF	ci Côte d'Ivoire	23	2002	3	2	221	2.5	0	1	1	0	0	0	0	0	0.00	0.41	0.41	0.00	0.41	Matches
+336	Yan Diomandé	MF	ci Côte d'Ivoire	19	2006	2	2	139	1.5	2	0	2	2	0	0	0	0	1.29	0.00	1.29	1.29	1.29	Matches
+337	Ousmane Diomande	DF	ci Côte d'Ivoire	22	2003	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+338	Mohamed Diomandé	MF	ci Côte d'Ivoire	24	2001	4	1	91	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+339	Junior Diaz	DF	ci Côte d'Ivoire	22	2003	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+340	Amad Diallo	MF	ci Côte d'Ivoire	23	2002	3	3	225	2.5	1	1	2	1	0	0	1	0	0.40	0.40	0.80	0.40	0.80	Matches
+341	Oumar Diakité	FW	ci Côte d'Ivoire	22	2003	7	3	303	3.4	1	0	1	1	0	0	0	0	0.30	0.00	0.30	0.30	0.30	Matches
+342	Willy Boly	DF	ci Côte d'Ivoire	34	1991	4	4	360	4.0	0	2	2	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+343	Jeremie Boga	MF,FW	ci Côte d'Ivoire	29	1997	3	2	175	1.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+344	Vakoun Bayo	FW	ci Côte d'Ivoire	29	1997	3	1	93	1.0	1	0	1	1	0	0	0	0	0.97	0.00	0.97	0.97	0.97	Matches
+345	Serge Aurier	DF	ci Côte d'Ivoire	33	1992	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+346	Clément Akpa	DF	ci Côte d'Ivoire	24	2001	2	0	60	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+347	Jean-Eudes Aholou	MF	ci Côte d'Ivoire	31	1994	1	1	64	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+348	Emmanuel Agbadou	DF	ci Côte d'Ivoire	28	1997	5	4	300	3.3	1	1	2	1	0	0	1	0	0.30	0.30	0.60	0.30	0.60	Matches
+349	Simon Adingra	MF,FW	ci Côte d'Ivoire	24	2002	10	5	484	5.4	2	3	5	2	0	0	1	0	0.37	0.56	0.93	0.37	0.93	Matches
+389	Yannick	MF	cv Cape Verde	30	1995	6	6	464	5.2	1	0	1	1	0	0	0	0	0.19	0.00	0.19	0.19	0.19	Matches
+390	Vozinha	GK	cv Cape Verde	39	1986	10	10	900	10.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+391	Hélio Varela	FW	cv Cape Verde	23	2002	8	0	200	2.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+392	Heriberto Tavares	FW	cv Cape Verde	28	1997	2	1	59	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+393	David Tavares	MF	cv Cape Verde	26	1999	1	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+394	Aílson Tavares	MF	cv Cape Verde	27	1998	2	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+395	Stopira	DF	cv Cape Verde	37	1988	1	0	5	0.1	1	0	1	1	0	0	1	0	18.00	0.00	18.00	18.00	18.00	Matches
+396	Willy Semedo	MF,DF	cv Cape Verde	31	1994	8	5	435	4.8	2	0	2	2	0	0	1	0	0.41	0.00	0.41	0.41	0.41	Matches
+397	Garry Rodrigues	FW	cv Cape Verde	35	1990	5	3	252	2.8	0	1	1	0	0	0	0	0	0.00	0.36	0.36	0.00	0.36	Matches
+398	Kenny Rocha Santos	MF	cv Cape Verde	26	2000	1	1	60	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+399	Wagner Pina	DF	cv Cape Verde	23	2002	2	2	180	2.0	0	1	1	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+400	Kevin Pina	MF	cv Cape Verde	29	1997	7	7	617	6.9	0	2	2	0	0	1	1	0	0.00	0.29	0.29	0.00	0.29	Matches
+401	Pico	DF	cv Cape Verde	33	1992	9	9	810	9.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+402	João Paulo Fernandes	DF	cv Cape Verde	27	1998	8	7	620	6.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+403	Steven Moreira	DF	cv Cape Verde	31	1994	6	6	540	6.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+404	Jamiro Monteiro	MF,FW	cv Cape Verde	32	1993	10	7	604	6.7	2	1	3	2	0	0	0	0	0.30	0.15	0.45	0.30	0.45	Matches
+405	Ryan Mendes	MF	cv Cape Verde	36	1990	9	7	576	6.4	1	1	2	1	0	0	1	0	0.16	0.16	0.31	0.16	0.31	Matches
+406	Diogo Mendes	MF	cv Cape Verde	28	1998	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+407	Dailon Livramento	FW	cv Cape Verde	24	2001	8	4	465	5.2	4	0	4	4	0	0	1	0	0.77	0.00	0.77	0.77	0.77	Matches
+408	Jójó	DF	cv Cape Verde	24	2001	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+409	Fabrício Garcia	DF	cv Cape Verde	24	2001	2	1	92	1.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+410	Duk	FW,MF	cv Cape Verde	25	2000	1	0	11	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+411	Laros Duarte	MF	cv Cape Verde	28	1997	5	0	64	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+412	Deroy Duarte	MF	cv Cape Verde	26	1999	6	3	262	2.9	0	1	1	0	0	0	0	0	0.00	0.34	0.34	0.00	0.34	Matches
+413	Diney	DF	cv Cape Verde	31	1995	5	5	450	5.0	2	1	3	2	0	0	1	0	0.40	0.20	0.60	0.40	0.60	Matches
+414	Cuca	MF	cv Cape Verde	35	1991	2	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+415	Alessio da Cruz	FW	cv Cape Verde	29	1997	3	2	115	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+416	Nuno da Costa	FW,MF	cv Cape Verde	34	1991	1	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+417	Logan Costa	DF	cv Cape Verde	24	2001	6	6	540	6.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+418	João Pedro Araújo Correia	DF,FW	cv Cape Verde	29	1996	1	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+419	Sidny Cabral	DF	cv Cape Verde	23	2002	2	1	117	1.3	1	1	2	1	0	0	0	0	0.77	0.77	1.54	0.77	1.54	Matches
+420	Jovane Cabral	MF,FW	cv Cape Verde	27	1998	6	5	330	3.7	1	1	2	1	0	0	0	0	0.27	0.27	0.55	0.27	0.55	Matches
+421	Bebé	FW,MF	cv Cape Verde	35	1990	4	4	294	3.3	0	1	1	0	0	0	0	0	0.00	0.31	0.31	0.00	0.31	Matches
+422	Telmo Arcanjo	MF,FW	cv Cape Verde	24	2001	5	3	287	3.2	1	0	1	1	0	0	1	0	0.31	0.00	0.31	0.31	0.31	Matches
+423	Patrick Andrade	MF	cv Cape Verde	32	1993	4	2	216	2.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+424	Leandro Andrade	FW	cv Cape Verde	26	1999	2	1	59	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+464	Adem Zorgane	MF	dz Algeria	26	2000	2	2	158	1.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+465	Luca Zidane	GK	dz Algeria	27	1998	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+466	Ramiz Zerrouki	MF	dz Algeria	27	1998	5	3	297	3.3	1	0	1	1	0	0	0	0	0.30	0.00	0.30	0.30	0.30	Matches
+467	Kévin Van Den Kerkhof	DF,MF	dz Algeria	29	1996	2	0	56	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+468	Ahmed Touba	DF	dz Algeria	27	1998	2	0	53	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+469	Islam Slimani	FW	dz Algeria	37	1988	2	1	39	0.4	1	0	1	1	0	0	0	0	2.31	0.00	2.31	2.31	2.31	Matches
+470	Adam Ounas	FW,MF	dz Algeria	29	1996	2	0	62	0.7	0	1	1	0	0	0	0	0	0.00	1.45	1.45	0.00	1.45	Matches
+471	Ibrahim Maza	MF	dz Algeria	20	2005	3	1	120	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+472	Anthony Mandrea	GK	dz Algeria	29	1996	4	4	360	4.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+473	Aïssa Mandi	DF	dz Algeria	34	1991	10	10	823	9.1	1	0	1	1	0	0	1	0	0.11	0.00	0.11	0.11	0.11	Matches
+474	Riyad Mahrez	FW,MF	dz Algeria	34	1991	8	8	520	5.8	1	4	5	1	0	0	0	0	0.17	0.69	0.87	0.17	0.87	Matches
+475	Yasser Larouci	DF	dz Algeria	25	2001	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+476	Ahmed Kendouci	MF	dz Algeria	26	1999	3	1	104	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+477	Ilan Kebbal	FW,MF	dz Algeria	27	1998	1	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+478	Jaouen Hadjam	DF	dz Algeria	22	2003	5	4	337	3.7	1	0	1	1	0	0	0	0	0.27	0.00	0.27	0.27	0.27	Matches
+479	Anis Hadj Moussa	FW,MF	dz Algeria	23	2002	3	0	74	0.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+480	Alexis Guendouz	GK	dz Algeria	30	1996	5	5	450	5.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+481	Amine Gouiri	FW,MF	dz Algeria	25	2000	9	7	525	5.8	1	1	2	1	0	0	1	0	0.17	0.17	0.34	0.17	0.34	Matches
+482	Sofiane Feghouli	MF	dz Algeria	36	1989	1	1	73	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+483	Mehdi Dorval	DF,MF	dz Algeria	24	2001	1	0	24	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+484	Amin Chiakha	FW	dz Algeria	19	2006	1	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+485	Samir Chergui	DF	dz Algeria	26	1999	1	0	24	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+486	Fares Chaïbi	MF	dz Algeria	23	2002	8	5	450	5.0	1	1	2	1	0	0	0	0	0.20	0.20	0.40	0.20	0.40	Matches
+487	Yacine Brahimi	MF	dz Algeria	35	1990	1	1	58	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+488	Baghdad Bounedjah	FW	dz Algeria	34	1991	5	3	256	2.8	3	1	4	3	0	0	2	0	1.05	0.35	1.41	1.05	1.41	Matches
+489	Hicham Boudaoui	MF	dz Algeria	26	1999	8	6	581	6.5	0	1	1	0	0	0	0	0	0.00	0.15	0.15	0.00	0.15	Matches
+490	Yassine Benzia	MF	dz Algeria	31	1994	4	2	168	1.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+491	Nabil Bentaleb	MF	dz Algeria	31	1994	7	5	416	4.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+492	Ramy Bensebaini	DF	dz Algeria	30	1995	6	6	540	6.0	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+493	Saïd Benrahma	FW,MF	dz Algeria	30	1995	6	3	276	3.1	1	0	1	1	0	0	1	0	0.33	0.00	0.33	0.33	0.33	Matches
+494	Ismaël Bennacer	MF	dz Algeria	28	1997	1	1	84	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+495	Rafik Belghali	DF	dz Algeria	23	2002	2	2	156	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+496	Youcef Belaïli	FW,MF	dz Algeria	33	1992	4	0	94	1.0	0	1	1	0	0	0	0	0	0.00	0.96	0.96	0.00	0.96	Matches
+497	Zineddine Belaid	DF	dz Algeria	26	1999	1	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+498	Monsef Bakrar	FW	dz Algeria	25	2001	2	0	29	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+499	Youcef Atal	DF	dz Algeria	29	1996	8	7	532	5.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+500	Houssem Aouar	MF	dz Algeria	27	1998	4	3	241	2.7	1	0	1	1	0	0	1	0	0.37	0.00	0.37	0.37	0.37	Matches
+501	Mohamed Amoura	FW	dz Algeria	25	2000	10	7	742	8.2	10	4	14	8	2	2	1	0	1.21	0.49	1.70	0.97	1.46	Matches
+502	Mohamed Amine Tougai	DF	dz Algeria	26	2000	5	4	437	4.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+503	Mohamed Amine Madani	DF	dz Algeria	32	1993	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+504	Rayan Aït-Nouri	DF	dz Algeria	24	2001	5	5	450	5.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+505	Trézéguet	MF,DF	eg Egypt	31	1994	10	9	799	8.9	5	2	7	5	0	0	1	0	0.56	0.23	0.79	0.56	0.79	Matches
+506	Akram Tawfik	MF	eg Egypt	28	1997	1	0	33	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+507	Mohamed Sobhy	GK	eg Egypt	26	1999	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+508	Khaled Sobhi	DF	eg Egypt	30	1995	3	2	187	2.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+509	Mostafa Shoubir	GK	eg Egypt	25	2000	1	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+510	Mohamed Sherif	FW	eg Egypt	29	1996	2	0	20	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+511	Mohamed El-Shenawy	GK	eg Egypt	37	1988	9	9	780	8.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+512	Mohamed Shehata	MF	eg Egypt	24	2001	2	0	26	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+513	Ahmed Sayed	MF	eg Egypt	30	1996	10	9	669	7.4	2	1	3	2	0	0	0	0	0.27	0.13	0.40	0.27	0.40	Matches
+514	Ahmed Samy	DF	eg Egypt	33	1992	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+515	Mohamed Salah	MF,FW	eg Egypt	33	1992	9	9	806	9.0	9	3	12	7	2	2	0	0	1.00	0.33	1.34	0.78	1.12	Matches
+516	Mahmoud Saber	MF	eg Egypt	24	2001	4	0	48	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+517	Ramy Rabia	DF	eg Egypt	32	1993	8	8	720	8.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+518	Ahmed Nabil Koka	MF	eg Egypt	24	2001	5	3	274	3.0	0	1	1	0	0	0	0	0	0.00	0.33	0.33	0.00	0.33	Matches
+519	Mostafa Mohamed	FW	eg Egypt	28	1997	10	7	522	5.8	1	2	3	1	0	0	1	0	0.17	0.34	0.52	0.17	0.52	Matches
+520	Omar Marmoush	MF,FW	eg Egypt	26	1999	6	5	339	3.8	1	0	1	0	1	1	0	0	0.27	0.00	0.27	0.00	0.00	Matches
+521	Naser Maher	MF	eg Egypt	28	1997	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+522	Mohanad Lasheen	MF	eg Egypt	29	1996	4	1	152	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+523	Omar Kamal	DF	eg Egypt	32	1993	3	1	114	1.3	0	1	1	0	0	0	1	0	0.00	0.79	0.79	0.00	0.79	Matches
+524	Yasser Ibrahim	DF	eg Egypt	32	1993	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+525	Mohamed Hany	DF,MF	eg Egypt	30	1996	9	9	760	8.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+526	Mohamed Hamdy	DF,MF	eg Egypt	30	1995	6	6	510	5.7	1	0	1	1	0	0	0	0	0.18	0.00	0.18	0.18	0.18	Matches
+527	Mahmoud Hamada	MF	eg Egypt	31	1994	1	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+528	Ali Gabr	DF	eg Egypt	37	1989	2	1	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+529	Hamdy Fathy	MF,DF	eg Egypt	31	1994	8	6	546	6.1	0	1	1	0	0	0	2	0	0.00	0.16	0.16	0.00	0.16	Matches
+530	Mostafa Fathi	MF	eg Egypt	30	1995	4	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+531	Osama Faisal	FW	eg Egypt	25	2001	4	2	234	2.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+532	Mohamed Elneny	MF	eg Egypt	33	1992	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+533	Ahmed Eid	MF	eg Egypt	25	2001	2	1	101	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+534	Nabil Dunga	MF	eg Egypt	29	1996	1	0	3	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+535	Marwan Attia	MF	eg Egypt	27	1998	8	7	618	6.9	0	2	2	0	0	0	4	0	0.00	0.29	0.29	0.00	0.29	Matches
+536	Emam Ashour	MF	eg Egypt	27	1998	2	1	102	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+537	Ahmed Amin Ofaa	FW	eg Egypt	29	1996	2	0	73	0.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+538	Ibrahim Adel	MF	eg Egypt	24	2001	5	2	222	2.5	1	0	1	1	0	0	0	0	0.41	0.00	0.41	0.41	0.41	Matches
+539	Ahmed Aboul-Fotouh	DF	eg Egypt	27	1998	1	1	90	1.0	0	2	2	0	0	0	0	0	0.00	2.00	2.00	0.00	2.00	Matches
+540	Mohamed Abdelmonem	DF	eg Egypt	26	1999	6	6	495	5.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+541	Hossam Abdelmegeed	DF	eg Egypt	24	2001	2	0	2	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+628	Caleb Yirenkyi	DF,MF	gh Ghana	20	2006	4	3	286	3.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+629	Iñaki Williams	MF	gh Ghana	31	1994	6	4	377	4.2	2	0	2	2	0	0	0	0	0.48	0.00	0.48	0.48	0.48	Matches
+630	Brandon Thomas-Asante	FW,MF	gh Ghana	27	1998	2	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+631	Kamaldeen Sulemana	MF	gh Ghana	23	2002	5	1	131	1.5	1	0	1	1	0	0	1	0	0.69	0.00	0.69	0.69	0.69	Matches
+632	Ibrahim Sulemana	MF	gh Ghana	22	2003	1	0	3	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+633	Jonathan Sowah	FW	gh Ghana	27	1999	1	0	3	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+634	Razak Simpson	MF	gh Ghana	27	1998	1	0	11	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+635	Kwasi Sibo	MF	gh Ghana	27	1998	3	3	254	2.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+636	Antoine Semenyo	FW,MF	gh Ghana	26	2000	10	9	688	7.6	1	0	1	1	0	0	0	0	0.13	0.00	0.13	0.13	0.13	Matches
+637	Alidu Seidu	DF,MF	gh Ghana	25	2000	4	4	288	3.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+638	Kingsley Schindler	MF,DF	gh Ghana	32	1993	2	2	180	2.0	0	1	1	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+639	Mohammed Salisu	DF	gh Ghana	26	1999	8	7	596	6.6	2	0	2	2	0	0	1	0	0.30	0.00	0.30	0.30	0.30	Matches
+640	Kojo Peprah Oppong	DF	gh Ghana	21	2004	1	0	15	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+641	Thomas Partey	MF	gh Ghana	32	1993	7	7	607	6.7	3	2	5	3	0	0	1	0	0.44	0.30	0.74	0.44	0.74	Matches
+642	Joseph Paintsil	FW,MF	gh Ghana	27	1998	3	0	41	0.5	0	1	1	0	0	0	0	0	0.00	2.20	2.20	0.00	2.20	Matches
+643	Prince Owusu	MF	gh Ghana	21	2004	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+644	Elisha Owusu	MF	gh Ghana	28	1997	4	1	139	1.5	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+645	Ibrahim Osman	FW,MF	gh Ghana	21	2004	1	0	5	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+646	Nicholas Opoku	DF	gh Ghana	28	1997	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+647	Jerome Opoku	DF	gh Ghana	27	1998	5	2	194	2.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+648	Richard Ofori	GK	gh Ghana	32	1993	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+649	Denis Odoi	DF	gh Ghana	37	1988	2	1	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+650	Kasim Nuhu	DF	gh Ghana	30	1995	2	1	118	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+651	Ernest Nuamah	MF,FW	gh Ghana	22	2003	5	2	196	2.2	2	1	3	2	0	0	0	0	0.92	0.46	1.38	0.92	1.38	Matches
+652	Abdul Mumin	DF	gh Ghana	27	1998	2	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+653	Gideon Mensah	DF,MF	gh Ghana	27	1998	9	9	799	8.9	0	2	2	0	0	0	0	0	0.00	0.23	0.23	0.00	0.23	Matches
+654	Tariq Lamptey	MF	gh Ghana	25	2000	2	1	106	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+655	Mohammed Kudus	MF,FW	gh Ghana	25	2000	10	9	799	8.9	2	2	4	2	0	0	1	0	0.23	0.23	0.45	0.23	0.45	Matches
+656	Abdul Fatawu Issahaku	MF	gh Ghana	21	2004	4	2	163	1.8	1	1	2	1	0	0	0	0	0.55	0.55	1.10	0.55	1.10	Matches
+657	Alexander Djiku	DF	gh Ghana	31	1994	7	7	626	7.0	2	0	2	2	0	0	0	0	0.29	0.00	0.29	0.29	0.29	Matches
+658	Osman Bukari	FW,MF	gh Ghana	27	1998	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+659	Christopher Bonsu-Baah	MF	gh Ghana	21	2004	2	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+660	Iddrisu Baba	MF	gh Ghana	30	1996	2	2	132	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+661	Jordan Ayew	FW,MF	gh Ghana	34	1991	10	9	760	8.4	7	7	14	5	2	2	1	0	0.83	0.83	1.66	0.59	1.42	Matches
+662	André Ayew	MF	gh Ghana	36	1989	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+663	Lawrence Ati-Zigi	GK	gh Ghana	29	1996	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+664	Majeed Ashimeru	MF	gh Ghana	28	1997	2	0	71	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+665	Benjamin Asare	GK	gh Ghana	33	1992	6	6	540	6.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+666	Ebenezer Annan	MF	gh Ghana	23	2002	2	1	101	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+667	Daniel Amartey	DF	gh Ghana	31	1994	1	1	62	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+668	Lawrence Agyekum	MF	gh Ghana	22	2003	1	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+669	Jerry Afriyie	FW	gh Ghana	19	2006	2	0	12	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+670	Jonas Adjetey	DF	gh Ghana	22	2003	4	3	278	3.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+671	Francis Abu	MF	gh Ghana	24	2001	2	1	99	1.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+672	Salis Abdul Samed	MF	gh Ghana	25	2000	5	5	421	4.7	0	1	1	0	0	0	0	0	0.00	0.21	0.21	0.00	0.21	Matches
+1060	Hakim Ziyech	MF	ma Morocco	32	1993	3	3	210	2.3	2	0	2	1	1	1	1	0	0.86	0.00	0.86	0.43	0.43	Matches
+1061	Jawad El Yamiq	DF	ma Morocco	33	1992	4	4	333	3.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1062	Tarik Tissoudali	FW,MF	ma Morocco	32	1993	1	0	10	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1063	Oussama Targhalline	MF	ma Morocco	23	2002	3	0	24	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1064	Chemsdine Talbi	MF	ma Morocco	20	2005	1	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1065	Maroan Sannadi	FW	ma Morocco	24	2001	1	0	4	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1066	Romain Saïss	DF	ma Morocco	35	1990	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1067	Ismael Saibari	MF	ma Morocco	25	2001	6	3	308	3.4	3	0	3	3	0	0	0	0	0.88	0.00	0.88	0.88	0.88	Matches
+1068	Amir Richardson	MF	ma Morocco	24	2002	1	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1069	Chadi Riad	DF	ma Morocco	22	2003	1	1	90	1.0	1	0	1	1	0	0	0	0	1.00	0.00	1.00	1.00	1.00	Matches
+1070	Soufiane Rahimi	MF	ma Morocco	29	1996	4	1	132	1.5	1	0	1	1	0	0	0	0	0.68	0.00	0.68	0.68	0.68	Matches
+1071	Azzedine Ounahi	MF	ma Morocco	25	2000	5	3	232	2.6	2	2	4	2	0	0	0	0	0.78	0.78	1.55	0.78	1.55	Matches
+1072	Noussair Mazraoui	DF	ma Morocco	28	1997	3	3	270	3.0	0	1	1	0	0	0	1	0	0.00	0.33	0.33	0.00	0.33	Matches
+1073	Adam Masina	DF	ma Morocco	32	1994	3	2	206	2.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1074	Bilal El Khannouss	MF	ma Morocco	21	2004	7	3	330	3.7	1	0	1	1	0	0	0	0	0.27	0.00	0.27	0.27	0.27	Matches
+1075	Souffian El Karouani	DF	ma Morocco	25	2000	2	1	114	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1076	Ayoub El Kaabi	FW	ma Morocco	32	1993	6	2	216	2.4	4	0	4	4	0	0	0	0	1.67	0.00	1.67	1.67	1.67	Matches
+1077	Hamza Igamane	MF,FW	ma Morocco	23	2002	4	2	183	2.0	2	1	3	2	0	0	0	0	0.98	0.49	1.48	0.98	1.48	Matches
+1078	Omar El Hilali	DF	ma Morocco	22	2003	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1079	Amine Harit	MF	ma Morocco	28	1997	1	1	71	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1080	Achraf Hakimi	DF	ma Morocco	27	1998	6	6	540	6.0	0	3	3	0	0	1	2	0	0.00	0.50	0.50	0.00	0.50	Matches
+1081	Abde Ezzalzouli	MF	ma Morocco	24	2001	4	2	188	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1082	Youssef En-Nesyri	FW	ma Morocco	28	1997	7	5	439	4.9	2	1	3	2	0	0	0	0	0.41	0.21	0.62	0.41	0.62	Matches
+1083	Brahim Díaz	MF,FW	ma Morocco	26	1999	6	6	499	5.5	1	2	3	0	1	1	1	0	0.18	0.36	0.54	0.00	0.36	Matches
+1084	Mohamed Chibi	DF	ma Morocco	33	1993	1	1	89	1.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1085	Yassine Bounou	GK	ma Morocco	34	1991	8	8	720	8.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1086	Eliesse Ben Seghir	MF,FW	ma Morocco	20	2005	7	6	394	4.4	1	1	2	1	0	0	1	0	0.23	0.23	0.46	0.23	0.46	Matches
+1087	Youssef Belammari	DF	ma Morocco	27	1998	3	3	246	2.7	0	1	1	0	0	0	0	0	0.00	0.37	0.37	0.00	0.37	Matches
+1088	Oussama El Azzouzi	MF	ma Morocco	24	2001	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1089	Neil El Aynaoui	MF	ma Morocco	24	2001	3	3	270	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1090	Yahya Attiat Allah	DF	ma Morocco	30	1995	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1091	Sofyan Amrabat	MF	ma Morocco	29	1996	6	6	527	5.9	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+1092	Ilias Akhomach	MF	ma Morocco	21	2004	2	0	57	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1093	Nayef Aguerd	DF	ma Morocco	29	1996	7	7	630	7.0	1	2	3	1	0	0	1	0	0.14	0.29	0.43	0.14	0.43	Matches
+1094	Amine Adli	MF	ma Morocco	25	2000	5	1	117	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1584	Cheikh Tidiane Sabaly	FW,MF	sn Senegal	26	1999	4	0	54	0.6	0	2	2	0	0	0	0	0	0.00	3.33	3.33	0.00	3.33	Matches
+1585	Abdallah Sima	FW,MF	sn Senegal	24	2001	3	0	26	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1586	Abdoulaye Seck	DF	sn Senegal	33	1992	4	3	302	3.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1587	Ismaila Sarr	MF,FW	sn Senegal	27	1998	7	6	517	5.7	3	1	4	3	0	0	0	0	0.52	0.17	0.70	0.52	0.70	Matches
+1588	Cheikh Niasse	MF	sn Senegal	26	2000	1	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1589	Moussa Niakhate	DF	sn Senegal	29	1996	8	8	688	7.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1590	Iliman Ndiaye	FW,MF	sn Senegal	25	2000	8	8	606	6.7	1	1	2	1	0	0	0	0	0.15	0.15	0.30	0.15	0.30	Matches
+1591	Cherif Ndiaye	FW,MF	sn Senegal	30	1996	5	0	81	0.9	1	0	1	1	0	0	0	0	1.11	0.00	1.11	1.11	1.11	Matches
+1592	Nampalys Mendy	MF	sn Senegal	33	1992	2	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1593	Formose Mendy	DF	sn Senegal	25	2001	2	0	73	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1594	Edouard Mendy	GK	sn Senegal	33	1992	9	9	810	9.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1595	Antoine Mendy	DF	sn Senegal	21	2004	2	1	126	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1596	Pape Matar Sarr	MF	sn Senegal	23	2002	10	7	649	7.2	4	1	5	4	0	0	0	0	0.55	0.14	0.69	0.55	0.69	Matches
+1597	Sadio Mané	FW,MF	sn Senegal	33	1992	8	8	638	7.1	5	1	6	4	1	1	2	0	0.71	0.14	0.85	0.56	0.71	Matches
+1598	Dion Lopy	MF	sn Senegal	23	2002	1	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1599	Cheikhou Kouyaté	MF	sn Senegal	36	1989	1	1	64	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1600	Kalidou Koulibaly	DF	sn Senegal	34	1991	10	10	900	10.0	1	1	2	1	0	0	0	0	0.10	0.10	0.20	0.10	0.20	Matches
+1601	Ismail Jakobs	DF	sn Senegal	26	1999	2	2	180	2.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1602	Nicolas Jackson	FW	sn Senegal	24	2001	7	4	347	3.9	2	1	3	1	1	1	0	0	0.52	0.26	0.78	0.26	0.52	Matches
+1603	Pape Gueye	MF	sn Senegal	27	1999	5	4	319	3.5	1	0	1	1	0	0	2	0	0.28	0.00	0.28	0.28	0.28	Matches
+1604	Idrissa Gana Gueye	MF	sn Senegal	36	1989	9	9	757	8.4	0	1	1	0	0	0	1	0	0.00	0.12	0.12	0.00	0.12	Matches
+1605	El Hadji Malick Diouf	DF	sn Senegal	21	2004	4	4	360	4.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1606	Mory Diaw	GK	sn Senegal	32	1993	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1607	Krépin Diatta	DF	sn Senegal	26	1999	8	8	692	7.7	0	2	2	0	0	0	0	0	0.00	0.26	0.26	0.00	0.26	Matches
+1608	Habib Diarra	MF	sn Senegal	22	2004	4	3	220	2.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1609	Assane Diao	FW	sn Senegal	20	2005	2	1	102	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1610	Habib Diallo	FW	sn Senegal	30	1995	5	4	327	3.6	2	3	5	2	0	0	0	0	0.55	0.83	1.38	0.55	1.38	Matches
+1611	Abdou Diallo	DF	sn Senegal	29	1996	2	1	108	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1612	Boulaye Dia	FW	sn Senegal	29	1996	3	2	168	1.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1613	Pathé Ciss	DF,MF	sn Senegal	31	1994	7	0	113	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1614	Lamine Camara	MF	sn Senegal	22	2004	8	5	444	4.9	1	0	1	1	0	0	0	0	0.20	0.00	0.20	0.20	0.20	Matches
+1615	Ilay Camara	DF	sn Senegal	23	2003	2	1	74	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1877	Taha Yassine Khenissi	FW	tn Tunisia	34	1992	1	1	89	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1878	Yan Valery	DF	tn Tunisia	26	1999	4	4	360	4.0	0	1	1	0	0	0	1	0	0.00	0.25	0.25	0.00	0.25	Matches
+1879	Sebastian Tounekti	MF	tn Tunisia	23	2002	2	1	48	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1880	Houssem Tka	MF	tn Tunisia	25	2000	1	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1881	Montassar Talbi	DF	tn Tunisia	27	1998	10	10	900	10.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1882	Naïm Sliti	MF,FW	tn Tunisia	33	1992	8	5	465	5.2	0	3	3	0	0	0	1	0	0.00	0.58	0.58	0.00	0.58	Matches
+1883	Ellyes Skhiri	MF	tn Tunisia	30	1995	6	5	495	5.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1884	Ferjani Sassi	MF	tn Tunisia	33	1992	6	4	347	3.9	2	0	2	2	0	0	2	0	0.52	0.00	0.52	0.52	0.52	Matches
+1885	Wajdi Sahli	MF	tn Tunisia	28	1997	1	0	2	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1886	Elias Saad	MF,FW	tn Tunisia	26	1999	6	5	291	3.2	3	0	3	3	0	0	0	0	0.93	0.00	0.93	0.93	0.93	Matches
+1887	Mohamed Ali Ben Romdhane	MF	tn Tunisia	26	1999	5	2	205	2.3	4	0	4	2	2	2	3	0	1.76	0.00	1.76	0.88	0.88	Matches
+1888	Hamza Rafia	MF,FW	tn Tunisia	26	1999	3	3	237	2.6	1	0	1	1	0	0	1	0	0.38	0.00	0.38	0.38	0.38	Matches
+1889	Moutaz Neffati	DF	tn Tunisia	21	2004	1	0	10	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1890	Youssef Msakni	FW	tn Tunisia	35	1990	2	2	179	2.0	2	0	2	1	1	1	0	0	1.01	0.00	1.01	0.50	0.50	Matches
+1891	Yassine Meriah	DF	tn Tunisia	32	1993	5	5	450	5.0	1	0	1	1	0	0	1	0	0.20	0.00	0.20	0.20	0.20	Matches
+1892	Hannibal Mejbri	MF	tn Tunisia	23	2003	6	5	430	4.8	1	1	2	1	0	0	0	0	0.21	0.21	0.42	0.21	0.42	Matches
+1893	Hamza Mathlouthi	DF	tn Tunisia	33	1992	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1894	Hazem Mastouri	FW	tn Tunisia	28	1997	6	5	393	4.4	2	1	3	2	0	0	0	0	0.46	0.23	0.69	0.46	0.69	Matches
+1895	Sayfallah Ltaief	MF	tn Tunisia	25	2000	6	1	240	2.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1896	Amor Layouni	MF	tn Tunisia	33	1992	1	1	52	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1897	Aïssa Laïdouni	MF	tn Tunisia	29	1996	8	7	494	5.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1898	Wajdi Kechrida	DF	tn Tunisia	30	1995	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1899	Haythem Jouini	FW	tn Tunisia	32	1993	4	2	194	2.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1900	Hamza Jelassi	DF	tn Tunisia	34	1991	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1901	Seifeddine Jaziri	FW	tn Tunisia	32	1993	2	0	27	0.3	1	0	1	1	0	0	0	0	3.33	0.00	3.33	3.33	3.33	Matches
+1902	Anas Haj Mohamed	FW	tn Tunisia	20	2005	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1903	Mohamed Haj Mahmoud	MF	tn Tunisia	25	2000	2	1	62	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1904	Mahmoud Ghorbel	DF	tn Tunisia	22	2003	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1905	Ismaël Gharbi	MF	tn Tunisia	21	2004	4	1	177	2.0	1	0	1	1	0	0	1	0	0.51	0.00	0.51	0.51	0.51	Matches
+1906	Nader Ghandri	MF	tn Tunisia	30	1995	4	1	100	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1907	Aymen Dahmen	GK	tn Tunisia	29	1997	6	6	540	6.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1908	Amine Cherni	DF,MF	tn Tunisia	24	2001	1	0	2	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1909	Firas Chaouat	FW	tn Tunisia	29	1996	4	1	120	1.3	1	1	2	1	0	0	1	0	0.75	0.75	1.50	0.75	1.50	Matches
+1910	Ghaylène Chaalali	MF	tn Tunisia	31	1994	1	0	48	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1911	Dylan Bronn	DF	tn Tunisia	30	1995	5	5	450	5.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1912	Anis Ben Slimane	MF	tn Tunisia	24	2001	2	2	133	1.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1913	Bechir Ben Said	GK	tn Tunisia	33	1992	4	4	360	4.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1914	Mortadha Ben Ouanes	DF	tn Tunisia	31	1994	4	2	217	2.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1915	Firas Ben Arbi	MF	tn Tunisia	29	1996	2	0	45	0.5	1	0	1	1	0	0	0	0	2.00	0.00	2.00	2.00	2.00	Matches
+1916	Elias Achouri	MF,FW	tn Tunisia	26	1999	6	5	451	5.0	1	0	1	0	1	1	0	0	0.20	0.00	0.20	0.00	0.00	Matches
+1917	Ali Abdi	DF	tn Tunisia	32	1993	8	8	718	8.0	1	3	4	0	1	1	0	0	0.13	0.38	0.50	0.00	0.38	Matches
+1995	Themba Zwane	MF,FW	za South Africa	36	1989	4	4	346	3.8	1	0	1	1	0	0	0	0	0.26	0.00	0.26	0.26	0.26	Matches
+1996	Siyanda Xulu	DF	za South Africa	34	1991	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1997	Ronwen Williams	GK	za South Africa	34	1992	10	10	900	10.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1998	Percy Tau	MF	za South Africa	31	1994	5	5	422	4.7	1	0	1	1	0	0	0	0	0.21	0.00	0.21	0.21	0.21	Matches
+1999	Sphephelo Sithole	MF	za South Africa	26	1999	5	5	389	4.3	0	2	2	0	0	0	0	0	0.00	0.46	0.46	0.00	0.46	Matches
+2000	Nkosinathi Sibisi	DF	za South Africa	30	1995	6	5	480	5.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2001	Mduduzi Shabalala	MF	za South Africa	22	2004	1	0	2	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2002	Kamogelo Sebelebele	DF,MF	za South Africa	23	2002	2	0	25	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2003	Iqraam Rayners	FW	za South Africa	30	1995	6	2	188	2.1	1	0	1	1	0	0	0	0	0.48	0.00	0.48	0.48	0.48	Matches
+2004	Mohau Nkota	MF	za South Africa	21	2004	4	3	264	2.9	1	0	1	1	0	0	1	0	0.34	0.00	0.34	0.34	0.34	Matches
+2005	Siyabonga Ngezana	DF	za South Africa	28	1997	5	5	450	5.0	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+2006	Khulumani Ndamane	DF	za South Africa	21	2004	2	1	128	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2007	Mothobi Mvala	DF	za South Africa	31	1994	3	3	240	2.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2008	Khuliso Mudau	DF	za South Africa	30	1995	8	8	720	8.0	1	0	1	1	0	0	1	0	0.12	0.00	0.12	0.12	0.12	Matches
+2009	Sibongiseni Mthethwa	MF	za South Africa	31	1994	1	0	11	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2010	Thapelo Morena	MF	za South Africa	32	1993	6	2	251	2.8	2	0	2	2	0	0	0	0	0.72	0.00	0.72	0.72	0.72	Matches
+2011	Tshepang Moremi	MF	za South Africa	25	2000	1	0	11	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2012	Thabiso Monyane	DF	za South Africa	25	2000	1	0	28	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2013	Thabo Moloisane	DF	za South Africa	26	1999	1	1	52	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2014	Elias Mokwana	MF	za South Africa	26	1999	3	3	180	2.0	0	1	1	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+2015	Teboho Mokoena	MF	za South Africa	29	1997	9	9	801	8.9	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+2016	Relebohile Mofokeng	MF	za South Africa	21	2004	3	2	158	1.8	1	0	1	1	0	0	0	0	0.57	0.00	0.57	0.57	0.57	Matches
+2017	Aubrey Modiba	DF	za South Africa	30	1995	7	7	623	6.9	0	1	1	0	0	0	1	0	0.00	0.14	0.14	0.00	0.14	Matches
+2018	Sydney Mobbie	DF	za South Africa	31	1994	1	1	5	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2019	Zuko Mdunyelwa	DF	za South Africa	26	1999	2	1	147	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2020	Sipho Mbule	MF	za South Africa	27	1998	4	4	334	3.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+2021	Mbekezeli Mbokazi	DF	za South Africa	20	2005	3	3	269	3.0	0	0	0	0	0	0	2	1	0.00	0.00	0.00	0.00	0.00	Matches
+2022	Thalente Mbatha	MF	za South Africa	25	2000	5	3	284	3.2	1	0	1	1	0	0	1	0	0.32	0.00	0.32	0.32	0.32	Matches
+2023	Mihlali Mayambela	FW	za South Africa	29	1996	2	1	101	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2024	Ndamulelo Maphangule	MF	za South Africa	26	1999	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2025	Evidence Makgopa	FW	za South Africa	25	2000	3	2	142	1.6	1	1	2	1	0	0	0	0	0.63	0.63	1.27	0.63	1.27	Matches
+2026	Zakhele Lepasa	FW	za South Africa	28	1997	2	0	78	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2027	Samukele Kabini	DF	za South Africa	21	2004	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2028	Bongokuhle Hlongwane	MF	za South Africa	25	2000	2	2	130	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2029	Lyle Foster	FW	za South Africa	25	2000	6	5	442	4.9	2	1	3	2	0	0	1	0	0.41	0.20	0.61	0.41	0.61	Matches
+2030	Ashley Cupido	FW	za South Africa	24	2001	1	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+2031	Fawaaz Basadien	DF	za South Africa	29	1996	2	2	180	2.0	0	1	1	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+2032	Bathusi Aubaas	MF	za South Africa	30	1995	7	2	256	2.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+2033	Oswin Appollis	MF	za South Africa	24	2001	8	5	489	5.4	2	4	6	2	0	0	0	0	0.37	0.74	1.10	0.37	1.10	Matches
+2034	Jayden Adams	MF	za South Africa	24	2001	2	1	96	1.1	2	0	2	2	0	0	0	0	1.87	0.00	1.87	1.87	1.87	Matches

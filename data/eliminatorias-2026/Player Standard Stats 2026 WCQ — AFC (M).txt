@@ -1,0 +1,411 @@
+ 						Playing Time		 	Performance 							Per 90 Minutes	
+Rk 	Player 	Pos 	Squad 	Age 	Born 	MP 	Starts 	Min 	90s 	Gls 	Ast 	G+A 	G-PK 	PK 	PKatt 	CrdY 	CrdR 	Gls 	Ast 	G+A 	G-PK 	G+A-PK 	Matches
+96	Kusini Yengi	FW	au Australia	27	1999	8	6	461	5.1	6	0	6	5	1	1	0	1	1.17	0.00	1.17	0.98	0.98	Matches
+97	Patrick Yazbek	MF	au Australia	23	2002	4	1	202	2.2	0	1	1	0	0	0	1	0	0.00	0.45	0.45	0.00	0.45	Matches
+98	Nishan Velupillay	FW	au Australia	24	2001	5	2	206	2.3	3	0	3	3	0	0	0	0	1.31	0.00	1.31	1.31	1.31	Matches
+99	Mo Touré	FW	au Australia	21	2004	1	0	26	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+100	Marco Tilio	MF	au Australia	24	2001	1	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+101	Ryan Teague	MF	au Australia	24	2002	3	2	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+102	Adam Taggart	FW	au Australia	32	1993	5	3	227	2.5	1	1	2	1	0	0	0	0	0.40	0.40	0.79	0.40	0.79	Matches
+103	Ryan Strain	DF	au Australia	28	1997	2	2	110	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+104	Apostolos Stamatelopoulos	FW	au Australia	26	1999	1	0	26	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+105	Harry Souttar	DF	au Australia	27	1998	11	11	990	11.0	2	0	2	2	0	0	1	0	0.18	0.00	0.18	0.18	0.18	Matches
+106	Sam Silvera	MF	au Australia	25	2000	2	1	99	1.1	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+107	Mathew Ryan	GK	au Australia	33	1992	11	11	990	11.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+108	Kye Rowles	DF	au Australia	27	1998	8	7	631	7.0	1	0	1	1	0	0	2	0	0.14	0.00	0.14	0.14	0.14	Matches
+109	Aiden O'Neill	MF	au Australia	27	1998	10	6	608	6.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+110	Joshua Nisbet	MF	au Australia	26	1999	3	0	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+111	Lewis Miller	MF,DF	au Australia	25	2000	10	9	786	8.7	2	1	3	2	0	0	0	0	0.23	0.11	0.34	0.23	0.34	Matches
+112	Connor Metcalfe	MF,FW	au Australia	26	1999	9	8	664	7.4	1	2	3	1	0	0	1	0	0.14	0.27	0.41	0.14	0.41	Matches
+113	Riley McGree	MF	au Australia	27	1998	7	4	390	4.3	0	1	1	0	0	0	1	0	0.00	0.23	0.23	0.00	0.23	Matches
+114	Hayden Matthews	DF	au Australia	21	2004	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+115	Jamie Maclaren	FW	au Australia	32	1993	2	0	46	0.5	3	0	3	3	0	0	0	0	5.87	0.00	5.87	5.87	5.87	Matches
+116	Awer Mabil	FW,MF	au Australia	30	1995	2	0	41	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+117	Massimo Luongo	MF	au Australia	33	1992	1	0	45	0.5	0	0	0	0	0	1	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+118	Mathew Leckie	MF	au Australia	34	1991	1	1	82	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+119	Fran Karačić	DF	au Australia	29	1996	2	0	34	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+120	Gethin Jones	MF,DF	au Australia	30	1995	2	2	171	1.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+121	Jackson Irvine	MF	au Australia	32	1993	14	14	1,172	13.0	3	1	4	3	0	0	1	0	0.23	0.08	0.31	0.23	0.31	Matches
+122	John Iredale	FW	au Australia	26	1999	2	0	49	0.5	1	0	1	1	0	0	0	0	1.84	0.00	1.84	1.84	1.84	Matches
+123	Nestory Irankunda	FW	au Australia	19	2006	5	3	220	2.4	1	0	1	0	1	1	0	0	0.41	0.00	0.41	0.00	0.00	Matches
+124	Ajdin Hrustic	MF	au Australia	29	1996	7	4	308	3.4	0	1	1	0	0	0	0	0	0.00	0.29	0.29	0.00	0.29	Matches
+125	Craig Goodwin	MF,FW	au Australia	34	1991	9	7	581	6.5	3	6	9	3	0	0	2	0	0.46	0.93	1.39	0.46	1.39	Matches
+126	Jason Geria	DF	au Australia	32	1993	8	5	546	6.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+127	Joe Gauci	GK	au Australia	25	2000	5	5	450	5.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+128	Mitchell Duke	FW	au Australia	35	1991	13	9	737	8.2	3	1	4	3	0	0	0	0	0.37	0.12	0.49	0.37	0.49	Matches
+129	Cammy Devlin	MF	au Australia	27	1998	2	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+130	Thomas Deng	DF	au Australia	28	1997	2	1	54	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+131	Miloš Degenek	DF	au Australia	31	1994	4	3	274	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+132	Alessandro Circati	DF	au Australia	22	2003	4	4	360	4.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+133	Anthony Cáceres	MF	au Australia	33	1992	4	1	117	1.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+134	Cameron Burgess	DF	au Australia	30	1995	12	12	1,035	11.5	0	1	1	0	0	0	1	0	0.00	0.09	0.09	0.00	0.09	Matches
+135	Luke Brattan	MF	au Australia	35	1990	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+136	Martin Boyle	FW,MF	au Australia	32	1993	7	7	442	4.9	2	2	4	1	1	1	1	0	0.41	0.41	0.81	0.20	0.61	Matches
+137	Jordy Bos	DF	au Australia	23	2002	9	4	434	4.8	0	2	2	0	0	0	1	0	0.00	0.41	0.41	0.00	0.41	Matches
+138	Brandon Borrello	FW,MF	au Australia	30	1995	7	3	320	3.6	1	0	1	1	0	0	0	0	0.28	0.00	0.28	0.28	0.28	Matches
+139	Aziz Behich	MF,DF	au Australia	35	1990	14	10	943	10.5	1	0	1	1	0	0	0	0	0.10	0.00	0.10	0.10	0.10	Matches
+140	Keanu Baccus	MF	au Australia	27	1998	6	5	405	4.5	1	0	1	1	0	0	4	0	0.22	0.00	0.22	0.22	0.22	Matches
+141	Nathaniel Atkinson	DF	au Australia	26	1999	1	1	90	1.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+142	Daniel Arzani	FW,MF	au Australia	27	1999	4	0	58	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+421	Munaf Yunus	DF	iq Iraq	29	1996	9	6	573	6.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+422	Ali Yousif	FW	iq Iraq	30	1996	2	0	28	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+423	Ahmed Yasin Ghani	MF	iq Iraq	34	1991	5	1	122	1.4	0	1	1	0	0	0	0	0	0.00	0.74	0.74	0.00	0.74	Matches
+424	Kevin Yakob	MF	iq Iraq	25	2000	2	2	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+425	Ahmed Yahya	DF,MF	iq Iraq	30	1995	7	5	435	4.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+426	Zaid Tahseen	DF	iq Iraq	25	2001	13	12	1,010	11.2	1	0	1	1	0	0	2	1	0.09	0.00	0.09	0.09	0.09	Matches
+427	Mohamed Al Taay	MF	iq Iraq	25	2000	4	1	120	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+428	Rebin Sulaka	DF	iq Iraq	33	1992	16	15	1,246	13.8	0	1	1	0	0	0	1	1	0.00	0.07	0.07	0.00	0.07	Matches
+429	Lucas Shlimon	MF	iq Iraq	22	2003	3	1	67	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+430	Aimar Sher	MF	iq Iraq	23	2002	4	3	252	2.8	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+431	Charbel Shamoon	DF	iq Iraq	21	2004	1	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+432	Danilo Al Saed	FW	iq Iraq	26	1999	2	0	25	0.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+433	Mustafa Saadoon	DF,MF	iq Iraq	24	2001	7	3	246	2.7	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+434	Bashar Resan	MF	iq Iraq	29	1996	5	5	286	3.2	1	0	1	1	0	0	0	0	0.31	0.00	0.31	0.31	0.31	Matches
+435	Osama Rashid	MF	iq Iraq	34	1992	9	9	657	7.3	1	0	1	1	0	0	0	0	0.14	0.00	0.14	0.14	0.14	Matches
+436	Mohammed Qasim	MF	iq Iraq	29	1996	2	0	46	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+437	Saad Natiq	DF	iq Iraq	31	1994	2	2	153	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+438	Amar Muhsin	FW	iq Iraq	28	1997	2	0	23	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+439	Mimi	FW	iq Iraq	25	2000	16	6	631	7.0	2	1	3	2	0	1	1	0	0.29	0.14	0.43	0.29	0.43	Matches
+440	Montader Madjed	MF	iq Iraq	20	2005	1	0	15	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+441	Sherko Karim	MF,FW	iq Iraq	29	1996	3	2	112	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+442	Sajjad Jasim	MF	iq Iraq	28	1998	2	0	39	0.4	1	0	1	1	0	0	0	0	2.31	0.00	2.31	2.31	2.31	Matches
+443	Ali Jasim	MF	iq Iraq	22	2004	20	15	1,364	15.2	2	4	6	2	0	0	0	0	0.13	0.26	0.40	0.13	0.40	Matches
+444	Dhurgham Ismail	DF	iq Iraq	31	1994	1	1	75	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+445	Zidane Iqbal	MF	iq Iraq	22	2003	12	6	634	7.0	2	0	2	2	0	0	2	0	0.28	0.00	0.28	0.28	0.28	Matches
+446	Ayman Hussein	FW	iq Iraq	29	1996	15	13	1,117	12.4	8	0	8	6	2	3	2	0	0.64	0.00	0.64	0.48	0.48	Matches
+447	Jalal Hassan	GK	iq Iraq	34	1991	16	16	1,440	16.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+448	Akam Hashim	DF	iq Iraq	27	1998	6	3	307	3.4	1	0	1	1	0	0	1	0	0.29	0.00	0.29	0.29	0.29	Matches
+449	Ali Al Hamadi	FW,MF	iq Iraq	23	2002	6	4	194	2.2	2	0	2	2	0	0	0	1	0.93	0.00	0.93	0.93	0.93	Matches
+450	Safaa Hadi	MF	iq Iraq	27	1998	3	2	142	1.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+451	Peter Gwargis	MF	iq Iraq	25	2000	1	1	72	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+452	Hussain Ghasem	DF	iq Iraq			1	0	10	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+453	Marko Farji	MF	iq Iraq	21	2004	4	3	251	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+454	Ali Faez	DF	iq Iraq	31	1994	3	1	115	1.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+455	Merchas Doski	DF	iq Iraq	26	1999	15	15	1,350	15.0	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+456	Frans Dhia Putros	DF	iq Iraq	32	1993	6	2	267	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+457	Ibrahim Bayesh	MF	iq Iraq	25	2000	18	15	1,345	14.9	2	2	4	2	0	0	0	0	0.13	0.13	0.27	0.13	0.27	Matches
+458	Ahmed Basil	GK	iq Iraq	29	1996	4	4	360	4.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+459	Amjad Attwan	MF	iq Iraq	28	1997	6	3	332	3.7	0	1	1	0	0	0	2	0	0.00	0.27	0.27	0.00	0.27	Matches
+460	Luay Al Ani	MF	iq Iraq	28	1997	3	1	104	1.2	0	1	1	0	0	0	1	0	0.00	0.87	0.87	0.00	0.87	Matches
+461	Youssef Amyn	MF,FW	iq Iraq	22	2003	16	8	864	9.6	2	1	3	2	0	0	2	0	0.21	0.10	0.31	0.21	0.31	Matches
+462	Amir Al Ammari	MF	iq Iraq	28	1997	18	16	1,447	16.1	2	3	5	1	1	1	2	0	0.12	0.19	0.31	0.06	0.25	Matches
+463	Ahmed Allée	MF	iq Iraq	29	1996	1	0	24	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+464	Hussein Ali	DF	iq Iraq	23	2002	18	15	1,289	14.3	1	0	1	1	0	0	1	0	0.07	0.00	0.07	0.07	0.07	Matches
+465	Ali Adnan Kadhim	DF	iq Iraq	32	1993	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+466	Pashang Abdulla	FW	iq Iraq	31	1994	1	0	11	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+467	Hasan Abdulkareem	MF	iq Iraq	27	1999	4	0	60	0.7	0	1	1	0	0	0	0	0	0.00	1.50	1.50	0.00	1.50	Matches
+468	Saad Abdul-Amir	MF	iq Iraq	34	1992	2	1	103	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+469	Arya Yousefi	DF	ir IR Iran	23	2002	5	4	278	3.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+470	Mehdi Torabi	MF	ir IR Iran	31	1994	4	2	228	2.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+471	Mehdi Taremi	MF,FW	ir IR Iran	33	1992	15	15	1,329	14.8	10	7	17	8	2	3	0	0	0.68	0.47	1.15	0.54	1.02	Matches
+472	Allahyar Sayyadmanesh	FW,MF	ir IR Iran	24	2001	1	0	19	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+473	Ramin Rezaeian	DF	ir IR Iran	35	1990	3	3	270	3.0	2	0	2	2	0	0	1	0	0.67	0.00	0.67	0.67	0.67	Matches
+474	Amirmohammad Razaghinia	MF	ir IR Iran	19	2006	1	1	33	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+475	Omid Noorafkan	MF,DF	ir IR Iran	28	1997	12	5	581	6.5	1	2	3	1	0	0	0	0	0.15	0.31	0.46	0.15	0.46	Matches
+476	Payam Niazmand	GK	ir IR Iran	30	1995	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+477	Ali Nemati	DF	ir IR Iran	29	1996	8	5	505	5.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+478	Mohammadmehdi Mohebi	MF,FW	ir IR Iran	25	2000	2	2	152	1.7	1	1	2	1	0	0	0	0	0.59	0.59	1.18	0.59	1.18	Matches
+479	Mohammad Mohebbi	MF,FW	ir IR Iran	27	1998	9	9	725	8.1	6	1	7	6	0	0	2	0	0.74	0.12	0.87	0.74	0.87	Matches
+480	Milad Mohammadi	DF	ir IR Iran	32	1993	14	13	1,128	12.5	0	1	1	0	0	0	3	1	0.00	0.08	0.08	0.00	0.08	Matches
+481	Mehrdad Mohammadi	FW,MF	ir IR Iran	32	1993	1	0	16	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+482	Shahriar Moghanlou	MF	ir IR Iran	31	1994	8	0	132	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+483	Shoja' Khalilzadeh	DF	ir IR Iran	36	1989	13	13	1,131	12.6	0	0	0	0	0	0	1	1	0.00	0.00	0.00	0.00	0.00	Matches
+484	Mohammad Karimi	MF	ir IR Iran	29	1996	7	4	289	3.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+485	Ali Karimi	MF	ir IR Iran	31	1994	1	0	47	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+486	Hossein Kanaanizadegan	DF	ir IR Iran	31	1994	10	9	847	9.4	2	1	3	2	0	0	2	0	0.21	0.11	0.32	0.21	0.32	Matches
+487	Abolfazl Jalali	DF	ir IR Iran	27	1998	2	1	68	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+488	Alireza Jahanbakhsh	MF	ir IR Iran	32	1993	10	7	646	7.2	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+489	Amirhossein Hosseinzadeh	MF	ir IR Iran	25	2000	4	1	95	1.1	1	0	1	1	0	0	0	0	0.95	0.00	0.95	0.95	0.95	Matches
+490	Javad Hosseinnezhad	MF	ir IR Iran	22	2003	3	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+491	Hossein Hosseini	GK	ir IR Iran	33	1992	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+492	Amin Hazbavi	DF	ir IR Iran	22	2003	4	3	255	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+493	Mahdi Hashemnezhad	FW	ir IR Iran	24	2001	1	1	55	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+494	Saleh Hardani	DF	ir IR Iran	27	1998	11	8	739	8.2	1	1	2	1	0	0	1	1	0.12	0.12	0.24	0.12	0.24	Matches
+495	Ehsan Hajsafi	DF	ir IR Iran	35	1990	2	1	91	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+496	Mohammed Ghorbani	MF,FW	ir IR Iran	24	2001	7	2	248	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+497	Ali Gholizadeh	MF	ir IR Iran	29	1996	8	3	282	3.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+498	Saman Ghoddos	MF	ir IR Iran	32	1993	13	12	929	10.3	0	2	2	0	0	0	2	0	0.00	0.19	0.19	0.00	0.19	Matches
+499	Mehdi Ghaedi	MF	ir IR Iran	27	1998	11	8	651	7.2	3	1	4	3	0	0	1	0	0.41	0.14	0.55	0.41	0.55	Matches
+500	Saman Fallah	MF	ir IR Iran	24	2001	2	0	20	0.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+501	Saeid Ezatolahi	MF	ir IR Iran	29	1996	13	12	1,051	11.7	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+502	Omid Ebrahimi	MF	ir IR Iran	38	1987	1	0	21	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+503	Roozbeh Cheshmi	MF	ir IR Iran	32	1993	4	1	179	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+504	Alireza Beiranvand	GK	ir IR Iran	33	1992	13	13	1,170	13.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+505	Sardar Azmoun	FW	ir IR Iran	31	1995	13	12	983	10.9	8	5	13	8	0	0	1	0	0.73	0.46	1.19	0.73	1.19	Matches
+506	Mohammadreza Azadi	FW	ir IR Iran	26	1999	1	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+507	Reza Asadi	MF	ir IR Iran	30	1996	2	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+508	Karim Ansarifard	FW	ir IR Iran	35	1990	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+509	Ali Alipour	FW	ir IR Iran	30	1995	2	1	38	0.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+510	Aref Aghasi	DF	ir IR Iran	29	1997	2	2	176	2.0	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+511	Javad Aghaeipour	FW	ir IR Iran	26	1999	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+512	Musa Al-Taamari	FW,MF	jo Jordan	28	1997	13	12	1,037	11.5	7	2	9	7	0	1	1	0	0.61	0.17	0.78	0.61	0.78	Matches
+513	Sisa	MF	jo Jordan	27	1998	1	0	27	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+514	Mahmoud Shawkat	MF	jo Jordan	30	1995	2	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+515	Mohammad Shararah	FW	jo Jordan	28	1997	6	0	47	0.5	1	0	1	1	0	0	0	0	1.91	0.00	1.91	1.91	1.91	Matches
+516	Ibrahim Sabra	FW	jo Jordan	19	2006	2	0	28	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+517	Ibrahim Sa'deh	MF	jo Jordan	25	2000	11	4	382	4.2	1	1	2	1	0	0	1	0	0.24	0.24	0.47	0.24	0.47	Matches
+518	Saed Al Rosan	DF	jo Jordan	28	1997	2	1	91	1.0	1	0	1	1	0	0	0	0	0.99	0.00	0.99	0.99	0.99	Matches
+519	Noor Al Rawabdeh	MF	jo Jordan	28	1997	12	10	924	10.3	2	2	4	2	0	0	1	0	0.19	0.19	0.39	0.19	0.39	Matches
+520	Saleh Rateb	MF	jo Jordan	31	1994	4	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+521	Nizar Al Rashdan	MF	jo Jordan	26	1999	14	14	1,128	12.5	0	0	0	0	0	0	4	0	0.00	0.00	0.00	0.00	0.00	Matches
+522	Adham Al Quraishi	DF	jo Jordan	30	1995	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+523	Ali Olwan	FW,MF	jo Jordan	25	2000	13	13	1,141	12.7	9	1	10	6	3	3	0	0	0.71	0.08	0.79	0.47	0.55	Matches
+524	Saleem Obaid	DF	jo Jordan	34	1992	2	1	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+525	Abdallah Nasib	DF	jo Jordan	31	1994	14	14	1,260	14.0	1	0	1	1	0	0	2	0	0.07	0.00	0.07	0.07	0.07	Matches
+526	Yazan Al-Naimat	FW	jo Jordan	26	1999	16	15	1,346	15.0	8	5	13	7	1	1	0	0	0.53	0.33	0.87	0.47	0.80	Matches
+527	Mohammad Abu Al Nadi	DF	jo Jordan	24	2001	7	6	509	5.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+528	Bara' Marei	DF	jo Jordan	31	1994	2	2	161	1.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+529	Mahmoud Al-Mardi	MF,FW	jo Jordan	32	1993	14	12	982	10.9	1	7	8	1	0	0	2	0	0.09	0.64	0.73	0.09	0.73	Matches
+530	Mustafa Kamal	MF	jo Jordan	30	1995	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+531	Yousef Abu Al Jazar	DF	jo Jordan	26	1999	4	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+532	Amer Jamous	MF	jo Jordan	23	2002	4	3	288	3.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+533	Aref Al Haj	FW	jo Jordan	24	2001	3	0	12	0.1	0	1	1	0	0	0	0	0	0.00	7.50	7.50	0.00	7.50	Matches
+534	Ihsan Haddad	MF,DF	jo Jordan	31	1994	13	13	1,141	12.7	0	2	2	0	0	0	2	0	0.00	0.16	0.16	0.00	0.16	Matches
+535	Abdallah Al Fakhori	GK	jo Jordan	26	2000	1	0	34	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+536	Ahmad Ersan	MF	jo Jordan	30	1995	1	0	13	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+537	Velibor Djuric	MF	jo Jordan	43	1982	2	2	162	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+538	Mohammad Al-Dawud	FW,MF	jo Jordan	33	1992	1	0	4	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+539	Reziq Bani Hani	FW	jo Jordan	24	2002	3	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+540	Rajaei Ayed	MF	jo Jordan	32	1993	8	3	299	3.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+541	Abdullah Al-Attar	DF,FW	jo Jordan	33	1992	2	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+542	Yazan Al-Arab	DF	jo Jordan	30	1996	14	14	1,259	14.0	1	0	1	1	0	0	2	0	0.07	0.00	0.07	0.07	0.07	Matches
+543	Salem Al-Ajalin	DF	jo Jordan	37	1988	6	5	451	5.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+544	Mohammad Aburiziq	FW	jo Jordan	26	1999	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+545	Yazeed Abulaila	GK	jo Jordan	33	1993	16	16	1,406	15.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+546	Mohannad Abu Taha	MF	jo Jordan	22	2003	11	8	672	7.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+547	Mohammad Abu Hasheesh	MF,DF	jo Jordan	30	1995	11	5	493	5.5	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+548	Husam Abu Dahab	DF	jo Jordan	25	2000	3	3	256	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+549	Tsuyoshi Watanabe	DF	jp Japan	28	1997	2	1	114	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+550	Ayase Ueda	FW	jp Japan	27	1998	9	9	685	7.6	8	2	10	7	1	1	0	0	1.05	0.26	1.31	0.92	1.18	Matches
+551	Takehiro Tomiyasu	DF	jp Japan	27	1998	2	2	165	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+552	Kota Tawaratsumida	MF	jp Japan	21	2004	2	1	76	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+553	Shogo Taniguchi	DF	jp Japan	34	1991	8	7	602	6.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+554	Kosei Tani	GK	jp Japan	25	2000	2	1	105	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+555	Ao Tanaka	MF	jp Japan	27	1998	9	6	595	6.6	1	1	2	1	0	0	0	0	0.15	0.15	0.30	0.15	0.30	Matches
+556	Kōta Takai	DF	jp Japan	21	2004	4	2	221	2.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+557	Zion Suzuki	GK	jp Japan	23	2002	10	10	900	10.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+558	Yuito Suzuki	MF	jp Japan	24	2001	2	1	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+559	Junnosuke Suzuki	DF	jp Japan	22	2003	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+560	Yukinari Sugawara	MF,DF	jp Japan	25	2000	5	4	314	3.5	2	0	2	2	0	0	0	0	0.57	0.00	0.57	0.57	0.57	Matches
+561	Yuki Soma	FW	jp Japan	28	1997	3	1	148	1.6	1	1	2	0	1	1	0	0	0.61	0.61	1.22	0.00	0.61	Matches
+562	Ayumu Seko	DF	jp Japan	25	2000	4	3	315	3.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+563	Hiroki Sekine	DF	jp Japan	23	2002	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+564	Ryūnosuke Satō	MF	jp Japan	19	2006	1	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+565	Kodai Sano	MF	jp Japan	22	2003	1	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+566	Kaishu Sano	MF	jp Japan	25	2000	3	2	198	2.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+567	Keisuke Ōsako	GK	jp Japan	26	1999	3	3	245	2.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+568	Yuki Ohashi	FW	jp Japan	29	1996	2	1	80	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+569	Koki Ogawa	FW	jp Japan	28	1997	8	3	316	3.5	6	1	7	6	0	0	0	0	1.71	0.28	1.99	1.71	1.99	Matches
+570	Yuta Nakayama	DF	jp Japan	28	1997	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+571	Keito Nakamura	MF,DF	jp Japan	25	2000	10	4	417	4.6	2	1	3	2	0	0	0	0	0.43	0.22	0.65	0.43	0.65	Matches
+572	Hidemasa Morita	MF	jp Japan	30	1995	10	9	735	8.2	3	2	5	3	0	0	0	0	0.37	0.24	0.61	0.37	0.61	Matches
+573	Ryoya Morishita	MF	jp Japan	28	1997	1	1	68	0.8	1	0	1	1	0	0	0	0	1.32	0.00	1.32	1.32	1.32	Matches
+574	Kaoru Mitoma	MF	jp Japan	28	1997	7	6	474	5.3	1	3	4	1	0	0	1	0	0.19	0.57	0.76	0.19	0.76	Matches
+575	Shunsuke Mito	MF	jp Japan	23	2002	1	1	60	0.7	0	1	1	0	0	0	0	0	0.00	1.50	1.50	0.00	1.50	Matches
+576	Takumi Minamino	MF	jp Japan	31	1995	12	10	699	7.8	4	2	6	4	0	0	1	0	0.52	0.26	0.77	0.52	0.77	Matches
+577	Seiya Maikuma	DF	jp Japan	28	1997	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+578	Daiya Maekawa	GK	jp Japan	31	1994	2	1	100	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+579	Daizen Maeda	MF,FW	jp Japan	28	1997	7	2	298	3.3	1	0	1	1	0	0	1	0	0.30	0.00	0.30	0.30	0.30	Matches
+580	Shuto Machino	FW	jp Japan	26	1999	3	1	103	1.1	1	2	3	1	0	0	0	0	0.87	1.75	2.62	0.87	2.62	Matches
+581	Koki Machida	DF	jp Japan	28	1997	11	10	870	9.7	0	1	1	0	0	0	1	0	0.00	0.10	0.10	0.00	0.10	Matches
+582	Takefusa Kubo	MF	jp Japan	24	2001	11	8	653	7.3	4	8	12	4	0	0	1	0	0.55	1.10	1.65	0.55	1.65	Matches
+583	Takumu Kawamura	MF	jp Japan	26	1999	2	0	63	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+584	Daichi Kamada	MF	jp Japan	29	1996	12	8	658	7.3	5	1	6	5	0	0	1	0	0.68	0.14	0.82	0.68	0.82	Matches
+585	Junya Ito	MF	jp Japan	32	1993	9	2	399	4.4	1	10	11	1	0	0	0	0	0.23	2.26	2.48	0.23	2.48	Matches
+586	Hiroki Ito	DF	jp Japan	26	1999	6	5	495	5.5	0	1	1	0	0	0	1	0	0.00	0.18	0.18	0.00	0.18	Matches
+587	Ko Itakura	DF	jp Japan	29	1997	11	10	891	9.9	1	0	1	1	0	0	0	0	0.10	0.00	0.10	0.10	0.10	Matches
+588	Mao Hosoya	FW	jp Japan	24	2001	3	0	71	0.8	2	0	2	2	0	0	0	0	2.54	0.00	2.54	2.54	2.54	Matches
+589	Yu Hirakawa	MF	jp Japan	25	2001	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+590	Reo Hatate	MF	jp Japan	28	1997	3	1	74	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+591	Daiki Hashioka	DF	jp Japan	26	1999	4	2	211	2.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+592	Kyogo Furuhashi	FW,MF	jp Japan	31	1995	2	0	32	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+593	Joel Fujita	MF	jp Japan	23	2002	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+594	Wataru Endo	MF	jp Japan	32	1993	11	10	859	9.5	1	0	1	1	0	0	0	0	0.10	0.00	0.10	0.10	0.10	Matches
+595	Ritsu Doan	MF,FW	jp Japan	27	1998	12	10	721	8.0	3	3	6	3	0	0	0	0	0.37	0.37	0.75	0.37	0.75	Matches
+596	Takuma Asano	MF	jp Japan	31	1994	3	1	93	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+687	Cho Yumin	DF	kr Korea Republic	29	1996	9	9	810	9.0	0	1	1	0	0	0	1	0	0.00	0.11	0.11	0.00	0.11	Matches
+688	Seol Young-woo	DF	kr Korea Republic	27	1998	14	12	1,048	11.6	0	2	2	0	0	0	1	0	0.00	0.17	0.17	0.00	0.17	Matches
+689	Kim Young-gwon	DF	kr Korea Republic	35	1990	3	3	253	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+690	Park Yong-woo	MF	kr Korea Republic	32	1993	10	9	753	8.4	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+691	Jung Woo-young	MF	kr Korea Republic	36	1989	4	3	276	3.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+692	Jeong Woo-yeong	FW	kr Korea Republic	26	1999	3	1	96	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+693	Um Wonsang	FW,MF	kr Korea Republic	27	1999	1	0	33	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+694	Hwang Ui-jo	FW,MF	kr Korea Republic	33	1992	2	0	46	0.5	1	0	1	0	1	1	0	0	1.96	0.00	1.96	0.00	0.00	Matches
+695	Lee Taeseok	DF	kr Korea Republic	23	2002	5	4	373	4.1	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+696	Kim Tae-hwan	DF	kr Korea Republic	36	1989	1	1	71	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+697	Lee Soonmin	MF	kr Korea Republic	31	1994	1	0	21	0.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+698	Park Seungwook	DF	kr Korea Republic	28	1997	3	1	103	1.1	0	1	1	0	0	0	0	0	0.00	0.87	0.87	0.00	0.87	Matches
+699	Lee Seung-woo	FW,MF	kr Korea Republic	28	1998	1	0	4	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+700	Jung Seung-hyun	DF	kr Korea Republic	31	1994	3	3	270	3.0	1	0	1	1	0	0	0	0	0.33	0.00	0.33	0.33	0.33	Matches
+701	Paik Seung-ho	MF	kr Korea Republic	28	1997	6	3	189	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+702	Kim Seung-gyu	GK	kr Korea Republic	35	1990	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+703	Moon Seon-min	FW,MF	kr Korea Republic	33	1992	2	0	62	0.7	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+704	Oh Sehun	FW	kr Korea Republic	27	1999	9	5	426	4.7	2	0	2	2	0	0	0	0	0.42	0.00	0.42	0.42	0.42	Matches
+705	Lee Myung-jae	DF	kr Korea Republic	32	1993	7	5	465	5.2	0	1	1	0	0	0	0	0	0.00	0.19	0.19	0.00	0.19	Matches
+706	Hwang Mun-ki	DF	kr Korea Republic	29	1996	2	1	89	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+707	Kim Moonhwan	DF	kr Korea Republic	30	1995	2	1	91	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+708	Song Minkyu	FW,MF	kr Korea Republic	26	1999	1	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+709	Yang Minhyeok	MF	kr Korea Republic	19	2006	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+710	Joo Min-kyu	FW	kr Korea Republic	35	1990	9	5	351	3.9	2	3	5	2	0	0	0	0	0.51	0.77	1.28	0.51	1.28	Matches
+711	Kim Min-jae	DF	kr Korea Republic	29	1996	10	10	900	10.0	0	1	1	0	0	0	0	0	0.00	0.10	0.10	0.00	0.10	Matches
+712	Kwon Kyung-won	DF	kr Korea Republic	34	1992	5	5	450	5.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+713	Lee Ki-je	DF	kr Korea Republic	34	1991	2	2	153	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+714	Lee Kang-in	MF,FW	kr Korea Republic	24	2001	15	13	1,148	12.8	5	6	11	5	0	0	1	0	0.39	0.47	0.86	0.39	0.86	Matches
+715	Kim Jusung	DF	kr Korea Republic	25	2000	1	1	90	1.0	0	1	1	0	0	0	0	0	0.00	1.00	1.00	0.00	1.00	Matches
+716	Bae Junho	MF	kr Korea Republic	22	2003	8	2	262	2.9	2	4	6	2	0	0	0	0	0.69	1.37	2.06	0.69	2.06	Matches
+717	Choi Jun	DF	kr Korea Republic	26	1999	1	0	4	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+718	Eom Jisung	MF	kr Korea Republic	23	2002	2	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+719	Jeon Jinwoo	MF	kr Korea Republic	26	1999	2	1	85	0.9	0	1	1	0	0	0	0	0	0.00	1.06	1.06	0.00	1.06	Matches
+720	Park Jinseob	DF,MF	kr Korea Republic	30	1995	2	0	46	0.5	1	0	1	1	0	0	0	0	1.96	0.00	1.96	1.96	1.96	Matches
+721	Kim Jin-su	DF	kr Korea Republic	33	1992	5	4	369	4.1	0	1	1	0	0	0	0	0	0.00	0.24	0.24	0.00	0.24	Matches
+722	Kim Jin-kyu	MF	kr Korea Republic	28	1997	1	0	45	0.5	1	0	1	1	0	0	0	0	2.00	0.00	2.00	2.00	2.00	Matches
+723	Hwang Jaewon	DF	kr Korea Republic	23	2002	4	1	146	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+724	Lee Jae-sung	MF	kr Korea Republic	33	1992	16	13	1,055	11.7	5	3	8	5	0	0	1	0	0.43	0.26	0.68	0.43	0.68	Matches
+725	Hwang In-beom	MF	kr Korea Republic	29	1996	15	15	1,284	14.3	0	2	2	0	0	0	1	0	0.00	0.14	0.14	0.00	0.14	Matches
+726	Hong Hyunseok	MF	kr Korea Republic	26	1999	4	0	48	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+727	Yang Hyunjun	FW,MF	kr Korea Republic	23	2002	2	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+728	Lee Hyunju	MF	kr Korea Republic	22	2003	1	0	10	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+729	Jo Hyeon-woo	GK	kr Korea Republic	34	1991	13	13	1,170	13.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+730	Oh Hyeon-gyu	FW	kr Korea Republic	24	2001	9	1	240	2.7	4	0	4	4	0	0	1	0	1.50	0.00	1.50	1.50	1.50	Matches
+731	Jung Hoyeon	MF	kr Korea Republic	25	2000	1	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+732	Son Heung-min	MF,FW	kr Korea Republic	33	1992	13	12	1,064	11.8	10	4	14	8	2	2	0	0	0.85	0.34	1.18	0.68	1.02	Matches
+733	Hwang Hee-chan	MF,FW	kr Korea Republic	30	1996	11	8	603	6.7	4	0	4	4	0	0	0	0	0.60	0.00	0.60	0.60	0.60	Matches
+734	Lee Hanbeom	DF	kr Korea Republic	23	2002	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+735	Cho Gue-sung	FW	kr Korea Republic	28	1998	4	3	207	2.3	1	1	2	1	0	0	1	0	0.43	0.43	0.87	0.43	0.87	Matches
+736	Won Du-jae	MF	kr Korea Republic	28	1997	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+737	Lee Dong-gyeong	MF	kr Korea Republic	28	1997	2	1	50	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+738	Lee Chang-keun	GK	kr Korea Republic	32	1993	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1134	Salah Zakaria	GK	qa Qatar	26	1999	2	1	111	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1135	Abdalla Yousif	DF	qa Qatar	23	2002	3	2	188	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1136	Abdulla Al Yazidi	MF,FW	qa Qatar	23	2002	5	2	129	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1137	Mohammed Waad	MF,DF	qa Qatar	26	1999	8	4	362	4.0	0	1	1	0	0	0	1	0	0.00	0.25	0.25	0.00	0.25	Matches
+1138	Amro Surag	MF	qa Qatar	27	1998	1	1	56	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1139	Ahmed Suhail	DF	qa Qatar	26	1999	3	2	209	2.3	1	0	1	1	0	0	0	0	0.43	0.00	0.43	0.43	0.43	Matches
+1140	Sebastián Soria	FW	qa Qatar	42	1983	1	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1141	Saad Al Sheeb	GK	qa Qatar	35	1990	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1142	Tarek Salman	DF	qa Qatar	28	1997	11	9	757	8.4	0	0	0	0	0	0	3	1	0.00	0.00	0.00	0.00	0.00	Matches
+1143	Mahdi Salem	MF	qa Qatar	21	2004	2	1	82	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1144	Ró-Ró	DF	qa Qatar	35	1990	9	9	780	8.7	2	0	2	2	0	0	1	0	0.23	0.00	0.23	0.23	0.23	Matches
+1145	Bassam Al-Rawi	MF,DF	qa Qatar	28	1997	4	2	197	2.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1146	Ahmed Al Rawi	FW	qa Qatar	21	2004	8	4	466	5.2	3	0	3	3	0	0	2	0	0.58	0.00	0.58	0.58	0.58	Matches
+1147	Murad Naji Hussein	MF	qa Qatar	34	1991	2	2	165	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1148	Ali Nader	GK	qa Qatar	21	2004	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1149	Mohammed Muntari	FW	qa Qatar	32	1993	6	0	148	1.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1150	Abdurahman Mostafa	MF	qa Qatar	28	1997	6	2	224	2.5	0	1	1	0	0	0	0	0	0.00	0.40	0.40	0.00	0.40	Matches
+1151	Tahsin Mohammed	MF	qa Qatar	19	2006	1	1	59	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1152	Ismaeel Mohammad	DF,MF	qa Qatar	35	1990	9	3	460	5.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1153	Ayoub Mohamed	DF	qa Qatar	20	2005	2	2	147	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1154	Mostafa Meshaal	MF	qa Qatar	24	2001	8	5	531	5.9	2	1	3	2	0	0	0	0	0.34	0.17	0.51	0.34	0.51	Matches
+1155	Lucas Mendes	DF	qa Qatar	35	1990	13	11	981	10.9	1	1	2	1	0	0	0	1	0.09	0.09	0.18	0.09	0.18	Matches
+1156	Yousef Marei	DF	qa Qatar	18	2007	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1157	Abdullah Marafee	DF	qa Qatar	33	1992	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1158	Tameem Mansour	FW	qa Qatar	23	2002	3	1	107	1.2	1	1	2	1	0	0	0	0	0.84	0.84	1.68	0.84	1.68	Matches
+1159	Mohamed Manai	MF,FW	qa Qatar	23	2002	3	2	180	2.0	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+1160	Shehab Mamdouh	GK	qa Qatar	25	2000	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1161	Assim Madibo	MF	qa Qatar	29	1996	4	4	342	3.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1162	Boualem Khoukhi	DF	qa Qatar	35	1990	9	9	709	7.9	1	1	2	1	0	0	1	0	0.13	0.13	0.25	0.13	0.25	Matches
+1163	Mohamed Khaled	MF	qa Qatar	21	2005	2	1	89	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1164	Edmilson Junior	MF	qa Qatar	31	1994	9	6	506	5.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1165	Nabil Irfan	DF	qa Qatar	21	2004	1	1	69	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1166	Al Hashmi Al Hussein	DF	qa Qatar	22	2003	1	1	90	1.0	0	1	1	0	0	0	0	0	0.00	1.00	1.00	0.00	1.00	Matches
+1167	Hassan Al-Haydos	MF	qa Qatar	35	1990	2	2	135	1.5	1	0	1	1	0	0	0	0	0.67	0.00	0.67	0.67	0.67	Matches
+1168	Abdulaziz Hatem	MF	qa Qatar	35	1990	9	4	461	5.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1169	Ibrahim Al Hassan	MF,FW	qa Qatar	20	2005	8	6	442	4.9	2	1	3	2	0	0	1	0	0.41	0.20	0.61	0.41	0.61	Matches
+1170	Abdelkarim Hassan	DF	qa Qatar	32	1993	3	2	198	2.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1171	Naif Al-Hadhrami	MF	qa Qatar	24	2001	2	2	162	1.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1172	Ahmed Al Ganehi	MF,FW	qa Qatar	25	2000	10	6	449	5.0	1	0	1	1	0	0	2	0	0.20	0.00	0.20	0.20	0.20	Matches
+1173	Jassem Gaber	MF	qa Qatar	23	2002	10	6	577	6.4	0	1	1	0	0	0	0	0	0.00	0.16	0.16	0.00	0.16	Matches
+1174	Ahmed Fathy	MF	qa Qatar	33	1993	13	12	945	10.5	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+1175	Sultan Al-Brake	DF	qa Qatar	29	1996	2	2	175	1.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1176	Karim Boudiaf	MF	qa Qatar	35	1990	4	3	255	2.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1177	Meshaal Barsham	GK	qa Qatar	27	1998	13	13	1,149	12.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1178	Yousef Aymen	DF	qa Qatar	26	1999	2	2	180	2.0	1	0	1	1	0	0	0	0	0.50	0.00	0.50	0.50	0.50	Matches
+1179	Al-Mahdi Ali Mukhtar	DF	qa Qatar	33	1992	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1180	Khaled Ali	MF	qa Qatar	24	2001	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1181	Almoez Ali	FW	qa Qatar	29	1996	14	13	1,091	12.1	12	1	13	10	2	2	3	0	0.99	0.08	1.07	0.82	0.91	Matches
+1182	Ahmed Alaaeldin	FW	qa Qatar	33	1993	3	1	90	1.0	2	0	2	1	1	1	0	0	2.00	0.00	2.00	1.00	1.00	Matches
+1183	Mohamed Aiash	DF	qa Qatar	24	2001	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1184	Abdullah Al Ahrak	MF	qa Qatar	28	1997	4	2	163	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1185	Homam Ahmed	DF,MF	qa Qatar	26	1999	13	9	822	9.1	0	4	4	0	0	0	1	0	0.00	0.44	0.44	0.00	0.44	Matches
+1186	Hazem Ahmed	MF	qa Qatar	27	1998	2	1	62	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1187	Akram Afif	MF,FW	qa Qatar	29	1996	16	16	1,383	15.4	4	11	15	3	1	1	1	0	0.26	0.72	0.98	0.20	0.91	Matches
+1188	Mahmoud Abunada	GK	qa Qatar	25	2000	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1189	Yusuf Abdurisag	MF	qa Qatar	26	1999	6	1	194	2.2	1	0	1	1	0	0	3	0	0.46	0.00	0.46	0.46	0.46	Matches
+1190	Aiman Yahya	FW,MF	sa Saudi Arabia	24	2001	7	6	438	4.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1191	Saleh Waheeb	MF	sa Saudi Arabia	23	2002	2	2	137	1.5	1	0	1	1	0	0	0	0	0.66	0.00	0.66	0.66	0.66	Matches
+1192	Jehad Thakri	DF	sa Saudi Arabia	24	2001	3	3	270	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1193	Hassan Al Tambakti	DF	sa Saudi Arabia	26	1999	14	13	1,188	13.2	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+1194	Muhannad Shenqeeti	DF	sa Saudi Arabia	26	1999	2	1	82	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1195	Saleh Al-Shehri	FW	sa Saudi Arabia	32	1993	10	4	346	3.8	4	0	4	3	1	1	0	0	1.04	0.00	1.04	0.78	0.78	Matches
+1196	Yasser Al-Shahrani	DF	sa Saudi Arabia	33	1992	3	2	177	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1197	Awn Al Saluli	DF	sa Saudi Arabia	27	1998	7	4	375	4.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1198	Abdulla Al Salem	FW,MF	sa Saudi Arabia	33	1992	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1199	Marwan Al Sahafi	FW,MF	sa Saudi Arabia	21	2004	8	4	388	4.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1200	Abdullah Radif	FW	sa Saudi Arabia	23	2003	10	3	378	4.2	1	0	1	1	0	0	2	0	0.24	0.00	0.24	0.24	0.24	Matches
+1201	Mohammed Al Qahtani	FW	sa Saudi Arabia	23	2002	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1202	Mohammed Al-Owais	GK	sa Saudi Arabia	34	1991	8	8	664	7.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1203	Sami Al-Najei	MF	sa Saudi Arabia	28	1997	1	0	13	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1204	Fahad Al Muwallad	FW,MF	sa Saudi Arabia	31	1994	2	0	21	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1205	Eid Al Muwallad	MF	sa Saudi Arabia	24	2001	1	0	26	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1206	Saad Al Mosa	DF	sa Saudi Arabia	23	2002	1	0	2	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1207	Mohammed Marran	FW	sa Saudi Arabia	24	2001	4	1	142	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1208	Abdulellah Al-Malki	MF	sa Saudi Arabia	31	1994	5	4	316	3.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1209	Ali Majrashi	DF	sa Saudi Arabia	26	1999	3	2	196	2.2	0	1	1	0	0	0	0	0	0.00	0.46	0.46	0.00	0.46	Matches
+1210	Ali Lajami	DF	sa Saudi Arabia	29	1996	10	9	822	9.1	1	0	1	1	0	0	1	0	0.11	0.00	0.11	0.11	0.11	Matches
+1211	Abdullah Al-Khaibari	MF	sa Saudi Arabia	29	1996	7	4	360	4.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1212	Ahmed Al-Kassar	GK	sa Saudi Arabia	34	1991	5	4	416	4.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1213	Mohamed Kanno	MF	sa Saudi Arabia	31	1994	10	8	622	6.9	0	1	1	0	0	0	3	2	0.00	0.14	0.14	0.00	0.14	Matches
+1214	Hassan Kadesh	DF,MF	sa Saudi Arabia	33	1992	11	9	780	8.7	2	0	2	2	0	0	0	0	0.23	0.00	0.23	0.23	0.23	Matches
+1215	Musab Al Juwayr	MF	sa Saudi Arabia	22	2003	14	11	852	9.5	3	3	6	3	0	0	0	0	0.32	0.32	0.63	0.32	0.63	Matches
+1216	Ziyad Al Johani	MF	sa Saudi Arabia	24	2001	4	2	212	2.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1217	Ali Hazazi	MF	sa Saudi Arabia	31	1994	2	1	73	0.8	0	1	1	0	0	0	0	0	0.00	1.23	1.23	0.00	1.23	Matches
+1218	Abbas Al Hassan	MF	sa Saudi Arabia	21	2004	4	2	182	2.0	0	1	1	0	0	0	0	0	0.00	0.49	0.49	0.00	0.49	Matches
+1219	Moteb Al-Harbi	MF,DF	sa Saudi Arabia	25	2000	4	3	232	2.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1220	Rayan Hamidou	DF	sa Saudi Arabia	23	2002	3	3	225	2.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1221	Abdullah Al Hamdan	MF	sa Saudi Arabia	26	1999	7	1	215	2.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1222	Abdulrahman Ghareeb	FW	sa Saudi Arabia	28	1997	8	2	264	2.9	1	1	2	1	0	0	0	0	0.34	0.34	0.68	0.34	0.68	Matches
+1223	Sultan Al-Ghanam	MF	sa Saudi Arabia	31	1994	4	2	179	2.0	0	2	2	0	0	0	1	0	0.00	1.01	1.01	0.00	1.01	Matches
+1224	Faisal Al Ghamdi	MF	sa Saudi Arabia	24	2001	10	5	486	5.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1225	Muath Fagihy	MF	sa Saudi Arabia	23	2002	1	1	78	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1226	Salem Al-Dawsari	MF,FW	sa Saudi Arabia	34	1991	14	14	1,240	13.8	2	1	3	2	0	3	0	0	0.15	0.07	0.22	0.15	0.22	Matches
+1227	Nasser Al-Dawsari	MF	sa Saudi Arabia	27	1998	12	9	791	8.8	0	1	1	0	0	0	3	0	0.00	0.11	0.11	0.00	0.11	Matches
+1228	Firas Al-Buraikan	FW	sa Saudi Arabia	25	2000	15	14	1,116	12.4	5	0	5	4	1	1	0	0	0.40	0.00	0.40	0.32	0.32	Matches
+1229	Ali Al-Bulaihi	DF	sa Saudi Arabia	36	1989	7	7	630	7.0	0	0	0	0	0	0	4	0	0.00	0.00	0.00	0.00	0.00	Matches
+1230	Mohammed Al-Breik	MF	sa Saudi Arabia	33	1992	1	1	90	1.0	0	1	1	0	0	0	0	0	0.00	1.00	1.00	0.00	1.00	Matches
+1231	Nawaf Boushal	DF	sa Saudi Arabia	26	1999	6	5	468	5.2	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+1232	Ali Al Asmari	MF	sa Saudi Arabia	29	1997	1	1	81	0.9	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1233	Nawaf Al Aqidi	GK	sa Saudi Arabia	25	2000	6	6	540	6.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1234	Abdulelah Al-Amri	DF	sa Saudi Arabia	29	1997	2	1	101	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1235	Turki Al Ammar	MF	sa Saudi Arabia	26	1999	1	0	30	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1236	Mukhtar Ali	MF	sa Saudi Arabia	28	1997	6	4	372	4.1	0	1	1	0	0	0	0	0	0.00	0.24	0.24	0.00	0.24	Matches
+1237	Abdulrahman Al-Aboud	FW	sa Saudi Arabia	30	1995	2	1	91	1.0	2	0	2	2	0	0	1	0	1.98	0.00	1.98	1.98	1.98	Matches
+1238	Saud Abdulhamid	MF,DF	sa Saudi Arabia	26	1999	14	10	977	10.9	0	2	2	0	0	0	4	0	0.00	0.18	0.18	0.00	0.18	Matches
+1431	Utkir Yusupov	GK	uz Uzbekistan	35	1991	16	16	1,440	16.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1432	Ibrohimxalil Yoʻldoshev	DF	uz Uzbekistan	24	2001	1	0	34	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1433	Diyor Xolmatov	MF	uz Uzbekistan	23	2002	3	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1434	Odiljon Xamrobekov	MF	uz Uzbekistan	29	1996	16	16	1,421	15.8	0	1	1	0	0	0	2	0	0.00	0.06	0.06	0.00	0.06	Matches
+1435	Oston Urunov	FW,MF	uz Uzbekistan	25	2000	9	7	539	6.0	4	1	5	4	0	0	0	0	0.67	0.17	0.83	0.67	0.83	Matches
+1436	Aziz Turgʻunboyev	MF,FW	uz Uzbekistan	31	1994	9	7	533	5.9	1	1	2	1	0	0	0	0	0.17	0.17	0.34	0.17	0.34	Matches
+1437	Islom Tukhtakhodjaev	DF	uz Uzbekistan	36	1989	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1438	Otabek Shukurov	MF	uz Uzbekistan	29	1996	14	14	1,155	12.8	3	2	5	2	1	1	1	0	0.23	0.16	0.39	0.16	0.31	Matches
+1439	Eldor Shomurodov	FW	uz Uzbekistan	30	1995	15	15	1,194	13.3	5	5	10	5	0	1	1	0	0.38	0.38	0.75	0.38	0.75	Matches
+1440	Igor Sergeev	FW	uz Uzbekistan	32	1993	3	0	45	0.5	2	0	2	2	0	0	0	0	4.00	0.00	4.00	4.00	4.00	Matches
+1441	Farrukh Sayfiev	MF,DF	uz Uzbekistan	35	1991	11	9	750	8.3	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+1442	Sherzod Nasrullayev	MF,DF	uz Uzbekistan	27	1998	11	9	826	9.2	1	2	3	1	0	0	2	0	0.11	0.22	0.33	0.11	0.33	Matches
+1443	Akmal Mozgovoy	MF	uz Uzbekistan	25	2000	5	2	188	2.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1444	Jaloliddin Masharipov	FW,MF	uz Uzbekistan	32	1993	14	13	1,120	12.4	1	4	5	1	0	0	3	0	0.08	0.32	0.40	0.08	0.40	Matches
+1445	Abdukodir Khusanov	DF	uz Uzbekistan	21	2004	14	12	1,123	12.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1446	Ruslanbek Jiyanov	FW	uz Uzbekistan	24	2001	2	0	38	0.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+1447	Jamshid Iskanderov	FW,MF	uz Uzbekistan	32	1993	4	0	80	0.9	0	2	2	0	0	0	0	0	0.00	2.25	2.25	0.00	2.25	Matches
+1448	Aziz Gʻaniyev	MF	uz Uzbekistan	27	1998	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1449	Abbosbek Fayzullayev	MF,FW	uz Uzbekistan	22	2003	16	8	963	10.7	4	2	6	4	0	0	1	0	0.37	0.19	0.56	0.37	0.56	Matches
+1450	Umar Eshmurodov	DF	uz Uzbekistan	33	1992	9	8	676	7.5	0	0	0	0	0	0	0	1	0.00	0.00	0.00	0.00	0.00	Matches
+1451	Xojimat Erkinov	FW	uz Uzbekistan	24	2001	10	2	192	2.1	2	0	2	2	0	0	1	0	0.94	0.00	0.94	0.94	0.94	Matches
+1452	Abdurauf Boʻriyev	MF	uz Uzbekistan	23	2002	3	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1453	Rustam Ashurmatov	DF	uz Uzbekistan	29	1996	12	11	932	10.4	1	0	1	1	0	0	3	0	0.10	0.00	0.10	0.10	0.10	Matches
+1454	Azizbek Amonov	FW	uz Uzbekistan	28	1997	3	0	36	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1455	Xusniddin Aliqulov	DF	uz Uzbekistan	26	1999	14	13	1,186	13.2	2	1	3	2	0	0	2	0	0.15	0.08	0.23	0.15	0.23	Matches
+1456	Xojiakbar Alijonov	MF,DF	uz Uzbekistan	28	1997	12	10	907	10.1	1	1	2	1	0	0	0	0	0.10	0.10	0.20	0.10	0.20	Matches
+1457	Abdulla Abdullayev	DF	uz Uzbekistan	28	1997	8	3	273	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+1458	Bobir Abdixolikov	FW	uz Uzbekistan	28	1997	6	1	137	1.5	0	1	1	0	0	0	1	0	0.00	0.66	0.66	0.00	0.66	Matches
+1459	Zafarmurod Abdirahmatov	DF	uz Uzbekistan	22	2003	1	0	3	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches

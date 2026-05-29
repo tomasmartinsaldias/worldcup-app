@@ -1,0 +1,205 @@
+Total de Jugadores Estrella: 133
+
+
+=== Algeria ===
+  - Ibrahim Maza (Bayer 04 Leverkusen) - 40.0 M€
+  - Rayan Aït-Nouri (Manchester City) - 40.0 M€
+
+=== Argentina ===
+  - Enzo Fernández (Chelsea) - 90.0 M€
+  - Julián Alvarez (Atlético de Madrid) - 90.0 M€
+  - Lautaro Martínez (Inter) - 85.0 M€
+  - Alexis Mac Allister (Liverpool) - 80.0 M€
+  - Nico Paz (Como) - 65.0 M€
+  - Cristian Romero (Tottenham) - 50.0 M€
+  - Giuliano Simeone (Atlético de Madrid) - 40.0 M€
+  - Lisandro Martínez (Manchester United) - 40.0 M€
+  - Lionel Messi (Inter Miami) - 15.0 M€
+
+=== Austria ===
+  - David Alaba (Real Madrid) - 3.5 M€
+
+=== Belgium ===
+  - Jérémy Doku (Manchester City) - 65.0 M€
+  - Amadou Onana (Aston Villa) - 45.0 M€
+
+=== Bosnia and Herzegovina ===
+  - Edin Džeko (Schalke) - 1.5 M€
+
+=== Brazil ===
+  - Raphinha (Barcelona) - 80.0 M€
+  - Bruno Guimarães (Newcastle) - 75.0 M€
+  - Gabriel Magalhães (Arsenal) - 75.0 M€
+  - Matheus Cunha (Manchester United) - 70.0 M€
+  - Igor Thiago (Brentford) - 50.0 M€
+  - Gabriel Martinelli (Arsenal) - 45.0 M€
+  - Rayan (Bournemouth) - 40.0 M€
+  - Wesley (Roma) - 40.0 M€
+  - Vinicius Jr. (Real Madrid) - N/A
+
+=== Cabo Verde ===
+  - Ryan Mendes (Igdir FK) - 0.2 M€
+
+=== Colombia ===
+  - Luis Díaz (Bayern Munich) - 70.0 M€
+
+=== Croatia ===
+  - Joško Gvardiol (Manchester City) - 70.0 M€
+  - Luka Vušković (Hamburgo) - 60.0 M€
+  - Luka Modrić (Milan) - 4.0 M€
+
+=== Curaçao ===
+  - Sontje Hansen (Middlesbrough FC) - 4.0 M€
+
+=== Czech Republic ===
+  - Patrik Schick (Bayer Leverkusen) - 20.0 M€
+
+=== Côte d'Ivoire ===
+  - Yan Diomande (RB Leipzig) - 75.0 M€
+  - Amad Diallo (Manchester United) - 50.0 M€
+  - Ousmane Diomande (Sporting CP) - 45.0 M€
+
+=== DR Congo ===
+  - Cédric Bakambu (Real Betis) - 1.4 M€
+
+=== Ecuador ===
+  - Moisés Caicedo (Chelsea FC) - 110.0 M€
+
+=== Egypt ===
+  - Omar Marmoush (Manchester City) - 60.0 M€
+
+=== England ===
+  - Jude Bellingham (Real Madrid) - 140.0 M€
+  - Bukayo Saka (Arsenal) - 120.0 M€
+  - Declan Rice (Arsenal) - 120.0 M€
+  - Morgan Rogers (Aston Villa) - 80.0 M€
+  - Harry Kane (Bayern Munich) - 65.0 M€
+  - Marc Guéhi (Manchester City) - 65.0 M€
+  - Anthony Gordon (Newcastle) - 60.0 M€
+  - Eberechi Eze (Arsenal) - 60.0 M€
+  - Elliot Anderson (Nottingham Forest) - 60.0 M€
+  - Reece James (Chelsea) - 60.0 M€
+  - Kobbie Mainoo (Manchester United) - 50.0 M€
+  - Nico O'Reilly (Manchester City) - 50.0 M€
+  - Noni Madueke (Arsenal) - 50.0 M€
+  - Jarell Quansah (Bayer Leverkusen) - 45.0 M€
+  - Ezri Konsa (Aston Villa) - 40.0 M€
+  - Marcus Rashford (Barcelona) - 40.0 M€
+  - Tino Livramento (Newcastle) - 40.0 M€
+
+=== France ===
+  - Kylian Mbappé (Real Madrid) - 200.0 M€
+  - Michael Olise (Bayern Múnich) - 140.0 M€
+  - Ousmane Dembélé (Paris Saint-Germain) - 100.0 M€
+  - Désiré Doué (Paris Saint-Germain) - 90.0 M€
+  - William Saliba (Arsenal) - 90.0 M€
+  - Aurélien Tchouaméni (Real Madrid) - 75.0 M€
+  - Bradley Barcola (Paris Saint-Germain) - 70.0 M€
+  - Dayot Upamecano (Bayern Múnich) - 70.0 M€
+  - Jules Koundé (Barcelona) - 65.0 M€
+  - Rayan Cherki (Manchester City) - 65.0 M€
+  - Warren Zaïre-Emery (Paris Saint-Germain) - 60.0 M€
+  - Ibrahima Konaté (Liverpool) - 50.0 M€
+  - Maghnes Akliouche (Mónaco) - 50.0 M€
+  - Manu Koné (Roma) - 50.0 M€
+  - Marcus Thuram (Inter de Milán) - 50.0 M€
+  - Maxence Lacroix (Crystal Palace) - 40.0 M€
+
+=== Germany ===
+  - Jamal Musiala (Bayern Munich) - 120.0 M€
+  - Florian Wirtz (Nottingham Forest) - 110.0 M€
+  - Aleksandar Pavlović (Bayern Munich) - 75.0 M€
+  - Nick Woltemade (Newcastle) - 65.0 M€
+  - Lennart Karl (Bayern Munich) - 60.0 M€
+  - Nico Schlotterbeck (Borussia Dortmund) - 55.0 M€
+  - Felix Nmecha (Borussia Dortmund) - 50.0 M€
+  - Kai Havertz (Arsenal) - 50.0 M€
+  - Angelo Stiller (Stuttgart) - 45.0 M€
+  - Malick Thiaw (Newcastle) - 45.0 M€
+  - Jamie Leweling (Stuttgart) - 40.0 M€
+  - Joshua Kimmich (Bayern Munich) - 40.0 M€
+  - Maximilian Beier (Borussia Dortmund) - 40.0 M€
+  - Manuel Neuer (Bayern Munich) - 4.0 M€
+
+=== Haiti ===
+  - Wilson Isidor (Sunderland) - 18.0 M€
+
+=== Morocco ===
+  - Achraf Hakimi (Paris Sain Germain) - 80.0 M€
+
+=== Netherlands ===
+  - Ryan Gravenberch (Liverpool FC) - 90.0 M€
+  - Cody Gakpo (Liverpool FC) - 65.0 M€
+  - Micky van de Ven (Tottenham Hotspur) - 65.0 M€
+  - Tijjani Reijnders (Manchester City) - 60.0 M€
+  - Bart Verbruggen (Brighton & Hove Albion) - 40.0 M€
+
+=== New Zealand ===
+  - Chris Wood (Nottingham Forest) - 6.0 M€
+
+=== Norway ===
+  - Erling Braut Haaland (Manchester City) - 200.0 M€
+  - Jørgen Strand Larsen (Crystal Palace) - 45.0 M€
+
+=== Portugal ===
+  - João Neves (PSG) - 110.0 M€
+  - Vitinha (PSG) - 110.0 M€
+  - Nuno Mendes (PSG) - 75.0 M€
+  - Rafael Leão (AC Milan) - 65.0 M€
+  - Pedro Neto (Chelsea) - 60.0 M€
+  - Rúben Dias (Manchester City) - 60.0 M€
+  - Matheus Nunes (Manchester City) - 45.0 M€
+  - Bruno Fernandes (Man. United) - 40.0 M€
+  - Diogo Costa (Oporto) - 40.0 M€
+  - Gonçalo Inácio (Sporting) - 40.0 M€
+  - Cristiano Ronaldo (Al Nassr) - 12.0 M€
+
+=== Scotland ===
+  - Scott McTominay (Napoli) - 45.0 M€
+  - Andy Robertson (Liverpool) - 10.0 M€
+
+=== Senegal ===
+  - Iliman Ndiaye (Everton) - 50.0 M€
+  - Nicolas Jackson (Bayern Munich) - 40.0 M€
+  - Pape Gueye (Villarreal) - 40.0 M€
+  - Sadio Mané (Al Nassr) - 7.0 M€
+
+=== South Africa ===
+  - Lyle Foster (Burnley) - 10.0 M€
+
+=== South Korea ===
+  - Kim Min-jae (Bayern Munich) - 25.0 M€
+
+=== Spain ===
+  - Lamine Yamal (FC Barcelona) - 200.0 M€
+  - Pedri (FC Barcelona) - 150.0 M€
+  - Pau Cubarsí (FC Barcelona) - 80.0 M€
+  - Dani Olmo (FC Barcelona) - 60.0 M€
+  - Ferran Torres (FC Barcelona) - 50.0 M€
+  - Marc Cucurella (Chelsea) - 50.0 M€
+  - Álex Baena (Atlético de Madrid) - 45.0 M€
+  - Joan Garcia (FC Barcelona) - 40.0 M€
+  - Pedro Porro (Tottenham Hotspur) - 40.0 M€
+
+=== Sweden ===
+  - Alexander Isak (Liverpool) - 100.0 M€
+  - Viktor Gyökeres (Arsenal) - 65.0 M€
+  - Anthony Elanga (Newcastle) - 40.0 M€
+  - Lucas Bergvall (Tottenham) - 40.0 M€
+
+=== Switzerland ===
+  - Gregor Kobel (Borussia Dortmund) - 40.0 M€
+
+=== Tunisia ===
+  - Hannibal Mejbri (Burnley) - 16.0 M€
+
+=== Turkey ===
+  - Arda Güler (Real Madrid) - 90.0 M€
+  - Kenan Yıldız (Juventus FC) - 75.0 M€
+  - Can Uzun (Eintracht Frankfurt) - 45.0 M€
+
+=== USA ===
+  - Christian Pulisic (AC Milan) - 50.0 M€
+
+=== Uruguay ===
+  - Federico Valverde (Real Madrid) - 120.0 M€

@@ -1,0 +1,4 @@
+ 	                        Playing Time            	Performance 	                                                Per 90 Minutes
+Squad 	# Pl 	Age 	Poss 	MP 	Starts 	Min 	90s 	Gls 	Ast 	G+A 	G-PK 	PK 	PKatt 	CrdY 	CrdR 	Gls 	Ast 	G+A 	G-PK 	G+A-PK
+nz New Zealand	24	27.9		5	55	450	5.0	29	25	54	28	1	2	1	0	5.80	5.00	10.80	5.60	10.60
+nz vs New Zealand	24	28.4		5	55	450	5.0	1	0	1	1	0	0	4	0	0.20	0.00	0.20	0.20	0.20

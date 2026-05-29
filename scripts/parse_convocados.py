@@ -526,7 +526,7 @@ def main():
             norm_fp_name = normalize_name(fp['name'])
             is_destacado = any(d in norm_fp_name or norm_fp_name in d for d in md_destacados)
             is_superstar = any(normalize_name(s) == norm_fp_name for s in superstars)
-            is_high_val = fp['val'] is not None and fp['val'] >= q75
+            is_high_val = fp['val'] is not None and fp['val'] >= 40.0
             
             is_star = 1 if (is_destacado or is_superstar or is_high_val) else 0
             
