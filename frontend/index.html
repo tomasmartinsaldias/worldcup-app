@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="img/logo.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mundial 2026 – Match Recommender & Squad Analytics</title>
-  <meta name="description" content="Descubre los partidos más atractivos e intensos del Mundial 2026. Analiza el valor de plantillas, xG, posesión y estado de forma.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description"
+    content="Descubre los partidos más atractivos e intensos del Mundial 2026. Analiza el valor de plantillas, xG, posesión y estado de forma.">
   <meta property="og:title" content="Mundial 2026 – Match Recommender">
-  <meta property="og:description" content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
+  <meta property="og:description"
+    content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
   <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
   <!-- App Header & Navigation -->
@@ -36,6 +42,9 @@
           <i class="fa-solid fa-circle-question"></i> No Resueltos
         </button>
       </nav>
+      <button id="btn-theme-toggle" class="btn-theme-toggle" title="Cambiar tema (Claro/Oscuro)">
+        <i class="fa-solid fa-sun"></i>
+      </button>
     </div>
   </header>
 
@@ -44,57 +53,54 @@
 
     <!-- 1. Match Recommender Tab -->
     <section id="tab-recommender" class="tab-panel active">
-      <div class="hero-section recommender-accent">
-        <div class="hero-tag">Algoritmo de Interés Premium</div>
-        <h1 class="hero-title">Match Recommender Mundial 2026</h1>
-        <p class="hero-desc">
-          Descubre los partidos más atractivos e intensos del torneo. Nuestro algoritmo evalúa el valor total de las plantillas reales, popularidad global, estadísticas de tarjetas históricas, potencial ofensivo reciente (xG/posesión) y estado de forma de los jugadores (eficiencia reciente).
-        </p>
-        <a href="recommender.html" style="display:inline-block; margin-top:20px; padding:12px 25px; border-radius:50px; background:#00e5ff; color:#000; font-weight:900; text-decoration:none; box-shadow:0 0 15px rgba(0, 229, 255, 0.5); font-size:1.1rem; transition:transform 0.2s;">
-          <i class="fa-solid fa-fire"></i> MODO SWIPE (BETA)
-        </a>
-      </div>
-
-      <!-- Preferences Panel -->
-      <div class="preferences-panel">
-        <h3 class="preferences-title"><i class="fa-solid fa-sliders"></i> Personalizar Recomendaciones</h3>
-        <div class="preferences-grid">
-          <div class="pref-item">
-            <label for="pref-team">Selección Favorita</label>
-            <select id="pref-team" class="filter-select">
-              <option value="">Ninguna</option>
-              <!-- Populated by JS -->
-            </select>
-          </div>
-          <div class="pref-item">
-            <label for="pref-style">Estilo de Partido</label>
-            <select id="pref-style" class="filter-select">
-              <option value="all">Cualquiera</option>
-              <option value="closed">Cerrado / Táctico (Bajo xG, más roce)</option>
-              <option value="chaotic">Abierto / Caótico (Alto xG)</option>
-            </select>
-          </div>
-          <div class="pref-item">
-            <label for="pref-time">Horarios Disponibles</label>
-            <select id="pref-time" class="filter-select" multiple size="3" style="height: auto;">
-              <option value="morning">Mañana (antes de 12:00)</option>
-              <option value="afternoon">Tarde (12:00 a 18:00)</option>
-              <option value="evening">Noche (después de 18:00)</option>
-            </select>
-            <small style="font-size: 0.75rem; color: var(--text-muted);">Usa Ctrl para selección múltiple</small>
-          </div>
-          <div class="pref-item">
-            <label for="pref-players">Jugadores Favoritos</label>
-            <input type="text" id="pref-players" class="search-input" placeholder="Ej: Messi, Mbappe, Saka">
-          </div>
+      <!-- Hero Mundial -->
+      <div class="hero-mundial">
+        <div class="hero-mundial__bg"></div>
+        <img src="img/descarga.png" class="hero-mundial__center-logo" alt="Logo Mundial 2026">
+        <div class="hero-mundial__content">
+          <span class="hero-mundial__eyebrow">FIFA World Cup 2026™</span>
+          <h1 class="hero-mundial__title">
+            Descubrí<br />
+            <em>TUS</em> mejores<br />
+            partidos
+          </h1>
+          <p class="hero-mundial__subtitle">
+            Encontrá los partidos que más te van a emocionar según tus preferencias.
+          </p>
         </div>
       </div>
+
+      <!-- Panel Modes: Recommender + Swipe -->
+      <div class="panel-modes-container">
+        <!-- Panel A: Recommender Clásico -->
+        <div class="panel-mode panel-mode--recommender">
+          <div class="panel-mode__badge">Recomendador</div>
+          <h2 class="panel-mode__title">Descubrí TUS mejores partidos</h2>
+          <p class="panel-mode__desc">Respondé un quiz rápido para personalizar tus recomendaciones:</p>
+          <button class="btn-mundial btn-mundial--green" id="btn-open-quiz">
+            Empezar Quiz
+          </button>
+        </div>
+
+        <!-- Panel B: Modo Swipe -->
+        <div class="panel-mode panel-mode--swipe">
+          <div class="panel-mode__badge panel-mode__badge--beta">⚡ Beta</div>
+          <h2 class="panel-mode__title">Modo Swipe</h2>
+          <p class="panel-mode__desc">Deslizá para elegir los partidos que más te interesan. Rápido y divertido.</p>
+          <a href="recommender.html" class="btn-mundial btn-mundial--swipe">
+            <i class="fa-solid fa-fire"></i> Modo Swipe
+          </a>
+
+        </div>
+      </div>
+
 
       <!-- Filters Panel -->
       <div class="filters-bar">
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="search-matches" class="search-input" placeholder="Buscar selecciones, estadios o grupos...">
+          <input type="text" id="search-matches" class="search-input"
+            placeholder="Buscar selecciones, estadios o grupos...">
         </div>
         <div class="filter-groups">
           <select id="filter-stage" class="filter-select">
@@ -129,7 +135,8 @@
       <div class="hero-section">
         <div class="hero-tag">Fase de Grupos</div>
         <h1 class="hero-title">Grupos del Mundial (A a L)</h1>
-        <p class="hero-desc">Explora la distribución de las 48 selecciones clasificadas a la Copa del Mundo de Estados Unidos, México y Canadá 2026.</p>
+        <p class="hero-desc">Explora la distribución de las 48 selecciones clasificadas a la Copa del Mundo de Estados
+          Unidos, México y Canadá 2026.</p>
       </div>
 
       <div class="groups-container" id="groups-container">
@@ -142,7 +149,8 @@
       <div class="hero-section">
         <div class="hero-tag">Planteles Probables</div>
         <h1 class="hero-title">Selecciones y Valores de Mercado</h1>
-        <p class="hero-desc">Busca y examina los planteles probables extraídos de Wikipedia, enriquecidos con valores de mercado reales de la API de Transfermarkt y estadísticas de rendimiento.</p>
+        <p class="hero-desc">Busca y examina los planteles probables extraídos de Wikipedia, enriquecidos con valores de
+          mercado reales de la API de Transfermarkt y estadísticas de rendimiento.</p>
       </div>
 
       <div class="filters-bar">
@@ -173,7 +181,8 @@
 
       <div class="squad-list-title">
         <span>Convocados Probables</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">* Jugadores con participación en partidos recientes o ≥5 caps internacionales. Valor de mercado en M€.</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">* Jugadores con participación
+          en partidos recientes o ≥5 caps internacionales. Valor de mercado en M€.</span>
       </div>
 
       <div class="table-wrapper">
@@ -206,12 +215,15 @@
         <div class="hero-tag">Integridad de Datos</div>
         <h1 class="hero-title">Registro de Jugadores No Resueltos</h1>
         <p class="hero-desc">
-          En cumplimiento con las políticas de precisión de datos, no estimamos ni inventamos valores de mercado o métricas avanzadas. Si un jugador no pudo resolverse en la API de Transfermarkt de manera certera, se guarda aquí con el motivo detallado de error, insertándose en su selección con valores nulos (NULL).
+          En cumplimiento con las políticas de precisión de datos, no estimamos ni inventamos valores de mercado o
+          métricas avanzadas. Si un jugador no pudo resolverse en la API de Transfermarkt de manera certera, se guarda
+          aquí con el motivo detallado de error, insertándose en su selección con valores nulos (NULL).
         </p>
       </div>
 
       <div class="table-wrapper" style="margin-bottom: 2rem;">
-        <div style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-glass); font-family: var(--font-primary); font-weight: 700; font-size: 1.2rem; color: var(--accent-gold); display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-glass); font-family: var(--font-primary); font-weight: 700; font-size: 1.2rem; color: var(--accent-gold); display: flex; justify-content: space-between; align-items: center;">
           <span>Jugadores Sin Coincidencia en API (Null-Value log)</span>
           <span class="injured-badge" id="unresolved-count-badge">0 Registros</span>
         </div>
@@ -235,7 +247,7 @@
         </button>
       </div>
       <div class="modal-body">
-        
+
         <!-- Teams VS banner -->
         <div class="modal-teams-vs">
           <div class="modal-team-block" id="modal-team-home">
@@ -251,10 +263,11 @@
         <div class="h2h-title">
           <i class="fa-solid fa-brain"></i> Análisis del Algoritmo Match Recommender
         </div>
-        
+
         <div class="h2h-stats-summary">
           <div>
-            <div class="h2h-summary-val" id="modal-match-score" style="color: var(--accent-gold); font-size: 2.25rem;">0.0</div>
+            <div class="h2h-summary-val" id="modal-match-score" style="color: var(--accent-gold); font-size: 2.25rem;">
+              0.0</div>
             <div class="h2h-summary-lbl">Smart Score</div>
           </div>
           <div>
@@ -310,7 +323,7 @@
         <div class="h2h-title">
           <i class="fa-solid fa-history"></i> Historial Cara a Cara (H2H) General
         </div>
-        
+
         <div class="h2h-stats-summary" style="margin-bottom: 1rem;">
           <div>
             <div class="h2h-summary-val" id="h2h-total-games">0</div>
@@ -359,7 +372,8 @@
 
   <!-- Player Profile Modal (OneFootball Style) -->
   <div class="modal-overlay" id="player-modal">
-    <div class="modal-content" style="max-width: 750px; background-color: #ffffff; color: #111827; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+    <div class="modal-content"
+      style="max-width: 750px; background-color: #ffffff; color: #111827; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
       <div class="modal-header" style="border-bottom: none; padding: 1.5rem 2rem 1rem 2rem;">
         <h3 id="player-modal-name-header" style="font-size: 1.6rem; font-weight: 800; margin: 0; color: #111827;"></h3>
         <button class="close-btn" id="close-player-modal-btn" style="color: #4b5563;">
@@ -367,20 +381,29 @@
         </button>
       </div>
       <div class="modal-body" style="padding: 0 2rem 2.5rem 2rem; font-family: 'Inter', sans-serif;">
-        
-        <div style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1rem; letter-spacing: 0.5px; text-transform: uppercase;">EQUIPOS</div>
+
+        <div
+          style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1rem; letter-spacing: 0.5px; text-transform: uppercase;">
+          EQUIPOS</div>
         <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
           <!-- National Team -->
-          <div style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
-            <div id="player-modal-nt-flag" style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.75rem; overflow: hidden; border: 1px solid #e5e7eb;"></div>
+          <div
+            style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
+            <div id="player-modal-nt-flag"
+              style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.75rem; overflow: hidden; border: 1px solid #e5e7eb;">
+            </div>
             <div style="line-height: 1.2;">
               <div style="font-size: 0.75rem; color: #6b7280; font-weight: 600; margin-bottom: 0.15rem;">Equipo</div>
               <div id="player-modal-nt-name" style="font-size: 1.15rem; font-weight: 800; color: #111827;"></div>
             </div>
           </div>
           <!-- Club -->
-          <div style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
-            <div id="player-modal-club-icon" style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.5rem; color: #9ca3af; overflow: hidden; border: 1px solid #e5e7eb;"><i class="fa-solid fa-shield-halved"></i></div>
+          <div
+            style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
+            <div id="player-modal-club-icon"
+              style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.5rem; color: #9ca3af; overflow: hidden; border: 1px solid #e5e7eb;">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
             <div style="line-height: 1.2;">
               <div style="font-size: 0.75rem; color: #6b7280; font-weight: 600; margin-bottom: 0.15rem;">Equipo</div>
               <div id="player-modal-club-name" style="font-size: 1.15rem; font-weight: 800; color: #111827;"></div>
@@ -388,31 +411,40 @@
           </div>
         </div>
 
-        <div style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1.5rem; letter-spacing: 0.5px; text-transform: uppercase;">ESTADÍSTICAS CLAVE</div>
-        
+        <div
+          style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1.5rem; letter-spacing: 0.5px; text-transform: uppercase;">
+          ESTADÍSTICAS CLAVE</div>
+
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 1rem;">
           <div>
-            <div id="player-modal-age-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
+            <div id="player-modal-age-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
             <div style="font-size: 0.85rem; color: #aaa;">Edad</div>
           </div>
           <div>
-            <div id="player-modal-pos-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</div>
+            <div id="player-modal-pos-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              -</div>
             <div style="font-size: 0.85rem; color: #aaa;">Posición</div>
           </div>
           <div>
-            <div id="player-modal-country-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
+            <div id="player-modal-country-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
             <div style="font-size: 0.85rem; color: #aaa;">País</div>
           </div>
           <div>
-            <div id="player-modal-market-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
+            <div id="player-modal-market-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
             <div style="font-size: 0.85rem; color: #aaa;">Valor (M€)</div>
           </div>
           <div>
-            <div id="player-modal-caps-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
+            <div id="player-modal-caps-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
             <div style="font-size: 0.85rem; color: #aaa;">Partidos Int.</div>
           </div>
           <div>
-            <div id="player-modal-goals-val" style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
+            <div id="player-modal-goals-val"
+              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
             <div style="font-size: 0.85rem; color: #aaa;">Goles Int.</div>
           </div>
 
@@ -424,12 +456,178 @@
     </div>
   </div>
 
+  <!-- Quiz Overlay Modal -->
+  <div class="quiz-overlay-backdrop" id="quiz-overlay">
+    <div class="quiz-overlay-panel">
+
+      <!-- Quiz Header -->
+      <div class="quiz-header">
+        <button class="quiz-header__back" id="quiz-btn-back" disabled>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="quiz-header__step" id="quiz-step-indicator">Pregunta 1 de 6</span>
+        <button class="quiz-header__close" id="quiz-btn-close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Quiz Progress -->
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-bar__fill" id="quiz-progress-fill" style="width: 16.6%;"></div>
+      </div>
+
+      <!-- Quiz Body -->
+      <div class="quiz-body">
+
+        <!-- Question 1: Teams -->
+        <div class="quiz-question active" id="quiz-q1">
+          <h2 class="quiz-question__title">¿Qué selección apoyás?</h2>
+          <p class="quiz-question__subtitle">Podés elegir más de una. Estas tendrán prioridad en tus recomendaciones.
+          </p>
+
+          <div class="quiz-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="quiz-search-teams" class="quiz-search-input" placeholder="Buscar país...">
+          </div>
+
+          <div class="quiz-selected-chips" id="quiz-selected-teams-container">
+            <!-- Selected team chips will go here -->
+          </div>
+
+          <div class="quiz-tags-container" id="quiz-teams-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Question 2: Time Slots -->
+        <div class="quiz-question" id="quiz-q2">
+          <h2 class="quiz-question__title">¿A qué hora podés ver partidos?</h2>
+          <p class="quiz-question__subtitle">Seleccioná todos los horarios que te vengan bien.</p>
+
+          <div class="quiz-cards-grid">
+            <div class="quiz-card-option" data-value="morning">
+              <div class="quiz-card-option__icon">🌅</div>
+              <div class="quiz-card-option__label">9:00 a 12:00</div>
+            </div>
+            <div class="quiz-card-option" data-value="early_afternoon">
+              <div class="quiz-card-option__icon">☀️</div>
+              <div class="quiz-card-option__label">12:00 a 16:00</div>
+            </div>
+            <div class="quiz-card-option" data-value="late_afternoon">
+              <div class="quiz-card-option__icon">🌆</div>
+              <div class="quiz-card-option__label">16:00 a 20:00</div>
+            </div>
+            <div class="quiz-card-option" data-value="evening">
+              <div class="quiz-card-option__icon">🌙</div>
+              <div class="quiz-card-option__label">20:00 en adelante</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 3: Viewing Frequency -->
+        <div class="quiz-question" id="quiz-q3">
+          <h2 class="quiz-question__title">¿Qué tanto solés ver fútbol?</h2>
+          <p class="quiz-question__subtitle">Elegí la opción que mejor te describa.</p>
+
+          <div class="quiz-radio-group">
+            <div class="quiz-radio-option" data-value="only_national">
+              <div class="quiz-radio-dot"></div>
+              <span>Solo miro los partidos de mi selección</span>
+            </div>
+            <div class="quiz-radio-option" data-value="casual">
+              <div class="quiz-radio-dot"></div>
+              <span>Antes miraba pero ya no tanto</span>
+            </div>
+            <div class="quiz-radio-option" data-value="regular">
+              <div class="quiz-radio-dot"></div>
+              <span>De vez en cuando</span>
+            </div>
+            <div class="quiz-radio-option" data-value="hardcore">
+              <div class="quiz-radio-dot"></div>
+              <span>Todas las semanas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 4: Favorite Clubs -->
+        <div class="quiz-question" id="quiz-q4">
+          <h2 class="quiz-question__title">¿Cuál es tu equipo favorito?</h2>
+          <p class="quiz-question__subtitle">Buscá y seleccioná tu club o clubes favoritos del mundo.</p>
+
+          <div class="quiz-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="quiz-search-clubs" class="quiz-search-input"
+              placeholder="Buscar equipo (ej: Real Madrid, River Plate)...">
+          </div>
+
+          <div class="quiz-selected-chips" id="quiz-selected-clubs-container"></div>
+
+          <div class="quiz-tags-container" id="quiz-clubs-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Question 5: Favorite Players -->
+        <div class="quiz-question" id="quiz-q5">
+          <h2 class="quiz-question__title">¿Tenés jugadores favoritos?</h2>
+          <p class="quiz-question__subtitle">Elegí a los jugadores que no te querés perder.</p>
+
+          <div class="quiz-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="quiz-search-players" class="quiz-search-input"
+              placeholder="Buscar jugador (ej: Messi, Mbappe)...">
+          </div>
+
+          <div class="quiz-selected-chips" id="quiz-selected-players-container"></div>
+
+          <div class="quiz-tags-container" id="quiz-players-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Question 6: Match Traits -->
+        <div class="quiz-question" id="quiz-q6">
+          <h2 class="quiz-question__title">¿Qué esperás de un partido?</h2>
+          <p class="quiz-question__subtitle">Elegí las características que más te atraen (máximo 3).</p>
+
+          <div class="quiz-trait-counter" id="quiz-trait-counter">
+            Elegí hasta 3 · <span>seleccionaste 0</span>
+          </div>
+
+          <div class="quiz-tags-container" id="quiz-traits-container">
+            <div class="quiz-tag" data-value="goleada">🎯 Goleada a un equipo</div>
+            <div class="quiz-tag" data-value="goles">⚽ Muchos goles</div>
+            <div class="quiz-tag" data-value="faltas">🦶 Muchas faltas y patadas</div>
+            <div class="quiz-tag" data-value="tactico">🧠 Juego táctico</div>
+            <div class="quiz-tag" data-value="regates">✨ Regates mágicos</div>
+            <div class="quiz-tag" data-value="iconos">🌟 Jugadores icónicos</div>
+            <div class="quiz-tag" data-value="clasicos">🏆 Partidos clásicos</div>
+            <div class="quiz-tag" data-value="accion">⚡ Acción todo el tiempo</div>
+            <div class="quiz-tag" data-value="parejos">⚖️ Partidos parejos</div>
+            <div class="quiz-tag" data-value="posesion">🔄 Mucha posesión del balón</div>
+            <div class="quiz-tag" data-value="ultimo_minuto">⏱️ Goles al último minuto</div>
+            <div class="quiz-tag" data-value="rojas">🟥 Tarjetas rojas</div>
+            <div class="quiz-tag" data-value="penales">🥅 Penales</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiz Footer -->
+      <div class="quiz-footer">
+        <button class="btn-mundial btn-mundial--outline" id="quiz-btn-skip">Saltar</button>
+        <button class="btn-mundial" id="quiz-btn-next" disabled>Siguiente &rarr;</button>
+      </div>
+    </div>
+  </div>
+
   <!-- App Footer -->
   <footer>
     <p>Mundial 2026 Match Recommender &copy; 2026. Diseñado en modo Ultra Premium.</p>
     <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
   </footer>
 
-  <script type="module" src="js/main.js?v=10"></script>
+  <script type="module" src="js/main.js?v=11"></script>
 </body>
+
 </html>

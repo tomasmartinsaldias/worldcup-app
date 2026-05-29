@@ -6,6 +6,7 @@ import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } fro
 import { renderUnresolved } from './ui/unresolved.js';
 import { closeModal } from './ui/modal.js';
 import { openPlayerProfile } from './ui/player_profile.js';
+import { initQuiz } from './quiz.js';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
@@ -13,6 +14,7 @@ window.openPlayerProfile = openPlayerProfile;
 document.addEventListener('DOMContentLoaded', () => {
   setupTabListeners();
   loadData();
+  initQuiz();
   
   const savedSort = localStorage.getItem('sort-matches');
   if (savedSort) document.getElementById('sort-matches').value = savedSort;
@@ -33,6 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('h2h-modal').addEventListener('click', (e) => {
     if (e.target.id === 'h2h-modal') closeModal();
   });
+  
+  // Theme Toggle
+  const themeToggleBtn = document.getElementById('btn-theme-toggle');
+  if (themeToggleBtn) {
+    const icon = themeToggleBtn.querySelector('i');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+      icon.classList.replace('fa-sun', 'fa-moon');
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      if (document.body.classList.contains('light-mode')) {
+        localStorage.setItem('theme', 'light');
+        icon.classList.replace('fa-sun', 'fa-moon');
+      } else {
+        localStorage.setItem('theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+      }
+    });
+  }
   
   setupPreferenceListeners();
 });
