@@ -294,6 +294,53 @@ function initTacticalUI() {
     });
   }
 
+  // Preferences Panel listeners
+  const btnOpenPreferences = document.getElementById('btn-open-preferences');
+  const btnBackToRecommenderPref = document.getElementById('back-to-recommender-pref-btn');
+  const btnApplyPreferences = document.getElementById('btn-apply-preferences');
+
+  if (btnOpenPreferences) {
+    btnOpenPreferences.addEventListener('click', () => {
+      switchTab('preferences');
+      // Sync sliders values to UI
+      const dramaSlider = document.getElementById('slider-drama-tab');
+      const dramaValText = document.getElementById('val-drama-tab');
+      if (dramaSlider && dramaValText) {
+        const val = state.userPreferences.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
+        dramaSlider.value = val;
+        let desc = '';
+        if (val > 0.35) desc = 'Roce Físico / Intensidad';
+        else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
+        else desc = 'Equilibrada';
+        dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+      }
+      const weightSlider = document.getElementById('slider-weight-tab');
+      const weightValText = document.getElementById('val-weight-tab');
+      if (weightSlider && weightValText) {
+        const val = state.userPreferences.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
+        weightSlider.value = val;
+        let desc = '';
+        if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
+        else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
+        else desc = 'Equilibrado (50/50)';
+        weightValText.textContent = desc;
+      }
+    });
+  }
+
+  if (btnBackToRecommenderPref) {
+    btnBackToRecommenderPref.addEventListener('click', () => {
+      switchTab('recommender');
+    });
+  }
+
+  if (btnApplyPreferences) {
+    btnApplyPreferences.addEventListener('click', () => {
+      recalculateAndRender();
+      switchTab('recommender');
+    });
+  }
+
   // Toggle internal views: Arquetipos vs Ser el DT
   const btnTacticalCasual = document.getElementById('btn-tactical-casual');
   const btnTacticalAnalyst = document.getElementById('btn-tactical-analyst');

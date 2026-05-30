@@ -85,6 +85,10 @@
               style="padding: 0.6rem 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem;">
               <i class="fa-solid fa-sliders"></i> Estilo de Juego
             </button>
+            <button class="btn-mundial btn-mundial--outline" id="btn-open-preferences"
+              style="padding: 0.6rem 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-gears"></i> Ajustes de Recomendación
+            </button>
           </div>
         </div>
 
@@ -304,10 +308,29 @@
           Táctica Personalizada</button>
       </div>
 
+    </section>
+
+    <!-- 7. Preferences Config Immersive View -->
+    <section id="tab-preferences" class="tab-panel" style="padding: 3rem 1.5rem; max-width: 900px; margin: 0 auto;">
+      <!-- Back Button -->
+      <button class="back-btn" id="back-to-recommender-pref-btn"
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); padding: 0.6rem 1.2rem; border-radius: 50px; color: var(--text-primary); cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-weight: bold; transition: var(--transition-fast); margin-bottom: 2.5rem;">
+        <i class="fa-solid fa-arrow-left"></i> Volver a Recomendador
+      </button>
+
+      <!-- Centered Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h1 class="glitch-text" data-text="AJUSTES"
+          style="font-size: 2.8rem; font-weight: 900; font-family: var(--font-primary); color: white; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0;">
+          Ajustes de Recomendación</h1>
+        <p
+          style="color: var(--text-secondary); font-family: var(--font-secondary); font-size: 1.1rem; max-width: 500px; margin: 0 auto;">
+          Calibrá la fricción del juego y el equilibrio entre táctica y espectáculo.</p>
+      </div>
+
       <!-- Configuración General del Estilo de Juego (Fricción y Ponderación) -->
       <div class="general-style-settings"
-        style="max-width: 650px; margin: 3rem auto 0 auto; background: rgba(18, 18, 26, 0.45); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 2.5rem 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.4); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
-        <h3 style="font-size: 1.4rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; margin: 0; font-family: var(--font-primary); text-align: center;">Preferencias de Recomendación</h3>
+        style="max-width: 650px; margin: 0 auto; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
         
         <!-- Drama/Roce Slider -->
         <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -340,6 +363,10 @@
             <span>100% Espectáculo</span>
           </div>
         </div>
+
+        <button class="btn-mundial btn-mundial--green" id="btn-apply-preferences"
+          style="margin-top: 1rem; padding: 0.9rem 2rem; font-size: 1.15rem; font-weight: 800; width: 100%; box-shadow: var(--shadow-neon); border-radius: 50px;">Aplicar
+          Ajustes</button>
       </div>
     </section>
 
