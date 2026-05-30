@@ -1,6 +1,6 @@
 import { state } from '../state.js';
 import { calculateFormRating } from '../scoring.js';
-import { createFlagElement } from '../utils.js';
+import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 
 export function openPlayerProfile(teamCode, playerId) {
   const team = state.appData.teams[teamCode];
@@ -13,7 +13,9 @@ export function openPlayerProfile(teamCode, playerId) {
   modal.classList.add('active');
 
   // Header Title
-  document.getElementById('player-modal-name-header').textContent = player.name;
+  const photoUrl = getPlayerPhotoUrl(player.name);
+  const photoHtml = photoUrl ? `<img src="${photoUrl}" referrerpolicy="no-referrer" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; margin-right: 1rem; vertical-align: middle; border: 2px solid #e5e7eb; display: inline-block;" onerror="this.style.display='none'">` : '';
+  document.getElementById('player-modal-name-header').innerHTML = `<div style="display: flex; align-items: center;">${photoHtml}<span>${player.name}</span></div>`;
 
   // National Team Block
   const ntFlagContainer = document.getElementById('player-modal-nt-flag');
