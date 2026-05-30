@@ -1,0 +1,64 @@
+{
+  "archetypes": [
+    {
+      "id": "tiki_taka",
+      "title": "Tiki-Taka",
+      "subtitle": "Juego de Posición y Dominio",
+      "description": "Monopolio del balón, pases cortos, paciencia para desorganizar, uso de toda la cancha y presión asfixiante.",
+      "vector": {
+        "defensa": 0.9,
+        "posesion": 0.9,
+        "ritmo": -0.7,
+        "ancho": 0.8
+      }
+    },
+    {
+      "id": "catenaccio",
+      "title": "Catenaccio Moderno",
+      "subtitle": "Muro y Contragolpe",
+      "description": "Solidez defensiva, bloque bajo impenetrable y salidas verticales explosivas al espacio.",
+      "vector": {
+        "defensa": -0.9,
+        "posesion": -0.8,
+        "ritmo": 0.8,
+        "ancho": -0.5
+      }
+    },
+    {
+      "id": "gegenpressing",
+      "title": "Gegenpressing",
+      "subtitle": "Intensidad y Transición",
+      "description": "Presión alta agresiva tras pérdida, robo e inmediatez ofensiva a máxima velocidad.",
+      "vector": {
+        "defensa": 0.9,
+        "posesion": -0.3,
+        "ritmo": 0.9,
+        "ancho": 0.3
+      }
+    },
+    {
+      "id": "asociativo",
+      "title": "Fútbol Sudamericano",
+      "subtitle": "Sociedad Central",
+      "description": "Posesión y talento interior. Mediocampistas tocando en corto por el medio y marcando los tiempos.",
+      "vector": {
+        "defensa": 0.3,
+        "posesion": 0.7,
+        "ritmo": -0.4,
+        "ancho": -0.9
+      }
+    },
+    {
+      "id": "directo",
+      "title": "Fútbol Físico",
+      "subtitle": "La Vía Directa",
+      "description": "Juego directo. Pelotazos largos, disputa de segundas jugadas y ataque puro por las bandas para centros.",
+      "vector": {
+        "defensa": -0.4,
+        "posesion": -0.9,
+        "ritmo": 0.5,
+        "ancho": 0.9
+      }
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+export function calculateCosineSimilarity(v1, v2) {
+  if (!v1 || !v2) return 0;
+  const dotProduct = (v1.defensa * v2.defensa) + (v1.posesion * v2.posesion) + (v1.ritmo * v2.ritmo) + (v1.ancho * v2.ancho);
+  const norm1 = Math.sqrt(v1.defensa ** 2 + v1.posesion ** 2 + v1.ritmo ** 2 + v1.ancho ** 2);
+  const norm2 = Math.sqrt(v2.defensa ** 2 + v2.posesion ** 2 + v2.ritmo ** 2 + v2.ancho ** 2);
+  if (norm1 === 0 || norm2 === 0) return 0;
+  return dotProduct / (norm1 * norm2);
+}
+
+export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0.1) {
+  const simA = calculateCosineSimilarity(vectorA, vectorU);
+  const simB = calculateCosineSimilarity(vectorB, vectorU);
+
+  const matchPrincipal = Math.max(simA, simB);
+  const interaccion = Math.min(simA, simB) * lambdaVal;
+
+  return matchPrincipal + interaccion;
+}
+
 export function calculateICEScore(match, teams) {
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
     return 5.0; // default for playoff TBD matches
@@ -20,7 +39,7 @@ export function calculateICEScore(match, teams) {
   const beta = 0.125;         // Ponderación de tarjetas + penales (Drama)
 
   const rankImpact = 0.6;   // Atenuador de la diferencia de ranking (menor valor = ranking menos punitivo)
-  const T = 3.7;            // Techo Empírico (Un poco más alto que el partido con más puntaje)
+  const T = 3.5;            // Techo Empírico (Un poco más alto que el partido con más puntaje)
   // ==========================================
 
   // 1. Rankings FIFA
@@ -53,10 +72,12 @@ export function calculateICEScore(match, teams) {
   return parseFloat(score.toFixed(1));
 }
 
-export function calculateSmartScore(match, teams) {
+export function calculateSmartScore(match, teams, tacticalVector) {
   const ice = calculateICEScore(match, teams);
 
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
+    match.spectacleScore = ice;
+    match.playstyleScore = 5.0;
     return ice;
   }
 
@@ -64,6 +85,8 @@ export function calculateSmartScore(match, teams) {
   const away = teams[match.away_team.fifa_code];
 
   if (!home || !away) {
+    match.spectacleScore = ice;
+    match.playstyleScore = 5.0;
     return ice;
   }
 
@@ -74,9 +97,30 @@ export function calculateSmartScore(match, teams) {
   const awayStars = away.squad ? away.squad.filter(p => p.is_star_player).length : 0;
   const starCount = homeStars + awayStars;
 
-  let finalScore = ice + (gamma * starCount);
-  finalScore = Math.min(Math.max(finalScore, 1.0), 10.0);
-  return parseFloat(finalScore.toFixed(1));
+  let spectacleScore = ice + (gamma * starCount);
+  spectacleScore = Math.min(Math.max(spectacleScore, 1.0), 10.0);
+
+  // Playstyle Score
+  const vectorU = tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+  const vectorA = home.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+  const vectorB = away.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+
+  const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
+
+  // Linear scale from [-1.1, 1.1] to [1.0, 10.0]
+  const minVal = -1.1;
+  const maxVal = 1.1;
+  let playstyleScore = 1.0 + 9.0 * ((rawPlaystyle - minVal) / (maxVal - minVal));
+  playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
+
+  // Combine 50% spectacle and 50% playstyle
+  let combinedScore = 0.5 * spectacleScore + 0.5 * playstyleScore;
+  combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);
+
+  match.spectacleScore = parseFloat(spectacleScore.toFixed(1));
+  match.playstyleScore = parseFloat(playstyleScore.toFixed(1));
+
+  return parseFloat(combinedScore.toFixed(1));
 }
 
 export function calculateFormRating(player) {

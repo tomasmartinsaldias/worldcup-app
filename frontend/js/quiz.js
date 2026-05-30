@@ -153,7 +153,7 @@ function finishQuiz() {
   if (state.appData && state.appData.matches) {
     import('./scoring.js').then(module => {
       state.appData.matches.forEach(m => {
-        m.smartScore = module.calculateSmartScore(m, state.appData.teams);
+        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
       });
       sortMatchesList(document.getElementById('sort-matches')?.value || 'interest-desc');
       renderMatches();
