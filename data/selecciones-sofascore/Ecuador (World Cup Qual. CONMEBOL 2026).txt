@@ -1,0 +1,116 @@
+Ecuador (World Cup Qual. CONMEBOL 2026):
+Summary
+
+    Sofascore Rating: 6.95
+
+    Matches: 18
+
+    Goals Scored: 14
+
+    Goals Conceded: 5
+
+    Assists: 10
+
+Attacking
+
+    Goals per game: 0.8
+
+    Penalty goals: 2/4
+
+    Free kick goals: 0/15
+
+    Goals from inside the box: 12/103
+
+    Goals from outside the box: 2/89
+
+    Left-footed goals: 4
+
+    Right-footed goals: 8
+
+    Headed goals: 1
+
+    Big chances per game: 1.6
+
+    Big chances missed per game: 1
+
+    Total shots per game: 10.7
+
+    Shots on target per game: 3.9
+
+    Shots off target per game: 3.9
+
+    Blocked shots per game: 2.9
+
+    Succ. dribbles per game: 7.7
+
+    Corners per game: 3.9
+
+    Free kicks per game: 10.8
+
+    Hit woodwork: 5
+
+    Counter attacks: 9
+
+Passes
+
+    Ball possession: 52.4%
+
+    Accurate passes: 362 (84.3%)
+
+    Acc. own half: 182 (90.5%)
+
+    Acc. opposition half: 182 (75.7%)
+
+    Acc. long balls: 20.6 (54%)
+
+    Acc. crosses: 2.6 (19.7%)
+
+Defending
+
+    Clean sheets: 13
+
+    Goals conceded per game: 0.3
+
+    Tackles per game: 14.3
+
+    Interceptions per game: 8.2
+
+    Clearances per game: 19.3
+
+    Saves per game: 2.7
+
+    Balls recovered per game: 49.5
+
+    Errors leading to shot: 1
+
+    Errors leading to goal: 0
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 44.6 (48.7%)
+
+    Ground duels won: 32.7 (48.6%)
+
+    Aerial duels won: 11.9 (48.9%)
+
+    Possession lost per game: 117.9
+
+    Throw-ins per game: 18.2
+
+    Goal kicks per game: 7.7
+
+    Offsides per game: 1.8
+
+    Fouls per game: 12.9
+
+    Yellow cards per game: 1.3
+
+    Red cards: 3

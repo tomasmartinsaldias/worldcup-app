@@ -126,7 +126,7 @@ function finishQuiz() {
     }
   }
 
-  // 3. Match traits -> Match Style
+  // 3. Match traits -> Match Style & dramaBeta
   if (quizState.answers.matchTraits.length > 0) {
     let style = 'all';
     const traits = quizState.answers.matchTraits;
@@ -140,6 +140,24 @@ function finishQuiz() {
     state.userPreferences.matchStyle = style;
     const styleSelect = document.getElementById('pref-style');
     if (styleSelect) styleSelect.value = style;
+
+    // Set dramaBeta preference
+    let dramaBeta = 0.125;
+    if (traits.includes('faltas') || traits.includes('rojas') || traits.includes('penales')) {
+      dramaBeta = 0.45;
+    }
+    state.userPreferences.dramaBeta = dramaBeta;
+
+    // Sync drama slider
+    const dramaSlider = document.getElementById('slider-drama-tab');
+    if (dramaSlider) {
+      dramaSlider.value = dramaBeta;
+      const dramaValText = document.getElementById('val-drama-tab');
+      if (dramaValText) {
+        let desc = dramaBeta > 0.3 ? 'Roce Físico / Intensidad' : 'Juego Limpio / Fair Play';
+        dramaValText.textContent = `${desc} (${dramaBeta.toFixed(2)})`;
+      }
+    }
   }
 
   // 4. Players

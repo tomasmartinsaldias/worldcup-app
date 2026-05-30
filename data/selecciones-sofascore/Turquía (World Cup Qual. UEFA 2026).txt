@@ -1,0 +1,115 @@
+Turquía (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.00
+
+    Matches: 8
+
+    Goals Scored: 19
+
+    Goals Conceded: 12
+
+    Assists: 13
+
+Attacking
+
+    Goals per game: 2.4
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/3
+
+    Goals from inside the box: 16/56
+
+    Goals from outside the box: 1/49
+
+    Left-footed goals: 3
+
+    Right-footed goals: 10
+
+    Headed goals: 4
+
+    Big chances per game: 2.1
+
+    Big chances missed per game: 0.8
+
+    Total shots per game: 13.1
+
+    Shots on target per game: 4.6
+
+    Shots off target per game: 4.4
+
+    Blocked shots per game: 4.1
+
+    Succ. dribbles per game: 9.1
+
+    Corners per game: 6
+
+    Free kicks per game: 10.8
+
+    Hit woodwork: 3
+
+    Counter attacks: 14
+
+Passes
+
+    Ball possession: 54.8%
+
+    Accurate passes: 415 (85%)
+
+    Acc. own half: 205 (92.2%)
+
+    Acc. opposition half: 209 (76.7%)
+
+    Acc. long balls: 18 (51.4%)
+
+    Acc. crosses: 2.6 (18.8%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 1.5
+
+    Tackles per game: 16.5
+
+    Interceptions per game: 8.9
+
+    Clearances per game: 23.4
+
+    Saves per game: 2.6
+
+    Balls recovered per game: 44.3
+
+    Errors leading to shot: 8
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 2
+
+Other
+
+    Duels won per game: 47.5 (54.8%)
+
+    Ground duels won: 36.1 (54.5%)
+
+    Aerial duels won: 11.4 (55.5%)
+
+    Possession lost per game: 121
+
+    Throw-ins per game: 19
+
+    Goal kicks per game: 6.6
+
+    Offsides per game: 2
+
+    Fouls per game: 9.3
+
+    Yellow cards per game: 2.5
+
+    Red cards: 1

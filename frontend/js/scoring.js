@@ -1,3 +1,15 @@
+import { state } from './state.js';
+
+// ==========================================
+// CONFIGURACIÓN DE PARÁMETROS Y COEFICIENTES
+// Modifica estos valores para calibrar el Score de Espectáculo (ICE)
+// ==========================================
+export const ICE_CONFIG = {
+  alpha: 0.5,        // Ponderación de contraataques (CA_norm) / goles en contra (Gc_norm)
+  rankImpact: 0.6,   // Atenuador de la diferencia de ranking FIFA (menor = ranking menos punitivo)
+  ICE_min: 0.1       // Límite inferior para la escala lineal
+};
+
 export function calculateCosineSimilarity(v1, v2) {
   if (!v1 || !v2) return 0;
   const dotProduct = (v1.defensa * v2.defensa) + (v1.posesion * v2.posesion) + (v1.ritmo * v2.ritmo) + (v1.ancho * v2.ancho);
@@ -17,7 +29,7 @@ export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0
   return matchPrincipal + interaccion;
 }
 
-export function calculateICEScore(match, teams) {
+export function calculateICEScore(match, teams, dramaBeta = 0.2) {
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
     return 5.0; // default for playoff TBD matches
   }
@@ -25,55 +37,39 @@ export function calculateICEScore(match, teams) {
   const home = teams[match.home_team.fifa_code];
   const away = teams[match.away_team.fifa_code];
 
-  if (!home || !away || !home.metrics || !away.metrics) {
+  if (!home || !away) {
     return 5.0;
   }
 
-  const hMetrics = home.metrics;
-  const aMetrics = away.metrics;
+  const hParams = home.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5 };
+  const aParams = away.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5 };
 
-  // ==========================================
-  // COEFICIENTES Y PARÁMETROS CONFIGURABLES
-  // ==========================================
-  const alpha = 0.5;        // Ponderación de goles en contra (Gc)
-  const beta = 0.125;         // Ponderación de tarjetas + penales (Drama)
+  const alpha = ICE_CONFIG.alpha; // weight for counter attacks
 
-  const rankImpact = 0.6;   // Atenuador de la diferencia de ranking (menor valor = ranking menos punitivo)
-  const T = 3.5;            // Techo Empírico (Un poco más alto que el partido con más puntaje)
-  // ==========================================
+  // v = OC_norm + (alpha * CA_norm) + (beta * Drama_norm)
+  const vHome = hParams.ocasiones_norm + (alpha * hParams.contra_norm) + (dramaBeta * hParams.drama_norm);
+  const vAway = aParams.ocasiones_norm + (alpha * aParams.contra_norm) + (dramaBeta * aParams.drama_norm);
 
   // 1. Rankings FIFA
-  const rHome = hMetrics.fifa_ranking || 60;
-  const rAway = aMetrics.fifa_ranking || 60;
-
-  // 2. Volumen de Espectáculo Individual (V)
-  const gnpHome = hMetrics.gnp_per_90 !== null ? hMetrics.gnp_per_90 : 1.1;
-  const gnpAway = aMetrics.gnp_per_90 !== null ? aMetrics.gnp_per_90 : 1.1;
-
-  const gcHome = hMetrics.gc_per_90 !== null ? hMetrics.gc_per_90 : 1.1;
-  const gcAway = aMetrics.gc_per_90 !== null ? aMetrics.gc_per_90 : 1.1;
-
-  const dramaHome = hMetrics.drama_per_90 !== null ? hMetrics.drama_per_90 : 2.5;
-  const dramaAway = aMetrics.drama_per_90 !== null ? aMetrics.drama_per_90 : 2.5;
-
-  const vHome = gnpHome + (alpha * gcHome) + (beta * dramaHome);
-  const vAway = gnpAway + (alpha * gcAway) + (beta * dramaAway);
+  const rHome = home.metrics ? (home.metrics.fifa_ranking || 60) : 60;
+  const rAway = away.metrics ? (away.metrics.fifa_ranking || 60) : 60;
 
   // 3. Fórmula ICE(A,B)
   const rankingDiff = Math.abs(rHome - rAway);
-  // Dividimos usando el logaritmo atenuado por rankImpact
+  const rankImpact = ICE_CONFIG.rankImpact;   // Atenuador de la diferencia de ranking
   const ice = (vHome + vAway) / (1 + rankImpact * Math.log(rankingDiff + 1));
 
-  // 4. Normalización Lineal con Clipping (Techo Empírico)
-  // Mapeamos el rango de interés real [1.2, 2.8] al rango legible [1.0, 10.0]
-  const ICE_min = 1.2;
+  // 4. Normalización Final a [1.0, 10.0] con Techo Dinámico
+  const ICE_min = ICE_CONFIG.ICE_min;
+  const T = 0.35 * (2 * (1.0 + alpha + dramaBeta)); // Techo dinámico proporcional a la máxima puntuación teórica posible
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
 }
 
 export function calculateSmartScore(match, teams, tacticalVector) {
-  const ice = calculateICEScore(match, teams);
+  const dramaBeta = state.userPreferences?.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
+  const ice = calculateICEScore(match, teams, dramaBeta);
 
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
     match.spectacleScore = ice;
@@ -113,8 +109,10 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   let playstyleScore = 1.0 + 9.0 * ((rawPlaystyle - minVal) / (maxVal - minVal));
   playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
 
-  // Combine 50% spectacle and 50% playstyle
-  let combinedScore = 0.5 * spectacleScore + 0.5 * playstyleScore;
+  // Combine spectacle and playstyle scores using custom user weights
+  const wSpectacle = state.userPreferences?.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
+  const wPlaystyle = 1.0 - wSpectacle;
+  let combinedScore = wSpectacle * spectacleScore + wPlaystyle * playstyleScore;
   combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);
 
   match.spectacleScore = parseFloat(spectacleScore.toFixed(1));

@@ -35,7 +35,8 @@ def main():
             m.win_rate_last_10, m.draw_rate_last_10, m.loss_rate_last_10,
             m.goals_scored_avg_last_10, m.goals_conceded_avg_last_10,
             m.current_unbeaten_streak, m.top_opponent_beaten,
-            m.fifa_ranking, m.gnp_per_90, m.gc_per_90, m.drama_per_90
+            m.fifa_ranking, m.gnp_per_90, m.gc_per_90, m.drama_per_90,
+            m.ocasiones_norm, m.contra_norm, m.drama_norm
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -46,7 +47,7 @@ def main():
     for row in cursor.fetchall():
         (tid, name, code, group_letter, is_placeholder, is_confirmed, val, xg, poss, pop, cards, 
          eff_avg, win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten,
-         rank, gnp, gc_stat, drama) = row
+         rank, gnp, gc_stat, drama, oc_norm, ca_norm, dr_norm) = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -55,6 +56,7 @@ def main():
             groups_dict[group_letter].append(code)
             
         metrics = None
+        espectaculo_params = None
         if not is_placeholder:
             metrics = {
                 "market_value_eur": val,
@@ -75,6 +77,11 @@ def main():
                 "gc_per_90": gc_stat,
                 "drama_per_90": drama
             }
+            espectaculo_params = {
+                "ocasiones_norm": oc_norm if oc_norm is not None else 0.5,
+                "contra_norm": ca_norm if ca_norm is not None else 0.5,
+                "drama_norm": dr_norm if dr_norm is not None else 0.5
+            }
             
         teams_dict[code] = {
             "id": tid,
@@ -84,6 +91,7 @@ def main():
             "is_placeholder": bool(is_placeholder),
             "is_confirmed_squad": bool(is_confirmed),
             "metrics": metrics,
+            "espectaculo_params": espectaculo_params,
             "squad": []
         }
         

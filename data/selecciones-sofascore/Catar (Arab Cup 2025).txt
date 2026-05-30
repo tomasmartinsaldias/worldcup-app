@@ -1,0 +1,115 @@
+Catar (Arab Cup 2025)
+
+    Sofascore Rating: 6.70
+
+    Matches: 3
+
+    Goals Scored: 1
+
+    Goals Conceded: 5
+
+    Assists: 1
+
+Attacking
+
+    Goals per game: 0.3
+
+    Penalty goals: 0
+
+    Free kick goals: 0/1
+
+    Goals from inside the box: 1/25
+
+    Goals from outside the box: 0/14
+
+    Left-footed goals: 0
+
+    Right-footed goals: 0
+
+    Headed goals: 1
+
+    Big chances per game: 2
+
+    Big chances missed per game: 1.7
+
+    Total shots per game: 13
+
+    Shots on target per game: 4
+
+    Shots off target per game: 6.3
+
+    Blocked shots per game: 2.7
+
+    Succ. dribbles per game: 4.7
+
+    Corners per game: 7.7
+
+    Free kicks per game: 12
+
+    Hit woodwork: 2
+
+    Counter attacks: 0
+
+Passes
+
+    Ball possession: 61.3%
+
+    Accurate passes: 428 (85.4%)
+
+    Acc. own half: 221 (91.9%)
+
+    Acc. opposition half: 202 (77.5%)
+
+    Acc. long balls: 26.7 (60.6%)
+
+    Acc. crosses: 6.7 (28.2%)
+
+Defending
+
+    Clean sheets: 0
+
+    Goals conceded per game: 1.7
+
+    Tackles per game: 15.7
+
+    Interceptions per game: 6.7
+
+    Clearances per game: 20.7
+
+    Saves per game: 1.3
+
+    Balls recovered per game: 38.3
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 2
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 51 (60.5%)
+
+    Ground duels won: 32 (61.5%)
+
+    Aerial duels won: 19 (58.8%)
+
+    Possession lost per game: 122
+
+    Throw-ins per game: 19
+
+    Goal kicks per game: 4.3
+
+    Offsides per game: 1.3
+
+    Fouls per game: 7
+
+    Yellow cards per game: 0.7
+
+    Red cards: 0

@@ -1,4 +1,3 @@
-#	Nation	Squad size	Avg. age	Total value	Confederation Points
 1  	France France	26	27.0	€1.48bn	UEFA	1877
 2  	Spain Spain	26	26.7	€1.27bn	UEFA	1876
 3  	Argentina Argentina	26	29.0	€816.50m	CONMEBOL	1875
@@ -10,40 +9,203 @@
 9  	Belgium Belgium	26	27.6	€530.20m	UEFA	1735
 10  	Germany Germany	26	28.0	€998.00m	UEFA	1730
 11  	Croatia Croatia	26	28.3	€385.70m	UEFA	1717
+12  	Italy Italy	24	21.0	€339.40m	UEFA	1700
 13  	Colombia Colombia	26	30.1	€305.45m	CONMEBOL	1693
 14  	Senegal Senegal	28	26.9	€468.00m	CAF	1689
 15  	Mexico Mexico	15	26.4	€121.60m	CONCACAF	1681
 16  	United States USA	26	26.9	€367.20m	CONCACAF	1673
-17  	Uruguay Uruguay	28	28.5	€371.10m	CONMEBOL	1673
+17  	Uruguay Uruguay	28	28.6	€371.10m	CONMEBOL	1673
 18  	Japan Japan	27	28.1	€279.05m	AFC	1660
 19  	Switzerland Switzerland	26	28.3	€331.10m	UEFA	1649
-21  	Iran Iran	30	29.2	€35.50m	AFC	1615
+20  	Denmark Denmark	23	26.3	€412.50m	UEFA	1621
+21  	Iran Iran	31	29.4	€35.95m	AFC	1615
 22  	Turkiye Turkiye	35	27.1	€536.20m	UEFA	1599
 23  	Ecuador Ecuador	34	24.2	€257.05m	CONMEBOL	1595
 24  	Austria Austria	26	28.5	€271.70m	UEFA	1593
 25  	South Korea South Korea	26	28.2	€142.30m	AFC	1589
+26  	Nigeria Nigeria	20	24.3	€62.95m	CAF	1585
 27  	Australia Australia	27	27.0	€69.80m	AFC	1581
 28  	Algeria Algeria	26	26.0	€226.80m	CAF	1564
-29  	Egypt Egypt	27	28.8	€135.43m	CAF	1563
-30  	Canada Canada	32	26.3	€217.65m	CONCACAF	1556
+29  	Egypt Egypt	26	29.0	€135.18m	CAF	1563
+30  	Canada Canada	26	26.9	€204.05m	CONCACAF	1556
 31  	Norway Norway	26	26.8	€601.00m	UEFA	1551
+32  	Ukraine Ukraine	26	26.6	€258.70m	UEFA	1547
 33  	Panama Panama	26	30.4	€34.93m	CONCACAF	1541
 34  	Ivory Coast Ivory Coast	26	25.8	€525.90m	CAF	1533
-38  	Sweden Sweden	26	27.4	€436.38m	UEFA	1515
+35  	Poland Poland	26	26.3	€231.30m	UEFA	1528
+36  	Russia Russia	33	26.4	€242.20m	UEFA	1526
+37  	Wales Wales	26	27.4	€215.05m	UEFA	1524
+38  	Sweden Sweden	26	27.6	€428.18m	UEFA	1515
+39  	Serbia Serbia	28	26.8	€297.30m	UEFA	1509
 40  	Paraguay Paraguay	25	28.9	€138.80m	CONMEBOL	1504
 41  	Czechia Czechia	29	27.5	€196.23m	UEFA	1501
+42  	Hungary Hungary	29	25.6	€214.00m	UEFA	1501
 43  	Scotland Scotland	26	29.4	€196.23m	UEFA	1498
 44  	Tunisia Tunisia	26	26.6	€69.25m	CAF	1483
+45  	Cameroon Cameroon	24	23.7	€200.50m	CAF	1481
 46  	Democratic Republic of the Congo DR Congo	26	29.1	€147.05m	CAF	1478
+47  	Greece Greece	26	26.4	€261.70m	UEFA	1476
+48  	Slovakia Slovakia	28	27.3	€114.85m	UEFA	1474
+49  	Venezuela Venezuela	27	25.6	€76.90m	CONMEBOL	1468
 50  	Uzbekistan Uzbekistan	40	27.1	€78.73m	AFC	1465
+51  	Costa Rica Costa Rica	25	24.4	€29.68m	CONCACAF	1460
+52  	Mali Mali	26	25.6	€103.35m	CAF	1459
+53  	Peru Peru	25	27.7	€28.75m	CONMEBOL	1456
+54  	Chile Chile	26	25.6	€68.40m	CONMEBOL	1455
 55  	Qatar Qatar	28	29.0	€20.48m	AFC	1455
+56  	Romania Romania	26	27.9	€99.60m	UEFA	1451
 57  	Iraq Iraq	33	26.5	€23.90m	AFC	1447
+58  	Slovenia Slovenia	26	26.7	€100.55m	UEFA	1446
+59  	Republic of Ireland Ireland	24	25.3	€143.88m	UEFA	1437
 60  	South Africa South Africa	26	26.8	€45.80m	CAF	1430
 61  	Saudi Arabia Saudi Arabia	24	27.4	€31.25m	AFC	1421
+62  	Burkina Faso Burkina Faso	25	25.0	€104.30m	CAF	1412
 63  	Jordan Jordan	30	27.8	€18.35m	AFC	1391
+64  	Albania Albania	27	27.4	€96.35m	UEFA	1388
 65  	Bosnia-Herzegovina Bosnia	27	26.6	€149.50m	UEFA	1386
+66  	Honduras Honduras	26	25.3	€17.28m	CONCACAF	1380
+67  	North Macedonia North Macedonia	25	27.8	€32.20m	UEFA	1372
+68  	United Arab Emirates UAE	24	26.7	€29.05m	AFC	1370
 69  	Cape Verde Cape Verde	26	29.7	€56.18m	CAF	1366
+70  	Northern Ireland N. Ireland	23	23.7	€79.90m	UEFA	1362
+71  	Jamaica Jamaica	24	23.1	€9.43m	CONCACAF	1358
+72  	Georgia Georgia	25	26.7	€198.25m	UEFA	1350
+73  	Finland Finland	27	25.9	€46.35m	UEFA	1346
 74  	Ghana Ghana	28	26.7	€234.75m	CAF	1346
+75  	Iceland Iceland	24	27.7	€78.15m	UEFA	1345
+76  	Bolivia Bolivia	28	25.0	€19.38m	CONMEBOL	1329
+77  	Israel Israel	25	26.3	€87.70m	UEFA	1328
+78  	Kosovo Kosovo	29	27.4	€155.28m	UEFA	1319
+79  	Oman Oman	29	28.8	€8.18m	AFC	1313
+80  	Guinea Guinea	26	25.2	€66.00m	CAF	1300
+81  	Montenegro Montenegro	28	28.2	€65.63m	UEFA	1296
 82  	Curaçao Curaçao	26	28.0	€26.03m	CONCACAF	1295
 83  	Haiti Haiti	26	27.6	€55.88m	CONCACAF	1292
+84  	Syria Syria	18	27.3	€6.70m	AFC	1289
 85  	New Zealand New Zealand	26	28.1	€35.35m	OFC	1282
+86  	Bulgaria Bulgaria	26	25.5	€31.30m	UEFA	1279
+87  	Gabon Gabon	35	27.6	€33.80m	CAF	1273
+88  	Uganda Uganda	29	28.0	€8.88m	CAF	1264
+89  	Angola Angola	27	29.4	€51.70m	CAF	1263
+90  	Benin Benin	25	26.2	€18.40m	CAF	1259
+91  	Bahrain Bahrain	24	29.6	€6.23m	AFC	1259
+92  	Zambia Zambia	23	26.3	€14.13m	CAF	1256
+93  	Thailand Thailand	23	28.0	€6.38m	AFC	1252
+94  	China China	26	28.0	€12.90m	AFC	1252
+95  	Palestine Palestine	30	26.7	€10.28m	AFC	1245
+96  	Guatemala Guatemala	23	25.7	€7.45m	CONCACAF	1243
+97  	Belarus Belarus	25	26.5	€15.68m	UEFA	1236
+98  	Luxembourg Luxembourg	25	26.4	€17.05m	UEFA	1228
+99  	Vietnam Vietnam	23	28.1	€6.38m	AFC	1226
+100  	El Salvador El Salvador	28	26.1	€6.96m	CONCACAF	1225
+101  	Mozambique Mozambique	25	27.4	€1.50m	CAF	1224
+102  	Trinidad and Tobago Trinidad	22	24.4	€3.68m	CONCACAF	1223
+103  	Tajikistan Tajikistan	24	26.3	€7.90m	AFC	1222
+104  	Madagascar Madagascar	24	27.9	€6.50m	CAF	1204
+105  	Equatorial Guinea Equat. Guinea	22	26.2	€4.23m	CAF	1195
+106  	Armenia Armenia	27	26.0	€40.85m	UEFA	1191
+107  	Kyrgyzstan Kyrgyzstan	26	26.0	€7.05m	AFC	1191
+108  	Lebanon Lebanon	23	29.0	€6.43m	AFC	1188
+109  	Comoros Comoros	23	23.6	€3.63m	CAF	1188
+110  	Kazakhstan Kazakhstan	26	26.4	€17.35m	UEFA	1183
+111  	Kenya Kenya	24	23.8	€3.25m	CAF	1182
+112  	Libya Libya	19	26.6	€8.93m	CAF	1182
+113  	Tanzania Tanzania	25	26.3	€9.03m	CAF	1180
+114  	Niger Niger	25	26.4	€11.60m	CAF	1180
+115  	Mauritania Mauritania	25	28.0	€25.10m	CAF	1171
+116  	The Gambia The Gambia	23	25.1	€74.43m	CAF	1160
+117  	Sudan Sudan	27	29.2	€3.28m	CAF	1157
+118  	North Korea North Korea	29	25.8	€6.85m	AFC	1151
+119  	Sierra Leone Sierra Leone	24	24.3	€13.33m	CAF	1149
+120  	Namibia Namibia	23	27.3	€2.08m	CAF	1149
+121  	Togo Togo	25	25.6	€29.78m	CAF	1147
+122  	Indonesia Indonesia	23	26.5	€34.95m	AFC	1145
+123  	Faroe Islands Faroe Islands	23	27.5	€5.10m	UEFA	1137
+124  	Azerbaijan Azerbaijan	27	27.6	€16.28m	UEFA	1137
+125  	Suriname Suriname	26	29.1	€39.23m	CONCACAF	1132
+126  	Cyprus Cyprus	27	26.7	€18.63m	UEFA	1128
+127  	Malawi Malawi	26	26.3	€2.05m	CAF	1128
+128  	Rwanda Rwanda	30	27.1	€7.00m	CAF	1127
+129  	Estonia Estonia	25	25.3	€12.35m	UEFA	1121
+130  	Zimbabwe Zimbabwe	21	26.0	€22.08m	CAF	1118
+131  	Nicaragua Nicaragua	22	25.6	€3.78m	CONCACAF	1115
+132  	Guinea-Bissau Guinea-Bissau	24	26.5	€41.45m	CAF	1108
+133  	Republic of the Congo Congo	23	24.6	€2.65m	CAF	1106
+134  	Kuwait Kuwait	23	28.6	€4.35m	AFC	1105
+135  	Philippines Philippines	22	26.3	€3.10m	AFC	1094
+136  	India India	21	27.3	€3.93m	AFC	1091
+137  	Latvia Latvia	25	27.0	€8.28m	UEFA	1091
+138  	Malaysia Malaysia	28	28.6	€7.13m	AFC	1086
+139  	Central African Republic Central Africa	24	25.8	€8.15m	CAF	1084
+140  	Liberia Liberia	25	24.7	€14.15m	CAF	1079
+141  	Turkmenistan Turkmenistan	22	27.6	€2.95m	AFC	1079
+142  	Burundi Burundi	29	26.5	€11.70m	CAF	1078
+143  	Dominican Republic Dominican Rep.	25	25.5	€12.93m	CONCACAF	1078
+144  	Ethiopia Ethiopia	23	27.6	€2.78m	CAF	1072
+145  	Lesotho Lesotho	22	28.3	€675k	CAF	1067
+146  	Botswana Botswana	26	30.1	€3.10m	CAF	1064
+147  	Singapore Singapore	28	28.1	€4.38m	AFC	1060
+148  	Lithuania Lithuania	24	26.0	€15.45m	UEFA	1058
+149  	Yemen Yemen	23	26.7	€1.85m	AFC	1049
+150  	Guyana Guyana	26	26.3	€1.50m	CONCACAF	1049
+151  	New Caledonia New Caledonia	25	28.8	€5.20m	OFC	1037
+152  	Saint Kitts and Nevis St. Kitts/Nevis	23	27.4	€575k	CONCACAF	1036
+153  	Solomon Islands Solomons	23	25.6	€450k	OFC	1032
+154  	Fiji Fiji	26	28.3	€2.45m	OFC	1030
+155  	Hong Kong Hong Kong	23	27.4	€4.33m	AFC	1027
+156  	Puerto Rico Puerto Rico	21	23.0	€825k	CONCACAF	1026
+157  	Tahiti Tahiti	18	29.1	€60k	OFC	1019
+158  	Myanmar Myanmar	23	26.0	€3.13m	AFC	1012
+159  	Moldova Moldova	26	25.9	€10.53m	UEFA	1004
+160  	Vanuatu Vanuatu	24	29.7	€535k	OFC	997
+161  	Malta Malta	27	27.7	€14.75m	UEFA	988
+162  	Antigua and Barbuda Antigua and B.	23	23.2	€650k	CONCACAF	987
+163  	Grenada Grenada	41	25.4	€1.75m	CONCACAF	983
+164  	Cuba Cuba	24	23.9	€2.28m	CONCACAF	981
+165  	Eswatini Eswatini	24	26.5	€1.08m	CAF	979
+166  	Bermuda Bermuda	28	27.4	€375k	CONCACAF	977
+167  	Saint Lucia Saint Lucia	21	23.5	€250k	CONCACAF	977
+168  	Papua New Guinea Papua N. Guinea	23	29.5	-	OFC	975
+169  	Afghanistan Afghanistan	23	24.8	€1.05m	AFC	973
+170  	South Sudan South Sudan	25	25.3	€1.60m	CAF	971
+171  	Saint Vincent and the Grenadines St. Vincent	33	25.2	€475k	CONCACAF	968
+172  	Maldives Maldives	30	30.8	€950k	AFC	955
+173  	Andorra Andorra	26	29.3	€3.34m	UEFA	945
+174  	Chinese Taipei Chinese Taipei	23	26.4	€1.92m	AFC	924
+175  	Montserrat Montserrat	19	24.2	€375k	CONCACAF	917'
+176  	Nepal Nepal	23	27.4	€1.35m	AFC	915
+177  	Cambodia Cambodia	26	26.1	€2.58m	AFC	912
+178  	Mauritius Mauritius	23	28.3	€825k	CAF	911
+179  	Barbados Barbados	24	24.6	€200k	CONCACAF	910
+180  	Belize Belize	24	26.9	€375k	CONCACAF	907
+181  	Bangladesh Bangladesh	23	26.3	€7.25m	AFC	900
+182  	Dominica Dominica	24	25.8	-	CONCACAF	898
+183  	Chad Chad	24	24.3	€8.58m	CAF	897
+184  	Eritrea Eritrea	24	25.6	€4.33m	CAF	887
+185  	Laos Laos	23	23.2	€1.32m	AFC	885
+186  	Bhutan Bhutan	23	25.2	€900k	AFC	881
+187  	Mongolia Mongolia	21	25.6	€510k	AFC	880
+188  	Cook Islands Cook Islands	19	29.0	-	OFC	878
+189  	Aruba Aruba	25	24.4	€150k	CONCACAF	877
+190  	Samoa Samoa	23	24.5	€350k	OFC	876
+191  	Sri Lanka Sri Lanka	23	27.5	€860k	AFC	872
+192  	American Samoa A. Samoa	21	24.5	-	OFC	872
+193  	Brunei Darussalam Brunei	23	28.5	€750k	AFC	863
+194  	Macau Macau	24	24.9	€335k	AFC	858
+195  	Cayman Islands Cayman Islands	25	25.9	-	CONCACAF	855
+196  	São Tomé and Príncipe São Tomé and P.	24	25.7	€1.43m	CAF	855
+197  	Djibouti Djibouti	20	26.3	€575k	CAF	854
+198  	Somalia Somalia	19	25.9	€860k	CAF	839
+199  	Tonga Tonga	23	23.9	€10k	OFC	836
+200  	Timor-Leste Timor-Leste	23	23.9	€975k	AFC	826
+201  	Guam Guam	25	23.3	€240k	AFC	825
+202  	Pakistan Pakistan	23	25.7	€3.49m	AFC	825
+203  	Gibraltar Gibraltar	23	23.7	€1.38m	UEFA	810
+204  	Seychelles Seychelles	23	25.1	€1.03m	CAF	804
+205  	Turks and Caicos Islands Turks-Caicos	16	21.9	€50k	CONCACAF	804
+206  	Liechtenstein Liechtenstein	23	25.9	€650k	UEFA	804
+207  	Bahamas Bahamas	27	21.7	-	CONCACAF	787
+208  	British Virgin Islands B. Virgin	24	24.7	-	CONCACAF	782
+209  	United States Virgin Islands US Virgin	23	24.7	€125k	CONCACAF	780
+210  	Anguilla Anguilla	23	25.4	-	CONCACAF	760
+211  	San Marino San Marino	24	24.9	€1.17m	UEFA	726

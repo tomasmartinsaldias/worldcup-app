@@ -1,0 +1,116 @@
+Estados Unidos (CONCACAF Gold Cup 2025):
+Summary
+
+    Sofascore Rating: 7.05
+
+    Matches: 6
+
+    Goals Scored: 13
+
+    Goals Conceded: 6
+
+    Assists: 12
+
+Attacking
+
+    Goals per game: 2.2
+
+    Penalty goals: 0/1
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 12/58
+
+    Goals from outside the box: 1/23
+
+    Left-footed goals: 4
+
+    Right-footed goals: 7
+
+    Headed goals: 2
+
+    Big chances per game: 3.8
+
+    Big chances missed per game: 2.3
+
+    Total shots per game: 13.5
+
+    Shots on target per game: 5.8
+
+    Shots off target per game: 4.3
+
+    Blocked shots per game: 3.3
+
+    Succ. dribbles per game: 7
+
+    Corners per game: 5.2
+
+    Free kicks per game: 11.2
+
+    Hit woodwork: 5
+
+    Counter attacks: 4
+
+Passes
+
+    Ball possession: 59.5%
+
+    Accurate passes: 426 (86.6%)
+
+    Acc. own half: 236 (93.5%)
+
+    Acc. opposition half: 195 (77.3%)
+
+    Acc. long balls: 22.8 (60.4%)
+
+    Acc. crosses: 4.2 (34.2%)
+
+Defending
+
+    Clean sheets: 2
+
+    Goals conceded per game: 1
+
+    Tackles per game: 16.3
+
+    Interceptions per game: 6.2
+
+    Clearances per game: 21.8
+
+    Saves per game: 2.7
+
+    Balls recovered per game: 41.7
+
+    Errors leading to shot: 5
+
+    Errors leading to goal: 1
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 48 (53.9%)
+
+    Ground duels won: 34.5 (51.5%)
+
+    Aerial duels won: 13.5 (61.4%)
+
+    Possession lost per game: 109.3
+
+    Throw-ins per game: 17.8
+
+    Goal kicks per game: 5.8
+
+    Offsides per game: 2
+
+    Fouls per game: 11.5
+
+    Yellow cards per game: 1.5
+
+    Red cards: 0

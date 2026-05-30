@@ -1,0 +1,115 @@
+Croacia (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.33
+
+    Matches: 8
+
+    Goals Scored: 26
+
+    Goals Conceded: 4
+
+    Assists: 18
+
+Attacking
+
+    Goals per game: 3.3
+
+    Penalty goals: 3/4
+
+    Free kick goals: 0/4
+
+    Goals from inside the box: 23/134
+
+    Goals from outside the box: 1/46
+
+    Left-footed goals: 6
+
+    Right-footed goals: 14
+
+    Headed goals: 5
+
+    Big chances per game: 5.8
+
+    Big chances missed per game: 3.4
+
+    Total shots per game: 22.6
+
+    Shots on target per game: 8.5
+
+    Shots off target per game: 8.6
+
+    Blocked shots per game: 5.5
+
+    Succ. dribbles per game: 8.9
+
+    Corners per game: 9.3
+
+    Free kicks per game: 10.4
+
+    Hit woodwork: 5
+
+    Counter attacks: 10
+
+Passes
+
+    Ball possession: 70%
+
+    Accurate passes: 496 (88.1%)
+
+    Acc. own half: 179 (93%)
+
+    Acc. opposition half: 320 (81.2%)
+
+    Acc. long balls: 23.8 (64.8%)
+
+    Acc. crosses: 7.6 (25.2%)
+
+Defending
+
+    Clean sheets: 5
+
+    Goals conceded per game: 0.5
+
+    Tackles per game: 12.1
+
+    Interceptions per game: 6.6
+
+    Clearances per game: 19.5
+
+    Saves per game: 1.9
+
+    Balls recovered per game: 47.4
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 1
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 48.8 (54.9%)
+
+    Ground duels won: 30.9 (54.9%)
+
+    Aerial duels won: 17.9 (55%)
+
+    Possession lost per game: 122.3
+
+    Throw-ins per game: 19.1
+
+    Goal kicks per game: 4.6
+
+    Offsides per game: 2.5
+
+    Fouls per game: 8.9
+
+    Yellow cards per game: 0.8
+
+    Red cards: 0

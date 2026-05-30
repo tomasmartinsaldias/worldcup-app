@@ -405,6 +405,36 @@ function initTacticalUI() {
       });
     }
   });
+
+  // Connect Drama Slider
+  const dramaSlider = document.getElementById('slider-drama-tab');
+  const dramaValText = document.getElementById('val-drama-tab');
+  if (dramaSlider && dramaValText) {
+    dramaSlider.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      state.userPreferences.dramaBeta = val;
+      let desc = '';
+      if (val > 0.35) desc = 'Roce Físico / Intensidad';
+      else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
+      else desc = 'Equilibrada';
+      dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+    });
+  }
+
+  // Connect Weight Slider
+  const weightSlider = document.getElementById('slider-weight-tab');
+  const weightValText = document.getElementById('val-weight-tab');
+  if (weightSlider && weightValText) {
+    weightSlider.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      state.userPreferences.spectacleWeight = val;
+      let desc = '';
+      if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
+      else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
+      else desc = 'Equilibrado (50/50)';
+      weightValText.textContent = desc;
+    });
+  }
 }
 
 function renderArchetypeSlide() {
@@ -561,6 +591,32 @@ function syncSliders(vector) {
       valText.textContent = `${desc} (${val > 0 ? '+' : ''}${val.toFixed(1)})`;
     }
   });
+
+  // Sync Drama Slider
+  const dramaSlider = document.getElementById('slider-drama-tab');
+  const dramaValText = document.getElementById('val-drama-tab');
+  if (dramaSlider && dramaValText) {
+    const val = state.userPreferences.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
+    dramaSlider.value = val;
+    let desc = '';
+    if (val > 0.35) desc = 'Roce Físico / Intensidad';
+    else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
+    else desc = 'Equilibrada';
+    dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+  }
+
+  // Sync Weight Slider
+  const weightSlider = document.getElementById('slider-weight-tab');
+  const weightValText = document.getElementById('val-weight-tab');
+  if (weightSlider && weightValText) {
+    const val = state.userPreferences.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
+    weightSlider.value = val;
+    let desc = '';
+    if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
+    else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
+    else desc = 'Equilibrado (50/50)';
+    weightValText.textContent = desc;
+  }
 }
 
 function recalculateAndRender() {

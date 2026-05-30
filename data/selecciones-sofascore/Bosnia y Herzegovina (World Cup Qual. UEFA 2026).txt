@@ -1,0 +1,115 @@
+Bosnia y Herzegovina (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 6.98
+
+    Matches: 10
+
+    Goals Scored: 19
+
+    Goals Conceded: 9
+
+    Assists: 11
+
+Attacking
+
+    Goals per game: 1.9
+
+    Penalty goals: 0
+
+    Free kick goals: 0/1
+
+    Goals from inside the box: 15/108
+
+    Goals from outside the box: 3/52
+
+    Left-footed goals: 7
+
+    Right-footed goals: 9
+
+    Headed goals: 2
+
+    Big chances per game: 2.7
+
+    Big chances missed per game: 1.4
+
+    Total shots per game: 16
+
+    Shots on target per game: 5.3
+
+    Shots off target per game: 6.6
+
+    Blocked shots per game: 4.1
+
+    Succ. dribbles per game: 9.7
+
+    Corners per game: 4.6
+
+    Free kicks per game: 12.9
+
+    Hit woodwork: 4
+
+    Counter attacks: 11
+
+Passes
+
+    Ball possession: 49.9%
+
+    Accurate passes: 340 (79.8%)
+
+    Acc. own half: 162 (89.9%)
+
+    Acc. opposition half: 179 (70%)
+
+    Acc. long balls: 17.5 (45.5%)
+
+    Acc. crosses: 5.5 (26.8%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 0.9
+
+    Tackles per game: 14
+
+    Interceptions per game: 6.8
+
+    Clearances per game: 32
+
+    Saves per game: 1.9
+
+    Balls recovered per game: 47.7
+
+    Errors leading to shot: 4
+
+    Errors leading to goal: 4
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 54.4 (51.5%)
+
+    Ground duels won: 36.4 (49.8%)
+
+    Aerial duels won: 18 (55.4%)
+
+    Possession lost per game: 135.1
+
+    Throw-ins per game: 20.8
+
+    Goal kicks per game: 8.1
+
+    Offsides per game: 1.7
+
+    Fouls per game: 17.7
+
+    Yellow cards per game: 2.8
+
+    Red cards: 0

@@ -1,0 +1,116 @@
+Australia (AFC Asian Cup 2023):
+Summary
+
+    Sofascore Rating: 7.00
+
+    Matches: 5
+
+    Goals Scored: 9
+
+    Goals Conceded: 3
+
+    Assists: 4
+
+Attacking
+
+    Goals per game: 1.8
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 8/48
+
+    Goals from outside the box: 0/18
+
+    Left-footed goals: 4
+
+    Right-footed goals: 2
+
+    Headed goals: 2
+
+    Big chances per game: 2.8
+
+    Big chances missed per game: 1.6
+
+    Total shots per game: 13.2
+
+    Shots on target per game: 3.4
+
+    Shots off target per game: 5.8
+
+    Blocked shots per game: 4
+
+    Succ. dribbles per game: 12.4
+
+    Corners per game: 5.6
+
+    Free kicks per game: 12.8
+
+    Hit woodwork: 0
+
+    Counter attacks: 1
+
+Passes
+
+    Ball possession: 53.6%
+
+    Accurate passes: 442 (82%)
+
+    Acc. own half: 227 (92.1%)
+
+    Acc. opposition half: 221 (70.5%)
+
+    Acc. long balls: 24.6 (52.3%)
+
+    Acc. crosses: 6.4 (29.9%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 0.6
+
+    Tackles per game: 17.4
+
+    Interceptions per game: 6.8
+
+    Clearances per game: 15.6
+
+    Saves per game: 2
+
+    Balls recovered per game: 59.4
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 0
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 62.2 (54.9%)
+
+    Ground duels won: 42.2 (53.1%)
+
+    Aerial duels won: 20 (58.8%)
+
+    Possession lost per game: 156
+
+    Throw-ins per game: 24.6
+
+    Goal kicks per game: 4
+
+    Offsides per game: 1.4
+
+    Fouls per game: 11.2
+
+    Yellow cards per game: 1.4
+
+    Red cards: 1

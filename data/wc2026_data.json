@@ -26,6 +26,11 @@
         "gc_per_90": 0.5,
         "drama_per_90": 4.667
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.402,
+        "contra_norm": 0.299,
+        "drama_norm": 0.718
+      },
       "squad": [
         {
           "id": 46,
@@ -790,6 +795,11 @@
         "gc_per_90": 0.6,
         "drama_per_90": 3.6
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.322,
+        "contra_norm": 0.114,
+        "drama_norm": 0.694
+      },
       "squad": [
         {
           "id": 72,
@@ -1365,6 +1375,11 @@
         "gc_per_90": 0.438,
         "drama_per_90": 3.75
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.404,
+        "contra_norm": 0.15,
+        "drama_norm": 0.665
+      },
       "squad": [
         {
           "id": 94,
@@ -1939,6 +1954,11 @@
         "gnp_per_90": 1.963,
         "gc_per_90": 1.028,
         "drama_per_90": 3.364
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.448,
+        "contra_norm": 0.118,
+        "drama_norm": 0.732
       },
       "squad": [
         {
@@ -2577,6 +2597,11 @@
         "gnp_per_90": 2.25,
         "gc_per_90": 0.5,
         "drama_per_90": 4.5
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.517,
+        "contra_norm": 0.408,
+        "drama_norm": 0.577
       },
       "squad": [
         {
@@ -3237,6 +3262,11 @@
         "gc_per_90": null,
         "drama_per_90": null
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.373,
+        "contra_norm": 0.518,
+        "drama_norm": 1.0
+      },
       "squad": [
         {
           "id": 188,
@@ -3812,6 +3842,11 @@
         "gc_per_90": 1.556,
         "drama_per_90": 5.056
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.174,
+        "contra_norm": 0.0,
+        "drama_norm": 0.305
+      },
       "squad": [
         {
           "id": 216,
@@ -4365,6 +4400,11 @@
         "gnp_per_90": 2.0,
         "gc_per_90": 0.333,
         "drama_per_90": 2.667
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.422,
+        "contra_norm": 0.387,
+        "drama_norm": 0.528
       },
       "squad": [
         {
@@ -4941,6 +4981,11 @@
         "gc_per_90": 0.944,
         "drama_per_90": 4.611
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.5,
+        "contra_norm": 0.5,
+        "drama_norm": 0.5
+      },
       "squad": [
         {
           "id": 265,
@@ -5515,6 +5560,11 @@
         "gnp_per_90": 2.375,
         "gc_per_90": 0.25,
         "drama_per_90": 4.875
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.298,
+        "contra_norm": 0.206,
+        "drama_norm": 0.743
       },
       "squad": [
         {
@@ -6091,6 +6141,11 @@
         "gc_per_90": 1.3,
         "drama_per_90": 3.2
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.0,
+        "contra_norm": 0.0,
+        "drama_norm": 0.479
+      },
       "squad": [
         {
           "id": 322,
@@ -6665,6 +6720,11 @@
         "gnp_per_90": 2.0,
         "gc_per_90": 1.167,
         "drama_per_90": 5.167
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.422,
+        "contra_norm": 0.415,
+        "drama_norm": 0.752
       },
       "squad": [
         {
@@ -7241,6 +7301,11 @@
         "gc_per_90": 1.0,
         "drama_per_90": 3.333
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.5,
+        "contra_norm": 0.5,
+        "drama_norm": 0.5
+      },
       "squad": [
         {
           "id": 370,
@@ -7815,6 +7880,11 @@
         "gnp_per_90": 0.722,
         "gc_per_90": 0.556,
         "drama_per_90": 4.611
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.049,
+        "contra_norm": 0.19,
+        "drama_norm": 0.874
       },
       "squad": [
         {
@@ -8643,6 +8713,11 @@
         "gc_per_90": 0.312,
         "drama_per_90": 3.062
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.297,
+        "contra_norm": 0.077,
+        "drama_norm": 0.505
+      },
       "squad": [
         {
           "id": 442,
@@ -9239,6 +9314,11 @@
         "gc_per_90": null,
         "drama_per_90": null
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.22,
+        "contra_norm": 0.739,
+        "drama_norm": 0.456
+      },
       "squad": [
         {
           "id": 488,
@@ -9813,6 +9893,11 @@
         "gnp_per_90": 2.5,
         "gc_per_90": 0.5,
         "drama_per_90": 3.833
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.583,
+        "contra_norm": 0.428,
+        "drama_norm": 0.606
       },
       "squad": [
         {
@@ -10389,6 +10474,11 @@
         "gc_per_90": 0.5,
         "drama_per_90": 3.8
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.31,
+        "contra_norm": 0.225,
+        "drama_norm": 0.637
+      },
       "squad": [
         {
           "id": 547,
@@ -10963,6 +11053,11 @@
         "gnp_per_90": 2.1,
         "gc_per_90": 0.0,
         "drama_per_90": 2.6
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.327,
+        "contra_norm": 0.361,
+        "drama_norm": 0.766
       },
       "squad": [
         {
@@ -11539,6 +11634,11 @@
         "gc_per_90": 0.278,
         "drama_per_90": 4.0
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.198,
+        "contra_norm": 0.26,
+        "drama_norm": 0.798
+      },
       "squad": [
         {
           "id": 586,
@@ -12114,6 +12214,11 @@
         "gc_per_90": 0.5,
         "drama_per_90": 3.375
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.414,
+        "contra_norm": 0.153,
+        "drama_norm": 0.348
+      },
       "squad": [
         {
           "id": 619,
@@ -12646,6 +12751,11 @@
         "gnp_per_90": 3.067,
         "gc_per_90": 0.133,
         "drama_per_90": 2.0
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.244,
+        "contra_norm": 0.0,
+        "drama_norm": 0.583
       },
       "squad": [
         {
@@ -13222,6 +13332,11 @@
         "gc_per_90": 1.875,
         "drama_per_90": 4.625
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.185,
+        "contra_norm": 0.187,
+        "drama_norm": 0.829
+      },
       "squad": [
         {
           "id": 680,
@@ -13796,6 +13911,11 @@
         "gnp_per_90": 1.7,
         "gc_per_90": 0.0,
         "drama_per_90": 4.9
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.089,
+        "contra_norm": 0.232,
+        "drama_norm": 0.671
       },
       "squad": [
         {
@@ -14372,6 +14492,11 @@
         "gc_per_90": 0.875,
         "drama_per_90": 4.625
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.533,
+        "contra_norm": 0.279,
+        "drama_norm": 0.412
+      },
       "squad": [
         {
           "id": 736,
@@ -14947,6 +15072,11 @@
         "gc_per_90": 0.2,
         "drama_per_90": 3.6
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.265,
+        "contra_norm": 0.212,
+        "drama_norm": 0.525
+      },
       "squad": [
         {
           "id": 764,
@@ -15500,6 +15630,11 @@
         "gnp_per_90": 2.062,
         "gc_per_90": 0.688,
         "drama_per_90": 3.5
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.471,
+        "contra_norm": 0.273,
+        "drama_norm": 0.579
       },
       "squad": [
         {
@@ -16139,6 +16274,11 @@
         "gc_per_90": 0.2,
         "drama_per_90": 1.4
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.233,
+        "contra_norm": 0.033,
+        "drama_norm": 0.0
+      },
       "squad": [
         {
           "id": 820,
@@ -16713,6 +16853,11 @@
         "gnp_per_90": 3.0,
         "gc_per_90": 0.333,
         "drama_per_90": 2.0
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.569,
+        "drama_norm": 0.431
       },
       "squad": [
         {
@@ -17289,6 +17434,11 @@
         "gc_per_90": 0.7,
         "drama_per_90": 3.6
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.018,
+        "contra_norm": 0.146,
+        "drama_norm": 0.483
+      },
       "squad": [
         {
           "id": 857,
@@ -17864,6 +18014,11 @@
         "gc_per_90": 0.667,
         "drama_per_90": 4.611
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.378,
+        "contra_norm": 0.721,
+        "drama_norm": 0.457
+      },
       "squad": [
         {
           "id": 880,
@@ -18417,6 +18572,11 @@
         "gnp_per_90": 1.056,
         "gc_per_90": 0.667,
         "drama_per_90": 4.722
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.136,
+        "contra_norm": 0.462,
+        "drama_norm": 0.818
       },
       "squad": [
         {
@@ -19035,6 +19195,11 @@
         "gc_per_90": 0.667,
         "drama_per_90": 3.0
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.771,
+        "contra_norm": 0.619,
+        "drama_norm": 0.492
+      },
       "squad": [
         {
           "id": 953,
@@ -19609,6 +19774,11 @@
         "gnp_per_90": 1.9,
         "gc_per_90": 0.3,
         "drama_per_90": 2.9
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.5,
+        "contra_norm": 0.5,
+        "drama_norm": 0.5
       },
       "squad": [
         {
@@ -20227,6 +20397,11 @@
         "gc_per_90": 0.488,
         "drama_per_90": 2.195
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.16,
+        "contra_norm": 0.459,
+        "drama_norm": 0.743
+      },
       "squad": [
         {
           "id": 1005,
@@ -20801,6 +20976,11 @@
         "gnp_per_90": 4.25,
         "gc_per_90": 0.5,
         "drama_per_90": 2.25
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.65,
+        "contra_norm": 0.861,
+        "drama_norm": 0.332
       },
       "squad": [
         {
@@ -21377,6 +21557,11 @@
         "gc_per_90": 0.556,
         "drama_per_90": 4.5
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.5,
+        "contra_norm": 0.5,
+        "drama_norm": 0.5
+      },
       "squad": [
         {
           "id": 1057,
@@ -21951,6 +22136,11 @@
         "gnp_per_90": 2.0,
         "gc_per_90": 0.8,
         "drama_per_90": 3.8
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.239,
+        "contra_norm": 0.534,
+        "drama_norm": 0.755
       },
       "squad": [
         {
@@ -22548,6 +22738,11 @@
         "gc_per_90": 0.5,
         "drama_per_90": 4.5
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.282,
+        "contra_norm": 0.298,
+        "drama_norm": 0.501
+      },
       "squad": [
         {
           "id": 1112,
@@ -23123,6 +23318,11 @@
         "gc_per_90": 0.75,
         "drama_per_90": 3.125
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.455,
+        "contra_norm": 1.0,
+        "drama_norm": 0.684
+      },
       "squad": [
         {
           "id": 1123,
@@ -23697,6 +23897,11 @@
         "gnp_per_90": 2.833,
         "gc_per_90": 1.167,
         "drama_per_90": 4.5
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.749,
+        "contra_norm": 0.462,
+        "drama_norm": 0.37
       },
       "squad": [
         {
@@ -24293,6 +24498,11 @@
         "gnp_per_90": 1.25,
         "gc_per_90": 0.65,
         "drama_per_90": 4.7
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.191,
+        "contra_norm": 0.305,
+        "drama_norm": 0.474
       },
       "squad": [
         {
@@ -24953,6 +25163,11 @@
         "gc_per_90": 0.688,
         "drama_per_90": 3.375
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.113,
+        "contra_norm": 0.154,
+        "drama_norm": 0.667
+      },
       "squad": [
         {
           "id": 1215,
@@ -25549,6 +25764,11 @@
         "gc_per_90": 0.944,
         "drama_per_90": 4.222
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.446,
+        "contra_norm": 0.75,
+        "drama_norm": 0.875
+      },
       "squad": [
         {
           "id": 1258,
@@ -26123,6 +26343,11 @@
         "gnp_per_90": 2.25,
         "gc_per_90": 0.0,
         "drama_per_90": 2.5
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.415,
+        "contra_norm": 0.294,
+        "drama_norm": 0.365
       },
       "squad": [
         {
@@ -26699,6 +26924,11 @@
         "gc_per_90": 0.5,
         "drama_per_90": 2.875
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.564,
+        "contra_norm": 0.378,
+        "drama_norm": 0.304
+      },
       "squad": [
         {
           "id": 1292,
@@ -27274,6 +27504,11 @@
         "gc_per_90": 0.6,
         "drama_per_90": 2.8
       },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.133,
+        "contra_norm": 0.056,
+        "drama_norm": 0.631
+      },
       "squad": [
         {
           "id": 1335,
@@ -27827,6 +28062,11 @@
         "gnp_per_90": 0.0,
         "gc_per_90": 5.0,
         "drama_per_90": 19.0
+      },
+      "espectaculo_params": {
+        "ocasiones_norm": 0.64,
+        "contra_norm": 0.486,
+        "drama_norm": 0.571
       },
       "squad": [
         {

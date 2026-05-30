@@ -1,0 +1,116 @@
+Irán (AFC Asian Cup 2023):
+Summary
+
+    Sofascore Rating: 6.97
+
+    Matches: 6
+
+    Goals Scored: 12
+
+    Goals Conceded: 7
+
+    Assists: 7
+
+Attacking
+
+    Goals per game: 2
+
+    Penalty goals: 3/3
+
+    Free kick goals: 0/3
+
+    Goals from inside the box: 12/64
+
+    Goals from outside the box: 0/37
+
+    Left-footed goals: 1
+
+    Right-footed goals: 11
+
+    Headed goals: 0
+
+    Big chances per game: 3.7
+
+    Big chances missed per game: 2.3
+
+    Total shots per game: 16.8
+
+    Shots on target per game: 5.3
+
+    Shots off target per game: 7
+
+    Blocked shots per game: 4.5
+
+    Succ. dribbles per game: 6.7
+
+    Corners per game: 6.2
+
+    Free kicks per game: 12.3
+
+    Hit woodwork: 2
+
+    Counter attacks: 4
+
+Passes
+
+    Ball possession: 58.3%
+
+    Accurate passes: 401 (79.4%)
+
+    Acc. own half: 235 (89.9%)
+
+    Acc. opposition half: 170 (64.6%)
+
+    Acc. long balls: 27.3 (48.8%)
+
+    Acc. crosses: 4.8 (23.4%)
+
+Defending
+
+    Clean sheets: 1
+
+    Goals conceded per game: 1.2
+
+    Tackles per game: 14.8
+
+    Interceptions per game: 6.5
+
+    Clearances per game: 15.7
+
+    Saves per game: 2.7
+
+    Balls recovered per game: 58.2
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 0
+
+    Penalties committed: 2
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 2
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 57.3 (52%)
+
+    Ground duels won: 33.2 (51.3%)
+
+    Aerial duels won: 24.2 (53.1%)
+
+    Possession lost per game: 158.2
+
+    Throw-ins per game: 24
+
+    Goal kicks per game: 6.8
+
+    Offsides per game: 2.3
+
+    Fouls per game: 12
+
+    Yellow cards per game: 1.7
+
+    Red cards: 2

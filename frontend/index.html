@@ -282,7 +282,6 @@
               <span>Frenético Vertical</span>
             </div>
           </div>
-
           <!-- Width Slider -->
           <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
             <div class="slider-header"
@@ -303,6 +302,44 @@
         <button class="btn-mundial btn-mundial--green" id="btn-apply-custom-tactical"
           style="margin-top: 2.5rem; padding: 0.9rem 2rem; font-size: 1.15rem; font-weight: 800; width: 100%; box-shadow: var(--shadow-neon); border-radius: 50px;">Aplicar
           Táctica Personalizada</button>
+      </div>
+
+      <!-- Configuración General del Estilo de Juego (Fricción y Ponderación) -->
+      <div class="general-style-settings"
+        style="max-width: 650px; margin: 3rem auto 0 auto; background: rgba(18, 18, 26, 0.45); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 2.5rem 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.4); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
+        <h3 style="font-size: 1.4rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; margin: 0; font-family: var(--font-primary); text-align: center;">Preferencias de Recomendación</h3>
+        
+        <!-- Drama/Roce Slider -->
+        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="slider-header"
+            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
+            <span>Fricción de Juego (Roce vs Fair Play)</span>
+            <span class="slider-value" id="val-drama-tab" style="color: var(--accent-cyan);">Equilibrada (0.20)</span>
+          </div>
+          <input type="range" min="0.0" max="0.6" step="0.025" value="0.2" class="tactical-slider"
+            id="slider-drama-tab" style="width: 100%; cursor: pointer;">
+          <div class="slider-labels"
+            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+            <span>Juego Limpio / Fair Play</span>
+            <span>Roce Físico / Intensidad</span>
+          </div>
+        </div>
+
+        <!-- Weight Slider (Espectáculo vs Estilo) -->
+        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="slider-header"
+            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
+            <span>Enfoque de Recomendación (Táctica vs Espectáculo)</span>
+            <span class="slider-value" id="val-weight-tab" style="color: var(--accent-cyan);">Equilibrado (50/50)</span>
+          </div>
+          <input type="range" min="0.0" max="1.0" step="0.05" value="0.5" class="tactical-slider"
+            id="slider-weight-tab" style="width: 100%; cursor: pointer;">
+          <div class="slider-labels"
+            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+            <span>100% Estilo Táctico</span>
+            <span>100% Espectáculo</span>
+          </div>
+        </div>
       </div>
     </section>
 

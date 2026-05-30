@@ -1,0 +1,115 @@
+Noruega (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.29
+
+    Matches: 8
+
+    Goals Scored: 37
+
+    Goals Conceded: 5
+
+    Assists: 29
+
+Attacking
+
+    Goals per game: 4.6
+
+    Penalty goals: 1/2
+
+    Free kick goals: 0/1
+
+    Goals from inside the box: 34/121
+
+    Goals from outside the box: 0/34
+
+    Left-footed goals: 15
+
+    Right-footed goals: 11
+
+    Headed goals: 8
+
+    Big chances per game: 6
+
+    Big chances missed per game: 2.5
+
+    Total shots per game: 19.4
+
+    Shots on target per game: 7.6
+
+    Shots off target per game: 6.1
+
+    Blocked shots per game: 5.6
+
+    Succ. dribbles per game: 10.1
+
+    Corners per game: 5
+
+    Free kicks per game: 10.6
+
+    Hit woodwork: 7
+
+    Counter attacks: 21
+
+Passes
+
+    Ball possession: 57.5%
+
+    Accurate passes: 483 (89.5%)
+
+    Acc. own half: 217 (93.9%)
+
+    Acc. opposition half: 266 (83.1%)
+
+    Acc. long balls: 14.3 (65.1%)
+
+    Acc. crosses: 5.8 (30.9%)
+
+Defending
+
+    Clean sheets: 4
+
+    Goals conceded per game: 0.6
+
+    Tackles per game: 10.6
+
+    Interceptions per game: 5.9
+
+    Clearances per game: 13.1
+
+    Saves per game: 2.1
+
+    Balls recovered per game: 42.8
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 1
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 43.8 (53.2%)
+
+    Ground duels won: 31.1 (50.5%)
+
+    Aerial duels won: 12.6 (61.2%)
+
+    Possession lost per game: 100.3
+
+    Throw-ins per game: 16.5
+
+    Goal kicks per game: 4.4
+
+    Offsides per game: 0.5
+
+    Fouls per game: 8.9
+
+    Yellow cards per game: 1
+
+    Red cards: 0

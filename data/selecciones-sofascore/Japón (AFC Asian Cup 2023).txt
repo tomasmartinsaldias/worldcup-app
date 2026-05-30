@@ -1,0 +1,116 @@
+Japón (AFC Asian Cup 2023):
+Summary
+
+    Sofascore Rating: 6.90
+
+    Matches: 5
+
+    Goals Scored: 12
+
+    Goals Conceded: 8
+
+    Assists: 6
+
+Attacking
+
+    Goals per game: 2.4
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 10/46
+
+    Goals from outside the box: 1/19
+
+    Left-footed goals: 2
+
+    Right-footed goals: 8
+
+    Headed goals: 1
+
+    Big chances per game: 2.6
+
+    Big chances missed per game: 1.2
+
+    Total shots per game: 13
+
+    Shots on target per game: 3.6
+
+    Shots off target per game: 5.8
+
+    Blocked shots per game: 3.6
+
+    Succ. dribbles per game: 11.2
+
+    Corners per game: 6
+
+    Free kicks per game: 10.2
+
+    Hit woodwork: 2
+
+    Counter attacks: 0
+
+Passes
+
+    Ball possession: 62.4%
+
+    Accurate passes: 494 (83.3%)
+
+    Acc. own half: 243 (91.6%)
+
+    Acc. opposition half: 255 (73.7%)
+
+    Acc. long balls: 15.4 (41.4%)
+
+    Acc. crosses: 3.4 (19.5%)
+
+Defending
+
+    Clean sheets: 0
+
+    Goals conceded per game: 1.6
+
+    Tackles per game: 13.4
+
+    Interceptions per game: 8
+
+    Clearances per game: 12.2
+
+    Saves per game: 1.2
+
+    Balls recovered per game: 57.8
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 1
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 55 (50.6%)
+
+    Ground duels won: 34.4 (48.7%)
+
+    Aerial duels won: 20.6 (53.9%)
+
+    Possession lost per game: 152.8
+
+    Throw-ins per game: 20
+
+    Goal kicks per game: 5.8
+
+    Offsides per game: 2.2
+
+    Fouls per game: 13.6
+
+    Yellow cards per game: 1.4
+
+    Red cards: 0

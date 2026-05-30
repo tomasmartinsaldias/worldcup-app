@@ -7,7 +7,9 @@ let userPreferences = {
   matchStyle: 'all', // 'all', 'closed', 'chaotic'
   favoritePlayers: [],
   preferredTime: [], // array of 'morning', 'afternoon', 'evening'
-  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 }
+  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 },
+  dramaBeta: 0.2,
+  spectacleWeight: 0.5
 };
 
 export async function loadData() {

@@ -1,0 +1,116 @@
+Uzbekistán (AFC Asian Cup 2023):
+Summary
+
+    Sofascore Rating: 6.97
+
+    Matches: 5
+
+    Goals Scored: 7
+
+    Goals Conceded: 3
+
+    Assists: 4
+
+Attacking
+
+    Goals per game: 1.4
+
+    Penalty goals: 0
+
+    Free kick goals: 0/4
+
+    Goals from inside the box: 6/40
+
+    Goals from outside the box: 1/28
+
+    Left-footed goals: 2
+
+    Right-footed goals: 3
+
+    Headed goals: 2
+
+    Big chances per game: 1.6
+
+    Big chances missed per game: 0.6
+
+    Total shots per game: 13.6
+
+    Shots on target per game: 3.8
+
+    Shots off target per game: 6.4
+
+    Blocked shots per game: 3.4
+
+    Succ. dribbles per game: 9.6
+
+    Corners per game: 3.8
+
+    Free kicks per game: 10.2
+
+    Hit woodwork: 3
+
+    Counter attacks: 2
+
+Passes
+
+    Ball possession: 49.6%
+
+    Accurate passes: 393 (77.8%)
+
+    Acc. own half: 180 (86.9%)
+
+    Acc. opposition half: 217 (69.6%)
+
+    Acc. long balls: 26.2 (50.2%)
+
+    Acc. crosses: 4.8 (31.6%)
+
+Defending
+
+    Clean sheets: 2
+
+    Goals conceded per game: 0.6
+
+    Tackles per game: 15.8
+
+    Interceptions per game: 13
+
+    Clearances per game: 19.8
+
+    Saves per game: 1.4
+
+    Balls recovered per game: 61.2
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 0
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 56.8 (46.4%)
+
+    Ground duels won: 35.2 (45.8%)
+
+    Aerial duels won: 21.6 (47.4%)
+
+    Possession lost per game: 171
+
+    Throw-ins per game: 28
+
+    Goal kicks per game: 7
+
+    Offsides per game: 3.2
+
+    Fouls per game: 14.6
+
+    Yellow cards per game: 1.4
+
+    Red cards: 0
