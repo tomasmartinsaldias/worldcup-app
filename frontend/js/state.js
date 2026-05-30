@@ -12,23 +12,41 @@ let userPreferences = {
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes] = await Promise.all([
+    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes] = await Promise.all([
       fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
-      fetch(`data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`)
+      fetch(`data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
+      fetch(`data/players_photos.json?t=${new Date().getTime()}`)
     ]);
     state.appData = await mainRes.json();
     state.appData.clubLogos = await logosRes.json();
-    
+
     const estiloData = await estiloRes.json();
     const arquetiposData = await arquetiposRes.json();
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
-    
+
+    const photosData = await photosRes.json();
+    state.appData.photoIndex = {};
+    const normalise = str => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
+    photosData.forEach(p => {
+      const n = normalise(p.n);
+      const fn = normalise(p.fn);
+      if (fn) state.appData.photoIndex[fn] = p.p;
+      if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
+
+      // Add a fallback for names like "S. Giménez" mapping to "Santiago Giménez"
+      const parts = fn.split(' ');
+      if (parts.length > 1) {
+        const short = normalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
+        if (!state.appData.photoIndex[short]) state.appData.photoIndex[short] = p.p;
+      }
+    });
+
     // Map estilos to teams
     mapTeamEstilos(state.appData);
-    
+
     console.log('Main data loaded:', state.appData);
   } catch (err) {
     console.error('Error loading data:', err);
@@ -38,12 +56,12 @@ export async function loadData() {
 function mapTeamEstilos(appData) {
   if (!appData || !appData.teams || !appData.estilos) return;
   const normalise = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-  
+
   const estiloMap = {};
   appData.estilos.forEach(item => {
     estiloMap[normalise(item.equipo)] = item;
   });
-  
+
   Object.values(appData.teams).forEach(team => {
     const key = normalise(team.name);
     if (estiloMap[key]) {
@@ -61,8 +79,8 @@ export const state = {
   get appData() { return appData; },
   set appData(val) { appData = val; },
   get activeTab() { return activeTab; },
-  set activeTab(val) { 
-    activeTab = val; 
+  set activeTab(val) {
+    activeTab = val;
     localStorage.setItem('activeTab', val);
   },
   get selectedCountryCode() { return selectedCountryCode; },

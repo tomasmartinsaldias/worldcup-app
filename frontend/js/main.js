@@ -113,11 +113,12 @@ async function loadData() {
   </div>`;
   
   try {
-    const [response, logosRes, estiloRes, arquetiposRes] = await Promise.all([
+    const [response, logosRes, estiloRes, arquetiposRes, photosRes] = await Promise.all([
       fetch('../data/wc2026_data.json?t=' + new Date().getTime()),
       fetch('data/club_logos.json?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/selecciones_estilo?t=' + new Date().getTime()),
-      fetch('../data/estilos-de-juego/arquetipos?t=' + new Date().getTime())
+      fetch('../data/estilos-de-juego/arquetipos?t=' + new Date().getTime()),
+      fetch('data/players_photos.json?t=' + new Date().getTime())
     ]);
     
     if (!response.ok) {
@@ -146,6 +147,39 @@ async function loadData() {
     } catch(e) {
       console.error("Could not parse arquetipos", e);
       state.appData.arquetipos = [];
+    }
+
+    try {
+      const photosData = await photosRes.json();
+      state.appData.playersPhotos = photosData;
+      state.appData.photoIndex = {};
+      const robustNormalise = str => {
+        if (!str) return '';
+        return str
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/ø/gi, 'o').replace(/ð/gi, 'd').replace(/þ/gi, 'th')
+          .replace(/æ/gi, 'ae').replace(/ł/gi, 'l').replace(/ß/gi, 'ss').replace(/œ/gi, 'oe')
+          .replace(/[^\x00-\x7F]/g, '')
+          .toLowerCase().trim();
+      };
+      photosData.forEach(p => {
+        const n = robustNormalise(p.n);
+        const fn = robustNormalise(p.fn);
+        if (fn) state.appData.photoIndex[fn] = p.p;
+        if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
+        const parts = fn.split(' ');
+        if (parts.length > 1) {
+            const short = parts[0][0] + '. ' + parts[parts.length-1];
+            if (!state.appData.photoIndex[short]) state.appData.photoIndex[short] = p.p;
+            const firstLast = parts[0] + ' ' + parts[parts.length-1];
+            if (!state.appData.photoIndex[firstLast]) state.appData.photoIndex[firstLast] = p.p;
+        }
+      });
+    } catch(e) {
+      console.error("Could not parse players photos", e);
+      state.appData.photoIndex = {};
+      state.appData.playersPhotos = [];
     }
 
     // Map estilos to teams
