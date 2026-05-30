@@ -1,0 +1,116 @@
+Argentina (World Cup Qual. CONMEBOL 2026)
+Average Sofascore Rating: 7.06
+
+General
+
+    Matches: 18
+
+    Goals scored: 31
+
+    Goals conceded: 10
+
+    Assists: 26
+
+Attacking
+
+    Goals per game: 1.7
+
+    Penalty goals: 0
+
+    Free kick goals: 1/12
+
+    Goals from inside the box: 28/129
+
+    Goals from outside the box: 3/84
+
+    Left-footed goals: 14
+
+    Right-footed goals: 14
+
+    Headed goals: 2
+
+    Big chances per game: 2.2
+
+    Big chances missed per game: 1.3
+
+    Total shots per game: 11.8
+
+    Shots on target per game: 4.5
+
+    Shots off target per game: 4.7
+
+    Blocked shots per game: 2.7
+
+    Succ. dribbles per game: 6.4
+
+    Corners per game: 4.3
+
+    Free kicks per game: 15.6
+
+    Hit woodwork: 9
+
+    Counter attacks: 11
+
+Passes
+
+    Ball possession: 63.9%
+
+    Accurate passes: 537 (88.6%)
+
+    Acc. own half: 279 (93.6%)
+
+    Acc. opposition half: 261 (81.8%)
+
+    Acc. long balls: 23.4 (64.9%)
+
+    Acc. crosses: 2.9 (26.9%)
+
+Defending
+
+    Clean sheets: 11
+
+    Goals conceded per game: 0.6
+
+    Tackles per game: 16
+
+    Interceptions per game: 9
+
+    Clearances per game: 12
+
+    Saves per game: 1.7
+
+    Balls recovered per game: 48.7
+
+    Errors leading to shot: 4
+
+    Errors leading to goal: 1
+
+    Penalties committed: 2
+
+    Penalty goals conceded: 2
+
+    Clearance off line: 2
+
+    Last man tackle: 4
+
+Other
+
+    Duels won per game: 47.6 (54%)
+
+    Ground duels won: 37.6 (54%)
+
+    Aerial duels won: 10 (54.1%)
+
+    Possession lost per game: 112.4
+
+    Throw-ins per game: 16.2
+
+    Goal kicks per game: 4.3
+
+    Offsides per game: 1.7
+
+    Fouls per game: 10.7
+
+    Yellow cards per game: 1.4
+
+    Red cards: 3

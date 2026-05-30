@@ -1,0 +1,116 @@
+Senegal (Africa Cup of Nations 25/26):
+Summary
+
+    Sofascore Rating: 7.04
+
+    Matches: 7
+
+    Goals Scored: 13
+
+    Goals Conceded: 2
+
+    Assists: 9
+
+Attacking
+
+    Goals per game: 1.9
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 11/70
+
+    Goals from outside the box: 2/38
+
+    Left-footed goals: 6
+
+    Right-footed goals: 6
+
+    Headed goals: 1
+
+    Big chances per game: 3.4
+
+    Big chances missed per game: 2.4
+
+    Total shots per game: 15.4
+
+    Shots on target per game: 7.7
+
+    Shots off target per game: 4.7
+
+    Blocked shots per game: 3
+
+    Succ. dribbles per game: 7.7
+
+    Corners per game: 6.3
+
+    Free kicks per game: 12.9
+
+    Hit woodwork: 1
+
+    Counter attacks: 14
+
+Passes
+
+    Ball possession: 61.1%
+
+    Accurate passes: 439 (86.3%)
+
+    Acc. own half: 201 (93%)
+
+    Acc. opposition half: 238 (81.3%)
+
+    Acc. long balls: 19.7 (56.8%)
+
+    Acc. crosses: 4.1 (20.6%)
+
+Defending
+
+    Clean sheets: 5
+
+    Goals conceded per game: 0.3
+
+    Tackles per game: 14.7
+
+    Interceptions per game: 6.4
+
+    Clearances per game: 21.6
+
+    Saves per game: 2.1
+
+    Balls recovered per game: 48
+
+    Errors leading to shot: 2
+
+    Errors leading to goal: 1
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 4
+
+Other
+
+    Duels won per game: 51.6 (49.5%)
+
+    Ground duels won: 34.9 (47.4%)
+
+    Aerial duels won: 16.7 (54.4%)
+
+    Possession lost per game: 124.3
+
+    Throw-ins per game: 17.7
+
+    Goal kicks per game: 5
+
+    Offsides per game: 1.3
+
+    Fouls per game: 17.7
+
+    Yellow cards per game: 2.4
+
+    Red cards: 1

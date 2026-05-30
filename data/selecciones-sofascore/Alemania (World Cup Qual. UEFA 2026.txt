@@ -1,0 +1,116 @@
+Alemania (World Cup Qual. UEFA 2026):
+Summary
+
+    Sofascore Rating: 7.24
+
+    Matches: 6
+
+    Goals Scored: 16
+
+    Goals Conceded: 3
+
+    Assists: 11
+
+Attacking
+
+    Goals per game: 2.7
+
+    Penalty goals: 1/1
+
+    Free kick goals: 2/5
+
+    Goals from inside the box: 14/73
+
+    Goals from outside the box: 2/30
+
+    Left-footed goals: 6
+
+    Right-footed goals: 8
+
+    Headed goals: 1
+
+    Big chances per game: 4.2
+
+    Big chances missed per game: 2
+
+    Total shots per game: 17.2
+
+    Shots on target per game: 6.2
+
+    Shots off target per game: 7
+
+    Blocked shots per game: 4
+
+    Succ. dribbles per game: 6.5
+
+    Corners per game: 5.8
+
+    Free kicks per game: 9.5
+
+    Hit woodwork: 3
+
+    Counter attacks: 6
+
+Passes
+
+    Ball possession: 73.2%
+
+    Accurate passes: 616 (89.7%)
+
+    Acc. own half: 276 (94.8%)
+
+    Acc. opposition half: 338 (82.3%)
+
+    Acc. long balls: 19.8 (57.5%)
+
+    Acc. crosses: 5 (23.1%)
+
+Defending
+
+    Clean sheets: 4
+
+    Goals conceded per game: 0.5
+
+    Tackles per game: 10.7
+
+    Interceptions per game: 5.5
+
+    Clearances per game: 17.5
+
+    Saves per game: 1.7
+
+    Balls recovered per game: 45.8
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 39.8 (47.5%)
+
+    Ground duels won: 26.2 (44.4%)
+
+    Aerial duels won: 13.7 (55%)
+
+    Possession lost per game: 121
+
+    Throw-ins per game: 21.2
+
+    Goal kicks per game: 4.2
+
+    Offsides per game: 1
+
+    Fouls per game: 12
+
+    Yellow cards per game: 1.3
+
+    Red cards: 0
