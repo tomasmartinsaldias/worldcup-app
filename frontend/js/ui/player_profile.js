@@ -64,9 +64,6 @@ export function openPlayerProfile(teamCode, playerId) {
   document.getElementById('player-modal-pos-val').textContent = player.position || '-';
   document.getElementById('player-modal-pos-val').title = player.position || '';
   document.getElementById('player-modal-country-val').textContent = team.name;
-  
-  const val = player.market_value_eur ? `${player.market_value_eur.toFixed(1)}` : '-';
-  document.getElementById('player-modal-market-val').textContent = val;
 
   document.getElementById('player-modal-caps-val').textContent = player.caps !== null ? player.caps : '-';
   document.getElementById('player-modal-goals-val').textContent = player.goals !== null ? player.goals : '-';

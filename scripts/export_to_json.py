@@ -105,10 +105,7 @@ def main():
             ps.assists_recent, ps.minutes_recent, ps.efficiency_score,
             ps.xG_intl, ps.sca_intl, ps.gca_intl, ps.progressive_passes_intl, ps.progressive_carries_intl
         FROM scraped_wc2026_probable_squads ps
-        JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code
-        WHERE t.is_confirmed_squad = 1 
-           OR ps.efficiency_score IS NOT NULL 
-           OR ps.caps >= 5;
+        JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code;
     """)
     
     for row in cursor.fetchall():
@@ -123,8 +120,7 @@ def main():
                 "age": age,
                 "caps": caps,
                 "goals": goals,
-                "market_value_eur": val,
-                "is_star_player": bool(star) if star is not None else None,
+                "is_star_player": bool(star) if star is not None else False,
                 "is_injured": bool(injured) if injured is not None else False,
                 "cards_propensity": cards,
                 "assists_recent": assists_rec,
@@ -137,9 +133,9 @@ def main():
                 "progressive_carries_intl": prog_carr
             })
             
-    # Ordenar planteles por valor de mercado desc, luego nombre
+    # Ordenar planteles por nombre
     for code in teams_dict:
-        teams_dict[code]["squad"].sort(key=lambda x: (-(x["market_value_eur"] or 0), x["name"]))
+        teams_dict[code]["squad"].sort(key=lambda x: x["name"])
         
     # 4. Cargar Ciudades Anfitrionas y Estadios
     print("Cargando sedes y estadios...")
@@ -253,37 +249,40 @@ def main():
                                 "score": f"{int(h_score)}-{int(a_score)}" if h_score is not None and a_score is not None else "N/A"
                             })
                             
-                # B. H2H específico de Mundiales Pasados (Fjelstul)
-                if h_hist and a_hist:
+                # B. H2H específico de Mundiales Pasados (Calculado con intl_results)
+                if h_intl and a_intl:
                     cursor.execute("""
-                        SELECT 
-                            m_hist.match_date, t_h1.team_name, t_h2.team_name, 
-                            m_hist.home_team_score, m_hist.away_team_score,
-                            t_winner.team_name, m_hist.draw
-                        FROM matches m_hist
-                        JOIN teams t_h1 ON m_hist.home_team_id = t_h1.team_id
-                        JOIN teams t_h2 ON m_hist.away_team_id = t_h2.team_id
-                        LEFT JOIN teams t_winner ON m_hist.home_team_win = 1 AND t_winner.team_id = m_hist.home_team_id 
-                                                 OR m_hist.away_team_win = 1 AND t_winner.team_id = m_hist.away_team_id
-                        WHERE (t_h1.team_name = ? AND t_h2.team_name = ?)
-                           OR (t_h1.team_name = ? AND t_h2.team_name = ?)
-                        ORDER BY m_hist.match_date DESC;
-                    """, (h_hist, a_hist, a_hist, h_hist))
+                        SELECT date, home_team, away_team, home_score, away_score
+                        FROM intl_results
+                        WHERE ((home_team = ? AND away_team = ?)
+                           OR (home_team = ? AND away_team = ?))
+                          AND tournament = 'FIFA World Cup'
+                        ORDER BY date DESC;
+                    """, (h_intl, a_intl, a_intl, h_intl))
                     
                     wc_rows = cursor.fetchall()
                     h2h_data["wc_matches"] = len(wc_rows)
                     
                     for w_row in wc_rows:
-                        date_str, t1_name, t2_name, s1, s2, w_name, draw = w_row
+                        date_str, h_team, a_team, h_score, a_score = w_row
                         
-                        if draw:
+                        g_home = int(h_score) if h_score is not None else 0
+                        g_away = int(a_score) if a_score is not None else 0
+                        
+                        if g_home == g_away:
                             h2h_data["wc_draws"] += 1
                         else:
-                            # ¿Quién es el local de 2026 en este partido histórico?
-                            if w_name == h_hist:
-                                h2h_data["wc_home_wins"] += 1
-                            elif w_name == a_hist:
-                                h2h_data["wc_away_wins"] += 1
+                            # Determinar el ganador relativo al equipo local actual (home_team / h_intl)
+                            if h_team == h_intl:
+                                if g_home > g_away:
+                                    h2h_data["wc_home_wins"] += 1
+                                else:
+                                    h2h_data["wc_away_wins"] += 1
+                            else:
+                                if g_away > g_home:
+                                    h2h_data["wc_home_wins"] += 1
+                                else:
+                                    h2h_data["wc_away_wins"] += 1
                                 
         match_data = {
             "id": mid,

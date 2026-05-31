@@ -160,6 +160,25 @@ def main():
             """, (xg, sca, gca, pp, pc, pid))
             
     conn.commit()
+    
+    # Calcular y actualizar recent_xg_avg para las selecciones basándose en el promedio de xG_intl
+    print("\nCalculando promedios de xG por selección desde los jugadores...")
+    cursor.execute("""
+        SELECT fifa_code, AVG(xG_intl)
+        FROM scraped_wc2026_probable_squads
+        WHERE xG_intl IS NOT NULL
+        GROUP BY fifa_code;
+    """)
+    team_xgs = cursor.fetchall()
+    for code, avg_xg in team_xgs:
+        if avg_xg is not None:
+            cursor.execute("""
+                UPDATE scraped_team_metrics
+                SET recent_xg_avg = ?
+                WHERE fifa_code = ?;
+            """, (round(avg_xg, 3), code))
+            
+    conn.commit()
     conn.close()
     
     print(f"\n--- Enriquecimiento con Métricas de FBref Completado ---")

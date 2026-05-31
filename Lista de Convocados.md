@@ -42,8 +42,14 @@ Destacado: Patrik Schick
 
 Grupo B
 Canadá
+Arqueros: Maxime Crépeau (Orlando City), Owen Goodman (Barnsley), Dayne St. Clair (Inter Miami).
 
-Sin confirmar
+Defensores: Moïse Bombito (OGC Nice), Derek Cornelius (Olympique de Marseille), Alphonso Davies (Bayern Munich), Luc de Fougerolles (Fulham), Alistair ⁠Johnston (Celtic), Alfie Jones (Middlesbrough), Richie Laryea (Toronto), Niko Sigur (Hajduk Split), Joel Waterman (Chicago Fire).
+
+Mediocampistas: Ali Ahmed (Norwich City), Tajon Buchanan (Villarreal), Mathieu Choinière y (LAFC), Stephen Eustáquio (Porto), Marcelo Flores (Tigres UANL), Ismaël Koné (US Sassuolo Calcio), Liam Millar (Hull City), Jonathan Osorio (Toronto), Nathan Saliba (Anderlecht).
+
+Delanteros: Jonathan David (Juventus), Promise David (Royale Union Saint-Gilloise), Cyle Larin (Mallorca) y Tani Oluwaseyi (Villarreal).
+
 Bosnia y Herzegovina
 
 Arqueros: Nikola Vasilj (St Pauli), Martin Zlomislic (Rijeka), Osman Hadzikic (Slaven Belupo).
@@ -184,7 +190,6 @@ Mediocampistas: Ryan Gravenberch (Liverpool), Frenkie de Jong (FC Barcelona), Ju
 
 Delanteros: Brian Brobbey (Sunderland), Memphis Depay (Corinthians), Cody Gakpo (Liverpool), Noa Lang (Galatasaray), Donyell Malen (AS Roma), Tijjani Reijnders (Manchester City), Crysencio Summerville (West Ham United), Wout Weghorst (Ajax).
 
-Sin confirmar
 Japón
 
 Arqueros: Tomoki Hayakawa (Kashima Antlers), Keisuke Osako (Sanfrece Hiroshima), Zion Suzuki (Parma)
@@ -284,7 +289,18 @@ Arabia Saudita
 Sin confirmar
 Uruguay
 
-Sin confirmar
+Uruguay
+
+Arqueros: Fernando Muslera (Estudiantes de La Plata), Sergio Rochet (Internacional de Porto Alegre) y Santiago Mele (Monterrey).
+
+Defensores: Ronald Araujo (Barcelona), José María Giménez (Atlético Madrid), Santiago Bueno (Wolverhampton), Sebastián Cáceres (América de México), Mathías Olivera (Napoli), Guillermo Varela (Flamengo), Matías Viña (River Plate), Joaquín Piquerez (Palmeiras) y Juan Manuel Sanabria (Real Salt Lake).
+
+Mediocampistas: Federico Valverde (Real Madrid), Rodrigo Bentancur (Tottenham Hotspur), Manuel Ugarte (Manchester United), Emiliano Martínez (Palmeiras), Rodrigo Zalazar (Sporting de Portugal), Giorgian De Arrascaeta (Flamengo), Nicolás De La Cruz (Flamengo), Agustín Canobbio (Fluminense), Maximiliano Araújo (Sporting de Portugal), Brian Rodríguez (América de México) y Facundo Pellistri (Panathinaikos).
+
+Delanteros: Darwin Núñez (Al-Hilal), Federico Viñas (Real Oviedo) y Rodrigo Aguirre (Tigres).
+
+DT: Marcelo Bielsa.
+
 Grupo I
 Francia
 
@@ -321,7 +337,7 @@ Defensores: Kristoffer Vassbakk Ajer (Brentford/ING), Fredrik Bjorkan (Bodø/Gli
 
 Mediocampistas: Thelonious Aasgaard (Rangers/ESC), Fredrik Aursnes (Benfica/POR), Patrick Berg (Bodø/Glimt), Sander Berge (Fulham/ING), Oscar Bobb (Fulham/ING), Jens Petter Hauge (Bodø/Glimt), Antonio Nusa (RB Leipzig/ALE), Andreas Schjelderup (Benfica/POR), Morten Thorsby (Cremonese/ITA), Kristian Thorstvedt (Sassuolo/ITA), Martin Odegaard (Arsenal/ING).
 
-Delanteros: Erling Braut Haaland (Manchester City/ING), Jorgen Strand Larsen (Crystal Palace/ING) y Alexander Sorloth (Atlético de Madrid/ESP).Sin confirmar
+Delanteros: Erling Braut Haaland (Manchester City/ING), Jorgen Strand Larsen (Crystal Palace/ING) y Alexander Sorloth (Atlético de Madrid/ESP).
 
 Destacado: Erling Haaland
 
@@ -338,7 +354,14 @@ Delanteros: Julián Álvarez (Atlético de Madrid), Lionel Messi (Inter Miami), 
 
 Argelia
 
-Sin confirmar
+Arqueros: Luca Zidane (Granada), Oussama Benbot (USM Alger), Melvin Mastil (Stade Nyonnais) y Abdelatif Ramdane (CS Constantine).
+
+Defensores: Rafik Belghali (Hellas Verona), Samir Chergui (Red Star), Rayan Aït-Nouri (Manchester City), Jaouen Hadjam (Young Boys), Aïssa Mandi (Lille), Ramy Bensebaini (Borussia Dortmund), Zineddine Belaïd (JS Kabylie), Achref Abada (USM Alger) y Mohamed Amine Tougai (ES Tunis).
+
+Mediocampistas: Nabil Bentaleb (Lille), Hicham Boudaoui (Nice), Houssem Aouar (Al-Ittihad), Farès Chaïbi (Eintracht Frankfurt, Ibrahim Maza (Bayer Leverkusen), Yacine Titraoui (Charleroi) y Ramiz Zerrouki (Twente).
+
+Delanteros: Mohamed Amoura (Wolfsburg), Nadhir Benbouali (Gyor), Adil Boulbina (Al-Duhail), Farès Ghedjemis (Frosinone), Amine Gouiri (Marsella), Anis Hadj Moussa (Feyenoord) y Riyad Mahrez (Al-Ahli)
+
 Austria
 
 Arqueros: Patrick Pentz (Bröndby IF), Alexander Schlager (FC Red Bull Salzburg) y Florian Wiegele (Viktoria Pilsen).

@@ -5,9 +5,17 @@ import { state } from './state.js';
 // Modifica estos valores para calibrar el Score de Espectáculo (ICE)
 // ==========================================
 export const ICE_CONFIG = {
-  alpha: 0.5,        // Ponderación de contraataques (CA_norm) / goles en contra (Gc_norm)
-  rankImpact: 0.6,   // Atenuador de la diferencia de ranking FIFA (menor = ranking menos punitivo)
-  ICE_min: 0.1       // Límite inferior para la escala lineal
+  alpha: 0.5,        // Ponderación de contraataques (CA_norm)
+  gamma: 0.5,        // Coeficiente de amplificación de vulnerabilidad
+  ICE_min: 0.1,      // Límite inferior para la escala lineal
+  T_SCALE: 0.75,     // Factor de escala para el Techo Dinámico T
+  // Hiperparámetros de la curva sigmoide para pBrecha
+  P_MAX: 0.60,       // Techo máximo de penalización por brecha de ranking
+  R_MID: 40,         // Punto de inflexión: 40 puestos de diferencia → penalización = P_MAX/2
+  K_STEEPNESS: 0.1,  // Pendiente de la curva (más alto = transición más brusca)
+  // Hiperparámetros de la función asintótica de estrellas
+  B_MAX: 0.15,       // Límite superior de empuje por estrellas (15%)
+  K_SAT: 5           // Saturación: N = 5 estrellas → 50% del bonus máximo (7.5%)
 };
 
 export function calculateCosineSimilarity(v1, v2) {
@@ -56,17 +64,20 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
   const rHome = home.metrics ? (home.metrics.fifa_ranking || 60) : 60;
   const rAway = away.metrics ? (away.metrics.fifa_ranking || 60) : 60;
 
-  // 3. Penalizador Asimétrico (Brecha FIFA)
+  // 3. Penalizador Asimétrico (Brecha FIFA) — Curva Sigmoide
+  // Brechas pequeñas (<15) apenas penalizan; inflexión en R_MID puestos; techo en P_MAX
   const rankingDiff = Math.abs(rHome - rAway);
-  const rankImpact = ICE_CONFIG.rankImpact;   // Atenuador de la diferencia de ranking
-  const pBrecha = 1 - (1 / (1 + rankImpact * Math.log(rankingDiff + 1)));
+  const pBrecha = ICE_CONFIG.P_MAX / (1 + Math.exp(-ICE_CONFIG.K_STEEPNESS * (rankingDiff - ICE_CONFIG.R_MID)));
 
-  // 4. Ecuación Final del Sistema (ICEmatch)
-  const ice = ((ocMatch + vulnMatch) + (alpha * caMatch) + (dramaBeta * dramaMatch)) * (1 - pBrecha);
+  // 4. Ecuación Final del Sistema (ICEmatch) con Amplificador de Vulnerabilidad
+  const gamma = ICE_CONFIG.gamma;
+  const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch) + (dramaBeta * dramaMatch)) * (1 - pBrecha);
 
   // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico
   const ICE_min = ICE_CONFIG.ICE_min;
-  const T = 0.35 * (2.0 + alpha + dramaBeta); // Techo dinámico proporcional a la máxima puntuación teórica posible
+  // El máximo valor teórico posible bajo la nueva ecuación es: OCmax * (1 + gamma * Vmax) + alpha * CAmax + dramaBeta * DramaMax
+  // Con OC=1, V=1, CA=1, Drama=1: 1 * (1 + 0.5) + alpha + dramaBeta = 1.5 + alpha + dramaBeta
+  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + dramaBeta); // Techo dinámico proporcional al valor teórico máximo (ajustado para conservar distribución amplia)
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
@@ -91,14 +102,13 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     return ice;
   }
 
-  // Coeficiente configurable para jugadores estrella
-  const gamma = 0.15;
-
   const homeStars = home.squad ? home.squad.filter(p => p.is_star_player).length : 0;
   const awayStars = away.squad ? away.squad.filter(p => p.is_star_player).length : 0;
   const starCount = homeStars + awayStars;
 
-  let spectacleScore = ice + (gamma * starCount);
+  // Bonus asintótico: Bmax * (N / (N + K))
+  const bonusPct = starCount > 0 ? ICE_CONFIG.B_MAX * (starCount / (starCount + ICE_CONFIG.K_SAT)) : 0;
+  let spectacleScore = ice * (1 + bonusPct);
   spectacleScore = Math.min(Math.max(spectacleScore, 1.0), 10.0);
 
   // Playstyle Score

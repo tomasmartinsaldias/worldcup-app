@@ -43,9 +43,13 @@ El coeficiente se aplica de forma diferenciada según la naturaleza de la métri
 ---
 
 ## 4. Normalización y Winsorización
-Para evitar que los valores extremos (outliers) afecten la distribución, los vectores de cada equipo se someten a un proceso de **Winsorización** (recorte al percentil 95) en cada dimensión. Luego se aplica un escalamiento Min-Max para proyectar cada variable en un intervalo acotado de $[0.0, 1.0]$, generando las variables finales indexadas en la base de datos:
+Para evitar que los valores extremos (outliers) afecten la distribución, los vectores de cada equipo se someten a un proceso de **Winsorización** (recorte al percentil 95) en cada dimensión. Luego se aplica un escalamiento Min-Max para proyectar cada variable en un intervalo acotado, generando las variables finales indexadas en la base de datos:
 $$X_{\text{norm}} = \frac{\min(X_{\text{adj}}, P_{95}) - X_{\text{min}}}{P_{95} - X_{\text{min}}}$$
-* Variables resultantes por selección: $OC_{\text{norm}}$, $CA_{\text{norm}}$, $Drama_{\text{norm}}$, $Vuln_{\text{norm}}$.
+
+* Para la variable de vulnerabilidad ($Vuln_{\text{norm}}$), se utiliza un rango de escalamiento acotado de $[0.2, 1.0]$ mediante un piso mínimo analítico para evitar que defensas perfectas en eliminatorias anulen el cálculo del índice:
+  $$Vuln_{\text{norm}} = 0.2 + 0.8 \times \left( \frac{\min(Vuln_{\text{adj}}, P_{95}) - Vuln_{\text{min}}}{P_{95} - Vuln_{\text{min}}} \right)$$
+
+* Variables resultantes por selección: $OC_{\text{norm}} \in [0, 1]$, $CA_{\text{norm}} \in [0, 1]$, $Drama_{\text{norm}} \in [0, 1]$, $Vuln_{\text{norm}} \in [0.2, 1.0]$.
 
 ---
 
@@ -60,20 +64,30 @@ $$Drama_{\text{match}} = \frac{Drama_{A,\text{norm}} + Drama_{B,\text{norm}}}{2}
 $$Vuln_{\text{match}} = \frac{Vuln_{A,\text{norm}} + Vuln_{B,\text{norm}}}{2}$$
 
 ### 5.2. Penalización por Asimetría Competitiva (Brecha FIFA)
-Un partido con alta disparidad de jerarquía (ej. Rank #3 contra Rank #140) suele carecer de tensión competitiva e imprevisibilidad, tendiendo a la especulación táctica. Para mitigar esto, se calcula un factor de penalización logarítmica sobre la brecha absoluta de rankings:
-$$P_{\text{Brecha}} = 1.0 - \frac{1.0}{1.0 + \gamma \cdot \ln(|R_A - R_B| + 1)}$$
-*Donde $R_A, R_B$ son las posiciones de ranking FIFA de los equipos y $\gamma$ es el coeficiente atenuador de impacto (fijado en $0.6$ por defecto).*
+Un partido con alta disparidad de jerarquía (ej. Rank #3 contra Rank #140) suele carecer de tensión competitiva e imprevisibilidad, tendiendo a la especulación táctica. Para mitigar esto, se calcula un factor de penalización mediante una curva sigmoide (logística) sobre la brecha absoluta de rankings:
+$$P_{\text{Brecha}} = \frac{P_{\text{max}}}{1 + e^{-k(\Delta R - R_{\text{mid}})}}$$
+*Donde:*
+* $\Delta R = |R_A - R_B|$ es la diferencia absoluta entre las posiciones de ranking FIFA de ambos equipos.
+* $P_{\text{max}} = 0.60$ es el techo máximo de penalización.
+* $R_{\text{mid}} = 35$ es el punto de inflexión de la curva (donde la penalización alcanza exactamente la mitad del máximo, es decir, $0.30$).
+* $k = 0.1$ es la pendiente o factor de transición de la curva.
 
-### 5.3. Ecuación Estructural del ICE
-El puntaje bruto del partido se obtiene combinando los factores ponderados y aplicando el penalizador de brecha:
-$$ICE_{\text{match}} = \left[ (OC_{\text{match}} + Vuln_{\text{match}}) + (\alpha \cdot CA_{\text{match}}) + (\beta \cdot Drama_{\text{match}}) \right] \times (1.0 - P_{\text{Brecha}})$$
-* Parámetros estándar: $\alpha = 0.5$ (peso de las transiciones rápidas) y $\beta \in [0.0, 1.0]$ (peso del roce/drama táctico, parametrizado por el usuario en la interfaz, con valor por defecto de $0.2$).
+Esta función sigmoide asegura que brechas pequeñas ($0-15$ puestos) apenas apliquen penalización, mientras que la penalización escala rápidamente en el rango medio ($20-50$ puestos) y se estabiliza cerca del máximo para brechas sumamente disparatadas.
+
+### 5.3. Ecuación Estructural del ICE (Amplificador de Vulnerabilidad)
+La vulnerabilidad defensiva no añade espectáculo de forma lineal, sino que actúa como un amplificador de la creación de peligro ofensivo. El puntaje bruto del partido se obtiene combinando los factores ponderados mediante una interacción multiplicativa:
+$$ICE_{\text{match}} = \left[ OC_{\text{match}} \times (1.0 + \gamma \cdot Vuln_{\text{match}}) + (\alpha \cdot CA_{\text{match}}) + (\beta \cdot Drama_{\text{match}}) \right] \times (1.0 - P_{\text{Brecha}})$$
+* Parámetros estándar: 
+  * $\gamma = 0.5$ (coeficiente de amplificación de vulnerabilidad).
+  * $\alpha = 0.5$ (peso de las transiciones rápidas/contraataques).
+  * $\beta \in [0.0, 1.0]$ (peso del roce/drama táctico, parametrizado por el usuario en la interfaz con valor por defecto de $0.2$).
 
 ---
 
 ## 6. Normalización Final con Techo Dinámico
 Para transformar el $ICE_{\text{match}}$ a una escala comprensible de $[1.0, 10.0]$, se establece un **Techo Dinámico ($T$)** proporcional a la máxima puntuación teórica posible bajo condiciones ideales ($P_{\text{Brecha}} = 0$):
-$$T = 0.35 \times (2.0 + \alpha + \beta)$$
+$$T = 0.60 \times (1.5 + \alpha + \beta)$$
+*El factor de escala $0.60$ previene la saturación prematura y asegura una distribución amplia y realista de los scores finales de espectáculo.*
 
 Se define un límite inferior $ICE_{\text{min}} = 0.1$ para evitar singularidades y se proyecta linealmente:
 $$\text{Score Espectáculo Base} = 1.0 + 9.0 \times \left( \frac{\max(ICE_{\text{min}}, \min(ICE_{\text{match}}, T)) - ICE_{\text{min}}}{T - ICE_{\text{min}}} \right)$$

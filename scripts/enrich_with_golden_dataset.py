@@ -142,10 +142,10 @@ def main():
         if intl: candidates.add(intl)
         if code == 'IRN': candidates.update(['IR Iran', 'Iran'])
         elif code == 'KOR': candidates.update(['Korea Republic', 'South Korea'])
-        elif code == 'CUR': candidates.update(['Curaçao', 'Curacao'])
-        elif code == 'CIV': candidates.update(["Côte d'Ivoire", "Cote d'Ivoire", "Ivory Coast"])
+        elif code == 'CUR': candidates.update(['Curaçao', 'Curacao', 'Cura?ao'])
+        elif code == 'CIV': candidates.update(["Côte d'Ivoire", "Cote d'Ivoire", "Ivory Coast", "C?te d'Ivoire"])
         elif code == 'COD': candidates.update(["Congo DR", "DR Congo"])
-        elif code == 'TUR': candidates.update(["Türkiye", "Turkey"])
+        elif code == 'TUR': candidates.update(["Türkiye", "Turkey", "T?rkiye", "Trkiye"])
         fifa_to_csv_teams[code] = list(candidates)
             
     # 3. Cargar todos los jugadores de la BD
@@ -269,97 +269,11 @@ def main():
                 WHERE player_id = ?;
             """, (csv_match['assists'], csv_match['minutes'], csv_match['efficiency_score'], pid))
             
-            # Si el jugador no estaba resuelto en Transfermarkt (valor de mercado NULL), 
-            # intentar consultarle a la API usando el nombre limpio del CSV!
-            if mval is None:
-                search_name = clean_for_api_search(csv_match['name'])
-                encoded_name = urllib.parse.quote(search_name)
-                api_url = f"http://127.0.0.1:8000/players/search/{encoded_name}"
-                
-                try:
-                    # Buscar en caché SQLite del script original primero
-                    cursor.execute("SELECT response_json FROM cache_transfermarkt WHERE query = ?;", (search_name,))
-                    cache_row = cursor.fetchone()
-                    
-                    api_data = None
-                    if cache_row:
-                        api_data = json.loads(cache_row[0])
-                    else:
-                        r_api = requests.get(api_url, timeout=3)
-                        if r_api.status_code == 200:
-                            api_data = r_api.json()
-                            cursor.execute("INSERT OR REPLACE INTO cache_transfermarkt (query, response_json) VALUES (?, ?);",
-                                           (search_name, json.dumps(api_data)))
-                            conn.commit()
-                            
-                    # Procesar candidatos
-                    if api_data and 'results' in api_data:
-                        allowed_nats = [n.lower() for n in nationality_keywords.get(fifa_code, [])]
-                        best_cand = None
-                        best_score = -1.0
-                        
-                        for cand in api_data['results']:
-                            cand_name = cand.get('name', '')
-                            cand_nats = [n.lower() for n in cand.get('nationalities', [])]
-                            
-                            # Verificar nacionalidad
-                            nat_match = False
-                            if not cand_nats:
-                                nat_match = True
-                            else:
-                                for nat in cand_nats:
-                                    for ok_nat in allowed_nats:
-                                        if ok_nat in nat or nat in ok_nat:
-                                            nat_match = True
-                                            break
-                                    if nat_match: break
-                                    
-                            if not nat_match:
-                                continue
-                                
-                            # Verificar edad (máximo 3 años de diferencia con la edad de Wikipedia)
-                            cand_age = cand.get('age')
-                            if cand_age is not None and age is not None:
-                                if abs(age - cand_age) > 3:
-                                    continue
-                                
-                            # Similitud de nombre usando la normalización mejorada
-                            set1 = set(normalize_text(search_name).split())
-                            set2 = set(normalize_text(cand_name).split())
-                            if not set1 or not set2: continue
-                            jaccard = len(set1.intersection(set2)) / len(set1.union(set2))
-                            
-                            if jaccard > best_score and jaccard >= 0.35:
-                                best_score = jaccard
-                                best_cand = cand
-                                
-                        if best_cand:
-                            new_mval = best_cand.get('marketValue')
-                            new_age = best_cand.get('age') or age
-                            new_club = best_cand.get('club', {}).get('name', '') or club
-                            
-                            if new_mval is not None:
-                                # Convertir valor de mercado de euros absolutos a millones de euros (ej: 2.5 en vez de 2500000.0)
-                                new_mval_m = round(float(new_mval) / 1_000_000.0, 1)
-                                cursor.execute("""
-                                    UPDATE scraped_wc2026_probable_squads
-                                    SET market_value_eur = ?, age = ?, club = ?
-                                    WHERE player_id = ?;
-                                """, (new_mval_m, new_age, new_club, pid))
-                                
-                                # Eliminar de la lista de no resueltos
-                                cursor.execute("""
-                                    DELETE FROM scraped_unresolved_players
-                                    WHERE player_name = ? AND fifa_code = ?;
-                                """, (db_name, fifa_code))
-                                
-                                rescued_count += 1
-                                print(f"  [+] Rescatado: '{db_name}' ({fifa_code}) -> Mapeado como '{best_cand['name']}' con valor {new_mval/1e6:.1f} M€.")
-                except Exception as ex:
-                    pass
-                    
+        # El bloque de API lookup fallback ha sido removido para optimizar velocidad, 
+        # dado que los valores de mercado generales provienen de ranking_fifa.txt.
+        pass
     conn.commit()
-    print(f"\nProceso completado. Jugadores coincidentes en CSV: {matched_count}. Jugadores rescatados: {rescued_count}.")
+    print(f"\nProceso completado. Jugadores coincidentes en CSV: {matched_count}.")
     
     # 4. Calcular y actualizar el promedio de efficiency_score para cada selección
     print("\nCalculando promedios de efficiency_score por selección...")

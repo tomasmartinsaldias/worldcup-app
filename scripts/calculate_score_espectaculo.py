@@ -340,7 +340,8 @@ def main():
         oc_norm = (oc_c - min_oc) / (max_oc - min_oc) if max_oc != min_oc else 0.5
         ca_norm = (ca_c - min_ca) / (max_ca - min_ca) if max_ca != min_ca else 0.5
         drama_norm = (drama_c - min_drama) / (max_drama - min_drama) if max_drama != min_drama else 0.5
-        vuln_norm = (vuln_c - min_vuln) / (max_vuln - min_vuln) if max_vuln != min_vuln else 0.5
+        # Vulnerabilidad con piso de 0.2 para evitar aniquilación de puntajes en defensas élite
+        vuln_norm = 0.2 + 0.8 * ((vuln_c - min_vuln) / (max_vuln - min_vuln)) if max_vuln != min_vuln else 0.5
         
         final_params[code] = {
             "ocasiones_norm": round(oc_norm, 3),

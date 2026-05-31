@@ -166,21 +166,6 @@ export function openCountrySquad(code, origin = 'squads') {
       const starIcon = p.is_star_player ? `<i class="fa-solid fa-star star-badge" title="Estrella"></i>` : '';
       const injuredBadge = p.is_injured ? `<span class="injured-badge" title="Lesionado / Baja para el próximo partido">Lesionado</span>` : '';
 
-      let valText = 'N/A';
-      if (p.market_value_eur !== null) {
-        valText = `${p.market_value_eur.toFixed(1)} M€`;
-      }
-
-
-      let efficiencyBadge = '';
-      if (p.efficiency_score !== null) {
-        let cat = 'efficiency-average';
-        if (p.efficiency_score >= 0.40) cat = 'efficiency-excellent';
-        else if (p.efficiency_score >= 0.15) cat = 'efficiency-good';
-        efficiencyBadge = `<span class="player-stat-badge ${cat}">${p.efficiency_score.toFixed(2)}</span>`;
-      } else {
-        efficiencyBadge = '<span class="player-unresolved-label">N/A</span>';
-      }
 
       let cardBar = '';
       if (p.cards_propensity !== null) {
@@ -224,8 +209,6 @@ export function openCountrySquad(code, origin = 'squads') {
         <td>${p.goals !== null ? p.goals : 'N/A'}</td>
         <td style="font-weight: 500;">${p.minutes_recent !== null ? p.minutes_recent : 'N/A'}</td>
         <td style="font-weight: 500;">${p.assists_recent !== null ? p.assists_recent : 'N/A'}</td>
-        <td>${efficiencyBadge}</td>
-        <td class="player-val-cell">${valText}</td>
         <td>${cardBar}</td>
       `;
 

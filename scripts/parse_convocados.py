@@ -342,6 +342,7 @@ def main():
             'goals': int(row['goals']),
             'assists': int(row['assists']),
             'minutes': int(row['minutes']),
+            'age': int(row['age']) if 'age' in row and pd.notna(row['age']) else None,
             'efficiency_score': float(row['efficiency_score'])
         })
         
@@ -380,24 +381,13 @@ def main():
         cursor.execute("UPDATE wc2026_teams SET is_confirmed_squad = 1 WHERE fifa_code = ?;", (fifa_code,))
         print(f"Selección {team_name} ({fifa_code}): Procesando plantilla confirmada (MD)...")
         
-        # Cargar plantel actual de la BD
-        cursor.execute("""
-            SELECT player_id, player_name, position, club, age, caps, goals, market_value_eur, 
-                   cards_propensity, assists_recent, minutes_recent, efficiency_score
-            FROM scraped_wc2026_probable_squads
-            WHERE fifa_code = ?;
-        """, (fifa_code,))
-        db_squad = cursor.fetchall()
+        # Eliminar el plantel anterior (para evitar heredar datos obsoletos) e insertar de cero
+        cursor.execute("DELETE FROM scraped_wc2026_probable_squads WHERE fifa_code = ?;", (fifa_code,))
+        cursor.execute("DELETE FROM scraped_unresolved_players WHERE fifa_code = ?;", (fifa_code,))
         
-        # Mapear por nombre normalizado
+        db_squad = []
         db_by_norm_name = {}
-        for row in db_squad:
-            db_by_norm_name[normalize_name(row[1])] = {
-                'id': row[0], 'name': row[1], 'pos': row[2], 'club': row[3], 'age': row[4],
-                'caps': row[5], 'goals': row[6], 'mv': row[7], 'cards': row[8], 
-                'assists_rec': row[9], 'mins_rec': row[10], 'eff': row[11]
-            }
-            
+        
         md_players = md_data['players']
         md_destacados = [normalize_name(x) for x in md_data['destacados']]
         
@@ -406,95 +396,36 @@ def main():
         
         final_squad_players = [] # Lista de jugadores finales para calcular el percentil 75
         
-        # A. Actualizar y emparejar
+        # Simulamos que todos son 'new' para que parse_convocados inserte los rosters correctos de Lista de Convocados.md
         for md_p in md_players:
-            md_norm_name = normalize_name(md_p['name'])
-            db_p = db_by_norm_name.get(md_norm_name)
+            final_squad_players.append({
+                'name': md_p['name'],
+                'club': md_p['club'],
+                'pos': md_p['role'],
+                'is_new': True
+            })
             
-            if not db_p:
-                # Intento de Jaccard token overlap
-                best_match = None
-                best_score = 0.0
-                tokens_md = set(md_norm_name.split())
-                for db_norm, p in db_by_norm_name.items():
-                    if p['id'] in md_matched_ids:
-                        continue
-                    tokens_db = set(db_norm.split())
-                    inter = tokens_md.intersection(tokens_db)
-                    union = tokens_md.union(tokens_db)
-                    if union:
-                        jaccard = len(inter) / len(union)
-                        if jaccard > best_score:
-                            best_score = jaccard
-                            best_match = p
-                if best_score >= 0.5:
-                    db_p = best_match
-                    
-            if db_p:
-                md_matched_ids.add(db_p['id'])
-                md_matched_norm_names.add(md_norm_name)
-                # Actualizar club y posición
-                cursor.execute("""
-                    UPDATE scraped_wc2026_probable_squads
-                    SET club = ?, position = ?
-                    WHERE player_id = ?;
-                """, (md_p['club'], md_p['role'], db_p['id']))
-                players_updated += 1
-                
-                final_squad_players.append({
-                    'id': db_p['id'],
-                    'name': db_p['name'],
-                    'val': db_p['mv'],
-                    'is_new': False
-                })
-            else:
-                # Jugador nuevo: se insertará después
-                final_squad_players.append({
-                    'name': md_p['name'],
-                    'club': md_p['club'],
-                    'pos': md_p['role'],
-                    'is_new': True
-                })
-                
-        # B. Eliminar los no coincidentes (jugadores ficticios o no convocados)
-        for db_norm, db_p in db_by_norm_name.items():
-            if db_p['id'] not in md_matched_ids:
-                cursor.execute("DELETE FROM scraped_wc2026_probable_squads WHERE player_id = ?;", (db_p['id'],))
-                players_removed += 1
-                
+        # Saltamos el bloque A y B, yendo directo a la inserción
+        if False:
+            pass
+            
         # C. Insertar jugadores nuevos y resolver sus estadísticas
         for fp in final_squad_players:
             if not fp['is_new']:
                 continue
                 
-            # Resolver market value, age y club (desde cache)
+            # Resolver market value, age y club (desde cache o golden dataset)
             mv_m, tm_age, tm_club = resolve_from_transfermarkt_cache(cursor, fp['name'], fifa_code)
-            p_age = tm_age if tm_age is not None else 26
             p_club = tm_club if tm_club is not None else fp['club']
             p_mv = mv_m
+            p_age = tm_age if tm_age is not None else (fp['age'] if 'age' in fp else 26)
             
-            # Resolver estadísticas desde golden dataset
-            g_stats = get_golden_dataset_stats(csv_by_team, fifa_to_csv_teams, fifa_code, fp['name'])
-            if g_stats:
-                p_caps = g_stats['appearances']
-                p_goals = g_stats['goals']
-                p_assists = g_stats['assists']
-                p_mins = g_stats['minutes']
-                p_eff = g_stats['efficiency_score']
-            else:
-                p_caps = 0
-                p_goals = 0
-                p_assists = 0
-                p_mins = 0
-                p_eff = None
-                
-            # Propensión a tarjetas por defecto según posición
-            if fp['pos'] == 'Defensa':
-                p_cards = 0.20
-            elif fp['pos'] == 'Portero':
-                p_cards = 0.03
-            else:
-                p_cards = 0.10
+            p_caps = 0
+            p_goals = 0
+            p_assists = 0
+            p_mins = 0
+            p_eff = 0.0
+            p_cards = 0.0
                 
             cursor.execute("""
                 INSERT INTO scraped_wc2026_probable_squads (
@@ -521,14 +452,13 @@ def main():
         resolved_vals = [p['val'] for p in final_squad_players if p['val'] is not None]
         q75 = pd.Series(resolved_vals).quantile(0.75) if len(resolved_vals) > 0 else 10.0
         
-        # E. Actualizar is_star_player
+        # E. Actualizar is_star_player (eliminado el check de destacados del markdown)
         for fp in final_squad_players:
             norm_fp_name = normalize_name(fp['name'])
-            is_destacado = any(d in norm_fp_name or norm_fp_name in d for d in md_destacados)
             is_superstar = any(normalize_name(s) == norm_fp_name for s in superstars)
             is_high_val = fp['val'] is not None and fp['val'] >= 40.0
             
-            is_star = 1 if (is_destacado or is_superstar or is_high_val) else 0
+            is_star = 1 if (is_superstar or is_high_val) else 0
             
             cursor.execute("UPDATE scraped_wc2026_probable_squads SET is_star_player = ? WHERE player_id = ?;", (is_star, fp['id']))
             
