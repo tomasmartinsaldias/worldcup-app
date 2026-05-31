@@ -113,12 +113,13 @@ async function loadData() {
   </div>`;
   
   try {
-    const [response, logosRes, estiloRes, arquetiposRes, photosRes] = await Promise.all([
+    const [response, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes] = await Promise.all([
       fetch('../data/wc2026_data.json?t=' + new Date().getTime()),
       fetch('data/club_logos.json?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/selecciones_estilo?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/arquetipos?t=' + new Date().getTime()),
-      fetch('data/players_photos.json?t=' + new Date().getTime())
+      fetch('data/players_photos.json?t=' + new Date().getTime()),
+      fetch('../data/selecciones_vectors.json?t=' + new Date().getTime())
     ]);
     
     if (!response.ok) {
@@ -147,6 +148,14 @@ async function loadData() {
     } catch(e) {
       console.error("Could not parse arquetipos", e);
       state.appData.arquetipos = [];
+    }
+
+    try {
+      const sofascoreData = await sofascoreRes.json();
+      state.appData.sofascoreVectors = sofascoreData;
+    } catch(e) {
+      console.error("Could not parse sofascore vectors", e);
+      state.appData.sofascoreVectors = {};
     }
 
     try {

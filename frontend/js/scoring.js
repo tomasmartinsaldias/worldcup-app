@@ -27,6 +27,47 @@ export function calculateCosineSimilarity(v1, v2) {
   return dotProduct / (norm1 * norm2);
 }
 
+export function calculateCosineSimilarityN(v1, v2) {
+  if (!v1 || !v2) return 0;
+  const keys = Object.keys(v1);
+  let dotProduct = 0;
+  let norm1Sq = 0;
+  let norm2Sq = 0;
+  for (const k of keys) {
+    const val1 = v1[k] || 0;
+    const val2 = v2[k] || 0;
+    dotProduct += val1 * val2;
+    norm1Sq += val1 * val1;
+    norm2Sq += val2 * val2;
+  }
+  if (norm1Sq === 0 || norm2Sq === 0) return 0;
+  return dotProduct / (Math.sqrt(norm1Sq) * Math.sqrt(norm2Sq));
+}
+
+export function calculateQuizAffinity(userVector, match, teams, sofascoreVectors) {
+  if (!userVector || !sofascoreVectors) return 0;
+  
+  const homeCode = match.home_team.fifa_code;
+  const awayCode = match.away_team.fifa_code;
+  
+  const homeName = teams[homeCode]?.name;
+  const awayName = teams[awayCode]?.name;
+
+  const homeVec = sofascoreVectors[homeName];
+  const awayVec = sofascoreVectors[awayName];
+
+  if (!homeVec || !awayVec) return 0;
+
+  // Create match vector (average of home and away)
+  const matchVec = {};
+  for (const k in homeVec) {
+    matchVec[k] = (homeVec[k] + awayVec[k]) / 2;
+  }
+
+  // Calculate cosine similarity
+  return calculateCosineSimilarityN(userVector, matchVec);
+}
+
 export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0.1) {
   const simA = calculateCosineSimilarity(vectorA, vectorU);
   const simB = calculateCosineSimilarity(vectorB, vectorU);
@@ -135,6 +176,63 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const wSpectacle = state.userPreferences?.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.7;
   const wPlaystyle = 1.0 - wSpectacle;
   let combinedScore = wSpectacle * spectacleScore + wPlaystyle * playstyleScore;
+
+  if (state.userPreferences?.quizVector && state.appData?.sofascoreVectors) {
+    const affinity = calculateQuizAffinity(state.userPreferences.quizVector, match, teams, state.appData.sofascoreVectors);
+    match.quizAffinity = parseFloat((affinity * 100).toFixed(1));
+    combinedScore += affinity * 2.0; // Boost score up to +2.0
+  }
+
+  // Add specific entity bonuses
+  let bonus = 0;
+  
+  if (state.userPreferences?.favoriteTeams && state.userPreferences.favoriteTeams.length > 0) {
+    if (state.userPreferences.favoriteTeams.includes(match.home_team.fifa_code) || 
+        state.userPreferences.favoriteTeams.includes(match.away_team.fifa_code)) {
+      bonus += 2.5;
+    }
+  }
+
+  let favPlayersBonus = 0;
+  let favClubBonus = 0;
+  let totalAge = 0;
+  let playersCount = 0;
+
+  [home, away].forEach(team => {
+    if (team.squad) {
+      team.squad.forEach(p => {
+        if (state.userPreferences?.favoritePlayers && state.userPreferences.favoritePlayers.includes(p.name)) {
+          favPlayersBonus += 0.4;
+        }
+        if (state.userPreferences?.favoriteClubs && state.userPreferences.favoriteClubs.includes(p.club)) {
+          favClubBonus += 0.15;
+        }
+        if (p.age) {
+          totalAge += p.age;
+          playersCount++;
+        }
+      });
+    }
+  });
+
+  bonus += Math.min(favPlayersBonus, 2.0); // max +2.0 for players
+  bonus += Math.min(favClubBonus, 1.5); // max +1.5 for clubs
+
+  // Age preference bonus
+  let ageBonus = 0;
+  if (playersCount > 0 && state.userPreferences?.agePreference !== undefined) {
+    const avgAge = totalAge / playersCount;
+    // Map average age [23, 30] to [0, 100] approximately
+    const mappedAge = Math.max(0, Math.min(100, (avgAge - 23) / 7 * 100));
+    // Calculate difference
+    const ageDiff = Math.abs(mappedAge - state.userPreferences.agePreference);
+    // Max bonus +0.5 if it perfectly matches, -0.5 if completely opposite
+    ageBonus = 0.5 - (ageDiff / 100);
+  }
+  bonus += ageBonus;
+
+  combinedScore += bonus;
+
   combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);
 
   match.spectacleScore = parseFloat(spectacleScore.toFixed(1));
