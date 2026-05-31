@@ -149,13 +149,14 @@ def main():
         if not filename.endswith(".txt"):
             continue
             
-        # Parse country name and tournament from filename
-        match_fn = re.match(r"^([^\(]+)\s*\(([^\)]+)\)", filename)
-        if not match_fn:
-            continue
-            
-        country_name_sp = match_fn.group(1).strip()
-        tournament_in_fn = match_fn.group(2).strip()
+        # Parse country name and tournament from filename (robust split handling truncated parentheses)
+        if "(" in filename:
+            parts = filename.split("(")
+            country_name_sp = parts[0].strip()
+            tournament_in_fn = parts[1].split(")")[0].replace(".txt", "").strip()
+        else:
+            country_name_sp = filename.replace(".txt", "").strip()
+            tournament_in_fn = "Unknown"
         
         fifa_code = spanish_to_fifa.get(normalize_name(country_name_sp))
         if not fifa_code:
@@ -177,24 +178,47 @@ def main():
         big_chances_pg = find_metric(r"Big chances per game:\s*([\d\.]+)", 1.5)
         counter_attacks = find_metric(r"Counter attacks:\s*(\d+)", 3.0)
         fouls_pg = find_metric(r"Fouls per game:\s*([\d\.]+)", 10.0)
+        goals_conceded_pg = find_metric(r"Goals conceded per game:\s*([\d\.]+)", 1.0)
+        yellow_cards_pg = find_metric(r"Yellow cards per game:\s*([\d\.]+)", 1.5)
+        red_cards = find_metric(r"Red cards:\s*(\d+)", 0.0)
         
         # CA per game
         counter_attacks_pg = counter_attacks / matches if matches > 0 else 0.5
+        # Cards per game
+        cards_pg = yellow_cards_pg + (red_cards / matches if matches > 0 else 0.0)
         
         raw_stats[fifa_code] = {
             "matches": matches,
             "oc_raw": big_chances_pg,
             "ca_raw": counter_attacks_pg,
             "drama_raw": fouls_pg,
+            "vuln_raw": goals_conceded_pg,
+            "cards_pg": cards_pg,
             "tournament_fn": tournament_in_fn
         }
         
-    # Add New Zealand (OFC) - using old score variables: Gnp, Gc, Drama from qualifiers
+    # Calculate global friction ratio Rfriccion from the 47 Sofascore teams
+    total_fouls_pg = 0.0
+    total_cards_pg = 0.0
+    for code, stats in raw_stats.items():
+        total_fouls_pg += stats["drama_raw"]
+        total_cards_pg += stats["cards_pg"]
+    
+    r_friccion = total_fouls_pg / total_cards_pg if total_cards_pg > 0 else 6.5
+    print(f"Global Friction Ratio (Rfriccion): {r_friccion:.3f}")
+    
+    # Add New Zealand (OFC) - using qualifiers data and dynamic friction ratio
+    nz_cards_pg = 0.2 # (1 Yellow, 0 Red cards) / 5 matches
+    nz_fouls_pg = nz_cards_pg * r_friccion
+    print(f"Inferred NZL fouls per game: {nz_fouls_pg:.3f}")
+    
     raw_stats["NZL"] = {
         "matches": 5.0,
         "oc_raw": 5.6, # Gnp = (29 - 1) / 5 = 5.6
-        "ca_raw": 0.2, # Gc = 1 / 5 = 0.2
-        "drama_raw": 1.4, # Drama = (1 + 4 + 2) / 5 = 1.4
+        "ca_raw": 0.2,
+        "drama_raw": nz_fouls_pg,
+        "vuln_raw": 0.2, # Gc = 1 / 5 = 0.2
+        "cards_pg": nz_cards_pg,
         "tournament_fn": "OFC Qualifiers"
     }
     
@@ -257,43 +281,72 @@ def main():
             elif code in ['USA', 'MEX', 'CAN', 'PAN', 'HAI', 'CUR']:
                 ranks = [80, 90, 100] # CONCACAF
             elif code in ['NZL']:
-                ranks = [151, 153, 154, 157, 160] # OFC rivals (New Caledonia, Solomons, Fiji, Tahiti, Vanuatu)
+                ranks = [151, 153, 154, 157, 160] # OFC rivals
             else:
                 ranks = [100, 110, 120] # default general
                 
         rmed = statistics.median(ranks)
-        cdif = 1.0 - (rmed / 211.0)
+        cdif = 1.0 - (rmed / 210.0)
         cdif = max(0.01, min(1.0, cdif)) # bound between 0.01 and 1.0
         
+        # Adjusted stats: multiplication for production, division for deficiencies
+        oc_adj = stats["oc_raw"] * cdif
+        ca_adj = stats["ca_raw"] * cdif
+        drama_adj = stats["drama_raw"] / cdif
+        vuln_adj = stats["vuln_raw"] / cdif
+        
         adjusted_stats[code] = {
-            "oc_adj": stats["oc_raw"] * cdif,
-            "ca_adj": stats["ca_raw"] * cdif,
-            "drama_adj": stats["drama_raw"] * cdif,
+            "oc_adj": oc_adj,
+            "ca_adj": ca_adj,
+            "drama_adj": drama_adj,
+            "vuln_adj": vuln_adj,
             "cdif": cdif,
             "rmed": rmed
         }
         print(f"Team {code}: Rmed = {rmed:.1f}, Cdif = {cdif:.3f}")
         
-    # 6. Min-Max normalization
-    print("Normalizing metrics...")
+    # 6. Min-Max normalization with Winsorization (clipping at 95th percentile)
+    print("Normalizing metrics with 95th percentile clipping...")
     oc_vals = [s["oc_adj"] for s in adjusted_stats.values()]
     ca_vals = [s["ca_adj"] for s in adjusted_stats.values()]
     drama_vals = [s["drama_adj"] for s in adjusted_stats.values()]
+    vuln_vals = [s["vuln_adj"] for s in adjusted_stats.values()]
     
-    min_oc, max_oc = min(oc_vals), max(oc_vals)
-    min_ca, max_ca = min(ca_vals), max(ca_vals)
-    min_drama, max_drama = min(drama_vals), max(drama_vals)
+    cap_oc = pd.Series(oc_vals).quantile(0.95)
+    cap_ca = pd.Series(ca_vals).quantile(0.95)
+    cap_drama = pd.Series(drama_vals).quantile(0.95)
+    cap_vuln = pd.Series(vuln_vals).quantile(0.95)
+    
+    print(f"Percentile 95 Caps - OC: {cap_oc:.3f}, CA: {cap_ca:.3f}, Drama: {cap_drama:.3f}, Vuln: {cap_vuln:.3f}")
+    
+    # Clip and get min/max
+    clipped_oc = [min(v, cap_oc) for v in oc_vals]
+    clipped_ca = [min(v, cap_ca) for v in ca_vals]
+    clipped_drama = [min(v, cap_drama) for v in drama_vals]
+    clipped_vuln = [min(v, cap_vuln) for v in vuln_vals]
+    
+    min_oc, max_oc = min(clipped_oc), max(clipped_oc)
+    min_ca, max_ca = min(clipped_ca), max(clipped_ca)
+    min_drama, max_drama = min(clipped_drama), max(clipped_drama)
+    min_vuln, max_vuln = min(clipped_vuln), max(clipped_vuln)
     
     final_params = {}
     for code, adj in adjusted_stats.items():
-        oc_norm = (adj["oc_adj"] - min_oc) / (max_oc - min_oc) if max_oc != min_oc else 0.5
-        ca_norm = (adj["ca_adj"] - min_ca) / (max_ca - min_ca) if max_ca != min_ca else 0.5
-        drama_norm = (adj["drama_adj"] - min_drama) / (max_drama - min_drama) if max_drama != min_drama else 0.5
+        oc_c = min(adj["oc_adj"], cap_oc)
+        ca_c = min(adj["ca_adj"], cap_ca)
+        drama_c = min(adj["drama_adj"], cap_drama)
+        vuln_c = min(adj["vuln_adj"], cap_vuln)
+        
+        oc_norm = (oc_c - min_oc) / (max_oc - min_oc) if max_oc != min_oc else 0.5
+        ca_norm = (ca_c - min_ca) / (max_ca - min_ca) if max_ca != min_ca else 0.5
+        drama_norm = (drama_c - min_drama) / (max_drama - min_drama) if max_drama != min_drama else 0.5
+        vuln_norm = (vuln_c - min_vuln) / (max_vuln - min_vuln) if max_vuln != min_vuln else 0.5
         
         final_params[code] = {
             "ocasiones_norm": round(oc_norm, 3),
             "contra_norm": round(ca_norm, 3),
             "drama_norm": round(drama_norm, 3),
+            "vuln_norm": round(vuln_norm, 3),
             "cdif": round(adj["cdif"], 3),
             "rmed": adj["rmed"]
         }
@@ -303,6 +356,7 @@ def main():
     add_column_if_not_exists(cursor, "scraped_team_metrics", "ocasiones_norm", "REAL")
     add_column_if_not_exists(cursor, "scraped_team_metrics", "contra_norm", "REAL")
     add_column_if_not_exists(cursor, "scraped_team_metrics", "drama_norm", "REAL")
+    add_column_if_not_exists(cursor, "scraped_team_metrics", "vuln_norm", "REAL")
     conn.commit()
     
     for code, p in final_params.items():
@@ -310,9 +364,10 @@ def main():
             UPDATE scraped_team_metrics
             SET ocasiones_norm = ?,
                 contra_norm = ?,
-                drama_norm = ?
+                drama_norm = ?,
+                vuln_norm = ?
             WHERE fifa_code = ?;
-        """, (p["ocasiones_norm"], p["contra_norm"], p["drama_norm"], code))
+        """, (p["ocasiones_norm"], p["contra_norm"], p["drama_norm"], p["vuln_norm"], code))
         
     conn.commit()
     conn.close()
@@ -325,6 +380,7 @@ def main():
             print(f"  ocasiones_norm: {final_params[c]['ocasiones_norm']}")
             print(f"  contra_norm: {final_params[c]['contra_norm']}")
             print(f"  drama_norm: {final_params[c]['drama_norm']}")
+            print(f"  vuln_norm: {final_params[c]['vuln_norm']}")
             print(f"  Cdif: {final_params[c]['cdif']}")
 
 if __name__ == "__main__":

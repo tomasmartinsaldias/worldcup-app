@@ -41,27 +41,32 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
     return 5.0;
   }
 
-  const hParams = home.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5 };
-  const aParams = away.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5 };
+  const hParams = home.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5, vuln_norm: 0.5 };
+  const aParams = away.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5, vuln_norm: 0.5 };
 
   const alpha = ICE_CONFIG.alpha; // weight for counter attacks
 
-  // v = OC_norm + (alpha * CA_norm) + (beta * Drama_norm)
-  const vHome = hParams.ocasiones_norm + (alpha * hParams.contra_norm) + (dramaBeta * hParams.drama_norm);
-  const vAway = aParams.ocasiones_norm + (alpha * aParams.contra_norm) + (dramaBeta * aParams.drama_norm);
+  // 1. La Fusión de Vectores (El Entorno del Partido)
+  const ocMatch = (hParams.ocasiones_norm + aParams.ocasiones_norm) / 2;
+  const caMatch = (hParams.contra_norm + aParams.contra_norm) / 2;
+  const dramaMatch = (hParams.drama_norm + aParams.drama_norm) / 2;
+  const vulnMatch = ((hParams.vuln_norm !== undefined ? hParams.vuln_norm : 0.5) + (aParams.vuln_norm !== undefined ? aParams.vuln_norm : 0.5)) / 2;
 
-  // 1. Rankings FIFA
+  // 2. Rankings FIFA
   const rHome = home.metrics ? (home.metrics.fifa_ranking || 60) : 60;
   const rAway = away.metrics ? (away.metrics.fifa_ranking || 60) : 60;
 
-  // 3. Fórmula ICE(A,B)
+  // 3. Penalizador Asimétrico (Brecha FIFA)
   const rankingDiff = Math.abs(rHome - rAway);
   const rankImpact = ICE_CONFIG.rankImpact;   // Atenuador de la diferencia de ranking
-  const ice = (vHome + vAway) / (1 + rankImpact * Math.log(rankingDiff + 1));
+  const pBrecha = 1 - (1 / (1 + rankImpact * Math.log(rankingDiff + 1)));
 
-  // 4. Normalización Final a [1.0, 10.0] con Techo Dinámico
+  // 4. Ecuación Final del Sistema (ICEmatch)
+  const ice = ((ocMatch + vulnMatch) + (alpha * caMatch) + (dramaBeta * dramaMatch)) * (1 - pBrecha);
+
+  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico
   const ICE_min = ICE_CONFIG.ICE_min;
-  const T = 0.35 * (2 * (1.0 + alpha + dramaBeta)); // Techo dinámico proporcional a la máxima puntuación teórica posible
+  const T = 0.35 * (2.0 + alpha + dramaBeta); // Techo dinámico proporcional a la máxima puntuación teórica posible
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
@@ -101,16 +106,23 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const vectorA = home.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const vectorB = away.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
 
-  const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
+  const isDefaultU = vectorU.defensa === 0 && vectorU.posesion === 0 && vectorU.ritmo === 0 && vectorU.ancho === 0;
 
-  // Linear scale from [-1.1, 1.1] to [1.0, 10.0]
-  const minVal = -1.1;
-  const maxVal = 1.1;
-  let playstyleScore = 1.0 + 9.0 * ((rawPlaystyle - minVal) / (maxVal - minVal));
-  playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
+  let playstyleScore;
+  if (isDefaultU) {
+    playstyleScore = spectacleScore;
+  } else {
+    const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
+
+    // Linear scale from [-1.1, 1.1] to [1.0, 10.0]
+    const minVal = -1.1;
+    const maxVal = 1.1;
+    playstyleScore = 1.0 + 9.0 * ((rawPlaystyle - minVal) / (maxVal - minVal));
+    playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
+  }
 
   // Combine spectacle and playstyle scores using custom user weights
-  const wSpectacle = state.userPreferences?.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
+  const wSpectacle = state.userPreferences?.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.7;
   const wPlaystyle = 1.0 - wSpectacle;
   let combinedScore = wSpectacle * spectacleScore + wPlaystyle * playstyleScore;
   combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);

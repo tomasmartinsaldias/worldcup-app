@@ -27,9 +27,10 @@
         "drama_per_90": 4.667
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.402,
-        "contra_norm": 0.299,
-        "drama_norm": 0.718
+        "ocasiones_norm": 0.563,
+        "contra_norm": 0.4,
+        "drama_norm": 0.521,
+        "vuln_norm": 0.259
       },
       "squad": [
         {
@@ -796,9 +797,10 @@
         "drama_per_90": 3.6
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.322,
-        "contra_norm": 0.114,
-        "drama_norm": 0.694
+        "ocasiones_norm": 0.451,
+        "contra_norm": 0.153,
+        "drama_norm": 0.467,
+        "vuln_norm": 0.762
       },
       "squad": [
         {
@@ -1376,9 +1378,10 @@
         "drama_per_90": 3.75
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.404,
-        "contra_norm": 0.15,
-        "drama_norm": 0.665
+        "ocasiones_norm": 0.566,
+        "contra_norm": 0.201,
+        "drama_norm": 0.462,
+        "vuln_norm": 0.879
       },
       "squad": [
         {
@@ -1956,9 +1959,10 @@
         "drama_per_90": 3.364
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.448,
-        "contra_norm": 0.118,
-        "drama_norm": 0.732
+        "ocasiones_norm": 0.628,
+        "contra_norm": 0.159,
+        "drama_norm": 0.758,
+        "vuln_norm": 0.707
       },
       "squad": [
         {
@@ -2599,9 +2603,10 @@
         "drama_per_90": 4.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.517,
-        "contra_norm": 0.408,
-        "drama_norm": 0.577
+        "ocasiones_norm": 0.724,
+        "contra_norm": 0.547,
+        "drama_norm": 0.502,
+        "vuln_norm": 0.285
       },
       "squad": [
         {
@@ -3263,9 +3268,10 @@
         "drama_per_90": null
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.373,
-        "contra_norm": 0.518,
-        "drama_norm": 1.0
+        "ocasiones_norm": 0.523,
+        "contra_norm": 0.694,
+        "drama_norm": 0.708,
+        "vuln_norm": 0.444
       },
       "squad": [
         {
@@ -3843,9 +3849,10 @@
         "drama_per_90": 5.056
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.174,
+        "ocasiones_norm": 0.244,
         "contra_norm": 0.0,
-        "drama_norm": 0.305
+        "drama_norm": 0.22,
+        "vuln_norm": 1.0
       },
       "squad": [
         {
@@ -4402,9 +4409,10 @@
         "drama_per_90": 2.667
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.422,
-        "contra_norm": 0.387,
-        "drama_norm": 0.528
+        "ocasiones_norm": 0.591,
+        "contra_norm": 0.519,
+        "drama_norm": 0.288,
+        "vuln_norm": 0.15
       },
       "squad": [
         {
@@ -4982,9 +4990,10 @@
         "drama_per_90": 4.611
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.5,
-        "contra_norm": 0.5,
-        "drama_norm": 0.5
+        "ocasiones_norm": 0.423,
+        "contra_norm": 0.193,
+        "drama_norm": 0.377,
+        "vuln_norm": 0.402
       },
       "squad": [
         {
@@ -5562,9 +5571,10 @@
         "drama_per_90": 4.875
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.298,
-        "contra_norm": 0.206,
-        "drama_norm": 0.743
+        "ocasiones_norm": 0.418,
+        "contra_norm": 0.276,
+        "drama_norm": 0.969,
+        "vuln_norm": 0.193
       },
       "squad": [
         {
@@ -6144,7 +6154,8 @@
       "espectaculo_params": {
         "ocasiones_norm": 0.0,
         "contra_norm": 0.0,
-        "drama_norm": 0.479
+        "drama_norm": 0.691,
+        "vuln_norm": 0.906
       },
       "squad": [
         {
@@ -6722,9 +6733,10 @@
         "drama_per_90": 5.167
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.422,
-        "contra_norm": 0.415,
-        "drama_norm": 0.752
+        "ocasiones_norm": 0.592,
+        "contra_norm": 0.556,
+        "drama_norm": 0.404,
+        "vuln_norm": 0.559
       },
       "squad": [
         {
@@ -7302,9 +7314,10 @@
         "drama_per_90": 3.333
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.5,
-        "contra_norm": 0.5,
-        "drama_norm": 0.5
+        "ocasiones_norm": 0.714,
+        "contra_norm": 0.38,
+        "drama_norm": 0.444,
+        "vuln_norm": 0.547
       },
       "squad": [
         {
@@ -7882,9 +7895,10 @@
         "drama_per_90": 4.611
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.049,
-        "contra_norm": 0.19,
-        "drama_norm": 0.874
+        "ocasiones_norm": 0.069,
+        "contra_norm": 0.255,
+        "drama_norm": 0.326,
+        "vuln_norm": 0.284
       },
       "squad": [
         {
@@ -8714,9 +8728,10 @@
         "drama_per_90": 3.062
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.297,
-        "contra_norm": 0.077,
-        "drama_norm": 0.505
+        "ocasiones_norm": 0.415,
+        "contra_norm": 0.103,
+        "drama_norm": 0.494,
+        "vuln_norm": 0.362
       },
       "squad": [
         {
@@ -9315,9 +9330,10 @@
         "drama_per_90": null
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.22,
-        "contra_norm": 0.739,
-        "drama_norm": 0.456
+        "ocasiones_norm": 0.308,
+        "contra_norm": 0.989,
+        "drama_norm": 0.317,
+        "vuln_norm": 0.826
       },
       "squad": [
         {
@@ -9895,9 +9911,10 @@
         "drama_per_90": 3.833
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.583,
-        "contra_norm": 0.428,
-        "drama_norm": 0.606
+        "ocasiones_norm": 0.816,
+        "contra_norm": 0.573,
+        "drama_norm": 0.468,
+        "vuln_norm": 0.271
       },
       "squad": [
         {
@@ -10475,9 +10492,10 @@
         "drama_per_90": 3.8
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.31,
-        "contra_norm": 0.225,
-        "drama_norm": 0.637
+        "ocasiones_norm": 0.433,
+        "contra_norm": 0.3,
+        "drama_norm": 0.96,
+        "vuln_norm": 0.691
       },
       "squad": [
         {
@@ -11055,9 +11073,10 @@
         "drama_per_90": 2.6
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.327,
-        "contra_norm": 0.361,
-        "drama_norm": 0.766
+        "ocasiones_norm": 0.458,
+        "contra_norm": 0.483,
+        "drama_norm": 1.0,
+        "vuln_norm": 0.773
       },
       "squad": [
         {
@@ -11635,9 +11654,10 @@
         "drama_per_90": 4.0
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.198,
-        "contra_norm": 0.26,
-        "drama_norm": 0.798
+        "ocasiones_norm": 0.278,
+        "contra_norm": 0.348,
+        "drama_norm": 0.387,
+        "vuln_norm": 0.134
       },
       "squad": [
         {
@@ -12215,9 +12235,10 @@
         "drama_per_90": 3.375
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.414,
-        "contra_norm": 0.153,
-        "drama_norm": 0.348
+        "ocasiones_norm": 0.577,
+        "contra_norm": 0.204,
+        "drama_norm": 0.59,
+        "vuln_norm": 0.382
       },
       "squad": [
         {
@@ -12753,9 +12774,10 @@
         "drama_per_90": 2.0
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.244,
+        "ocasiones_norm": 0.342,
         "contra_norm": 0.0,
-        "drama_norm": 0.583
+        "drama_norm": 0.703,
+        "vuln_norm": 1.0
       },
       "squad": [
         {
@@ -13333,9 +13355,10 @@
         "drama_per_90": 4.625
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.185,
-        "contra_norm": 0.187,
-        "drama_norm": 0.829
+        "ocasiones_norm": 0.26,
+        "contra_norm": 0.251,
+        "drama_norm": 0.462,
+        "vuln_norm": 0.883
       },
       "squad": [
         {
@@ -13913,9 +13936,10 @@
         "drama_per_90": 4.9
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.089,
-        "contra_norm": 0.232,
-        "drama_norm": 0.671
+        "ocasiones_norm": 0.124,
+        "contra_norm": 0.31,
+        "drama_norm": 1.0,
+        "vuln_norm": 1.0
       },
       "squad": [
         {
@@ -14493,9 +14517,10 @@
         "drama_per_90": 4.625
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.533,
-        "contra_norm": 0.279,
-        "drama_norm": 0.412
+        "ocasiones_norm": 0.746,
+        "contra_norm": 0.373,
+        "drama_norm": 0.413,
+        "vuln_norm": 0.563
       },
       "squad": [
         {
@@ -15073,9 +15098,10 @@
         "drama_per_90": 3.6
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.265,
-        "contra_norm": 0.212,
-        "drama_norm": 0.525
+        "ocasiones_norm": 0.371,
+        "contra_norm": 0.283,
+        "drama_norm": 0.586,
+        "vuln_norm": 0.44
       },
       "squad": [
         {
@@ -15632,9 +15658,10 @@
         "drama_per_90": 3.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.471,
-        "contra_norm": 0.273,
-        "drama_norm": 0.579
+        "ocasiones_norm": 0.659,
+        "contra_norm": 0.366,
+        "drama_norm": 0.5,
+        "vuln_norm": 0.68
       },
       "squad": [
         {
@@ -16275,9 +16302,10 @@
         "drama_per_90": 1.4
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.233,
-        "contra_norm": 0.033,
-        "drama_norm": 0.0
+        "ocasiones_norm": 0.32,
+        "contra_norm": 0.043,
+        "drama_norm": 0.0,
+        "vuln_norm": 0.287
       },
       "squad": [
         {
@@ -16856,8 +16884,9 @@
       },
       "espectaculo_params": {
         "ocasiones_norm": 1.0,
-        "contra_norm": 0.569,
-        "drama_norm": 0.431
+        "contra_norm": 0.762,
+        "drama_norm": 0.413,
+        "vuln_norm": 0.184
       },
       "squad": [
         {
@@ -17435,9 +17464,10 @@
         "drama_per_90": 3.6
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.018,
-        "contra_norm": 0.146,
-        "drama_norm": 0.483
+        "ocasiones_norm": 0.025,
+        "contra_norm": 0.195,
+        "drama_norm": 0.993,
+        "vuln_norm": 0.96
       },
       "squad": [
         {
@@ -18015,9 +18045,10 @@
         "drama_per_90": 4.611
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.378,
-        "contra_norm": 0.721,
-        "drama_norm": 0.457
+        "ocasiones_norm": 0.529,
+        "contra_norm": 0.966,
+        "drama_norm": 0.378,
+        "vuln_norm": 0.58
       },
       "squad": [
         {
@@ -18574,9 +18605,10 @@
         "drama_per_90": 4.722
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.136,
-        "contra_norm": 0.462,
-        "drama_norm": 0.818
+        "ocasiones_norm": 0.191,
+        "contra_norm": 0.619,
+        "drama_norm": 0.402,
+        "vuln_norm": 0.313
       },
       "squad": [
         {
@@ -19196,9 +19228,10 @@
         "drama_per_90": 3.0
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.771,
-        "contra_norm": 0.619,
-        "drama_norm": 0.492
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.829,
+        "drama_norm": 0.384,
+        "vuln_norm": 0.394
       },
       "squad": [
         {
@@ -19776,9 +19809,10 @@
         "drama_per_90": 2.9
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.5,
-        "contra_norm": 0.5,
-        "drama_norm": 0.5
+        "ocasiones_norm": 0.51,
+        "contra_norm": 0.983,
+        "drama_norm": 0.976,
+        "vuln_norm": 0.19
       },
       "squad": [
         {
@@ -20398,9 +20432,10 @@
         "drama_per_90": 2.195
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.16,
-        "contra_norm": 0.459,
-        "drama_norm": 0.743
+        "ocasiones_norm": 0.223,
+        "contra_norm": 0.614,
+        "drama_norm": 0.928,
+        "vuln_norm": 0.317
       },
       "squad": [
         {
@@ -20978,9 +21013,10 @@
         "drama_per_90": 2.25
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.65,
-        "contra_norm": 0.861,
-        "drama_norm": 0.332
+        "ocasiones_norm": 0.908,
+        "contra_norm": 1.0,
+        "drama_norm": 0.447,
+        "vuln_norm": 0.426
       },
       "squad": [
         {
@@ -21558,9 +21594,10 @@
         "drama_per_90": 4.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.5,
-        "contra_norm": 0.5,
-        "drama_norm": 0.5
+        "ocasiones_norm": 0.452,
+        "contra_norm": 0.426,
+        "drama_norm": 0.281,
+        "vuln_norm": 0.268
       },
       "squad": [
         {
@@ -22138,9 +22175,10 @@
         "drama_per_90": 3.8
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.239,
-        "contra_norm": 0.534,
-        "drama_norm": 0.755
+        "ocasiones_norm": 0.334,
+        "contra_norm": 0.714,
+        "drama_norm": 1.0,
+        "vuln_norm": 0.418
       },
       "squad": [
         {
@@ -22739,9 +22777,10 @@
         "drama_per_90": 4.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.282,
-        "contra_norm": 0.298,
-        "drama_norm": 0.501
+        "ocasiones_norm": 0.393,
+        "contra_norm": 0.397,
+        "drama_norm": 0.984,
+        "vuln_norm": 0.392
       },
       "squad": [
         {
@@ -23319,9 +23358,10 @@
         "drama_per_90": 3.125
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.455,
+        "ocasiones_norm": 0.638,
         "contra_norm": 1.0,
-        "drama_norm": 0.684
+        "drama_norm": 0.444,
+        "vuln_norm": 0.403
       },
       "squad": [
         {
@@ -23899,9 +23939,10 @@
         "drama_per_90": 4.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.749,
-        "contra_norm": 0.462,
-        "drama_norm": 0.37
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.619,
+        "drama_norm": 0.144,
+        "vuln_norm": 0.604
       },
       "squad": [
         {
@@ -24500,9 +24541,10 @@
         "drama_per_90": 4.7
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.191,
-        "contra_norm": 0.305,
-        "drama_norm": 0.474
+        "ocasiones_norm": 0.268,
+        "contra_norm": 0.409,
+        "drama_norm": 0.381,
+        "vuln_norm": 0.571
       },
       "squad": [
         {
@@ -25164,9 +25206,10 @@
         "drama_per_90": 3.375
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.113,
-        "contra_norm": 0.154,
-        "drama_norm": 0.667
+        "ocasiones_norm": 0.158,
+        "contra_norm": 0.206,
+        "drama_norm": 0.716,
+        "vuln_norm": 0.362
       },
       "squad": [
         {
@@ -25765,9 +25808,10 @@
         "drama_per_90": 4.222
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.446,
-        "contra_norm": 0.75,
-        "drama_norm": 0.875
+        "ocasiones_norm": 0.625,
+        "contra_norm": 1.0,
+        "drama_norm": 0.445,
+        "vuln_norm": 0.447
       },
       "squad": [
         {
@@ -26345,9 +26389,10 @@
         "drama_per_90": 2.5
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.415,
-        "contra_norm": 0.294,
-        "drama_norm": 0.365
+        "ocasiones_norm": 0.579,
+        "contra_norm": 0.392,
+        "drama_norm": 0.477,
+        "vuln_norm": 0.0
       },
       "squad": [
         {
@@ -26925,9 +26970,10 @@
         "drama_per_90": 2.875
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.564,
-        "contra_norm": 0.378,
-        "drama_norm": 0.304
+        "ocasiones_norm": 0.788,
+        "contra_norm": 0.504,
+        "drama_norm": 0.506,
+        "vuln_norm": 0.386
       },
       "squad": [
         {
@@ -27505,9 +27551,10 @@
         "drama_per_90": 2.8
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.133,
-        "contra_norm": 0.056,
-        "drama_norm": 0.631
+        "ocasiones_norm": 0.186,
+        "contra_norm": 0.074,
+        "drama_norm": 0.971,
+        "vuln_norm": 0.837
       },
       "squad": [
         {
@@ -28064,9 +28111,10 @@
         "drama_per_90": 19.0
       },
       "espectaculo_params": {
-        "ocasiones_norm": 0.64,
-        "contra_norm": 0.486,
-        "drama_norm": 0.571
+        "ocasiones_norm": 0.898,
+        "contra_norm": 0.651,
+        "drama_norm": 0.28,
+        "vuln_norm": 0.478
       },
       "squad": [
         {
