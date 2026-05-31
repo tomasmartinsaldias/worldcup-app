@@ -1,23 +1,8 @@
 import { state } from './state.js';
 import { filterMatches, sortMatchesList, renderMatches } from './ui/matches.js';
+import { getPlayerPhotoUrl, getCountryIsoCode } from './utils.js';
 
-// ---- Data para el Quiz (Clubs y Jugadores hardcodeados como indica el prompt) ----
-const TOP_CLUBS = [
-  "Real Madrid", "Barcelona", "Atletico Madrid", "Manchester City", "Arsenal", 
-  "Liverpool", "Manchester United", "Chelsea", "Tottenham", "Bayern Munich", 
-  "Borussia Dortmund", "Bayer Leverkusen", "PSG", "Juventus", "Inter Milan", 
-  "AC Milan", "Napoli", "Roma", "River Plate", "Boca Juniors", "Flamengo", 
-  "Palmeiras", "Inter Miami", "LA Galaxy", "Al Nassr", "Al Hilal"
-].sort();
-
-const TOP_PLAYERS = [
-  "Lionel Messi", "Kylian Mbappé", "Erling Haaland", "Vinicius Jr", "Jude Bellingham",
-  "Rodri", "Kevin De Bruyne", "Lautaro Martinez", "Robert Lewandowski", "Mohamed Salah",
-  "Neymar Jr", "Pedri", "Gavi", "Lamine Yamal", "Phil Foden", "Bukayo Saka",
-  "Harry Kane", "Antoine Griezmann", "Emiliano Martinez", "Alisson", "Ederson",
-  "Virgil van Dijk", "Ruben Dias", "Antonio Rudiger", "Federico Valverde", "Jamal Musiala"
-].sort();
-
+// ---- Suggested teams shown first ----
 const SUGGESTED_TEAMS = ['ARG', 'BRA', 'ESP', 'FRA', 'GER'];
 
 // ---- Estado del Quiz ----
@@ -26,14 +11,59 @@ let quizState = {
   answers: {
     teams: [],
     timeSlots: [],
-    viewingHabit: '',
+    emotion: '',
     clubs: [],
     players: [],
-    matchTraits: []
+    possession: 50,
+    intensity: 50,
+    agePreference: 50   // 0 = youth, 100 = experience
   }
 };
 
-const TOTAL_QUESTIONS = 6;
+const TOTAL_QUESTIONS = 9; // 8 questions + 1 results screen
+
+// ---- Cached entity lists (extracted once from appData) ----
+let allClubsList = [];
+let allPlayersList = [];
+
+function extractAllEntities() {
+  if (!state.appData || !state.appData.teams) return;
+  const clubsSet = new Map();
+  const playersArr = [];
+
+  Object.values(state.appData.teams).forEach(team => {
+    if (team.is_placeholder || !team.squad) return;
+    team.squad.forEach(p => {
+      // Collect players
+      playersArr.push({
+        name: p.name,
+        club: p.club || '',
+        position: p.position || '',
+        teamCode: team.fifa_code,
+        teamName: team.name,
+        isStar: p.is_star_player,
+        age: p.age || 0,
+        marketValue: p.market_value_eur || 0
+      });
+      // Collect clubs
+      if (p.club && !clubsSet.has(p.club)) {
+        clubsSet.set(p.club, { name: p.club, playerCount: 1 });
+      } else if (p.club) {
+        clubsSet.get(p.club).playerCount++;
+      }
+    });
+  });
+
+  // Sort players by market value (stars first), then alphabetically
+  allPlayersList = playersArr.sort((a, b) => {
+    if (a.isStar && !b.isStar) return -1;
+    if (!a.isStar && b.isStar) return 1;
+    return (b.marketValue || 0) - (a.marketValue || 0);
+  });
+
+  // Sort clubs by player count (popular first)
+  allClubsList = Array.from(clubsSet.values()).sort((a, b) => b.playerCount - a.playerCount);
+}
 
 // ---- Referencias UI ----
 let overlay, btnBack, btnNext, btnSkip, btnClose, stepIndicator, progressFill;
@@ -56,14 +86,18 @@ export function initQuiz() {
   // Navigation
   btnBack.addEventListener('click', prevQuestion);
   btnNext.addEventListener('click', () => {
-    if (quizState.currentQuestion === TOTAL_QUESTIONS - 1) {
+    if (quizState.currentQuestion === TOTAL_QUESTIONS - 2) {
+      showResults();
+    } else if (quizState.currentQuestion === TOTAL_QUESTIONS - 1) {
       finishQuiz();
     } else {
       nextQuestion();
     }
   });
   btnSkip.addEventListener('click', () => {
-    if (quizState.currentQuestion === TOTAL_QUESTIONS - 1) {
+    if (quizState.currentQuestion === TOTAL_QUESTIONS - 2) {
+      showResults();
+    } else if (quizState.currentQuestion === TOTAL_QUESTIONS - 1) {
       finishQuiz();
     } else {
       nextQuestion();
@@ -73,20 +107,28 @@ export function initQuiz() {
 
   // Init Question logic
   initQ2(); // Horarios
-  initQ3(); // Frecuencia
-  initQ4(); // Clubes
-  initQ5(); // Jugadores
-  initQ6(); // Características
+  initQ3(); // Emocion
+  initQ6(); // Posesion
+  initQ7(); // Intensidad
+  initQ8(); // Age preference
 }
 
 function openQuiz() {
   quizState.currentQuestion = 0;
-  // Reset answers if needed, for now we keep them or start fresh
-  quizState.answers = { teams: [], timeSlots: [], viewingHabit: '', clubs: [], players: [], matchTraits: [] };
-  
+  quizState.answers = {
+    teams: [], timeSlots: [], emotion: '',
+    clubs: [], players: [],
+    possession: 50, intensity: 50, agePreference: 50
+  };
+
+  // Extract entities from loaded data (once)
+  if (allPlayersList.length === 0) extractAllEntities();
+
   // Q1 needs state.appData so we init it here when opening
   initQ1();
-  
+  initQ4();
+  initQ5();
+
   updateQuizUI();
   overlay.classList.add('active');
 }
@@ -95,21 +137,174 @@ function closeQuiz() {
   overlay.classList.remove('active');
 }
 
-function finishQuiz() {
-  // Map quiz answers to recommender preferences
-  
-  // 1. Favorite team (take the first one if multiple)
-  if (quizState.answers.teams.length > 0) {
-    state.userPreferences.favoriteTeam = quizState.answers.teams[0];
-    const select = document.getElementById('pref-team');
-    if (select) select.value = state.userPreferences.favoriteTeam;
+// ==========================================
+// VECTOR CALCULATION
+// ==========================================
+function calculateUserVector() {
+  const ans = quizState.answers;
+  let vector = {
+    golesPartido: 0.5,
+    posesion: ans.possession / 100,
+    regates: 0.5,
+    tirosPartido: 0.5,
+    faltasPartido: 0.5,
+    tarjetas: 0.5,
+    contraataques_per_game: 0.5,
+    presionAlta: 0.5,
+    porteriaInvictaRatio: 0.5,
+    duelos: 0.5
+  };
+
+  // Adjust from emotion (Q3)
+  switch(ans.emotion) {
+    case 'goleada':
+      vector.golesPartido = 1.0;
+      vector.tirosPartido = 0.9;
+      vector.porteriaInvictaRatio = 0.1;
+      break;
+    case 'tactico':
+      vector.golesPartido = 0.2;
+      vector.porteriaInvictaRatio = 0.9;
+      vector.presionAlta = 0.8;
+      break;
+    case 'frenetico':
+      vector.contraataques_per_game = 1.0;
+      vector.tirosPartido = 0.8;
+      vector.posesion = 0.3;
+      break;
+    case 'estrellas':
+      vector.regates = 1.0;
+      vector.duelos = 0.7;
+      break;
+    case 'fisico':
+      vector.faltasPartido = 1.0;
+      vector.tarjetas = 1.0;
+      vector.duelos = 1.0;
+      vector.presionAlta = 0.9;
+      break;
   }
 
-  // 2. Time slots
+  // Adjust from intensity (Q7)
+  const int = ans.intensity / 100;
+  vector.faltasPartido = (vector.faltasPartido + int) / 2;
+  vector.tarjetas = (vector.tarjetas + int) / 2;
+  vector.duelos = (vector.duelos + int) / 2;
+
+  state.userPreferences.quizVector = vector;
+
+  // Set dramaBeta preference
+  let dramaBeta = 0.2;
+  if(ans.emotion === 'fisico') dramaBeta += 0.3;
+  dramaBeta += (ans.intensity - 50) / 100 * 0.4;
+  state.userPreferences.dramaBeta = Math.min(1.0, Math.max(0.0, dramaBeta));
+
+  return vector;
+}
+
+let quizRadarChart = null;
+
+function showResults() {
+  const vector = calculateUserVector();
+
+  // Create/Update radar chart
+  const ctx = document.getElementById('quiz-radar-chart');
+  if (ctx) {
+    if (quizRadarChart) quizRadarChart.destroy();
+
+    quizRadarChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['Goles', 'Posesión', 'Regates', 'Intensidad', 'Faltas', 'Contraataques', 'Presión', 'Defensa'],
+        datasets: [{
+          label: 'Tu Perfil',
+          data: [
+            vector.golesPartido,
+            vector.posesion,
+            vector.regates,
+            vector.duelos,
+            (vector.faltasPartido + vector.tarjetas) / 2,
+            vector.contraataques_per_game,
+            vector.presionAlta,
+            vector.porteriaInvictaRatio
+          ].map(v => Math.round(v * 100)),
+          backgroundColor: 'rgba(232, 35, 26, 0.25)',
+          borderColor: 'rgba(232, 35, 26, 1)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(26, 122, 60, 1)',
+          pointBorderColor: '#fff',
+          pointRadius: 4,
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(26, 122, 60, 1)'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
+            grid: { color: 'rgba(255, 255, 255, 0.08)' },
+            pointLabels: { color: 'rgba(255, 255, 255, 0.7)', font: { family: "'Barlow Condensed', sans-serif", size: 11 } },
+            ticks: { display: false, min: 0, max: 100 }
+          }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  }
+
+  // Pre-calculate affinity for matches to show Top 5
+  if (state.appData && state.appData.matches) {
+    import('./scoring.js').then(module => {
+      // First, persist quiz choices to state so scoring can use them
+      state.userPreferences.favoriteTeams = quizState.answers.teams;
+      state.userPreferences.favoritePlayers = quizState.answers.players;
+      state.userPreferences.favoriteClubs = quizState.answers.clubs;
+      state.userPreferences.agePreference = quizState.answers.agePreference;
+
+      // Calculate smart scores with all quiz bonuses
+      state.appData.matches.forEach(m => {
+        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
+      });
+
+      // Sort by smartScore for top 5
+      const sorted = [...state.appData.matches]
+        .filter(m => !m.home_team?.is_placeholder && !m.away_team?.is_placeholder)
+        .sort((a, b) => (b.smartScore || 0) - (a.smartScore || 0));
+      const top5 = sorted.slice(0, 5);
+
+      const listContainer = document.getElementById('quiz-affinity-list');
+      if (listContainer) {
+        listContainer.innerHTML = '';
+        top5.forEach((m, i) => {
+          const t1 = state.appData.teams[m.home_team?.fifa_code] || { name: m.home_team?.fifa_code || '?' };
+          const t2 = state.appData.teams[m.away_team?.fifa_code] || { name: m.away_team?.fifa_code || '?' };
+          const matchName = `${t1.name} vs ${t2.name}`;
+          const score = (m.smartScore || 0).toFixed(1);
+
+          listContainer.innerHTML += `
+            <div class="quiz-affinity-item">
+              <span class="quiz-affinity-rank">${i + 1}</span>
+              <span class="quiz-affinity-name">${matchName}</span>
+              <span class="quiz-affinity-score">${score}</span>
+            </div>
+          `;
+        });
+      }
+    });
+  }
+
+  nextQuestion();
+}
+
+function finishQuiz() {
+  // Persist quiz choices to user preferences
+  if (quizState.answers.teams.length > 0) {
+    state.userPreferences.favoriteTeam = quizState.answers.teams[0];
+    state.userPreferences.favoriteTeams = quizState.answers.teams;
+  }
+
   if (quizState.answers.timeSlots.length > 0) {
-    // Map quiz time slots to the existing select options
-    // The existing options are 'morning', 'afternoon', 'evening'
-    // Quiz has 'morning', 'early_afternoon', 'late_afternoon', 'evening'
     const mappedTimes = new Set();
     quizState.answers.timeSlots.forEach(t => {
       if (t === 'morning') mappedTimes.add('morning');
@@ -117,57 +312,18 @@ function finishQuiz() {
       if (t === 'evening') mappedTimes.add('evening');
     });
     state.userPreferences.preferredTime = Array.from(mappedTimes);
-    
-    const timeSelect = document.getElementById('pref-time');
-    if (timeSelect) {
-      Array.from(timeSelect.options).forEach(opt => {
-        opt.selected = state.userPreferences.preferredTime.includes(opt.value);
-      });
-    }
   }
 
-  // 3. Match traits -> Match Style & dramaBeta
-  if (quizState.answers.matchTraits.length > 0) {
-    let style = 'all';
-    const traits = quizState.answers.matchTraits;
-    // Simple heuristic
-    if (traits.includes('tactico') || traits.includes('faltas') || traits.includes('parejos') || traits.includes('posesion')) {
-      style = 'closed';
-    }
-    if (traits.includes('goleada') || traits.includes('goles') || traits.includes('accion')) {
-      style = 'chaotic';
-    }
-    state.userPreferences.matchStyle = style;
-    const styleSelect = document.getElementById('pref-style');
-    if (styleSelect) styleSelect.value = style;
-
-    // Set dramaBeta preference
-    let dramaBeta = 0.125;
-    if (traits.includes('faltas') || traits.includes('rojas') || traits.includes('penales')) {
-      dramaBeta = 0.45;
-    }
-    state.userPreferences.dramaBeta = dramaBeta;
-
-    // Sync drama slider
-    const dramaSlider = document.getElementById('slider-drama-tab');
-    if (dramaSlider) {
-      dramaSlider.value = dramaBeta;
-      const dramaValText = document.getElementById('val-drama-tab');
-      if (dramaValText) {
-        let desc = dramaBeta > 0.3 ? 'Roce Físico / Intensidad' : 'Juego Limpio / Fair Play';
-        dramaValText.textContent = `${desc} (${dramaBeta.toFixed(2)})`;
-      }
-    }
-  }
-
-  // 4. Players
   if (quizState.answers.players.length > 0) {
     state.userPreferences.favoritePlayers = quizState.answers.players;
-    const playersInput = document.getElementById('pref-players');
-    if (playersInput) playersInput.value = quizState.answers.players.join(', ');
   }
 
-  // Recalculate
+  if (quizState.answers.clubs.length > 0) {
+    state.userPreferences.favoriteClubs = quizState.answers.clubs;
+  }
+
+  state.userPreferences.agePreference = quizState.answers.agePreference;
+
   if (state.appData && state.appData.matches) {
     import('./scoring.js').then(module => {
       state.appData.matches.forEach(m => {
@@ -181,26 +337,27 @@ function finishQuiz() {
   closeQuiz();
 }
 
+// ==========================================
+// UI NAVIGATION
+// ==========================================
 function updateQuizUI() {
-  // Update step
-  stepIndicator.textContent = `Pregunta ${quizState.currentQuestion + 1} de ${TOTAL_QUESTIONS}`;
-  progressFill.style.width = `${((quizState.currentQuestion + 1) / TOTAL_QUESTIONS) * 100}%`;
+  if (quizState.currentQuestion === TOTAL_QUESTIONS - 1) {
+    stepIndicator.textContent = "Tu Perfil Mundialista";
+    progressFill.style.width = "100%";
+    btnNext.textContent = "Ver Partidos \u2192";
+    if (btnSkip) btnSkip.style.display = 'none';
+  } else {
+    stepIndicator.textContent = `Pregunta ${quizState.currentQuestion + 1} de ${TOTAL_QUESTIONS - 1}`;
+    progressFill.style.width = `${((quizState.currentQuestion + 1) / (TOTAL_QUESTIONS - 1)) * 100}%`;
+    btnNext.textContent = quizState.currentQuestion === TOTAL_QUESTIONS - 2 ? 'Ver Resultados' : 'Siguiente \u2192';
+    if (btnSkip) btnSkip.style.display = 'inline-block';
+  }
 
-  // Update back button
   btnBack.disabled = quizState.currentQuestion === 0;
-
-  // Update next button
-  btnNext.textContent = quizState.currentQuestion === TOTAL_QUESTIONS - 1 ? 'Finalizar' : 'Siguiente \u2192';
-  
   validateCurrentQuestion();
 
-  // Show correct question panel
   document.querySelectorAll('.quiz-question').forEach((q, index) => {
-    if (index === quizState.currentQuestion) {
-      q.classList.add('active');
-    } else {
-      q.classList.remove('active');
-    }
+    q.classList.toggle('active', index === quizState.currentQuestion);
   });
 }
 
@@ -223,36 +380,39 @@ function validateCurrentQuestion() {
   switch(quizState.currentQuestion) {
     case 0: isValid = quizState.answers.teams.length > 0; break;
     case 1: isValid = quizState.answers.timeSlots.length > 0; break;
-    case 2: isValid = quizState.answers.viewingHabit !== ''; break;
+    case 2: isValid = quizState.answers.emotion !== ''; break;
     case 3: isValid = quizState.answers.clubs.length > 0; break;
     case 4: isValid = quizState.answers.players.length > 0; break;
-    case 5: isValid = quizState.answers.matchTraits.length > 0; break;
+    case 5: isValid = true; break; // slider always valid
+    case 6: isValid = true; break; // slider always valid
+    case 7: isValid = true; break; // slider always valid
+    case 8: isValid = true; break; // results screen
   }
   btnNext.disabled = !isValid;
 }
 
 // ==========================================
-// Q1: TEAMS
+// Q1: TEAMS (with flags)
 // ==========================================
 function initQ1() {
   const container = document.getElementById('quiz-teams-container');
   const searchInput = document.getElementById('quiz-search-teams');
   const selectedContainer = document.getElementById('quiz-selected-teams-container');
-  
+
   if (!container || !state.appData || !state.appData.teams) return;
-  
-  container.innerHTML = '';
-  
+
   const allTeams = Object.values(state.appData.teams)
     .filter(t => !t.is_placeholder)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  const renderTags = (filterText = '') => {
+  const renderGrid = (filterText = '') => {
     container.innerHTML = '';
-    
-    // Sort logic: Suggested first, then alphabetical. If filtering, just alphabetical match
-    let visibleTeams = allTeams.filter(t => t.name.toLowerCase().includes(filterText.toLowerCase()));
-    
+
+    let visibleTeams = allTeams.filter(t =>
+      t.name.toLowerCase().includes(filterText.toLowerCase()) ||
+      t.fifa_code.toLowerCase().includes(filterText.toLowerCase())
+    );
+
     if (filterText === '') {
       const suggested = visibleTeams.filter(t => SUGGESTED_TEAMS.includes(t.fifa_code));
       const others = visibleTeams.filter(t => !SUGGESTED_TEAMS.includes(t.fifa_code));
@@ -261,31 +421,30 @@ function initQ1() {
 
     visibleTeams.forEach(t => {
       const isSelected = quizState.answers.teams.includes(t.fifa_code);
-      const isSuggested = SUGGESTED_TEAMS.includes(t.fifa_code);
-      
-      const tag = document.createElement('div');
-      tag.className = `quiz-tag ${isSelected ? 'selected' : ''} ${isSuggested ? 'suggested' : ''}`;
-      // Basic flag emoji logic using country code if available, else standard fallback
-      let flag = "🎯";
-      if (t.flag_url) {
-        // use an image or just icon
-        tag.innerHTML = `<img src="${t.flag_url}" style="width:16px;height:12px;border-radius:2px"> ${t.name}`;
-      } else {
-        tag.textContent = t.name;
-      }
+      const isoCode = getCountryIsoCode(t.fifa_code);
+      const flagUrl = `https://flagcdn.com/w80/${isoCode}.png`;
 
-      tag.addEventListener('click', () => {
+      const card = document.createElement('div');
+      card.className = `quiz-entity-card ${isSelected ? 'selected' : ''}`;
+      card.innerHTML = `
+        <img class="quiz-entity-img quiz-entity-flag" src="${flagUrl}" alt="${t.name}"
+             onerror="this.style.display='none'">
+        <span class="quiz-entity-label">${t.name}</span>
+        ${isSelected ? '<i class="fa-solid fa-circle-check quiz-entity-check"></i>' : ''}
+      `;
+
+      card.addEventListener('click', () => {
         if (isSelected) {
-          quizState.answers.teams = quizState.answers.teams.filter(code => code !== t.fifa_code);
+          quizState.answers.teams = quizState.answers.teams.filter(c => c !== t.fifa_code);
         } else {
           quizState.answers.teams.push(t.fifa_code);
         }
         renderSelectedQ1();
-        renderTags(searchInput.value);
+        renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
 
-      container.appendChild(tag);
+      container.appendChild(card);
     });
   };
 
@@ -293,23 +452,24 @@ function initQ1() {
     selectedContainer.innerHTML = '';
     quizState.answers.teams.forEach(code => {
       const t = state.appData.teams[code];
-      if(!t) return;
+      if (!t) return;
+      const isoCode = getCountryIsoCode(code);
+      const flagUrl = `https://flagcdn.com/w40/${isoCode}.png`;
       const chip = document.createElement('div');
       chip.className = 'quiz-chip';
-      chip.innerHTML = `${t.name} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
+      chip.innerHTML = `<img src="${flagUrl}" style="width:16px;height:12px;border-radius:2px"> ${t.name} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
       chip.addEventListener('click', () => {
         quizState.answers.teams = quizState.answers.teams.filter(c => c !== code);
         renderSelectedQ1();
-        renderTags(searchInput.value);
+        renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
       selectedContainer.appendChild(chip);
     });
   };
 
-  searchInput.addEventListener('input', (e) => renderTags(e.target.value));
-  
-  renderTags();
+  searchInput.addEventListener('input', (e) => renderGrid(e.target.value));
+  renderGrid();
   renderSelectedQ1();
 }
 
@@ -334,7 +494,7 @@ function initQ2() {
 }
 
 // ==========================================
-// Q3: VIEWING HABIT
+// Q3: EMOTION
 // ==========================================
 function initQ3() {
   const options = document.querySelectorAll('#quiz-q3 .quiz-radio-option');
@@ -342,131 +502,224 @@ function initQ3() {
     opt.addEventListener('click', () => {
       options.forEach(o => o.classList.remove('selected'));
       opt.classList.add('selected');
-      quizState.answers.viewingHabit = opt.getAttribute('data-value');
+      quizState.answers.emotion = opt.getAttribute('data-value');
       validateCurrentQuestion();
-      // Auto advance
       setTimeout(() => nextQuestion(), 300);
     });
   });
 }
 
 // ==========================================
-// Q4: CLUBS
+// Q4: CLUBS (with logos from club_logos.json)
 // ==========================================
 function initQ4() {
-  initSearchableList(
-    TOP_CLUBS, 
-    'quiz-search-clubs', 
-    'quiz-clubs-container', 
-    'quiz-selected-clubs-container', 
-    'clubs'
-  );
-}
+  const container = document.getElementById('quiz-clubs-container');
+  const searchInput = document.getElementById('quiz-search-clubs');
+  const selectedContainer = document.getElementById('quiz-selected-clubs-container');
 
-// ==========================================
-// Q5: PLAYERS
-// ==========================================
-function initQ5() {
-  initSearchableList(
-    TOP_PLAYERS, 
-    'quiz-search-players', 
-    'quiz-players-container', 
-    'quiz-selected-players-container', 
-    'players'
-  );
-}
+  if (!container) return;
 
-// ==========================================
-// Q6: MATCH TRAITS
-// ==========================================
-function initQ6() {
-  const tags = document.querySelectorAll('#quiz-traits-container .quiz-tag');
-  const counterSpan = document.querySelector('#quiz-trait-counter span');
-  const MAX_TRAITS = 3;
+  const getClubLogo = (clubName) => {
+    if (!state.appData || !state.appData.clubLogos) return null;
+    return state.appData.clubLogos[clubName] || state.appData.clubLogos[clubName.toLowerCase()] || null;
+  };
 
-  tags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      const val = tag.getAttribute('data-value');
-      const isSelected = quizState.answers.matchTraits.includes(val);
+  const getInitials = (name) => {
+    const parts = name.split(' ').filter(p => p.length > 0);
+    if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+    return name.substring(0, 2).toUpperCase();
+  };
 
-      if (isSelected) {
-        quizState.answers.matchTraits = quizState.answers.matchTraits.filter(v => v !== val);
-        tag.classList.remove('selected');
-      } else {
-        if (quizState.answers.matchTraits.length < MAX_TRAITS) {
-          quizState.answers.matchTraits.push(val);
-          tag.classList.add('selected');
-        }
-      }
-
-      // Update counter UI
-      const count = quizState.answers.matchTraits.length;
-      counterSpan.textContent = `seleccionaste ${count}`;
-      
-      // Disable others if max reached
-      if (count >= MAX_TRAITS) {
-        tags.forEach(t => {
-          if (!t.classList.contains('selected')) t.classList.add('disabled');
-        });
-      } else {
-        tags.forEach(t => t.classList.remove('disabled'));
-      }
-
-      validateCurrentQuestion();
-    });
-  });
-}
-
-// ==========================================
-// HELPER: Searchable List
-// ==========================================
-function initSearchableList(items, searchId, containerId, selectedContainerId, stateKey) {
-  const container = document.getElementById(containerId);
-  const searchInput = document.getElementById(searchId);
-  const selectedContainer = document.getElementById(selectedContainerId);
-
-  const renderTags = (filterText = '') => {
+  const renderGrid = (filterText = '') => {
     container.innerHTML = '';
-    const visibleItems = items.filter(i => i.toLowerCase().includes(filterText.toLowerCase()));
-    
-    visibleItems.forEach(item => {
-      const isSelected = quizState.answers[stateKey].includes(item);
-      const tag = document.createElement('div');
-      tag.className = `quiz-tag ${isSelected ? 'selected' : ''}`;
-      tag.textContent = item;
 
-      tag.addEventListener('click', () => {
+    let visible = allClubsList;
+    if (filterText) {
+      visible = allClubsList.filter(c => c.name.toLowerCase().includes(filterText.toLowerCase()));
+    }
+
+    // Show top 40 max to avoid lag
+    visible.slice(0, 40).forEach(club => {
+      const isSelected = quizState.answers.clubs.includes(club.name);
+      const logoUrl = getClubLogo(club.name);
+
+      const card = document.createElement('div');
+      card.className = `quiz-entity-card ${isSelected ? 'selected' : ''}`;
+
+      const imgHtml = logoUrl
+        ? `<img class="quiz-entity-img quiz-entity-logo" src="${logoUrl}" referrerpolicy="no-referrer" alt="${club.name}" onerror="this.outerHTML='<div class=\\'quiz-entity-initials\\'>${getInitials(club.name)}</div>'">`
+        : `<div class="quiz-entity-initials">${getInitials(club.name)}</div>`;
+
+      card.innerHTML = `
+        ${imgHtml}
+        <span class="quiz-entity-label">${club.name}</span>
+        ${isSelected ? '<i class="fa-solid fa-circle-check quiz-entity-check"></i>' : ''}
+      `;
+
+      card.addEventListener('click', () => {
         if (isSelected) {
-          quizState.answers[stateKey] = quizState.answers[stateKey].filter(v => v !== item);
+          quizState.answers.clubs = quizState.answers.clubs.filter(c => c !== club.name);
         } else {
-          quizState.answers[stateKey].push(item);
+          quizState.answers.clubs.push(club.name);
         }
-        renderSelected();
-        renderTags(searchInput.value);
+        renderSelectedQ4();
+        renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
 
-      container.appendChild(tag);
+      container.appendChild(card);
     });
+
+    if (filterText && visible.length === 0) {
+      container.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:1rem;">Sin resultados</div>';
+    }
   };
 
-  const renderSelected = () => {
+  const renderSelectedQ4 = () => {
     selectedContainer.innerHTML = '';
-    quizState.answers[stateKey].forEach(item => {
+    quizState.answers.clubs.forEach(clubName => {
       const chip = document.createElement('div');
       chip.className = 'quiz-chip';
-      chip.innerHTML = `${item} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
+      chip.innerHTML = `${clubName} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
       chip.addEventListener('click', () => {
-        quizState.answers[stateKey] = quizState.answers[stateKey].filter(v => v !== item);
-        renderSelected();
-        renderTags(searchInput.value);
+        quizState.answers.clubs = quizState.answers.clubs.filter(c => c !== clubName);
+        renderSelectedQ4();
+        renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
       selectedContainer.appendChild(chip);
     });
   };
 
-  searchInput.addEventListener('input', (e) => renderTags(e.target.value));
-  renderTags();
-  renderSelected();
+  searchInput.addEventListener('input', (e) => renderGrid(e.target.value));
+  renderGrid();
+  renderSelectedQ4();
+}
+
+// ==========================================
+// Q5: PLAYERS (with photos from players_photos.json)
+// ==========================================
+function initQ5() {
+  const container = document.getElementById('quiz-players-container');
+  const searchInput = document.getElementById('quiz-search-players');
+  const selectedContainer = document.getElementById('quiz-selected-players-container');
+
+  if (!container) return;
+
+  const getInitials = (name) => {
+    const parts = name.split(' ').filter(p => p.length > 0);
+    if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    return name.substring(0, 2).toUpperCase();
+  };
+
+  const renderGrid = (filterText = '') => {
+    container.innerHTML = '';
+
+    let visible = allPlayersList;
+    if (filterText) {
+      const lower = filterText.toLowerCase();
+      visible = allPlayersList.filter(p =>
+        p.name.toLowerCase().includes(lower) ||
+        p.club.toLowerCase().includes(lower) ||
+        p.teamName.toLowerCase().includes(lower)
+      );
+    } else {
+      // Show stars first, top 40
+      visible = allPlayersList.slice(0, 40);
+    }
+
+    visible.slice(0, 40).forEach(player => {
+      const isSelected = quizState.answers.players.includes(player.name);
+      const photoUrl = getPlayerPhotoUrl(player.name);
+
+      const card = document.createElement('div');
+      card.className = `quiz-entity-card quiz-entity-card--player ${isSelected ? 'selected' : ''}`;
+
+      const imgHtml = photoUrl
+        ? `<img class="quiz-entity-img quiz-entity-photo" src="${photoUrl}" referrerpolicy="no-referrer" alt="${player.name}" onerror="this.outerHTML='<div class=\\'quiz-entity-initials\\'>${getInitials(player.name)}</div>'">`
+        : `<div class="quiz-entity-initials">${getInitials(player.name)}</div>`;
+
+      const starIcon = player.isStar ? '<i class="fa-solid fa-star" style="color:var(--accent-gold);font-size:0.6rem;"></i>' : '';
+
+      card.innerHTML = `
+        ${imgHtml}
+        <span class="quiz-entity-label">${player.name} ${starIcon}</span>
+        <span class="quiz-entity-sub">${player.club}</span>
+        ${isSelected ? '<i class="fa-solid fa-circle-check quiz-entity-check"></i>' : ''}
+      `;
+
+      card.addEventListener('click', () => {
+        if (isSelected) {
+          quizState.answers.players = quizState.answers.players.filter(n => n !== player.name);
+        } else {
+          quizState.answers.players.push(player.name);
+        }
+        renderSelectedQ5();
+        renderGrid(searchInput.value);
+        validateCurrentQuestion();
+      });
+
+      container.appendChild(card);
+    });
+
+    if (filterText && visible.length === 0) {
+      container.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:1rem;">Sin resultados</div>';
+    }
+  };
+
+  const renderSelectedQ5 = () => {
+    selectedContainer.innerHTML = '';
+    quizState.answers.players.forEach(name => {
+      const chip = document.createElement('div');
+      chip.className = 'quiz-chip';
+      chip.innerHTML = `${name} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
+      chip.addEventListener('click', () => {
+        quizState.answers.players = quizState.answers.players.filter(n => n !== name);
+        renderSelectedQ5();
+        renderGrid(searchInput.value);
+        validateCurrentQuestion();
+      });
+      selectedContainer.appendChild(chip);
+    });
+  };
+
+  searchInput.addEventListener('input', (e) => renderGrid(e.target.value));
+  renderGrid();
+  renderSelectedQ5();
+}
+
+// ==========================================
+// Q6: POSSESSION
+// ==========================================
+function initQ6() {
+  const slider = document.getElementById('quiz-slider-possession');
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      quizState.answers.possession = parseInt(e.target.value);
+    });
+  }
+}
+
+// ==========================================
+// Q7: INTENSITY
+// ==========================================
+function initQ7() {
+  const slider = document.getElementById('quiz-slider-intensity');
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      quizState.answers.intensity = parseInt(e.target.value);
+    });
+  }
+}
+
+// ==========================================
+// Q8: JUVENTUD VS EXPERIENCIA
+// ==========================================
+function initQ8() {
+  const slider = document.getElementById('quiz-slider-age');
+  if (slider) {
+    slider.addEventListener('input', (e) => {
+      quizState.answers.agePreference = parseInt(e.target.value);
+    });
+  }
 }
