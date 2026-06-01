@@ -3,6 +3,20 @@ import sqlite3
 import os
 import sys
 
+def clean_club_name(club):
+    if not club:
+        return ""
+    club = club.replace('*', '').strip()
+    # Remove country code suffix like /GER, , RPC, etc.
+    if ',' in club or '/' in club:
+        sep = ',' if ',' in club else '/'
+        parts = club.rsplit(sep, 1)
+        suffix = parts[-1].strip()
+        # Clean country code: typically 2-4 characters
+        if len(suffix) <= 4 and suffix.isalpha():
+            return parts[0].strip()
+    return club
+
 def parse_markdown_and_create_db(md_filepath, db_filepath):
     # Asegurarnos de que el directorio de la base de datos exista
     os.makedirs(os.path.dirname(db_filepath), exist_ok=True)
@@ -33,38 +47,30 @@ def parse_markdown_and_create_db(md_filepath, db_filepath):
         
     current_country = None
     
+    # Palabras clave de posición al inicio de la línea
+    position_pattern = re.compile(
+        r'^(arqueros|guardametas|porteros|defensores|defensa|defensas|mediocampistas|centrocampistas|volantes|delanteros|mediocampistas/delanteros|mediocampistas/ delanteros)\b', 
+        re.IGNORECASE
+    )
+    
     for line in lines:
-        # Excluir líneas que no son datos útiles
-        if line == "Lista de Convocados":
+        line_upper = line.upper()
+        # Excluir líneas de cabecera, de exclusión o placeholders
+        if line == "Lista de Convocados" or line_upper.startswith("GRUPO") or "AÚN NO PRESENTÓ" in line_upper or "SIN CONFIRMAR" in line_upper:
             continue
-        if line.startswith("Grupo"):
-            continue
-        if line.startswith("Sin confirmar"):
-            continue
-        if line.startswith("Destacado") or line.startswith("Destacdo") or line.startswith("Destacadado"):
-            continue
-        if line.startswith("*"):
-            continue
-        if line == "Bakambu": # artefacto suelto en el texto
+        if line.startswith("*") or line == "Bakambu":
             continue
             
-        # Determinar si es una línea de lista de jugadores por posición (contiene ":")
-        if ":" in line:
+        # Determinar si es una línea de lista de jugadores por posición (comienza con una palabra clave de posición)
+        if position_pattern.match(line):
             pos_part, players_part = line.split(":", 1)
             players_part = players_part.strip().strip(".")
             
             # Reemplazar la conjunción ' y ' o ' e ' con una coma para facilitar el split
-            # Se usa \s+ para asegurar que haya espacios y no afectar nombres o clubes
             players_part = re.sub(r'\s+y\s+', ',', players_part)
             players_part = re.sub(r'\s+e\s+', ',', players_part)
             
             # Separar por comas (cuidando comas dentro de paréntesis)
-            # Un split simple por coma funciona si la coma siempre separa jugadores, 
-            # pero a veces hay comas dentro del paréntesis ej: (Arsenal, ENG)
-            # Para solucionarlo, podemos buscar cada bloque usando un regex iterativo
-            
-            # Buscamos patrones: "Nombre (Equipo)"
-            # Puede haber casos donde falta el paréntesis o hay cosas raras
             matches = re.finditer(r'([^\,]+?\s*\([^)]+\))', players_part)
             found_players = [m.group(1).strip() for m in matches]
             
@@ -82,15 +88,23 @@ def parse_markdown_and_create_db(md_filepath, db_filepath):
                     player_name = match.group(1).strip()
                     club_name = match.group(2).strip()
                 else:
-                    # Si por algún motivo no tiene el formato con paréntesis
                     player_name = p
                     club_name = "Desconocido"
+                
+                # Limpiar el nombre de estrellas y de apodos entre comillas dobles/simples (rectas o tipográficas)
+                player_name = player_name.replace('*', '').strip()
+                player_name = re.sub(r'[\"“’\u201d\u201c’‘\'](.*?)[“\"’\u201d\u201c’‘\']', '', player_name)
+                player_name = re.sub(r'\s+', ' ', player_name).strip()
+                
+                # Limpiar el nombre del club de sufijos de país
+                club_name = clean_club_name(club_name)
                 
                 cursor.execute('INSERT INTO convocados (pais, jugador, equipo) VALUES (?, ?, ?)',
                                (current_country, player_name, club_name))
         else:
-            # Si no tiene ":", se considera el nombre de un país
-            current_country = line
+            # Si no tiene ":" y no coincide con exclusiones, se considera el nombre de un país
+            if ":" not in line:
+                current_country = line.strip()
             
     conn.commit()
     conn.close()
@@ -98,9 +112,9 @@ def parse_markdown_and_create_db(md_filepath, db_filepath):
     print(f"Base de datos creada exitosamente en: {db_filepath}")
 
 if __name__ == "__main__":
-    # Rutas absolutas o relativas desde el directorio raíz
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
     md_file = os.path.join(base_dir, 'Lista de Convocados.md')
     db_file = os.path.join(base_dir, 'data', 'recommender_data', 'convocados.db')
     
     parse_markdown_and_create_db(md_file, db_file)
+
