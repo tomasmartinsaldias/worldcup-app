@@ -3,7 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, normalize
+from sklearn.preprocessing import MaxAbsScaler, normalize
 from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.metrics import pairwise_distances
 
@@ -30,7 +30,9 @@ class DataLoader:
 class DataPreprocessor:
     @staticmethod
     def preprocess(df):
-        """Preprocesa el DataFrame aislando las variables numéricas y aplicando StandardScaler."""
+        """Preprocesa el DataFrame aislando las variables numéricas, imputando con la mediana,
+        aplicando MaxAbsScaler y finalmente normalización L2 por fila.
+        """
         # Seleccionar todas las columnas numéricas
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
         
@@ -38,18 +40,26 @@ class DataPreprocessor:
         if 'overall' in numeric_cols:
             numeric_cols.remove('overall')
             
-        # Manejo de valores nulos imputando con 0 (ya que pueden ser atributos que no aplican)
-        df_numeric = df[numeric_cols].fillna(0)
+        # Fase 1: Imputación informada con la mediana de cada columna
+        df_numeric = df[numeric_cols].apply(lambda col: col.fillna(col.median()))
+        # En caso de que toda una columna sea NaN y la mediana sea NaN, rellenar con 0
+        df_numeric = df_numeric.fillna(0)
         
-        # Estandarizar
-        scaler = StandardScaler()
+        # Fase 2: Homogeneización del Espacio (MaxAbsScaler por columna)
+        scaler = MaxAbsScaler()
         scaled_features = scaler.fit_transform(df_numeric)
         
-        # Guardamos 'overall' (imputado con la media o 50 si por alguna razón falta)
-        overalls = df['overall'].fillna(50).values
+        # Fase 3: Extracción de Magnitud (Normalización L2 por fila)
+        normalized_features = normalize(scaled_features, norm='l2')
         
-        # Retornar las características numéricas procesadas, nombres y overalls
-        return scaled_features, df['long_name'].values, overalls
+        # Guardamos 'overall' (imputado con la mediana o 50 si falta)
+        overall_median = df['overall'].median() if 'overall' in df.columns else 50
+        if pd.isna(overall_median):
+            overall_median = 50
+        overalls = df['overall'].fillna(overall_median).values
+        
+        # Retornar las características normalizadas, nombres y overalls
+        return normalized_features, df['long_name'].values, overalls
 
 class ClusteringEngine:
     def __init__(self, n_clusters=5, metric='cosine', linkage='average'):
@@ -80,20 +90,18 @@ class ClusteringEngine:
         return representatives
 
 class KMeansEngine:
-    """Clustering mediante KMeans con distancia coseno (a través de normalización L2).
-    Normalizar los vectores a longitud unitaria hace que la distancia euclidiana
-    sea equivalente a la distancia coseno, permitiendo usar KMeans estandar.
+    """Clustering mediante KMeans con distancia coseno (sobre características ya pre-normalizadas a L2).
+    La optimización de la varianza basada en distancia euclidiana de KMeans sobre
+    la hiperesfera unitaria equivale matemáticamente a maximizar la similitud del Coseno.
     """
     def __init__(self, n_clusters=5, random_state=42):
         self.n_clusters = n_clusters
         self.model = KMeans(n_clusters=n_clusters, random_state=random_state, n_init='auto')
     
     def fit_predict(self, features):
-        """Normaliza a L2 y predice los clusters usando KMeans."""
-        # Normalización L2 hace que la distancia euclidiana ≈ distancia coseno
-        features_normalized = normalize(features, norm='l2')
-        self.labels_ = self.model.fit_predict(features_normalized)
-        self.features_normalized_ = features_normalized
+        """Predice los clusters usando KMeans directamente sobre las características L2."""
+        self.labels_ = self.model.fit_predict(features)
+        self.features_normalized_ = features
         return self.labels_
     
     def find_representatives(self, player_names, overalls):

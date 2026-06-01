@@ -89,26 +89,47 @@ macro_df.to_json(file_path, orient="records", indent=4, force_ascii=False)
 ```python
 import json, os, sys
 import numpy as np, pandas as pd
-from sklearn.preprocessing import StandardScaler, normalize
+from sklearn.preprocessing import MaxAbsScaler, normalize
 from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.metrics import pairwise_distances
 ```
-- `normalize` is used by the KMeans engine to emulate cosine distance.
+- `normalize` and `MaxAbsScaler` are used to scale and project features to a unit hypersphere to isolate playstyles.
 
 ### 3.2. Data Pre‑processor
 ```python
 class DataPreprocessor:
     @staticmethod
     def preprocess(df):
+        # Seleccionar todas las columnas numéricas
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
-        numeric_cols.remove('overall')                     # overall is *not* a clustering feature
-        df_numeric = df[numeric_cols].fillna(0)
-        scaler = StandardScaler()
+        
+        # Eliminar 'overall' de las características numéricas si está presente
+        if 'overall' in numeric_cols:
+            numeric_cols.remove('overall')
+            
+        # Fase 1: Imputación informada con la mediana de cada columna
+        df_numeric = df[numeric_cols].apply(lambda col: col.fillna(col.median()))
+        df_numeric = df_numeric.fillna(0)
+        
+        # Fase 2: Homogeneización del Espacio (MaxAbsScaler por columna)
+        scaler = MaxAbsScaler()
         scaled_features = scaler.fit_transform(df_numeric)
-        overalls = df['overall'].fillna(50).values
-        return scaled_features, df['long_name'].values, overalls
+        
+        # Fase 3: Extracción de Magnitud (Normalización L2 por fila)
+        normalized_features = normalize(scaled_features, norm='l2')
+        
+        # Guardamos 'overall' (imputado con la mediana o 50 si falta)
+        overall_median = df['overall'].median() if 'overall' in df.columns else 50
+        if pd.isna(overall_median):
+            overall_median = 50
+        overalls = df['overall'].fillna(overall_median).values
+        
+        return normalized_features, df['long_name'].values, overalls
 ```
-- `overall` is extracted **only** for representative selection.
+- `overall` is extracted **only** for representative selection and filled with the median.
+- Missing feature values are imputed using column medians instead of 0 to protect the vector topology.
+- Column scaling is done via `MaxAbsScaler` to bound columns to `[0, 1]` without translation.
+- L2 row normalization is applied to project the players onto a unit hypersphere, stripping out magnitude/quality and leaving only style direction.
 
 ### 3.3. HAC Engine
 ```python
@@ -133,18 +154,19 @@ class ClusteringEngine:
             }
         return reps
 ```
-- The former distance‑based scoring was removed; now the representative is simply the **most highly rated** player in the cluster.
 
-### 3.4. KMeans Engine (Cosine via L2‑normalisation)
+### 3.4. KMeans Engine (Cosine on unit hypersphere)
 ```python
 class KMeansEngine:
-    """KMeans with cosine similarity – achieved by L2 normalising the feature vectors.
-    The class mirrors the HAC interface (fit_predict + find_representatives)."""
+    """KMeans with cosine similarity – achieved by operating directly on the L2-normalised features.
+    Operating Euclidean distance KMeans on a unit hypersphere is mathematically equivalent
+    to maximizing cosine similarity.
+    """
     def __init__(self, n_clusters=5, random_state=42):
         self.model = KMeans(n_clusters=n_clusters, random_state=random_state, n_init='auto')
     def fit_predict(self, features):
-        self.features_normalized = normalize(features, norm='l2')
-        self.labels_ = self.model.fit_predict(self.features_normalized)
+        self.labels_ = self.model.fit_predict(features)
+        self.features_normalized_ = features
         return self.labels_
     def find_representatives(self, player_names, overalls):
         n_clusters = len(np.unique(self.labels_))
@@ -162,7 +184,7 @@ class KMeansEngine:
 ### 3.5. Position Factory & Dynamic Cluster Counts
 ```python
 class PositionFactory:
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'clustering_players')
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'clustering_players'))
     positions = {
         'Goalkeepers': 'player_clustering_goalkeeper.json',
         'Defenders':   'player_clustering_defender.json',
