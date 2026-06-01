@@ -6,12 +6,69 @@ import re
 def normalize_string(s):
     if not isinstance(s, str):
         return ""
-    return unicodedata.normalize('NFD', s).encode('ascii', 'ignore').decode('utf-8').strip().lower()
+    # Transliterate special characters that NFD does not map to ASCII
+    replacements = {
+        'ø': 'o', 'Ø': 'o',
+        'æ': 'ae', 'Æ': 'ae',
+        'å': 'a', 'Å': 'a',
+        'ß': 'ss',
+    }
+    for char, repl in replacements.items():
+        s = s.replace(char, repl)
+        
+    s = unicodedata.normalize('NFD', s)
+    s = s.encode('ascii', 'ignore').decode('utf-8').strip().lower()
+    
+    # Normalize suffixes like "jr." or "jr" to "junior"
+    s = re.sub(r'\bjr\b\.?', 'junior', s)
+    return s
 
 df = pd.read_csv("data/player_similarity/FC26_20250921.csv", low_memory=False)
 
+# Translation map for convocados.db (Spanish) -> FC26 CSV (English)
+# Special note: "Ecuador" in convocados.db actually contains Netherlands players due to a DB labeling mismatch.
+COUNTRY_MAP = {
+    "sudafrica": "South Africa",
+    "corea del sur": "Korea Republic",
+    "republica checa": "Czechia",
+    "bosnia y herzegovina": "Bosnia and Herzegovina",
+    "suiza": "Switzerland",
+    "brasil": "Brazil",
+    "marruecos": "Morocco",
+    "haiti": "Haiti",
+    "escocia": "Scotland",
+    "estados unidos": "United States",
+    "alemania": "Germany",
+    "curazao": "Curacao",
+    "costa de marfil": "Côte d'Ivoire",
+    "ecuador": "Netherlands",
+    "japon": "Japan",
+    "suecia": "Sweden",
+    "tunez": "Tunisia",
+    "belgica": "Belgium",
+    "egipto": "Egypt",
+    "nueva zelanda": "New Zealand",
+    "espana": "Spain",
+    "cabo verde": "Cabo Verde",
+    "francia": "France",
+    "senegal": "Senegal",
+    "noruega": "Norway",
+    "argentina": "Argentina",
+    "austria": "Austria",
+    "portugal": "Portugal",
+    "rd congo": "Congo DR",
+    "colombia": "Colombia",
+    "inglaterra": "England",
+    "croacia": "Croatia",
+    "panama": "Panama",
+    "canada": "Canada",
+    "paises bajos": "Netherlands",
+    "uruguay": "Uruguay",
+    "argelia": "Algeria"
+}
+
 columns_to_keep = [
-    'long_name', 'overall', 'potential', 'age', 'height_cm', 'weight_kg','nationality_name', 'skill_moves', 
+    'short_name', 'long_name', 'overall', 'potential', 'age', 'height_cm', 'weight_kg','nationality_name', 'skill_moves', 
     'pace', 'passing', 'shooting', 'dribbling', 'defending', 'physic',
     "attacking_crossing", "attacking_finishing", "attacking_heading_accuracy", 
     "attacking_short_passing", "attacking_volleys", "skill_dribbling", 
@@ -29,7 +86,7 @@ columns_to_keep = [
 df_filtered = df[columns_to_keep].copy()
 
 # -------------------------------------------------------------
-# LÓGICA DE FILTRADO POR CONVOCADOS
+# LÓGICA DE FILTRADO POR CONVOCADOS (Mapeo Inteligente)
 # -------------------------------------------------------------
 print(f"Total de jugadores iniciales en CSV: {len(df_filtered)}")
 
@@ -47,37 +104,46 @@ missing_players = []
 
 # Normalizamos strings (quitar acentos, a minúsculas) para comparaciones más seguras
 df_filtered['long_name_lower'] = df_filtered['long_name'].apply(normalize_string)
-df_filtered['nationality_lower'] = df_filtered['nationality_name'].apply(normalize_string)
+df_filtered['short_name_lower'] = df_filtered['short_name'].apply(normalize_string)
 
 for index, row_db in df_convocados.iterrows():
-    jugador_db = normalize_string(str(row_db['jugador']))
-    pais_db = normalize_string(str(row_db['pais']))
+    jugador_db_raw = str(row_db['jugador'])
+    pais_db_raw = str(row_db['pais'])
     
-    # Condición 1: El nombre de la DB está contenido en el long_name del CSV (con boundaries \b para evitar fugas)
-    pattern = r'\b' + re.escape(jugador_db) + r'\b'
-    matches = df_filtered[df_filtered['long_name_lower'].str.contains(pattern, na=False, regex=True)]
+    jugador_db = normalize_string(jugador_db_raw)
+    pais_db_norm = normalize_string(pais_db_raw)
     
-    if len(matches) == 1:
-        # Match único, lo tomamos como válido
-        matched_indices.append(matches.index[0])
-    elif len(matches) > 1:
-        # Hay múltiples coincidencias, filtramos por país
-        matches_pais = matches[matches['nationality_lower'] == pais_db]
-        
-        if len(matches_pais) == 1:
-            matched_indices.append(matches_pais.index[0])
-        elif len(matches_pais) > 1:
-            # Aún hay múltiples (ej. dos jugadores homónimos del mismo país), tomamos el de mayor overall
-            best_match_idx = matches_pais.sort_values(by='overall', ascending=False).index[0]
-            matched_indices.append(best_match_idx)
-        else:
-            # Si no hay coincidencia exacta del país (por nombres diferentes de países), 
-            # tomamos el mejor jugador entre los matches iniciales
-            best_match_idx = matches.sort_values(by='overall', ascending=False).index[0]
-            matched_indices.append(best_match_idx)
+    # Traducir nombre del país para restringir el ámbito de búsqueda y evitar homónimos
+    english_country = COUNTRY_MAP.get(pais_db_norm)
+    if not english_country:
+        df_country = df_filtered
     else:
-        # No hay coincidencias
-        missing_players.append(row_db['jugador'])
+        df_country = df_filtered[df_filtered['nationality_name'] == english_country]
+        
+    # Método 1: Búsqueda de palabra exacta en nombre largo o corto
+    pattern = r'\b' + re.escape(jugador_db) + r'\b'
+    matches = df_country[df_country['long_name_lower'].str.contains(pattern, na=False, regex=True) |
+                         df_country['short_name_lower'].str.contains(pattern, na=False, regex=True)]
+    
+    # Método 2: Inclusión de palabras en nombre largo (ej. "Lyle Foster" en "Lyle Brent Foster")
+    if len(matches) == 0:
+        words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
+        if words:
+            mask = df_country['long_name_lower'].apply(lambda name: all(w in name for w in words))
+            matches = df_country[mask]
+            
+    # Método 3: Inclusión de palabras en nombre corto
+    if len(matches) == 0:
+        words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
+        if words:
+            mask = df_country['short_name_lower'].apply(lambda name: all(w in name for w in words))
+            matches = df_country[mask]
+
+    if len(matches) >= 1:
+        best_match_idx = matches.sort_values(by='overall', ascending=False).index[0]
+        matched_indices.append(best_match_idx)
+    else:
+        missing_players.append(jugador_db_raw)
 
 # Eliminamos duplicados por si dos jugadores de la DB emparejaron con la misma fila del CSV
 matched_indices = list(set(matched_indices))
@@ -85,7 +151,7 @@ matched_indices = list(set(matched_indices))
 df_final = df_filtered.loc[matched_indices].copy()
 
 # Limpieza de columnas temporales usadas para emparejamiento
-df_final.drop(columns=['long_name_lower', 'nationality_lower'], inplace=True)
+df_final.drop(columns=['short_name', 'long_name_lower', 'short_name_lower'], inplace=True)
 
 # Logs de verificación
 print(f"Jugadores emparejados y conservados: {len(df_final)}")
