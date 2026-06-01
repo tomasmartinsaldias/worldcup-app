@@ -2,482 +2,482 @@
     "response": [
         {
             "equipo": "Canadá",
-            "analisis_tactico": "Bajo Jesse Marsch, ejecutan una presión alta asfixiante y transiciones verticales extremadamente rápidas, priorizando la velocidad sobre la posesión larga.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": 0.8,
-                "posesion": -0.4,
-                "ritmo": 0.9,
-                "ancho": 0.4
+                "defensa": 0.5853,
+                "posesion": 0.0533,
+                "ritmo": -0.3846,
+                "ancho": 0.5606
             }
         },
         {
             "equipo": "México",
-            "analisis_tactico": "Mantiene una intención de posesión asociativa y juego por bandas, aunque a menudo sufre de un ritmo pausado y falta de profundidad ante bloques bajos.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.3,
-                "posesion": 0.5,
-                "ritmo": -0.2,
-                "ancho": 0.6
+                "defensa": -0.2017,
+                "posesion": 0.2735,
+                "ritmo": -0.1153,
+                "ancho": -0.3404
             }
         },
         {
             "equipo": "Estados Unidos",
-            "analisis_tactico": "Equipo atlético que apuesta por una presión proactiva y un juego directo pero estructurado, buscando explotar la verticalidad de sus atacantes.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.6,
-                "posesion": 0.4,
-                "ritmo": 0.5,
-                "ancho": 0.3
+                "defensa": -0.2353,
+                "posesion": 0.2407,
+                "ritmo": -0.0529,
+                "ancho": -0.4872
             }
         },
         {
             "equipo": "Argentina",
-            "analisis_tactico": "Privilegia la posesión técnica y el juego interior con mediocampistas asociativos, controlando los tiempos del partido con un ritmo pausado y seguro.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Controla los tiempos con un ritmo pausado y circulación muy segura. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.5,
-                "posesion": 0.8,
-                "ritmo": -0.3,
-                "ancho": -0.7
+                "defensa": 0.249,
+                "posesion": 0.4169,
+                "ritmo": -0.5245,
+                "ancho": -0.8129
             }
         },
         {
             "equipo": "Japón",
-            "analisis_tactico": "Destaca por una disciplina táctica en bloque medio y transiciones ofensivas frenéticas, utilizando gran amplitud para desbordar por los costados.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.2,
-                "posesion": -0.2,
-                "ritmo": 0.8,
-                "ancho": 0.7
+                "defensa": 0.2753,
+                "posesion": 0.2907,
+                "ritmo": -0.4598,
+                "ancho": -0.4564
             }
         },
         {
             "equipo": "Nueva Zelanda",
-            "analisis_tactico": "Prioriza un bloque medio-bajo con juego directo buscando la ventaja física en balones largos y centros laterales.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.4,
-                "posesion": -0.3,
-                "ritmo": 0.1,
-                "ancho": 0.5
+                "defensa": -0.0251,
+                "posesion": -0.3571,
+                "ritmo": -0.1494,
+                "ancho": 0.144
             }
         },
         {
             "equipo": "Irán",
-            "analisis_tactico": "Estructura defensiva muy compacta y profunda que prioriza transiciones rápidas y efectividad máxima en pocos toques.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.6,
-                "posesion": -0.5,
-                "ritmo": 0.5,
-                "ancho": 0.3
+                "defensa": -0.281,
+                "posesion": -0.1549,
+                "ritmo": 0.3257,
+                "ancho": 0.619
             }
         },
         {
             "equipo": "Uzbekistán",
-            "analisis_tactico": "Muestra un equilibrio técnico con posesión progresiva en Asia, aunque adopta posturas cautelosas y juego interior ante potencias.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": -0.1,
-                "posesion": 0.2,
-                "ritmo": -0.2,
-                "ancho": -0.1
+                "defensa": -0.1566,
+                "posesion": -0.6077,
+                "ritmo": 0.0592,
+                "ancho": -0.5132
             }
         },
         {
             "equipo": "Corea del Sur",
-            "analisis_tactico": "Se caracteriza por una presión alta agresiva y un ritmo de juego frenético basado en la velocidad de sus transiciones.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.6,
-                "posesion": 0.5,
-                "ritmo": 0.8,
-                "ancho": 0.6
+                "defensa": 0.366,
+                "posesion": 0.5158,
+                "ritmo": -0.2566,
+                "ancho": -0.1396
             }
         },
         {
             "equipo": "Jordania",
-            "analisis_tactico": "Repliegue intensivo en campo propio para explotar la velocidad de sus extremos en ataques verticales y directos.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.7,
-                "posesion": -0.6,
-                "ritmo": 0.7,
-                "ancho": 0.4
+                "defensa": -0.8164,
+                "posesion": -0.8004,
+                "ritmo": 0.7729,
+                "ancho": 0.7295
             }
         },
         {
             "equipo": "Australia",
-            "analisis_tactico": "Estructura rígida basada en un bloque medio-bajo con transiciones directas. Prioriza el juego aéreo y el despliegue por bandas para finalizar con centros.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.4,
-                "posesion": -0.5,
-                "ritmo": 0.3,
-                "ancho": 0.6
+                "defensa": -0.0251,
+                "posesion": -0.3571,
+                "ritmo": -0.1494,
+                "ancho": 0.144
             }
         },
         {
             "equipo": "Brasil",
-            "analisis_tactico": "Busca el control mediante la posesión técnica y una presión tras pérdida agresiva. Utiliza extremos abiertos para generar duelos individuales en amplitud.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.7,
-                "posesion": 0.8,
-                "ritmo": -0.2,
-                "ancho": 0.7
+                "defensa": 0.3,
+                "posesion": 0.4899,
+                "ritmo": -0.4281,
+                "ancho": -0.3999
             }
         },
         {
             "equipo": "Ecuador",
-            "analisis_tactico": "Equipo de alta intensidad física que destaca en el repliegue y salida explosiva. Su juego es vertical, aprovechando la potencia de sus laterales y volantes.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.4,
-                "posesion": -0.2,
-                "ritmo": 0.7,
-                "ancho": 0.5
+                "defensa": 0.0808,
+                "posesion": -0.1407,
+                "ritmo": -0.2867,
+                "ancho": -0.2602
             }
         },
         {
             "equipo": "Uruguay",
-            "analisis_tactico": "Bajo el modelo de Bielsa, ejerce una presión alta asfixiante y transiciones verticales frenéticas. Prioriza la recuperación en campo rival y el ataque directo.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.9,
-                "posesion": 0.1,
-                "ritmo": 0.9,
-                "ancho": 0.3
+                "defensa": -0.03,
+                "posesion": -0.1561,
+                "ritmo": -0.2984,
+                "ancho": 0.3184
             }
         },
         {
             "equipo": "Paraguay",
-            "analisis_tactico": "Históricamente fundamentado en un bloque bajo denso y disciplina defensiva. Su ataque es pragmático, saltando líneas y buscando segundas jugadas o balón parado.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.7,
-                "posesion": -0.8,
-                "ritmo": 0.2,
-                "ancho": -0.3
+                "defensa": -0.1957,
+                "posesion": -0.558,
+                "ritmo": -0.7037,
+                "ancho": 0.3199
             }
         },
         {
             "equipo": "Colombia",
-            "analisis_tactico": "Bajo Néstor Lorenzo, Colombia destaca por una presión alta asfixiante y transiciones verticales rápidas, manteniendo una base técnica de posesión progresiva.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.7,
-                "posesion": 0.4,
-                "ritmo": 0.6,
-                "ancho": 0.5
+                "defensa": 0.2728,
+                "posesion": 0.085,
+                "ritmo": 0.2565,
+                "ancho": 0.038
             }
         },
         {
             "equipo": "Marruecos",
-            "analisis_tactico": "Estructura de bloque medio-bajo extremadamente compacta que prioriza el orden defensivo y explota la amplitud con laterales de largo recorrido.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.6,
-                "posesion": -0.5,
-                "ritmo": 0.3,
-                "ancho": 0.8
+                "defensa": -0.0709,
+                "posesion": -0.2032,
+                "ritmo": 0.1121,
+                "ancho": 0.2488
             }
         },
         {
             "equipo": "Túnez",
-            "analisis_tactico": "Propuesta marcadamente reactiva con repliegue intensivo en campo propio, buscando interrumpir el ritmo rival y utilizar envíos directos sin elaboración.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.8,
-                "posesion": -0.7,
-                "ritmo": -0.4,
-                "ancho": -0.3
+                "defensa": -0.282,
+                "posesion": -0.2976,
+                "ritmo": -0.6173,
+                "ancho": 0.301
             }
         },
         {
             "equipo": "Egipto",
-            "analisis_tactico": "Estilo pragmático que combina un bloque defensivo sólido con una búsqueda inmediata de verticalidad hacia sus atacantes de banda en transiciones rápidas.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.4,
-                "posesion": -0.3,
-                "ritmo": 0.5,
-                "ancho": 0.4
+                "defensa": -0.8412,
+                "posesion": -0.6121,
+                "ritmo": -0.4765,
+                "ancho": -0.3278
             }
         },
         {
             "equipo": "Argelia",
-            "analisis_tactico": "Equipo con vocación ofensiva que busca el control del balón mediante posesiones técnicas y utiliza extremos puros para generar desequilibrio exterior.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.5,
-                "posesion": 0.6,
-                "ritmo": 0.4,
-                "ancho": 0.7
+                "defensa": -0.6581,
+                "posesion": -0.4539,
+                "ritmo": -0.3275,
+                "ancho": 0.3549
             }
         },
         {
             "equipo": "Ghana",
-            "analisis_tactico": "Prioriza transiciones rápidas y potencia física individual sobre el control posicional, operando usualmente en un bloque medio-bajo.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Controla los tiempos con un ritmo pausado y circulación muy segura. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.2,
-                "posesion": -0.3,
-                "ritmo": 0.4,
-                "ancho": 0.5
+                "defensa": 0.2236,
+                "posesion": -0.5302,
+                "ritmo": -0.5118,
+                "ancho": 0.4597
             }
         },
         {
             "equipo": "Cabo Verde",
-            "analisis_tactico": "Estructura defensiva compacta y disciplinada que busca explotar espacios mediante ataques directos y velocidad por bandas.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.5,
-                "posesion": -0.4,
-                "ritmo": 0.3,
-                "ancho": 0.2
+                "defensa": 0.0402,
+                "posesion": -0.3078,
+                "ritmo": -0.5302,
+                "ancho": 0.0304
             }
         },
         {
             "equipo": "Sudáfrica",
-            "analisis_tactico": "Basada en el núcleo del Mamelodi Sundowns, destaca por una elaboración paciente desde atrás y una posesión asociativa superior al promedio regional.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.1,
-                "posesion": 0.6,
-                "ritmo": -0.4,
-                "ancho": -0.2
+                "defensa": -0.4656,
+                "posesion": -0.063,
+                "ritmo": -0.3376,
+                "ancho": -0.2787
             }
         },
         {
             "equipo": "Qatar",
-            "analisis_tactico": "Modelo reactivo consolidado que cede la iniciativa para castigar en transiciones verticales, manteniendo un bloque defensivo muy profundo.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.6,
-                "posesion": -0.5,
-                "ritmo": 0.2,
-                "ancho": 0.3
+                "defensa": -0.3403,
+                "posesion": -0.0207,
+                "ritmo": -0.4896,
+                "ancho": 0.5551
             }
         },
         {
             "equipo": "Inglaterra",
-            "analisis_tactico": "Enfoque de control absoluto mediante posesiones largas y seguras, con una presión alta selectiva pero un ritmo de circulación pausado.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.6,
-                "posesion": 0.8,
-                "ritmo": -0.6,
-                "ancho": 0.4
+                "defensa": 0.8679,
+                "posesion": 0.8316,
+                "ritmo": 0.2099,
+                "ancho": -0.6971
             }
         },
         {
             "equipo": "Arabia Saudita",
-            "analisis_tactico": "Se caracteriza por una línea defensiva extremadamente alta y un sistema de presión agresivo. Buscan el protagonismo mediante una posesión asociativa pero con ráfagas de verticalidad.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.75,
-                "posesion": 0.3,
-                "ritmo": 0.4,
-                "ancho": 0.35
+                "defensa": -0.2307,
+                "posesion": 0.2523,
+                "ritmo": -0.3145,
+                "ancho": 0.1658
             }
         },
         {
             "equipo": "Costa de Marfil",
-            "analisis_tactico": "Equipo de gran potencia física que prioriza el despliegue por bandas y transiciones rápidas. Alternan bloques medios con una verticalidad constante tras recuperación.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.2,
-                "posesion": 0.1,
-                "ritmo": 0.65,
-                "ancho": 0.75
+                "defensa": -0.2173,
+                "posesion": -0.1578,
+                "ritmo": 0.0893,
+                "ancho": 0.3306
             }
         },
         {
             "equipo": "Senegal",
-            "analisis_tactico": "Solidez estructural en bloque medio-bajo con un enfoque directo hacia sus extremos. Prefieren el juego físico y los ataques rápidos sobre la elaboración pausada.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.1,
-                "posesion": -0.25,
-                "ritmo": 0.55,
-                "ancho": 0.6
+                "defensa": -0.2683,
+                "posesion": -0.06,
+                "ritmo": 0.0749,
+                "ancho": -0.2512
             }
         },
         {
             "equipo": "Francia",
-            "analisis_tactico": "Especialistas en el repliegue táctico y contragolpes quirúrgicos de máxima velocidad. Renuncian voluntariamente a la posesión para explotar el espacio con transiciones verticales.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": -0.35,
-                "posesion": -0.15,
-                "ritmo": 0.85,
-                "ancho": 0.5
+                "defensa": 0.8746,
+                "posesion": 0.7353,
+                "ritmo": 0.8075,
+                "ancho": -0.6298
             }
         },
         {
             "equipo": "Croacia",
-            "analisis_tactico": "Dominio absoluto del ritmo mediante un mediocampo técnico que prioriza la posesión y el control horizontal. Su juego es pausado, buscando desgastar al rival antes de profundizar.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.15,
-                "posesion": 0.9,
-                "ritmo": -0.75,
-                "ancho": -0.2
+                "defensa": 0.5303,
+                "posesion": 0.6854,
+                "ritmo": 0.7747,
+                "ancho": 0.2772
             }
         },
         {
             "equipo": "Portugal",
-            "analisis_tactico": "Bajo Roberto Martínez, el equipo prioriza una presión alta coordinada y una posesión dominante, utilizando laterales profundos para generar amplitud ofensiva.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.65,
-                "posesion": 0.75,
-                "ritmo": 0.2,
-                "ancho": 0.6
+                "defensa": 0.8085,
+                "posesion": 0.6984,
+                "ritmo": 0.8229,
+                "ancho": -0.5302
             }
         },
         {
             "equipo": "Noruega",
-            "analisis_tactico": "Estructura de bloque medio que busca transiciones verticales rápidas para explotar la potencia de Haaland, con un juego directo y menos elaboración.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.1,
-                "posesion": -0.3,
-                "ritmo": 0.65,
-                "ancho": 0.3
+                "defensa": 0.3443,
+                "posesion": -0.0118,
+                "ritmo": 0.8421,
+                "ancho": -0.4243
             }
         },
         {
             "equipo": "Alemania",
-            "analisis_tactico": "Modelo de Nagelsmann basado en una presión asfixiante tras pérdida y posesión agresiva, con mucha movilidad interior y un ritmo de juego frenético.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.85,
-                "posesion": 0.8,
-                "ritmo": 0.75,
-                "ancho": 0.15
+                "defensa": 0.3847,
+                "posesion": 0.8448,
+                "ritmo": 0.1206,
+                "ancho": -0.4342
             }
         },
         {
             "equipo": "Países Bajos",
-            "analisis_tactico": "Mantiene la tradición del juego de posición con salida limpia desde el fondo, utilizando extremos abiertos para estirar el campo y una defensa adelantada.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.55,
-                "posesion": 0.65,
-                "ritmo": 0.1,
-                "ancho": 0.75
+                "defensa": 0.6796,
+                "posesion": 0.6243,
+                "ritmo": 0.2536,
+                "ancho": -0.5005
             }
         },
         {
             "equipo": "Bélgica",
-            "analisis_tactico": "Transición hacia un estilo de contraataque letal y verticalidad extrema, aprovechando la velocidad de sus extremos en situaciones de uno contra uno.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.35,
-                "posesion": -0.15,
-                "ritmo": 0.85,
-                "ancho": 0.9
+                "defensa": 0.7483,
+                "posesion": 0.6096,
+                "ritmo": 0.7531,
+                "ancho": -0.2557
             }
         },
         {
             "equipo": "Austria",
-            "analisis_tactico": "Bajo la tutela de Rangnick, Austria ejecuta una presión alta asfixiante y transiciones verticales extremas, priorizando el ritmo frenético sobre la posesión horizontal.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Desarrolla el juego a un ritmo moderado y controlado. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.85,
-                "posesion": -0.3,
-                "ritmo": 0.9,
-                "ancho": 0.2
+                "defensa": 0.2144,
+                "posesion": 0.4645,
+                "ritmo": -0.2364,
+                "ancho": -0.2469
             }
         },
         {
             "equipo": "España",
-            "analisis_tactico": "Evolución hacia un modelo de posesión dominante pero más vertical, utilizando extremos puros para generar amplitud y una presión tras pérdida muy agresiva.",
+            "analisis_tactico": "Ejecuta una presión alta asfixiante con una defensa adelantada y proactiva. Privilegia la posesión paciente y asociativa para controlar el ritmo del encuentro. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.8,
-                "posesion": 0.85,
-                "ritmo": 0.4,
-                "ancho": 0.9
+                "defensa": 0.7637,
+                "posesion": 0.7614,
+                "ritmo": 0.8015,
+                "ancho": -0.7468
             }
         },
         {
             "equipo": "Suiza",
-            "analisis_tactico": "Sistema basado en la organización estructural y bloque medio-alto, con una circulación de balón paciente y técnica que busca desordenar al rival sin arriesgar en exceso.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.3,
-                "posesion": 0.5,
-                "ritmo": -0.2,
-                "ancho": 0.4
+                "defensa": 0.18,
+                "posesion": 0.2786,
+                "ritmo": -0.5294,
+                "ancho": -0.5172
             }
         },
         {
             "equipo": "Escocia",
-            "analisis_tactico": "Enfoque pragmático con repliegue en bloque bajo y juego directo, buscando maximizar las segundas jugadas y la potencia física en duelos aéreos y transiciones.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.7,
-                "posesion": -0.6,
-                "ritmo": 0.3,
-                "ancho": 0.1
+                "defensa": -0.5014,
+                "posesion": -0.5588,
+                "ritmo": 0.2579,
+                "ancho": 0.858
             }
         },
         {
             "equipo": "Panamá",
-            "analisis_tactico": "Propuesta asociativa que intenta construir desde el fondo con paciencia, aunque tiende a un repliegue ordenado y ataques por bandas cuando enfrenta a potencias.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": -0.2,
-                "posesion": 0.3,
-                "ritmo": 0.1,
-                "ancho": 0.5
+                "defensa": -0.0826,
+                "posesion": 0.3774,
+                "ritmo": 0.056,
+                "ancho": -0.4767
             }
         },
         {
             "equipo": "Haití",
-            "analisis_tactico": "Prioriza el repliegue en bloque medio-bajo y transiciones rápidas aprovechando la potencia física de sus atacantes en campo abierto.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.4,
-                "posesion": -0.5,
-                "ritmo": 0.6,
-                "ancho": 0.3
+                "defensa": -0.3736,
+                "posesion": -0.7669,
+                "ritmo": -0.2526,
+                "ancho": 0.8647
             }
         },
         {
             "equipo": "Curazao",
-            "analisis_tactico": "Mantiene una marcada influencia técnica neerlandesa buscando la salida limpia, aunque se ve forzada al repliegue ante rivales de mayor jerarquía.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": -0.3,
-                "posesion": 0.2,
-                "ritmo": -0.2,
-                "ancho": 0.4
+                "defensa": -0.7621,
+                "posesion": -0.5912,
+                "ritmo": -0.8577,
+                "ancho": -0.0874
             }
         },
         {
             "equipo": "Bosnia y Herzegovina",
-            "analisis_tactico": "Estructura defensiva rígida con tendencia al juego directo hacia sus referentes de área, priorizando la densidad en el carril central.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Imprime un ritmo de juego frenético y de alta velocidad en la finalización de jugadas. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.5,
-                "posesion": -0.2,
-                "ritmo": -0.4,
-                "ancho": -0.3
+                "defensa": -0.5629,
+                "posesion": -0.454,
+                "ritmo": 0.6883,
+                "ancho": 0.5707
             }
         },
         {
             "equipo": "Suecia",
-            "analisis_tactico": "Evolucionando hacia una presión más alta y proactiva, combinando su tradicional orden defensivo con una mayor verticalidad por bandas.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Controla los tiempos con un ritmo pausado y circulación muy segura. Alterna el ataque por bandas con la penetración central según los espacios.",
             "vector": {
-                "defensa": 0.4,
-                "posesion": 0.3,
-                "ritmo": 0.5,
-                "ancho": 0.6
+                "defensa": -0.0973,
+                "posesion": -0.3313,
+                "ritmo": -0.5255,
+                "ancho": -0.2619
             }
         },
         {
             "equipo": "Turquía",
-            "analisis_tactico": "Sistema de alta intensidad con presión asfixiante en campo rival y transiciones verticales frenéticas lideradas por talento individual dinámico.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Concentra sus ataques por los pasillos interiores y el juego interior por el centro.",
             "vector": {
-                "defensa": 0.7,
-                "posesion": 0.1,
-                "ritmo": 0.8,
-                "ancho": 0.5
+                "defensa": -0.1783,
+                "posesion": -0.053,
+                "ritmo": 0.2264,
+                "ancho": -0.4533
             }
         },
         {
             "equipo": "República Checa",
-            "analisis_tactico": "Equipo caracterizado por una presión media-alta y un juego muy vertical, priorizando el físico y los centros laterales sobre la elaboración pausada.",
+            "analisis_tactico": "Adopta un bloque medio equilibrado, alternando repliegue con momentos de presión activa. Mantiene una circulación de balón progresiva con equilibrio entre asociación y verticalidad. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": 0.4,
-                "posesion": -0.3,
-                "ritmo": 0.6,
-                "ancho": 0.5
+                "defensa": -0.2097,
+                "posesion": -0.2872,
+                "ritmo": 0.2902,
+                "ancho": 0.7408
             }
         },
         {
             "equipo": "República Democrática del Congo",
-            "analisis_tactico": "Estructura basada en un bloque medio-bajo sólido que busca transiciones explosivas aprovechando la velocidad de sus extremos en espacios abiertos.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.4,
-                "posesion": -0.6,
-                "ritmo": 0.7,
-                "ancho": 0.4
+                "defensa": -0.6398,
+                "posesion": -0.7802,
+                "ritmo": 0.383,
+                "ancho": 0.507
             }
         },
         {
             "equipo": "Irak",
-            "analisis_tactico": "Bajo la dirección de Jesús Casas, han evolucionado hacia un mayor control del balón, aunque mantienen una naturaleza competitiva de repliegue y juego interior.",
+            "analisis_tactico": "Se organiza en un bloque bajo muy denso, priorizando la solidez y el repliegue. Apuesta por transiciones rápidas y juego vertical directo tras recuperar el balón. Desarrolla el juego a un ritmo moderado y controlado. Busca abrir la cancha explotando al máximo la amplitud y el desborde por las bandas.",
             "vector": {
-                "defensa": -0.2,
-                "posesion": 0.2,
-                "ritmo": 0.3,
-                "ancho": -0.1
+                "defensa": -0.6151,
+                "posesion": -0.6165,
+                "ritmo": -0.3614,
+                "ancho": 0.8012
             }
         }
     ]
