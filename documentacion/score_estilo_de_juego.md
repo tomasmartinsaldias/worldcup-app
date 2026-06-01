@@ -50,6 +50,8 @@ Para estructurar el sistema se requiere la parametrización de las 48 seleccione
 
 Para solucionar esto, se implementó una **Inferencia Heurística Zero-Shot** mediante Modelos de Lenguaje Grande (LLMs) configurados con prompting analítico estructurado y restricciones de formato JSON. Esto permite deducir con precisión los perfiles tácticos basados en el comportamiento histórico del equipo en grandes citas, corrigiendo las distorsiones estadísticas de sus eliminatorias.
 
+La viabilidad de esta técnica se fundamenta en la literatura reciente sobre procesamiento de lenguaje natural aplicado al razonamiento cuantitativo. Como demuestran Chowdhury y Caragea (2025), es metodológicamente robusto utilizar un LLM en un entorno zero-shot mediante prompting estructurado para evaluar lógicas complejas y extraer de ellas un puntaje escalar continuo. En esta arquitectura, se forzó la salida del modelo a un formato de datos estricto (JSON Constraining) con una temperatura cercana a cero (0.1) para suprimir la alucinación estocástica. El modelo evaluó a cada equipo y mapeó su intención táctica mundialista directamente sobre el espacio vectorial continuo de -1.0 a 1.0 en sus cuatro dimensiones (Defensa, Posesión, Ritmo y Ancho).
+
 ### 5.2. Validación Empírica y Desviación del Modelo
 Para comprobar la consistencia de los vectores tácticos generados sintéticamente, se construyó una **Verdad Fundamental (Ground Truth)** empírica recopilando las métricas de rendimiento real de un grupo de control de 7 selecciones en SofaScore (Alemania, Argentina, España, Francia, Jordania, Panamá y Senegal), normalizando sus valores al rango $[-1.0, 1.0]$ mediante un escalamiento Min-Max.
 
