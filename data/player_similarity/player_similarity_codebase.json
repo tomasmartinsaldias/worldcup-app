@@ -1,12 +1,12 @@
 [
     {
-        "long_name":"Oumar Diakit\u00e9",
+        "long_name":"Oumar Diakité",
         "overall":72,
         "potential":82,
         "age":21,
         "height_cm":182,
         "weight_kg":75,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":2,
         "pace":82.0,
         "passing":57.0,
@@ -45,7 +45,7 @@
         "defending_sliding_tackle":12
     },
     {
-        "long_name":"Achraf Hakimi Mouh\u0623\u0634\u0631\u0641 \u062d\u0643\u064a\u0645\u064a",
+        "long_name":"Achraf Hakimi Mouhأشرف حكيمي",
         "overall":89,
         "potential":90,
         "age":26,
@@ -135,7 +135,7 @@
         "defending_sliding_tackle":74
     },
     {
-        "long_name":"Rodrigo Hern\u00e1ndez Cascante",
+        "long_name":"Rodrigo Hernández Cascante",
         "overall":90,
         "potential":90,
         "age":29,
@@ -180,13 +180,13 @@
         "defending_sliding_tackle":82
     },
     {
-        "long_name":"Gu\u00e9la Dou\u00e9",
+        "long_name":"Guéla Doué",
         "overall":77,
         "potential":82,
         "age":22,
         "height_cm":187,
         "weight_kg":84,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":72.0,
         "passing":70.0,
@@ -225,7 +225,7 @@
         "defending_sliding_tackle":75
     },
     {
-        "long_name":"Juli\u00e1n \u00c1lvarez",
+        "long_name":"Julián Álvarez",
         "overall":87,
         "potential":90,
         "age":25,
@@ -360,7 +360,7 @@
         "defending_sliding_tackle":74
     },
     {
-        "long_name":"Mohamed Salah Hamed Ghaly\u0645\u062d\u0645\u062f \u0635\u0644\u0627\u062d",
+        "long_name":"Mohamed Salah Hamed Ghalyمحمد صلاح",
         "overall":91,
         "potential":91,
         "age":33,
@@ -501,7 +501,7 @@
         "age":26,
         "height_cm":196,
         "weight_kg":90,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":1,
         "pace":null,
         "passing":null,
@@ -720,7 +720,7 @@
         "defending_sliding_tackle":60
     },
     {
-        "long_name":"Bruno Guimar\u00e3es Rodrigues Moura",
+        "long_name":"Bruno Guimarães Rodrigues Moura",
         "overall":86,
         "potential":87,
         "age":27,
@@ -765,7 +765,7 @@
         "defending_sliding_tackle":81
     },
     {
-        "long_name":"Masour Ousmane Demb\u00e9l\u00e9",
+        "long_name":"Masour Ousmane Dembélé",
         "overall":90,
         "potential":90,
         "age":28,
@@ -855,7 +855,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Nayef Aguerd\u0646\u0627\u064a\u0641 \u0623\u0643\u0631\u062f",
+        "long_name":"Nayef Aguerdنايف أكرد",
         "overall":81,
         "potential":82,
         "age":29,
@@ -990,7 +990,7 @@
         "defending_sliding_tackle":55
     },
     {
-        "long_name":"Alejandro Grimaldo Garc\u00eda",
+        "long_name":"Alejandro Grimaldo García",
         "overall":84,
         "potential":84,
         "age":29,
@@ -1080,7 +1080,7 @@
         "defending_sliding_tackle":80
     },
     {
-        "long_name":"Mikel Merino Zaz\u00f3n",
+        "long_name":"Mikel Merino Zazón",
         "overall":83,
         "potential":83,
         "age":29,
@@ -1125,7 +1125,7 @@
         "defending_sliding_tackle":76
     },
     {
-        "long_name":"Kylian Mbapp\u00e9 Lottin",
+        "long_name":"Kylian Mbappé Lottin",
         "overall":91,
         "potential":94,
         "age":26,
@@ -1170,7 +1170,7 @@
         "defending_sliding_tackle":32
     },
     {
-        "long_name":"Luka Vu\u0161kovi\u0107",
+        "long_name":"Luka Vušković",
         "overall":72,
         "potential":87,
         "age":18,
@@ -1305,7 +1305,7 @@
         "defending_sliding_tackle":72
     },
     {
-        "long_name":"Josu\u00e9 Casimir",
+        "long_name":"Josué Casimir",
         "overall":71,
         "potential":76,
         "age":23,
@@ -1350,7 +1350,7 @@
         "defending_sliding_tackle":37
     },
     {
-        "long_name":"Ivan Peri\u0161i\u0107",
+        "long_name":"Ivan Perišić",
         "overall":81,
         "potential":81,
         "age":36,
@@ -1575,7 +1575,7 @@
         "defending_sliding_tackle":15
     },
     {
-        "long_name":"Luka Modri\u0107",
+        "long_name":"Luka Modrić",
         "overall":83,
         "potential":83,
         "age":39,
@@ -1800,7 +1800,7 @@
         "defending_sliding_tackle":75
     },
     {
-        "long_name":"Jo\u0161ko Gvardiol",
+        "long_name":"Joško Gvardiol",
         "overall":84,
         "potential":87,
         "age":23,
@@ -1845,7 +1845,7 @@
         "defending_sliding_tackle":84
     },
     {
-        "long_name":"Pavel \u0160ulc",
+        "long_name":"Pavel Šulc",
         "overall":77,
         "potential":80,
         "age":24,
@@ -1890,7 +1890,7 @@
         "defending_sliding_tackle":45
     },
     {
-        "long_name":"Daizen Maeda\u524d\u7530 \u5927\u7136",
+        "long_name":"Daizen Maeda前田 大然",
         "overall":79,
         "potential":79,
         "age":27,
@@ -2115,7 +2115,7 @@
         "defending_sliding_tackle":53
     },
     {
-        "long_name":"Luk\u00e1\u0161 Provod",
+        "long_name":"Lukáš Provod",
         "overall":78,
         "potential":78,
         "age":28,
@@ -2205,7 +2205,7 @@
         "defending_sliding_tackle":18
     },
     {
-        "long_name":"Fabi\u00e1n Ruiz Pe\u00f1a",
+        "long_name":"Fabián Ruiz Peña",
         "overall":85,
         "potential":85,
         "age":29,
@@ -2250,7 +2250,7 @@
         "defending_sliding_tackle":75
     },
     {
-        "long_name":"Pascal Gro\u00df",
+        "long_name":"Pascal Groß",
         "overall":80,
         "potential":80,
         "age":34,
@@ -2430,7 +2430,7 @@
         "defending_sliding_tackle":79
     },
     {
-        "long_name":"Sa\u0161a Kalajd\u017ei\u0107",
+        "long_name":"Saša Kalajdžić",
         "overall":74,
         "potential":74,
         "age":27,
@@ -2475,7 +2475,7 @@
         "defending_sliding_tackle":47
     },
     {
-        "long_name":"D\u00e9sir\u00e9 Dou\u00e9",
+        "long_name":"Désiré Doué",
         "overall":85,
         "potential":91,
         "age":20,
@@ -2655,7 +2655,7 @@
         "defending_sliding_tackle":75
     },
     {
-        "long_name":"V\u00edctor Mu\u00f1oz Villanueva",
+        "long_name":"Víctor Muñoz Villanueva",
         "overall":65,
         "potential":77,
         "age":21,
@@ -2700,7 +2700,7 @@
         "defending_sliding_tackle":30
     },
     {
-        "long_name":"Sadio Man\u00e9",
+        "long_name":"Sadio Mané",
         "overall":83,
         "potential":83,
         "age":33,
@@ -2745,7 +2745,7 @@
         "defending_sliding_tackle":38
     },
     {
-        "long_name":"N'Golo Kant\u00e9",
+        "long_name":"N'Golo Kanté",
         "overall":85,
         "potential":85,
         "age":34,
@@ -2796,7 +2796,7 @@
         "age":23,
         "height_cm":175,
         "weight_kg":68,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":87.0,
         "passing":70.0,
@@ -2880,7 +2880,7 @@
         "defending_sliding_tackle":44
     },
     {
-        "long_name":"Mateo Kova\u010di\u0107",
+        "long_name":"Mateo Kovačić",
         "overall":83,
         "potential":83,
         "age":31,
@@ -2925,7 +2925,7 @@
         "defending_sliding_tackle":79
     },
     {
-        "long_name":"Samir El Mourabet\u0633\u0645\u064a\u0631 \u0627\u0644\u0645\u0631\u0627\u0628\u0637",
+        "long_name":"Samir El Mourabetسمير المرابط",
         "overall":66,
         "potential":77,
         "age":19,
@@ -2970,7 +2970,7 @@
         "defending_sliding_tackle":56
     },
     {
-        "long_name":"Ayase Ueda\u4e0a\u7530 \u7dba\u4e16",
+        "long_name":"Ayase Ueda上田 綺世",
         "overall":74,
         "potential":75,
         "age":26,
@@ -3015,7 +3015,7 @@
         "defending_sliding_tackle":22
     },
     {
-        "long_name":"Warren Za\u00efre-Emery",
+        "long_name":"Warren Zaïre-Emery",
         "overall":80,
         "potential":87,
         "age":19,
@@ -3060,7 +3060,7 @@
         "defending_sliding_tackle":73
     },
     {
-        "long_name":"Luka Su\u010di\u0107",
+        "long_name":"Luka Sučić",
         "overall":78,
         "potential":86,
         "age":22,
@@ -3150,7 +3150,7 @@
         "defending_sliding_tackle":30
     },
     {
-        "long_name":"Mart\u00edn Zubimendi Ib\u00e1\u00f1ez",
+        "long_name":"Martín Zubimendi Ibáñez",
         "overall":83,
         "potential":87,
         "age":26,
@@ -3195,7 +3195,7 @@
         "defending_sliding_tackle":79
     },
     {
-        "long_name":"Daniel Mu\u00f1oz Mej\u00eda",
+        "long_name":"Daniel Muñoz Mejía",
         "overall":81,
         "potential":81,
         "age":29,
@@ -3285,7 +3285,7 @@
         "defending_sliding_tackle":15
     },
     {
-        "long_name":"Martin Erli\u0107",
+        "long_name":"Martin Erlić",
         "overall":72,
         "potential":73,
         "age":27,
@@ -3426,7 +3426,7 @@
         "age":18,
         "height_cm":181,
         "weight_kg":76,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":71.0,
         "passing":62.0,
@@ -3645,7 +3645,7 @@
         "defending_sliding_tackle":87
     },
     {
-        "long_name":"Mario Pa\u0161ali\u0107",
+        "long_name":"Mario Pašalić",
         "overall":80,
         "potential":80,
         "age":30,
@@ -4005,7 +4005,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Lisandro Mart\u00ednez",
+        "long_name":"Lisandro Martínez",
         "overall":81,
         "potential":82,
         "age":27,
@@ -4185,7 +4185,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Anis Ben Slimane\u0623\u0646\u064a\u0633 \u0628\u0646 \u0633\u0644\u064a\u0645\u0627\u0646",
+        "long_name":"Anis Ben Slimaneأنيس بن سليمان",
         "overall":67,
         "potential":71,
         "age":24,
@@ -4275,7 +4275,7 @@
         "defending_sliding_tackle":16
     },
     {
-        "long_name":"Tom\u00e1\u0161 Ladra",
+        "long_name":"Tomáš Ladra",
         "overall":72,
         "potential":72,
         "age":28,
@@ -4320,7 +4320,7 @@
         "defending_sliding_tackle":46
     },
     {
-        "long_name":"Jos\u00e9 Diogo Dalot Teixeira",
+        "long_name":"José Diogo Dalot Teixeira",
         "overall":79,
         "potential":81,
         "age":26,
@@ -4500,7 +4500,7 @@
         "defending_sliding_tackle":59
     },
     {
-        "long_name":"Sofyan Amrabat\u0633\u0641\u064a\u0627\u0646 \u0623\u0645\u0631\u0627\u0628\u0637",
+        "long_name":"Sofyan Amrabatسفيان أمرابط",
         "overall":78,
         "potential":78,
         "age":28,
@@ -4770,7 +4770,7 @@
         "defending_sliding_tackle":23
     },
     {
-        "long_name":"Noussair Mazraoui\u0646\u0635\u064a\u0631 \u0645\u0632\u0631\u0627\u0648\u064a",
+        "long_name":"Noussair Mazraouiنصير مزراوي",
         "overall":80,
         "potential":81,
         "age":27,
@@ -4860,7 +4860,7 @@
         "defending_sliding_tackle":27
     },
     {
-        "long_name":"Mat\u011bj Kov\u00e1\u0159",
+        "long_name":"Matěj Kovář",
         "overall":75,
         "potential":80,
         "age":25,
@@ -5040,7 +5040,7 @@
         "defending_sliding_tackle":75
     },
     {
-        "long_name":"Rayan A\u00eft Nouri\u0631\u064a\u0627\u0646 \u0622\u064a\u062a \u0646\u0648\u0631\u064a",
+        "long_name":"Rayan Aït Nouriريان آيت نوري",
         "overall":81,
         "potential":85,
         "age":24,
@@ -5130,7 +5130,7 @@
         "defending_sliding_tackle":73
     },
     {
-        "long_name":"Jo\u00e3o F\u00e9lix Sequeira",
+        "long_name":"João Félix Sequeira",
         "overall":79,
         "potential":82,
         "age":25,
@@ -5265,7 +5265,7 @@
         "defending_sliding_tackle":50
     },
     {
-        "long_name":"Nikola Vla\u0161i\u0107",
+        "long_name":"Nikola Vlašić",
         "overall":79,
         "potential":79,
         "age":27,
@@ -5445,7 +5445,7 @@
         "defending_sliding_tackle":20
     },
     {
-        "long_name":"Keisuke Goto\u5f8c\u85e4 \u5553\u4ecb",
+        "long_name":"Keisuke Goto後藤 啓介",
         "overall":57,
         "potential":68,
         "age":20,
@@ -5490,7 +5490,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Andrej Kramari\u0107",
+        "long_name":"Andrej Kramarić",
         "overall":81,
         "potential":81,
         "age":34,
@@ -5535,7 +5535,7 @@
         "defending_sliding_tackle":26
     },
     {
-        "long_name":"Cristian Rold\u00e1n",
+        "long_name":"Cristian Roldán",
         "overall":74,
         "potential":74,
         "age":30,
@@ -5715,7 +5715,7 @@
         "defending_sliding_tackle":27
     },
     {
-        "long_name":"Ricardo Rodr\u00edguez Gil-Carcedo",
+        "long_name":"Ricardo Rodríguez Gil-Carcedo",
         "overall":70,
         "potential":71,
         "age":27,
@@ -5760,7 +5760,7 @@
         "defending_sliding_tackle":54
     },
     {
-        "long_name":"Jind\u0159ich Stan\u011bk",
+        "long_name":"Jindřich Staněk",
         "overall":76,
         "potential":76,
         "age":29,
@@ -5805,7 +5805,7 @@
         "defending_sliding_tackle":15
     },
     {
-        "long_name":"Daichi Kamada\u938c\u7530 \u5927\u5730",
+        "long_name":"Daichi Kamada鎌田 大地",
         "overall":77,
         "potential":77,
         "age":28,
@@ -5895,7 +5895,7 @@
         "defending_sliding_tackle":66
     },
     {
-        "long_name":"Zion Suzuki\u9234\u6728 \u5f69\u8276",
+        "long_name":"Zion Suzuki鈴木 彩艶",
         "overall":74,
         "potential":82,
         "age":22,
@@ -5940,7 +5940,7 @@
         "defending_sliding_tackle":13
     },
     {
-        "long_name":"Juan Camilo Hern\u00e1ndez Su\u00e1rez",
+        "long_name":"Juan Camilo Hernández Suárez",
         "overall":78,
         "potential":81,
         "age":26,
@@ -6030,7 +6030,7 @@
         "defending_sliding_tackle":80
     },
     {
-        "long_name":"Ahmed Reda Tagnaouti\u0623\u062d\u0645\u062f \u0631\u0636\u0649 \u0627\u0644\u062a\u063a\u0646\u0627\u0648\u062a\u064a",
+        "long_name":"Ahmed Reda Tagnaoutiأحمد رضى التغناوتي",
         "overall":70,
         "potential":72,
         "age":29,
@@ -6345,7 +6345,7 @@
         "defending_sliding_tackle":76
     },
     {
-        "long_name":"Ladislav Krej\u010d\u00ed",
+        "long_name":"Ladislav Krejčí",
         "overall":78,
         "potential":82,
         "age":26,
@@ -6435,7 +6435,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Hannibal Mejbri\u062d\u0646\u0628\u0639\u0644 \u0627\u0644\u0645\u062c\u0628\u0631\u064a",
+        "long_name":"Hannibal Mejbriحنبعل المجبري",
         "overall":74,
         "potential":82,
         "age":22,
@@ -6480,7 +6480,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Jean-K\u00e9vin Duverne",
+        "long_name":"Jean-Kévin Duverne",
         "overall":71,
         "potential":71,
         "age":27,
@@ -6525,7 +6525,7 @@
         "defending_sliding_tackle":72
     },
     {
-        "long_name":"Pau Cubars\u00ed Paredes",
+        "long_name":"Pau Cubarsí Paredes",
         "overall":82,
         "potential":88,
         "age":18,
@@ -6570,7 +6570,7 @@
         "defending_sliding_tackle":82
     },
     {
-        "long_name":"Amar Memi\u0107",
+        "long_name":"Amar Memić",
         "overall":72,
         "potential":74,
         "age":24,
@@ -6615,7 +6615,7 @@
         "defending_sliding_tackle":46
     },
     {
-        "long_name":"Ao Tanaka\u7530\u4e2d \u78a7",
+        "long_name":"Ao Tanaka田中 碧",
         "overall":76,
         "potential":79,
         "age":26,
@@ -6660,7 +6660,7 @@
         "defending_sliding_tackle":72
     },
     {
-        "long_name":"Aleksandar Pavlovi\u0107",
+        "long_name":"Aleksandar Pavlović",
         "overall":79,
         "potential":87,
         "age":21,
@@ -6705,7 +6705,7 @@
         "defending_sliding_tackle":77
     },
     {
-        "long_name":"Ismael Saibari Ben El Basra\u0625\u0633\u0645\u0627\u0639\u064a\u0644 \u0635\u064a\u0628\u0627\u0631\u064a",
+        "long_name":"Ismael Saibari Ben El Basraإسماعيل صيباري",
         "overall":79,
         "potential":84,
         "age":23,
@@ -6795,7 +6795,7 @@
         "defending_sliding_tackle":72
     },
     {
-        "long_name":"Ferran Torres Garc\u00eda",
+        "long_name":"Ferran Torres García",
         "overall":83,
         "potential":86,
         "age":25,
@@ -6885,7 +6885,7 @@
         "defending_sliding_tackle":72
     },
     {
-        "long_name":"Mortadha Ben Ouanes\u0645\u0631\u062a\u0636\u0649 \u0628\u0646 \u0648\u0646\u0627\u0633",
+        "long_name":"Mortadha Ben Ouanesمرتضى بن وناس",
         "overall":69,
         "potential":69,
         "age":30,
@@ -7065,7 +7065,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Chadi Riad Dnanou\u0634\u0627\u062f\u064a \u0631\u064a\u0627\u0636 \u062f\u0646\u0627\u0646\u0648",
+        "long_name":"Chadi Riad Dnanouشادي رياض دنانو",
         "overall":72,
         "potential":81,
         "age":22,
@@ -7245,7 +7245,7 @@
         "defending_sliding_tackle":12
     },
     {
-        "long_name":"Antonio R\u00fcdiger",
+        "long_name":"Antonio Rüdiger",
         "overall":86,
         "potential":86,
         "age":32,
@@ -7425,7 +7425,7 @@
         "defending_sliding_tackle":69
     },
     {
-        "long_name":"Mojm\u00edr Chytil",
+        "long_name":"Mojmír Chytil",
         "overall":74,
         "potential":76,
         "age":26,
@@ -7650,7 +7650,7 @@
         "defending_sliding_tackle":30
     },
     {
-        "long_name":"Sebastian Tounekti\u0633\u064a\u0628\u0627\u0633\u062a\u064a\u0627\u0646 \u062a\u0648\u0646\u0627\u0643\u062a\u064a",
+        "long_name":"Sebastian Tounektiسيباستيان توناكتي",
         "overall":69,
         "potential":76,
         "age":22,
@@ -7695,7 +7695,7 @@
         "defending_sliding_tackle":26
     },
     {
-        "long_name":"Marin Pongra\u010di\u0107",
+        "long_name":"Marin Pongračić",
         "overall":74,
         "potential":76,
         "age":27,
@@ -7740,7 +7740,7 @@
         "defending_sliding_tackle":73
     },
     {
-        "long_name":"Jos\u00e9 Manuel L\u00f3pez P\u00e9rez",
+        "long_name":"José Manuel López Pérez",
         "overall":60,
         "potential":66,
         "age":22,
@@ -7920,7 +7920,7 @@
         "defending_sliding_tackle":10
     },
     {
-        "long_name":"Ayoub El Kaabi\u0623\u064a\u0648\u0628 \u0627\u0644\u0643\u0639\u0628\u064a",
+        "long_name":"Ayoub El Kaabiأيوب الكعبي",
         "overall":80,
         "potential":80,
         "age":32,
@@ -7965,7 +7965,7 @@
         "defending_sliding_tackle":42
     },
     {
-        "long_name":"Takefusa Kubo\u4e45\u4fdd \u5efa\u82f1",
+        "long_name":"Takefusa Kubo久保 建英",
         "overall":82,
         "potential":86,
         "age":24,
@@ -8055,7 +8055,7 @@
         "defending_sliding_tackle":28
     },
     {
-        "long_name":"Wataru Endo\u9060\u85e4 \u822a",
+        "long_name":"Wataru Endo遠藤 航",
         "overall":79,
         "potential":79,
         "age":32,
@@ -8100,7 +8100,7 @@
         "defending_sliding_tackle":73
     },
     {
-        "long_name":"Junya Ito\u4f0a\u6771 \u7d14\u4e5f",
+        "long_name":"Junya Ito伊東 純也",
         "overall":77,
         "potential":77,
         "age":32,
@@ -8145,7 +8145,7 @@
         "defending_sliding_tackle":56
     },
     {
-        "long_name":"Jos\u00e9 Fajardo Nelson",
+        "long_name":"José Fajardo Nelson",
         "overall":68,
         "potential":68,
         "age":31,
@@ -8190,7 +8190,7 @@
         "defending_sliding_tackle":22
     },
     {
-        "long_name":"Alexander N\u00fcbel",
+        "long_name":"Alexander Nübel",
         "overall":81,
         "potential":82,
         "age":28,
@@ -8415,7 +8415,7 @@
         "defending_sliding_tackle":81
     },
     {
-        "long_name":"Eric Garc\u00eda Martret",
+        "long_name":"Eric García Martret",
         "overall":79,
         "potential":84,
         "age":24,
@@ -8505,13 +8505,13 @@
         "defending_sliding_tackle":24
     },
     {
-        "long_name":"Nicolas P\u00e9p\u00e9",
+        "long_name":"Nicolas Pépé",
         "overall":80,
         "potential":80,
         "age":30,
         "height_cm":183,
         "weight_kg":73,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":4,
         "pace":88.0,
         "passing":76.0,
@@ -8781,7 +8781,7 @@
         "age":24,
         "height_cm":194,
         "weight_kg":89,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":1,
         "pace":null,
         "passing":null,
@@ -8820,7 +8820,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Zakaria El Ouahdi\u0632\u0643\u0631\u064a\u0627 \u0627\u0644\u0648\u0627\u062d\u062f\u064a",
+        "long_name":"Zakaria El Ouahdiزكريا الواحدي",
         "overall":76,
         "potential":83,
         "age":23,
@@ -8865,7 +8865,7 @@
         "defending_sliding_tackle":77
     },
     {
-        "long_name":"Tom\u00e1\u0161 Hole\u0161",
+        "long_name":"Tomáš Holeš",
         "overall":76,
         "potential":76,
         "age":32,
@@ -9045,7 +9045,7 @@
         "defending_sliding_tackle":63
     },
     {
-        "long_name":"Ritsu Doan\u5802\u5b89 \u5f8b",
+        "long_name":"Ritsu Doan堂安 律",
         "overall":82,
         "potential":82,
         "age":27,
@@ -9135,7 +9135,7 @@
         "defending_sliding_tackle":66
     },
     {
-        "long_name":"Tom\u00e1\u0161 Sou\u010dek",
+        "long_name":"Tomáš Souček",
         "overall":78,
         "potential":78,
         "age":30,
@@ -9180,7 +9180,7 @@
         "defending_sliding_tackle":79
     },
     {
-        "long_name":"Tom\u00e1\u0161 Chor\u00fd",
+        "long_name":"Tomáš Chorý",
         "overall":75,
         "potential":75,
         "age":30,
@@ -9225,7 +9225,7 @@
         "defending_sliding_tackle":31
     },
     {
-        "long_name":"Nikola Kati\u0107",
+        "long_name":"Nikola Katić",
         "overall":69,
         "potential":71,
         "age":28,
@@ -9276,7 +9276,7 @@
         "age":21,
         "height_cm":190,
         "weight_kg":93,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":2,
         "pace":80.0,
         "passing":51.0,
@@ -9321,7 +9321,7 @@
         "age":24,
         "height_cm":169,
         "weight_kg":65,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":72.0,
         "passing":66.0,
@@ -9450,7 +9450,7 @@
         "defending_sliding_tackle":29
     },
     {
-        "long_name":"Davinson S\u00e1nchez Mina",
+        "long_name":"Davinson Sánchez Mina",
         "overall":82,
         "potential":82,
         "age":29,
@@ -9495,7 +9495,7 @@
         "defending_sliding_tackle":82
     },
     {
-        "long_name":"Samed Ba\u017edar\u0421\u0430\u043c\u0435\u0434 \u0411\u0430\u0436\u0434\u0430\u0440",
+        "long_name":"Samed BaždarСамед Баждар",
         "overall":69,
         "potential":80,
         "age":21,
@@ -9540,7 +9540,7 @@
         "defending_sliding_tackle":30
     },
     {
-        "long_name":"Michael Amir Murillo Berm\u00fadez",
+        "long_name":"Michael Amir Murillo Bermúdez",
         "overall":76,
         "potential":76,
         "age":29,
@@ -9630,7 +9630,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Tsuyoshi Watanabe\u6e21\u8fba \u525b",
+        "long_name":"Tsuyoshi Watanabe渡辺 剛",
         "overall":75,
         "potential":75,
         "age":28,
@@ -9720,7 +9720,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Amar Dedi\u0107",
+        "long_name":"Amar Dedić",
         "overall":74,
         "potential":79,
         "age":22,
@@ -9810,13 +9810,13 @@
         "defending_sliding_tackle":81
     },
     {
-        "long_name":"Cl\u00e9ment Akpa",
+        "long_name":"Clément Akpa",
         "overall":74,
         "potential":80,
         "age":23,
         "height_cm":183,
         "weight_kg":68,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":2,
         "pace":70.0,
         "passing":61.0,
@@ -9945,7 +9945,7 @@
         "defending_sliding_tackle":84
     },
     {
-        "long_name":"Neil El Aynaoui\u0646\u064a\u064a\u0644 \u0627\u0644\u0639\u064a\u0646\u0627\u0648\u064a",
+        "long_name":"Neil El Aynaouiنييل العيناوي",
         "overall":77,
         "potential":83,
         "age":23,
@@ -10035,7 +10035,7 @@
         "defending_sliding_tackle":35
     },
     {
-        "long_name":"Ali Abdi\u0639\u0644\u064a \u0627\u0644\u0639\u0627\u0628\u062f\u064a",
+        "long_name":"Ali Abdiعلي العابدي",
         "overall":76,
         "potential":76,
         "age":31,
@@ -10125,7 +10125,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Nidal \u010celik",
+        "long_name":"Nidal Čelik",
         "overall":64,
         "potential":78,
         "age":18,
@@ -10170,7 +10170,7 @@
         "defending_sliding_tackle":60
     },
     {
-        "long_name":"Ermedin Demirovi\u0107",
+        "long_name":"Ermedin Demirović",
         "overall":80,
         "potential":80,
         "age":27,
@@ -10260,7 +10260,7 @@
         "defending_sliding_tackle":20
     },
     {
-        "long_name":"David Jur\u00e1sek",
+        "long_name":"David Jurásek",
         "overall":73,
         "potential":77,
         "age":24,
@@ -10350,13 +10350,13 @@
         "defending_sliding_tackle":50
     },
     {
-        "long_name":"Amad Diallo Traor\u00e9",
+        "long_name":"Amad Diallo Traoré",
         "overall":79,
         "potential":85,
         "age":22,
         "height_cm":173,
         "weight_kg":67,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":4,
         "pace":85.0,
         "passing":75.0,
@@ -10485,7 +10485,7 @@
         "defending_sliding_tackle":80
     },
     {
-        "long_name":"Kento Shiogai\u5869\u8c9d \u5065\u4eba",
+        "long_name":"Kento Shiogai塩貝 健人",
         "overall":66,
         "potential":81,
         "age":20,
@@ -10530,13 +10530,13 @@
         "defending_sliding_tackle":19
     },
     {
-        "long_name":"Ibrahim Sangar\u00e9",
+        "long_name":"Ibrahim Sangaré",
         "overall":77,
         "potential":79,
         "age":27,
         "height_cm":191,
         "weight_kg":77,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":58.0,
         "passing":72.0,
@@ -10665,7 +10665,7 @@
         "defending_sliding_tackle":32
     },
     {
-        "long_name":"Ger\u00f3nimo Rulli",
+        "long_name":"Gerónimo Rulli",
         "overall":82,
         "potential":82,
         "age":33,
@@ -10845,7 +10845,7 @@
         "defending_sliding_tackle":19
     },
     {
-        "long_name":"Danilo Lu\u00eds H\u00e9lio Pereira",
+        "long_name":"Danilo Luís Hélio Pereira",
         "overall":81,
         "potential":81,
         "age":33,
@@ -10935,7 +10935,7 @@
         "defending_sliding_tackle":68
     },
     {
-        "long_name":"Duje \u0106aleta-Car",
+        "long_name":"Duje Ćaleta-Car",
         "overall":74,
         "potential":74,
         "age":28,
@@ -10980,7 +10980,7 @@
         "defending_sliding_tackle":73
     },
     {
-        "long_name":"Sead Kola\u0161inac",
+        "long_name":"Sead Kolašinac",
         "overall":79,
         "potential":79,
         "age":32,
@@ -11070,7 +11070,7 @@
         "defending_sliding_tackle":13
     },
     {
-        "long_name":"Dodi Luk\u00e9bakio Ngandoli",
+        "long_name":"Dodi Lukébakio Ngandoli",
         "overall":82,
         "potential":82,
         "age":27,
@@ -11160,7 +11160,7 @@
         "defending_sliding_tackle":67
     },
     {
-        "long_name":"Nihad Mujaki\u0107",
+        "long_name":"Nihad Mujakić",
         "overall":67,
         "potential":70,
         "age":27,
@@ -11250,7 +11250,7 @@
         "defending_sliding_tackle":13
     },
     {
-        "long_name":"Kr\u00e9pin Diatta",
+        "long_name":"Krépin Diatta",
         "overall":74,
         "potential":75,
         "age":26,
@@ -11295,7 +11295,7 @@
         "defending_sliding_tackle":55
     },
     {
-        "long_name":"Denis Vi\u0161insk\u00fd",
+        "long_name":"Denis Višinský",
         "overall":68,
         "potential":74,
         "age":22,
@@ -11385,7 +11385,7 @@
         "defending_sliding_tackle":59
     },
     {
-        "long_name":"Lamine Yamal Nasraoui Ebana\u0644\u0627\u0645\u064a\u0646 \u064a\u0627\u0645\u0627\u0644 \u0646\u0635\u0631\u0627\u0648\u064a \u0625\u0628\u0627\u0646\u0627",
+        "long_name":"Lamine Yamal Nasraoui Ebanaلامين يامال نصراوي إبانا",
         "overall":89,
         "potential":95,
         "age":17,
@@ -11430,7 +11430,7 @@
         "defending_sliding_tackle":28
     },
     {
-        "long_name":"Shogo Taniguchi\u8c37\u53e3 \u5f70\u609f",
+        "long_name":"Shogo Taniguchi谷口 彰悟",
         "overall":69,
         "potential":69,
         "age":33,
@@ -11475,7 +11475,7 @@
         "defending_sliding_tackle":67
     },
     {
-        "long_name":"Amir Had\u017eiahmetovi\u0107",
+        "long_name":"Amir Hadžiahmetović",
         "overall":73,
         "potential":73,
         "age":28,
@@ -11565,7 +11565,7 @@
         "defending_sliding_tackle":10
     },
     {
-        "long_name":"Hiroki Ito\u4f0a\u85e4 \u6d0b\u8f1d",
+        "long_name":"Hiroki Ito伊藤 洋輝",
         "overall":78,
         "potential":82,
         "age":26,
@@ -11745,7 +11745,7 @@
         "defending_sliding_tackle":27
     },
     {
-        "long_name":"Yukinari Sugawara\u83c5\u539f \u7531\u52e2",
+        "long_name":"Yukinari Sugawara菅原 由勢",
         "overall":74,
         "potential":78,
         "age":25,
@@ -11790,7 +11790,7 @@
         "defending_sliding_tackle":71
     },
     {
-        "long_name":"H\u00e5kan Gustaf Nilsson",
+        "long_name":"Håkan Gustaf Nilsson",
         "overall":75,
         "potential":75,
         "age":28,
@@ -11970,7 +11970,7 @@
         "defending_sliding_tackle":89
     },
     {
-        "long_name":"Esmir Bajraktarevi\u0107",
+        "long_name":"Esmir Bajraktarević",
         "overall":67,
         "potential":84,
         "age":20,
@@ -12105,7 +12105,7 @@
         "defending_sliding_tackle":32
     },
     {
-        "long_name":"Luk\u00e1\u0161 \u010cerv",
+        "long_name":"Lukáš Červ",
         "overall":74,
         "potential":78,
         "age":24,
@@ -12150,7 +12150,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Koki Ogawa\u5c0f\u5ddd \u822a\u57fa",
+        "long_name":"Koki Ogawa小川 航基",
         "overall":68,
         "potential":68,
         "age":27,
@@ -12195,7 +12195,7 @@
         "defending_sliding_tackle":19
     },
     {
-        "long_name":"Ayumu Seko\u702c\u53e4 \u6b69\u5922",
+        "long_name":"Ayumu Seko瀬古 歩夢",
         "overall":69,
         "potential":74,
         "age":25,
@@ -12246,7 +12246,7 @@
         "age":24,
         "height_cm":191,
         "weight_kg":82,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":2,
         "pace":80.0,
         "passing":64.0,
@@ -12285,7 +12285,7 @@
         "defending_sliding_tackle":80
     },
     {
-        "long_name":"Josip Stani\u0161i\u0107",
+        "long_name":"Josip Stanišić",
         "overall":78,
         "potential":82,
         "age":25,
@@ -12375,7 +12375,7 @@
         "defending_sliding_tackle":80
     },
     {
-        "long_name":"Luk\u00e1\u0161 Horn\u00ed\u010dek",
+        "long_name":"Lukáš Horníček",
         "overall":73,
         "potential":83,
         "age":22,
@@ -12465,7 +12465,7 @@
         "defending_sliding_tackle":13
     },
     {
-        "long_name":"Petar Su\u010di\u0107",
+        "long_name":"Petar Sučić",
         "overall":74,
         "potential":83,
         "age":21,
@@ -12510,7 +12510,7 @@
         "defending_sliding_tackle":58
     },
     {
-        "long_name":"Yuito Suzuki\u9234\u6728 \u552f\u4eba",
+        "long_name":"Yuito Suzuki鈴木 唯人",
         "overall":71,
         "potential":79,
         "age":23,
@@ -12600,7 +12600,7 @@
         "defending_sliding_tackle":74
     },
     {
-        "long_name":"Tarik Muharemovi\u0107",
+        "long_name":"Tarik Muharemović",
         "overall":70,
         "potential":79,
         "age":22,
@@ -12690,7 +12690,7 @@
         "defending_sliding_tackle":15
     },
     {
-        "long_name":"D\u017eenis Burni\u0107",
+        "long_name":"Dženis Burnić",
         "overall":68,
         "potential":68,
         "age":27,
@@ -12735,7 +12735,7 @@
         "defending_sliding_tackle":62
     },
     {
-        "long_name":"Matheus Nunes Fagundes de Ara\u00fajo",
+        "long_name":"Matheus Nunes Fagundes de Araújo",
         "overall":72,
         "potential":79,
         "age":24,
@@ -12780,7 +12780,7 @@
         "defending_sliding_tackle":66
     },
     {
-        "long_name":"Jaroslav Zelen\u00fd",
+        "long_name":"Jaroslav Zelený",
         "overall":72,
         "potential":72,
         "age":32,
@@ -12870,7 +12870,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Bilal El Khannouss\u0628\u0644\u0627\u0644 \u0627\u0644\u062e\u0646\u0648\u0635",
+        "long_name":"Bilal El Khannoussبلال الخنوص",
         "overall":76,
         "potential":84,
         "age":21,
@@ -13095,7 +13095,7 @@
         "defending_sliding_tackle":45
     },
     {
-        "long_name":"Kaishu Sano\u4f50\u91ce \u6d77\u821f",
+        "long_name":"Kaishu Sano佐野 海舟",
         "overall":79,
         "potential":83,
         "age":24,
@@ -13140,7 +13140,7 @@
         "defending_sliding_tackle":67
     },
     {
-        "long_name":"Ibrahima Konat\u00e9",
+        "long_name":"Ibrahima Konaté",
         "overall":86,
         "potential":87,
         "age":26,
@@ -13185,7 +13185,7 @@
         "defending_sliding_tackle":86
     },
     {
-        "long_name":"Josip \u0160utalo",
+        "long_name":"Josip Šutalo",
         "overall":78,
         "potential":82,
         "age":25,
@@ -13230,7 +13230,7 @@
         "defending_sliding_tackle":76
     },
     {
-        "long_name":"Nathana\u00ebl Mbuku",
+        "long_name":"Nathanaël Mbuku",
         "overall":70,
         "potential":76,
         "age":23,
@@ -13275,7 +13275,7 @@
         "defending_sliding_tackle":35
     },
     {
-        "long_name":"Juan Jos\u00e9 C\u00f3rdoba Zapata",
+        "long_name":"Juan José Córdoba Zapata",
         "overall":68,
         "potential":76,
         "age":21,
@@ -13320,7 +13320,7 @@
         "defending_sliding_tackle":22
     },
     {
-        "long_name":"Robin Hran\u00e1\u010d",
+        "long_name":"Robin Hranáč",
         "overall":71,
         "potential":74,
         "age":25,
@@ -13365,7 +13365,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"Valent\u00edn Barco",
+        "long_name":"Valentín Barco",
         "overall":75,
         "potential":83,
         "age":20,
@@ -13545,7 +13545,7 @@
         "defending_sliding_tackle":65
     },
     {
-        "long_name":"Alisson Rams\u00e9s Becker",
+        "long_name":"Alisson Ramsés Becker",
         "overall":89,
         "potential":89,
         "age":32,
@@ -13635,7 +13635,7 @@
         "defending_sliding_tackle":68
     },
     {
-        "long_name":"Kristijan Jaki\u0107",
+        "long_name":"Kristijan Jakić",
         "overall":76,
         "potential":76,
         "age":28,
@@ -13905,7 +13905,7 @@
         "defending_sliding_tackle":44
     },
     {
-        "long_name":"Adam Hlo\u017eek",
+        "long_name":"Adam Hložek",
         "overall":77,
         "potential":83,
         "age":22,
@@ -13950,13 +13950,13 @@
         "defending_sliding_tackle":23
     },
     {
-        "long_name":"Mohamed Kon\u00e9",
+        "long_name":"Mohamed Koné",
         "overall":68,
         "potential":75,
         "age":23,
         "height_cm":186,
         "weight_kg":78,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":1,
         "pace":null,
         "passing":null,
@@ -14085,7 +14085,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Carlos Luis Su\u00e1rez Mendoza",
+        "long_name":"Carlos Luis Suárez Mendoza",
         "overall":64,
         "potential":64,
         "age":33,
@@ -14130,7 +14130,7 @@
         "defending_sliding_tackle":65
     },
     {
-        "long_name":"Keito Nakamura\u4e2d\u6751 \u656c\u6597",
+        "long_name":"Keito Nakamura中村 敬斗",
         "overall":76,
         "potential":79,
         "age":24,
@@ -14175,7 +14175,7 @@
         "defending_sliding_tackle":35
     },
     {
-        "long_name":"Isma\u00ebl Gharbi \u00c1lvarez",
+        "long_name":"Ismaël Gharbi Álvarez",
         "overall":73,
         "potential":82,
         "age":21,
@@ -14310,7 +14310,7 @@
         "defending_sliding_tackle":62
     },
     {
-        "long_name":"Haris Tabakovi\u0107",
+        "long_name":"Haris Tabaković",
         "overall":73,
         "potential":73,
         "age":31,
@@ -14400,7 +14400,7 @@
         "defending_sliding_tackle":64
     },
     {
-        "long_name":"Unai Sim\u00f3n Mendibil",
+        "long_name":"Unai Simón Mendibil",
         "overall":85,
         "potential":86,
         "age":28,
@@ -14445,7 +14445,7 @@
         "defending_sliding_tackle":12
     },
     {
-        "long_name":"Jesper Karlstr\u00f6m",
+        "long_name":"Jesper Karlström",
         "overall":75,
         "potential":75,
         "age":30,
@@ -14490,7 +14490,7 @@
         "defending_sliding_tackle":70
     },
     {
-        "long_name":"\u0160t\u011bp\u00e1n Chaloupek",
+        "long_name":"Štěpán Chaloupek",
         "overall":70,
         "potential":76,
         "age":22,
@@ -14580,13 +14580,13 @@
         "defending_sliding_tackle":66
     },
     {
-        "long_name":"Bazoumana Tour\u00e9",
+        "long_name":"Bazoumana Touré",
         "overall":70,
         "potential":85,
         "age":19,
         "height_cm":175,
         "weight_kg":68,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":4,
         "pace":91.0,
         "passing":62.0,
@@ -14631,7 +14631,7 @@
         "age":25,
         "height_cm":192,
         "weight_kg":82,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":2,
         "pace":74.0,
         "passing":69.0,
@@ -14715,7 +14715,7 @@
         "defending_sliding_tackle":21
     },
     {
-        "long_name":"David Raya Mart\u00edn",
+        "long_name":"David Raya Martín",
         "overall":87,
         "potential":87,
         "age":29,
@@ -14760,7 +14760,7 @@
         "defending_sliding_tackle":13
     },
     {
-        "long_name":"Soufiane Rahimi\u0633\u0641\u064a\u0627\u0646 \u0631\u062d\u064a\u0645\u064a",
+        "long_name":"Soufiane Rahimiسفيان رحيمي",
         "overall":78,
         "potential":78,
         "age":29,
@@ -14850,7 +14850,7 @@
         "defending_sliding_tackle":78
     },
     {
-        "long_name":"Azzedine Ounahi\u0639\u0632 \u0627\u0644\u062f\u064a\u0646 \u0627\u0648\u0646\u0627\u0647\u064a",
+        "long_name":"Azzedine Ounahiعز الدين اوناهي",
         "overall":76,
         "potential":81,
         "age":25,
@@ -14895,7 +14895,7 @@
         "defending_sliding_tackle":64
     },
     {
-        "long_name":"Isma\u00efla Sarr",
+        "long_name":"Ismaïla Sarr",
         "overall":79,
         "potential":79,
         "age":27,
@@ -14940,7 +14940,7 @@
         "defending_sliding_tackle":21
     },
     {
-        "long_name":"Edin D\u017eeko",
+        "long_name":"Edin Džeko",
         "overall":81,
         "potential":81,
         "age":39,
@@ -14985,7 +14985,7 @@
         "defending_sliding_tackle":16
     },
     {
-        "long_name":"Yan Valery\u064a\u0627\u0646 \u0641\u0627\u0644\u064a\u0631\u064a",
+        "long_name":"Yan Valeryيان فاليري",
         "overall":71,
         "potential":74,
         "age":26,
@@ -15030,7 +15030,7 @@
         "defending_sliding_tackle":68
     },
     {
-        "long_name":"Marco Pa\u0161ali\u0107",
+        "long_name":"Marco Pašalić",
         "overall":71,
         "potential":74,
         "age":24,
@@ -15120,7 +15120,7 @@
         "defending_sliding_tackle":67
     },
     {
-        "long_name":"Vladim\u00edr Coufal",
+        "long_name":"Vladimír Coufal",
         "overall":73,
         "potential":73,
         "age":32,
@@ -15480,7 +15480,7 @@
         "defending_sliding_tackle":83
     },
     {
-        "long_name":"C\u00e9dric Bakambu",
+        "long_name":"Cédric Bakambu",
         "overall":77,
         "potential":77,
         "age":34,
@@ -15531,7 +15531,7 @@
         "age":24,
         "height_cm":188,
         "weight_kg":79,
-        "nationality_name":"C\u00f4te d'Ivoire",
+        "nationality_name":"Côte d'Ivoire",
         "skill_moves":3,
         "pace":83.0,
         "passing":73.0,
@@ -15705,7 +15705,7 @@
         "defending_sliding_tackle":50
     },
     {
-        "long_name":"Yassine Bounou\u064a\u0627\u0633\u064a\u0646 \u0628\u0648\u0646\u0648",
+        "long_name":"Yassine Bounouياسين بونو",
         "overall":82,
         "potential":82,
         "age":34,
@@ -15795,7 +15795,7 @@
         "defending_sliding_tackle":65
     },
     {
-        "long_name":"Jovo Luki\u0107",
+        "long_name":"Jovo Lukić",
         "overall":64,
         "potential":66,
         "age":26,
@@ -15840,7 +15840,7 @@
         "defending_sliding_tackle":25
     },
     {
-        "long_name":"Ko Itakura\u677f\u5009 \u6ec9",
+        "long_name":"Ko Itakura板倉 滉",
         "overall":77,
         "potential":78,
         "age":28,
@@ -15885,7 +15885,7 @@
         "defending_sliding_tackle":81
     },
     {
-        "long_name":"Ricardo Ad\u00e9",
+        "long_name":"Ricardo Adé",
         "overall":72,
         "potential":72,
         "age":35,
@@ -16020,7 +16020,7 @@
         "defending_sliding_tackle":18
     },
     {
-        "long_name":"Joan Garc\u00eda Pons",
+        "long_name":"Joan García Pons",
         "overall":83,
         "potential":89,
         "age":24,
@@ -16065,7 +16065,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Martin Exp\u00e9rience",
+        "long_name":"Martin Expérience",
         "overall":62,
         "potential":65,
         "age":26,
@@ -16110,7 +16110,7 @@
         "defending_sliding_tackle":63
     },
     {
-        "long_name":"J\u00e9r\u00e9my Doku",
+        "long_name":"Jérémy Doku",
         "overall":80,
         "potential":85,
         "age":23,
@@ -16200,7 +16200,7 @@
         "defending_sliding_tackle":55
     },
     {
-        "long_name":"Elias Saad\u0627\u0644\u064a\u0627\u0633 \u0633\u0639\u062f",
+        "long_name":"Elias Saadالياس سعد",
         "overall":72,
         "potential":74,
         "age":25,
@@ -16335,7 +16335,7 @@
         "defending_sliding_tackle":20
     },
     {
-        "long_name":"Dennis Had\u017eikaduni\u0107",
+        "long_name":"Dennis Hadžikadunić",
         "overall":70,
         "potential":72,
         "age":26,
@@ -16380,7 +16380,7 @@
         "defending_sliding_tackle":68
     },
     {
-        "long_name":"Igor Matanovi\u0107",
+        "long_name":"Igor Matanović",
         "overall":71,
         "potential":79,
         "age":22,
@@ -16560,7 +16560,7 @@
         "defending_sliding_tackle":65
     },
     {
-        "long_name":"Redouane Halhal\u0631\u0636\u0648\u0627\u0646 \u0647\u0644\u0647\u0627\u0644",
+        "long_name":"Redouane Halhalرضوان هلهال",
         "overall":63,
         "potential":73,
         "age":22,
@@ -16605,7 +16605,7 @@
         "defending_sliding_tackle":64
     },
     {
-        "long_name":"Waldemar Anton\u0420\u0438\u043f\u0446\u043e\u0432-\u0410\u043d\u0442\u043e\u043d \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447",
+        "long_name":"Waldemar AntonРипцов-Антон Владимир Александрович",
         "overall":82,
         "potential":82,
         "age":28,
@@ -16695,7 +16695,7 @@
         "defending_sliding_tackle":41
     },
     {
-        "long_name":"David Ospina Ram\u00edrez",
+        "long_name":"David Ospina Ramírez",
         "overall":76,
         "potential":76,
         "age":36,
@@ -16740,7 +16740,7 @@
         "defending_sliding_tackle":12
     },
     {
-        "long_name":"Armin Gigovi\u0107",
+        "long_name":"Armin Gigović",
         "overall":72,
         "potential":79,
         "age":23,
@@ -16785,7 +16785,7 @@
         "defending_sliding_tackle":57
     },
     {
-        "long_name":"Marc Pubill Pag\u00e9s",
+        "long_name":"Marc Pubill Pagés",
         "overall":73,
         "potential":82,
         "age":22,
@@ -16830,7 +16830,7 @@
         "defending_sliding_tackle":66
     },
     {
-        "long_name":"Benjamin Tahirovi\u0107",
+        "long_name":"Benjamin Tahirović",
         "overall":67,
         "potential":76,
         "age":22,
@@ -16875,7 +16875,7 @@
         "defending_sliding_tackle":67
     },
     {
-        "long_name":"Junnosuke Suzuki\u9234\u6728 \u6df3\u4e4b\u4ecb",
+        "long_name":"Junnosuke Suzuki鈴木 淳之介",
         "overall":66,
         "potential":75,
         "age":21,
@@ -17010,7 +17010,7 @@
         "defending_sliding_tackle":14
     },
     {
-        "long_name":"Moussa Niakhat\u00e9",
+        "long_name":"Moussa Niakhaté",
         "overall":77,
         "potential":77,
         "age":29,

@@ -3,8 +3,8 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import AgglomerativeClustering
+from sklearn.preprocessing import StandardScaler, normalize
+from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.metrics import pairwise_distances
 
 # Set stdout to utf-8 to prevent charmap encode errors on Windows
@@ -34,6 +34,10 @@ class DataPreprocessor:
         # Seleccionar todas las columnas numéricas
         numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
         
+        # Eliminar 'overall' de las características numéricas si está presente
+        if 'overall' in numeric_cols:
+            numeric_cols.remove('overall')
+            
         # Manejo de valores nulos imputando con 0 (ya que pueden ser atributos que no aplican)
         df_numeric = df[numeric_cols].fillna(0)
         
@@ -41,11 +45,14 @@ class DataPreprocessor:
         scaler = StandardScaler()
         scaled_features = scaler.fit_transform(df_numeric)
         
-        # Retornar las características numéricas procesadas y los nombres de los jugadores
-        return scaled_features, df['short_name'].values
+        # Guardamos 'overall' (imputado con la media o 50 si por alguna razón falta)
+        overalls = df['overall'].fillna(50).values
+        
+        # Retornar las características numéricas procesadas, nombres y overalls
+        return scaled_features, df['long_name'].values, overalls
 
 class ClusteringEngine:
-    def __init__(self, n_clusters=5, metric='euclidean', linkage='ward'):
+    def __init__(self, n_clusters=5, metric='cosine', linkage='average'):
         self.model = AgglomerativeClustering(n_clusters=n_clusters, metric=metric, linkage=linkage)
         
     def fit_predict(self, features):
@@ -53,30 +60,59 @@ class ClusteringEngine:
         return self.model.fit_predict(features)
         
     @staticmethod
-    def find_representatives(features, labels, player_names):
-        """Calcula el centroide de cada cluster y encuentra el jugador más representativo."""
+    def find_representatives(labels, player_names, overalls):
+        """Selecciona al jugador con mayor overall dentro de cada cluster."""
         n_clusters = len(np.unique(labels))
         representatives = {}
         
         for cluster_id in range(n_clusters):
-            # Obtener índices de los jugadores en este cluster
             cluster_indices = np.where(labels == cluster_id)[0]
-            cluster_features = features[cluster_indices]
             cluster_names = player_names[cluster_indices]
+            cluster_overalls = overalls[cluster_indices]
+
+            # Representante = jugador con mayor overall en el cluster
+            best_idx = np.argmax(cluster_overalls)
+            representatives[cluster_id + 1] = {
+                'name': cluster_names[best_idx],
+                'overall': int(cluster_overalls[best_idx])
+            }
             
-            # Calcular el centroide (media de las características de este cluster)
-            centroid = cluster_features.mean(axis=0).reshape(1, -1)
-            
-            # Calcular distancia euclidiana al centroide
-            distances = pairwise_distances(cluster_features, centroid, metric='euclidean').flatten()
-            
-            # Encontrar el jugador con la distancia mínima
-            closest_idx = np.argmin(distances)
-            representative_name = cluster_names[closest_idx]
-            
-            # Almacenar con base 1 como pide el formato
-            representatives[cluster_id + 1] = representative_name
-            
+        return representatives
+
+class KMeansEngine:
+    """Clustering mediante KMeans con distancia coseno (a través de normalización L2).
+    Normalizar los vectores a longitud unitaria hace que la distancia euclidiana
+    sea equivalente a la distancia coseno, permitiendo usar KMeans estandar.
+    """
+    def __init__(self, n_clusters=5, random_state=42):
+        self.n_clusters = n_clusters
+        self.model = KMeans(n_clusters=n_clusters, random_state=random_state, n_init='auto')
+    
+    def fit_predict(self, features):
+        """Normaliza a L2 y predice los clusters usando KMeans."""
+        # Normalización L2 hace que la distancia euclidiana ≈ distancia coseno
+        features_normalized = normalize(features, norm='l2')
+        self.labels_ = self.model.fit_predict(features_normalized)
+        self.features_normalized_ = features_normalized
+        return self.labels_
+    
+    def find_representatives(self, player_names, overalls):
+        """Selecciona al jugador con mayor overall dentro de cada cluster."""
+        n_clusters = len(np.unique(self.labels_))
+        representatives = {}
+
+        for cluster_id in range(n_clusters):
+            cluster_indices = np.where(self.labels_ == cluster_id)[0]
+            cluster_names = player_names[cluster_indices]
+            cluster_overalls = overalls[cluster_indices]
+
+            # Representante = jugador con mayor overall en el cluster
+            best_idx = np.argmax(cluster_overalls)
+            representatives[cluster_id + 1] = {
+                'name': cluster_names[best_idx],
+                'overall': int(cluster_overalls[best_idx])
+            }
+
         return representatives
 
 class PositionFactory:
@@ -90,7 +126,8 @@ class PositionFactory:
         'Goalkeepers': 'player_clustering_goalkeeper.json',
         'Defenders': 'player_clustering_defender.json',
         'Midfielders': 'player_clustering_midfielder.json',
-        'Strikers': 'player_clustering_striker.json'
+        'Strikers': 'player_clustering_striker.json',
+        "Wingers" : 'player_clustering_wingers.json'
     }
     
     @classmethod
@@ -101,9 +138,15 @@ class PositionFactory:
         return os.path.join(cls.base_path, filename)
 
 def main():
-    positions = ['Goalkeepers', 'Defenders', 'Midfielders', 'Strikers']
+    positions_clusters = {
+        'Goalkeepers': 3,
+        'Defenders': 5,
+        'Midfielders': 7,
+        'Strikers': 3,
+        'Wingers': 5
+    }
     
-    for position in positions:
+    for position, n_clusters in positions_clusters.items():
         try:
             # 1. Obtener ruta mediante Factory
             filepath = PositionFactory.get_filepath(position)
@@ -111,22 +154,33 @@ def main():
             # 2. Ingesta de datos
             df = DataLoader.load_data(filepath)
             
-            # 3. Preprocesamiento (Aislamiento de variables y normalización)
-            features, player_names = DataPreprocessor.preprocess(df)
-            
-            # 4. Clustering (HAC con k=5, distancia euclidiana y ward linkage)
-            engine = ClusteringEngine(n_clusters=5)
-            labels = engine.fit_predict(features)
-            
-            # 5. Identificación de representantes
-            representatives = engine.find_representatives(features, labels, player_names)
-            
-            # 6. Formato de Salida
+            # 3. Preprocesamiento
+            features, player_names, overalls = DataPreprocessor.preprocess(df)
+
+            # -------------------------------------------------------
+            # 4a. HAC (Hierarchical Agglomerative Clustering) 
+            # -------------------------------------------------------
+            hac_engine = ClusteringEngine(n_clusters=n_clusters, metric='cosine', linkage='average')
+            hac_labels = hac_engine.fit_predict(features)
+            hac_reps = hac_engine.find_representatives(hac_labels, player_names, overalls)
+
             print(f"HAC {position}:")
-            # Ordenamos para asegurar que se impriman del 1 al 5 en orden
-            for cluster_id in sorted(representatives.keys()):
-                rep_name = representatives[cluster_id]
-                print(f"Cluster {cluster_id} = {rep_name}")
+            for cluster_id in sorted(hac_reps.keys()):
+                rep = hac_reps[cluster_id]
+                print(f"  Cluster {cluster_id} = {rep['name']} (overall: {rep['overall']})")
+
+            # -------------------------------------------------------
+            # 4b. KMeans (con distancia coseno vía normalización L2)
+            # -------------------------------------------------------
+            kmeans_engine = KMeansEngine(n_clusters=n_clusters)
+            kmeans_engine.fit_predict(features)
+            kmeans_reps = kmeans_engine.find_representatives(player_names, overalls)
+
+            print(f"KMeans {position}:")
+            for cluster_id in sorted(kmeans_reps.keys()):
+                rep = kmeans_reps[cluster_id]
+                print(f"  Cluster {cluster_id} = {rep['name']} (overall: {rep['overall']})")
+            
             print() # Espacio entre posiciones
             
         except Exception as e:

@@ -20,14 +20,15 @@ if sys.stdout.encoding.lower() != 'utf-8':
 POSITION_MAP = {
     "goalkeeper": ["GK"],
     "defender":   ["CB", "LB", "RB", "LWB", "RWB"],
-    "midfielder": ["CM", "CDM", "CAM", "LM", "RM", "DM"],
-    "striker":    ["ST", "CF", "LW", "RW", "SS"]
+    "midfielder": ["CM", "CDM", "CAM", "DM"],
+    "striker":    ["ST", "CF", "SS"],
+    "wingers":    ["LM", "RM", "RW", "LW"]
 }
 # ------------------------------------------------------------------
 # Columns we want to keep from the original CSV
 # ------------------------------------------------------------------
 columns_to_keep = [
-    "long_name", "player_positions", "nationality_name", "overall", "age", "height_cm", "weight_kg",
+    "long_name","player_positions", "nationality_name", "overall", "age", "height_cm", "weight_kg",
     "pace", "passing", "shooting", "dribbling", "defending", "physic",
     "attacking_crossing", "attacking_finishing", "attacking_heading_accuracy",
     "attacking_short_passing", "attacking_volleys", "skill_dribbling",
