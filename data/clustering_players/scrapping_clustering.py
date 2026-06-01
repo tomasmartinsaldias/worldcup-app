@@ -19,7 +19,8 @@ if sys.stdout.encoding.lower() != 'utf-8':
 # ------------------------------------------------------------------
 POSITION_MAP = {
     "goalkeeper": ["GK"],
-    "defender":   ["CB", "LB", "RB", "LWB", "RWB"],
+    "centerbacks": ["CB"],
+    "fullbacks":   ["LB", "RB", "LWB", "RWB"],
     "midfielder": ["CM", "CDM", "CAM", "DM"],
     "striker":    ["ST", "CF", "SS"],
     "wingers":    ["LM", "RM", "RW", "LW"]

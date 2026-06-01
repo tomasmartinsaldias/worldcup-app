@@ -76,7 +76,23 @@ for _, row in df_convocados.iterrows():
     # Keep the first match (unique) …
 ```
 
-### 2.4. Output JSON
+### 2.4. Macro‑group Assignment Logic
+To categorize players into macro-groups (`goalkeeper`, `defender`, `midfielder`, `striker`, `wingers`), the pipeline prioritises the **first (primary) position** listed in their `player_positions` string. This prevents misclassifying versatile players (e.g. Ousmane Dembélé, whose list `"ST, RW, CAM"` would previously match `midfielder` because `"CAM"` was evaluated first in the category order):
+```python
+def assign_macro_group(pos_str: str) -> str | None:
+    if pd.isna(pos_str):
+        return None
+    positions = [p.strip() for p in pos_str.split(",")]
+    if not positions:
+        return None
+    first_position = positions[0]
+    for macro, codes in POSITION_MAP.items():
+        if first_position in codes:
+            return macro
+    return None
+```
+
+### 2.5. Output JSON
 The macro‑group (`goalkeeper`, `defender`, `midfielder`, `striker`, `winger`) files are written with **UTF‑8** and **`force_ascii=False`** to preserve accents:
 ```python
 macro_df.to_json(file_path, orient="records", indent=4, force_ascii=False)
@@ -181,7 +197,8 @@ class KMeansEngine:
         return reps
 ```
 
-### 3.5. Position Factory & Dynamic Cluster Counts
+### 3.5. Position Factory & Dynamic K Optimization (Silhouette Validation)
+To avoid guessing the number of clusters (K), the system dynamically determines the optimal K for each position by evaluating the Silhouette Score of the L2-normalized archetype features (`overall > 75` subset).
 ```python
 class PositionFactory:
     base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'clustering_players'))
@@ -195,41 +212,71 @@ class PositionFactory:
     @classmethod
     def get_filepath(cls, name):
         return os.path.join(cls.base_path, cls.positions[name])
-```
-- The `main()` function uses a dictionary `positions_clusters` to configure **different numbers of clusters per position** (Goalkeepers 3, Defenders 5, Midfielders 7, Strikers 3, Wingers 5).
 
-### 3.6. Main Workflow (HAC vs KMeans)
+def find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75):
+    """Encuentra el K óptimo evaluando el Silhouette Score de KMeans sobre el subgrupo de arquetipos (>threshold)."""
+    fit_mask = overalls > threshold
+    fit_features = features[fit_mask]
+    if len(fit_features) <= min_k:
+        fit_features = features
+        
+    best_k = min_k
+    best_score = -1.0
+    for k in range(min_k, min(max_k + 1, len(fit_features))):
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init='auto')
+        labels = kmeans.fit_predict(fit_features)
+        score = silhouette_score(fit_features, labels, metric='euclidean')
+        if score > best_score:
+            best_score = score
+            best_k = k
+    return best_k, best_score
+```
+
+### 3.6. Main Workflow with Dynamic K
+The workflow evaluates K from 3 to 10 for each position, automatically selects the K that maximizes the internal separation metric, and runs the clustering engines:
 ```python
-positions_clusters = {
-    'Goalkeepers': 3,
-    'Defenders': 5,
-    'Midfielders': 7,
-    'Strikers': 3,
-    'Wingers': 5
-}
-for position, n_clusters in positions_clusters.items():
+positions = ['Goalkeepers', 'Defenders', 'Midfielders', 'Strikers', 'Wingers']
+for position in positions:
     filepath = PositionFactory.get_filepath(position)
     df = DataLoader.load_data(filepath)
     features, names, overalls = DataPreprocessor.preprocess(df)
+
+    # Dynamic K Optimization
+    n_clusters, best_sil = find_optimal_k(features, overalls)
+    print(f"POSICIÓN: {position} | K ÓPTIMO DEDUCIDO: {n_clusters} (Silhouette: {best_sil:.4f})")
 
     # HAC
     hac = ClusteringEngine(n_clusters=n_clusters, metric='cosine', linkage='average')
     hac_labels = hac.fit_predict(features)
     hac_reps = hac.find_representatives(hac_labels, names, overalls)
-    print(f"HAC {position}:")
-    for cid, rep in sorted(hac_reps.items()):
-        print(f"  Cluster {cid} = {rep['name']} (overall: {rep['overall']})")
 
-    # KMeans (cosine)
+    # KMeans Normal
     km = KMeansEngine(n_clusters=n_clusters)
     km.fit_predict(features)
     km_reps = km.find_representatives(names, overalls)
-    print(f"KMeans {position}:")
-    for cid, rep in sorted(km_reps.items()):
-        print(f"  Cluster {cid} = {rep['name']} (overall: {rep['overall']})")
-    print()
+
+    # KMeans Archetypes (>75)
+    km_arch = KMeansEngine(n_clusters=n_clusters)
+    km_arch.fit_archetypes_predict(features, overalls, threshold=75)
 ```
-- Both algorithms now **log the representative name *and* its overall**, making comparison straightforward.
+- Cluster sizes, representatives, and variance metrics are calculated and displayed dynamically based on this optimal K.
+
+### 3.7. KMeans Archetypes (overall > 75)
+To define clean archetypes representing elite playstyles without noise from lower-rated players, we implemented an alternative training strategy:
+1. **Fit** the KMeans model exclusively on players with `overall > 75`.
+2. **Predict** (assign) the cluster membership for all players (including those with `overall <= 75`) using the fitted model.
+
+This strategy leads to stable archetype centers represented by elite players, at the cost of a minor to moderate increase in total intra-cluster variance (deformación del espacio) for the rest of the players:
+
+| Position | Variance (KMeans Normal) | Variance (Arquetipos >75) | Variance Increase | Key Observations |
+| :--- | :---: | :---: | :---: | :--- |
+| **Goalkeepers** | 0.03230 | 0.03990 | **+23.54%** | Stable representatives like Alisson and Raya. |
+| **Defenders** | 0.00926 | 0.01065 | **+15.09%** | Displaces lower-rated reps (e.g., Jorrel Hato) with Konsa. |
+| **Midfielders** | 0.00656 | 0.00696 | **+6.09%** | Very low deformation; elite profiles generalise perfectly. |
+| **Strikers** | 0.01085 | 0.01342 | **+23.65%** | Delivers elite archetypes like Mbappé and Cristiano Ronaldo. |
+| **Wingers** | 0.00807 | 0.01009 | **+24.94%** | Swaps low-rated representative Gessime Yassine for Junya Ito. |
+
+The average squared Euclidean distance on the L2-normalized unit hypersphere measures playstyle divergence. The low increase in Midfielders (+6.09%) shows that elite midfielder archetypes generalize extremely well to all midfielders, whereas Wingers and Strikers see a ~25% increase as lower-rated players have more diverse or less defined tactical profiles.
 
 ---
 
@@ -280,7 +327,18 @@ The scripts are **self‑contained** – no external configuration files are req
 
 ---
 
-## 8. References
+## 8. Design Decisions for the Fut Draft
+The following product design decisions have been established to optimize the interactive "Fut Draft" user experience and tactical authenticity:
+
+### 8.1. Separation of Centerbacks (CB) and Fullbacks/Wingbacks (LB/RB/LWB/RWB)
+Originally, all defensive players were grouped into a single "Defenders" category. However, this caused geometric variance collapse inside the clustering algorithm, which spent its variance-separation capability dividing central defenders from rapid fullbacks. Splitting them into `Centerbacks` and `Fullbacks` allows the algorithm to identify subtle sub-archetypes (e.g. *Playmaking Ball-playing CBs* vs *Traditional Physical CBs*, or *Overlapping Wingbacks* vs *Defensive Fullbacks*).
+
+### 8.2. Preservation of Wide Midfielders / Wing-Backs in Wingers (LM/RM/RW/LW)
+Certain hybrid players like Alejandro Grimaldo or Ivan Perišić possess high defensive work rates and stats. Although they introduce a defensive cluster inside the `Wingers` category (characterized by high Standing Tackles and Interceptions), they are intentionally preserved in this group. This represents the **"Volante por Banda / Carrilero"** (wide midfielder/wing-back) archetype, which is crucial for users setting up tactical formations with a line of 3 central defenders (e.g., 3-5-2 or 5-2-3) where wide players are expected to cover the entire flank.
+
+---
+
+## 9. References
 - **scikit‑learn** documentation for AgglomerativeClustering, KMeans, and pairwise_distances.
 - **Unicode Normalization** (NFD) – Python `unicodedata` module.
 - **World Cup 2022 data** – source CSV generated from the FIFA database.

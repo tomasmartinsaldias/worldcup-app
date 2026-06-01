@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MaxAbsScaler, normalize
 from sklearn.cluster import AgglomerativeClustering, KMeans
-from sklearn.metrics import pairwise_distances
+from sklearn.metrics import pairwise_distances, silhouette_score
 
 # Set stdout to utf-8 to prevent charmap encode errors on Windows
 if sys.stdout.encoding.lower() != 'utf-8':
@@ -104,6 +104,29 @@ class KMeansEngine:
         self.features_normalized_ = features
         return self.labels_
     
+    def fit_archetypes_predict(self, features, overalls, threshold=75):
+        """Entrena (fit) el modelo solo con jugadores de overall > threshold
+        y luego asigna (predict) el cluster para todos los jugadores."""
+        fit_mask = overalls > threshold
+        
+        # Resguardo en caso de que no haya suficientes jugadores que superen el umbral
+        if np.sum(fit_mask) < self.n_clusters:
+            print(f"  [Warning] Not enough players with overall > {threshold} (found {np.sum(fit_mask)}). Fitting on all players.")
+            fit_features = features
+        else:
+            fit_features = features[fit_mask]
+            
+        self.model.fit(fit_features)
+        self.labels_ = self.model.predict(features)
+        self.features_normalized_ = features
+        return self.labels_
+    
+    def get_intra_cluster_variance(self, features):
+        """Calcula la varianza intra-cluster (promedio de la distancia euclidiana al cuadrado al centroide de todos los jugadores asignados)."""
+        assigned_centers = self.model.cluster_centers_[self.labels_]
+        squared_distances = np.sum((features - assigned_centers) ** 2, axis=1)
+        return float(np.mean(squared_distances))
+    
     def find_representatives(self, player_names, overalls):
         """Selecciona al jugador con mayor overall dentro de cada cluster."""
         n_clusters = len(np.unique(self.labels_))
@@ -113,6 +136,9 @@ class KMeansEngine:
             cluster_indices = np.where(self.labels_ == cluster_id)[0]
             cluster_names = player_names[cluster_indices]
             cluster_overalls = overalls[cluster_indices]
+
+            if len(cluster_overalls) == 0:
+                continue
 
             # Representante = jugador con mayor overall en el cluster
             best_idx = np.argmax(cluster_overalls)
@@ -132,7 +158,8 @@ class PositionFactory:
     
     positions = {
         'Goalkeepers': 'player_clustering_goalkeeper.json',
-        'Defenders': 'player_clustering_defender.json',
+        'Centerbacks': 'player_clustering_centerbacks.json',
+        'Fullbacks': 'player_clustering_fullbacks.json',
         'Midfielders': 'player_clustering_midfielder.json',
         'Strikers': 'player_clustering_striker.json',
         "Wingers" : 'player_clustering_wingers.json'
@@ -145,16 +172,53 @@ class PositionFactory:
             raise ValueError(f"Unknown position: {position_name}")
         return os.path.join(cls.base_path, filename)
 
-def main():
-    positions_clusters = {
-        'Goalkeepers': 3,
-        'Defenders': 5,
-        'Midfielders': 7,
-        'Strikers': 3,
-        'Wingers': 5
-    }
+def find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75, min_players=5):
+    """Encuentra el K óptimo evaluando el Silhouette Score de KMeans sobre el subgrupo de arquetipos (>threshold).
+    Descarta aquellos K que generen clústeres finales en el total de jugadores con menos de min_players."""
+    fit_mask = overalls > threshold
+    fit_features = features[fit_mask]
     
-    for position, n_clusters in positions_clusters.items():
+    # Resguardo si hay muy pocos jugadores de calidad superior
+    if len(fit_features) <= min_k:
+        fit_features = features
+        
+    best_k = None
+    best_score = -2.0
+    
+    for k in range(min_k, min(max_k + 1, len(fit_features))):
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init='auto')
+        kmeans.fit(fit_features)
+        
+        # Validar tamaño mínimo sobre la asignación total de jugadores
+        all_labels = kmeans.predict(features)
+        counts = np.bincount(all_labels, minlength=k)
+        
+        if np.min(counts) < min_players:
+            continue
+        
+        # Calcular Silhouette score sobre el subgrupo
+        score = silhouette_score(fit_features, kmeans.labels_, metric='euclidean')
+        if score > best_score:
+            best_score = score
+            best_k = k
+            
+    # Fallback: si todos los K violan el mínimo, elegir el K con mejor Silhouette global
+    if best_k is None:
+        best_score = -2.0
+        for k in range(min_k, min(max_k + 1, len(fit_features))):
+            kmeans = KMeans(n_clusters=k, random_state=42, n_init='auto')
+            kmeans.fit(fit_features)
+            score = silhouette_score(fit_features, kmeans.labels_, metric='euclidean')
+            if score > best_score:
+                best_score = score
+                best_k = k
+            
+    return best_k, best_score
+
+def main():
+    positions = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Strikers', 'Wingers']
+    
+    for position in positions:
         try:
             # 1. Obtener ruta mediante Factory
             filepath = PositionFactory.get_filepath(position)
@@ -165,8 +229,14 @@ def main():
             # 3. Preprocesamiento
             features, player_names, overalls = DataPreprocessor.preprocess(df)
 
+            # 4. Encontrar K óptimo dinámicamente usando validación interna de Silhouette
+            n_clusters, best_sil_score = find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75)
+            print(f"=======================================================")
+            print(f"POSICIÓN: {position} | K ÓPTIMO DEDUCIDO: {n_clusters} (Silhouette: {best_sil_score:.4f})")
+            print(f"=======================================================")
+
             # -------------------------------------------------------
-            # 4a. HAC (Hierarchical Agglomerative Clustering) 
+            # 5a. HAC (Hierarchical Agglomerative Clustering) 
             # -------------------------------------------------------
             hac_engine = ClusteringEngine(n_clusters=n_clusters, metric='cosine', linkage='average')
             hac_labels = hac_engine.fit_predict(features)
@@ -178,16 +248,36 @@ def main():
                 print(f"  Cluster {cluster_id} = {rep['name']} (overall: {rep['overall']})")
 
             # -------------------------------------------------------
-            # 4b. KMeans (con distancia coseno vía normalización L2)
+            # 5b. KMeans (Normal)
             # -------------------------------------------------------
             kmeans_engine = KMeansEngine(n_clusters=n_clusters)
             kmeans_engine.fit_predict(features)
             kmeans_reps = kmeans_engine.find_representatives(player_names, overalls)
+            var_normal = kmeans_engine.get_intra_cluster_variance(features)
 
-            print(f"KMeans {position}:")
+            print(f"KMeans {position} (Normal):")
             for cluster_id in sorted(kmeans_reps.keys()):
                 rep = kmeans_reps[cluster_id]
                 print(f"  Cluster {cluster_id} = {rep['name']} (overall: {rep['overall']})")
+            print(f"  --> Varianza intra-cluster (Normal): {var_normal:.5f}")
+            
+            # -------------------------------------------------------
+            # 5c. KMeans (Arquetipos >75)
+            # -------------------------------------------------------
+            kmeans_arch_engine = KMeansEngine(n_clusters=n_clusters)
+            kmeans_arch_engine.fit_archetypes_predict(features, overalls, threshold=75)
+            kmeans_arch_reps = kmeans_arch_engine.find_representatives(player_names, overalls)
+            var_arch = kmeans_arch_engine.get_intra_cluster_variance(features)
+
+            print(f"KMeans {position} (Arquetipos >75):")
+            for cluster_id in sorted(kmeans_arch_reps.keys()):
+                rep = kmeans_arch_reps[cluster_id]
+                print(f"  Cluster {cluster_id} = {rep['name']} (overall: {rep['overall']})")
+            print(f"  --> Varianza intra-cluster (Arquetipos >75): {var_arch:.5f}")
+            
+            # Incremento relativo
+            increase = ((var_arch - var_normal) / var_normal) * 100
+            print(f"  --> Diferencia en varianza: {increase:+.2f}%")
             
             print() # Espacio entre posiciones
             
