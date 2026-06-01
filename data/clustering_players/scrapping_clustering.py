@@ -103,14 +103,17 @@ print(f"Jugadores de la DB no encontrados en el CSV: {len(missing_players)}")
 # ------------------------------------------------------------------
 def assign_macro_group(pos_str: str) -> str | None:
     """Return the macro‑group for a player according to POSITION_MAP.
-    The first macro‑group (in the order defined in POSITION_MAP) that
-    contains any of the player's detailed positions is chosen."""
+    The first position listed in the player's detailed positions is used to determine
+    the macro‑group."""
     if pd.isna(pos_str):
         return None
     # Split the string like "CAM, CM" → ["CAM", "CM"]
     positions = [p.strip() for p in pos_str.split(",")]
+    if not positions:
+        return None
+    first_position = positions[0]
     for macro, codes in POSITION_MAP.items():
-        if any(p in codes for p in positions):
+        if first_position in codes:
             return macro
     return None
 # Create a column with the macro‑group
