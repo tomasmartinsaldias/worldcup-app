@@ -78,4 +78,5 @@ def get_similar_players(player_name, k, json_path=None):
     # 6. Devolver los registros completos como una lista de diccionarios JSON
     return top_k_df.to_dict(orient='records')
 
-print(get_similar_players("Lamine Yamal", 5))
+if __name__ == '__main__':
+    print(get_similar_players("Lamine Yamal", 5))
