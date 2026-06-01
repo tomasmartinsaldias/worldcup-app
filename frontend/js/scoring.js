@@ -8,40 +8,77 @@ export const ICE_CONFIG = {
   alpha: 0.5,        // Ponderación de contraataques (CA_norm)
   gamma: 0.5,        // Coeficiente de amplificación de vulnerabilidad
   ICE_min: 0.1,      // Límite inferior para la escala lineal
-  T_SCALE: 0.75,     // Factor de escala para el Techo Dinámico T
-  // Hiperparámetros de la curva sigmoide para pBrecha
-  P_MAX: 0.60,       // Techo máximo de penalización por brecha de ranking
-  R_MID: 40,         // Punto de inflexión: 40 puestos de diferencia → penalización = P_MAX/2
-  K_STEEPNESS: 0.1,  // Pendiente de la curva (más alto = transición más brusca)
+  T_SCALE: 0.65,     // Factor de escala para el Techo Dinámico T
+  // Hiperparámetros de la curva sigmoide para pBrecha usando puntos Elo
+  P_MAX: 0.60,       // Techo máximo de penalización por brecha de calidad
+  R_MID: 350,        // Punto de inflexión: 350 puntos de diferencia Elo → penalización = P_MAX/2
+  K_STEEPNESS: 0.01,  // Pendiente de la curva adaptada a la escala de puntos Elo
   // Hiperparámetros de la función asintótica de estrellas
   B_MAX: 0.15,       // Límite superior de empuje por estrellas (15%)
   K_SAT: 5           // Saturación: N = 5 estrellas → 50% del bonus máximo (7.5%)
 };
 
-export function calculateCosineSimilarity(v1, v2) {
-  if (!v1 || !v2) return 0;
-  const dotProduct = (v1.defensa * v2.defensa) + (v1.posesion * v2.posesion) + (v1.ritmo * v2.ritmo) + (v1.ancho * v2.ancho);
-  const norm1 = Math.sqrt(v1.defensa ** 2 + v1.posesion ** 2 + v1.ritmo ** 2 + v1.ancho ** 2);
-  const norm2 = Math.sqrt(v2.defensa ** 2 + v2.posesion ** 2 + v2.ritmo ** 2 + v2.ancho ** 2);
-  if (norm1 === 0 || norm2 === 0) return 0;
-  return dotProduct / (norm1 * norm2);
-}
+// Default keys for tactical game style cosine similarity comparison
+const TACTICAL_KEYS = ['defensa', 'posesion', 'ritmo', 'ancho'];
 
-export function calculateCosineSimilarityN(v1, v2) {
+/**
+ * Calculates cosine similarity between two vectors.
+ * Unified to support both fixed tactical keys and dynamic user preference vectors.
+ */
+export function calculateCosineSimilarity(v1, v2, keys = TACTICAL_KEYS) {
   if (!v1 || !v2) return 0;
-  const keys = Object.keys(v1);
+  
   let dotProduct = 0;
   let norm1Sq = 0;
   let norm2Sq = 0;
-  for (const k of keys) {
+  
+  for (let i = 0; i < keys.length; i++) {
+    const k = keys[i];
     const val1 = v1[k] || 0;
     const val2 = v2[k] || 0;
     dotProduct += val1 * val2;
     norm1Sq += val1 * val1;
     norm2Sq += val2 * val2;
   }
+  
   if (norm1Sq === 0 || norm2Sq === 0) return 0;
   return dotProduct / (Math.sqrt(norm1Sq) * Math.sqrt(norm2Sq));
+}
+
+/**
+ * Helper to analyze player squad characteristics in a single iteration.
+ * Optimizes CPU time and avoids redundant array traversals.
+ */
+function analyzeSquad(team, userPreferences) {
+  let stars = 0;
+  let favPlayersBonus = 0;
+  let favClubBonus = 0;
+  let totalAge = 0;
+  let ageCount = 0;
+
+  if (team && team.squad) {
+    const favPlayers = userPreferences?.favoritePlayers || [];
+    const favClubs = userPreferences?.favoriteClubs || [];
+    
+    for (let i = 0; i < team.squad.length; i++) {
+      const p = team.squad[i];
+      if (p.is_star_player) {
+        stars++;
+      }
+      if (favPlayers.includes(p.name)) {
+        favPlayersBonus += 0.4;
+      }
+      if (p.club && favClubs.includes(p.club)) {
+        favClubBonus += 0.15;
+      }
+      if (p.age) {
+        totalAge += p.age;
+        ageCount++;
+      }
+    }
+  }
+
+  return { stars, favPlayersBonus, favClubBonus, totalAge, ageCount };
 }
 
 export function calculateQuizAffinity(userVector, match, teams, sofascoreVectors) {
@@ -60,12 +97,14 @@ export function calculateQuizAffinity(userVector, match, teams, sofascoreVectors
 
   // Create match vector (average of home and away)
   const matchVec = {};
-  for (const k in homeVec) {
+  const keys = Object.keys(homeVec);
+  for (let i = 0; i < keys.length; i++) {
+    const k = keys[i];
     matchVec[k] = (homeVec[k] + awayVec[k]) / 2;
   }
 
-  // Calculate cosine similarity
-  return calculateCosineSimilarityN(userVector, matchVec);
+  // Calculate cosine similarity using unified function
+  return calculateCosineSimilarity(userVector, matchVec, keys);
 }
 
 export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0.1) {
@@ -101,25 +140,48 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
   const dramaMatch = (hParams.drama_norm + aParams.drama_norm) / 2;
   const vulnMatch = ((hParams.vuln_norm !== undefined ? hParams.vuln_norm : 0.5) + (aParams.vuln_norm !== undefined ? aParams.vuln_norm : 0.5)) / 2;
 
-  // 2. Rankings FIFA
-  const rHome = home.metrics ? (home.metrics.fifa_ranking || 60) : 60;
-  const rAway = away.metrics ? (away.metrics.fifa_ranking || 60) : 60;
+  // 2. Dynamic Elo Ratings (incorporating star player count as a structural modifier)
+  let homeStars = 0;
+  if (home.squad) {
+    for (let i = 0; i < home.squad.length; i++) {
+      if (home.squad[i].is_star_player) homeStars++;
+    }
+  }
+  let awayStars = 0;
+  if (away.squad) {
+    for (let i = 0; i < away.squad.length; i++) {
+      if (away.squad[i].is_star_player) awayStars++;
+    }
+  }
 
-  // 3. Penalizador Asimétrico (Brecha FIFA) — Curva Sigmoide
-  // Brechas pequeñas (<15) apenas penalizan; inflexión en R_MID puestos; techo en P_MAX
-  const rankingDiff = Math.abs(rHome - rAway);
+  const homeEloBase = home.metrics ? (home.metrics.elo_rating || 1500) : 1500;
+  const awayEloBase = away.metrics ? (away.metrics.elo_rating || 1500) : 1500;
+  
+  const homeEloBoost = homeStars > 0 ? 100 * (homeStars / (homeStars + 5)) : 0;
+  const awayEloBoost = awayStars > 0 ? 100 * (awayStars / (awayStars + 5)) : 0;
+  
+  const rHome = homeEloBase + homeEloBoost;
+  const rAway = awayEloBase + awayEloBoost;
+
+  // 3. Penalizador Asimétrico (Brecha de Competitividad) — Curva Sigmoide usando diferencia de Elo Base
+  // La brecha competitiva pura depende de la paridad histórica, no de las estrellas del momento.
+  const rankingDiff = Math.abs(homeEloBase - awayEloBase);
   const pBrecha = ICE_CONFIG.P_MAX / (1 + Math.exp(-ICE_CONFIG.K_STEEPNESS * (rankingDiff - ICE_CONFIG.R_MID)));
 
   // 4. Ecuación Final del Sistema (ICEmatch) con Amplificador de Vulnerabilidad
   const gamma = ICE_CONFIG.gamma;
   const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch) + (dramaBeta * dramaMatch)) * (1 - pBrecha);
 
-  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico
+  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico y Factor de Calidad Absoluta (qMatch)
   const ICE_min = ICE_CONFIG.ICE_min;
-  // El máximo valor teórico posible bajo la nueva ecuación es: OCmax * (1 + gamma * Vmax) + alpha * CAmax + dramaBeta * DramaMax
-  // Con OC=1, V=1, CA=1, Drama=1: 1 * (1 + 0.5) + alpha + dramaBeta = 1.5 + alpha + dramaBeta
-  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + dramaBeta); // Techo dinámico proporcional al valor teórico máximo (ajustado para conservar distribución amplia)
+  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + dramaBeta); 
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
+  
+  // Factor de Calidad Absoluta basado en el Elo dinámico promedio de ambas selecciones
+  const avgElo = (rHome + rAway) / 2;
+  const qMatch = Math.max(0.60, Math.min(1.0, 0.60 + 0.40 * ((avgElo - 1600) / 500)));
+  score = score * qMatch;
+
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
 }
@@ -143,14 +205,11 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     return ice;
   }
 
-  const homeStars = home.squad ? home.squad.filter(p => p.is_star_player).length : 0;
-  const awayStars = away.squad ? away.squad.filter(p => p.is_star_player).length : 0;
-  const starCount = homeStars + awayStars;
+  // Single-pass squad analysis for both teams
+  const homeAnalysis = analyzeSquad(home, state.userPreferences);
+  const awayAnalysis = analyzeSquad(away, state.userPreferences);
 
-  // Bonus asintótico: Bmax * (N / (N + K))
-  const bonusPct = starCount > 0 ? ICE_CONFIG.B_MAX * (starCount / (starCount + ICE_CONFIG.K_SAT)) : 0;
-  let spectacleScore = ice * (1 + bonusPct);
-  spectacleScore = Math.min(Math.max(spectacleScore, 1.0), 10.0);
+  let spectacleScore = ice;
 
   // Playstyle Score
   const vectorU = tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
@@ -193,27 +252,10 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     }
   }
 
-  let favPlayersBonus = 0;
-  let favClubBonus = 0;
-  let totalAge = 0;
-  let playersCount = 0;
-
-  [home, away].forEach(team => {
-    if (team.squad) {
-      team.squad.forEach(p => {
-        if (state.userPreferences?.favoritePlayers && state.userPreferences.favoritePlayers.includes(p.name)) {
-          favPlayersBonus += 0.4;
-        }
-        if (state.userPreferences?.favoriteClubs && state.userPreferences.favoriteClubs.includes(p.club)) {
-          favClubBonus += 0.15;
-        }
-        if (p.age) {
-          totalAge += p.age;
-          playersCount++;
-        }
-      });
-    }
-  });
+  const favPlayersBonus = homeAnalysis.favPlayersBonus + awayAnalysis.favPlayersBonus;
+  const favClubBonus = homeAnalysis.favClubBonus + awayAnalysis.favClubBonus;
+  const totalAge = homeAnalysis.totalAge + awayAnalysis.totalAge;
+  const playersCount = homeAnalysis.ageCount + awayAnalysis.ageCount;
 
   bonus += Math.min(favPlayersBonus, 2.0); // max +2.0 for players
   bonus += Math.min(favClubBonus, 1.5); // max +1.5 for clubs
@@ -222,17 +264,13 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   let ageBonus = 0;
   if (playersCount > 0 && state.userPreferences?.agePreference !== undefined) {
     const avgAge = totalAge / playersCount;
-    // Map average age [23, 30] to [0, 100] approximately
     const mappedAge = Math.max(0, Math.min(100, (avgAge - 23) / 7 * 100));
-    // Calculate difference
     const ageDiff = Math.abs(mappedAge - state.userPreferences.agePreference);
-    // Max bonus +0.5 if it perfectly matches, -0.5 if completely opposite
     ageBonus = 0.5 - (ageDiff / 100);
   }
   bonus += ageBonus;
 
   combinedScore += bonus;
-
   combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);
 
   match.spectacleScore = parseFloat(spectacleScore.toFixed(1));
@@ -241,41 +279,4 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   return parseFloat(combinedScore.toFixed(1));
 }
 
-export function calculateFormRating(player) {
-  let ratingVal = 6.5; // default fallback
 
-  if (player.minutes_recent && player.minutes_recent > 0) {
-    const p90 = 90.0 / player.minutes_recent;
-    const xG90 = (player.xG_intl || 0) * p90;
-    const sca90 = (player.sca_intl || 0) * p90;
-    const gca90 = (player.gca_intl || 0) * p90;
-    const progP90 = (player.progressive_passes_intl || 0) * p90;
-    const progC90 = (player.progressive_carries_intl || 0) * p90;
-
-    let baseScore = 6.0;
-    let performance = 0;
-
-    const pos = (player.position || '').toLowerCase();
-    if (pos.includes('delantero') || pos.includes('forward') || pos.includes('atacante')) {
-      performance = (xG90 * 2.0) + (gca90 * 1.5) + (sca90 * 0.2);
-    } else if (pos.includes('centrocampista') || pos.includes('midfielder')) {
-      performance = (sca90 * 0.4) + (progP90 * 0.15) + (gca90 * 1.0) + (progC90 * 0.1);
-    } else if (pos.includes('defensa') || pos.includes('defender')) {
-      performance = (progC90 * 0.2) + (progP90 * 0.2) + (sca90 * 0.3);
-    } else if (pos.includes('portero') || pos.includes('goalkeeper')) {
-      let gkBase = 1.0;
-      if (player.market_value_eur) gkBase += Math.min(player.market_value_eur / 20.0, 1.5);
-      if (player.caps) gkBase += Math.min(player.caps / 50.0, 1.0);
-      performance = player.efficiency_score ? (player.efficiency_score * 3) : gkBase;
-    } else {
-      performance = (xG90 * 0.5) + (sca90 * 0.2) + (progP90 * 0.1);
-    }
-
-    const effBonus = player.efficiency_score !== null ? (player.efficiency_score * 1.5) : 0;
-    ratingVal = baseScore + performance + effBonus;
-  } else if (player.efficiency_score !== null) {
-    ratingVal = player.efficiency_score * 4 + 5.5;
-  }
-
-  return Math.min(Math.max(ratingVal, 5.0), 9.9);
-}

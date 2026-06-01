@@ -414,31 +414,12 @@ def main():
                     goals = ?,
                     assists_recent = ?,
                     cards_propensity = ?,
-                    efficiency_score = ?,
                     caps = ?
                 WHERE player_id = ?;
-            """, (p_data['minutes'], p_data['goals'], p_data['assists'], c_prop, eff, mp, pid))
+            """, (p_data['minutes'], p_data['goals'], p_data['assists'], c_prop, mp, pid))
             updated_players_count += 1
              
-    # Calcular y actualizar el promedio de efficiency_score para cada selección
-    print("\nCalculando promedios de efficiency_score por selección...")
-    cursor.execute("""
-        SELECT fifa_code, AVG(efficiency_score)
-        FROM scraped_wc2026_probable_squads
-        WHERE efficiency_score IS NOT NULL
-        GROUP BY fifa_code;
-    """)
-    team_avgs = cursor.fetchall()
-    
-    for code, avg in team_avgs:
-        if avg is not None:
-            cursor.execute("""
-                UPDATE scraped_team_metrics
-                SET efficiency_score_avg = ?
-                WHERE fifa_code = ?;
-            """, (round(avg, 3), code))
-            
-    print(f"  Estadísticas de {updated_players_count} jugadores y promedios de eficiencia actualizados con éxito.")
+    print(f"  Estadísticas de {updated_players_count} jugadores actualizadas con éxito.")
     conn.commit()
     conn.close()
 

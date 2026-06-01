@@ -31,12 +31,13 @@ def main():
         SELECT 
             t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder, t.is_confirmed_squad,
             m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, 
-            m.global_popularity_score, m.cards_per_match_avg, m.efficiency_score_avg,
+            m.global_popularity_score, m.cards_per_match_avg,
             m.win_rate_last_10, m.draw_rate_last_10, m.loss_rate_last_10,
             m.goals_scored_avg_last_10, m.goals_conceded_avg_last_10,
             m.current_unbeaten_streak, m.top_opponent_beaten,
             m.fifa_ranking, m.gnp_per_90, m.gc_per_90, m.drama_per_90,
-            m.ocasiones_norm, m.contra_norm, m.drama_norm, m.vuln_norm
+            m.ocasiones_norm, m.contra_norm, m.drama_norm, m.vuln_norm,
+            m.elo_rating
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -46,8 +47,8 @@ def main():
     
     for row in cursor.fetchall():
         (tid, name, code, group_letter, is_placeholder, is_confirmed, val, xg, poss, pop, cards, 
-         eff_avg, win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten,
-         rank, gnp, gc_stat, drama, oc_norm, ca_norm, dr_norm, vuln_norm) = row
+         win_rate, draw_rate, loss_rate, gs_avg, gc_avg, streak, top_beaten,
+         rank, gnp, gc_stat, drama, oc_norm, ca_norm, dr_norm, vuln_norm, elo) = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -64,7 +65,6 @@ def main():
                 "recent_possession_avg": poss,
                 "global_popularity_score": pop,
                 "cards_per_match_avg": cards,
-                "efficiency_score_avg": eff_avg,
                 "win_rate_last_10": win_rate,
                 "draw_rate_last_10": draw_rate,
                 "loss_rate_last_10": loss_rate,
@@ -75,7 +75,8 @@ def main():
                 "fifa_ranking": rank,
                 "gnp_per_90": gnp,
                 "gc_per_90": gc_stat,
-                "drama_per_90": drama
+                "drama_per_90": drama,
+                "elo_rating": elo
             }
             espectaculo_params = {
                 "ocasiones_norm": oc_norm if oc_norm is not None else 0.5,
@@ -102,7 +103,7 @@ def main():
         SELECT 
             ps.player_id, ps.player_name, ps.fifa_code, ps.position, ps.club, ps.age, ps.caps, ps.goals,
             ps.market_value_eur, ps.is_star_player, ps.is_injured, ps.cards_propensity,
-            ps.assists_recent, ps.minutes_recent, ps.efficiency_score,
+            ps.assists_recent, ps.minutes_recent,
             ps.xG_intl, ps.sca_intl, ps.gca_intl, ps.progressive_passes_intl, ps.progressive_carries_intl
         FROM scraped_wc2026_probable_squads ps
         JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code;
@@ -110,7 +111,7 @@ def main():
     
     for row in cursor.fetchall():
         (pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec, 
-         eff_rec, xg, sca, gca, prog_pass, prog_carr) = row
+         xg, sca, gca, prog_pass, prog_carr) = row
         if code in teams_dict:
             teams_dict[code]["squad"].append({
                 "id": pid,
@@ -125,7 +126,6 @@ def main():
                 "cards_propensity": cards,
                 "assists_recent": assists_rec,
                 "minutes_recent": mins_rec,
-                "efficiency_score": eff_rec,
                 "xG_intl": xg,
                 "sca_intl": sca,
                 "gca_intl": gca,

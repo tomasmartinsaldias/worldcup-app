@@ -400,7 +400,6 @@ def main():
         cards_propensity REAL,
         assists_recent INTEGER,
         minutes_recent INTEGER,
-        efficiency_score REAL,
         FOREIGN KEY (fifa_code) REFERENCES wc2026_teams (fifa_code)
     );
     """)
@@ -589,8 +588,8 @@ def main():
             cursor.execute("""
                 INSERT INTO scraped_wc2026_probable_squads (
                     player_name, fifa_code, position, club, age, caps, goals, market_value_eur, 
-                    is_star_player, is_injured, cards_propensity, assists_recent, minutes_recent, efficiency_score
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL);
+                    is_star_player, is_injured, cards_propensity, assists_recent, minutes_recent
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL);
             """, (player_name, code, role, p_club, p_age, 0, 0, p_mv, is_star, 0, p_cards))
             
             if p_mv is None:
