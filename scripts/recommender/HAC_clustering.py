@@ -215,6 +215,45 @@ def find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75, min_play
             
     return best_k, best_score
 
+def save_cluster_map(player_names, overalls, labels, representatives, features, position, output_dir):
+    """
+    Persiste el mapa cluster → jugadores (variante arquetipos) en un archivo JSON.
+
+    Estructura de salida:
+    [
+      {
+        "long_name": "Jude Bellingham",
+        "cluster_id": 3,
+        "overall": 90,
+        "representative_name": "Jude Bellingham",
+        "position_vector": [0.12, -0.03, ...]
+      },
+      ...
+    ]
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    filename = f"kmeans_{position.lower()}_arquetipos.json"
+    filepath = os.path.join(output_dir, filename)
+
+    records = []
+    for idx, (player_name, overall, cluster_id) in enumerate(zip(player_names, overalls, labels)):
+        # cluster_id from model is 0-based; representatives uses 1-based keys
+        rep_key = int(cluster_id) + 1
+        rep_name = representatives.get(rep_key, {}).get('name', '')
+        records.append({
+            'long_name': str(player_name),
+            'cluster_id': int(cluster_id) + 1,   # 1-based for readability
+            'overall': int(overall),
+            'representative_name': rep_name,
+            'position_vector': [round(float(v), 6) for v in features[idx]],
+        })
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(records, f, ensure_ascii=False, indent=4)
+
+    print(f"  --> Mapa arquetipos guardado: {filepath} ({len(records)} jugadores)")
+
+
 def main():
     positions = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Strikers', 'Wingers']
     
@@ -278,7 +317,20 @@ def main():
             # Incremento relativo
             increase = ((var_arch - var_normal) / var_normal) * 100
             print(f"  --> Diferencia en varianza: {increase:+.2f}%")
-            
+
+            # -------------------------------------------------------
+            # 6. Guardar mapa KMeans Arquetipos en disco
+            # -------------------------------------------------------
+            output_dir = os.path.abspath(os.path.join(
+                os.path.dirname(__file__), '..', '..', 'data', 'clustering_maps'
+            ))
+
+            save_cluster_map(
+                player_names, overalls,
+                kmeans_arch_engine.labels_, kmeans_arch_reps,
+                features, position, output_dir
+            )
+
             print() # Espacio entre posiciones
             
         except Exception as e:
