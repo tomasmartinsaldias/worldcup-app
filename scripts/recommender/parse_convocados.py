@@ -66,9 +66,11 @@ def parse_markdown_and_create_db(md_filepath, db_filepath):
             pos_part, players_part = line.split(":", 1)
             players_part = players_part.strip().strip(".")
             
-            # Reemplazar la conjunción ' y ' o ' e ' con una coma para facilitar el split
+            # Reemplazar la conjunción ' y ', ' e ' o ' and ' con una coma para facilitar el split
             players_part = re.sub(r'\s+y\s+', ',', players_part)
             players_part = re.sub(r'\s+e\s+', ',', players_part)
+            players_part = re.sub(r'\s+and\s+', ',', players_part)
+
             
             # Separar por comas (cuidando comas dentro de paréntesis)
             matches = re.finditer(r'([^\,]+?\s*\([^)]+\))', players_part)

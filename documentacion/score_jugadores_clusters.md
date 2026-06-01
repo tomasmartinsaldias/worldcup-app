@@ -287,22 +287,131 @@ The average squared Euclidean distance on the L2-normalized unit hypersphere mea
 ---
 
 ## 5. Tests & Validation
-Running the scripts after each change produced output similar to:
-```
-HAC Goalkeepers:
-  Cluster 1 = Alisson Ramsés Becker (overall: 89)
-  Cluster 2 = Joan García Pons (overall: 83)
-  Cluster 3 = Dominik Kotarski (overall: 77)
-KMeans Goalkeepers:
-  Cluster 1 = Yehvann Diouf (overall: 78)
-  Cluster 2 = David Raya Martín (overall: 87)
-  Cluster 3 = Alisson Ramsés Becker (overall: 89)
-…
-```
-- The numbers of clusters respect the configuration per position.
-- Representative players match the **maximum `overall`** in each cluster, as verified by manual inspection of the generated JSON files.
 
----
+Resultados de la última ejecución de clustering:
+
+`
+=======================================================
+POSICIÓN: Goalkeepers | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.0955)
+=======================================================
+HAC Goalkeepers:
+  Cluster 1 = Thibaut Nicolas Marc Courtois (overall: 89)
+  Cluster 2 = Mike Louis Penders (overall: 73)
+  Cluster 3 = Tyrick Bodak (overall: 60)
+KMeans Goalkeepers (Normal):
+  Cluster 1 = Yehvann Diouf (overall: 78)
+  Cluster 2 = Thibaut Nicolas Marc Courtois (overall: 89)
+  Cluster 3 = Alisson Ramsés Becker (overall: 89)
+  --> Varianza intra-cluster (Normal): 0.03274
+KMeans Goalkeepers (Arquetipos >75):
+  Cluster 1 = Alisson Ramsés Becker (overall: 89)
+  Cluster 2 = Yvon Landry Mvogo Nganoma (overall: 76)
+  Cluster 3 = Thibaut Nicolas Marc Courtois (overall: 89)
+  --> Varianza intra-cluster (Arquetipos >75): 0.04110
+  --> Diferencia en varianza: +25.53%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_goalkeepers_arquetipos.json (86 jugadores)
+
+=======================================================
+POSICIÓN: Centerbacks | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.1682)
+=======================================================
+HAC Centerbacks:
+  Cluster 1 = Daniel Johnson Burn (overall: 79)
+  Cluster 2 = Axel Laurent Angel Lambert Witsel (overall: 77)
+  Cluster 3 = Virgil van Dijk (overall: 90)
+KMeans Centerbacks (Normal):
+  Cluster 1 = William Alain André Gabriel Saliba (overall: 87)
+  Cluster 2 = Gabriel dos Santos Magalhães (overall: 88)
+  Cluster 3 = Virgil van Dijk (overall: 90)
+  --> Varianza intra-cluster (Normal): 0.01243
+KMeans Centerbacks (Arquetipos >75):
+  Cluster 1 = Virgil van Dijk (overall: 90)
+  Cluster 2 = William Alain André Gabriel Saliba (overall: 87)
+  Cluster 3 = Gabriel dos Santos Magalhães (overall: 88)
+  --> Varianza intra-cluster (Arquetipos >75): 0.01337
+  --> Diferencia en varianza: +7.59%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_centerbacks_arquetipos.json (161 jugadores)
+
+=======================================================
+POSICIÓN: Fullbacks | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.1391)
+=======================================================
+HAC Fullbacks:
+  Cluster 1 = Achraf Hakimi Mouhأشرف حكيمي (overall: 89)
+  Cluster 2 = Mohammed Ali Abdulaziz Al Dowaish (overall: 51)
+  Cluster 3 = Ali Majrashiعلي مجرشي (overall: 70)
+KMeans Fullbacks (Normal):
+  Cluster 1 = Nuno Alexandre Tavares Mendes (overall: 86)
+  Cluster 2 = Achraf Hakimi Mouhأشرف حكيمي (overall: 89)
+  Cluster 3 = Jules Olivier Koundé (overall: 87)
+  --> Varianza intra-cluster (Normal): 0.00783
+KMeans Fullbacks (Arquetipos >75):
+  Cluster 1 = Joško Gvardiol (overall: 84)
+  Cluster 2 = Jules Olivier Koundé (overall: 87)
+  Cluster 3 = Achraf Hakimi Mouhأشرف حكيمي (overall: 89)
+  --> Varianza intra-cluster (Arquetipos >75): 0.00924
+  --> Diferencia en varianza: +17.95%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_fullbacks_arquetipos.json (120 jugadores)
+
+=======================================================
+POSICIÓN: Midfielders | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.1708)
+=======================================================
+HAC Midfielders:
+  Cluster 1 = Jude Victor William Bellingham (overall: 90)
+  Cluster 2 = Florian Richard Wirtz (overall: 89)
+  Cluster 3 = Granit Xhaka (overall: 85)
+KMeans Midfielders (Normal):
+  Cluster 1 = Florian Richard Wirtz (overall: 89)
+  Cluster 2 = Moisés Isaac Caicedo Corozo (overall: 87)
+  Cluster 3 = Jude Victor William Bellingham (overall: 90)
+  --> Varianza intra-cluster (Normal): 0.00852
+KMeans Midfielders (Arquetipos >75):
+  Cluster 1 = Jude Victor William Bellingham (overall: 90)
+  Cluster 2 = Florian Richard Wirtz (overall: 89)
+  Cluster 3 = Rodrigo Hernández Cascante (overall: 90)
+  --> Varianza intra-cluster (Arquetipos >75): 0.00889
+  --> Diferencia en varianza: +4.34%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_midfielders_arquetipos.json (228 jugadores)
+
+=======================================================
+POSICIÓN: Strikers | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.1886)
+=======================================================
+HAC Strikers:
+  Cluster 1 = Kylian Mbappé Lottin (overall: 91)
+  Cluster 2 = Wout François Maria Weghorst (overall: 78)
+  Cluster 3 = Álex Adrián Arce Barrios (overall: 75)
+KMeans Strikers (Normal):
+  Cluster 1 = Ante Budimir (overall: 82)
+  Cluster 2 = Kylian Mbappé Lottin (overall: 91)
+  Cluster 3 = Masour Ousmane Dembélé (overall: 90)
+  --> Varianza intra-cluster (Normal): 0.01098
+KMeans Strikers (Arquetipos >75):
+  Cluster 1 = Masour Ousmane Dembélé (overall: 90)
+  Cluster 2 = Kylian Mbappé Lottin (overall: 91)
+  Cluster 3 = Erling Braut Håland (overall: 90)
+  --> Varianza intra-cluster (Arquetipos >75): 0.01228
+  --> Diferencia en varianza: +11.82%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_strikers_arquetipos.json (108 jugadores)
+
+=======================================================
+POSICIÓN: Wingers | K ÓPTIMO DEDUCIDO: 3 (Silhouette: 0.1577)
+=======================================================
+HAC Wingers:
+  Cluster 1 = Alejandro Grimaldo García (overall: 84)
+  Cluster 2 = Chemsdine Talbi (overall: 73)
+  Cluster 3 = Mohamed Salah Hamed Ghalyمحمد صلاح (overall: 91)
+KMeans Wingers (Normal):
+  Cluster 1 = Bukayo Saka (overall: 88)
+  Cluster 2 = Vinicius José Paixão de Oliveira Junior (overall: 89)
+  Cluster 3 = Mohamed Salah Hamed Ghalyمحمد صلاح (overall: 91)
+  --> Varianza intra-cluster (Normal): 0.00957
+KMeans Wingers (Arquetipos >75):
+  Cluster 1 = Mohamed Salah Hamed Ghalyمحمد صلاح (overall: 91)
+  Cluster 2 = Vinicius José Paixão de Oliveira Junior (overall: 89)
+  Cluster 3 = Bukayo Saka (overall: 88)
+  --> Varianza intra-cluster (Arquetipos >75): 0.01062
+  --> Diferencia en varianza: +10.96%
+  --> Mapa arquetipos guardado: C:\Users\tomas\Desktop\proyectos\worldcup-app\data\clustering_maps\kmeans_wingers_arquetipos.json (130 jugadores)
+
+`
 
 ## 6. How to Run the Full Pipeline
 ```bash

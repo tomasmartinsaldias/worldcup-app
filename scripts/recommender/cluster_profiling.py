@@ -12,6 +12,93 @@ from HAC_clustering import DataLoader, DataPreprocessor, KMeansEngine, PositionF
 if sys.stdout.encoding.lower() != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
+CLUSTER_METADATA = {
+    'Goalkeepers': {
+        1: {
+            'name': 'Arquero Jugador / Sweeper Keeper',
+            'desc': 'Dominan absolutamente el juego con los pies, registrando +17 en pase largo y +16 en pase corto frente a la mediana. También superan al resto en compostura (+13). Son la primera línea de creación.'
+        },
+        2: {
+            'name': 'Arquero Anómalo / Lóbero',
+            'desc': 'Es un micro-clúster de solo 2 jugadores. Tienen altísima agilidad (+18), pero su penalización extrema en compostura (-17.5) sugiere que el algoritmo aisló ruido estadístico o perfiles muy erráticos.'
+        },
+        3: {
+            'name': 'Arquero Tradicional / Atajador',
+            'desc': 'El bloque principal (55 jugadores). Tienen deficiencias marcadas en visión (-5.5) y pase corto (-5.0), enfocándose estrictamente en defender bajo los tres palos sin arriesgar en la salida.'
+        }
+    },
+    'Centerbacks': {
+        1: {
+            'name': 'Central Dominador / Amenaza Aérea',
+            'desc': 'No solo defienden; son armas ofensivas en el juego aéreo y pelota parada. Destacan con +13 en finalización, +12 en tiros lejanos y +11.5 en potencia de tiro.'
+        },
+        2: {
+            'name': 'Central de Cobertura / Rápido',
+            'desc': 'Su geometría prioriza corregir errores mediante velocidad. Tienen +4 en ritmo y +3 en aceleración, pero carecen del impacto ofensivo del Clúster 1, con -9 en tiros lejanos.'
+        },
+        3: {
+            'name': 'Central Tanque / Físico',
+            'desc': 'El arquetipo clásico de choque. Su fuerza supera a la mediana (+3) y tienen alta potencia (+5), pero el modelo detectó su falta de movilidad, penalizándolos severamente en agilidad (-16) y aceleración (-11.5).'
+        }
+    },
+    'Fullbacks': {
+        1: {
+            'name': 'Lateral Físico / Tercer Central',
+            'desc': 'Destacan por su capacidad para el choque y el juego aéreo, con +9 en cabezazo, +5 en fuerza y +4 en salto.'
+        },
+        2: {
+            'name': 'Lateral de Recorrido / Equilibrado',
+            'desc': 'Son ágiles y rápidos (+1 en aceleración y velocidad), pero tienen desviaciones muy negativas en impacto en el área rival (-13.5 en finalización, -11.5 en tiros). Su misión principal es la banda, no el arco.'
+        },
+        3: {
+            'name': 'Lateral Ofensivo / Carrilero',
+            'desc': 'El arquetipo de ataque profundo. Tienen métricas de delanteros: +8 en precisión de tiros libres, +7 en tiros lejanos y +4.5 en finalización.'
+        }
+    },
+    'Midfielders': {
+        1: {
+            'name': 'Todocampista / Box-to-Box',
+            'desc': 'Son el motor físico del equipo. Tienen superioridad en salto (+4.0) y métricas defensivas consistentes (+3.5 en entradas y defensa general, +3.0 en intercepciones).'
+        },
+        2: {
+            'name': 'Enganche Ágil / Mediapunta',
+            'desc': 'Pura creatividad y desequilibrio. Sobresalen en ritmo (+7.0), agilidad (+6.0) y balance (+6.0). A cambio, el algoritmo marca su nulo retroceso, con -23.0 en barridas y -18.5 en defensa general.'
+        },
+        3: {
+            'name': 'Organizador / Pivote Técnico',
+            'desc': 'Los dueños de la pelota parada y los pases largos. Resaltan en voleas (+8.0), penales (+8.0) y precisión de libres (+7.0). Son más lentos que el resto (-4.0 en ritmo), compensándolo con posicionamiento.'
+        }
+    },
+    'Strikers': {
+        1: {
+            'name': 'Delantero de Presión / Primera Línea Defensiva',
+            'desc': 'Este es un hallazgo excelente del modelo. Identificó a los atacantes que ahogan la salida rival, registrando +12.5 en intercepciones y +11.0 en barridas frente a la mediana de los delanteros.'
+        },
+        2: {
+            'name': 'Delantero de Ruptura / Velocista',
+            'desc': 'Su principal arma es ganar la espalda de la defensa, superando la mediana en aceleración (+3.0) y velocidad (+2.5), con bajo compromiso de marca (-9.0 en entradas).'
+        },
+        3: {
+            'name': 'Hombre Objetivo / Nueve de Área',
+            'desc': 'Una bestia física. Arrasan en fuerza (+7.0) y cabezazo (+5.0). La contrapartida matemática es su rigidez: -16.5 en agilidad y -14.5 en balance.'
+        }
+    },
+    'Wingers': {
+        1: {
+            'name': 'Extremo Completo / Asociativo',
+            'desc': 'Jugadores de banda con gran capacidad de creación y definición. Superan la media en tiros libres (+2.0), visión (+2.0) y finalización (+1.5).'
+        },
+        2: {
+            'name': 'Extremo Desequilibrante / Regateador Puro',
+            'desc': 'Aislados estrictamente por su habilidad técnica en el uno contra uno, con +2.0 en regate, +1.5 en regate hábil y +2.0 en finalización. Tienen obligaciones defensivas nulas (-13.5 en intercepciones).'
+        },
+        3: {
+            'name': 'Volante Táctico / Extremo Defensivo',
+            'desc': 'Ya sea por sacrificio táctico (Saka) o por error de etiqueta del juego (Grimaldo), este grupo se define por sus números irreales de defensa en ataque: +24.0 en barridas y +22.0 en intercepciones.'
+        }
+    }
+}
+
 def profile_clusters():
     positions = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Strikers', 'Wingers']
     
@@ -50,7 +137,7 @@ def profile_clusters():
         report_lines.append(f"## {position} (KMeans Arquetipos >75)")
         report_lines.append(f"Total jugadores analizados: {len(df_raw)}")
         report_lines.append("\n| Clúster | Representante principal | Miembros | Atributos Destacados (Desviación vs Mediana Global) |")
-        report_lines.append("| :---: | :--- | :---: | :--- |")
+        report_lines.append("| :--- | :--- | :---: | :--- |")
         
         cluster_details = []
         
@@ -77,7 +164,13 @@ def profile_clusters():
             # Formatear lista de atributos destacados para la tabla resumen
             top_pos_str = ", ".join([f"**+{int(val)}** en {feat.replace('_', ' ')}" for feat, val in pos_deviations.items()])
             
-            report_lines.append(f"| Cluster {cluster_id} | {rep_name} ({rep_overall}) | {len(cluster_df)} | {top_pos_str} |")
+            # Obtener nombre personalizado del clúster si está definido
+            c_name = f"Cluster {cluster_id}"
+            pos_key = 'Centerbacks' if position == 'Centerbacks' else ('Fullbacks' if position == 'Fullbacks' else position)
+            if pos_key in CLUSTER_METADATA and cluster_id in CLUSTER_METADATA[pos_key]:
+                c_name = f"Cluster {cluster_id}: **{CLUSTER_METADATA[pos_key][cluster_id]['name']}**"
+                
+            report_lines.append(f"| {c_name} | {rep_name} ({rep_overall}) | {len(cluster_df)} | {top_pos_str} |")
             
             # Guardar detalles más profundos para la sección posterior
             cluster_details.append((cluster_id, rep_name, rep_overall, len(cluster_df), pos_deviations, neg_deviations, cluster_df))
@@ -85,7 +178,16 @@ def profile_clusters():
         report_lines.append("\n### Análisis Detallado de Arquetipos por Clúster\n")
         
         for cluster_id, rep_name, rep_overall, size, pos_dev, neg_dev, c_df in cluster_details:
-            report_lines.append(f"#### Clúster {cluster_id}: Representado por {rep_name} ({rep_overall})")
+            pos_key = 'Centerbacks' if position == 'Centerbacks' else ('Fullbacks' if position == 'Fullbacks' else position)
+            custom_title = f"Clúster {cluster_id}: Representado por {rep_name} ({rep_overall})"
+            custom_desc = ""
+            if pos_key in CLUSTER_METADATA and cluster_id in CLUSTER_METADATA[pos_key]:
+                custom_title = f"Clúster {cluster_id}: **\"{CLUSTER_METADATA[pos_key][cluster_id]['name']}\"** (Representante: {rep_name} - {rep_overall})"
+                custom_desc = f"\n*{CLUSTER_METADATA[pos_key][cluster_id]['desc']}*\n"
+                
+            report_lines.append(f"#### {custom_title}")
+            if custom_desc:
+                report_lines.append(custom_desc)
             report_lines.append(f"- **Tamaño del grupo:** {size} jugadores.")
             
             # Muestra de jugadores de ejemplo en este clúster
@@ -115,3 +217,4 @@ def profile_clusters():
 
 if __name__ == "__main__":
     profile_clusters()
+

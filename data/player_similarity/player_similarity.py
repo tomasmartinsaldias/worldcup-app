@@ -21,12 +21,35 @@ def normalize_string(s):
     
     # Normalize suffixes like "jr." or "jr" to "junior"
     s = re.sub(r'\bjr\b\.?', 'junior', s)
+    
+    # Map common nicknames/diminutivos to their full matches in the CSV
+    name_variants = {
+        'leo messi': 'lionel messi',
+        'andy robertson': 'andrew robertson',
+        'noni madueke': 'chukwunonso madueke',
+        'ollie watkins': 'oliver watkins',
+        'grob': 'gross',
+        'haaland': 'haland',
+        'yaya sithole': 'sphephelo sithole',
+        'johnny placide': 'johny placide',
+        'wilguens pauguain': 'wilguens paugain',
+        'jk duverne': 'jean kevin duverne',
+        'jeanricner bellegarde': 'jean ricner bellegarde',
+        'nestory irakunda': 'nestory irankunda',
+        'kenny mclean': 'kenneth mclean',
+        'cristophe kabongo': 'christophe kabongo',
+        'redouane hahlal': 'redouane halhal',
+        'michail sadilek': 'michal sadilek'
+    }
+    for k, v in name_variants.items():
+        s = s.replace(k, v)
+
+        
     return s
 
-df = pd.read_csv("data/player_similarity/FC26_20250921.csv", low_memory=False)
+df = pd.read_csv("data/player_similarity/FC26_20250921.csv", encoding="utf-8", low_memory=False)
 
 # Translation map for convocados.db (Spanish) -> FC26 CSV (English)
-# Special note: "Ecuador" in convocados.db actually contains Netherlands players due to a DB labeling mismatch.
 COUNTRY_MAP = {
     "sudafrica": "South Africa",
     "corea del sur": "Korea Republic",
@@ -41,7 +64,7 @@ COUNTRY_MAP = {
     "alemania": "Germany",
     "curazao": "Curacao",
     "costa de marfil": "Côte d'Ivoire",
-    "ecuador": "Netherlands",
+    "ecuador": "Ecuador",
     "japon": "Japan",
     "suecia": "Sweden",
     "tunez": "Tunisia",
@@ -64,7 +87,14 @@ COUNTRY_MAP = {
     "canada": "Canada",
     "paises bajos": "Netherlands",
     "uruguay": "Uruguay",
-    "argelia": "Algeria"
+    "argelia": "Algeria",
+    "mexico": "Mexico",
+    "paraguay": "Paraguay",
+    "australia": "Australia",
+    "turquia": "Turkey",
+    "iran": "Iran",
+    "arabia saudita": "Saudi Arabia",
+    "irak": "Iraq"
 }
 
 columns_to_keep = [

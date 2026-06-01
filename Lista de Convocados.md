@@ -253,9 +253,9 @@ Arqueros: Mohamed El Shennawy (Al Ahly), Mostafa Shobeir (Al Ahly), El Mahdy Sol
 
 Defensores: Mohamed Hany (Al Ahly), Tarek Alaa (ZED FC), Hamdi Fathi (Al Wakrah), Ramy Rabia (Al Ain), Yasser Ibrahim (Al Ahly), Hossam Abdelmaguid (Zamalek), Mohamed Abdelmonem (OGC Nice), Ahmed Fattouh (Zamalek), and Karim Hafez (Pyramids FC).
 
-Mediocampistas: Marwan Attia (Al Ahly), Mohannad Lasheen (Pyramids FC), Nabil Emad Dunga (Zamalek), Mahmoud Saber (Pyramids FC), Ahmed Sayed Zizo (Zamalek), Mahmoud Trezeguet (Trabzonspor), Emam Ashour (Al Ahly), Mostafa Ziko (Pyramids FC), Ibrahim Adel (Pyramids FC), Haitham Hassan (Real Oviedo), and Mohamed Salah (Liverpool).
+Mediocampistas: Marwan Attia (Al Ahly), Mohannad Lasheen (Pyramids FC), Nabil Emad Dunga (Zamalek), Mahmoud Saber (Pyramids FC), Ahmed Sayed Zizo (Zamalek), Mahmoud Trezeguet (Trabzonspor), Emam Ashour (Al Ahly), Mostafa Ziko (Pyramids FC), Ibrahim Adel (Pyramids FC), Haitham Hassan (Real Oviedo), Mohamed Salah (Liverpool).
 
-Delanteros: Omar Marmoush (Manchester City), Aktay Abdullah (Smouha SC), and Hamza Abdel Karim (FC Barcelona Atlètic).
+Delanteros: Omar Marmoush (Manchester City), Aktay Abdullah (Smouha SC), Hamza Abdel Karim (FC Barcelona Atlètic).
 Irán
 
 Arqueros: Alireza Beiranvand (Tractor, IRN), Hossein Hosseini (Sepahan, IRN) y Payam Niazmand (Persépolis, IRN). 
