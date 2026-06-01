@@ -1,0 +1,116 @@
+Corea del Sur (AFC Asian Cup 2023):
+Summary
+
+    Sofascore Rating: 7.03
+
+    Matches: 6
+
+    Goals Scored: 11
+
+    Goals Conceded: 10
+
+    Assists: 4
+
+Attacking
+
+    Goals per game: 1.8
+
+    Penalty goals: 3/3
+
+    Free kick goals: 2/5
+
+    Goals from inside the box: 7/67
+
+    Goals from outside the box: 3/30
+
+    Left-footed goals: 4
+
+    Right-footed goals: 4
+
+    Headed goals: 2
+
+    Big chances per game: 3
+
+    Big chances missed per game: 1.8
+
+    Total shots per game: 16.2
+
+    Shots on target per game: 6
+
+    Shots off target per game: 6.5
+
+    Blocked shots per game: 3.7
+
+    Succ. dribbles per game: 9.3
+
+    Corners per game: 8.7
+
+    Free kicks per game: 11.8
+
+    Hit woodwork: 2
+
+    Counter attacks: 2
+
+Passes
+
+    Ball possession: 69.8%
+
+    Accurate passes: 655 (87.3%)
+
+    Acc. own half: 313 (92.3%)
+
+    Acc. opposition half: 350 (79.4%)
+
+    Acc. long balls: 26.3 (50.2%)
+
+    Acc. crosses: 7.8 (26.4%)
+
+Defending
+
+    Clean sheets: 0
+
+    Goals conceded per game: 1.7
+
+    Tackles per game: 16.3
+
+    Interceptions per game: 9.3
+
+    Clearances per game: 10.2
+
+    Saves per game: 2.7
+
+    Balls recovered per game: 61.5
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 1
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 1
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 52.5 (47.7%)
+
+    Ground duels won: 36.8 (47.7%)
+
+    Aerial duels won: 15.7 (47.5%)
+
+    Possession lost per game: 161.5
+
+    Throw-ins per game: 27.5
+
+    Goal kicks per game: 6.5
+
+    Offsides per game: 3.8
+
+    Fouls per game: 12.5
+
+    Yellow cards per game: 2.3
+
+    Red cards: 0

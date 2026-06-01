@@ -1,0 +1,113 @@
+Bélgica (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.31
+
+    Matches: 8
+
+    Goals Scored: 29
+
+    Goals Conceded: 7
+
+    Assists: 19
+
+Attacking
+
+    Goals per game: 3.6
+
+    Penalty goals: 4/4
+
+    Free kick goals: 0/3
+
+    Goals from inside the box: 26/129
+
+    Goals from outside the box: 3/49
+
+    Left-footed goals: 9
+
+    Right-footed goals: 15
+
+    Headed goals: 5
+
+    Big chances per game: 4.5
+
+    Big chances missed per game: 2.3
+
+    Total shots per game: 22.3
+
+    Shots on target per game: 8
+
+    Shots off target per game: 7.3
+
+    Blocked shots per game: 7
+
+    Succ. dribbles per game: 12
+
+    Corners per game: 10.4
+
+    Free kicks per game: 10.3
+
+    Hit woodwork: 4
+
+    Counter attacks: 6
+
+Passes
+
+    Ball possession: 68.1%
+
+    Accurate passes: 516 (88.4%)
+
+    Acc. own half: 170 (94%)
+
+    Acc. opposition half: 345 (82%)
+
+    Acc. long balls: 24.5 (70%)
+
+    Acc. crosses: 7.1 (27.8%)
+
+Defending
+
+    Clean sheets: 4
+
+    Goals conceded per game: 0.9
+
+    Tackles per game: 13.3
+
+    Interceptions per game: 4.8
+
+    Clearances per game: 13.1
+
+    Saves per game: 1.5
+
+    Balls recovered per game: 46.1
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 2
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Last man tackle: 2
+
+Other
+
+    Duels won per game: 47.1 (55%)
+
+    Ground duels won: 35.3 (52.7%)
+
+    Aerial duels won: 11.9 (62.9%)
+
+    Possession lost per game: 123.4
+
+    Throw-ins per game: 21.5
+
+    Goal kicks per game: 3.9
+
+    Offsides per game: 1.1
+
+    Fouls per game: 9.6
+
+    Yellow cards per game: 1.1
+
+    Red cards: 0

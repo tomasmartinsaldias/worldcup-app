@@ -1,0 +1,117 @@
+Egipto (Africa Cup of Nations 25/26)
+
+Summary
+
+    Sofascore Rating: 6.99
+
+    Matches: 7
+
+    Goals Scored: 9
+
+    Goals Conceded: 5
+
+    Assists: 8
+
+Attacking
+
+    Goals per game: 1.3
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 7/45
+
+    Goals from outside the box: 2/27
+
+    Left-footed goals: 4
+
+    Right-footed goals: 3
+
+    Headed goals: 2
+
+    Big chances per game: 2.7
+
+    Big chances missed per game: 2
+
+    Total shots per game: 10.3
+
+    Shots on target per game: 4.1
+
+    Shots off target per game: 3.7
+
+    Blocked shots per game: 2.4
+
+    Succ. dribbles per game: 7.1
+
+    Corners per game: 3.6
+
+    Free kicks per game: 13.7
+
+    Hit woodwork: 1
+
+    Counter attacks: 4
+
+Passes
+
+    Ball possession: 49.1%
+
+    Accurate passes: 356 (81.2%)
+
+    Acc. own half: 189 (89%)
+
+    Acc. opposition half: 167 (73.9%)
+
+    Acc. long balls: 21.6 (47.5%)
+
+    Acc. crosses: 3.1 (23.2%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 0.7
+
+    Tackles per game: 22
+
+    Interceptions per game: 8.9
+
+    Clearances per game: 35.1
+
+    Saves per game: 3.7
+
+    Balls recovered per game: 52.3
+
+    Errors leading to shot: 3
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 57.7 (53.4%)
+
+    Ground duels won: 42.3 (53.1%)
+
+    Aerial duels won: 15.4 (54%)
+
+    Possession lost per game: 133.4
+
+    Throw-ins per game: 19.6
+
+    Goal kicks per game: 7.6
+
+    Offsides per game: 2.1
+
+    Fouls per game: 12.1
+
+    Yellow cards per game: 1.7
+
+    Red cards: 1

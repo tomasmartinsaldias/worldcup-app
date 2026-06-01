@@ -1,0 +1,113 @@
+República Checa (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.12
+
+    Matches: 10
+
+    Goals Scored: 22
+
+    Goals Conceded: 12
+
+    Assists: 17
+
+Attacking
+
+    Goals per game: 2.2
+
+    Penalty goals: 1/1
+
+    Free kick goals: 0/3
+
+    Goals from inside the box: 18/115
+
+    Goals from outside the box: 3/47
+
+    Left-footed goals: 8
+
+    Right-footed goals: 7
+
+    Headed goals: 7
+
+    Big chances per game: 3.7
+
+    Big chances missed per game: 2.3
+
+    Total shots per game: 16.3
+
+    Shots on target per game: 6.1
+
+    Shots off target per game: 5.9
+
+    Blocked shots per game: 4.3
+
+    Succ. dribbles per game: 5.4
+
+    Corners per game: 7.5
+
+    Free kicks per game: 9.4
+
+    Hit woodwork: 5
+
+Passes
+
+    Ball possession: 55.3%
+
+    Accurate passes: 365 (80.1%)
+
+    Acc. own half: 146 (87.6%)
+
+    Acc. opposition half: 219 (71.7%)
+
+    Acc. long balls: 20.2 (49%)
+
+    Acc. crosses: 8.1 (28.5%)
+
+Defending
+
+    Clean sheets: 5
+
+    Goals conceded per game: 1.2
+
+    Tackles per game: 16
+
+    Interceptions per game: 8.8
+
+    Clearances per game: 27.3
+
+    Saves per game: 2.3
+
+    Balls recovered per game: 53.3
+
+    Errors leading to shot: 2
+
+    Errors leading to goal: 1
+
+    Penalties committed: 3
+
+    Penalty goals conceded: 3
+
+    Clearance off line: 3
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 54.1 (50.2%)
+
+    Ground duels won: 30.3 (47.7%)
+
+    Aerial duels won: 23.8 (53.7%)
+
+    Possession lost per game: 148.7
+
+    Throw-ins per game: 22.7
+
+    Goal kicks per game: 4.8
+
+    Offsides per game: 2.3
+
+    Fouls per game: 15.6
+
+    Yellow cards per game: 0.9
+
+    Red cards: 0

@@ -1,5 +1,6 @@
 import { state } from '../state.js';
-import { createFlagElement } from '../utils.js';
+import { calculateFormRating } from '../scoring.js';
+import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 
 export function openPlayerProfile(teamCode, playerId) {
   const team = state.appData.teams[teamCode];
@@ -12,7 +13,9 @@ export function openPlayerProfile(teamCode, playerId) {
   modal.classList.add('active');
 
   // Header Title
-  document.getElementById('player-modal-name-header').textContent = player.name;
+  const photoUrl = getPlayerPhotoUrl(player.name);
+  const photoHtml = photoUrl ? `<img src="${photoUrl}" referrerpolicy="no-referrer" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; margin-right: 1rem; vertical-align: middle; border: 2px solid #e5e7eb; display: inline-block;" onerror="this.style.display='none'">` : '';
+  document.getElementById('player-modal-name-header').innerHTML = `<div style="display: flex; align-items: center;">${photoHtml}<span>${player.name}</span></div>`;
 
   // National Team Block
   const ntFlagContainer = document.getElementById('player-modal-nt-flag');
@@ -38,22 +41,19 @@ export function openPlayerProfile(teamCode, playerId) {
   }
   
   if (clubName && clubName !== 'Agente Libre') {
-    clubIconContainer.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color:#666"></i>';
-    clubIconContainer.style.background = 'transparent';
-    fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(clubName)}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.teams && data.teams[0] && data.teams[0].strBadge) {
-           clubIconContainer.innerHTML = `<img src="${data.teams[0].strBadge}/preview" style="width: 100%; height: 100%; object-fit: contain;">`;
-        } else {
-           clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
-           clubIconContainer.style.background = '#e0e0e0';
-        }
-      })
-      .catch(() => {
-        clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
-        clubIconContainer.style.background = '#e0e0e0';
-      });
+    let logoUrl = null;
+    if (state.appData.clubLogos) {
+      logoUrl = state.appData.clubLogos[clubName] || state.appData.clubLogos[clubName.toLowerCase()];
+    }
+
+    if (logoUrl) {
+      clubIconContainer.innerHTML = `<img src="${logoUrl}" style="width: 100%; height: 100%; object-fit: contain;">`;
+      clubIconContainer.style.background = 'transparent';
+    } else {
+      const initial = clubName.charAt(0).toUpperCase();
+      clubIconContainer.innerHTML = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-weight:bold; color:white; background:linear-gradient(135deg, var(--fifa-blue), var(--accent-cyan)); font-size:1.2rem;">${initial}</div>`;
+      clubIconContainer.style.background = 'transparent';
+    }
   } else {
     clubIconContainer.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#666"></i>';
     clubIconContainer.style.background = '#e0e0e0';
@@ -64,26 +64,10 @@ export function openPlayerProfile(teamCode, playerId) {
   document.getElementById('player-modal-pos-val').textContent = player.position || '-';
   document.getElementById('player-modal-pos-val').title = player.position || '';
   document.getElementById('player-modal-country-val').textContent = team.name;
-  
-  const val = player.market_value_eur ? `${player.market_value_eur.toFixed(1)}` : '-';
-  document.getElementById('player-modal-market-val').textContent = val;
 
   document.getElementById('player-modal-caps-val').textContent = player.caps !== null ? player.caps : '-';
   document.getElementById('player-modal-goals-val').textContent = player.goals !== null ? player.goals : '-';
 
-  // Rating Sofascore
-  let ratingVal = player.efficiency_score !== null ? (player.efficiency_score * 4 + 5.5) : 6.5;
-  let ratingStr = ratingVal.toFixed(1);
-  const ratingBox = document.getElementById('player-modal-rating-val');
-  ratingBox.textContent = ratingStr;
-  
-  if (ratingVal >= 7.0) {
-    ratingBox.style.color = '#4ade80'; // Green text
-  } else if (ratingVal < 6.0) {
-    ratingBox.style.color = '#f87171'; // Red text
-  } else {
-    ratingBox.style.color = '#facc15'; // Yellow text
-  }
 }
 
 export function closePlayerProfile() {

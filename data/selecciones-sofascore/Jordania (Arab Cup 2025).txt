@@ -1,0 +1,116 @@
+Jordania (Arab Cup 2025):
+Summary
+
+    Sofascore Rating: 6.91
+
+    Matches: 6
+
+    Goals Scored: 12
+
+    Goals Conceded: 5
+
+    Assists: 4
+
+Attacking
+
+    Goals per game: 2
+
+    Penalty goals: 5/6
+
+    Free kick goals: 1/1
+
+    Goals from inside the box: 11/48
+
+    Goals from outside the box: 1/26
+
+    Left-footed goals: 3
+
+    Right-footed goals: 7
+
+    Headed goals: 2
+
+    Big chances per game: 3.2
+
+    Big chances missed per game: 1.7
+
+    Total shots per game: 12.3
+
+    Shots on target per game: 5.2
+
+    Shots off target per game: 3.8
+
+    Blocked shots per game: 3.3
+
+    Succ. dribbles per game: 7.8
+
+    Corners per game: 4.3
+
+    Free kicks per game: 8
+
+    Hit woodwork: 1
+
+    Counter attacks: 13
+
+Passes
+
+    Ball possession: 39.2%
+
+    Accurate passes: 255 (77.2%)
+
+    Acc. own half: 133 (88.9%)
+
+    Acc. opposition half: 123 (67.6%)
+
+    Acc. long balls: 12.3 (34.9%)
+
+    Acc. crosses: 3.5 (22.1%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 0.8
+
+    Tackles per game: 19.3
+
+    Interceptions per game: 11.7
+
+    Clearances per game: 37.5
+
+    Saves per game: 2.8
+
+    Balls recovered per game: 52.2
+
+    Errors leading to shot: 4
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 51 (46.7%)
+
+    Ground duels won: 35.2 (46.4%)
+
+    Aerial duels won: 15.8 (47.5%)
+
+    Possession lost per game: 136.3
+
+    Throw-ins per game: 21.7
+
+    Goal kicks per game: 8.7
+
+    Offsides per game: 1.5
+
+    Fouls per game: 12.5
+
+    Yellow cards per game: 0.8
+
+    Red cards: 0

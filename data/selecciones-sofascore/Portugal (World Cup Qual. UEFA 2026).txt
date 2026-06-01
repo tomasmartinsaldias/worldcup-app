@@ -1,0 +1,115 @@
+Portugal (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.24
+
+    Matches: 6
+
+    Goals Scored: 20
+
+    Goals Conceded: 7
+
+    Assists: 10
+
+Attacking
+
+    Goals per game: 3.3
+
+    Penalty goals: 3/4
+
+    Free kick goals: 1/4
+
+    Goals from inside the box: 15/96
+
+    Goals from outside the box: 5/54
+
+    Left-footed goals: 5
+
+    Right-footed goals: 12
+
+    Headed goals: 3
+
+    Big chances per game: 4.8
+
+    Big chances missed per game: 2.7
+
+    Total shots per game: 25
+
+    Shots on target per game: 8.3
+
+    Shots off target per game: 10.2
+
+    Blocked shots per game: 6.5
+
+    Succ. dribbles per game: 7
+
+    Corners per game: 6.7
+
+    Free kicks per game: 8
+
+    Hit woodwork: 7
+
+    Counter attacks: 6
+
+Passes
+
+    Ball possession: 71.3%
+
+    Accurate passes: 621 (91.7%)
+
+    Acc. own half: 182 (95%)
+
+    Acc. opposition half: 439 (86.9%)
+
+    Acc. long balls: 19.7 (67.4%)
+
+    Acc. crosses: 8.2 (29.7%)
+
+Defending
+
+    Clean sheets: 2
+
+    Goals conceded per game: 1.2
+
+    Tackles per game: 11.2
+
+    Interceptions per game: 5.7
+
+    Clearances per game: 11.2
+
+    Saves per game: 1.5
+
+    Balls recovered per game: 42.2
+
+    Errors leading to shot: 1
+
+    Errors leading to goal: 1
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 39.3 (52%)
+
+    Ground duels won: 25.7 (51.3%)
+
+    Aerial duels won: 13.7 (53.2%)
+
+    Possession lost per game: 104.3
+
+    Throw-ins per game: 16.3
+
+    Goal kicks per game: 3.8
+
+    Offsides per game: 2.5
+
+    Fouls per game: 7
+
+    Yellow cards per game: 1.3
+
+    Red cards: 1

@@ -19,7 +19,7 @@ export function renderUnresolved() {
   Object.values(state.appData.teams).forEach(t => {
     if (t.is_placeholder || !t.squad) return;
     t.squad.forEach(p => {
-      if (p.market_value_eur === null && p.sofascore_rating === null) {
+      if (p.market_value_eur === null) {
         unresolvedList.push({
           name: p.name,
           country: t.name,

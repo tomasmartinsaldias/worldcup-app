@@ -11,6 +11,10 @@ export function openH2HModal(match) {
   document.getElementById('modal-match-title').textContent = `Partido #${match.match_number} &bull; ${match.stage}`;
   document.getElementById('modal-match-score').textContent = match.smartScore.toFixed(1);
   
+  // Set sub-scores
+  document.getElementById('modal-spectacle-score').textContent = match.spectacleScore ? match.spectacleScore.toFixed(1) : '5.0';
+  document.getElementById('modal-playstyle-score').textContent = match.playstyleScore ? match.playstyleScore.toFixed(1) : '5.0';
+  
   // Set rank interest (out of 104 matches)
   if (state.appData && state.appData.matches) {
     const rank = state.appData.matches.findIndex(m => m.match_number === match.match_number) + 1;
