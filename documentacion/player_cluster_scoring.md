@@ -35,22 +35,27 @@ The **`run_score`** helper (exposed in `scripts/recommender/score_cluster_player
 
 ---
 ### Scoring formula
-For each player that matches the favourite cluster we compute a **contribution**:
+For each player that matches the favourite cluster we compute a **contribution** using an exponential decay function:
 ```python
-contribution = 1.0 / distance   # distance > 0
+contribution = (e^(-a * distance) - e^(-a)) / (1 - e^(-a))
 ```
+Where:
+- `distance` is the Euclidean distance to the cluster centroid.
+- `a` is a hyperparameter (default `4.0`) that controls the rate of decay.
+
+The contribution is clamped between `0.0` and `1.0` (inclusive).
+
 The contribution is added to:
 - `total_score` – the sum across **all positions and both teams**.
 - `breakdown[position]` – a list of dictionaries containing:
   ```json
-  {"player": "Kylian Mbappé", "country": "Francia", "contribution": 16.3444}
+  {"player": "Kylian Mbappé", "country": "Francia", "contribution": 0.7789}
   ```
-If a player has a distance of `0` (exact centroid) we treat the contribution as `0` to avoid division‑by‑zero.
 
 ---
 ### Execution flow (high‑level pseudocode)
 ```
-run_score(match, favourite_clusters, db_path)
+run_score(match, favourite_clusters, db_path, a)
 │
 ├─ Parse the match → (country1, country2)
 ├─ Load players for each country from convocados.db
@@ -60,28 +65,29 @@ run_score(match, favourite_clusters, db_path)
 │   ├─ For each player of both teams:
 │   │   ├─ Normalise the name
 │   │   ├─ distance = lookup.get(name) or lookup.get(normalised_name)
-│   │   ├─ contribution = 1 / distance (or 0 if missing)
+│   │   ├─ contribution = (e^(-a * distance) - e^(-a)) / (1 - e^(-a)) (or 0 if missing/None)
+│   │   ├─ Clamp contribution to [0, 1]
 │   │   └─ Accumulate into total_score and breakdown
-└─ Return (total_score, breakdown)
+│   └─ Return (total_score, breakdown)
 ```
 
 ---
-### Example output (Argentina vs Francia, favourite clusters: Midfielder = 3, Striker = 1, …)
+### Example output (Argentina vs Francia, favourite clusters: Midfielder = 3, Striker = 1, …, a = 4.0)
 ```
-Total score: 83.7503
+Total score: 4.4631
 Fullbacks (cluster 2):
-  Malo Gusto (Francia): 12.6813
+  Malo Gusto (Francia): 0.7244
 
 Midfielder (cluster 3):
-  Giovani Lo Celso (Argentina): 13.1394
-  Alexis Mac Allister (Argentina): 15.2462
-  Warren Zaïre-Emery (Francia): 11.8150
+  Giovani Lo Celso (Argentina): 0.7326
+  Alexis Mac Allister (Argentina): 0.7649
+  Warren Zaïre-Emery (Francia): 0.7074
 
 Striker (cluster 1):
-  Kylian Mbappé (Francia): 16.3444
+  Kylian Mbappé (Francia): 0.7789
 
 Wingers (cluster 2):
-  Bradley Barcola (Francia): 14.5239
+  Bradley Barcola (Francia): 0.7548
 ```
 The breakdown shows the **players that contributed** to the score and their individual contributions.
 
@@ -89,12 +95,12 @@ The breakdown shows the **players that contributed** to the score and their indi
 ### Customising the score
 - **Change favourite clusters** – edit the `favourite_clusters` dict in `t.py` (cluster IDs correspond to those in the JSON files).
 - **Add new positions** – extend `POSITIONS` and provide a matching JSON file in `data/clustering_maps/`.
-- **Different contribution function** – replace `1 / distance` in `process_players` with any other monotonic function (e.g., exponential decay) to penalise larger distances more heavily.
+- **Adjust hyperparameter `a`** – pass the `a` parameter to `run_score` or `score_match` (or use the `--a` argument in the CLI script) to control how aggressively larger distances are penalized.
 
 ---
 ### Where the code lives
 - **Scoring core** – `scripts/recommender/score_cluster_players.py`
-- **Entry point / demo** – `scripts/recommender/t.py`
+- **Entry point / demo** – `scripts/recommender/SCORE_cluster_test.py`
 - **Name normalisation** – `data/player_similarity/player_similarity.py`
 - **Clustering data** – `data/clustering_maps/` (one JSON per macro‑position)
 
