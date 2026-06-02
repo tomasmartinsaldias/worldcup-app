@@ -1,64 +1,84 @@
-# Análisis del Sistema Recomendador
+# Análisis del Sistema Recomendador (Smart Score)
 
-El sistema recomendador de la aplicación "worldcup-app" se encarga de calcular un **"Smart Score"** (puntaje inteligente) para cada partido. Este puntaje va de 1.0 a 10.0 y determina qué tan atractivo podría ser un partido específico para el usuario. 
+El sistema recomendador de la aplicación **worldcup-app** se encarga de calcular un **"Smart Score"** (puntaje inteligente) personalizado para cada partido. Este puntaje oscila en el rango de `1.0` a `10.0` y representa la afinidad del partido para el usuario actual.
 
-El cálculo se realiza en el archivo `frontend/js/recommender.js` a través de la función `calculateSmartScore(match, teams)`. 
-
-## Paso a Paso del Algoritmo Actual
-
-El algoritmo funciona en tres fases principales: un cálculo base utilizando métricas objetivas de los equipos, un ajuste por bonificaciones del torneo, y finalmente, un fuerte ajuste basado en las preferencias explícitas del usuario.
-
-### 1. Condiciones Iniciales
-- **Partidos por Definir (TBD)**: Si alguno de los equipos es un "placeholder" (por ejemplo, aún no se define quién pasa a la siguiente ronda), el sistema asigna un puntaje por defecto de `5.0`.
-- **Falta de Datos**: Si no se encuentra información o métricas de alguno de los equipos, el sistema asigna un puntaje de `6.0`.
-
-### 2. Cálculo Base (Métricas Objetivas)
-Si hay datos disponibles, el sistema evalúa 6 métricas clave. Cada métrica aporta un máximo de puntos al puntaje total:
-
-1. **Valor de Plantilla (Max 2.5 pts)**: Suma el valor de mercado en euros (`market_value_eur`) de ambos equipos. Se normaliza tomando 850M como un valor alto de referencia.
-2. **Popularidad Global (Max 2.0 pts)**: Promedia el puntaje de popularidad global (`global_popularity_score`) de ambos equipos.
-3. **Estilo Ofensivo / xG (Max 1.5 pts)**: Promedia los goles esperados recientes (`recent_xg_avg`) de ambos equipos, buscando partidos con mayor probabilidad de goles.
-4. **Desempeño Reciente / Eficiencia (Max 1.5 pts)**: Promedia el puntaje de eficiencia (`efficiency_score_avg`) de ambos equipos.
-5. **Intensidad / Fricción Histórica (Max 1.0 pts)**: Promedia las tarjetas por partido (`cards_per_match_avg`) de ambos equipos. Partidos con más tarjetas se consideran más intensos/friccionados.
-6. **Cantidad de Estrellas (Max 1.0 pts)**: Cuenta cuántos jugadores están marcados como estrellas (`is_star_player`) en ambas plantillas sumadas. Toma 8 jugadores como el máximo ideal.
-
-### 3. Bonificación por Instancia del Torneo
-- **Fase de Eliminatorias**: Si el partido NO es de "Group Stage" (Fase de Grupos), se añade un bono de **`0.5 pts`**.
-
-### 4. Ajustes por Preferencias del Usuario (El más influyente)
-Si el usuario ha configurado sus preferencias en la aplicación, el algoritmo ajusta fuertemente el puntaje para personalizar la recomendación:
-
-- **Equipo Favorito**: Si uno de los equipos jugando es el equipo favorito del usuario (`favoriteTeam`), se suman **`+2.5 pts`**.
-- **Estilo de Partido Preferido (`matchStyle`)**:
-  - Si prefiere **"cerrado" (closed)**: Se premian partidos con bajo xG (< 1.0) sumando **`+1.0 pt`**, y con altas tarjetas (> 1.5) sumando **`+0.5 pts`**.
-  - Si prefiere **"caótico" (chaotic)**: Se premian partidos con alto xG (> 1.2) sumando **`+1.0 pt`**, y con bajas tarjetas (< 1.0) sumando **`+0.5 pts`**.
-- **Jugadores Favoritos**: Por cada jugador favorito (`favoritePlayers`) del usuario que se encuentre en alguna de las dos plantillas, se suma **`+0.5 pts`**.
-- **Horario Preferido (`preferredTime`)**: Evalúa la hora del partido (mañana, tarde o noche). Si coincide con las franjas horarias preferidas del usuario, se suman **`+1.5 pts`**.
-
-### 5. Normalización Final
-Al terminar todos los cálculos, el puntaje se limita matemáticamente para asegurar que nunca baje de `1.0` ni supere el máximo de `10.0`. Finalmente, se redondea a un decimal.
+El cálculo se realiza en el archivo [scoring.js](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/js/scoring.js) a través de la función principal `calculateSmartScore(match, teams, tacticalVector)`.
 
 ---
 
-## Datos Utilizados para el Rediseño
+## Estructura General del Algoritmo
 
-Si planeas rediseñar el algoritmo, estos son los puntos de datos y estructuras exactas a las que tienes acceso dentro de la función:
+El cálculo unifica dos componentes fundamentales (Espectáculo e Identidad Táctica), aplica ponderaciones parametrizables por el usuario y añade una serie de bonificaciones basadas en sus preferencias explícitas (favoritos, edad de la plantilla y test de afinidad).
 
-### Datos de los Equipos (`teams`) y Partido (`match`)
-- `match.home_team.is_placeholder` / `match.away_team.is_placeholder`: Booleanos que indican si el equipo ya está definido.
-- `match.stage`: String con la etapa del torneo (ej. "Group Stage").
-- `match.kickoff_at`: Fecha y hora del partido.
-- `team.metrics.market_value_eur`: Valor monetario de la plantilla.
-- `team.metrics.global_popularity_score`: Puntaje de popularidad del país/equipo.
-- `team.metrics.recent_xg_avg`: Promedio de goles esperados (xG).
-- `team.metrics.efficiency_score_avg`: Puntaje de eficiencia del equipo.
-- `team.metrics.cards_per_match_avg`: Promedio de tarjetas recibidas por partido.
-- `team.squad`: Array de objetos que representan a los jugadores.
-- `player.is_star_player`: Booleano que indica si el jugador es una "estrella".
-- `player.name`: Nombre completo del jugador.
+```mermaid
+graph TD
+    A[Cálculo de Smart Score] --> B(1. Espectáculo: Score ICE)
+    A --> C(2. Similitud Táctica: Playstyle Score)
+    B & C --> D(3. Combinación Ponderada)
+    D --> E(4. Bonificaciones y Boosts)
+    E --> F[Puntaje Final: Capped 1.0 - 10.0]
+```
 
-### Datos del Usuario (`state.userPreferences`)
-- `favoriteTeam`: Código FIFA (String) del equipo favorito.
-- `matchStyle`: String que indica el estilo de partido preferido (ej. `'closed'`, `'chaotic'`).
-- `favoritePlayers`: Array de Strings con los nombres (o partes del nombre) de los jugadores favoritos.
-- `preferredTime`: Array de Strings con los momentos del día preferidos (`'morning'`, `'afternoon'`, `'evening'`).
+---
+
+## Paso a Paso del Algoritmo
+
+### 1. Inicialización y Casos Especiales
+* **Partidos por Definir (TBD):** Si uno o ambos equipos son placeholders (ej. "Ganador Grupo A"), se calcula y devuelve únicamente el score de espectáculo base (ICE) y se le asigna un score de estilo por defecto de `5.0`.
+* **Falta de Datos:** Si no se encuentran métricas de alguno de los equipos en el dataset, el sistema actúa de forma análoga retornando la base de espectáculo.
+
+### 2. Fase 1: Score de Espectáculo (ICE)
+Calcula el Índice de Competitividad y Espectáculo objetivo del cruce:
+* **Fusión de Métricas:** Promedia las métricas normalizadas de los contendientes (`ocasiones_norm`, `contra_norm`, `drama_norm`, `vuln_norm`).
+* **Amplificación por Vulnerabilidad:** El peligro generado por ocasiones claras se escala según la debilidad defensiva promedio de ambos equipos.
+* **Penalización por Brecha Competitiva ($p_{Brecha}$):** Aplica una curva sigmoide logística sobre la diferencia de sus Elo Ratings base (reduciendo hasta un 60% la valoración si el encuentro es muy disparejo).
+* **Factor de Calidad Absoluta ($Q_{match}$):** Escala linealmente el score final basándose en el promedio de los Elo ratings dinámicos (que integran la presencia de estrellas convocadas).
+
+### 3. Fase 2: Afinamiento por Estilo de Juego (Playstyle)
+Compara el estilo preferido del usuario contra la propuesta táctica de los equipos:
+* **Vectores de Entrada:** Vector del usuario ($V_U$) y vectores tácticos de ambos equipos ($V_A$, $V_B$).
+* **Heurística del Protagonista:** El score táctico bruto prioriza al equipo que más se parece a los gustos del usuario, sumando el estilo del rival con un coeficiente de amortiguación ($\lambda = 0.1$):
+  $$Score_{\text{Táctico Bruto}} = \max(Sim(V_A, V_U), Sim(V_B, V_U)) + 0.1 \cdot \min(Sim(V_A, V_U), Sim(V_B, V_U))$$
+* **Proyección:** El resultado bruto de similitud coseno se escala linealmente desde el rango teórico $[-1.1, 1.1]$ a la escala estándar de $[1.0, 10.0]$.
+* *Nota:* Si el usuario no ha especificado preferencias tácticas (vector neutro), el score de estilo iguala al score de espectáculo (ICE).
+
+### 4. Fase 3: Fusión y Ponderación Personalizada
+Combina ambos scores según las preferencias de peso del usuario (por defecto: `70% Espectáculo` y `30% Estilo`):
+$$\text{Score Combinado} = w_{\text{ICE}} \cdot \text{Score}_{\text{ICE}} + (1 - w_{\text{ICE}}) \cdot \text{Score}_{\text{Estilo}}$$
+
+### 5. Fase 4: Bonificaciones y Boosts (Alineación con el Usuario)
+Sobre el puntaje combinado, se aplican los siguientes ajustes aditivos:
+
+* **Afinidad de Quiz (Test Táctico):** Si el usuario realizó el test de afinidad, se calcula la similitud coseno entre el vector resultante del quiz y el vector promedio del partido. Se añade un boost directo de hasta **`+2.0 pts`** (además de almacenar `match.quizAffinity` en porcentaje).
+* **Selección Favorita:** Si uno de los dos equipos es la selección favorita del usuario, se suman **`+2.5 pts`**.
+* **Jugadores Favoritos:** Se analiza la plantilla de ambos equipos. Cada jugador favorito del usuario presente suma `+0.4 pts` (con un tope máximo de **`+2.0 pts`**).
+* **Clubes Favoritos:** Cada jugador convocado que pertenezca a un club favorito del usuario aporta `+0.15 pts` (con un tope máximo de **`+1.5 pts`**).
+* **Preferencia de Edad:** Si el usuario indicó una preferencia de promedio de edad, se calcula la edad media del partido, se proyecta linealmente de 23 a 30 años en una escala de `[0, 100]`, y se aplica un factor de cercanía que suma o resta hasta **`+0.5 pts`**.
+
+### 6. Fase 5: Normalización de Salida
+El puntaje final acumulado (combinación + bonificaciones) se acota estrictamente en el intervalo `[1.0, 10.0]` y se redondea a un decimal para su visualización.
+
+---
+
+## Datos Utilizados por el Algoritmo (`scoring.js`)
+
+Si necesitas depurar o calibrar el recomendador, estas son las propiedades consumidas de las estructuras principales:
+
+### Datos de Equipos y Plantillas (`teams`)
+* `team.metrics.elo_rating`: Puntuación Elo base del equipo.
+* `team.espectaculo_params`: Objeto que contiene las métricas precalculadas en la base de datos (`ocasiones_norm`, `contra_norm`, `drama_norm`, `vuln_norm`).
+* `team.tactical_vector`: Vector táctico 4D actual del equipo (`defensa`, `posesion`, `ritmo`, `ancho`).
+* `team.squad`: Array de jugadores convocados. Cada jugador posee:
+  * `player.is_star_player` (Booleano)
+  * `player.name` (String)
+  * `player.club` (String)
+  * `player.age` (Numérico)
+
+### Preferencias del Usuario (`state.userPreferences`)
+* `spectacleWeight`: Ponderación del ICE (`w_ICE`, por defecto `0.7`).
+* `dramaBeta`: Ajuste para la métrica de drama en el ICE (por defecto `0.2`).
+* `favoriteTeams`: Array de códigos FIFA de las selecciones favoritas.
+* `favoritePlayers`: Array de strings con nombres de jugadores favoritos.
+* `favoriteClubs`: Array de strings con nombres de clubes favoritos.
+* `quizVector`: Vector táctico ideal resultante del test/quiz.
+* `agePreference`: Preferencia de edad en escala `[0, 100]`.
