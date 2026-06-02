@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <link rel="icon" href="img/logo.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
   <title>Mundial 2026 – Match Recommender & Squad Analytics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
   <meta property="og:description"
     content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
   <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=14">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -40,6 +41,9 @@
         </button>
         <button class="nav-btn" data-tab="unresolved">
           <i class="fa-solid fa-circle-question"></i> No Resueltos
+        </button>
+        <button class="nav-btn" data-tab="draft">
+          <i class="fa-solid fa-gamepad"></i> FUT Draft
         </button>
       </nav>
       <button id="btn-theme-toggle" class="btn-theme-toggle" title="Cambiar tema (Claro/Oscuro)">
@@ -464,7 +468,53 @@
       </div>
     </section>
 
+    <!-- 6. FUT Draft Tab -->
+    <section id="tab-draft" class="tab-panel" style="padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto;">
+      <div class="hero-section" style="text-align: center;">
+        <div class="hero-tag">FUT Draft</div>
+        <h1 class="hero-title">Armá tu Equipo Ideal</h1>
+        <p class="hero-desc">Elegí tu formación, drafteá jugadores y descubrí tu perfil táctico.</p>
+      </div>
+
+      <!-- Pitch Area -->
+      <div class="pitch-container" id="pitch-container">
+        <!-- Slots will be injected dynamically via JS based on formation -->
+      </div>
+
+      <!-- Summary Banner for Draft Completion -->
+      <div id="draft-summary-banner" class="draft-summary-hidden" style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 12px;">
+        <h3 style="color: var(--accent-gold); font-size: 2rem; margin-bottom: 1rem;">¡Draft Completado!</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Tu estilo táctico ha sido analizado en base a tus selecciones.</p>
+        <div id="draft-tactical-result" class="draft-tactical-badge" style="font-size: 1.5rem; font-weight: bold; color: var(--accent-cyan); margin-bottom: 0.5rem;">Analizando...</div>
+        <p id="draft-tactical-explanation" style="color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.5;"></p>
+        <button class="btn-mundial btn-mundial--green" id="btn-apply-draft-tactics" style="padding: 0.75rem 2rem; font-size: 1.1rem;">
+          Ir a Recomendador
+        </button>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+        <button class="btn-mundial btn-mundial--outline" id="btn-restart-draft" style="padding: 0.75rem 2rem; font-size: 1.1rem;">Reiniciar Draft</button>
+      </div>
+    </section>
+
   </main>
+
+  <!-- Draft Player Selection Modal -->
+  <div class="modal-overlay" id="draft-modal">
+    <div class="modal-content" style="max-width: 1150px; background: rgba(18, 18, 26, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--border-glass);">
+      <div class="modal-header">
+        <h3 id="draft-modal-title" style="color: var(--accent-gold);">Seleccioná un Jugador</h3>
+        <button class="close-btn" id="close-draft-modal-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 2rem; overflow-y: auto; max-height: 70vh;">
+        <div id="draft-options-container" class="draft-options-grid">
+          <!-- Draft options cards will go here -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Match H2H Modal -->
   <div class="modal-overlay" id="h2h-modal">
@@ -911,7 +961,7 @@
     <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
   </footer>
 
-  <script type="module" src="js/main.js?v=13"></script>
+  <script type="module" src="js/main.js?v=14"></script>
 </body>
 
 </html>

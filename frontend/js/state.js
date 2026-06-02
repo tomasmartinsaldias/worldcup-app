@@ -26,13 +26,19 @@ let userPreferences = {
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes] = await Promise.all([
+    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
       fetch(`../data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`../data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
       fetch(`../data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
       fetch(`data/players_photos.json?t=${new Date().getTime()}`),
-      fetch(`../data/selecciones_vectors.json?t=${new Date().getTime()}`)
+      fetch(`../data/selecciones_vectors.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_midfielders_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`../data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
     ]);
     state.appData = await mainRes.json();
     state.appData.clubLogos = await logosRes.json();
@@ -41,6 +47,16 @@ export async function loadData() {
     const arquetiposData = await arquetiposRes.json();
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
+
+    const clusters = await Promise.all([gkRes.json(), cbRes.json(), fbRes.json(), midRes.json(), wingRes.json(), stRes.json()]);
+    state.appData.clusters = {
+      Goalkeepers: clusters[0],
+      Centerbacks: clusters[1],
+      Fullbacks: clusters[2],
+      Midfielders: clusters[3],
+      Wingers: clusters[4],
+      Strikers: clusters[5]
+    };
 
     const sofascoreData = await sofascoreRes.json();
     state.appData.sofascoreVectors = sofascoreData;

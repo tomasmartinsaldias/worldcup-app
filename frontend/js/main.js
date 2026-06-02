@@ -7,9 +7,26 @@ import { renderUnresolved } from './ui/unresolved.js';
 import { closeModal } from './ui/modal.js';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
+import { initDraft, startDraft } from './ui/draft.js?v=2';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
+
+window.applyDraftTactics = function(vector) {
+  state.userPreferences.tacticalVector = { ...vector };
+  syncSliders(vector);
+  
+  state.appData.matches.forEach(m => {
+    m.smartScore = calculateSmartScore(m, state.appData.teams, state.userPreferences.tacticalVector);
+  });
+  
+  const currentSort = document.getElementById('sort-matches').value || 'interest-desc';
+  sortMatchesList(currentSort);
+  renderMatches();
+  
+  // Switch to recommender tab
+  document.querySelector('.nav-btn[data-tab="recommender"]').click();
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabListeners();
@@ -113,13 +130,19 @@ async function loadData() {
   </div>`;
   
   try {
-    const [response, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes] = await Promise.all([
+    const [response, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
       fetch('../data/wc2026_data.json?t=' + new Date().getTime()),
       fetch('data/club_logos.json?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/selecciones_estilo?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/arquetipos?t=' + new Date().getTime()),
       fetch('data/players_photos.json?t=' + new Date().getTime()),
-      fetch('../data/selecciones_vectors.json?t=' + new Date().getTime())
+      fetch('../data/selecciones_vectors.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_midfielders_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_wingers_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_strikers_arquetipos.json?t=' + new Date().getTime())
     ]);
     
     if (!response.ok) {
@@ -127,6 +150,22 @@ async function loadData() {
     }
     
     state.appData = await response.json();
+    
+    try {
+      const clusters = await Promise.all([gkRes.json(), cbRes.json(), fbRes.json(), midRes.json(), wingRes.json(), stRes.json()]);
+      state.appData.clusters = {
+        Goalkeepers: clusters[0],
+        Centerbacks: clusters[1],
+        Fullbacks: clusters[2],
+        Midfielders: clusters[3],
+        Wingers: clusters[4],
+        Strikers: clusters[5]
+      };
+    } catch(e) {
+      console.error("Could not parse cluster data", e);
+      state.appData.clusters = {};
+    }
+
     try {
       state.appData.clubLogos = await logosRes.json();
     } catch(e) {
@@ -209,6 +248,10 @@ async function loadData() {
     
     // Initialize Tactical UI
     initTacticalUI();
+    
+    // Initialize FUT Draft
+    initDraft();
+    startDraft(true);
     
   } catch (error) {
     console.error("No se pudieron cargar los datos del Mundial:", error);
