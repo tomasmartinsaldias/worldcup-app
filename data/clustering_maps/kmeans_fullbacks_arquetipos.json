@@ -1,0 +1,1598 @@
+[
+    {
+        "long_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "cluster_id": 3,
+        "overall": 89,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.137355,
+            1.103854,
+            1.316225,
+            -0.052546
+        ]
+    },
+    {
+        "long_name": "Tae-hyeon Kim김태현",
+        "cluster_id": 2,
+        "overall": 67,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.687147,
+            1.188528,
+            -0.564535,
+            1.510409
+        ]
+    },
+    {
+        "long_name": "Guéla Doué",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.521801,
+            -2.659483,
+            -0.057014,
+            -1.269765
+        ]
+    },
+    {
+        "long_name": "Theo Bernard François Hernández",
+        "cluster_id": 3,
+        "overall": 84,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.389603,
+            1.498289,
+            2.695982,
+            -0.094392
+        ]
+    },
+    {
+        "long_name": "Marcos Llorente Moreno",
+        "cluster_id": 3,
+        "overall": 84,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.088537,
+            1.419898,
+            1.982041,
+            0.536744
+        ]
+    },
+    {
+        "long_name": "Stefan Posch",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -5.069218,
+            -1.888277,
+            0.127773,
+            -1.523869
+        ]
+    },
+    {
+        "long_name": "Fredrik André Bjørkan",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.806124,
+            -0.794251,
+            1.05558,
+            1.068794
+        ]
+    },
+    {
+        "long_name": "Reece James",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.792175,
+            1.554633,
+            -0.104741,
+            -0.832199
+        ]
+    },
+    {
+        "long_name": "Pedro Antonio Porro Sauceda",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.305459,
+            2.336641,
+            -1.246972,
+            0.463152
+        ]
+    },
+    {
+        "long_name": "Axel Tuanzebe",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.75627,
+            -3.428523,
+            -0.153143,
+            -0.04446
+        ]
+    },
+    {
+        "long_name": "Nuno Alexandre Tavares Mendes",
+        "cluster_id": 3,
+        "overall": 86,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.980766,
+            -1.760282,
+            1.227601,
+            -0.244264
+        ]
+    },
+    {
+        "long_name": "Marc Cucurella Saseta",
+        "cluster_id": 2,
+        "overall": 84,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.781705,
+            -0.615545,
+            -2.14374,
+            1.72667
+        ]
+    },
+    {
+        "long_name": "Maxim De Cuyper",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.588371,
+            2.774679,
+            -0.801745,
+            -0.29391
+        ]
+    },
+    {
+        "long_name": "Alphonso Boyle Davies",
+        "cluster_id": 3,
+        "overall": 84,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.268245,
+            -1.230147,
+            2.439595,
+            -1.111944
+        ]
+    },
+    {
+        "long_name": "Joško Gvardiol",
+        "cluster_id": 1,
+        "overall": 84,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.42767,
+            -0.39766,
+            0.390367,
+            -0.563685
+        ]
+    },
+    {
+        "long_name": "João Pedro Cavaco Cancelo",
+        "cluster_id": 2,
+        "overall": 84,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.463578,
+            1.22107,
+            -0.794366,
+            -0.241083
+        ]
+    },
+    {
+        "long_name": "Aaron Buchanan Hickey",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.331829,
+            -0.307598,
+            -2.376721,
+            -2.474597
+        ]
+    },
+    {
+        "long_name": "Denzel Justus Morris Dumfries",
+        "cluster_id": 1,
+        "overall": 84,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.173054,
+            -1.17962,
+            2.252017,
+            -0.391154
+        ]
+    },
+    {
+        "long_name": "Lucas Digne",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -1.077297,
+            2.614263,
+            -2.49215,
+            0.951822
+        ]
+    },
+    {
+        "long_name": "Callan Rennie Elliot",
+        "cluster_id": 3,
+        "overall": 62,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.118005,
+            1.398709,
+            0.700514,
+            0.920514
+        ]
+    },
+    {
+        "long_name": "Jorrel Hato",
+        "cluster_id": 4,
+        "overall": 78,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            0.4006,
+            -4.874779,
+            0.354548,
+            -1.27685
+        ]
+    },
+    {
+        "long_name": "Nathan Kenneth Patterson",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.490634,
+            -1.153571,
+            -1.195556,
+            -0.638382
+        ]
+    },
+    {
+        "long_name": "Konrad Laimer",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.168496,
+            -0.385043,
+            -0.754158,
+            0.300743
+        ]
+    },
+    {
+        "long_name": "David Raum",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.003032,
+            0.026127,
+            0.620968,
+            -0.054963
+        ]
+    },
+    {
+        "long_name": "Mohammed Ali Abdulaziz Al Dowaish",
+        "cluster_id": 1,
+        "overall": 51,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -4.142794,
+            -0.67017,
+            -0.577082,
+            1.404714
+        ]
+    },
+    {
+        "long_name": "Matheus Luiz Nunes",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.716777,
+            1.154273,
+            0.906092,
+            -1.112234
+        ]
+    },
+    {
+        "long_name": "Andrew Henry Robertson",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.088899,
+            -0.134407,
+            -2.885529,
+            0.657596
+        ]
+    },
+    {
+        "long_name": "Daniel Muñoz Mejía",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.323984,
+            -0.329513,
+            -0.056701,
+            1.685648
+        ]
+    },
+    {
+        "long_name": "Ramy Bensebainiرامي بن سبعيني",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.49945,
+            1.25682,
+            0.648694,
+            -0.154948
+        ]
+    },
+    {
+        "long_name": "Aziz Eraltay Behich",
+        "cluster_id": 2,
+        "overall": 67,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.864743,
+            2.599165,
+            -0.739878,
+            2.40227
+        ]
+    },
+    {
+        "long_name": "Alexander Michael Freeman",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.05755,
+            1.030592,
+            3.678901,
+            -1.027455
+        ]
+    },
+    {
+        "long_name": "Ricardo Iván Rodríguez Araya",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.050756,
+            4.705542,
+            -1.971132,
+            0.017177
+        ]
+    },
+    {
+        "long_name": "Ferdi Erenay Kadıoğlu",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.236026,
+            1.21933,
+            -1.401981,
+            0.06436
+        ]
+    },
+    {
+        "long_name": "José Diogo Dalot Teixeira",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.126205,
+            -0.770747,
+            0.85899,
+            -0.168805
+        ]
+    },
+    {
+        "long_name": "Moutaz Neffati",
+        "cluster_id": 1,
+        "overall": 63,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.031601,
+            1.617161,
+            -0.725987,
+            -2.040643
+        ]
+    },
+    {
+        "long_name": "Jaouen Hadjamجوين حجام",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.052465,
+            0.318443,
+            2.024795,
+            -0.944013
+        ]
+    },
+    {
+        "long_name": "Gonzalo Ariel Montiel",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.235987,
+            -0.167415,
+            0.730849,
+            1.517108
+        ]
+    },
+    {
+        "long_name": "Deiver Andrés Machado Mena",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.372937,
+            1.464352,
+            1.28799,
+            0.739965
+        ]
+    },
+    {
+        "long_name": "Noussair Mazraouiنصير مزراوي",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.155028,
+            -0.55319,
+            -1.496166,
+            -0.548736
+        ]
+    },
+    {
+        "long_name": "Thomas Andre A. Meunier",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -6.346778,
+            3.277773,
+            0.781234,
+            -0.362258
+        ]
+    },
+    {
+        "long_name": "Niko Kristian Sigur",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.824723,
+            2.193809,
+            -1.911797,
+            -0.619447
+        ]
+    },
+    {
+        "long_name": "Sergiño Gianni Dest",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.881661,
+            -1.26094,
+            -0.56499,
+            0.112205
+        ]
+    },
+    {
+        "long_name": "Rayan Aït Nouriريان آيت نوري",
+        "cluster_id": 4,
+        "overall": 81,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            2.238475,
+            -2.126888,
+            -1.18915,
+            -1.213753
+        ]
+    },
+    {
+        "long_name": "Wesley Vinícius França Lima",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.25501,
+            -0.600046,
+            1.816499,
+            -0.317046
+        ]
+    },
+    {
+        "long_name": "Saud Abdullah Abdul Hamidسعود عبدالحميد",
+        "cluster_id": 4,
+        "overall": 75,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            2.45766,
+            -1.848632,
+            -0.061511,
+            0.661863
+        ]
+    },
+    {
+        "long_name": "Pervis Josué Estupiñán Tenorio",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.097961,
+            0.567951,
+            -1.498595,
+            -0.191635
+        ]
+    },
+    {
+        "long_name": "Mateo Chávez García",
+        "cluster_id": 4,
+        "overall": 72,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            1.930126,
+            -1.570587,
+            -0.451753,
+            -0.459953
+        ]
+    },
+    {
+        "long_name": "Jules Olivier Koundé",
+        "cluster_id": 4,
+        "overall": 87,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            -0.881083,
+            -5.854548,
+            -0.049215,
+            0.968639
+        ]
+    },
+    {
+        "long_name": "Nahuel Molina Lucero",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.759594,
+            0.289355,
+            -0.70895,
+            0.443456
+        ]
+    },
+    {
+        "long_name": "Ghislain Niclomande Konan",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.927814,
+            -0.469984,
+            -0.332608,
+            1.725547
+        ]
+    },
+    {
+        "long_name": "Nathaniel Brown",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            5.092968,
+            -0.542471,
+            -3.478106,
+            -2.750548
+        ]
+    },
+    {
+        "long_name": "Deveron Fonville",
+        "cluster_id": 2,
+        "overall": 63,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -0.133313,
+            -1.271978,
+            -1.387172,
+            -1.070153
+        ]
+    },
+    {
+        "long_name": "Antonee Robinson",
+        "cluster_id": 4,
+        "overall": 82,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            0.937021,
+            -3.744842,
+            0.218715,
+            0.23342
+        ]
+    },
+    {
+        "long_name": "Fuka-Arthur Masuaku Kawela",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.13203,
+            1.914564,
+            0.409697,
+            1.27307
+        ]
+    },
+    {
+        "long_name": "Jean-Kévin Duverne",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.891918,
+            -2.786702,
+            -2.430051,
+            0.542016
+        ]
+    },
+    {
+        "long_name": "Johan Andrés Mojica Palacio",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.016306,
+            0.573723,
+            0.719302,
+            -1.769653
+        ]
+    },
+    {
+        "long_name": "Mortadha Ben Ouanesمرتضى بن وناس",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.125299,
+            2.254703,
+            -0.776168,
+            -1.037106
+        ]
+    },
+    {
+        "long_name": "Alistair William Johnston",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -0.365229,
+            -1.000245,
+            0.74224,
+            0.748918
+        ]
+    },
+    {
+        "long_name": "Julian Ryerson",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.561616,
+            -0.472165,
+            -0.359363,
+            1.046091
+        ]
+    },
+    {
+        "long_name": "Jordan Jacob Bos",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.517502,
+            0.569592,
+            3.456119,
+            1.751472
+        ]
+    },
+    {
+        "long_name": "David Møller Wolfe",
+        "cluster_id": 3,
+        "overall": 73,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.248291,
+            -0.675772,
+            1.595027,
+            -0.120925
+        ]
+    },
+    {
+        "long_name": "Alexander Prass",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.491376,
+            2.2412,
+            -0.505114,
+            0.215171
+        ]
+    },
+    {
+        "long_name": "Kieran Tierney",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -0.193216,
+            -0.332441,
+            -1.668995,
+            -0.423719
+        ]
+    },
+    {
+        "long_name": "Martha Ar'jany Jainel",
+        "cluster_id": 2,
+        "overall": 64,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.38833,
+            1.715543,
+            -0.314467,
+            -2.253777
+        ]
+    },
+    {
+        "long_name": "Abdul Rahman Baba",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.015363,
+            0.620252,
+            0.853288,
+            1.086334
+        ]
+    },
+    {
+        "long_name": "Mohammed Waheeb Saeed Abu Al Shamatمحمد ابو الشامات اهلاوي",
+        "cluster_id": 2,
+        "overall": 67,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.584292,
+            0.684153,
+            -2.341815,
+            0.011157
+        ]
+    },
+    {
+        "long_name": "Miro Max Maria Muheim",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -0.425369,
+            2.343752,
+            -0.584854,
+            0.125388
+        ]
+    },
+    {
+        "long_name": "El Hadji Malick Diouf",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.154712,
+            1.167785,
+            2.604555,
+            -0.646116
+        ]
+    },
+    {
+        "long_name": "Yaimar Abel Medina Ortiz",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            3.660238,
+            1.504265,
+            1.754398,
+            -1.028935
+        ]
+    },
+    {
+        "long_name": "Alexandro Maidana Mendieta",
+        "cluster_id": 3,
+        "overall": 58,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.206242,
+            2.493424,
+            0.278926,
+            -2.577054
+        ]
+    },
+    {
+        "long_name": "Daniel Svensson",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.30252,
+            -0.388085,
+            -1.312923,
+            0.396416
+        ]
+    },
+    {
+        "long_name": "Kaan Ayhan",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -5.395838,
+            1.352479,
+            -3.106094,
+            0.057597
+        ]
+    },
+    {
+        "long_name": "Nicolás Alejandro Tagliafico",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -0.789892,
+            -1.266442,
+            -2.858982,
+            2.789474
+        ]
+    },
+    {
+        "long_name": "Jesús Daniel Gallardo Vasconcelos",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.170106,
+            1.518665,
+            1.477847,
+            0.991472
+        ]
+    },
+    {
+        "long_name": "Ilay Camara",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.528761,
+            0.639431,
+            -0.38886,
+            0.062117
+        ]
+    },
+    {
+        "long_name": "Malo Gusto",
+        "cluster_id": 4,
+        "overall": 79,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            2.221686,
+            -2.193596,
+            -0.913839,
+            -0.158232
+        ]
+    },
+    {
+        "long_name": "Valentino Francisco Livramento",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            1.386815,
+            -2.436387,
+            -0.978206,
+            -0.562991
+        ]
+    },
+    {
+        "long_name": "Zakaria El Ouahdiزكريا الواحدي",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.978438,
+            2.32164,
+            -2.242676,
+            1.640339
+        ]
+    },
+    {
+        "long_name": "Gabriel Gudmundsson",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.871435,
+            0.417616,
+            1.31608,
+            -0.475761
+        ]
+    },
+    {
+        "long_name": "Jurriën David Norman Timber",
+        "cluster_id": 4,
+        "overall": 82,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            -1.539154,
+            -4.096661,
+            -0.970378,
+            0.478658
+        ]
+    },
+    {
+        "long_name": "Michael Amir Murillo Bermúdez",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -0.813241,
+            -0.098802,
+            1.541176,
+            -0.249677
+        ]
+    },
+    {
+        "long_name": "Kristoffer Vassbakk Köpp Ajer",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -6.87092,
+            -1.172757,
+            0.726582,
+            -1.814162
+        ]
+    },
+    {
+        "long_name": "Amar Dedić",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.525129,
+            0.635046,
+            1.050245,
+            0.141809
+        ]
+    },
+    {
+        "long_name": "Nawaf Al Boushalنواف مشاري البوشل",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.672695,
+            -1.253847,
+            1.141405,
+            2.516974
+        ]
+    },
+    {
+        "long_name": "Ali Abdiعلي العابدي",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.571283,
+            -0.107535,
+            1.973655,
+            0.435137
+        ]
+    },
+    {
+        "long_name": "David Jurásek",
+        "cluster_id": 3,
+        "overall": 73,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.233515,
+            1.661849,
+            1.746724,
+            -0.273946
+        ]
+    },
+    {
+        "long_name": "Marcus Holmgren Pedersen",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.621842,
+            -0.284603,
+            1.063798,
+            -1.679575
+        ]
+    },
+    {
+        "long_name": "Nico O'Reilly",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.384839,
+            1.893425,
+            0.286316,
+            -2.475252
+        ]
+    },
+    {
+        "long_name": "Marvin Senaya",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            -0.772108,
+            -0.705258,
+            -1.540107,
+            -0.438988
+        ]
+    },
+    {
+        "long_name": "Hassan Kadesh Mahboobحسن كادش محبوب",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.026775,
+            -0.567649,
+            1.614831,
+            2.433857
+        ]
+    },
+    {
+        "long_name": "Nélson Cabral Semedo",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            0.846188,
+            -1.512808,
+            -1.208664,
+            0.970602
+        ]
+    },
+    {
+        "long_name": "Yukinari Sugawara菅原 由勢",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.015302,
+            0.87068,
+            -1.466384,
+            0.061151
+        ]
+    },
+    {
+        "long_name": "Aaron Wan-Bissaka",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            0.103538,
+            -2.481356,
+            -1.191763,
+            -0.579384
+        ]
+    },
+    {
+        "long_name": "Silvan Dominic Widmer",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.095106,
+            1.363939,
+            0.197629,
+            -0.109524
+        ]
+    },
+    {
+        "long_name": "Mehmet Zeki Çelik",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.539667,
+            0.324036,
+            -0.989271,
+            0.216801
+        ]
+    },
+    {
+        "long_name": "Joaquin Seys",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.314003,
+            -1.423405,
+            -0.493233,
+            -0.83409
+        ]
+    },
+    {
+        "long_name": "Livano Comenencia",
+        "cluster_id": 3,
+        "overall": 62,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -0.452879,
+            0.158982,
+            0.130439,
+            -1.642125
+        ]
+    },
+    {
+        "long_name": "Merchas Doski",
+        "cluster_id": 2,
+        "overall": 68,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            1.86026,
+            1.441243,
+            -1.454599,
+            -0.087158
+        ]
+    },
+    {
+        "long_name": "Valentín Barco",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.63377,
+            0.617386,
+            -3.663108,
+            -1.142119
+        ]
+    },
+    {
+        "long_name": "Joris Kayembe Ditu",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.001375,
+            0.611673,
+            0.615722,
+            0.331199
+        ]
+    },
+    {
+        "long_name": "Joseph Michael Scally",
+        "cluster_id": 4,
+        "overall": 74,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            -0.267901,
+            -2.902564,
+            1.921866,
+            0.242091
+        ]
+    },
+    {
+        "long_name": "Evren Eren Elmalı",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.420481,
+            -1.025986,
+            1.349044,
+            0.002309
+        ]
+    },
+    {
+        "long_name": "Moteb Saad Al Harbiمتعب سعد الحربي",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            5.253191,
+            0.89953,
+            1.919871,
+            -0.821238
+        ]
+    },
+    {
+        "long_name": "Ali Majrashiعلي مجرشي",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            2.134917,
+            -2.012743,
+            1.804571,
+            2.961369
+        ]
+    },
+    {
+        "long_name": "Tae-seok Lee이태석",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.717565,
+            -0.706126,
+            -0.37576,
+            1.759818
+        ]
+    },
+    {
+        "long_name": "Francis de Vries",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -4.624879,
+            1.881636,
+            1.1086,
+            1.436072
+        ]
+    },
+    {
+        "long_name": "Pedro Miguel Almeida Lopes Pereira",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.67696,
+            1.210881,
+            -1.304482,
+            -0.422478
+        ]
+    },
+    {
+        "long_name": "Emil Alfons Holm",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.664172,
+            0.301668,
+            3.417197,
+            -1.335796
+        ]
+    },
+    {
+        "long_name": "Liberato Gianpaolo Cacace",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.518616,
+            1.045411,
+            0.252031,
+            -0.277068
+        ]
+    },
+    {
+        "long_name": "Yan Valeryيان فاليري",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.694061,
+            -0.213504,
+            -1.307312,
+            0.370275
+        ]
+    },
+    {
+        "long_name": "Anthony Ralston",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.024695,
+            0.542669,
+            1.288732,
+            0.816392
+        ]
+    },
+    {
+        "long_name": "Vladimír Coufal",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.418117,
+            0.99527,
+            -4.103809,
+            1.037973
+        ]
+    },
+    {
+        "long_name": "Shurandy Ruggerio Sambo",
+        "cluster_id": 3,
+        "overall": 68,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.457552,
+            -1.233178,
+            0.4198,
+            1.080095
+        ]
+    },
+    {
+        "long_name": "Mert Müldür",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -1.237877,
+            -0.554743,
+            0.927,
+            -0.076568
+        ]
+    },
+    {
+        "long_name": "Elliot Stroud",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -0.054944,
+            2.323332,
+            2.076991,
+            0.261461
+        ]
+    },
+    {
+        "long_name": "Timothy Castagne",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.734812,
+            -0.716543,
+            -1.425279,
+            -0.563534
+        ]
+    },
+    {
+        "long_name": "Timothy John Payne",
+        "cluster_id": 1,
+        "overall": 63,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.328895,
+            2.714226,
+            1.78353,
+            2.94843
+        ]
+    },
+    {
+        "long_name": "Carlens Jean Fedlaire Ruby Arcus",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.064699,
+            -1.143549,
+            -0.028704,
+            1.345773
+        ]
+    },
+    {
+        "long_name": "Moon-hwan Kim김문환",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            3.394976,
+            1.044509,
+            0.26037,
+            2.183648
+        ]
+    },
+    {
+        "long_name": "Phillipp Mwene",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.676824,
+            -0.313968,
+            -1.861678,
+            1.982183
+        ]
+    },
+    {
+        "long_name": "Ismail Joshua Jakobs",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.669234,
+            -0.833047,
+            2.141505,
+            -1.56395
+        ]
+    },
+    {
+        "long_name": "Wilguens Paugain",
+        "cluster_id": 1,
+        "overall": 55,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.110214,
+            0.901576,
+            -0.427621,
+            1.210018
+        ]
+    },
+    {
+        "long_name": "Diop Tehuti Djed-Hotep Spence",
+        "cluster_id": 4,
+        "overall": 78,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            1.195184,
+            -4.101053,
+            0.656296,
+            -1.653311
+        ]
+    },
+    {
+        "long_name": "Samukelo Kabini",
+        "cluster_id": 1,
+        "overall": 63,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.429917,
+            -1.874679,
+            -0.59218,
+            -1.427339
+        ]
+    },
+    {
+        "long_name": "Jorge Eduardo Sánchez Ramos",
+        "cluster_id": 3,
+        "overall": 73,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.242322,
+            -1.528562,
+            1.169104,
+            2.342368
+        ]
+    },
+    {
+        "long_name": "Martin Expérience",
+        "cluster_id": 1,
+        "overall": 62,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -1.281676,
+            -0.262524,
+            -1.316541,
+            0.532114
+        ]
+    },
+    {
+        "long_name": "Sidny Lopes Cabral",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            1.941751,
+            1.523547,
+            0.515809,
+            -0.976275
+        ]
+    },
+    {
+        "long_name": "Anass Salah-Eddine",
+        "cluster_id": 4,
+        "overall": 71,
+        "representative_name": "Jules Olivier Koundé",
+        "position_vector": [
+            2.285255,
+            -1.863534,
+            -0.920383,
+            -1.658321
+        ]
+    },
+    {
+        "long_name": "Sherel Constancio Floranus",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            -0.046011,
+            -1.526097,
+            2.039551,
+            0.694733
+        ]
+    },
+    {
+        "long_name": "Jacob Michael Italiano",
+        "cluster_id": 2,
+        "overall": 64,
+        "representative_name": "Marc Cucurella Saseta",
+        "position_vector": [
+            2.292205,
+            2.883718,
+            -1.264721,
+            -1.368243
+        ]
+    },
+    {
+        "long_name": "Rafik Belghaliرفيق بلغالي",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Achraf Hakimi Mouhأشرف حكيمي",
+        "position_vector": [
+            0.162633,
+            2.432109,
+            1.496981,
+            -2.49991
+        ]
+    },
+    {
+        "long_name": "Marc Pubill Pagés",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -2.142029,
+            -0.9223,
+            2.53099,
+            -1.220237
+        ]
+    },
+    {
+        "long_name": "Mathías Olivera Miramontes",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Joško Gvardiol",
+        "position_vector": [
+            -3.059174,
+            -1.86003,
+            -1.630287,
+            -1.308926
+        ]
+    }
+]

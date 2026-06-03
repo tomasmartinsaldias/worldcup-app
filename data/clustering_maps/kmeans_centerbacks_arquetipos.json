@@ -1,0 +1,2578 @@
+[
+    {
+        "long_name": "Nayef Aguerdنايف أكرد",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.007997,
+            -0.452897,
+            -0.324919,
+            -0.295608,
+            -0.990118,
+            0.747064
+        ]
+    },
+    {
+        "long_name": "Dayotchanculle Oswald Upamecano",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.749818,
+            0.88387,
+            -0.182527,
+            -0.000838,
+            0.374722,
+            -0.677681
+        ]
+    },
+    {
+        "long_name": "David Olatukunbo Alaba",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -6.573437,
+            -0.352537,
+            0.089807,
+            0.480368,
+            -1.072381,
+            1.296827
+        ]
+    },
+    {
+        "long_name": "Luka Vušković",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.351264,
+            -2.883415,
+            2.672881,
+            -2.511673,
+            -1.110376,
+            0.642818
+        ]
+    },
+    {
+        "long_name": "Yerry Fernando Mina González",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.900315,
+            -7.755913,
+            1.031632,
+            0.734888,
+            -0.516541,
+            -0.83869
+        ]
+    },
+    {
+        "long_name": "Gleison Bremer Silva Nascimento",
+        "cluster_id": 2,
+        "overall": 85,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.385422,
+            1.245651,
+            0.457568,
+            0.540622,
+            -1.992443,
+            -1.921367
+        ]
+    },
+    {
+        "long_name": "Hassan Mohammed Tambaktiحسان محمد تمبكتي",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.248211,
+            3.376846,
+            -0.468219,
+            -0.390225,
+            0.178112,
+            0.67888
+        ]
+    },
+    {
+        "long_name": "Çağlar Söyüncü",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.069727,
+            -0.179026,
+            0.759645,
+            0.961214,
+            -0.861856,
+            -0.617504
+        ]
+    },
+    {
+        "long_name": "Leonardo Julián Balerdi Rossa",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.144676,
+            0.429052,
+            -0.12883,
+            -0.857526,
+            -0.489292,
+            0.587297
+        ]
+    },
+    {
+        "long_name": "Ali Mohammed Ali Lajamiعلي محمد لاجامي",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.951304,
+            2.991788,
+            1.624889,
+            2.178784,
+            0.247653,
+            0.149184
+        ]
+    },
+    {
+        "long_name": "Steven Moreira",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.872334,
+            3.46146,
+            -1.515992,
+            0.85133,
+            2.859674,
+            -0.514443
+        ]
+    },
+    {
+        "long_name": "Auston Levi-Jesaiah Trusty",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.680284,
+            0.392077,
+            3.085281,
+            -0.119761,
+            0.073053,
+            0.112007
+        ]
+    },
+    {
+        "long_name": "Dominic John Hyam",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.09625,
+            -1.222499,
+            -1.366737,
+            0.916132,
+            1.139248,
+            0.295612
+        ]
+    },
+    {
+        "long_name": "Martin Erlić",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.241434,
+            -3.314362,
+            -0.779345,
+            -0.962953,
+            -2.118092,
+            -0.891712
+        ]
+    },
+    {
+        "long_name": "Nathan Ngoy",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.967158,
+            3.446909,
+            1.285771,
+            -0.721152,
+            0.397751,
+            -1.572963
+        ]
+    },
+    {
+        "long_name": "Nando Zen Pijnaker",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.740334,
+            -1.446009,
+            3.017702,
+            0.082439,
+            1.063538,
+            0.379318
+        ]
+    },
+    {
+        "long_name": "Nico Cedric Schlotterbeck",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.444878,
+            -0.056597,
+            1.114291,
+            -0.714234,
+            -0.394262,
+            0.080157
+        ]
+    },
+    {
+        "long_name": "Virgil van Dijk",
+        "cluster_id": 2,
+        "overall": 90,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.460647,
+            -3.095126,
+            1.327316,
+            0.106089,
+            -1.789551,
+            1.507722
+        ]
+    },
+    {
+        "long_name": "Hjalmar Ekdal",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.270988,
+            -0.206314,
+            -1.817826,
+            0.388264,
+            1.365122,
+            -0.602623
+        ]
+    },
+    {
+        "long_name": "Philipp Lienhart",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.77618,
+            0.362228,
+            -1.983305,
+            0.641954,
+            0.318961,
+            0.728296
+        ]
+    },
+    {
+        "long_name": "Samet Akaydın",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.572362,
+            -2.051436,
+            0.633988,
+            1.630506,
+            -0.858179,
+            -0.656923
+        ]
+    },
+    {
+        "long_name": "Jhon Janer Lucumí Bonilla",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.921691,
+            -0.569664,
+            -0.551862,
+            -0.149016,
+            0.565228,
+            0.845109
+        ]
+    },
+    {
+        "long_name": "Hannes Delcroix",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.30938,
+            1.817404,
+            -2.094279,
+            -0.257387,
+            0.640051,
+            -0.491753
+        ]
+    },
+    {
+        "long_name": "Lisandro Martínez",
+        "cluster_id": 3,
+        "overall": 81,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.23316,
+            0.930713,
+            -0.25752,
+            1.178435,
+            -0.244372,
+            -0.285828
+        ]
+    },
+    {
+        "long_name": "Merih Demiral",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.484664,
+            0.356038,
+            0.817211,
+            0.801283,
+            -1.44137,
+            -0.519047
+        ]
+    },
+    {
+        "long_name": "Jonathan Glao Tah",
+        "cluster_id": 2,
+        "overall": 87,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            4.763727,
+            -3.15281,
+            -0.421597,
+            0.24977,
+            -0.124843,
+            -0.274253
+        ]
+    },
+    {
+        "long_name": "Logan Evans Costa",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.058971,
+            -0.613307,
+            -1.159539,
+            -0.464889,
+            0.308512,
+            0.491218
+        ]
+    },
+    {
+        "long_name": "Brandon Mechele",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.810619,
+            -2.014082,
+            -1.800836,
+            2.358362,
+            0.290826,
+            0.475475
+        ]
+    },
+    {
+        "long_name": "Rúben dos Santos Gato Alves Dias",
+        "cluster_id": 2,
+        "overall": 86,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.369752,
+            -1.720273,
+            -2.175681,
+            1.000633,
+            -0.152857,
+            0.637377
+        ]
+    },
+    {
+        "long_name": "Jarell Amorin Quansah",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.567902,
+            0.55209,
+            -0.973876,
+            -1.838729,
+            -0.186194,
+            0.515698
+        ]
+    },
+    {
+        "long_name": "Gabriel dos Santos Magalhães",
+        "cluster_id": 2,
+        "overall": 88,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.402806,
+            -2.475924,
+            -0.982152,
+            -0.039417,
+            -0.868238,
+            -0.054179
+        ]
+    },
+    {
+        "long_name": "Marcos Aoás Corrêa",
+        "cluster_id": 1,
+        "overall": 87,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.024412,
+            1.496653,
+            -1.3861,
+            1.000852,
+            -0.104293,
+            -0.399928
+        ]
+    },
+    {
+        "long_name": "Leo Skiri Østigård",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.234903,
+            0.58412,
+            0.174571,
+            1.469133,
+            -0.29369,
+            -1.630702
+        ]
+    },
+    {
+        "long_name": "Aïssa Mandiعيسى ماندي",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.880613,
+            -0.825542,
+            -1.444044,
+            0.198728,
+            1.044955,
+            -1.44117
+        ]
+    },
+    {
+        "long_name": "Eray Ervin Cömert",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.618608,
+            0.141314,
+            1.224104,
+            1.42709,
+            -1.350434,
+            2.255126
+        ]
+    },
+    {
+        "long_name": "Carl Anders Theodor Starfelt",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.401558,
+            1.709101,
+            -1.291187,
+            0.639621,
+            0.455521,
+            0.072438
+        ]
+    },
+    {
+        "long_name": "Samir Sophian Chergui",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.730597,
+            -0.400196,
+            -2.275866,
+            -1.052614,
+            1.150254,
+            -0.891771
+        ]
+    },
+    {
+        "long_name": "Torbjørn Lysaker Heggem",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.882518,
+            0.914654,
+            1.521868,
+            -0.698195,
+            0.830753,
+            0.381001
+        ]
+    },
+    {
+        "long_name": "Cristian Gabriel Romero",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.84103,
+            -0.078386,
+            -0.804035,
+            1.413237,
+            -1.139809,
+            -0.745974
+        ]
+    },
+    {
+        "long_name": "Mamadou Moustapha Mbow",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.237432,
+            -1.020875,
+            -0.265917,
+            -1.280717,
+            0.122146,
+            1.185038
+        ]
+    },
+    {
+        "long_name": "Renato de Palma Veiga",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.359384,
+            -0.359799,
+            2.970603,
+            -1.502637,
+            0.579626,
+            1.396008
+        ]
+    },
+    {
+        "long_name": "José Ángel Córdoba Chambers",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.33929,
+            1.589553,
+            0.337765,
+            -1.465502,
+            0.197759,
+            -0.372355
+        ]
+    },
+    {
+        "long_name": "Ladislav Krejčí",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.53153,
+            -1.510501,
+            3.868076,
+            -0.295863,
+            -0.469071,
+            0.153616
+        ]
+    },
+    {
+        "long_name": "Riechedly Guillermo Bazoer",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -6.25483,
+            0.152526,
+            0.885142,
+            -0.752317,
+            -0.279997,
+            -0.214444
+        ]
+    },
+    {
+        "long_name": "Pau Cubarsí Paredes",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.976039,
+            2.192107,
+            -3.066673,
+            -1.37366,
+            0.104516,
+            0.117766
+        ]
+    },
+    {
+        "long_name": "Carlos Miguel Harvey Cesneros",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.744567,
+            -0.464003,
+            0.30456,
+            -0.499322,
+            1.499717,
+            -1.198476
+        ]
+    },
+    {
+        "long_name": "Addji Keaninkin Marc-Israel Guéhi",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.95231,
+            1.317153,
+            -2.748101,
+            -0.366922,
+            0.548495,
+            0.232579
+        ]
+    },
+    {
+        "long_name": "Jonas Adjei Adjetey",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.652498,
+            2.747496,
+            -1.893806,
+            0.248296,
+            -0.600089,
+            1.598767
+        ]
+    },
+    {
+        "long_name": "Olwethu Makhanya",
+        "cluster_id": 3,
+        "overall": 57,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.066908,
+            2.614995,
+            1.182628,
+            -1.358007,
+            -1.475972,
+            0.220376
+        ]
+    },
+    {
+        "long_name": "Chadi Riad Dnanouشادي رياض دنانو",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.442959,
+            0.175165,
+            -1.578749,
+            -1.336484,
+            -0.298638,
+            0.138379
+        ]
+    },
+    {
+        "long_name": "Jorge Luis Cardona Gutiérrez",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.104245,
+            0.666421,
+            -2.505897,
+            1.657615,
+            -2.367143,
+            -0.311458
+        ]
+    },
+    {
+        "long_name": "Han-beom Lee이한범",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.089509,
+            -0.443578,
+            -1.907724,
+            -1.388868,
+            0.78347,
+            -0.571872
+        ]
+    },
+    {
+        "long_name": "César Jasib Montes Castro",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.541599,
+            -1.037607,
+            0.233873,
+            0.493207,
+            0.974776,
+            -0.263826
+        ]
+    },
+    {
+        "long_name": "Lucas Herrington",
+        "cluster_id": 3,
+        "overall": 59,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.169115,
+            1.407018,
+            0.734063,
+            -1.682373,
+            -0.169945,
+            0.307744
+        ]
+    },
+    {
+        "long_name": "Antonio Rüdiger",
+        "cluster_id": 2,
+        "overall": 86,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.515652,
+            -1.107616,
+            1.702044,
+            -0.030602,
+            -0.614666,
+            0.065282
+        ]
+    },
+    {
+        "long_name": "Min-jae Kim김민재 金敏在",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.662785,
+            1.085456,
+            -0.852606,
+            1.399006,
+            0.588759,
+            -0.200314
+        ]
+    },
+    {
+        "long_name": "Michael Svoboda",
+        "cluster_id": 2,
+        "overall": 68,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.078348,
+            -2.931061,
+            2.477514,
+            -1.371083,
+            1.638427,
+            0.391758
+        ]
+    },
+    {
+        "long_name": "Wilfried Stephane Singo",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.762603,
+            1.013629,
+            2.366932,
+            -0.75638,
+            0.301534,
+            -0.496218
+        ]
+    },
+    {
+        "long_name": "Antoine Mendy",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.439961,
+            1.444122,
+            -0.526002,
+            -0.362526,
+            -0.147997,
+            -0.277549
+        ]
+    },
+    {
+        "long_name": "Nico Elvedi",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.499209,
+            0.630053,
+            -0.616174,
+            -0.343851,
+            0.496773,
+            -0.738703
+        ]
+    },
+    {
+        "long_name": "Marin Pongračić",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.645722,
+            -0.399356,
+            -1.49083,
+            -0.510346,
+            0.517172,
+            -0.505378
+        ]
+    },
+    {
+        "long_name": "Emmanuel Elysee Djedje Agbadou Badobre",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.759391,
+            -0.856395,
+            2.058398,
+            -1.429494,
+            -0.181788,
+            -0.323393
+        ]
+    },
+    {
+        "long_name": "Nathan Benjamin Aké",
+        "cluster_id": 3,
+        "overall": 83,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.275384,
+            1.144995,
+            -1.590354,
+            0.493428,
+            -1.626757,
+            -0.111966
+        ]
+    },
+    {
+        "long_name": "Abdukodir Khusanov",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.07768,
+            2.010697,
+            0.552574,
+            -1.619776,
+            -1.225168,
+            -0.101165
+        ]
+    },
+    {
+        "long_name": "Buduka Dylan Batubinsika",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.187371,
+            0.360973,
+            0.388905,
+            0.682783,
+            0.495969,
+            -0.349486
+        ]
+    },
+    {
+        "long_name": "Alfie Charles Jones",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.720385,
+            -0.698649,
+            0.288183,
+            -0.302605,
+            1.25835,
+            0.802773
+        ]
+    },
+    {
+        "long_name": "Grant Campbell Hanley",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.040542,
+            -2.074527,
+            -0.507079,
+            2.0588,
+            0.195334,
+            -0.781702
+        ]
+    },
+    {
+        "long_name": "Arthur Nicolas Theate",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.838421,
+            0.706955,
+            -1.203161,
+            0.101501,
+            1.30485,
+            1.712172
+        ]
+    },
+    {
+        "long_name": "Henrik Sælebakke Falchener",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.057447,
+            0.05136,
+            2.060096,
+            -1.604177,
+            0.565177,
+            0.487228
+        ]
+    },
+    {
+        "long_name": "Ezri Konsa Ngoyo",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.116598,
+            1.756069,
+            -0.798679,
+            0.244408,
+            0.184586,
+            -0.404209
+        ]
+    },
+    {
+        "long_name": "David Zima",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.610426,
+            1.387212,
+            0.078214,
+            -0.878808,
+            -0.970766,
+            1.133388
+        ]
+    },
+    {
+        "long_name": "Marco Friedl",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.454166,
+            1.248764,
+            -0.141275,
+            -0.166577,
+            0.368119,
+            -0.128163
+        ]
+    },
+    {
+        "long_name": "Eric García Martret",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.451592,
+            0.686842,
+            -2.991921,
+            -0.747918,
+            0.429026,
+            0.275385
+        ]
+    },
+    {
+        "long_name": "Luca Antony Jaquez",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.73549,
+            0.746167,
+            -0.083183,
+            -1.549048,
+            0.045806,
+            -0.840686
+        ]
+    },
+    {
+        "long_name": "Tomáš Holeš",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.557974,
+            1.751525,
+            1.638171,
+            2.099673,
+            -0.087262,
+            -0.382326
+        ]
+    },
+    {
+        "long_name": "Andrés Alberto Andrade Cedeño",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.195971,
+            1.526429,
+            2.455961,
+            -0.149134,
+            1.652352,
+            0.177254
+        ]
+    },
+    {
+        "long_name": "Liam Craig Gordon",
+        "cluster_id": 3,
+        "overall": 64,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.534469,
+            -1.773353,
+            -0.723267,
+            2.70891,
+            1.411178,
+            -0.804237
+        ]
+    },
+    {
+        "long_name": "Nikola Katić",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.573597,
+            -3.542872,
+            1.049081,
+            -0.207985,
+            0.500215,
+            -0.397103
+        ]
+    },
+    {
+        "long_name": "Ousmane Diomande",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            5.528045,
+            1.929973,
+            0.47685,
+            -0.417302,
+            0.744142,
+            0.373608
+        ]
+    },
+    {
+        "long_name": "Harry James Souttar",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.997226,
+            -5.09249,
+            -1.203765,
+            -2.352952,
+            0.128346,
+            -0.375726
+        ]
+    },
+    {
+        "long_name": "Davinson Sánchez Mina",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.012144,
+            1.467245,
+            2.717208,
+            0.914664,
+            0.960442,
+            -1.491774
+        ]
+    },
+    {
+        "long_name": "Victor Jörgen Nilsson Lindelöf",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.885092,
+            -2.561226,
+            -2.414932,
+            -1.076086,
+            -1.054627,
+            -0.20919
+        ]
+    },
+    {
+        "long_name": "Ozan Muhammed Kabak",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.110051,
+            -0.278779,
+            -0.775237,
+            -0.122358,
+            0.454827,
+            -0.173998
+        ]
+    },
+    {
+        "long_name": "Issa Laye Lucas Jean Diop",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.118944,
+            -3.350971,
+            0.256343,
+            -0.399783,
+            -0.827854,
+            -0.981002
+        ]
+    },
+    {
+        "long_name": "Tsuyoshi Watanabe渡辺 剛",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.447385,
+            1.409605,
+            0.550962,
+            0.576793,
+            -1.181163,
+            1.104236
+        ]
+    },
+    {
+        "long_name": "Kalidou Koulibaly",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.899244,
+            -2.29502,
+            1.470092,
+            0.307521,
+            -0.660138,
+            -0.623839
+        ]
+    },
+    {
+        "long_name": "Clément Akpa",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -2.204783,
+            2.6032,
+            -1.311978,
+            -0.200932,
+            -0.445082,
+            -0.934604
+        ]
+    },
+    {
+        "long_name": "Aurèle Florian Amenda",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.788056,
+            -1.597734,
+            0.435771,
+            -3.043944,
+            -1.05892,
+            -1.912379
+        ]
+    },
+    {
+        "long_name": "Moïse Bombito Lumpungu",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.118398,
+            2.534172,
+            2.013,
+            -2.264227,
+            -0.717318,
+            -1.667538
+        ]
+    },
+    {
+        "long_name": "John Stones",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.917556,
+            -0.8558,
+            -2.024128,
+            -1.118423,
+            -1.14869,
+            -1.34963
+        ]
+    },
+    {
+        "long_name": "Nidal Čelik",
+        "cluster_id": 3,
+        "overall": 64,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.402866,
+            -0.772948,
+            0.823202,
+            -2.472449,
+            -0.394309,
+            -0.590949
+        ]
+    },
+    {
+        "long_name": "Armando Maria Obispo",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.928178,
+            1.236391,
+            0.132572,
+            -0.00575,
+            -0.386847,
+            1.145154
+        ]
+    },
+    {
+        "long_name": "Derek Austin Cornelius",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.54708,
+            -1.207445,
+            3.172232,
+            1.155732,
+            -0.28953,
+            -0.062381
+        ]
+    },
+    {
+        "long_name": "Khalid Abdul Mumin Suleman",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.658573,
+            1.769657,
+            0.154999,
+            -0.278689,
+            -0.542012,
+            0.094821
+        ]
+    },
+    {
+        "long_name": "Miles Gordon Robinson",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.902724,
+            2.095683,
+            1.262586,
+            -0.626995,
+            1.418881,
+            -0.391891
+        ]
+    },
+    {
+        "long_name": "Lucas François Bernard Hernández Pi",
+        "cluster_id": 3,
+        "overall": 81,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.497846,
+            0.880093,
+            -0.770351,
+            0.511418,
+            -0.239563,
+            -1.857571
+        ]
+    },
+    {
+        "long_name": "Rocky Bushiri Kisonga",
+        "cluster_id": 2,
+        "overall": 68,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.263949,
+            -1.654764,
+            3.268074,
+            0.283943,
+            0.779794,
+            0.164645
+        ]
+    },
+    {
+        "long_name": "Duje Ćaleta-Car",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.302037,
+            -2.944704,
+            -0.230438,
+            -1.269077,
+            -0.070734,
+            -1.085281
+        ]
+    },
+    {
+        "long_name": "Sead Kolašinac",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.512183,
+            -1.784444,
+            1.269118,
+            1.284578,
+            0.413632,
+            -1.121428
+        ]
+    },
+    {
+        "long_name": "Dylan Daniel Mahmoud Bronn",
+        "cluster_id": 3,
+        "overall": 68,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -5.661611,
+            -0.639365,
+            2.080804,
+            1.038147,
+            0.476484,
+            1.061835
+        ]
+    },
+    {
+        "long_name": "Joel Leandro Ordóñez Guerrero",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.347463,
+            1.897761,
+            -0.414736,
+            -0.046869,
+            0.445987,
+            0.092529
+        ]
+    },
+    {
+        "long_name": "Nihad Mujakić",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.655229,
+            1.045837,
+            1.055742,
+            1.377639,
+            -0.153484,
+            0.22778
+        ]
+    },
+    {
+        "long_name": "Michael Joseph Boxall",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.585051,
+            -4.135387,
+            1.666276,
+            0.230774,
+            1.910594,
+            -1.137452
+        ]
+    },
+    {
+        "long_name": "Jerome Osei Opoku",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.422255,
+            -1.389181,
+            1.6398,
+            -0.417741,
+            0.095032,
+            -0.539674
+        ]
+    },
+    {
+        "long_name": "Willian Joel Pacho Tenorio",
+        "cluster_id": 2,
+        "overall": 86,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            4.281877,
+            1.372473,
+            -0.566441,
+            0.724419,
+            -0.627887,
+            0.845084
+        ]
+    },
+    {
+        "long_name": "Shogo Taniguchi谷口 彰悟",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.185648,
+            -0.388269,
+            -0.551466,
+            1.489024,
+            1.059528,
+            0.719867
+        ]
+    },
+    {
+        "long_name": "José María Giménez de Vargas",
+        "cluster_id": 2,
+        "overall": 83,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.243378,
+            -0.007827,
+            -0.172329,
+            1.72184,
+            -2.163888,
+            0.53365
+        ]
+    },
+    {
+        "long_name": "Hiroki Ito伊藤 洋輝",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.267676,
+            0.744832,
+            -0.241811,
+            -1.804075,
+            -0.983561,
+            -0.266291
+        ]
+    },
+    {
+        "long_name": "Abdülkerim Bardakcı",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.865821,
+            -1.089253,
+            -0.019979,
+            1.733112,
+            1.672339,
+            -1.015706
+        ]
+    },
+    {
+        "long_name": "Alidu Seidu",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.520559,
+            2.136135,
+            -3.384497,
+            0.329838,
+            -0.962689,
+            -2.030401
+        ]
+    },
+    {
+        "long_name": "Jack William Hendry",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.110759,
+            -0.572744,
+            2.975953,
+            -0.596055,
+            1.683019,
+            0.119385
+        ]
+    },
+    {
+        "long_name": "Tyler Grant Bindon",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.750832,
+            -0.036499,
+            -0.088393,
+            -1.495087,
+            0.08657,
+            0.859872
+        ]
+    },
+    {
+        "long_name": "Chancel Mbemba Mangulu",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.327397,
+            0.438668,
+            -0.127551,
+            -0.157899,
+            -0.168662,
+            -2.531495
+        ]
+    },
+    {
+        "long_name": "Ayumu Seko瀬古 歩夢",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.852227,
+            1.402806,
+            -0.731179,
+            0.387832,
+            1.844239,
+            1.979104
+        ]
+    },
+    {
+        "long_name": "Odilon Kossounou Kouakou",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.79358,
+            1.810404,
+            -1.275598,
+            -1.011195,
+            0.887572,
+            0.110512
+        ]
+    },
+    {
+        "long_name": "Josip Stanišić",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.504371,
+            2.046109,
+            -1.353311,
+            -0.629244,
+            0.308989,
+            -0.991136
+        ]
+    },
+    {
+        "long_name": "Roger Ibañez da Silva",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            4.440918,
+            3.513556,
+            0.551041,
+            2.771797,
+            -2.319914,
+            0.442228
+        ]
+    },
+    {
+        "long_name": "Gustaf Johan Lagerbielke",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.87691,
+            -2.818792,
+            -1.331593,
+            -1.642049,
+            1.124398,
+            0.709888
+        ]
+    },
+    {
+        "long_name": "Tarik Muharemović",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.555807,
+            1.181937,
+            -3.6143,
+            -0.176261,
+            -0.358874,
+            0.394851
+        ]
+    },
+    {
+        "long_name": "Tomás Lemos Araújo",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.610838,
+            2.738252,
+            -0.930585,
+            -1.764428,
+            1.952875,
+            0.21728
+        ]
+    },
+    {
+        "long_name": "Jaroslav Zelený",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.246067,
+            0.294138,
+            2.586858,
+            -0.741912,
+            0.206385,
+            -0.450261
+        ]
+    },
+    {
+        "long_name": "Johan Felipe Vásquez Ibarra",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.324621,
+            0.759854,
+            -2.323224,
+            1.714691,
+            -0.081563,
+            0.626853
+        ]
+    },
+    {
+        "long_name": "Koni De Winter",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.173747,
+            1.02932,
+            -0.712239,
+            -0.758098,
+            -0.33748,
+            0.640287
+        ]
+    },
+    {
+        "long_name": "Mamadou Sarr",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.796373,
+            -0.6072,
+            -1.971494,
+            -2.12215,
+            -1.740198,
+            1.597634
+        ]
+    },
+    {
+        "long_name": "Ibrahima Konaté",
+        "cluster_id": 2,
+        "overall": 86,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            5.049975,
+            -0.864975,
+            -0.640165,
+            -1.3538,
+            0.675661,
+            0.262804
+        ]
+    },
+    {
+        "long_name": "Josip Šutalo",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.831488,
+            1.73603,
+            -1.073239,
+            -1.239955,
+            1.174664,
+            -0.058873
+        ]
+    },
+    {
+        "long_name": "Robin Hranáč",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.39034,
+            -0.080087,
+            2.027641,
+            -0.904563,
+            -1.099747,
+            0.132726
+        ]
+    },
+    {
+        "long_name": "Finn Surman",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.637247,
+            0.95544,
+            0.787644,
+            -0.013694,
+            1.364666,
+            0.256133
+        ]
+    },
+    {
+        "long_name": "Sondre Klingen Langås",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.236151,
+            2.952401,
+            3.551518,
+            -0.055666,
+            1.020145,
+            0.104888
+        ]
+    },
+    {
+        "long_name": "Danilo Manuel Vieira Espíndola",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.390338,
+            -1.99901,
+            0.17412,
+            2.108511,
+            -0.742844,
+            0.751314
+        ]
+    },
+    {
+        "long_name": "Cameron Robert Burgess",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.299148,
+            -2.953248,
+            -1.105763,
+            0.10158,
+            0.949019,
+            -0.52005
+        ]
+    },
+    {
+        "long_name": "John Souttar",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.553469,
+            1.220653,
+            0.501976,
+            -0.713175,
+            -0.136154,
+            0.702937
+        ]
+    },
+    {
+        "long_name": "Mohamed Abdelmonemمحمد عبد المنعم",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.054447,
+            0.649772,
+            -1.530575,
+            0.310628,
+            0.112191,
+            -0.731017
+        ]
+    },
+    {
+        "long_name": "Timothy Michael Ream",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.356605,
+            -3.855073,
+            -2.895098,
+            1.741347,
+            1.516031,
+            1.650493
+        ]
+    },
+    {
+        "long_name": "Montassar Omar Talbiمنتصر الطالبي",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.172257,
+            -0.325626,
+            -0.90053,
+            1.460898,
+            -1.360535,
+            -0.615294
+        ]
+    },
+    {
+        "long_name": "Adem Arous",
+        "cluster_id": 3,
+        "overall": 59,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.601451,
+            0.968277,
+            0.094877,
+            -0.322338,
+            -3.160143,
+            0.334298
+        ]
+    },
+    {
+        "long_name": "Manuel Obafemi Akanji",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.693418,
+            -0.469333,
+            0.047282,
+            -0.514959,
+            -0.19876,
+            0.809358
+        ]
+    },
+    {
+        "long_name": "Gonçalo Bernardo Inácio",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.047398,
+            2.298142,
+            -1.085782,
+            -0.364152,
+            1.930378,
+            0.390529
+        ]
+    },
+    {
+        "long_name": "Piero Martín Hincapié Reyna",
+        "cluster_id": 1,
+        "overall": 83,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.882959,
+            3.713275,
+            -0.794594,
+            0.618708,
+            0.698962,
+            -0.202958
+        ]
+    },
+    {
+        "long_name": "Steve Kapuadi",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.908677,
+            -1.182228,
+            2.053175,
+            0.310652,
+            0.335632,
+            0.675226
+        ]
+    },
+    {
+        "long_name": "Štěpán Chaloupek",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.185299,
+            1.336985,
+            0.085839,
+            -0.478617,
+            -0.429592,
+            0.151236
+        ]
+    },
+    {
+        "long_name": "Obite Evan Ndicka",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.36148,
+            0.062808,
+            0.748001,
+            -0.991592,
+            1.201191,
+            -0.237921
+        ]
+    },
+    {
+        "long_name": "Abdulelah Ali Awadh Al Amriعبد الإله علي عوض العمري",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.276071,
+            0.669909,
+            1.799658,
+            2.492709,
+            0.022673,
+            -0.611468
+        ]
+    },
+    {
+        "long_name": "Axel Laurent Angel Lambert Witsel",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -7.17228,
+            -5.647593,
+            -3.48727,
+            -0.728482,
+            -1.230711,
+            -2.031201
+        ]
+    },
+    {
+        "long_name": "Mark Alexander McKenzie",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.7965,
+            3.181756,
+            0.286039,
+            0.458117,
+            0.479274,
+            -0.447663
+        ]
+    },
+    {
+        "long_name": "Roberto Carlos Lopes",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.777568,
+            -2.542612,
+            -0.161854,
+            2.165686,
+            1.7016,
+            -0.977191
+        ]
+    },
+    {
+        "long_name": "Guy Maxence Lacroix",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            3.220831,
+            1.793274,
+            1.101509,
+            -0.803614,
+            -0.374734,
+            0.911154
+        ]
+    },
+    {
+        "long_name": "Yazan Al Arabيزن أبو عرب",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.54918,
+            1.574427,
+            1.479204,
+            1.606206,
+            -0.411902,
+            -0.373541
+        ]
+    },
+    {
+        "long_name": "Nicolás Hernán Gonzalo Otamendi",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.380792,
+            -1.699288,
+            0.61412,
+            3.826367,
+            -0.159667,
+            -0.307369
+        ]
+    },
+    {
+        "long_name": "Víctor Gustavo Velázquez Ramos",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.718852,
+            1.814443,
+            0.44977,
+            3.107102,
+            -0.993159,
+            -0.866029
+        ]
+    },
+    {
+        "long_name": "Santiago Ignacio Bueno Sciutto",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.591082,
+            -1.909776,
+            -2.476963,
+            0.667827,
+            -0.193444,
+            1.567577
+        ]
+    },
+    {
+        "long_name": "Lucas Michel Mendesلوكاس منديز",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.270757,
+            -1.61426,
+            0.091425,
+            1.489689,
+            -0.977732,
+            0.167252
+        ]
+    },
+    {
+        "long_name": "Omar Federico Alderete Fernández",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.547547,
+            -0.974364,
+            0.933563,
+            0.605992,
+            -0.688497,
+            -0.598483
+        ]
+    },
+    {
+        "long_name": "Micky van de Ven",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.235343,
+            1.568239,
+            1.554456,
+            -2.2608,
+            -0.901733,
+            -0.468925
+        ]
+    },
+    {
+        "long_name": "Aymeric Jean Louis Gerard Alphonse Laporte",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -1.266381,
+            -3.143839,
+            -2.207287,
+            -0.190879,
+            0.066148,
+            1.006528
+        ]
+    },
+    {
+        "long_name": "Jan Paul van Hecke",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.569796,
+            -0.452248,
+            -0.792914,
+            -0.885962,
+            -0.964555,
+            2.199024
+        ]
+    },
+    {
+        "long_name": "Malick Laye Thiaw",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.062302,
+            -0.218998,
+            0.667682,
+            -1.942743,
+            0.332456,
+            1.434134
+        ]
+    },
+    {
+        "long_name": "Alexsandro Victor de Souza Ribeiro",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.753311,
+            -2.643741,
+            -0.20016,
+            -1.199103,
+            -0.808653,
+            1.689354
+        ]
+    },
+    {
+        "long_name": "Daniel Johnson Burn",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.136439,
+            -7.121368,
+            -0.618826,
+            -0.884776,
+            2.796518,
+            0.302137
+        ]
+    },
+    {
+        "long_name": "Ime Okon",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.544315,
+            2.380361,
+            0.767877,
+            -1.574649,
+            -0.790069,
+            -0.969692
+        ]
+    },
+    {
+        "long_name": "Ko Itakura板倉 滉",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -1.589345,
+            1.672039,
+            0.838422,
+            -0.231316,
+            -0.141446,
+            -0.370148
+        ]
+    },
+    {
+        "long_name": "José María Canale Domínguez",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.338054,
+            0.368288,
+            -0.329122,
+            1.013214,
+            -1.06029,
+            -0.562495
+        ]
+    },
+    {
+        "long_name": "Isak Malcolm Kwaku Hien",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.293387,
+            -1.205002,
+            0.885528,
+            -0.0258,
+            -1.034037,
+            -0.768968
+        ]
+    },
+    {
+        "long_name": "Alessandro Circati",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            0.420035,
+            -1.348035,
+            0.322099,
+            -0.163371,
+            -0.567507,
+            1.461915
+        ]
+    },
+    {
+        "long_name": "Luc Rollet De Fougerolles",
+        "cluster_id": 3,
+        "overall": 60,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.027751,
+            2.901221,
+            -1.978568,
+            -0.418159,
+            -1.632672,
+            1.067259
+        ]
+    },
+    {
+        "long_name": "Ricardo Adé",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.997906,
+            1.372118,
+            0.521706,
+            2.185949,
+            0.608509,
+            0.219561
+        ]
+    },
+    {
+        "long_name": "Kevin Danso",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.394348,
+            -0.417072,
+            0.351769,
+            -0.268069,
+            -0.31565,
+            -0.805874
+        ]
+    },
+    {
+        "long_name": "Kai Clifton Trewin",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.635605,
+            2.061488,
+            0.632361,
+            1.521047,
+            1.501586,
+            1.803419
+        ]
+    },
+    {
+        "long_name": "Seyed Majid Hosseiniمجید حسینی",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.109938,
+            -0.148564,
+            -0.758788,
+            2.255291,
+            -0.294239,
+            1.001654
+        ]
+    },
+    {
+        "long_name": "Scott Fraser McKenna",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            2.763787,
+            -1.609645,
+            0.133864,
+            1.106092,
+            -0.579937,
+            0.085445
+        ]
+    },
+    {
+        "long_name": "Dennis Hadžikadunić",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            1.021231,
+            -0.00286,
+            -0.643644,
+            0.502998,
+            0.304204,
+            0.198594
+        ]
+    },
+    {
+        "long_name": "David Leopold Affengruber",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            0.665565,
+            2.540671,
+            0.719373,
+            1.146932,
+            1.613103,
+            0.442896
+        ]
+    },
+    {
+        "long_name": "William Alain André Gabriel Saliba",
+        "cluster_id": 2,
+        "overall": 87,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            3.426594,
+            -0.180382,
+            -0.850912,
+            -1.655543,
+            -0.052175,
+            -0.03802
+        ]
+    },
+    {
+        "long_name": "Facundo Axel Medina",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.01532,
+            1.654697,
+            -0.942458,
+            -0.03982,
+            1.716248,
+            -0.313613
+        ]
+    },
+    {
+        "long_name": "Christopher Jeffrey Richards",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            2.305642,
+            0.579509,
+            -1.768717,
+            -0.121984,
+            0.664787,
+            -0.207324
+        ]
+    },
+    {
+        "long_name": "Redouane Halhalرضوان هلهال",
+        "cluster_id": 3,
+        "overall": 63,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.488767,
+            0.828566,
+            -0.748199,
+            -0.945511,
+            -1.336765,
+            -0.734728
+        ]
+    },
+    {
+        "long_name": "Waldemar AntonРипцов-Антон Владимир Александрович",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.530454,
+            -0.903138,
+            0.050978,
+            0.452783,
+            0.405916,
+            0.236507
+        ]
+    },
+    {
+        "long_name": "Joel Robert Waterman",
+        "cluster_id": 3,
+        "overall": 68,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -2.078646,
+            -3.992638,
+            -1.211129,
+            -0.046474,
+            1.059488,
+            0.713053
+        ]
+    },
+    {
+        "long_name": "Alexander Kwabena Baidoo Djiku",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.978507,
+            1.005254,
+            0.34007,
+            1.092705,
+            0.239263,
+            0.197226
+        ]
+    },
+    {
+        "long_name": "Ronald Federico Araújo da Silva",
+        "cluster_id": 2,
+        "overall": 83,
+        "representative_name": "Virgil van Dijk",
+        "position_vector": [
+            1.325658,
+            0.321522,
+            1.645203,
+            0.449768,
+            -1.455818,
+            -0.724482
+        ]
+    },
+    {
+        "long_name": "Boualem Khoukhiبوعلام خوخي",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -4.271914,
+            -2.27697,
+            2.324871,
+            1.846191,
+            -2.083738,
+            2.084119
+        ]
+    },
+    {
+        "long_name": "Junnosuke Suzuki鈴木 淳之介",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -3.928791,
+            2.444192,
+            -0.229198,
+            -1.874306,
+            -0.562526,
+            0.615295
+        ]
+    },
+    {
+        "long_name": "Jehad Abdullatif Ahmed Thakriجهاد ذكري",
+        "cluster_id": 1,
+        "overall": 66,
+        "representative_name": "Marcos Aoás Corrêa",
+        "position_vector": [
+            -0.077968,
+            2.239514,
+            1.426069,
+            0.21069,
+            1.099872,
+            -0.152838
+        ]
+    },
+    {
+        "long_name": "Moussa Niakhaté",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Nathan Benjamin Aké",
+        "position_vector": [
+            -0.461525,
+            -1.759702,
+            0.610501,
+            -0.2137,
+            -0.043468,
+            0.330018
+        ]
+    }
+]
