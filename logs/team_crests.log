@@ -8295,3 +8295,924 @@
 [2026-06-03 14:53:36] INFO:   - Étoile du Sahel
 [2026-06-03 14:53:36] INFO: ============================================================
 [2026-06-03 14:53:36] INFO: Script finalizado.
+[2026-06-03 16:00:55] INFO: ============================================================
+[2026-06-03 16:00:55] INFO: Inicio de fetch_footballdata_crests.py
+[2026-06-03 16:00:55] INFO: Threshold Jaccard: 0.60 | Threshold Fuzzy: 0.80
+[2026-06-03 16:00:55] INFO: ============================================================
+[2026-06-03 16:00:55] INFO: Cargados 443 equipos desde convocados_equipos.json
+[2026-06-03 16:00:55] ERROR: API Key no configurada.
+[2026-06-03 16:01:06] INFO: ============================================================
+[2026-06-03 16:01:06] INFO: Inicio de fetch_footballdata_crests.py
+[2026-06-03 16:01:06] INFO: Threshold Jaccard: 0.60 | Threshold Fuzzy: 0.80
+[2026-06-03 16:01:06] INFO: ============================================================
+[2026-06-03 16:01:06] INFO: Cargados 443 equipos desde convocados_equipos.json
+[2026-06-03 16:01:09] INFO: Competición 'Campeonato Brasileiro Série A': 20 equipos.
+[2026-06-03 16:01:12] INFO: Competición 'Championship': 24 equipos.
+[2026-06-03 16:01:14] INFO: Competición 'Premier League': 20 equipos.
+[2026-06-03 16:01:17] INFO: Competición 'UEFA Champions League': 36 equipos.
+[2026-06-03 16:01:19] INFO: Competición 'European Championship': 24 equipos.
+[2026-06-03 16:01:21] INFO: Competición 'Ligue 1': 18 equipos.
+[2026-06-03 16:01:23] INFO: Competición 'Bundesliga': 18 equipos.
+[2026-06-03 16:01:25] INFO: Competición 'Serie A': 20 equipos.
+[2026-06-03 16:01:27] INFO: Competición 'Eredivisie': 18 equipos.
+[2026-06-03 16:01:29] INFO: Competición 'Primeira Liga': 18 equipos.
+[2026-06-03 16:01:31] WARNING: No se pudieron obtener equipos de 'Copa Libertadores': 429 Client Error:  for url: https://api.football-data.org/v4/competitions/2152/teams
+[2026-06-03 16:01:32] WARNING: No se pudieron obtener equipos de 'Primera Division': 429 Client Error:  for url: https://api.football-data.org/v4/competitions/2014/teams
+[2026-06-03 16:01:34] WARNING: No se pudieron obtener equipos de 'FIFA World Cup': 429 Client Error:  for url: https://api.football-data.org/v4/competitions/2000/teams
+[2026-06-03 16:01:35] WARNING: Paginación detenida en offset 0: 429 Client Error:  for url: https://api.football-data.org/v4/teams?limit=200&offset=0
+[2026-06-03 16:01:35] INFO: Total equipos únicos recopilados: 195
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'ac milan' == 'ac milan'
+[2026-06-03 16:01:35] INFO: MATCH: AC Milan                                      [Serie A | Italy | Italy] → https://crests.football-data.org/98.png
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: AEL Limassol
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'bournemouth' == 'bournemouth'
+[2026-06-03 16:01:35] INFO: MATCH: AFC Bournemouth                               [Premier League | England | England] → https://crests.football-data.org/bournemouth.png
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: AIK
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'aj auxerre' == 'aj auxerre'
+[2026-06-03 16:01:35] INFO: MATCH: AJ Auxerre                                    [Ligue 1 | France | France] → https://crests.football-data.org/519.png
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'monaco' == 'monaco'
+[2026-06-03 16:01:35] INFO: MATCH: AS Monaco                                     [UEFA Champions League | Europe | Monaco] → https://crests.football-data.org/548.png
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: AS Nancy-Lorraine
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'roma' == 'roma'
+[2026-06-03 16:01:35] INFO: MATCH: AS Roma                                       [Serie A | Italy | Italy] → https://crests.football-data.org/100.png
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: AS Saint-Étienne
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Abha Club
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Academia Puerto Cabello
+[2026-06-03 16:01:35] DEBUG:   [L1-exacto] 'ajax' == 'ajax'
+[2026-06-03 16:01:35] INFO: MATCH: Ajax                                          [UEFA Champions League | Europe | Netherlands] → https://crests.football-data.org/678.png
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Akron Tolyatti
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Ahli
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Ahly
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Ain
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Bataeh
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Feiha
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Hilal
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Ittihad
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Jazira
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Nasr
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Nassr
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Sharjah
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al Wakrah
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Ahli
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Ahli Saudi FC
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Ain FC
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Duhail
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Ettifaq
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Hilal
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Hilal SFC
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Al-Ittihad
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Alanyaspor
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: Almere City FC
+[2026-06-03 16:01:35] WARNING: SIN COINCIDENCIA: América de México
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Anderlecht
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'angers sco' == 'angers sco'
+[2026-06-03 16:01:36] INFO: MATCH: Angers SCO                                    [Ligue 1 | France | France] → https://crests.football-data.org/532.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Apollon Limassol
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Aris Limassol
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'arsenal' == 'arsenal'
+[2026-06-03 16:01:36] INFO: MATCH: Arsenal                                       [Premier League | England | England] → https://crests.football-data.org/57.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Astana
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'aston villa' == 'aston villa'
+[2026-06-03 16:01:36] INFO: MATCH: Aston Villa                                   [Premier League | England | England] → https://crests.football-data.org/58.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'atalanta' == 'atalanta bc'
+[2026-06-03 16:01:36] INFO: MATCH: Atalanta                                      [UEFA Champions League | Europe | Italy] → https://crests.football-data.org/102.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Athletic de Bilbao
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Atlas
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'atletico madrid' ⊆ 'club atletico madrid'
+[2026-06-03 16:01:36] INFO: MATCH: Atlético Madrid                               [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/78.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Atlético Nacional
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'atletico madrid' ⊆ 'club atletico madrid'
+[2026-06-03 16:01:36] INFO: MATCH: Atlético de Madrid                            [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/78.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Atromitos
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Auckland FC
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'augsburgo' ~ 'augsburg'  ratio=0.94
+[2026-06-03 16:01:36] INFO: MATCH: Augsburgo                                     [Bundesliga | Germany | Germany] → https://crests.football-data.org/16.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Austria Viena
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'auxerre' == 'aj auxerre'
+[2026-06-03 16:01:36] INFO: MATCH: Auxerre                                       [Ligue 1 | France | France] → https://crests.football-data.org/519.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: BSC Young Boys II
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'barcelona' == 'barcelona'
+[2026-06-03 16:01:36] INFO: MATCH: Barcelona                                     [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/81.png
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'barnsley' ~ 'burnley'  ratio=0.80
+[2026-06-03 16:01:36] INFO: MATCH: Barnsley                                      [Premier League | England | England] → https://crests.football-data.org/328.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Basaksehir
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'bayer leverkusen' ⊆ 'bayer 04 leverkusen'
+[2026-06-03 16:01:36] INFO: MATCH: Bayer Leverkusen                              [UEFA Champions League | Europe | Germany] → https://crests.football-data.org/3.png
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'bayern munich' ~ 'bayern munchen'  ratio=0.89
+[2026-06-03 16:01:36] INFO: MATCH: Bayern Munich                                 [UEFA Champions League | Europe | Germany] → https://crests.football-data.org/5.png
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'bayern munich' ~ 'bayern munchen'  ratio=0.89
+[2026-06-03 16:01:36] INFO: MATCH: Bayern Múnich                                 [UEFA Champions League | Europe | Germany] → https://crests.football-data.org/5.png
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'benfica' ⊆ 'sport lisboa e benfica'
+[2026-06-03 16:01:36] INFO: MATCH: Benfica                                       [UEFA Champions League | Europe | Portugal] → https://crests.football-data.org/1903.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Besiktas
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'birmingham' == 'birmingham city'
+[2026-06-03 16:01:36] INFO: MATCH: Birmingham                                    [Championship | England | England] → https://crests.football-data.org/332.png
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'bodo glimt' ~ 'bodø/glimt'  ratio=0.80
+[2026-06-03 16:01:36] INFO: MATCH: Bodo Glimt                                    [UEFA Champions League | Europe | Norway] → https://crests.football-data.org/5721.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'bologna' == 'bologna 1909'
+[2026-06-03 16:01:36] INFO: MATCH: Bologna                                       [Serie A | Italy | Italy] → https://crests.football-data.org/103.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'borussia dortmund' == 'borussia dortmund'
+[2026-06-03 16:01:36] INFO: MATCH: Borussia Dortmund                             [UEFA Champions League | Europe | Germany] → https://crests.football-data.org/4.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'borussia monchengladbach' == 'borussia monchengladbach'
+[2026-06-03 16:01:36] INFO: MATCH: Borussia Mönchengladbach                      [Bundesliga | Germany | Germany] → https://crests.football-data.org/18.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'botafogo' == 'botafogo fr'
+[2026-06-03 16:01:36] INFO: MATCH: Botafogo                                      [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1770.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'bournemouth' == 'bournemouth'
+[2026-06-03 16:01:36] INFO: MATCH: Bournemouth                                   [Premier League | England | England] → https://crests.football-data.org/bournemouth.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'braga' == 'sporting clube braga'
+[2026-06-03 16:01:36] INFO: MATCH: Braga                                         [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/5613.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Braintree Town F.C.
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'brentford' == 'brentford'
+[2026-06-03 16:01:36] INFO: MATCH: Brentford                                     [Premier League | England | England] → https://crests.football-data.org/402.png
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'brighton' ⊆ 'brighton & hove albion'
+[2026-06-03 16:01:36] INFO: MATCH: Brighton                                      [Premier League | England | England] → https://crests.football-data.org/397.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Brondby IF
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Brujas
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Brøndby IF
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'burnley' == 'burnley'
+[2026-06-03 16:01:36] INFO: MATCH: Burnley                                       [Premier League | England | England] → https://crests.football-data.org/328.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: CD Plaza Amador
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: CS Constantine
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: CS Sfaxien
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'cagliari' == 'cagliari calcio'
+[2026-06-03 16:01:36] INFO: MATCH: Cagliari                                      [Serie A | Italy | Italy] → https://crests.football-data.org/104.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'casa pia' == 'casa pia ac'
+[2026-06-03 16:01:36] INFO: MATCH: Casa Pia                                      [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/6618.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Castellon
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Celta de Vigo
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Celtic
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Celtic Glasgow
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Cercle Brugge
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Charleroi
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Charlotte FC
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'charlton athletic' == 'charlton athletic'
+[2026-06-03 16:01:36] INFO: MATCH: Charlton Athletic                             [Championship | England | England] → https://crests.football-data.org/348.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Chaves
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'chelsea' == 'chelsea'
+[2026-06-03 16:01:36] INFO: MATCH: Chelsea                                       [Premier League | England | England] → https://crests.football-data.org/61.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Chicago Fire
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Cincinatti FC
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Club Africain
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Club América
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Club Deportivo Marathón
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Club León
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Cobresal
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Colorado Springs
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Columbus Crew
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'como' ⊆ 'como 1907'
+[2026-06-03 16:01:36] INFO: MATCH: Como                                          [Serie A | Italy | Italy] → https://crests.football-data.org/7397.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Copenhagen
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Copenhague
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'corinthians' == 'corinthians paulista'
+[2026-06-03 16:01:36] INFO: MATCH: Corinthians                                   [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1779.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'coventry city' == 'coventry city'
+[2026-06-03 16:01:36] INFO: MATCH: Coventry City                                 [Championship | England | England] → https://crests.football-data.org/1076.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'cremonese' == 'us cremonese'
+[2026-06-03 16:01:36] INFO: MATCH: Cremonese                                     [Serie A | Italy | Italy] → https://crests.football-data.org/457.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Cruz Azul
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'crystal palace' == 'crystal palace'
+[2026-06-03 16:01:36] INFO: MATCH: Crystal Palace                                [Premier League | England | England] → https://crests.football-data.org/354.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Daejeon
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Deportivo La Guaira
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Deportivo Saprissa
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'derby county' == 'derby county'
+[2026-06-03 16:01:36] INFO: MATCH: Derby County                                  [Championship | England | England] → https://crests.football-data.org/342.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Desconocido
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Dinamo Zagreb
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Dynamo Makhachkala
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: ES Tunis
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'eintracht frankfurt' == 'eintracht frankfurt'
+[2026-06-03 16:01:36] INFO: MATCH: Eintracht Frankfurt                           [UEFA Champions League | Europe | Germany] → https://crests.football-data.org/19.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: El Gouna
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: El Paso Locomotive FC
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Elche
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Espanyol
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Espérance de Tunis
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Esteghlal FC
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'estrasburgo' ~ 'strasbourg'  ratio=0.86
+[2026-06-03 16:01:36] INFO: MATCH: Estrasburgo                                   [Ligue 1 | France | France] → https://crests.football-data.org/576.png
+[2026-06-03 16:01:36] DEBUG:   [L2-subset] 'estrela da amadora' ⊆ 'cf estrela da amadora'
+[2026-06-03 16:01:36] INFO: MATCH: Estrela da Amadora                            [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/9136.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Estrella Roja
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Estrella Roja de Belgrado
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Estudiantes de La Plata
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'everton' == 'everton'
+[2026-06-03 16:01:36] INFO: MATCH: Everton                                       [Premier League | England | England] → https://crests.football-data.org/62.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: F. C. Tokyo
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'augsburg' == 'augsburg'
+[2026-06-03 16:01:36] INFO: MATCH: FC Augsburg                                   [Bundesliga | Germany | Germany] → https://crests.football-data.org/16.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'barcelona' == 'barcelona'
+[2026-06-03 16:01:36] INFO: MATCH: FC Barcelona                                  [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/81.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Barcelona Atlètic
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Cincinnati
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Cosmos Koblenz
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Dallas
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Den Bosch
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Lugano
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'nantes' == 'nantes'
+[2026-06-03 16:01:36] INFO: MATCH: FC Nantes                                     [Ligue 1 | France | France] → https://crests.football-data.org/543.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Pari Nizhniy Novgorod
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Sochaux
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'st. pauli' == 'st. pauli 1910'
+[2026-06-03 16:01:36] INFO: MATCH: FC St. Pauli                                  [Bundesliga | Germany | Germany] → https://crests.football-data.org/20.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Tatran Prešov
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Tokio
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'twente' == 'twente '65'
+[2026-06-03 16:01:36] INFO: MATCH: FC Twente                                     [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/666.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Vizela
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'volendam' == 'volendam'
+[2026-06-03 16:01:36] INFO: MATCH: FC Volendam                                   [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/1919.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: FC Zürich
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Farense
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Fenerbahce
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Fenerbahçe
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Fenerbahçe SK/Betis
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Ferencváros TC
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'feyenoord' == 'feyenoord rotterdam'
+[2026-06-03 16:01:36] INFO: MATCH: Feyenoord                                     [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/675.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'fiorentina' == 'acf fiorentina'
+[2026-06-03 16:01:36] INFO: MATCH: Fiorentina                                    [Serie A | Italy | Italy] → https://crests.football-data.org/99.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'flamengo' == 'cr flamengo'
+[2026-06-03 16:01:36] INFO: MATCH: Flamengo                                      [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1783.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'fluminense' == 'fluminense'
+[2026-06-03 16:01:36] INFO: MATCH: Fluminense                                    [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1765.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Fortuna Dusseldorf
+[2026-06-03 16:01:36] DEBUG:   [L3-fuzzy] 'friburgo' ~ 'freiburg'  ratio=0.88
+[2026-06-03 16:01:36] INFO: MATCH: Friburgo                                      [Bundesliga | Germany | Germany] → https://crests.football-data.org/17.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Frosinone
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'fulham' == 'fulham'
+[2026-06-03 16:01:36] INFO: MATCH: Fulham                                        [Premier League | England | England] → https://crests.football-data.org/63.png
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'galatasaray' == 'galatasaray'
+[2026-06-03 16:01:36] INFO: MATCH: Galatasaray                                   [UEFA Champions League | Europe | Turkey] → https://crests.football-data.org/610.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Gangwon
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Gaziantep
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Genk
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'genoa' == 'genoa'
+[2026-06-03 16:01:36] INFO: MATCH: Genoa                                         [Serie A | Italy | Italy] → https://crests.football-data.org/107.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Gençlerbirliği
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'gil vicente' == 'gil vicente'
+[2026-06-03 16:01:36] INFO: MATCH: Gil Vicente                                   [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/5533.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Girona
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Granada
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'gremio' == 'gremio fbpa'
+[2026-06-03 16:01:36] INFO: MATCH: Gremio                                        [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1767.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Gyor
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: HNK Rijeka
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hajduk Split
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'hamburger sv' == 'hamburger sv'
+[2026-06-03 16:01:36] INFO: MATCH: Hamburger SV                                  [Bundesliga | Germany | Germany] → https://crests.football-data.org/7.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hamburgo
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hannover 96
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hapoel Ironi Kiryat Shmona
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Heart of Midlothian
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'hellas verona' == 'hellas verona'
+[2026-06-03 16:01:36] INFO: MATCH: Hellas Verona                                 [Serie A | Italy | Italy] → https://crests.football-data.org/450.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hibernian
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'hoffenheim' == 'tsg 1899 hoffenheim'
+[2026-06-03 16:01:36] INFO: MATCH: Hoffenheim                                    [Bundesliga | Germany | Germany] → https://crests.football-data.org/2.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Holstein Kiel
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Hradec Kralove
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'hull city' == 'hull city'
+[2026-06-03 16:01:36] INFO: MATCH: Hull City                                     [Championship | England | England] → https://crests.football-data.org/322.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: IFK Norrköping
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Igdir FK
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Igdır FK
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Independiente
+[2026-06-03 16:01:36] DEBUG:   [L1-exacto] 'inter' == 'internazionale milano'
+[2026-06-03 16:01:36] INFO: MATCH: Inter                                         [UEFA Champions League | Europe | Italy] → https://crests.football-data.org/108.png
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Inter Miami
+[2026-06-03 16:01:36] WARNING: SIN COINCIDENCIA: Inter Milan
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Inter de Milan
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Inter de Milán
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Internacional de Porto Alegre
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'ipswich town' == 'ipswich town'
+[2026-06-03 16:01:37] INFO: MATCH: Ipswich Town                                  [Championship | England | England] → https://crests.football-data.org/349.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: JS Kabylie
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Jagiellonia Bialystok
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Jeonbuk
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'juventus' == 'juventus'
+[2026-06-03 16:01:37] INFO: MATCH: Juventus                                      [UEFA Champions League | Europe | Italy] → https://crests.football-data.org/109.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Juárez FC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: KAA Gent
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: KRC Genk
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kaizer Chiefs
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Karlsruher
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kashima Antlers
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kashima Antrlers
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kasımpaşa
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kayserispor
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kifisia
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Kilmarnock
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Konyaspor
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Krasnodar
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: LAFC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: LASK
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: LDU Quito
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Larisa
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'havre' == 'havre ac'
+[2026-06-03 16:01:37] INFO: MATCH: Le Havre                                      [Ligue 1 | France | France] → https://crests.football-data.org/533.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Lechia Gdansk
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'leeds' ⊆ 'leeds united'
+[2026-06-03 16:01:37] INFO: MATCH: Leeds                                         [Premier League | England | England] → https://crests.football-data.org/341.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'leeds united' == 'leeds united'
+[2026-06-03 16:01:37] INFO: MATCH: Leeds United                                  [Premier League | England | England] → https://crests.football-data.org/341.png
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'leipzig' ⊆ 'rb leipzig'
+[2026-06-03 16:01:37] INFO: MATCH: Leipzig                                       [Bundesliga | Germany | Germany] → https://crests.football-data.org/721.png
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'lens' ⊆ 'racing club lens'
+[2026-06-03 16:01:37] INFO: MATCH: Lens                                          [Ligue 1 | France | France] → https://crests.football-data.org/546.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'lille' == 'lille osc'
+[2026-06-03 16:01:37] INFO: MATCH: Lille                                         [Ligue 1 | France | France] → https://crests.football-data.org/521.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'liverpool' == 'liverpool'
+[2026-06-03 16:01:37] INFO: MATCH: Liverpool                                     [Premier League | England | England] → https://crests.football-data.org/64.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'lorient' == 'lorient'
+[2026-06-03 16:01:37] INFO: MATCH: Lorient                                       [Ligue 1 | France | France] → https://crests.football-data.org/525.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Ludogorets
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Maccabi Haifa
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Maccabi Tel Aviv
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'mainz' == '1. fsv mainz 05'
+[2026-06-03 16:01:37] INFO: MATCH: Mainz                                         [Bundesliga | Germany | Germany] → https://crests.football-data.org/15.png
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'mainz 05' ⊆ '1. fsv mainz 05'
+[2026-06-03 16:01:37] INFO: MATCH: Mainz 05                                      [Bundesliga | Germany | Germany] → https://crests.football-data.org/15.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mallorca
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Malmo FF
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mamelodi Sundowns
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'manchester city' == 'manchester city'
+[2026-06-03 16:01:37] INFO: MATCH: Manchester City                               [Premier League | England | England] → https://crests.football-data.org/65.png
+[2026-06-03 16:01:37] DEBUG:   [L3-fuzzy] 'manchester united' ~ 'manchester city'  ratio=0.81
+[2026-06-03 16:01:37] INFO: MATCH: Manchester United                             [Premier League | England | England] → https://crests.football-data.org/65.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Maribor
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'marseille' == 'olympique marseille'
+[2026-06-03 16:01:37] INFO: MATCH: Marseille                                     [UEFA Champions League | Europe | France] → https://crests.football-data.org/516.png
+[2026-06-03 16:01:37] DEBUG:   [L3-fuzzy] 'marsella' ~ 'marseille'  ratio=0.82
+[2026-06-03 16:01:37] INFO: MATCH: Marsella                                      [UEFA Champions League | Europe | France] → https://crests.football-data.org/516.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mazatlán FC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mechelen
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Miami FC
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'middlesbrough' == 'middlesbrough'
+[2026-06-03 16:01:37] INFO: MATCH: Middlesbrough                                 [Championship | England | England] → https://crests.football-data.org/343.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Midtjylland
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'milan' == 'ac milan'
+[2026-06-03 16:01:37] INFO: MATCH: Milan                                         [Serie A | Italy | Italy] → https://crests.football-data.org/98.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'millwall' == 'millwall'
+[2026-06-03 16:01:37] INFO: MATCH: Millwall                                      [Championship | England | England] → https://crests.football-data.org/384.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Minnesota United
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Minnesota United FC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mjällby AIF
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Mlada Boleslav
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Molde
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'monaco' == 'monaco'
+[2026-06-03 16:01:37] INFO: MATCH: Monaco                                        [UEFA Champions League | Europe | Monaco] → https://crests.football-data.org/548.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Monagas
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Montana 1921
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Monterrey
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Montpellier
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Motherwell F.C.
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'monaco' == 'monaco'
+[2026-06-03 16:01:37] INFO: MATCH: Mónaco                                        [UEFA Champions League | Europe | Monaco] → https://crests.football-data.org/548.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: N.E.C.
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: NEC Nijmegen
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: NK Maribor
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: NK Slaven Belupo
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'nacional' ⊆ 'cd nacional'
+[2026-06-03 16:01:37] INFO: MATCH: Nacional                                      [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/5529.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'napoli' == 'ssc napoli'
+[2026-06-03 16:01:37] INFO: MATCH: Napoli                                        [UEFA Champions League | Europe | Italy] → https://crests.football-data.org/113.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: New England Revolution
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: New York City FC
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'newcastle' == 'newcastle united'
+[2026-06-03 16:01:37] INFO: MATCH: Newcastle                                     [Premier League | England | England] → https://crests.football-data.org/67.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Newcastle Jets FC
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'newcastle united' == 'newcastle united'
+[2026-06-03 16:01:37] INFO: MATCH: Newcastle United                              [Premier League | England | England] → https://crests.football-data.org/67.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'nice' == 'ogc nice'
+[2026-06-03 16:01:37] INFO: MATCH: Nice                                          [Ligue 1 | France | France] → https://crests.football-data.org/522.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Niza
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Noah
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'norwich city' == 'norwich city'
+[2026-06-03 16:01:37] INFO: MATCH: Norwich City                                  [Championship | England | England] → https://crests.football-data.org/68.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'nottingham forest' == 'nottingham forest'
+[2026-06-03 16:01:37] INFO: MATCH: Nottingham Forest                             [Premier League | England | England] → https://crests.football-data.org/351.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'nottingham forest' == 'nottingham forest'
+[2026-06-03 16:01:37] INFO: MATCH: Nottingham Forest F.C.                        [Premier League | England | England] → https://crests.football-data.org/351.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'ogc nice' == 'ogc nice'
+[2026-06-03 16:01:37] INFO: MATCH: OGC Nice                                      [Ligue 1 | France | France] → https://crests.football-data.org/522.png
+[2026-06-03 16:01:37] DEBUG:   [L3-fuzzy] 'olympiacos' ~ 'olympiakos'  ratio=0.90
+[2026-06-03 16:01:37] INFO: MATCH: Olympiacos FC                                 [UEFA Champions League | Europe | Greece] → https://crests.football-data.org/654.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'olympique lyon' == 'olympique lyonnais'
+[2026-06-03 16:01:37] INFO: MATCH: Olympique de Lyon                             [Ligue 1 | France | France] → https://crests.football-data.org/523.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'olympique marseille' == 'olympique marseille'
+[2026-06-03 16:01:37] INFO: MATCH: Olympique de Marseille                        [UEFA Champions League | Europe | France] → https://crests.football-data.org/516.png
+[2026-06-03 16:01:37] DEBUG:   [L3-fuzzy] 'olympique marsella' ~ 'olympique marseille'  ratio=0.92
+[2026-06-03 16:01:37] INFO: MATCH: Olympique de Marsella                         [UEFA Champions League | Europe | France] → https://crests.football-data.org/516.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Omonia Nicosia
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Orlando City
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Orlando City SC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Orlando Pirates
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Osasuna
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Oțelul Galați
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'pec zwolle' == 'pec zwolle'
+[2026-06-03 16:01:37] INFO: MATCH: PEC Zwolle                                    [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/684.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: PFC Turan Tovuz
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'psg' == 'paris saint-germain'
+[2026-06-03 16:01:37] INFO: MATCH: PSG                                           [UEFA Champions League | Europe | France] → https://crests.football-data.org/524.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'psv' == 'psv'
+[2026-06-03 16:01:37] INFO: MATCH: PSV                                           [UEFA Champions League | Europe | Netherlands] → https://crests.football-data.org/674.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: PSV Eindhoven
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Pafos
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'palmeiras' == 'se palmeiras'
+[2026-06-03 16:01:37] INFO: MATCH: Palmeiras                                     [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1769.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Panathinaikos
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'paranaense' == 'ca paranaense'
+[2026-06-03 16:01:37] INFO: MATCH: Paranaense                                    [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1768.png
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'paris' ⊆ 'paris saint-germain'
+[2026-06-03 16:01:37] INFO: MATCH: Paris                                         [UEFA Champions League | Europe | France] → https://crests.football-data.org/524.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'paris saint-germain' == 'paris saint-germain'
+[2026-06-03 16:01:37] INFO: MATCH: Paris Saint-Germain                           [UEFA Champions League | Europe | France] → https://crests.football-data.org/524.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'parma' == 'parma calcio 1913'
+[2026-06-03 16:01:37] INFO: MATCH: Parma                                         [Serie A | Italy | Italy] → https://crests.football-data.org/112.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Peterborough
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Philadelphia Union
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'pisa' ⊆ 'ac pisa 1909'
+[2026-06-03 16:01:37] INFO: MATCH: Pisa                                          [Serie A | Italy | Italy] → https://crests.football-data.org/487.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Plaza Amador
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Polokwane City
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Port Vale
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Portland Timbers
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'porto' == 'porto'
+[2026-06-03 16:01:37] INFO: MATCH: Porto                                         [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/503.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Pumas
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Puskás Akadémia
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Pyramids
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Pyramids FC
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'rb leipzig' == 'rb leipzig'
+[2026-06-03 16:01:37] INFO: MATCH: RB Leipzig                                    [Bundesliga | Germany | Germany] → https://crests.football-data.org/721.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'rc lens' == 'racing club lens'
+[2026-06-03 16:01:37] INFO: MATCH: RC Lens                                       [Ligue 1 | France | France] → https://crests.football-data.org/546.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: RKC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: RKC Waalwijk
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: RS Berkane
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Racign de Estrasburgo
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Racing Genk
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'racing lens' ⊆ 'racing club lens'
+[2026-06-03 16:01:37] INFO: MATCH: Racing Lens                                   [Ligue 1 | France | France] → https://crests.football-data.org/546.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Racing de Estrasburgo
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Racing de Santander
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Raja Casablanca
+[2026-06-03 16:01:37] DEBUG:   [L2-subset] 'rangers' ⊆ 'queens park rangers'
+[2026-06-03 16:01:37] INFO: MATCH: Rangers                                       [Championship | England | England] → https://crests.football-data.org/69.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Rayo Vallecano
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Real Betis
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'real madrid' == 'real madrid cf'
+[2026-06-03 16:01:37] INFO: MATCH: Real Madrid                                   [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/86.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Real Oviedo
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Real Salt Lake
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Real Sociedad
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Red Bull Salzburgo
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Red Star
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Rennes
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: River Plate
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Rizespor
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'roma' == 'roma'
+[2026-06-03 16:01:37] INFO: MATCH: Roma                                          [Serie A | Italy | Italy] → https://crests.football-data.org/100.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Rosario Central
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Rotherham
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'royale union saint-gilloise' == 'royale union saint-gilloise'
+[2026-06-03 16:01:37] INFO: MATCH: Royale Union Saint-Gilloise                   [UEFA Champions League | Europe | Belgium] → https://crests.football-data.org/3929.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'napoli' == 'ssc napoli'
+[2026-06-03 16:01:37] INFO: MATCH: S.S.C. Napoli                                 [UEFA Champions League | Europe | Italy] → https://crests.football-data.org/113.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: SC Bastia
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: SJK Seinajoki
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: SK Beveren
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: SV Zulte Waregem
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Salzburgo
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Sampdoria
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Samsunspor
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: San Diego FC
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Sanfrecce Hiroshima
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'santos' == 'santos'
+[2026-06-03 16:01:37] INFO: MATCH: Santos                                        [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/6685.png
+[2026-06-03 16:01:37] DEBUG:   [L1-exacto] 'sassuolo' == 'us sassuolo calcio'
+[2026-06-03 16:01:37] INFO: MATCH: Sassuolo                                      [Serie A | Italy | Italy] → https://crests.football-data.org/471.png
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Schalke 04
+[2026-06-03 16:01:37] WARNING: SIN COINCIDENCIA: Seattle Sounders
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Servette
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Sevilla
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Shamrock Rovers
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'sheffield united' ~ 'sheffield wed'  ratio=0.83
+[2026-06-03 16:01:38] INFO: MATCH: Sheffield United                              [Championship | England | England] → https://crests.football-data.org/345.png
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'sheffield united' ~ 'sheffield wed'  ratio=0.83
+[2026-06-03 16:01:38] INFO: MATCH: Sheffield United F.C.                         [Championship | England | England] → https://crests.football-data.org/345.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Silkeborg IF
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Sint Truidense
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Sint-Truidense
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'slavia praga' ~ 'slavia praha'  ratio=0.92
+[2026-06-03 16:01:38] INFO: MATCH: Slavia Praga                                  [UEFA Champions League | Europe | Czech Republic] → https://crests.football-data.org/930.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Slovan Bratislava
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Slovan Liberec
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Smouha SC
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Sparta Praga
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'sparta rotterdam' == 'sparta rotterdam'
+[2026-06-03 16:01:38] INFO: MATCH: Sparta Rotterdam                              [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/6806.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Spartak Moscow
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'sporting' ⊆ 'sporting clube portugal'
+[2026-06-03 16:01:38] INFO: MATCH: Sporting                                      [UEFA Champions League | Europe | Portugal] → https://crests.football-data.org/498.png
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'sporting braga' ⊆ 'sporting clube braga'
+[2026-06-03 16:01:38] INFO: MATCH: Sporting Braga                                [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/5613.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'sporting cp' == 'sporting clube portugal'
+[2026-06-03 16:01:38] INFO: MATCH: Sporting CP                                   [UEFA Champions League | Europe | Portugal] → https://crests.football-data.org/498.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Sporting Lisboa
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'sporting portugal' ⊆ 'sporting clube portugal'
+[2026-06-03 16:01:38] INFO: MATCH: Sporting de Portugal                          [UEFA Champions League | Europe | Portugal] → https://crests.football-data.org/498.png
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'stade nyonnais' ~ 'stade rennais'  ratio=0.81
+[2026-06-03 16:01:38] INFO: MATCH: Stade Nyonnais                                [Ligue 1 | France | France] → https://crests.football-data.org/529.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'stade rennais' == 'stade rennais 1901'
+[2026-06-03 16:01:38] INFO: MATCH: Stade Rennais                                 [Ligue 1 | France | France] → https://crests.football-data.org/529.png
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'stade reims' ~ 'stade rennais'  ratio=0.83
+[2026-06-03 16:01:38] INFO: MATCH: Stade de Reims                                [Ligue 1 | France | France] → https://crests.football-data.org/529.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Standard Liege
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'stoke city' == 'stoke city'
+[2026-06-03 16:01:38] INFO: MATCH: Stoke City                                    [Championship | England | England] → https://crests.football-data.org/70.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'strasbourg' == 'rc strasbourg alsace'
+[2026-06-03 16:01:38] INFO: MATCH: Strasbourg                                    [Ligue 1 | France | France] → https://crests.football-data.org/576.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'stuttgart' == 'vfb stuttgart'
+[2026-06-03 16:01:38] INFO: MATCH: Stuttgart                                     [Bundesliga | Germany | Germany] → https://crests.football-data.org/10.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'sunderland' == 'sunderland'
+[2026-06-03 16:01:38] INFO: MATCH: Sunderland                                    [Premier League | England | England] → https://crests.football-data.org/71.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'sunderland' == 'sunderland'
+[2026-06-03 16:01:38] INFO: MATCH: Sunderland AFC                                [Premier League | England | England] → https://crests.football-data.org/71.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'swansea' == 'swansea city'
+[2026-06-03 16:01:38] INFO: MATCH: Swansea                                       [Championship | England | Wales] → https://crests.football-data.org/72.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'swansea city' == 'swansea city'
+[2026-06-03 16:01:38] INFO: MATCH: Swansea City A.F.C.                           [Championship | England | Wales] → https://crests.football-data.org/72.png
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'tsg hoffenheim' ⊆ 'tsg 1899 hoffenheim'
+[2026-06-03 16:01:38] INFO: MATCH: TSG Hoffenheim                                [Bundesliga | Germany | Germany] → https://crests.football-data.org/2.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'telstar' == 'telstar 1963'
+[2026-06-03 16:01:38] INFO: MATCH: Telstar                                       [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/1912.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Terengganu FC
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Tigres
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Tigres UANL
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'tondela' == 'cd tondela'
+[2026-06-03 16:01:38] INFO: MATCH: Tondela                                       [Primeira Liga | Portugal | Portugal] → https://crests.football-data.org/1049.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'torino' == 'torino'
+[2026-06-03 16:01:38] INFO: MATCH: Torino                                        [Serie A | Italy | Italy] → https://crests.football-data.org/586.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Toronto
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Toronto FC
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Torreense
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'tottenham' == 'tottenham hotspur'
+[2026-06-03 16:01:38] INFO: MATCH: Tottenham                                     [Premier League | England | England] → https://crests.football-data.org/73.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'tottenham hotspur' == 'tottenham hotspur'
+[2026-06-03 16:01:38] INFO: MATCH: Tottenham Hotspur                             [Premier League | England | England] → https://crests.football-data.org/73.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'toulouse' == 'toulouse'
+[2026-06-03 16:01:38] INFO: MATCH: Toulouse                                      [Ligue 1 | France | France] → https://crests.football-data.org/511.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Trabzonspor
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'twente' == 'twente '65'
+[2026-06-03 16:01:38] INFO: MATCH: Twente                                        [Eredivisie | Netherlands | Netherlands] → https://crests.football-data.org/666.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: U. Católica de Ecuador
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: US Monastir
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'us sassuolo calcio' == 'us sassuolo calcio'
+[2026-06-03 16:01:38] INFO: MATCH: US Sassuolo Calcio                            [Serie A | Italy | Italy] → https://crests.football-data.org/471.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: USM Alger
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'udinese' == 'udinese calcio'
+[2026-06-03 16:01:38] INFO: MATCH: Udinese                                       [Serie A | Italy | Italy] → https://crests.football-data.org/115.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Ulsan
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'union berlin' == '1. union berlin'
+[2026-06-03 16:01:38] INFO: MATCH: Union Berlin                                  [Bundesliga | Germany | Germany] → https://crests.football-data.org/28.png
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'union saint-gilloise' ⊆ 'royale union saint-gilloise'
+[2026-06-03 16:01:38] INFO: MATCH: Union Saint-Gilloise                          [UEFA Champions League | Europe | Belgium] → https://crests.football-data.org/3929.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Universidad de Concepción
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Universitatea Cluj
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: VVV-Venlo
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Valencia
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Vancouver Whitecaps
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'vasco da gama' == 'cr vasco da gama'
+[2026-06-03 16:01:38] INFO: MATCH: Vasco da Gama                                 [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1780.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Venezia FC
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Viking
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Viking FK
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Viktoria Plzen
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Viktoria Plzeň
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'villareal' ~ 'villarreal'  ratio=0.95
+[2026-06-03 16:01:38] INFO: MATCH: Villareal                                     [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/94.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'villarreal' == 'villarreal cf'
+[2026-06-03 16:01:38] INFO: MATCH: Villarreal                                    [UEFA Champions League | Europe | Spain] → https://crests.football-data.org/94.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Violette AC
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'vitoria' == 'ec vitoria'
+[2026-06-03 16:01:38] INFO: MATCH: Vitória                                       [Campeonato Brasileiro Série A | Brazil | Brazil] → https://crests.football-data.org/1782.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Vélez Sarsfield
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'watford' == 'watford'
+[2026-06-03 16:01:38] INFO: MATCH: Watford                                       [Championship | England | England] → https://crests.football-data.org/346.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Wellington Phoenix FC
+[2026-06-03 16:01:38] DEBUG:   [L2-subset] 'werder bremen' ⊆ 'sv werder bremen'
+[2026-06-03 16:01:38] INFO: MATCH: Werder Bremen                                 [Bundesliga | Germany | Germany] → https://crests.football-data.org/12.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'west ham' == 'west ham united'
+[2026-06-03 16:01:38] INFO: MATCH: West Ham                                      [Premier League | England | England] → https://crests.football-data.org/563.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'west ham united' == 'west ham united'
+[2026-06-03 16:01:38] INFO: MATCH: West Ham United                               [Premier League | England | England] → https://crests.football-data.org/563.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'west ham united' == 'west ham united'
+[2026-06-03 16:01:38] INFO: MATCH: West Ham United/Marsella                      [Premier League | England | England] → https://crests.football-data.org/563.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Western Sydney Wanderers
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Widzew Lodz
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Wolfsberger AC
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'wolfsburg' == 'vfl wolfsburg'
+[2026-06-03 16:01:38] INFO: MATCH: Wolfsburg                                     [Bundesliga | Germany | Germany] → https://crests.football-data.org/11.png
+[2026-06-03 16:01:38] DEBUG:   [L3-fuzzy] 'wolfsburgo' ~ 'wolfsburg'  ratio=0.95
+[2026-06-03 16:01:38] INFO: MATCH: Wolfsburgo                                    [Bundesliga | Germany | Germany] → https://crests.football-data.org/11.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'wolverhampton' == 'wolverhampton wanderers'
+[2026-06-03 16:01:38] INFO: MATCH: Wolverhampton                                 [Premier League | England | England] → https://crests.football-data.org/76.png
+[2026-06-03 16:01:38] DEBUG:   [L1-exacto] 'wrexham' == 'wrexham'
+[2026-06-03 16:01:38] INFO: MATCH: Wrexham                                       [Championship | England | Wales] → https://crests.football-data.org/404.png
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Young Boys
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: ZED FC
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Zamalek
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Zenit
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Zhejiang
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Çaykur Rizespor
+[2026-06-03 16:01:38] WARNING: SIN COINCIDENCIA: Étoile du Sahel
+[2026-06-03 16:01:38] INFO: Archivo generado exitosamente: C:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\teams.json (163 entradas)
+[2026-06-03 16:01:38] INFO: ------------------------------------------------------------
+[2026-06-03 16:01:38] INFO: RESUMEN:
+[2026-06-03 16:01:38] INFO:   Equipos en lista local : 443
+[2026-06-03 16:01:38] INFO:   Matches encontrados    : 163
+[2026-06-03 16:01:38] INFO:   Sin coincidencia       : 280
+[2026-06-03 16:01:38] INFO: Equipos sin coincidencia en la API:
+[2026-06-03 16:01:38] INFO:   - AEL Limassol
+[2026-06-03 16:01:38] INFO:   - AIK
+[2026-06-03 16:01:38] INFO:   - AS Nancy-Lorraine
+[2026-06-03 16:01:38] INFO:   - AS Saint-Étienne
+[2026-06-03 16:01:38] INFO:   - Abha Club
+[2026-06-03 16:01:38] INFO:   - Academia Puerto Cabello
+[2026-06-03 16:01:38] INFO:   - Akron Tolyatti
+[2026-06-03 16:01:38] INFO:   - Al Ahli
+[2026-06-03 16:01:38] INFO:   - Al Ahly
+[2026-06-03 16:01:38] INFO:   - Al Ain
+[2026-06-03 16:01:38] INFO:   - Al Bataeh
+[2026-06-03 16:01:38] INFO:   - Al Feiha
+[2026-06-03 16:01:38] INFO:   - Al Hilal
+[2026-06-03 16:01:38] INFO:   - Al Ittihad
+[2026-06-03 16:01:38] INFO:   - Al Jazira
+[2026-06-03 16:01:38] INFO:   - Al Nasr
+[2026-06-03 16:01:38] INFO:   - Al Nassr
+[2026-06-03 16:01:38] INFO:   - Al Sharjah
+[2026-06-03 16:01:38] INFO:   - Al Wakrah
+[2026-06-03 16:01:38] INFO:   - Al-Ahli
+[2026-06-03 16:01:38] INFO:   - Al-Ahli Saudi FC
+[2026-06-03 16:01:38] INFO:   - Al-Ain FC
+[2026-06-03 16:01:38] INFO:   - Al-Duhail
+[2026-06-03 16:01:38] INFO:   - Al-Ettifaq
+[2026-06-03 16:01:38] INFO:   - Al-Hilal
+[2026-06-03 16:01:38] INFO:   - Al-Hilal SFC
+[2026-06-03 16:01:38] INFO:   - Al-Ittihad
+[2026-06-03 16:01:38] INFO:   - Alanyaspor
+[2026-06-03 16:01:38] INFO:   - Almere City FC
+[2026-06-03 16:01:38] INFO:   - América de México
+[2026-06-03 16:01:38] INFO:   - Anderlecht
+[2026-06-03 16:01:38] INFO:   - Apollon Limassol
+[2026-06-03 16:01:38] INFO:   - Aris Limassol
+[2026-06-03 16:01:38] INFO:   - Astana
+[2026-06-03 16:01:38] INFO:   - Athletic de Bilbao
+[2026-06-03 16:01:38] INFO:   - Atlas
+[2026-06-03 16:01:38] INFO:   - Atlético Nacional
+[2026-06-03 16:01:38] INFO:   - Atromitos
+[2026-06-03 16:01:38] INFO:   - Auckland FC
+[2026-06-03 16:01:38] INFO:   - Austria Viena
+[2026-06-03 16:01:38] INFO:   - BSC Young Boys II
+[2026-06-03 16:01:38] INFO:   - Basaksehir
+[2026-06-03 16:01:38] INFO:   - Besiktas
+[2026-06-03 16:01:38] INFO:   - Braintree Town F.C.
+[2026-06-03 16:01:38] INFO:   - Brondby IF
+[2026-06-03 16:01:38] INFO:   - Brujas
+[2026-06-03 16:01:38] INFO:   - Brøndby IF
+[2026-06-03 16:01:38] INFO:   - CD Plaza Amador
+[2026-06-03 16:01:38] INFO:   - CS Constantine
+[2026-06-03 16:01:38] INFO:   - CS Sfaxien
+[2026-06-03 16:01:38] INFO:   - Castellon
+[2026-06-03 16:01:38] INFO:   - Celta de Vigo
+[2026-06-03 16:01:38] INFO:   - Celtic
+[2026-06-03 16:01:38] INFO:   - Celtic Glasgow
+[2026-06-03 16:01:38] INFO:   - Cercle Brugge
+[2026-06-03 16:01:38] INFO:   - Charleroi
+[2026-06-03 16:01:38] INFO:   - Charlotte FC
+[2026-06-03 16:01:38] INFO:   - Chaves
+[2026-06-03 16:01:38] INFO:   - Chicago Fire
+[2026-06-03 16:01:38] INFO:   - Cincinatti FC
+[2026-06-03 16:01:38] INFO:   - Club Africain
+[2026-06-03 16:01:38] INFO:   - Club América
+[2026-06-03 16:01:38] INFO:   - Club Deportivo Marathón
+[2026-06-03 16:01:38] INFO:   - Club León
+[2026-06-03 16:01:38] INFO:   - Cobresal
+[2026-06-03 16:01:38] INFO:   - Colorado Springs
+[2026-06-03 16:01:38] INFO:   - Columbus Crew
+[2026-06-03 16:01:38] INFO:   - Copenhagen
+[2026-06-03 16:01:38] INFO:   - Copenhague
+[2026-06-03 16:01:38] INFO:   - Cruz Azul
+[2026-06-03 16:01:38] INFO:   - Daejeon
+[2026-06-03 16:01:38] INFO:   - Deportivo La Guaira
+[2026-06-03 16:01:38] INFO:   - Deportivo Saprissa
+[2026-06-03 16:01:38] INFO:   - Desconocido
+[2026-06-03 16:01:38] INFO:   - Dinamo Zagreb
+[2026-06-03 16:01:38] INFO:   - Dynamo Makhachkala
+[2026-06-03 16:01:38] INFO:   - ES Tunis
+[2026-06-03 16:01:38] INFO:   - El Gouna
+[2026-06-03 16:01:38] INFO:   - El Paso Locomotive FC
+[2026-06-03 16:01:38] INFO:   - Elche
+[2026-06-03 16:01:38] INFO:   - Espanyol
+[2026-06-03 16:01:38] INFO:   - Espérance de Tunis
+[2026-06-03 16:01:38] INFO:   - Esteghlal FC
+[2026-06-03 16:01:38] INFO:   - Estrella Roja
+[2026-06-03 16:01:38] INFO:   - Estrella Roja de Belgrado
+[2026-06-03 16:01:38] INFO:   - Estudiantes de La Plata
+[2026-06-03 16:01:38] INFO:   - F. C. Tokyo
+[2026-06-03 16:01:38] INFO:   - FC Barcelona Atlètic
+[2026-06-03 16:01:38] INFO:   - FC Cincinnati
+[2026-06-03 16:01:38] INFO:   - FC Cosmos Koblenz
+[2026-06-03 16:01:38] INFO:   - FC Dallas
+[2026-06-03 16:01:38] INFO:   - FC Den Bosch
+[2026-06-03 16:01:38] INFO:   - FC Lugano
+[2026-06-03 16:01:38] INFO:   - FC Pari Nizhniy Novgorod
+[2026-06-03 16:01:38] INFO:   - FC Sochaux
+[2026-06-03 16:01:38] INFO:   - FC Tatran Prešov
+[2026-06-03 16:01:38] INFO:   - FC Tokio
+[2026-06-03 16:01:38] INFO:   - FC Vizela
+[2026-06-03 16:01:38] INFO:   - FC Zürich
+[2026-06-03 16:01:38] INFO:   - Farense
+[2026-06-03 16:01:38] INFO:   - Fenerbahce
+[2026-06-03 16:01:38] INFO:   - Fenerbahçe
+[2026-06-03 16:01:38] INFO:   - Fenerbahçe SK/Betis
+[2026-06-03 16:01:38] INFO:   - Ferencváros TC
+[2026-06-03 16:01:38] INFO:   - Fortuna Dusseldorf
+[2026-06-03 16:01:38] INFO:   - Frosinone
+[2026-06-03 16:01:38] INFO:   - Gangwon
+[2026-06-03 16:01:38] INFO:   - Gaziantep
+[2026-06-03 16:01:38] INFO:   - Genk
+[2026-06-03 16:01:38] INFO:   - Gençlerbirliği
+[2026-06-03 16:01:38] INFO:   - Girona
+[2026-06-03 16:01:38] INFO:   - Granada
+[2026-06-03 16:01:38] INFO:   - Gyor
+[2026-06-03 16:01:38] INFO:   - HNK Rijeka
+[2026-06-03 16:01:38] INFO:   - Hajduk Split
+[2026-06-03 16:01:38] INFO:   - Hamburgo
+[2026-06-03 16:01:38] INFO:   - Hannover 96
+[2026-06-03 16:01:38] INFO:   - Hapoel Ironi Kiryat Shmona
+[2026-06-03 16:01:38] INFO:   - Heart of Midlothian
+[2026-06-03 16:01:38] INFO:   - Hibernian
+[2026-06-03 16:01:38] INFO:   - Holstein Kiel
+[2026-06-03 16:01:38] INFO:   - Hradec Kralove
+[2026-06-03 16:01:38] INFO:   - IFK Norrköping
+[2026-06-03 16:01:38] INFO:   - Igdir FK
+[2026-06-03 16:01:38] INFO:   - Igdır FK
+[2026-06-03 16:01:38] INFO:   - Independiente
+[2026-06-03 16:01:38] INFO:   - Inter Miami
+[2026-06-03 16:01:38] INFO:   - Inter Milan
+[2026-06-03 16:01:38] INFO:   - Inter de Milan
+[2026-06-03 16:01:38] INFO:   - Inter de Milán
+[2026-06-03 16:01:38] INFO:   - Internacional de Porto Alegre
+[2026-06-03 16:01:38] INFO:   - JS Kabylie
+[2026-06-03 16:01:38] INFO:   - Jagiellonia Bialystok
+[2026-06-03 16:01:38] INFO:   - Jeonbuk
+[2026-06-03 16:01:38] INFO:   - Juárez FC
+[2026-06-03 16:01:38] INFO:   - KAA Gent
+[2026-06-03 16:01:38] INFO:   - KRC Genk
+[2026-06-03 16:01:38] INFO:   - Kaizer Chiefs
+[2026-06-03 16:01:38] INFO:   - Karlsruher
+[2026-06-03 16:01:38] INFO:   - Kashima Antlers
+[2026-06-03 16:01:38] INFO:   - Kashima Antrlers
+[2026-06-03 16:01:38] INFO:   - Kasımpaşa
+[2026-06-03 16:01:38] INFO:   - Kayserispor
+[2026-06-03 16:01:38] INFO:   - Kifisia
+[2026-06-03 16:01:38] INFO:   - Kilmarnock
+[2026-06-03 16:01:38] INFO:   - Konyaspor
+[2026-06-03 16:01:38] INFO:   - Krasnodar
+[2026-06-03 16:01:38] INFO:   - LAFC
+[2026-06-03 16:01:38] INFO:   - LASK
+[2026-06-03 16:01:38] INFO:   - LDU Quito
+[2026-06-03 16:01:38] INFO:   - Larisa
+[2026-06-03 16:01:38] INFO:   - Lechia Gdansk
+[2026-06-03 16:01:38] INFO:   - Ludogorets
+[2026-06-03 16:01:38] INFO:   - Maccabi Haifa
+[2026-06-03 16:01:38] INFO:   - Maccabi Tel Aviv
+[2026-06-03 16:01:38] INFO:   - Mallorca
+[2026-06-03 16:01:38] INFO:   - Malmo FF
+[2026-06-03 16:01:38] INFO:   - Mamelodi Sundowns
+[2026-06-03 16:01:38] INFO:   - Maribor
+[2026-06-03 16:01:38] INFO:   - Mazatlán FC
+[2026-06-03 16:01:38] INFO:   - Mechelen
+[2026-06-03 16:01:38] INFO:   - Miami FC
+[2026-06-03 16:01:38] INFO:   - Midtjylland
+[2026-06-03 16:01:38] INFO:   - Minnesota United
+[2026-06-03 16:01:38] INFO:   - Minnesota United FC
+[2026-06-03 16:01:38] INFO:   - Mjällby AIF
+[2026-06-03 16:01:38] INFO:   - Mlada Boleslav
+[2026-06-03 16:01:38] INFO:   - Molde
+[2026-06-03 16:01:38] INFO:   - Monagas
+[2026-06-03 16:01:38] INFO:   - Montana 1921
+[2026-06-03 16:01:38] INFO:   - Monterrey
+[2026-06-03 16:01:38] INFO:   - Montpellier
+[2026-06-03 16:01:38] INFO:   - Motherwell F.C.
+[2026-06-03 16:01:38] INFO:   - N.E.C.
+[2026-06-03 16:01:38] INFO:   - NEC Nijmegen
+[2026-06-03 16:01:38] INFO:   - NK Maribor
+[2026-06-03 16:01:38] INFO:   - NK Slaven Belupo
+[2026-06-03 16:01:38] INFO:   - New England Revolution
+[2026-06-03 16:01:38] INFO:   - New York City FC
+[2026-06-03 16:01:38] INFO:   - Newcastle Jets FC
+[2026-06-03 16:01:38] INFO:   - Niza
+[2026-06-03 16:01:38] INFO:   - Noah
+[2026-06-03 16:01:38] INFO:   - Omonia Nicosia
+[2026-06-03 16:01:38] INFO:   - Orlando City
+[2026-06-03 16:01:38] INFO:   - Orlando City SC
+[2026-06-03 16:01:38] INFO:   - Orlando Pirates
+[2026-06-03 16:01:38] INFO:   - Osasuna
+[2026-06-03 16:01:38] INFO:   - Oțelul Galați
+[2026-06-03 16:01:38] INFO:   - PFC Turan Tovuz
+[2026-06-03 16:01:38] INFO:   - PSV Eindhoven
+[2026-06-03 16:01:38] INFO:   - Pafos
+[2026-06-03 16:01:38] INFO:   - Panathinaikos
+[2026-06-03 16:01:38] INFO:   - Peterborough
+[2026-06-03 16:01:38] INFO:   - Philadelphia Union
+[2026-06-03 16:01:38] INFO:   - Plaza Amador
+[2026-06-03 16:01:38] INFO:   - Polokwane City
+[2026-06-03 16:01:38] INFO:   - Port Vale
+[2026-06-03 16:01:38] INFO:   - Portland Timbers
+[2026-06-03 16:01:38] INFO:   - Pumas
+[2026-06-03 16:01:38] INFO:   - Puskás Akadémia
+[2026-06-03 16:01:38] INFO:   - Pyramids
+[2026-06-03 16:01:38] INFO:   - Pyramids FC
+[2026-06-03 16:01:38] INFO:   - RKC
+[2026-06-03 16:01:38] INFO:   - RKC Waalwijk
+[2026-06-03 16:01:38] INFO:   - RS Berkane
+[2026-06-03 16:01:38] INFO:   - Racign de Estrasburgo
+[2026-06-03 16:01:38] INFO:   - Racing Genk
+[2026-06-03 16:01:38] INFO:   - Racing de Estrasburgo
+[2026-06-03 16:01:38] INFO:   - Racing de Santander
+[2026-06-03 16:01:38] INFO:   - Raja Casablanca
+[2026-06-03 16:01:38] INFO:   - Rayo Vallecano
+[2026-06-03 16:01:38] INFO:   - Real Betis
+[2026-06-03 16:01:38] INFO:   - Real Oviedo
+[2026-06-03 16:01:38] INFO:   - Real Salt Lake
+[2026-06-03 16:01:38] INFO:   - Real Sociedad
+[2026-06-03 16:01:38] INFO:   - Red Bull Salzburgo
+[2026-06-03 16:01:38] INFO:   - Red Star
+[2026-06-03 16:01:38] INFO:   - Rennes
+[2026-06-03 16:01:38] INFO:   - River Plate
+[2026-06-03 16:01:38] INFO:   - Rizespor
+[2026-06-03 16:01:38] INFO:   - Rosario Central
+[2026-06-03 16:01:38] INFO:   - Rotherham
+[2026-06-03 16:01:38] INFO:   - SC Bastia
+[2026-06-03 16:01:38] INFO:   - SJK Seinajoki
+[2026-06-03 16:01:38] INFO:   - SK Beveren
+[2026-06-03 16:01:38] INFO:   - SV Zulte Waregem
+[2026-06-03 16:01:38] INFO:   - Salzburgo
+[2026-06-03 16:01:38] INFO:   - Sampdoria
+[2026-06-03 16:01:38] INFO:   - Samsunspor
+[2026-06-03 16:01:38] INFO:   - San Diego FC
+[2026-06-03 16:01:38] INFO:   - Sanfrecce Hiroshima
+[2026-06-03 16:01:38] INFO:   - Schalke 04
+[2026-06-03 16:01:38] INFO:   - Seattle Sounders
+[2026-06-03 16:01:38] INFO:   - Servette
+[2026-06-03 16:01:38] INFO:   - Sevilla
+[2026-06-03 16:01:38] INFO:   - Shamrock Rovers
+[2026-06-03 16:01:38] INFO:   - Silkeborg IF
+[2026-06-03 16:01:38] INFO:   - Sint Truidense
+[2026-06-03 16:01:38] INFO:   - Sint-Truidense
+[2026-06-03 16:01:38] INFO:   - Slovan Bratislava
+[2026-06-03 16:01:38] INFO:   - Slovan Liberec
+[2026-06-03 16:01:38] INFO:   - Smouha SC
+[2026-06-03 16:01:38] INFO:   - Sparta Praga
+[2026-06-03 16:01:38] INFO:   - Spartak Moscow
+[2026-06-03 16:01:38] INFO:   - Sporting Lisboa
+[2026-06-03 16:01:38] INFO:   - Standard Liege
+[2026-06-03 16:01:38] INFO:   - Terengganu FC
+[2026-06-03 16:01:38] INFO:   - Tigres
+[2026-06-03 16:01:38] INFO:   - Tigres UANL
+[2026-06-03 16:01:38] INFO:   - Toronto
+[2026-06-03 16:01:38] INFO:   - Toronto FC
+[2026-06-03 16:01:38] INFO:   - Torreense
+[2026-06-03 16:01:38] INFO:   - Trabzonspor
+[2026-06-03 16:01:38] INFO:   - U. Católica de Ecuador
+[2026-06-03 16:01:38] INFO:   - US Monastir
+[2026-06-03 16:01:38] INFO:   - USM Alger
+[2026-06-03 16:01:38] INFO:   - Ulsan
+[2026-06-03 16:01:38] INFO:   - Universidad de Concepción
+[2026-06-03 16:01:38] INFO:   - Universitatea Cluj
+[2026-06-03 16:01:38] INFO:   - VVV-Venlo
+[2026-06-03 16:01:38] INFO:   - Valencia
+[2026-06-03 16:01:38] INFO:   - Vancouver Whitecaps
+[2026-06-03 16:01:38] INFO:   - Venezia FC
+[2026-06-03 16:01:38] INFO:   - Viking
+[2026-06-03 16:01:38] INFO:   - Viking FK
+[2026-06-03 16:01:38] INFO:   - Viktoria Plzen
+[2026-06-03 16:01:38] INFO:   - Viktoria Plzeň
+[2026-06-03 16:01:38] INFO:   - Violette AC
+[2026-06-03 16:01:38] INFO:   - Vélez Sarsfield
+[2026-06-03 16:01:38] INFO:   - Wellington Phoenix FC
+[2026-06-03 16:01:38] INFO:   - Western Sydney Wanderers
+[2026-06-03 16:01:38] INFO:   - Widzew Lodz
+[2026-06-03 16:01:38] INFO:   - Wolfsberger AC
+[2026-06-03 16:01:38] INFO:   - Young Boys
+[2026-06-03 16:01:38] INFO:   - ZED FC
+[2026-06-03 16:01:38] INFO:   - Zamalek
+[2026-06-03 16:01:38] INFO:   - Zenit
+[2026-06-03 16:01:38] INFO:   - Zhejiang
+[2026-06-03 16:01:38] INFO:   - Çaykur Rizespor
+[2026-06-03 16:01:38] INFO:   - Étoile du Sahel
+[2026-06-03 16:01:38] INFO: ============================================================
+[2026-06-03 16:01:38] INFO: Script finalizado.
