@@ -15,7 +15,8 @@
   <meta property="og:description"
     content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
   <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=28">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -326,7 +327,7 @@
       <!-- Configuración General del Estilo de Juego (Fricción y Ponderación) -->
       <div class="general-style-settings"
         style="max-width: 650px; margin: 0 auto; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
-        
+
         <!-- Drama/Roce Slider -->
         <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
           <div class="slider-header"
@@ -334,8 +335,8 @@
             <span>Fricción de Juego (Roce vs Fair Play)</span>
             <span class="slider-value" id="val-drama-tab" style="color: var(--accent-cyan);">Equilibrada (0.20)</span>
           </div>
-          <input type="range" min="0.0" max="0.6" step="0.025" value="0.2" class="tactical-slider"
-            id="slider-drama-tab" style="width: 100%; cursor: pointer;">
+          <input type="range" min="0.0" max="0.6" step="0.025" value="0.2" class="tactical-slider" id="slider-drama-tab"
+            style="width: 100%; cursor: pointer;">
           <div class="slider-labels"
             style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
             <span>Juego Limpio / Fair Play</span>
@@ -350,8 +351,8 @@
             <span>Enfoque de Recomendación (Táctica vs Espectáculo)</span>
             <span class="slider-value" id="val-weight-tab" style="color: var(--accent-cyan);">Equilibrado (50/50)</span>
           </div>
-          <input type="range" min="0.0" max="1.0" step="0.05" value="0.5" class="tactical-slider"
-            id="slider-weight-tab" style="width: 100%; cursor: pointer;">
+          <input type="range" min="0.0" max="1.0" step="0.05" value="0.5" class="tactical-slider" id="slider-weight-tab"
+            style="width: 100%; cursor: pointer;">
           <div class="slider-labels"
             style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
             <span>100% Estilo Táctico</span>
@@ -482,18 +483,26 @@
       </div>
 
       <!-- Summary Banner for Draft Completion -->
-      <div id="draft-summary-banner" class="draft-summary-hidden" style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 12px;">
+      <div id="draft-summary-banner" class="draft-summary-hidden"
+        style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-glass); border-radius: 12px;">
         <h3 style="color: var(--accent-gold); font-size: 2rem; margin-bottom: 1rem;">¡Draft Completado!</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Tu estilo táctico ha sido analizado en base a tus selecciones.</p>
-        <div id="draft-tactical-result" class="draft-tactical-badge" style="font-size: 1.5rem; font-weight: bold; color: var(--accent-cyan); margin-bottom: 0.5rem;">Analizando...</div>
-        <p id="draft-tactical-explanation" style="color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.5;"></p>
-        <button class="btn-mundial btn-mundial--green" id="btn-apply-draft-tactics" style="padding: 0.75rem 2rem; font-size: 1.1rem;">
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Tu estilo táctico ha sido analizado en base a
+          tus selecciones.</p>
+        <div id="draft-tactical-result" class="draft-tactical-badge"
+          style="font-size: 1.5rem; font-weight: bold; color: var(--accent-cyan); margin-bottom: 0.5rem;">Analizando...
+        </div>
+        <p id="draft-tactical-explanation"
+          style="color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.5;">
+        </p>
+        <button class="btn-mundial btn-mundial--green" id="btn-apply-draft-tactics"
+          style="padding: 0.75rem 2rem; font-size: 1.1rem;">
           Ir a Recomendador
         </button>
       </div>
-      
+
       <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-        <button class="btn-mundial btn-mundial--outline" id="btn-restart-draft" style="padding: 0.75rem 2rem; font-size: 1.1rem;">Reiniciar Draft</button>
+        <button class="btn-mundial btn-mundial--outline" id="btn-restart-draft"
+          style="padding: 0.75rem 2rem; font-size: 1.1rem;">Reiniciar Draft</button>
       </div>
     </section>
 
@@ -501,7 +510,8 @@
 
   <!-- Draft Player Selection Modal -->
   <div class="modal-overlay" id="draft-modal">
-    <div class="modal-content" style="max-width: 1150px; background: rgba(18, 18, 26, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--border-glass);">
+    <div class="modal-content"
+      style="max-width: 1150px; background: rgba(18, 18, 26, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--border-glass);">
       <div class="modal-header">
         <h3 id="draft-modal-title" style="color: var(--accent-gold);">Seleccioná un Jugador</h3>
         <button class="close-btn" id="close-draft-modal-btn">
@@ -883,10 +893,11 @@
         <div class="quiz-question" id="quiz-q6">
           <h2 class="quiz-question__title">Elegí tu posesión ideal</h2>
           <p class="quiz-question__subtitle">¿Preferís equipos rápidos o que tengan siempre la pelota?</p>
-          
+
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-possession">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+            <div class="quiz-slider-labels"
+              style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
               <span>🏃 Contra rápida</span>
               <span>⚖️ Equilibrado</span>
               <span>🔄 Tiki-taka total</span>
@@ -898,10 +909,11 @@
         <div class="quiz-question" id="quiz-q7">
           <h2 class="quiz-question__title">¿Qué nivel de fricción preferís?</h2>
           <p class="quiz-question__subtitle">¿Juego limpio o al límite del reglamento?</p>
-          
+
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-intensity">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+            <div class="quiz-slider-labels"
+              style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
               <span>🕊️ Fair play puro</span>
               <span>⚖️ Equilibrado</span>
               <span>🔥 Roce total (Faltas)</span>
@@ -916,7 +928,8 @@
 
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-age">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
+            <div class="quiz-slider-labels"
+              style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
               <span>🌱 Jóvenes promesas</span>
               <span>⚖️ Mixto</span>
               <span>👑 Leyendas veteranas</span>
@@ -926,22 +939,28 @@
 
         <!-- Quiz Results Screen -->
         <div class="quiz-question" id="quiz-results">
-          <h2 class="quiz-question__title" style="text-align: center; color: var(--accent-gold);">¡Tu Perfil Mundialista!</h2>
-          <p class="quiz-question__subtitle" style="text-align: center;">Así sos como espectador y estos son tus partidos ideales.</p>
+          <h2 class="quiz-question__title" style="text-align: center; color: var(--accent-gold);">¡Tu Perfil
+            Mundialista!</h2>
+          <p class="quiz-question__subtitle" style="text-align: center;">Así sos como espectador y estos son tus
+            partidos ideales.</p>
 
-          <div class="quiz-results-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-            
-            <div class="quiz-radar-wrapper" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem; border: 1px solid var(--border-glass); aspect-ratio: 1; max-width: 300px; margin: 0 auto; width: 100%;">
+          <div class="quiz-results-container"
+            style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+
+            <div class="quiz-radar-wrapper"
+              style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem; border: 1px solid var(--border-glass); aspect-ratio: 1; max-width: 300px; margin: 0 auto; width: 100%;">
               <canvas id="quiz-radar-chart"></canvas>
             </div>
 
             <div class="quiz-top-matches">
-              <h3 style="font-family: var(--font-primary); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem; text-transform: uppercase;">Top 5 Partidos Afines</h3>
+              <h3
+                style="font-family: var(--font-primary); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem; text-transform: uppercase;">
+                Top 5 Partidos Afines</h3>
               <div id="quiz-affinity-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <!-- Populated by JS -->
               </div>
             </div>
-            
+
           </div>
         </div>
 
@@ -961,7 +980,7 @@
     <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
   </footer>
 
-  <script type="module" src="js/main.js?v=14"></script>
+  <script type="module" src="js/main.js?v=19"></script>
 </body>
 
 </html>
