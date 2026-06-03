@@ -45,12 +45,35 @@ except ImportError:
         return s
 
 # ---------------------------------------------------------------------------
-# Configuration
+# Configuration & Sigmoid Initialization
 # ---------------------------------------------------------------------------
 # Relative paths – adjust only if the project layout changes.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent  # project root
 DB_PATH = BASE_DIR / "data" / "recommender_data" / "convocados.db"
+CONFIG_PATH = BASE_DIR / "data" / "recommender_config.json"
+
+_config_cache = None
+
+def load_recommender_config() -> Tuple[float, float]:
+    """Load sigmoid_mu and sigmoid_sigma from the configuration file.
+    
+    If the file does not exist, returns fallback values (3.0, 2.0).
+    """
+    global _config_cache
+    if _config_cache is not None:
+        return _config_cache
+    mu, sigma = 3.0, 2.0
+    if CONFIG_PATH.is_file():
+        try:
+            with open(CONFIG_PATH, "r", encoding="utf-8") as fp:
+                data = json.load(fp)
+                mu = data.get("sigmoid_mu", mu)
+                sigma = data.get("sigmoid_sigma", sigma)
+        except Exception:
+            pass
+    _config_cache = (mu, sigma)
+    return _config_cache
 
 # ---------------------------------------------------------------------------
 # Public helper for programmatic use
@@ -70,7 +93,7 @@ def run_score(match: Union[str, Tuple[str, str]], favourite_clusters: Dict[str, 
     db_path: str, optional
         Path to the ``convocados.db`` SQLite file. If omitted the default path
         ``DB_PATH`` (project ``data/convocados.db``) is used.
-    a: float, default 4.0
+    a: float, default 3.0
         Hyperparameter 'a' for the scoring formula.
     """
     path = Path(db_path) if db_path else DB_PATH
@@ -283,7 +306,14 @@ def score_match(
         process_players(players_country1, country1)
         process_players(players_country2, country2)
 
-    return total_score, breakdown
+    mu, sigma = load_recommender_config()
+    if sigma == 0:
+        normalized_score = 0.0 if total_score < mu else 1.0
+    else:
+        # Sigmoid: 1 / (1 + e^((-total_score + mu) / sigma))
+        normalized_score = 1.0 / (1.0 + math.exp((-total_score + mu) / sigma))
+
+    return normalized_score, breakdown
 
 # ---------------------------------------------------------------------------
 # CLI entry point (optional, useful for quick manual testing)

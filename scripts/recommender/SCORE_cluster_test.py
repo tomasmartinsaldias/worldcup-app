@@ -12,7 +12,7 @@ if repo_root not in sys.path:
 from scripts.recommender.score_cluster_players import run_score
 
 # 1️⃣ Definir el partido
-match = ("Argentina", "Francia")
+match = ("Inglaterra", "Francia")
 
 # 2️⃣ Definir los clusters favoritos (un id por posición)
 favourite_clusters = {
@@ -28,10 +28,10 @@ favourite_clusters = {
 db_path = Path("data/recommender_data/convocados.db")   # ← nueva ubicación
 
 # 4️⃣ Ejecutar
-print("--- Test con a = 4.0 (Default) ---")
-total_score, breakdown = run_score(match, favourite_clusters, db_path=db_path, a=4.0)
+print("--- Test con a = 3.0 (Default) ---")
+normalized_score, breakdown = run_score(match, favourite_clusters, db_path=db_path, a=3.0)
 
-print(f"Total score (a=4.0): {total_score:.4f}")
+print(f"SCORE_global_normalizado (a=3.0): {normalized_score:.4f}")
 for pos, players in breakdown.items():
     if not players:
         continue
@@ -41,10 +41,10 @@ for pos, players in breakdown.items():
     print()
 
 print("\n--- Test con a = 2.0 ---")
-total_score_2, breakdown_2 = run_score(match, favourite_clusters, db_path=db_path, a=2.0)
-print(f"Total score (a=2.0): {total_score_2:.4f}")
+normalized_score_2, breakdown_2 = run_score(match, favourite_clusters, db_path=db_path, a=2.0)
+print(f"SCORE_global_normalizado (a=2.0): {normalized_score_2:.4f}")
 
-print("\n--- Test con a = 6.0 ---")
-total_score_6, breakdown_6 = run_score(match, favourite_clusters, db_path=db_path, a=6.0)
-print(f"Total score (a=6.0): {total_score_6:.4f}")
+print("\n--- Test con a = 10.0 ---")
+normalized_score_10, breakdown_10 = run_score(match, favourite_clusters, db_path=db_path, a=10.0)
+print(f"SCORE_global_normalizado (a=10.0): {normalized_score_10:.4f}")
 

@@ -41,16 +41,15 @@ contribution = (e^(-a * distance) - e^(-a)) / (1 - e^(-a))
 ```
 Where:
 - `distance` is the Euclidean distance to the cluster centroid.
-- `a` is a hyperparameter (default `4.0`) that controls the rate of decay.
+- `a` is a hyperparameter (default `3.0`) that controls the rate of decay.
 
 The contribution is clamped between `0.0` and `1.0` (inclusive).
 
-The contribution is added to:
-- `total_score` – the sum across **all positions and both teams**.
-- `breakdown[position]` – a list of dictionaries containing:
-  ```json
-  {"player": "Kylian Mbappé", "country": "Francia", "contribution": 0.7789}
-  ```
+These individual contributions are summed into `total_score`, which is then normalized using a logistic sigmoid function:
+```python
+SCORE_global_normalizado = 1.0 / (1.0 + e^((-total_score + mu) / sigma))
+```
+Where `mu` and `sigma` are loaded from `data/recommender_config.json`.
 
 ---
 ### Execution flow (high‑level pseudocode)
@@ -68,26 +67,28 @@ run_score(match, favourite_clusters, db_path, a)
 │   │   ├─ contribution = (e^(-a * distance) - e^(-a)) / (1 - e^(-a)) (or 0 if missing/None)
 │   │   ├─ Clamp contribution to [0, 1]
 │   │   └─ Accumulate into total_score and breakdown
-│   └─ Return (total_score, breakdown)
+├─ Load mu and sigma from recommender_config.json
+├─ Calculate SCORE_global_normalizado = 1 / (1 + e^((-total_score + mu)/sigma))
+└─ Return (SCORE_global_normalizado, breakdown)
 ```
 
 ---
-### Example output (Argentina vs Francia, favourite clusters: Midfielder = 3, Striker = 1, …, a = 4.0)
+### Example output (Inglaterra vs Francia, favourite clusters: Midfielder = 3, Striker = 1, …, a = 3.0)
 ```
-Total score: 4.4631
+SCORE_global_normalizado (a=3.0): 0.6967
 Fullbacks (cluster 2):
-  Malo Gusto (Francia): 0.7244
+  Malo Gusto (Francia): 0.7783
 
 Midfielder (cluster 3):
-  Giovani Lo Celso (Argentina): 0.7326
-  Alexis Mac Allister (Argentina): 0.7649
-  Warren Zaïre-Emery (Francia): 0.7074
+  Kobbie Mainoo (Inglaterra): 0.8022
+  Warren Zaïre-Emery (Francia): 0.7640
 
 Striker (cluster 1):
-  Kylian Mbappé (Francia): 0.7789
+  Kylian Mbappé (Francia): 0.8235
 
 Wingers (cluster 2):
-  Bradley Barcola (Francia): 0.7548
+  Marcus Rashford (Inglaterra): 0.7596
+  Bradley Barcola (Francia): 0.8036
 ```
 The breakdown shows the **players that contributed** to the score and their individual contributions.
 
@@ -96,6 +97,7 @@ The breakdown shows the **players that contributed** to the score and their indi
 - **Change favourite clusters** – edit the `favourite_clusters` dict in `t.py` (cluster IDs correspond to those in the JSON files).
 - **Add new positions** – extend `POSITIONS` and provide a matching JSON file in `data/clustering_maps/`.
 - **Adjust hyperparameter `a`** – pass the `a` parameter to `run_score` or `score_match` (or use the `--a` argument in the CLI script) to control how aggressively larger distances are penalized.
+- **Calibrate sigmoid** – run `estimation_montecarlo.py` to re-estimate `mu` and `sigma` based on the dataset.
 
 ---
 ### Where the code lives
