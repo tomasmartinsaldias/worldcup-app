@@ -519,7 +519,7 @@ Delanteros: Ivan Perisic (PSV Eindhoven, PBJ), Andrej Kramaric (TSG Hoffenheim, 
 DT: Zlatko Dalic.
 Ghana
 
-Arqueros: Benjamin Asare (Accra Hearts of Oak Sporting Club), Salomon Agbasi Lawrence Ati-Zigi (St. Gallen, SUI) y Joseph Anang (St. Patrick's Athletic, IRL)
+Arqueros: Benjamin Asare (Hearts of Oak, GHA), Salomon Agbasi (Hearts of Oak, GHA), Lawrence Ati-Zigi (St. Gallen, SUI) y Joseph Anang (St. Patrick's Athletic, IRL)
 
 Defensores: Baba Abdul Rahman (PAOK, GRE), Gideon Mensah y Marvin Senaya (Auxerre, FRA), Alidu Seidu (Rennes, FRA), Abdul Mumin (Rayo Vallecano, ESP), Jerome Opoku (Istambul Basaksehir, TUR), Jonas Adjetey (Wolfsburgo, GER), Kojo Oppong Preprah (Niza, FRA) y Alexander Djiku (Spartak Moscú, RUS).
 

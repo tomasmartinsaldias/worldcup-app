@@ -1,0 +1,47 @@
+﻿ID   Nombre                         FIFA  Razon fallo
+------------------------------------------------------------------------------------------
+1    Ayoub Al Alawi                 QAT   SIN MATCH: NAME_FAIL(Ayoub Al-Oui:j=0.25)
+2    Pedro Miguel                   QAT   SIN MATCH: NAT_FAIL(Pedro Mendes:['portugal']) | NAT_FAIL(Pauleta:['portugal']) | NAT_FAIL(Pedro Rebocho:['portugal'])
+3    Al Brake                       QAT   SIN MATCH: NAME_FAIL(Sultan Al-Brake:j=0.00)
+4    Ahmed Fathy                    QAT   SIN MATCH: NAT_FAIL(Ahmed Fathy:['iraq']) | NAT_FAIL(Ziad Ahmed:['egypt']) | NAT_FAIL(Asem Fathy:['egypt'])
+5    Youssef Abdulrrazaq            QAT   SIN MATCH: NAME_FAIL(Yusuf Abdurisag:j=0.00) | NAT_FAIL(Yonis Yusuf Abdurisag:['somalia', 'sweden'])
+6    Bouaddi                        MAR   MATCH OK -> MV=None cand='Yanis Bouaddi' score=0.70
+7    Ayoube Amaimouni               MAR   SIN MATCH: NAME_FAIL(Ayoube Amaimouni-Echghouyab:j=0.33)
+8    JosuΘ Duverger                 HAI   MATCH OK -> MV=None cand='JosuΘ Duverger' score=1.00
+9    JK Duverne                     HAI   SIN MATCH: NAME_FAIL(Jean-KΘvin Duverne:j=0.33)
+10   Jean-Jacques Danley            HAI   SIN MATCH: NAME_FAIL(Danley Jean Jacques:j=0.25)
+11   Pierre Woodenski               HAI   SIN MATCH: NAME_FAIL(Woodensky Pierre:j=0.33)
+12   Alejandro Zendejas             USA   SIN MATCH: NAME_FAIL(┴lex Zendejas:j=0.33)
+13   Gio Reyna                      USA   SIN MATCH: NAME_FAIL(Giovanni Reyna:j=0.33)
+14   Juan Cßceres                   PAR   MATCH OK -> MV=None cand='Juan Cßceres' score=1.00
+15   Alejandro Romero Gamarra       PAR   SIN MATCH: NAT_FAIL(Romelu Lukaku:['belgium', 'dr congo']) | NAT_FAIL(Gaδl Kakuta:['dr congo', 'france']) | NAT_FAIL(Jordan Lukaku:['belgium', 'dr congo'])
+16   Paul Okon Jr                   AUS   SIN MATCH: NAME_FAIL(Paul Okon-Engstler:j=0.25)
+17   Cameron Devlin                 AUS   SIN MATCH: NAME_FAIL(Cammy Devlin:j=0.33)
+18   Mostafa Shobeir                EGY   NO EN CACHE
+19   Tarek Alaa                     EGY   MATCH OK -> MV=None cand='Tarek Alaa' score=1.00
+20   Ahmed Fattouh                  EGY   SIN MATCH: NAT_FAIL(Ahmed Fathy:['iraq']) | NAME_FAIL(Ziad Ahmed:j=0.33) | NAME_FAIL(Asem Fathy:j=0.00)
+21   Marwan Attia                   EGY   NO EN CACHE
+22   Ahmed Sayed Zizo               EGY   SIN MATCH: NAME_FAIL(Zizo:j=0.33) | NAT_FAIL(Eli Zizov:['israel', 'georgia']) | NAT_FAIL(Mladen Zizovic:['bosnia-herzegovina', 'serbia'])
+23   Haitham Hassan                 EGY   SIN MATCH: NAME_FAIL(Haissem Hassan:j=0.33) | NAME_FAIL(Haitham El Fazani:j=0.25)
+24   Hossein Hosseini               IRN   MATCH OK -> MV=None cand='Hossein Hosseini' score=1.00
+25   Saeid Ezatolahi                IRN   NO EN CACHE
+26   Dennis Dargahi                 IRN   SIN MATCH: NAME_FAIL(Dennis Eckert Ayensa:j=0.25)
+27   Josimar Dias ôVozinhaö         CPV   SIN MATCH: NAME_FAIL(Vozinha:j=0.33)
+28   Roberto Lopes ôPicoö           CPV   NO EN CACHE
+29   Ianique Tavares ôStopiraö      CPV   SIN MATCH: NAME_FAIL(Stopira:j=0.33)
+30   Kevin Pina                     CPV   SIN MATCH: NAME_FAIL(Kevin Lenini:j=0.33) | NAT_FAIL(Kevin Pinari:['albania'])
+31   Maximiliano Ara·jo             URU   SIN MATCH: NAME_FAIL(Maxi Ara·jo:j=0.33)
+32   Nicolßs Gonzßlez               ARG   MATCH OK -> MV=None cand='Nicolßs Gonzßlez' score=1.00
+33   Yacine Titraoui                ALG   NO EN CACHE
+34   Noor Bani Attieh               JOR   SIN MATCH: NAME_FAIL(Noureddin Bani Attiah:j=0.20)
+35   Ouda Al-Fakhouri               JOR   SIN MATCH: NAME_FAIL(Odeh Fakhoury:j=0.00)
+36   Mohammad Abu Zraiq             JOR   SIN MATCH: NAME_FAIL(Shararh:j=0.00)
+37   Nematov Abduvohid              UZB   SIN MATCH: NAME_FAIL(Abduvokhid Nematov:j=0.33)
+38   Alijonov Khojiakbar            UZB   SIN MATCH: NAME_FAIL(Khozhiakbar Alizhonov:j=0.00)
+39   Karimov Behruzjon              UZB   SIN MATCH: NAME_FAIL(Bekhruz Karimov:j=0.33)
+40   Ulmasaliyev Avazbek            UZB   SIN MATCH: NAME_FAIL(Avazbek Ulmasaliev:j=0.33)
+41   Xamrobekov Odiljon             UZB   SIN MATCH: NAME_FAIL(Odildzhon Khamrobekov:j=0.00)
+42   Ganiev Azizjon                 UZB   SIN MATCH: NAME_FAIL(Aziz Ganiev:j=0.33)
+43   Amonov Azizbek                 UZB   SIN MATCH: NAME_FAIL(Azizbek Amanov:j=0.33)
+44   Carlos G≤mez                   COL   SIN MATCH: NAME_FAIL(AndrΘs G≤mez:j=0.33) | NAT_FAIL(Juan Carlos:['spain']) | NAT_FAIL(Carlos G≤mez:['spain'])
+45   Juan Camilo Hernßndez          COL   MATCH OK -> MV=None cand='Camilo Hernßndez' score=0.86

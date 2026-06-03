@@ -276,13 +276,35 @@ superstars = [
 
 def resolve_name_aliases(name):
     aliases = {
+        'nico gonzalez': 'Nico González',
+        'nico gonzález': 'Nico González',
+        'nicolás gonzález': 'Nico González',
+        'juan camilo hernández': 'Cucho Hernández',
+        'juan camilo hernandez': 'Cucho Hernández',
+        'camilo hernández': 'Cucho Hernández',
+        'camilo hernandez': 'Cucho Hernández',
+        'cucho hernández': 'Cucho Hernández',
+        'cucho hernandez': 'Cucho Hernández',
+        'alejandro romero gamarra': 'Kaku',
+        'romero gamarra': 'Kaku',
+        'al brake': 'Sultan Al-Brake',
+        'juan cáceres': 'Juan José Cáceres',
+        'juan caceres': 'Juan José Cáceres',
+        'tarek alaa': 'Tarek Alaa',
+        'hossein hosseini': 'Seyed Hossein Hosseini',
+        'youssef abdulrrazaq': 'Yusuf Abdurisag',
+        'youssef Abdulrrazaq': 'Yusuf Abdurisag',
+        'bouaddi': 'Ayyoub Bouaddi',
+        'noor bani attieh': 'Noureddin Bani Attiah',
+        'ouda al-fakhouri': 'Odeh Fakhoury',
+        'mohammad abu zraiq': 'Shararh',
+        'alijonov khojiakbar': 'Khozhiakbar Alizhonov',
+        'xamrobekov odiljon': 'Odildzhon Khamrobekov',
         'leo messi': 'Lionel Messi',
         'lautaro mártinez': 'Lautaro Martínez',
         'lautaro martinez': 'Lautaro Martínez',
         'lea paredes': 'Leandro Paredes',
         'leo balerdi': 'Leonardo Balerdi',
-        'nico gonzalez': 'Nicolás González',
-        'nico gonzález': 'Nicolás González',
         'nico otamendi': 'Nicolás Otamendi',
         'nico tagliafico': 'Nicolás Tagliafico',
         'nico paz': 'Nicolás Paz',
@@ -433,7 +455,7 @@ def resolve_from_transfermarkt_cache(cursor, player_name, fifa_code, current_age
                     jaccard = len(set1.intersection(set2)) / len(set1.union(set2))
                     seq_ratio = difflib.SequenceMatcher(None, normalize_name(player_name), normalize_name(cand_name)).ratio()
                     
-                    is_cand_match = (jaccard >= 0.35) or (seq_ratio >= 0.8)
+                    is_cand_match = (jaccard >= 0.25) or (seq_ratio >= 0.8)
                     score = max(jaccard, seq_ratio)
                     
                     if is_cand_match and score > best_score:
@@ -865,8 +887,10 @@ def main():
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?);
                 """, (player_name, code, role, p_club, p_age, 0, 0, "No coincidencia en cache local de Transfermarkt"))
                 
-        # Guardar métrica agregada
-        team_market_value_eur = fifa_market_values.get(code, 0.0)
+        # Guardar métrica agregada (calculando la suma del valor de los jugadores)
+        cursor.execute("SELECT SUM(market_value_eur) FROM scraped_wc2026_probable_squads WHERE fifa_code = ?;", (code,))
+        team_market_value_eur = cursor.fetchone()[0] or 0.0
+        team_market_value_eur = round(team_market_value_eur, 2)
         pop = team_popularity.get(code, 40.0)
         
         cursor.execute("""

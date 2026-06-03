@@ -91,7 +91,9 @@ def main():
         FOREIGN KEY (fifa_code) REFERENCES wc2026_teams (fifa_code)
     );
     """)
-    print("Creada tabla 'scraped_unresolved_players'.")
+    cursor.execute("ALTER TABLE scraped_unresolved_players ADD COLUMN alternative_names TEXT;")
+    print("Added column 'alternative_names' to scraped_unresolved_players.")
+
     
     conn.commit()
     

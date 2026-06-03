@@ -1,0 +1,66 @@
+﻿Total unresolved: 45
+
+ID   Nombre                              Pais   En Cache   Tiene MV
+---------------------------------------------------------------------------
+1    Ayoub Al Alawi                      QAT    SI (1.00)            SI
+2    Pedro Miguel                        QAT    SI (1.00)            SI
+3    Al Brake                            QAT    SI (1.00)            SI
+4    Ahmed Fathy                         QAT    SI (1.00)            NO (MV nulo)
+5    Youssef Abdulrrazaq                 QAT    SI (1.00)            SI
+6    Bouaddi                             MAR    SI (1.00)            SI
+7    Ayoube Amaimouni                    MAR    SI (1.00)            SI
+8    JosuΘ Duverger                      HAI    SI (1.00)            NO (MV nulo)
+9    JK Duverne                          HAI    SI (1.00)            SI
+10   Jean-Jacques Danley                 HAI    SI (1.00)            SI
+11   Pierre Woodenski                    HAI    SI (1.00)            SI
+12   Alejandro Zendejas                  USA    SI (1.00)            SI
+13   Gio Reyna                           USA    SI (1.00)            SI
+14   Juan Cßceres                        PAR    SI (1.00)            SI
+15   Alejandro Romero Gamarra            PAR    SI (1.00)            SI
+16   Paul Okon Jr                        AUS    SI (1.00)            SI
+17   Cameron Devlin                      AUS    SI (1.00)            SI
+18   Mostafa Shobeir                     EGY    NO                   -
+19   Tarek Alaa                          EGY    SI (1.00)            SI
+20   Ahmed Fattouh                       EGY    SI (0.83)            NO (MV nulo)
+21   Marwan Attia                        EGY    NO                   -
+22   Ahmed Sayed Zizo                    EGY    SI (1.00)            SI
+23   Haitham Hassan                      EGY    SI (1.00)            SI
+24   Hossein Hosseini                    IRN    SI (1.00)            SI
+25   Saeid Ezatolahi                     IRN    NO                   -
+26   Dennis Dargahi                      IRN    SI (1.00)            SI
+27   Josimar Dias ôVozinhaö              CPV    SI (1.00)            SI
+28   Roberto Lopes ôPicoö                CPV    NO                   -
+29   Ianique Tavares ôStopiraö           CPV    SI (1.00)            SI
+30   Kevin Pina                          CPV    SI (1.00)            SI
+31   Maximiliano Ara·jo                  URU    SI (1.00)            SI
+32   Nicolßs Gonzßlez                    ARG    SI (1.00)            SI
+33   Yacine Titraoui                     ALG    NO                   -
+34   Noor Bani Attieh                    JOR    SI (1.00)            SI
+35   Ouda Al-Fakhouri                    JOR    SI (1.00)            SI
+36   Mohammad Abu Zraiq                  JOR    SI (1.00)            SI
+37   Nematov Abduvohid                   UZB    SI (1.00)            SI
+38   Alijonov Khojiakbar                 UZB    SI (1.00)            SI
+39   Karimov Behruzjon                   UZB    SI (1.00)            SI
+40   Ulmasaliyev Avazbek                 UZB    SI (1.00)            SI
+41   Xamrobekov Odiljon                  UZB    SI (1.00)            SI
+42   Ganiev Azizjon                      UZB    SI (1.00)            SI
+43   Amonov Azizbek                      UZB    SI (1.00)            SI
+44   Carlos G≤mez                        COL    SI (1.00)            SI
+45   Juan Camilo Hernßndez               COL    SI (1.00)            SI
+
+--- Resumen ---
+En cachΘ con MV:    37
+En cachΘ sin MV:    3
+No estßn en cachΘ:  5
+
+Jugadores en cachΘ pero SIN market value en TM (siempre quedarßn unresolved):
+  [4] Ahmed Fathy (QAT)
+  [8] JosuΘ Duverger (HAI)
+  [20] Ahmed Fattouh (EGY)
+
+Jugadores NO encontrados en cachΘ:
+  [18] Mostafa Shobeir (EGY)
+  [21] Marwan Attia (EGY)
+  [25] Saeid Ezatolahi (IRN)
+  [28] Roberto Lopes ôPicoö (CPV)
+  [33] Yacine Titraoui (ALG)
