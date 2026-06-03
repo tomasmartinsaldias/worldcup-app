@@ -53,6 +53,8 @@ Defensores: Moïse Bombito (OGC Nice), Derek Cornelius (Olympique de Marseille),
 Mediocampistas: Ali Ahmed (Norwich City), Tajon Buchanan (Villarreal), Mathieu Choinière y (LAFC), Stephen Eustáquio (Porto), Marcelo Flores (Tigres UANL), Ismaël Koné (US Sassuolo Calcio), Liam Millar (Hull City), Jonathan Osorio (Toronto), Nathan Saliba (Anderlecht).
 
 Delanteros: Jonathan David (Juventus), Promise David (Royale Union Saint-Gilloise), Cyle Larin (Mallorca) y Tani Oluwaseyi (Villarreal).
+
+DT: Jesse Marsch.
 Bosnia y Herzegovina
 
 Arqueros: Nikola Vasilj (FC St. Pauli, ALE), Martin Zlomislić (HNK Rijeka, CRO) y Osman Hadžikić (NK Slaven Belupo, CRO).
@@ -66,7 +68,15 @@ Delanteros: Ermedin Demirović (Stuttgart, ALE), Jovo Lukić (Universitatea Cluj
 DT: Sergej Barbarez.
 Qatar
 
-Aún no presentó.
+Arqueros: Mahmud Abunada (Al Rayyan), Meshaal Barsham (Al Sadd) y Salah Zakaria (Al Duhail).
+
+Defensores: Ayoub Al Alawi (Al Gharafa), Khoukhi (Al Sadd), Homan Al Amin (Cultural Leonesa), Lucas Mendes (Al Wakrah), Issa Laye (Al Arabi Doha), Pedro Miguel (Al Sadd), Alhussain (Al Arabi Doha) y Al Brake (Al Duhail).
+
+Mediocampistas: Assim Madibo (Al Wakrah), Abdulaziz Hatem (Al Rayyan), Ahmed Fathy (Al Arabi), Karim Boudiaf (Al Duhail), Jassim Gaber (Al Rayyan) y Mohamed Mannai (Al Shamal).
+
+Delanteros: Ahmed Al Janehi (Al Gharafa), Ahmed Alaa (Al Rayyan), Akram Afif (Al Sadd), Al Moez Ali (Al Duhail), Edmilson Junior (Al Duhail), Hassan Al Haydos (Al Sadd), Mohammed Muntari (Al Gharafa), Tahsin Mohammed (Al Duhail), Youssef Abdulrrazaq (Al Sadd).
+
+DT: Julen Lopetegui.
 Suiza
 
 Arqueros: Gregor Kobel (Borussia Dortmund), Yvon Mvogo (Lorient), Marvin Keller (Young Boys).
@@ -76,6 +86,8 @@ Defensores: Manuel Akanji (Inter de Milan), Nico Elvedi (Borussia Mönchengladba
 Mediocampistas: Granit Xhaka (Sunderland), Johan Manzambi (Friburgo), Remo Freuler (Bologna), Denis Zakaria (Mónaco), Ardon Jashari (AC Milan), Djibril Sow (Sevilla), Christian Fassnacht (Young Boys), Michel Aebischer (Pisa), Fabian Rieder (Augsburgo), Rubén Vargas (Sevilla).
 
 Delanteros: Breel Embolo (Rennes), Noah Okafor (Leeds), Dan Ndoye (Nottingham Forest), Zeki Amdouni (Burnley), Cedric Itten (Fortuna Dusseldorf).
+
+DT: Murat Yakin.
 GRUPO C
 Brasil
 
@@ -108,6 +120,8 @@ Defensores: Carlens Arcus (Angers SCO), Wilguens Pauguain (SV Zulte Waregem), Du
 Mediocampistas: Leverton Pierre (FC Vizela), Carl-Fred Sainthe (El Paso Locomotive FC), Jean-Jacques Danley (Philadelphia Union), Jeanricner Bellegarde (Wolverhampton), Pierre Woodenski (Violette AC), Dominique Simon (FC Tatran Prešov).
 
 Delanteros: Louicius Deedson (FC Dallas), Ruben Providence (Almere City FC), Josué Casimir (AJ Auxerre), Derrick Etienne (Toronto FC), Wilson Isidor (Sunderland AFC), Duckens Nazon (Esteghlal FC), Frantzdy Pierrot (Çaykur Rizespor), Yassin Fortune (FC Vizela), Lenny Joseph (Ferencváros TC).
+
+DT: Sébastien Migné.
 Escocia
 
 Arqueros: Craig Gordon (Heart of Midlothian), Angus Gunn (Nottingham Forest), Liam Kelly (Rangers)
@@ -117,6 +131,8 @@ Defensores: Grant Hanley (Hibernian), Jack Hendry (Al-Ettifaq), Aaron Hickey (Br
 Mediocampistas: Ryan Christie (AFC Bournemouth), Findlay Curtis (Kilmarnock*), Lewis Ferguson (Bologna), Ben Gannon-Doak (AFC Bournemouth), Billy Gilmour (S.S.C. Napoli), John McGinn (Aston Villa), Kenny McLean (Norwich City), Scott McTominay (S.S.C. Napoli).
 
 Delanteros: Che Adams (Torino), Lyndon Dykes (Charlton Athletic), George Hirst (Ipswich Town), Lawrence Shankland (Heart of Midlothian), Ross Stewart (Sunderland).
+
+DT: Steve Clarke.
 GRUPO D
 Estados Unidos
 
@@ -150,9 +166,18 @@ Mediocampistas: Jackson Irvine (St. Pauli), Aiden O'Neill (New York City), Paul 
 
 Delanteros: Connor Metcalfe (St. Pauli), Mathew Leckie, Nishan Velupillay (Melbourne Victory), Cristian Volpato (Sassuolo), Nestory Irakunda (Watford), Awer Mabil (Castellón), Ajdin Hrustic (Heracles Almelo), Mohamed Toure (Norwich City) y Tete Yengi (Machida Zelvia).
 
+DT: Tony Popovic.
 Turquía
 
-Aún no presentó.
+Arqueros: Ugurcan Cakir (Galatasaray), Altay Bayindir (Manchester United) y Mert Gunok (Besiktas).
+
+Defensores: Ferdi Kadioglu (Brighton), Merih Demiral (Al Ahli), Zeki Celik (Roma), Ozan Kabak (Hoffenheim), Mert Muldur (Fenerbahce), Abdulkerim Bardakci (Galatasaray), Eren Elmali (Galatasaray), Caglar Soyuncu (Fenerbahce) y Samet Akaydin (Rizespor).
+
+Mediocampistas: Arda Guler (Real Madrid), Can Uzun (Eintracht Frankfurt), Orkun Kokcu (Besiktas), Hakan Calhanoglu (Inter), Ismail Yuksek (Fenerbahce), Kaan Ayhan (Galatasaray) y Salih Ozcan (Borussia Dortmund).
+
+Delanteros: Kenan Yildiz (Juventus), Baris Alper Yilmaz (Galatasaray), Kerem Akturkoglu (Fenerbahce), Yunus Akgun (Galatasaray), Oguz Aydin (Fenerbahce), Deniz Gul (Porto) e Irfan Can Kahveci (Fenerbahce).
+
+DT: Vicenzo Montella
 GRUPO E
 Alemania
 
@@ -185,6 +210,8 @@ Defensores: Emmanuel Agbadou (Besiktas), Clement Akpa (Auxerre), Ousmane Diomand
 Mediocampistas: Seko Fofana (Stade Rennais), Parfait Guiagon (Charleroi), Christ Inao Oulai (Trabzonspor), Franck Kessie (Al Ahli), Ibrahim Sangare (Nottingham Forest), Jean Seri (NK Maribor).
 
 Delanteros: Simon Adingra (Monaco), Ange-Yoan Bonny (Inter), Amad Diallo (Manchester United), Oumar Diakite (Cercle Brugge), Yan Diomande (RB Leipzig), Evann Guessand (Aston Villa), Nicolas Pepe (Villarreal), Bazoumana Toure (Hoffenheim), Elye Wahi (Nice).
+
+DT: Emerse Faé.
 Ecuador
 
 Arqueros: Gonzalo Valle (Liga de Quito), Hernán Galíndez (Huracán) y Moisés Ramírez (Kifisia FC).
@@ -217,6 +244,8 @@ Defensores: Yuto Nagatomo (F. C. Tokyo, JAP), Shogo Taniguchi (Sint-Truidense, B
 Mediocampistas: Wataru Endo (Liverpool, ING), Junya Ito (KRC Genk, BEL), Daichi Kamada (Crystal Palace, ING), Ritsu Doan (Eintracht Frankfurt, ALE), Ao Tanaka (Leeds United, ING), Keito Nakamura (Stade de Reims, FRA), Kaishu Sano (Mainz, ALE) y Yuito Suzuki (Friburgo, ALE).
 
 Delanteros: Kento Shiogai (Wolfsburgo, ALE), Koki Ogawa (NEC Nijmegen, PBJ), Daizen Maeda (Celtic, ESC), Ayase Ueda (Feyenoord, PBJ), Keisuke Goto (Sint Truidense, BEL) y Takefusa Kubo (Real Sociedad, ESP).
+
+DT: Hajime Moriyasu.
 Suecia
 
 Arqueros: Viktor Johansson (Stoke City, ING), Kristoffer Nordfeldt (AIK, SUE) y Jacob Widell Zetterström (Derby County, ING).
@@ -237,6 +266,8 @@ Defensores: Yan Valery (Young Boys), Moutaz Neffati (IFK Norrköping), Dylan Bro
 Mediocampistas: Ellyes Skhiri (Eintracht Frankfurt), Hannibal Mejbri (Burnley), Anis Ben Slimane (Norwich City), Rani Khedira (Union Berlin), Mohamed Hadj-Mahmoud (FC Lugano), Ismaël Gharbi (FC Augsburg), Mortadha Ben Ouanes (Kasımpaşa).
 
 Delanteros: Elias Saad (Hannover 96), Khalil Ayari (PSG), Elias Achouri (Copenhagen), Sebastian Tounekti (Celtic), Hazem Mastouri (Dynamo Makhachkala), Firas Chaouat (Club Africain), Rayan Elloumi (Vancouver Whitecaps).
+
+DT: Sabri Lamouchi.
 GRUPO G
 Bélgica
 
@@ -247,6 +278,8 @@ Defensores: Timothy Castagne (Fulham, ING), Zeno Debast (Sporting, POR), Maxim D
 Mediocampistas: Kevin De Bruyne (Napoli, ITA), Amadou Onana (Aston Villa, ING), Nicolas Raskin (Rangers, ESC), Youri Tielemans (Aston Villa, ING), Hans Vanaken (Brujas, BEL) y Axel Witsel (Girona, ESP).
 
 Delanteros: Charles De Ketelaere (Atalanta, ITA), Jeremy Doku (Manchester City, ING), Matías Fernandez-Pardo (Lille, FRA), Romelu Lukaku (Napoli, ITA), Dodi Lukebakio (Benfica, POR), Diego Moreira (Racing de Estrasburgo, FRA), Alexis Saelemaekers (Milan, ITA) y Leandro Trossard (Arsenal, ING).
+
+DT: Rudi García.
 Egipto
 
 Arqueros: Mohamed El Shennawy (Al Ahly), Mostafa Shobeir (Al Ahly), El Mahdy Soliman (Zamalek), and Mohamed Alaa (El Gouna).
@@ -256,6 +289,8 @@ Defensores: Mohamed Hany (Al Ahly), Tarek Alaa (ZED FC), Hamdi Fathi (Al Wakrah)
 Mediocampistas: Marwan Attia (Al Ahly), Mohannad Lasheen (Pyramids FC), Nabil Emad Dunga (Zamalek), Mahmoud Saber (Pyramids FC), Ahmed Sayed Zizo (Zamalek), Mahmoud Trezeguet (Trabzonspor), Emam Ashour (Al Ahly), Mostafa Ziko (Pyramids FC), Ibrahim Adel (Pyramids FC), Haitham Hassan (Real Oviedo), Mohamed Salah (Liverpool).
 
 Delanteros: Omar Marmoush (Manchester City), Aktay Abdullah (Smouha SC), Hamza Abdel Karim (FC Barcelona Atlètic).
+
+DT: Hossam Hassan
 Irán
 
 Arqueros: Alireza Beiranvand (Tractor, IRN), Hossein Hosseini (Sepahan, IRN) y Payam Niazmand (Persépolis, IRN). 
@@ -277,6 +312,8 @@ Defensores: Callan Elliot (Auckland FC, NZL), Tim Payne (Wellington Phoenix FC, 
 Volantes: Lachlan Bayliss (Newcastle Jets FC, AUS), Joe Bell (Viking FK, NOR), Matt Garbett (Peterborough, AUS), Eli Just (Motherwell F.C., ESC), Ben Old (AS Saint-Étienne, FRA), Alex Rufer (Wellington Phoenix FC, NZL), Sarpreet Singh (Wellington Phoenix FC, NZL), Marko Stamenić (Swansea City A.F.C., GAL), Ryan Thomas (PEC Zwolle, PB).
 
 Delanteros: Kosta Barbarouses (Western Sydney Wanderers, AUS), Callum McCowatt (Silkeborg IF, DIN), Jesse Randall (Auckland FC, NZL), Ben Waine (Port Vale, ING), Chris Wood (Nottingham Forest F.C., ING).
+
+DT: Darren Bazeley.
 GRUPO H
 España
 
@@ -355,8 +392,8 @@ Defensores: Hussein Ali (Pogoń Szczecin, POL), Manaf Younis (Al-Shorta, IRK), Z
 Mediocampistas: Zaid Ismail (Al-Talaba SC, IRK), Amir Al-Ammari (Cracovia, POL), Kevin Yakob (Aarhus GF, DIN), Zidane Iqbal (Utrecht, PBJ), Aimar Sher (Sarpsborg 08, NOR), Mustafa Saadoon (Al-Shorta, IRQ), Youssef Amyn (AEK Larnaka, CHI), Ibrahim Bayesh (Al-Dhafra FC, EAU), Ahmed Qasem (Nashville SC, USA) y Ali Jasim (Al-Najma, ARA). 
 
 Delanteros: Marko Farji (Venezia, ITA), Ali Al-Hamadi (Luton Town, ING), Ali Yousif (Al-Talaba SC, IRK), Aymen Hussein (Al-Karma, IRK) y Mohanad Ali (Dibba SCC, EAU). 
-DT: Graham Arnold.
 
+DT: Graham Arnold.
 Noruega
 
 Arqueros: Orjan Haskjold Nyland (Sevilla, ESP), Egil Selvik (Watford, ALE) y Sander Tangvik (Hamburgo, ALE).
@@ -371,13 +408,15 @@ DT: Stale Solbakken.
 GRUPO J
 Argentina
 
-Arqueros: Emiliano Martínez, Gerónimo Rulli, Juan Musso.
+Arqueros: Emiliano Martínez (Aston Villa, ING), Gerónimo Rulli (Olympique de Marsella, FRA) y Juan Musso (Atlético de Madrid, ESP). 
 
-Defensores: Gonzalo Montiel, Nahuel Molina, Nico Otamendi, Cristian Romero, Leo Balerdi, Lisandro Martínez, Nico Tagliafico, Facundo Medina.
+Defensores: Gonzalo Montiel (River, ARG), Nahuel Molina (Atlético de Madrid, ESP), Nicolás Otamendi (River, ARG), Cristian Romero (Tottenham, ING), Leonardo Balerdi (Olympique de Marsella, FRA), Lisandro Martínez (Manchester United, ING), Nicolás Tagliafico (Olympique de Lyon, FRA), Facundo Medina (Olympique de Marsella, FRA) y Valentín Barco (Racing de Estrasburgo, FRA). 
 
-Volantes: Valentín Barco, Giovani Lo Celso, Nico Paz, Enzo Fernández, Lea Paredes, Alexis Mac Allister, Rodrigo De Paul, Exequiel Palacios.
+Mediocampistas: Giovani Lo Celso (Real Betis, ESP), Nico Paz (Como, ITA), Enzo Fernández (Chelsea, ING), Leandro Paredes (Boca, ARG), Alexis Mac Allister (Liverpool, ING), Rodrigo De Paul (Inter Miami, USA), Exequiel Palacios (Bayer Leverkusen, ALE), Nicolás González (Atlético de Madrid, ESP), Giuliano Simeone (Atlético de Madrid, ESP) y Thiago Almada (Atlético de Madrid, ESP). 
 
-Delanteros: Nico González, Giuliano Simeone, Thiago Almada, Leo Messi, Lautaro Mártinez, José López, Julián Álvarez.
+Delanteros: Lionel Messi (Inter Miami, USA), Julián Álvarez (Atlético de Madrid, ESP), Lautaro Martínez (Inter, ITA) y José López (Palmeiras, BRA). DT: Lionel Scaloni.
+
+DT: Lionel Scaloni.
 Argelia
 
 Arqueros: Luca Zidane (Granada), Oussama Benbot (USM Alger), Melvin Mastil (Stade Nyonnais) y Abdelatif Ramdane (CS Constantine).
@@ -387,6 +426,8 @@ Defensores: Rafik Belghali (Hellas Verona), Samir Chergui (Red Star), Rayan Aït
 Mediocampistas: Nabil Bentaleb (Lille), Hicham Boudaoui (Nice), Houssem Aouar (Al-Ittihad), Farès Chaïbi (Eintracht Frankfurt), Ibrahim Maza (Bayer Leverkusen), Yacine Titraoui (Charleroi) y Ramiz Zerrouki (Twente).
 
 Delanteros: Mohamed Amoura (Wolfsburg), Nadhir Benbouali (Gyor), Adil Boulbina (Al-Duhail), Farès Ghedjemis (Frosinone), Amine Gouiri (Marsella), Anis Hadj Moussa (Feyenoord) y Riyad Mahrez (Al-Ahli)
+
+DT: Vladimir Petković.
 Austria
 
 Arqueros: Alexander Schlager (Red Bull Salzburgo, AUT), Florian Wiegele (Viktoria Plzen, RPC) y Patrick Pentz (Brondby IF, DIN).
@@ -400,17 +441,27 @@ Delanteros: Marko Arnautović (Estrella Roja de Belgrado, SRB), Michael Gregorit
 DT: Ralf Rangnick.
 Jordania
 
-Aún no presentó.
+Arqueros: Yazeed Abu Laila (Al-Hussein, Jordania), Abdullah Al-Fakhouri (Al-Wehdat, Jordania), Noor Bani Attieh (Al-Faisaly, Jordania).
+
+Defensores: Abdullah Nasib (Al-Zawraa, Irak), Saad Al-Rosan (Al-Hussein, Jordania), Yazan Al-Arab (FC Seoul, Corea del Sur), Saleem Obeid (Al-Hussein, Jordania), Mohammad Abu Al-Nadi (Selangor FC, Malasia), Hossam Abu Al-Dahab (Al-Faisaly, Jordania), Ehsan Haddad (Al-Hussein, Jordania), Anas Bani (Al-Faisaly, Jordania), Muhannad Abu Taha (Al-Quwa Al-Jawiya, Irak), Mohammad Abu Hasheesh (Al-Karma, Irak).
+
+Mediocampistas: Noor Al-Rawabdeh (Selangor FC, Malasia), Nizar Al-Rashdan (Qatar SC, Catar), Ibrahim Saadeh (Al-Karma, Irak), Rajaei Ayed (Al-Hussein, Jordania), Amer Jamous (Al-Zawraa, Irak), Mohammad Al-Daoud (Al-Wehdat, Jordania), Mahmoud Al-Mardi (Al-Hussein, Jordania).
+
+Delanteros: Mousa Al-Tamari (Stade Rennais, Francia), Ouda Al-Fakhouri (Pyramids FC, Egipto), Mohammad Abu Zraiq (Raja Casablanca, Marruecos), Ali Azaizeh (Al-Shabab, Arabia Saudita), Ibrahim Sabra (Lokomotiva Zagreb, Croacia), Ali Olwan (Al-Sailiya, Catar).
+
+DT: Jamal Sellami.
 GRUPO K
 Portugal
 
-Arqueros: Diogo Costa (Porto), José Sá (Wolverhampton), Rui Silva (Sporting Lisboa) y Ricardo Velho (Gençlerbirliği)
+Arqueros: Diogo Costa (Porto, POR), José Sá (Wolverhampton, ING), Rui Silva (Sporting, POR) y Ricardo Velho (Genclerbirligi, TUR)
 
-Defensores: Diogo Dalot (Manchester United), Matheus Nunes (Manchester City), Nélson Semedo (Fenerbahçe), Joao Cancelo (Barcelona), Nuno Mendes (PSG), Goncalo Inácio (Sporting Lisboa), Renato Veiga (Villareal), Rúben Dias (Manchester City) y Tomás Araújo (Benfica)
+Defensores: Diogo Dalot (Manchester United, ING), Matheus Nunes (Manchester City, ING), Nélson Semedo (Fenerbahce, TUR), Joao Cancelo (Barcelona, ESP), Nuno Mendes (PSG, FRA), Goncalo Inácio (Sporting, POR), Renato Veiga (Villarreal, ESP), Rúben Dias (Manchester City, ING) y Tomás Araújo (Benfica, POR).
 
-Mediocampistas: Rúben Neves (Al Hilal), Samuel Costa (Mallorca), João Neves (PSG), Vitinha (PSG), Bruno Fernandes (Manchester United) y Bernardo Silva (Manchester City)
+Mediocampistas: Rúben Neves (Al-Hilal, ARA), Samú Costa (Mallorca, ESP), Joao Neves (PSG, FRA), Vitinha (PSG, FRA), Bruno Fernandes (Manchester United, ING) y Bernardo Silva (Manchester City, ING)
 
-Delanteros: Joao Félix (Al Nassr), Trincao (Sporting Lisboa), Francisco Conceicao (Juventus), Pedro Neto (Chelsea), Rafael Leao (Milan), Goncalo Guedes (Real Sociedad), Goncalo Ramos (PSG) y Cristiano Ronaldo (Al Nasr)
+Delanteros: João Félix (Al-Nassr, ARA), Francisco Trincao (Sporting, POR), Francisco Conceicao (Juventus, ITA), Pedro Neto (Chelsea, ING), Rafael Leao (Milan, ITA), Goncalo Guedes (Real Sociedad, ESP), Goncalo Ramos (PSG, FRA) y Cristiano Ronaldo (Al-Nassr, ARA).
+
+DT: Roberto Martínez.
 RD Congo
 
 Arqueros: Matthieu Epolo (Standard Liege), Timothy Fayulu (Noah), Lionel ‌Mpasi (Le Havre).
@@ -420,9 +471,18 @@ Defensores: Dylan Batubinsika (Larisa), Rocky ⁠Bushiri (Hibernian), Gedeon Kal
 Mediocampistas: Theo Bongonda (Spartak Moscow), Brian Cipenga (Castellon), Meshack ‌Elia (Alanyaspor), Gael Kakuta (Larisa), Edo ​Kayembe (Watford), Nathanael Mbuku (Montpellier), Samuel Moutoussamy (Atromitos), Ngal’ayel ‌Mukau (Lille), Charles Pickel (Espanyol), Noah Sadiki (Sunderland).
 
 Delanteros: Cedric ​Bakambu (Real Betis), Simon Banza (Al Jazira), Fiston Mayele (Pyramids), Yoane Wissa (Newcastle United).
+DT: Sebastien Desabre. 
 Uzbekistán
 
-Aún no presentó.
+Arqueros: Yusupov Utkir (PFC Navbahor Namangan), Nematov Abduvohid (Nasaf Qarshi FC) y Ergashev Botirali (FK Neftchi Farg’ona).
+
+Defensores: Khusanov Abdukodir (Manchester City FC), Alijonov Khojiakbar (Pakhtakor Tashkent FK), Sayfiev Farrukh (FK Neftchi Farg’ona), Ashurmatov Rustam (Esteghlal Tehran FC), Nasrullaev Sherzod (Pakhtakor Tashkent FK), Eshmurodov Umar (Nasaf Qarshi FC), Abdullaev Abdulla (Dibba FC), Karimov Behruzjon (Surkhon FK), Ulmasaliyev Avazbek (OKMK FK) y Urozov Jakhongir (FK Dinamo Samarkand).
+
+Mediocampistas: Mozgovoy Akmal (Pakhtakor Tashkent FK), Shukurov Otabek (Baniyas Club), Iskanderov Jamshid (FK Neftchi Farg’ona), Xamrobekov Odiljon (Tractor Sazi Tabriz FC), Urunov Oston (Persepolis FC), Khamdamov Dostonbek (Pakhtakor Tashkent FK), Ganiev Azizjon (Al Bataeh Club), Fayzullaev Abbosbek (Başakşehir FK) y Esanov Sherzod (FK Buxoro).
+
+Delanteros: Shomurodov Eldor (Başakşehir FK), Amonov Azizbek (FK Dinamo Samarkand) y Sergeev Igor (Persepolis FC).
+
+DT: Fabio Cannavaro.
 Colombia
 
 Arqueros: Álvaro Montero (Vélez Sarsfield), Camilo Vargas (Atlas), David Ospina (Atlético Nacional).
@@ -459,7 +519,15 @@ Delanteros: Ivan Perisic (PSV Eindhoven, PBJ), Andrej Kramaric (TSG Hoffenheim, 
 DT: Zlatko Dalic.
 Ghana
 
-Aún no presentó.
+Arqueros: Benjamin Asare (Accra Hearts of Oak Sporting Club), Salomon Agbasi Lawrence Ati-Zigi (St. Gallen, SUI) y Joseph Anang (St. Patrick's Athletic, IRL)
+
+Defensores: Baba Abdul Rahman (PAOK, GRE), Gideon Mensah y Marvin Senaya (Auxerre, FRA), Alidu Seidu (Rennes, FRA), Abdul Mumin (Rayo Vallecano, ESP), Jerome Opoku (Istambul Basaksehir, TUR), Jonas Adjetey (Wolfsburgo, GER), Kojo Oppong Preprah (Niza, FRA) y Alexander Djiku (Spartak Moscú, RUS).
+
+Mediocampistas: Elisha Owusu (Auxerre, FRA), Thomas Partey (Villarreal, ESP), Kwasi Sibo (Oviedo, ESP), Augustine Boakye (St. Etienne, FRA), Caleb Yirenkyi (Nordsjaelland, DIN), Abdul Fatawu Issahaku (Leicester, ENG) y Kamal Deen Sulemana (Atalanta, ITA).
+
+Delanteros: Christopher Bonsu Baah (Al Qadisiah, KSA), Ernest Nuamah (Olympique Lyon, FRA), Antoine Semenyo (Manchester City, ENG), Brandon Thomas-Asante (Coventry, ENG), Prince Kwabena Adu (Viktoria Plzen, CZE), Iñaki Williams (Athletic Club, ESP) y Jordan Ayew (Leicester, ENG).
+
+DT: Carlos Queiroz.
 Panamá
 
 Arqueros: Orlando Mosquera (Al Feiha), Luis Mejía (Nacional), César Samudio (Club Deportivo Marathón)

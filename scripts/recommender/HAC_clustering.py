@@ -3,7 +3,8 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import MaxAbsScaler, normalize
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.metrics import pairwise_distances, silhouette_score
 
@@ -31,26 +32,34 @@ class DataPreprocessor:
     @staticmethod
     def preprocess(df):
         """Preprocesa el DataFrame aislando las variables numéricas, imputando con la mediana,
-        aplicando MaxAbsScaler y finalmente normalización L2 por fila.
+        aplicando StandardScaler y PCA (excluyendo la primera componente principal para quedarse con la geometría del estilo).
         """
         # Seleccionar todas las columnas numéricas
-        numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+        exclude_cols = ['overall', 'Cluster_ID', 'id']
+        numeric_cols = [col for col in df.select_dtypes(include=[np.number]).columns.tolist() if col not in exclude_cols]
         
-        # Eliminar 'overall' de las características numéricas si está presente
-        if 'overall' in numeric_cols:
-            numeric_cols.remove('overall')
-            
-        # Fase 1: Imputación informada con la mediana de cada columna
+        # Asegurarnos de que height_cm y weight_kg están en la lista
+        for col in ['height_cm', 'weight_kg']:
+            if col in df.columns and col not in numeric_cols:
+                numeric_cols.append(col)
+                
         df_numeric = df[numeric_cols].apply(lambda col: col.fillna(col.median()))
-        # En caso de que toda una columna sea NaN y la mediana sea NaN, rellenar con 0
         df_numeric = df_numeric.fillna(0)
         
-        # Fase 2: Homogeneización del Espacio (MaxAbsScaler por columna)
-        scaler = MaxAbsScaler()
+        # StandardScaler
+        scaler = StandardScaler()
         scaled_features = scaler.fit_transform(df_numeric)
         
-        # Fase 3: Extracción de Magnitud (Normalización L2 por fila)
-        normalized_features = normalize(scaled_features, norm='l2')
+        # PCA
+        pca = PCA()
+        pca_all = pca.fit_transform(scaled_features)
+        
+        # Componentes para >= 80% varianza explicada
+        cum_var = np.cumsum(pca.explained_variance_ratio_)
+        n_components = np.argmax(cum_var >= 0.80) + 1
+        
+        # Omitir PC1 (columna 0)
+        features_pca_B = pca_all[:, 1:n_components]
         
         # Guardamos 'overall' (imputado con la mediana o 50 si falta)
         overall_median = df['overall'].median() if 'overall' in df.columns else 50
@@ -59,7 +68,7 @@ class DataPreprocessor:
         overalls = df['overall'].fillna(overall_median).values
         
         # Retornar las características normalizadas, nombres y overalls
-        return normalized_features, df['long_name'].values, overalls
+        return features_pca_B, df['long_name'].values, overalls
 
 class ClusteringEngine:
     def __init__(self, n_clusters=5, metric='cosine', linkage='average'):
@@ -270,6 +279,10 @@ def main():
 
             # 4. Encontrar K óptimo dinámicamente usando validación interna de Silhouette
             n_clusters, best_sil_score = find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75)
+            if position == 'Midfielders':
+                n_clusters = 4
+            elif position == 'Wingers':
+                n_clusters = 3
             print(f"=======================================================")
             print(f"POSICIÓN: {position} | K ÓPTIMO DEDUCIDO: {n_clusters} (Silhouette: {best_sil_score:.4f})")
             print(f"=======================================================")

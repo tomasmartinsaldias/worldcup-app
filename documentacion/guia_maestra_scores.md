@@ -57,16 +57,18 @@ graph TD
 * **Metodología y Procesamiento:**
   * **Ingesta y Limpieza:** Mapea el dataset de EA FC 26 con la base de datos de convocados mundialistas aplicando normalización Unicode para resolver acentos y caracteres especiales.
   * **Optimización de $K$ (Silhouette Score):** El sistema calcula dinámicamente el número óptimo de clústeres para cada categoría táctica (Arqueros, Centrales, Laterales, Volantes, Extremos, Delanteros).
-  * **Clustering por Arquetipos de Élite (>75):** Entrena el modelo KMeans únicamente con jugadores de valoración global superior a 75 para fijar centros limpios de estilo competitivo, asignando luego a todos los jugadores a esos arquetipos estructurados.
+  * **Estandarización y Reducción por PCA (Método B):** Incorpora el peso (`weight_kg`) y la altura (`height_cm`), estandariza usando `StandardScaler` (z-score) y aplica un análisis PCA para retener el $\ge 80\%$ de varianza explicada.
+  * **Supresión de PC1 (Ignorar Calidad):** Para evitar que el algoritmo clasifique a los jugadores por "buenos" o "malos", se descarta la primera componente principal (PC1), la cual correlaciona en un $>88\%$ con la calidad general (`overall`). KMeans opera únicamente sobre las componentes restantes (PC2 a PCN), agrupándolos exclusivamente por estilo y rol táctico.
+  * **Optimización de $K$ (Silhouette Score):** Se optimiza dinámicamente el número de clusters para cada posición, asegurando clusters de tamaño consistente ($>10$ jugadores) y forzando $K=4$ para los mediocampistas.
 * **Grupos y Arquetipos Deducidos:**
-  * **Goalkeepers:** *Sweeper Keeper* (Alisson), *Tradicional/Atajador* (Courtois), *Arquero Anómalo* (Mvogo).
-  * **Centerbacks:** *Central Dominador/Aéreo* (van Dijk), *Central de Cobertura/Rápido* (Saliba), *Central Tanque/Físico* (Gabriel).
-  * **Fullbacks:** *Lateral Físico/3er Central* (Gvardiol), *Lateral Equilibrado* (Koundé), *Lateral Ofensivo/Carrilero* (Hakimi).
-  * **Midfielders:** *Todocampista Box-to-Box* (Bellingham), *Enganche/Mediapunta* (Wirtz), *Organizador/Pivote Técnico* (Rodri).
-  * **Strikers:** *Delantero de Presión* (Dembélé), *Velocista de Ruptura* (Mbappé), *Hombre Objetivo/Nueve* (Håland).
-  * **Wingers:** *Extremo Asociativo* (Salah), *Regateador Puro* (Yamal), *Volante Táctico/Extremo Defensivo* (Saka).
+  * **Goalkeepers (K=3):** Representados por Alisson (89), Kobel (86) y Courtois (89).
+  * **Centerbacks (K=3):** Representados por Gabriel Magalhães (88), Virgil van Dijk (90) y Jonathan Tah (87).
+  * **Fullbacks (K=3):** Representados por Achraf Hakimi (89), Jules Koundé (87) y Nuno Mendes (86).
+  * **Midfielders (K=4):** Representados por Joshua Kimmich (89 - *Organizadores*), Rodri (90 - *Pivotes Físicos*), Florian Wirtz (89 - *Mediapuntas*) y Jude Bellingham (90 - *Box-to-box*).
+  * **Strikers (K=3):** Representados por Harry Kane (89), Ousmane Dembélé (90) y Kylian Mbappé (91).
+  * **Wingers (K=3):** Representados por Raphinha (89), Bukayo Saka (88) y Mohamed Salah (91).
 * **Componentes del Proyecto:**
-  * Documentación teórica: [score_jugadores_clusters.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/documentacion/score_jugadores_clusters.md)
+  * Documentación teórica: [score_jugadores_perfil_clusters.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/documentacion/score_jugadores_perfil_clusters.md)
   * Perfiles específicos y desviaciones estadísticas: [score_jugadores_perfil_clusters.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/documentacion/score_jugadores_perfil_clusters.md)
   * Scripts del Pipeline: [scrapping_clustering.py](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/data/clustering_players/scrapping_clustering.py) (Ingesta), [HAC_clustering.py](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/scripts/recommender/HAC_clustering.py) (Motor) y [cluster_profiling.py](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/scripts/recommender/cluster_profiling.py) (Generador del Reporte de Perfiles).
 

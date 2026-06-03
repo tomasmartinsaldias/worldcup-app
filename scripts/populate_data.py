@@ -43,6 +43,141 @@ def clean_for_api_search(name):
     name = re.sub(r'[^a-zA-Z0-9\s\-]', '', name)
     return " ".join(name.split())
 
+def standardize_club_name(club):
+    if not club or not isinstance(club, str):
+        return "Agente Libre"
+        
+    club = club.strip()
+    club = re.sub(r'[/,]\s*(GER|FRA|ITA|ESP|ENG|KSA|EEUU|USA|COL|MEX|POR|BRA|RUS|TUR|ING|ALE|ESC|RPC|PBJ|AUT|DIN|EAU|SRB|CHN|RUM|POL|KZJ|SUI|CHI|NZL|GAL|BUL|UAE|SAU|ISR|IRQ|CZE|UKR|BEL|NED|JAP|SUE|ARA|IRK|IRN|EAU|IND|TAI|CAT|FRANCIA|EGIPTO|MARRUECOS|JORDANIA|ECUADOR|MALASIA)$', '', club, flags=re.IGNORECASE).strip()
+    
+    mapping = {
+        'ac milan': 'AC Milan',
+        'milan': 'AC Milan',
+        'ajax': 'Ajax',
+        'al ahli': 'Al-Ahli',
+        'al-ahli': 'Al-Ahli',
+        'al-ahli sfc': 'Al-Ahli',
+        'al-ahli saudi fc': 'Al-Ahli',
+        'al ain': 'Al-Ain',
+        'al-ain': 'Al-Ain',
+        'al-ain fc': 'Al-Ain',
+        'al ittihad': 'Al-Ittihad',
+        'al-ittihad': 'Al-Ittihad',
+        'al-ittihad club': 'Al-Ittihad',
+        'al nassr': 'Al-Nassr',
+        'al-nassr fc': 'Al-Nassr',
+        'al-nassr': 'Al-Nassr',
+        'al qadisiah': 'Al-Qadisiah',
+        'al qadisiya': 'Al-Qadisiah',
+        'al-qadisiyah fc': 'Al-Qadisiah',
+        'al-karma': 'Al-Karma',
+        'al-shorta': 'Al-Shorta',
+        'al-zawraa sc': 'Al-Zawraa',
+        'al-zawraa': 'Al-Zawraa',
+        'america': 'Club América',
+        'america de mexico': 'Club América',
+        'club america': 'Club América',
+        'anderlecht': 'Anderlecht',
+        'arsenal': 'Arsenal',
+        'arsenal fc': 'Arsenal',
+        'athletic de bilbao': 'Athletic Club',
+        'athletic bilbao': 'Athletic Club',
+        'athletic club': 'Athletic Club',
+        'atletico madrid': 'Atlético de Madrid',
+        'atletico de madrid': 'Atlético de Madrid',
+        'bayern munich': 'Bayern Múnich',
+        'bayern munich': 'Bayern Múnich',
+        'basaksehir': 'Başakşehir FK',
+        'basaksehir fk': 'Başakşehir FK',
+        'betis': 'Real Betis',
+        'real betis': 'Real Betis',
+        'bournemouth': 'AFC Bournemouth',
+        'afc bournemouth': 'AFC Bournemouth',
+        'brujas': 'Club Brujas',
+        'copenhague': 'Copenhague',
+        'copenhagen': 'Copenhague',
+        'coventry': 'Coventry City',
+        'coventry city': 'Coventry City',
+        'dinamo zagreb': 'Dinamo Zagreb',
+        'esteghlal fc': 'Esteghlal',
+        'esteghlal tehran fc': 'Esteghlal',
+        'esteghlal': 'Esteghlal',
+        'fenerbahce': 'Fenerbahçe',
+        'fenerbahce': 'Fenerbahçe',
+        'fenerbahce sk/betis': 'Fenerbahçe',
+        'feyenoord': 'Feyenoord',
+        'inter': 'Inter de Milán',
+        'inter miami': 'Inter Miami',
+        'inter milan': 'Inter de Milán',
+        'inter de milan': 'Inter de Milán',
+        'inter de milan': 'Inter de Milán',
+        'inter pa': 'Inter de Milán',
+        'olympiacos fc': 'Olympiacos',
+        'olympiakos': 'Olympiacos',
+        'olympique de marseille': 'Olympique de Marsella',
+        'olympique de marsella': 'Olympique de Marsella',
+        'olympique marsella': 'Olympique de Marsella',
+        'marseille': 'Olympique de Marsella',
+        'marsella': 'Olympique de Marsella',
+        'monaco': 'AS Mónaco',
+        'as monaco': 'AS Mónaco',
+        'monaco': 'AS Mónaco',
+        'nice': 'OGC Nice',
+        'niza': 'OGC Nice',
+        'ogc nice': 'OGC Nice',
+        'olympique lyon': 'Olympique de Lyon',
+        'olympique de lyon': 'Olympique de Lyon',
+        'pec zwolle': 'PEC Zwolle',
+        'psv': 'PSV Eindhoven',
+        'psv eindhoven': 'PSV Eindhoven',
+        'pyramids': 'Pyramids FC',
+        'pyramids fc': 'Pyramids FC',
+        'raja casablanca': 'Raja Casablanca',
+        'red bull salzburgo': 'RB Salzburg',
+        'salzburgo': 'RB Salzburg',
+        'rizespor': 'Çaykur Rizespor',
+        'caykur rizespor': 'Çaykur Rizespor',
+        'roma': 'AS Roma',
+        'as roma': 'AS Roma',
+        'sheffield united': 'Sheffield United',
+        'sheffield united f.c.': 'Sheffield United',
+        'sporting': 'Sporting CP',
+        'sporting cp': 'Sporting CP',
+        'sporting de portugal': 'Sporting CP',
+        'st. pauli': 'St. Pauli',
+        'fc st. pauli': 'St. Pauli',
+        'stade rennais': 'Stade Rennais',
+        'standard liege': 'Standard de Lieja',
+        'standard lieja': 'Standard de Lieja',
+        'sunderland': 'Sunderland',
+        'sunderland afc': 'Sunderland',
+        'tottenham': 'Tottenham Hotspur',
+        'tottenham hotspur': 'Tottenham Hotspur',
+        'tractor sazi tabriz fc': 'Tractor SC',
+        'tractor': 'Tractor SC',
+        'union saint-gilloise': 'Union Saint-Gilloise',
+        'venezia': 'Venezia FC',
+        'venezia fc': 'Venezia FC',
+        'viktoria pilzno': 'Viktoria Plzeň',
+        'viktoria plzen': 'Viktoria Plzeň',
+        'west ham': 'West Ham United',
+        'west ham united': 'West Ham United',
+        'west ham united/marsella': 'West Ham United',
+        'wolfsburg': 'Wolfsburgo',
+        'wolfsburgo': 'Wolfsburgo',
+        'young boys': 'BSC Young Boys',
+    }
+    
+    import unicodedata
+    norm = unicodedata.normalize('NFD', club.lower())
+    norm = "".join([c for c in norm if not unicodedata.combining(c)]).strip()
+    norm = norm.replace('.', '').replace(',', '').replace('f.c.', 'fc').replace('s.f.c.', 'sfc')
+    
+    if norm in mapping:
+        return mapping[norm]
+        
+    return club
+
 def add_column_if_not_exists(cursor, table, col, col_type):
     try:
         cursor.execute(f"ALTER TABLE {table} ADD COLUMN {col} {col_type};")
@@ -101,6 +236,7 @@ def parse_players_line(line):
             club = "Agente Libre"
         
         name = name.replace('*', '').strip()
+        club = standardize_club_name(club)
         cleaned_players.append((name, club))
         
     return role, cleaned_players
@@ -117,7 +253,7 @@ spanish_to_fifa = {
     'Senegal': 'SEN', 'Irak': 'IRQ', 'Noruega': 'NOR', 'Argentina': 'ARG',
     'Argelia': 'ALG', 'Austria': 'AUT', 'Jordania': 'JOR', 'Portugal': 'POR',
     'RD Congo': 'COD', 'Uzbekistán': 'UZB', 'Colombia': 'COL', 'Inglaterra': 'ENG',
-    'Croacia': 'CRO', 'Ghana': 'GHA', 'Panamá': 'PAN'
+    'Croacia': 'CRO', 'Ghana': 'GHA', 'Panamá': 'PAN', 'Irán': 'IRN'
 }
 
 nationality_keywords = {
@@ -142,7 +278,46 @@ superstars = [
     'Vinícius Júnior', 'Vinícius Jr', 'Rodri', 'Erling Haaland', 'Cristiano Ronaldo'
 ]
 
+def resolve_name_aliases(name):
+    aliases = {
+        'leo messi': 'Lionel Messi',
+        'lautaro mártinez': 'Lautaro Martínez',
+        'lautaro martinez': 'Lautaro Martínez',
+        'lea paredes': 'Leandro Paredes',
+        'leo balerdi': 'Leonardo Balerdi',
+        'nico gonzalez': 'Nicolás González',
+        'nico gonzález': 'Nicolás González',
+        'nico otamendi': 'Nicolás Otamendi',
+        'nico tagliafico': 'Nicolás Tagliafico',
+        'nico paz': 'Nicolás Paz',
+        'julian alvarez': 'Julián Álvarez',
+        'julián alvarez': 'Julián Álvarez',
+        'julián álvarez': 'Julián Álvarez',
+        'jose lopez': 'José Manuel López',
+        'giuliano simeone': 'Giuliano Simeone',
+        'grob': 'Pascal Groß',
+        'brian gutierrez': 'Brian Gutiérrez',
+        'brian gutiérrez': 'Brian Gutiérrez',
+        'armando gonzalez': 'Armando González',
+        'armando gonzález': 'Armando González',
+        'guillermo martinez': 'Guillermo Martínez',
+        'guillermo martínez': 'Guillermo Martínez',
+    }
+    norm = name.lower().strip()
+    if norm in aliases:
+        return aliases[norm]
+        
+    if norm.startswith("nico "):
+        return "Nicolás " + name[5:]
+    if norm.startswith("leo "):
+        return "Leonardo " + name[4:]
+    if norm.startswith("lea "):
+        return "Leandro " + name[4:]
+        
+    return name
+
 def resolve_from_transfermarkt_cache(cursor, player_name, fifa_code, current_age=None):
+    player_name = resolve_name_aliases(player_name)
     cursor.execute("SELECT response_json FROM cache_transfermarkt WHERE query = ?;", (player_name,))
     row = cursor.fetchone()
     if not row:
@@ -575,6 +750,7 @@ def main():
             
             p_age = tm_age if tm_age is not None else (search_age if search_age is not None else 26)
             p_club = tm_club if tm_club is not None else club
+            p_club = standardize_club_name(p_club)
             p_mv = mv_m
             
             norm_name = normalize_name(player_name)

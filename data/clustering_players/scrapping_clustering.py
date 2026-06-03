@@ -14,12 +14,26 @@ def normalize_string(s):
         'æ': 'ae', 'Æ': 'ae',
         'å': 'a', 'Å': 'a',
         'ß': 'ss',
+        'ı': 'i', 'İ': 'i',
+        'đ': 'd', 'Đ': 'd',
+        "'": "", '’': "",
+        '\u200c': '',
+        '-': ' ',
     }
     for char, repl in replacements.items():
         s = s.replace(char, repl)
         
     s = unicodedata.normalize('NFD', s)
     s = s.encode('ascii', 'ignore').decode('utf-8').strip().lower()
+    
+    # Strip Arabic article prefixes al / el at word boundaries
+    s = re.sub(r'\b(al|el)\b\s*', '', s)
+    
+    # Normalize common prefix spacings
+    s = s.replace('abdul ', 'abdul').replace('abdel ', 'abdel')
+    
+    # Map nickname joe to joseph at word boundary
+    s = re.sub(r'\bjoe\b', 'joseph', s)
     
     # Normalize suffixes like "jr." or "jr" to "junior"
     s = re.sub(r'\bjr\b\.?', 'junior', s)
@@ -41,11 +55,18 @@ def normalize_string(s):
         'kenny mclean': 'kenneth mclean',
         'cristophe kabongo': 'christophe kabongo',
         'redouane hahlal': 'redouane halhal',
-        'michail sadilek': 'michal sadilek'
+        'michail sadilek': 'michal sadilek',
+        'meshack elia': 'meschack elia',
+        'richie laryea': 'richmond laryea',
+        'ben slimane': 'benslimane',
+        'ben romdhane': 'benromdhane',
+        'ben seghir': 'benseghir',
+        'ben ouanes': 'benouanes',
+        'ben old': 'benjamin old',
+        'ben waine': 'benjamin waine'
     }
     for k, v in name_variants.items():
         s = s.replace(k, v)
-
         
     return s
 
@@ -108,7 +129,7 @@ COUNTRY_MAP = {
     "mexico": "Mexico",
     "paraguay": "Paraguay",
     "australia": "Australia",
-    "turquia": "Turkey",
+    "turquia": "Türkiye",
     "iran": "Iran",
     "arabia saudita": "Saudi Arabia",
     "irak": "Iraq"
@@ -190,6 +211,23 @@ for index, row_db in df_convocados.iterrows():
         if words:
             mask = df_country['short_name_lower'].apply(lambda name: all(w in name for w in words))
             matches = df_country[mask]
+
+    # Fallback global para jugadores con nacionalidad diferente en FIFA (doble ciudadanía)
+    if len(matches) == 0 and english_country is not None:
+        matches = df_filtered[df_filtered['long_name_lower'].str.contains(pattern, na=False, regex=True) |
+                              df_filtered['short_name_lower'].str.contains(pattern, na=False, regex=True)]
+        
+        if len(matches) == 0:
+            words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
+            if words:
+                mask = df_filtered['long_name_lower'].apply(lambda name: all(w in name for w in words))
+                matches = df_filtered[mask]
+                
+        if len(matches) == 0:
+            words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
+            if words:
+                mask = df_filtered['short_name_lower'].apply(lambda name: all(w in name for w in words))
+                matches = df_filtered[mask]
 
     if len(matches) >= 1:
         # Si hay múltiples coincidencias, nos quedamos con el jugador de mayor media (overall)
