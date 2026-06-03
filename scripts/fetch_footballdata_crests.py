@@ -5,27 +5,25 @@ Consulta la API de Football-Data.org para obtener el escudo ("crest") de cada
 equipo listado en `data/data_frontend/convocados_equipos.json` y exporta los
 resultados a `data/data_frontend/teams.json`.
 
-Características:
-  - Paginación automática del endpoint /v4/teams/ (offset + limit).
-  - Normalización de texto con `unicodedata` para matching sin acentos.
-  - Matching flexible: igualdad o substring en campos `name` y `shortName`.
-  - Logging estructurado a consola y a `logs/team_crests.log`.
-  - Manejo de excepciones HTTP (401, 403, 429, 5xx) con mensajes claros.
-  - Creación automática de directorios de salida si no existen.
+Pipeline de texto y matching (heurístico por capas):
+  1. Normalización base: NFKD → strip acentos → minúsculas.
+  2. Limpieza de stopwords deportivas (por token completo).
+  3. Manejo de entradas compuestas: "Club A/Club B" → se evalúa cada sub-nombre.
+  4. Matching en cascada de 3 capas de confianza decreciente:
+       Capa 1 – Identidad absoluta (cadenas limpias idénticas).
+       Capa 2 – Intersección de tokens (subconjunto o Jaccard ≥ umbral).
+       Capa 3 – Similitud morfológica via difflib.SequenceMatcher.
 
 Uso:
-  Configura la variable de entorno FOOTBALL_DATA_API_KEY antes de ejecutar:
-    $env:FOOTBALL_DATA_API_KEY = "tu_api_key_aqui"   # PowerShell
-    export FOOTBALL_DATA_API_KEY="tu_api_key_aqui"   # Bash / macOS
-  Luego:
-    python scripts/fetch_footballdata_crests.py
+  $env:FOOTBALL_DATA_API_KEY = "tu_api_key"   # PowerShell
+  python scripts/fetch_footballdata_crests.py
 """
 
+import difflib
 import json
 import logging
 import os
 import sys
-import time
 import unicodedata
 from pathlib import Path
 
@@ -45,9 +43,33 @@ LOG_PATH    = LOG_DIR  / "team_crests.log"
 # ---------------------------------------------------------------------------
 # Configuración de la API
 # ---------------------------------------------------------------------------
-API_KEY = os.getenv("FOOTBALL_DATA_API_KEY", "YOUR_API_KEY_HERE").strip()
-HTTP_TIMEOUT = 10  # seconds
-BASE_URL = "https://api.football-data.org/v4/teams"
+API_KEY      = os.getenv("FOOTBALL_DATA_API_KEY", "YOUR_API_KEY_HERE").strip()
+HTTP_TIMEOUT = 10  # segundos
+BASE_URL     = "https://api.football-data.org/v4/teams"
+
+# ---------------------------------------------------------------------------
+# Hiperparámetros del matcher
+# ---------------------------------------------------------------------------
+# Jaccard mínimo para que la Capa 2 acepte el match por intersección de tokens.
+THRESHOLD_JACCARD: float = 0.60
+# Ratio mínimo de SequenceMatcher para que la Capa 3 acepte el match difuso.
+THRESHOLD_FUZZY: float = 0.80
+
+# Tokens que no aportan identidad al nombre del club.
+# REGLA: solo se eliminan siglas/abreviaturas estructurales que NUNCA forman
+# parte del nombre semántico de un club. Palabras como "real", "united",
+# "city" o "sporting" se conservan porque SÍ diferencian clubes entre sí.
+SPORT_STOPWORDS: frozenset[str] = frozenset({
+    # Siglas organizativas puras
+    "fc", "fk", "sk", "sc", "tc", "sfc", "afc", "bsc", "rsc",
+    "bfc", "cfc", "nfc", "hfc",
+    # Abreviaturas con puntos (post-normalización ya estarán sin acento)
+    "f.c.", "f.c", "a.f.c.", "s.s.c.", "s.s.",
+    # Preposiciones y artículos que no distinguen clubes
+    "de", "del", "la", "le", "el", "los", "las", "the",
+    # Sustantivo genérico
+    "as",
+})
 
 
 # ---------------------------------------------------------------------------
@@ -65,7 +87,13 @@ def _setup_logging() -> logging.Logger:
     file_handler = logging.FileHandler(LOG_PATH, encoding="utf-8")
     file_handler.setFormatter(fmt)
 
-    console_handler = logging.StreamHandler(sys.stdout)
+    # En Windows la consola puede ser cp1252; forzamos UTF-8 para evitar
+    # UnicodeEncodeError con nombres de clubes con caracteres especiales.
+    import io
+    console_stream = io.TextIOWrapper(
+        sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True
+    ) if hasattr(sys.stdout, "buffer") else sys.stdout
+    console_handler = logging.StreamHandler(console_stream)
     console_handler.setFormatter(fmt)
 
     logger = logging.getLogger("fetch_crests")
@@ -77,26 +105,198 @@ def _setup_logging() -> logging.Logger:
 
 log = _setup_logging()
 
+
 # ---------------------------------------------------------------------------
-# Normalización de texto
+# REQ. 1 – Normalización de texto con limpieza de stopwords
 # ---------------------------------------------------------------------------
+def _strip_accents(text: str) -> str:
+    """
+    Paso 1 – Descompone Unicode (NFKD) y elimina diacríticos.
+
+    Ejemplo: "Ferencváros TC" → "Ferencvaros TC"
+    """
+    nfkd = unicodedata.normalize("NFKD", text)
+    return "".join(c for c in nfkd if not unicodedata.combining(c))
+
+
 def normalize_text(text: str) -> str:
     """
-    Normaliza una cadena de texto para comparaciones flexibles:
-      1. Descompone caracteres Unicode (NFKD) para separar letras de diacríticos.
-      2. Elimina todos los caracteres de combinación (acentos, tildes, etc.).
-      3. Aplica strip() para eliminar espacios redundantes.
-      4. Convierte a minúsculas.
+    Normalización base: desacentúa, pasa a minúsculas y hace strip.
+
+    No elimina stopwords —eso lo hace `clean_tokens()` como paso separado—
+    para permitir que las comparaciones de la Capa 1 sean sobre el núcleo limpio.
 
     Ejemplo:
-      "Atlético de Madrid" → "atletico de madrid"
-      "Ferencváros TC"     → "ferencvaros tc"
+      "Atlético de Madrid FC" → "atletico de madrid fc"
     """
     if not text or not isinstance(text, str):
         return ""
-    nfkd = unicodedata.normalize("NFKD", text)
-    ascii_only = "".join(c for c in nfkd if not unicodedata.combining(c))
-    return ascii_only.strip().lower()
+    return _strip_accents(text).strip().lower()
+
+
+def clean_tokens(normalized: str) -> str:
+    """
+    Paso 2 – Tokeniza por espacios y elimina las stopwords deportivas.
+
+    La remoción se realiza únicamente sobre *tokens completos* (comparación
+    de igualdad), nunca como substring, para no destruir palabras cortas que
+    contengan parcialmente una sigla (e.g. "nice", "standard").
+
+    Ejemplo:
+      "atletico de madrid fc" → "madrid"   (tokens: atletico, de, madrid, fc)
+      "nice fc"               → "nice"     ("nice" no está en SPORT_STOPWORDS)
+      "standard liege sc"     → "standard liege"
+    """
+    tokens = normalized.split()
+    meaningful = [t for t in tokens if t not in SPORT_STOPWORDS]
+    # Si la limpieza dejó el string vacío (todos tokens eran stopwords),
+    # devolvemos el original para no perder la cadena completa.
+    return " ".join(meaningful) if meaningful else normalized
+
+
+def full_normalize(text: str) -> str:
+    """Combina `normalize_text` + `clean_tokens` en un solo paso."""
+    return clean_tokens(normalize_text(text))
+
+
+# ---------------------------------------------------------------------------
+# REQ. 2 – Manejo de entradas compuestas (split por '/')
+# ---------------------------------------------------------------------------
+def split_compound(name: str) -> list[str]:
+    """
+    Si el nombre contiene '/', lo divide en sub-nombres independientes y
+    retorna cada uno ya con strip aplicado.
+
+    Ejemplo:
+      "Fenerbahçe SK/Betis"      → ["Fenerbahçe SK", "Betis"]
+      "West Ham United/Marsella" → ["West Ham United", "Marsella"]
+      "Arsenal"                  → ["Arsenal"]
+    """
+    if "/" in name:
+        parts = [p.strip() for p in name.split("/") if p.strip()]
+        return parts if parts else [name]
+    return [name]
+
+
+# ---------------------------------------------------------------------------
+# REQ. 3 – Matching heurístico por capas
+# ---------------------------------------------------------------------------
+def _jaccard(set_a: set[str], set_b: set[str]) -> float:
+    """
+    Índice de Jaccard entre dos conjuntos de tokens.
+
+    J(A, B) = |A ∩ B| / |A ∪ B|
+
+    Retorna 0.0 si la unión es vacía para evitar división por cero.
+    """
+    if not set_a or not set_b:
+        return 0.0
+    intersection = set_a & set_b
+    union = set_a | set_b
+    return len(intersection) / len(union)
+
+
+def _fuzzy_ratio(a: str, b: str) -> float:
+    """
+    Similitud morfológica usando difflib.SequenceMatcher.
+
+    SequenceMatcher cuenta la cantidad de caracteres en subcadenas comunes más
+    largas y calcula:
+        ratio = 2 * |bloques_comunes| / (len(a) + len(b))
+
+    Ejemplo:
+      "bayern munich" vs "fc bayern munchen" (clean) → ratio ≈ 0.82
+    """
+    if not a or not b:
+        return 0.0
+    return difflib.SequenceMatcher(None, a, b).ratio()
+
+
+def _match_single(local_clean: str, api_teams_processed: list[dict]) -> dict | None:
+    """
+    Ejecuta el pipeline de 3 capas para un único nombre local ya normalizado
+    y sin stopwords.
+
+    Capa 1 – Identidad absoluta (ratio = 1.0):
+        clean_local == clean_api_name  OR  clean_local == clean_api_short
+
+    Capa 2 – Intersección de tokens (ratio ≥ THRESHOLD_JACCARD):
+        a) El set local es subconjunto del set API: tokens_local ⊆ tokens_api
+           Esto captura "milan" ⊆ {"ac", "milan"} → True
+        b) Jaccard(tokens_local, tokens_api) ≥ THRESHOLD_JACCARD
+           Útil cuando los nombres comparten la mayoría de tokens pero en distinto
+           orden o con tokens extra en ambos lados.
+
+    Capa 3 – Fuzzy morphological (SequenceMatcher ≥ THRESHOLD_FUZZY):
+        Captura variaciones de spelling o transliteración ("munich" vs "munchen").
+    """
+    if not local_clean:
+        return None
+
+    local_tokens = set(local_clean.split())
+
+    # Pre-compute candidate list once
+    for api_team in api_teams_processed:
+        api_name  = api_team["name_clean"]
+        api_short = api_team["short_clean"]
+        api_name_tokens  = set(api_name.split())  if api_name  else set()
+        api_short_tokens = set(api_short.split()) if api_short else set()
+
+        # --- CAPA 1: Identidad absoluta ---
+        if local_clean == api_name or local_clean == api_short:
+            log.debug("  [L1-exacto] '%s' == '%s'", local_clean, api_name or api_short)
+            return api_team
+
+        # --- CAPA 2: Intersección de tokens ---
+        # 2a) Subconjunto
+        if local_tokens and (
+            (api_name_tokens  and local_tokens <= api_name_tokens)
+            or (api_short_tokens and local_tokens <= api_short_tokens)
+        ):
+            log.debug("  [L2-subset] '%s' ⊆ '%s'", local_clean, api_name)
+            return api_team
+        # 2b) Jaccard
+        j_name  = _jaccard(local_tokens, api_name_tokens)
+        j_short = _jaccard(local_tokens, api_short_tokens)
+        if max(j_name, j_short) >= THRESHOLD_JACCARD:
+            best = api_name if j_name >= j_short else api_short
+            log.debug(
+                "  [L2-jaccard] '%s' ~ '%s'  J=%.2f",
+                local_clean, best, max(j_name, j_short),
+            )
+            return api_team
+
+        # --- CAPA 3: Similitud morfológica (fuzzy) ---
+        r_name  = _fuzzy_ratio(local_clean, api_name)
+        r_short = _fuzzy_ratio(local_clean, api_short)
+        best_r  = max(r_name, r_short)
+        if best_r >= THRESHOLD_FUZZY:
+            best = api_name if r_name >= r_short else api_short
+            log.debug(
+                "  [L3-fuzzy] '%s' ~ '%s'  ratio=%.2f",
+                local_clean, best, best_r,
+            )
+            return api_team
+
+    return None
+
+
+def find_match(local_name: str, api_teams_processed: list[dict]) -> dict | None:
+    """
+    Punto de entrada del matcher.
+
+    Combina REQ. 2 (split de entradas compuestas) con el pipeline de 3 capas:
+    - Divide `local_name` si contiene '/'.
+    - Evalúa cada sub-nombre de forma independiente.
+    - Retorna el primer match positivo (cualquier sub-nombre es suficiente).
+    """
+    for sub_name in split_compound(local_name):
+        local_clean = full_normalize(sub_name)
+        result = _match_single(local_clean, api_teams_processed)
+        if result:
+            return result
+    return None
+
 
 # ---------------------------------------------------------------------------
 # Carga del archivo de entrada
@@ -119,13 +319,11 @@ def load_local_teams() -> list[str]:
         log.error("Error al parsear el JSON de entrada: %s", err)
         sys.exit(1)
 
-    # Soporte para lista de strings
     if isinstance(data, list):
         teams = [t for t in data if t and isinstance(t, str)]
         log.info("Cargados %d equipos desde %s", len(teams), INPUT_PATH.name)
         return teams
 
-    # Soporte para objeto con clave "equipo_buscado"
     if isinstance(data, dict) and "equipo_buscado" in data:
         team_name = str(data["equipo_buscado"]).strip()
         if not team_name:
@@ -140,140 +338,141 @@ def load_local_teams() -> list[str]:
     )
     sys.exit(1)
 
+
 # ---------------------------------------------------------------------------
-# Fetching con paginación
+# Fetching desde la API
 # ---------------------------------------------------------------------------
 def fetch_all_teams_from_api() -> list[dict]:
     """
-    Recupera todos los equipos disponibles del endpoint /v4/teams/
-    mediante paginación automática (offset + limit).
+    Recupera equipos de la API de Football-Data.org.
 
-    Maneja errores HTTP comunes:
-    Recupera todos los equipos disponibles del endpoint /v4/competitions/{id}/teams
-    Maneja el fallback a la API general si la competición no es accesible.
+    Estrategia:
+    1. Obtiene la lista de competiciones y recupera sus equipos.
+    2. Respaldo: itera el endpoint genérico /v4/teams con paginación.
+    3. Fusiona ambos conjuntos eliminando duplicados por ID de equipo.
     """
     if API_KEY == "YOUR_API_KEY_HERE":
         log.error("API Key no configurada.")
         sys.exit(1)
 
-    headers = {"X-Auth-Token": API_KEY}
-    log.info("Iniciando descarga de equipos...")
+    headers  = {"X-Auth-Token": API_KEY}
+    all_teams: list[dict] = []
+    seen_ids: set = set()
 
+    # 1. Equipos por competición
     try:
-        response = requests.get(BASE_URL, headers=headers, timeout=HTTP_TIMEOUT)
-        response.raise_for_status()
-    except requests.exceptions.HTTPError as err:
-        # If the API returns 400, it likely does not accept pagination params
-        if response.status_code == 400:
-            log.info("API returned 400 with pagination params – retrying without params.")
-            # Retry without any query parameters
-            response = requests.get(BASE_URL, headers=headers, timeout=HTTP_TIMEOUT)
-            response.raise_for_status()
-        else:
-            log.error("Error HTTP inesperado: %s", err)
-            sys.exit(1)
-    # Parse response (should contain a list of teams)
-    try:
-        payload = response.json()
-    except ValueError:
-        log.error("La respuesta de la API no es JSON válido.")
+        comps_resp = requests.get(
+            "https://api.football-data.org/v4/competitions",
+            headers=headers,
+            timeout=HTTP_TIMEOUT,
+        )
+        comps_resp.raise_for_status()
+        competitions = comps_resp.json().get("competitions", [])
+    except Exception as err:
+        log.error("Error al obtener competiciones: %s", err)
         sys.exit(1)
-    # Some API versions return the list directly, others wrap it under 'teams'
-    teams = payload.get("teams", payload if isinstance(payload, list) else [])
-    if not teams:
-        log.warning("No se recibieron equipos de la API.")
+
+    for comp in competitions:
+        comp_id   = comp.get("id")
+        comp_name = comp.get("name", "<sin nombre>")
+        if not comp_id:
+            continue
+        try:
+            resp = requests.get(
+                f"https://api.football-data.org/v4/competitions/{comp_id}/teams",
+                headers=headers,
+                timeout=HTTP_TIMEOUT,
+            )
+            resp.raise_for_status()
+            teams = resp.json().get("teams", [])
+            for team in teams:
+                tid = team.get("id")
+                if tid and tid not in seen_ids:
+                    all_teams.append(team)
+                    seen_ids.add(tid)
+            log.info("Competición '%s': %d equipos.", comp_name, len(teams))
+        except Exception as err:
+            log.warning("No se pudieron obtener equipos de '%s': %s", comp_name, err)
+
+    # 2. Respaldo: paginación genérica /v4/teams
+    limit, offset = 200, 0
+    while True:
+        try:
+            resp = requests.get(
+                f"{BASE_URL}?limit={limit}&offset={offset}",
+                headers=headers,
+                timeout=HTTP_TIMEOUT,
+            )
+            resp.raise_for_status()
+        except Exception as err:
+            log.warning("Paginación detenida en offset %d: %s", offset, err)
+            break
+
+        payload = resp.json()
+        batch   = payload.get("teams", payload if isinstance(payload, list) else [])
+        if not batch:
+            break
+        for team in batch:
+            tid = team.get("id")
+            if tid and tid not in seen_ids:
+                all_teams.append(team)
+                seen_ids.add(tid)
+        log.info("Paginación offset=%d: %d equipos en el batch.", offset, len(batch))
+        offset += limit
+
+    if not all_teams:
+        log.warning("No se obtuvieron equipos de la API.")
     else:
-        log.info("Se obtuvieron %d equipos de la API.", len(teams))
-    return teams
+        log.info("Total equipos únicos recopilados: %d", len(all_teams))
+    return all_teams
+
 
 # ---------------------------------------------------------------------------
 # Pre-procesamiento de equipos de la API
 # ---------------------------------------------------------------------------
 def preprocess_api_teams(api_teams: list[dict]) -> list[dict]:
     """
-    Normaliza los campos `name` y `shortName` de cada equipo de la API
-    y los almacena junto con el crest y el nombre original para el matching.
+    Normaliza y limpia los campos `name` y `shortName` de cada equipo.
 
-    Args:
-        api_teams: Lista de objetos de equipos crudos devueltos por la API.
-
-    Returns:
-        Lista de dicts con claves: name_norm, short_norm, crest, original_name.
+    Genera las claves:
+      - name_clean  : full_normalize(name)
+      - short_clean : full_normalize(shortName)
+      - crest       : URL del escudo (puede ser None)
+      - original_name: nombre sin modificar para reportes
     """
     processed = []
     for team in api_teams:
-        name       = team.get("name") or ""
-        short_name = team.get("shortName") or ""
-        crest      = team.get("crest") or None
+        name       = team.get("name")       or ""
+        short_name = team.get("shortName")  or ""
+        crest      = team.get("crest")      or None
 
         processed.append({
-            "name_norm":     normalize_text(name),
-            "short_norm":    normalize_text(short_name),
+            "name_clean":    full_normalize(name),
+            "short_clean":   full_normalize(short_name),
             "crest":         crest,
             "original_name": name,
         })
     return processed
 
-# ---------------------------------------------------------------------------
-# Matching flexible
-# ---------------------------------------------------------------------------
-def find_match(local_norm: str, api_teams_processed: list[dict]) -> dict | None:
-    """
-    Busca la primera coincidencia entre el nombre local normalizado y los
-    equipos de la API, usando las siguientes reglas (en orden de prioridad):
-
-      1. Igualdad exacta con `name` normalizado.
-      2. Igualdad exacta con `shortName` normalizado.
-      3. Nombre local contenido dentro de `name` de la API.
-      4. Nombre local contenido dentro de `shortName` de la API.
-      5. `name` de la API contenido dentro del nombre local.
-      6. `shortName` de la API contenido dentro del nombre local.
-
-    Args:
-        local_norm:           Nombre local ya normalizado.
-        api_teams_processed:  Lista pre-procesada de equipos de la API.
-
-    Returns:
-        El primer dict de equipo que cumple alguna condición, o None si no hay match.
-    """
-    if not local_norm:
-        return None
-
-    for api_team in api_teams_processed:
-        api_name  = api_team["name_norm"]
-        api_short = api_team["short_norm"]
-
-        if (
-            local_norm == api_name
-            or local_norm == api_short
-            or (api_name  and local_norm in api_name)
-            or (api_short and local_norm in api_short)
-            or (api_name  and api_name  in local_norm)
-            or (api_short and api_short in local_norm)
-        ):
-            return api_team
-
-    return None
 
 # ---------------------------------------------------------------------------
 # Guardado del resultado
 # ---------------------------------------------------------------------------
 def save_output(results: list[dict]) -> None:
-    """
-    Crea el directorio de salida si no existe y escribe `teams.json`
-    con la lista de equipos y sus crests.
-
-    Args:
-        results: Lista de dicts {"team": "...", "crest": "..."}.
-    """
+    """Escribe `teams.json` con la lista de equipos y sus crests."""
     try:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
-        log.info("Archivo generado exitosamente: %s (%d entradas)", OUTPUT_PATH, len(results))
+        log.info(
+            "Archivo generado exitosamente: %s (%d entradas)",
+            OUTPUT_PATH,
+            len(results),
+        )
     except OSError as err:
         log.error("Error al escribir el archivo de salida: %s", err)
         sys.exit(1)
+
 
 # ---------------------------------------------------------------------------
 # Punto de entrada principal
@@ -281,18 +480,19 @@ def save_output(results: list[dict]) -> None:
 def main() -> None:
     log.info("=" * 60)
     log.info("Inicio de fetch_footballdata_crests.py")
+    log.info("Threshold Jaccard: %.2f | Threshold Fuzzy: %.2f", THRESHOLD_JACCARD, THRESHOLD_FUZZY)
     log.info("=" * 60)
 
     # 1. Cargar lista de equipos locales
     local_teams = load_local_teams()
 
-    # 2. Descargar todos los equipos de la API (con paginación)
+    # 2. Descargar todos los equipos de la API
     api_teams_raw = fetch_all_teams_from_api()
     if not api_teams_raw:
         log.error("No se obtuvieron equipos de la API. Abortando.")
         sys.exit(1)
 
-    # 3. Pre-procesar (normalizar) equipos de la API una sola vez
+    # 3. Pre-procesar (normalizar + limpiar stopwords) equipos de la API
     api_teams_processed = preprocess_api_teams(api_teams_raw)
 
     # 4. Iterar equipos locales y realizar el matching
@@ -300,17 +500,17 @@ def main() -> None:
     unmatched: list[str]  = []
 
     for local_name in local_teams:
-        local_norm = normalize_text(local_name)
-        result     = find_match(local_norm, api_teams_processed)
+        result = find_match(local_name, api_teams_processed)
 
         if result:
             crest = result["crest"]
             matched.append({"team": local_name, "crest": crest})
 
             if crest:
-                log.info("MATCH: %-45s → %s", local_name, crest[:60] + "..." if len(crest) > 60 else crest)
+                preview = crest[:60] + "..." if len(crest) > 60 else crest
+                log.info("MATCH: %-45s → %s", local_name, preview)
             else:
-                log.warning("MATCH SIN CREST: %s (la API no devolvió URL de escudo)", local_name)
+                log.warning("MATCH SIN CREST: %s", local_name)
         else:
             unmatched.append(local_name)
             log.warning("SIN COINCIDENCIA: %s", local_name)
