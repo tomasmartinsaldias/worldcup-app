@@ -262,6 +262,22 @@ def save_cluster_map(player_names, overalls, labels, representatives, features, 
 
     print(f"  --> Mapa arquetipos guardado: {filepath} ({len(records)} jugadores)")
 
+def save_centroid_map(centroids, position, output_dir):
+    """Persist the centroids of KMeans clusters for a position to a JSON file.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    filename = f"kmeans_{position.lower()}_centroids.json"
+    filepath = os.path.join(output_dir, filename)
+    records = []
+    for idx, centroid in enumerate(centroids):
+        records.append({
+            "cluster_id": idx + 1,
+            "centroid": [round(float(v), 6) for v in centroid]
+        })
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, indent=4)
+    print(f"  --> Centroid map guardado: {filepath} ({len(records)} clusters)")
+
 
 def main():
     positions = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Strikers', 'Wingers']
@@ -343,6 +359,8 @@ def main():
                 kmeans_arch_engine.labels_, kmeans_arch_reps,
                 features, position, output_dir
             )
+            # Guardar centroides de los clusters
+            save_centroid_map(kmeans_arch_engine.model.cluster_centers_, position, output_dir)
 
             print() # Espacio entre posiciones
             
