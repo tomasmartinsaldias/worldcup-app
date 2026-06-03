@@ -1,926 +1,983 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="img/logo.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mundial 2026 – Match Recommender & Squad Analytics</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="description"
-    content="Descubre los partidos más atractivos e intensos del Mundial 2026. Analiza el valor de plantillas, xG, posesión y estado de forma.">
-  <meta property="og:title" content="Mundial 2026 – Match Recommender">
-  <meta property="og:description"
-    content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
-  <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  <title>MundialPick — La Gloria Eterna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: #030303;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden; /* Sin scroll para la experiencia landing pura */
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    /* Contenedor del canvas 3D y partículas */
+    #canvas-container {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+    }
 
+    /* Viñeta oscura para enfocar el centro y ocultar imperfecciones de los bordes */
+    .vignette {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% 50%, transparent 15%, #030303 85%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Contenedor de la interfaz (Textos laterales) */
+    .hero-ui {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6rem;
+      pointer-events: none; /* Para que el mouse interactúe con el canvas 3D */
+    }
+
+    .hero-text-block {
+      max-width: 350px;
+      pointer-events: auto; /* Permitir selección de texto / clics */
+    }
+
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+
+    .epic-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff 0%, #7a7a7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .epic-text-right {
+      background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out 0.5s forwards;
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInIndicator {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    /* Botón de continuar animado */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeInIndicator 2s ease-out 1.5s forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      transition: color 0.3s;
+      margin-right: -3px; /* Compensa el letter-spacing extra a la derecha */
+    }
+
+    .scroll-indicator:hover span {
+      color: #f5d061;
+    }
+
+    .mouse-outline {
+      width: 22px; height: 36px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      position: relative;
+      display: flex; justify-content: center;
+      transition: border-color 0.3s;
+    }
+    
+    .scroll-indicator:hover .mouse-outline {
+      border-color: #8a7330;
+    }
+
+    .scroll-wheel {
+      width: 2px; height: 6px;
+      background-color: #999;
+      border-radius: 2px;
+      margin-top: 6px;
+      animation: scrollWheel 1.5s infinite;
+    }
+
+    @keyframes scrollWheel {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(12px); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-ui {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5rem 2rem 8rem 2rem;
+      }
+      .hero-text-block { text-align: center; max-width: 100%; }
+      .epic-text { font-size: 2.8rem; }
+    }
+
+    /* --- OVERLAYS UI --- */
+    .ui-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 10;
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+    .ui-overlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overlay-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .overlay-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: #999;
+      margin-bottom: 4rem;
+    }
+
+    /* --- TARJETAS ESPECTADOR --- */
+    .cards-grid {
+      display: flex;
+      gap: 2rem;
+      max-width: 1000px;
+    }
+    .spectator-card {
+      position: relative;
+      width: 280px;
+      padding: 2.5rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(25, 25, 25, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s, box-shadow 0.4s;
+    }
+    .spectator-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .spectator-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #888;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+    .card-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, var(--accent-color) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+    .spectator-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--accent-color-glow);
+    }
+    .spectator-card:hover .card-glow {
+      opacity: 0.15;
+    }
+
+    .card-casual { --accent-color: #00ff66; --accent-color-glow: rgba(0, 255, 102, 0.3); }
+    .card-intermedio { --accent-color: #ff2a2a; --accent-color-glow: rgba(255, 42, 42, 0.3); }
+    .card-fanatico { 
+      --accent-color: #0088ff; 
+      --accent-color-glow: rgba(0, 136, 255, 0.5); 
+      /* Tratamiento Premium Fanático */
+      border: 1px solid rgba(0, 136, 255, 0.4);
+      box-shadow: 0 0 25px rgba(0, 136, 255, 0.15) inset, 0 0 15px rgba(0, 136, 255, 0.2);
+    }
+    .card-fanatico .card-glow {
+      opacity: 0.1; /* Resplandor constante */
+    }
+
+    /* --- QUIZ CASUAL --- */
+    .cq-flow .quiz-container {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(15, 15, 15, 0.6);
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(0, 255, 102, 0.05) inset;
+    }
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+    .quiz-progress-bar {
+      flex-grow: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      margin-right: 2rem;
+      overflow: hidden;
+    }
+    .quiz-progress {
+      height: 100%;
+      width: 33%;
+      background: #00ff66;
+      box-shadow: 0 0 10px #00ff66;
+      transition: width 0.5s ease;
+    }
+    .quiz-header span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #00ff66;
+    }
+
+    .quiz-step {
+      display: none;
+      animation: fadeInStep 0.5s ease forwards;
+    }
+    .quiz-step.active {
+      display: block;
+    }
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-question {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .quiz-desc {
+      font-family: 'Inter', sans-serif;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .quiz-option {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.2rem;
+      border-radius: 8px;
+      color: #ccc;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .quiz-option:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .quiz-option.selected {
+      background: rgba(0, 255, 102, 0.05);
+      border-color: #00ff66;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15) inset;
+    }
+
+    .quiz-btn-next {
+      width: 100%;
+      padding: 1.2rem;
+      background: #00ff66;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .quiz-btn-next:disabled {
+      background: rgba(255,255,255,0.1);
+      color: #555;
+      cursor: not-allowed;
+    }
+    .quiz-btn-next:not(:disabled):hover {
+      background: #33ff88;
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+    }
+
+    /* Transition hero ui out */
+    .hero-ui.fade-out {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .scroll-indicator.fade-out {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+  </style>
+</head>
 <body>
 
-  <!-- App Header & Navigation -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="logo" id="app-logo">
-        <img src="img/logo.png" alt="Mundial 2026" class="official-logo">
-        <span>Mundial 2026</span>
-      </a>
-      <nav class="nav-links">
-        <button class="nav-btn active" data-tab="recommender">
-          <i class="fa-solid fa-star"></i> Recomendador
-        </button>
-        <button class="nav-btn" data-tab="groups">
-          <i class="fa-solid fa-circle-nodes"></i> Grupos
-        </button>
-        <button class="nav-btn" data-tab="squads">
-          <i class="fa-solid fa-users"></i> Planteles
-        </button>
-        <button class="nav-btn" data-tab="unresolved">
-          <i class="fa-solid fa-circle-question"></i> No Resueltos
-        </button>
-      </nav>
-      <button id="btn-theme-toggle" class="btn-theme-toggle" title="Cambiar tema (Claro/Oscuro)">
-        <i class="fa-solid fa-sun"></i>
-      </button>
+  <!-- Contenedores -->
+  <div id="canvas-container"></div>
+  <div class="vignette"></div>
+
+  <!-- UI Superpuesta -->
+  <div class="hero-ui">
+    <div class="hero-text-block text-left">
+      <div class="subtitle">FIFA World Cup 26</div>
+      <h1 class="epic-text">La gloria<br>eterna a<br>un paso.</h1>
     </div>
-  </header>
 
-  <!-- Main Content Container -->
-  <main class="app-container">
+    <div class="hero-text-block text-right">
+      <div class="subtitle">Tu experiencia</div>
+      <h1 class="epic-text epic-text-right">Descubre<br>tu destino<br>en la cancha.</h1>
+    </div>
+  </div>
 
-    <!-- 1. Match Recommender Tab -->
-    <section id="tab-recommender" class="tab-panel active">
-      <!-- Hero Mundial -->
-      <div class="hero-mundial">
-        <div class="hero-mundial__bg"></div>
-        <img src="img/descarga.png" class="hero-mundial__center-logo" alt="Logo Mundial 2026">
-        <div class="hero-mundial__content">
-          <span class="hero-mundial__eyebrow">FIFA World Cup 2026™</span>
-          <h1 class="hero-mundial__title">
-            Descubrí<br />
-            <em>TUS</em> mejores<br />
-            partidos
-          </h1>
-          <p class="hero-mundial__subtitle">
-            Encontrá los partidos que más te van a emocionar según tus preferencias.
-          </p>
-        </div>
+  <div class="scroll-indicator" onclick="startExperience()">
+    <span>Comenzar</span>
+    <div class="mouse-outline">
+      <div class="scroll-wheel"></div>
+    </div>
+  </div>
+
+  <!-- OVERLAYS UI -->
+  <div id="spectator-selection" class="ui-overlay hidden">
+    <h2 class="overlay-title">ELIGE TU NIVEL</h2>
+    <p class="overlay-subtitle">Elige cómo vas a vivir el mundial para personalizar tu experiencia.</p>
+    <div class="cards-grid">
+      <div class="spectator-card card-casual" onclick="startQuiz('casual')">
+        <h3>CASUAL</h3>
+        <p>Disfrutas los partidos importantes, pero no sigues el día a día.</p>
+        <div class="card-glow"></div>
       </div>
-
-      <!-- Panel Modes: Recommender + Swipe -->
-      <div class="panel-modes-container">
-        <!-- Panel A: Recommender Clásico -->
-        <div class="panel-mode panel-mode--recommender" style="display: flex; flex-direction: column; gap: 1rem;">
-          <div class="panel-mode__badge" style="align-self: flex-start;">Recomendador</div>
-          <h2 class="panel-mode__title">Descubrí TUS mejores partidos</h2>
-          <p class="panel-mode__desc">Respondé un quiz rápido o ajustá tus preferencias tácticas:</p>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button class="btn-mundial btn-mundial--green" id="btn-open-quiz" style="padding: 0.6rem 1.25rem;">
-              Empezar Quiz
-            </button>
-            <button class="btn-mundial btn-mundial--outline" id="btn-open-tactical"
-              style="padding: 0.6rem 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-              <i class="fa-solid fa-sliders"></i> Estilo de Juego
-            </button>
-            <button class="btn-mundial btn-mundial--outline" id="btn-open-preferences"
-              style="padding: 0.6rem 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-              <i class="fa-solid fa-gears"></i> Ajustes de Recomendación
-            </button>
-          </div>
-        </div>
-
-        <!-- Panel B: Modo Swipe -->
-        <div class="panel-mode panel-mode--swipe">
-          <div class="panel-mode__badge panel-mode__badge--beta">⚡ Beta</div>
-          <h2 class="panel-mode__title">Modo Swipe</h2>
-          <p class="panel-mode__desc">Deslizá para elegir los partidos que más te interesan. Rápido y divertido.</p>
-          <a href="recommender.html" class="btn-mundial btn-mundial--swipe">
-            <i class="fa-solid fa-fire"></i> Modo Swipe
-          </a>
-
-        </div>
+      <div class="spectator-card card-intermedio">
+        <h3>INTERMEDIO</h3>
+        <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
+        <div class="card-glow"></div>
       </div>
-
-
-      <!-- Filters Panel -->
-      <div class="filters-bar">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="search-matches" class="search-input"
-            placeholder="Buscar selecciones, estadios o grupos...">
-        </div>
-        <div class="filter-groups">
-          <select id="filter-stage" class="filter-select">
-            <option value="all">Todas las Fases</option>
-            <option value="Group Stage">Fase de Grupos</option>
-            <option value="Knockout">Fases de Eliminación</option>
-          </select>
-          <select id="filter-region" class="filter-select">
-            <option value="all">Todas las Regiones</option>
-            <option value="East">Este (Miami, Boston, NY/NJ, etc)</option>
-            <option value="Central">Central (CDMX, Dallas, Houston, etc)</option>
-            <option value="West">Oeste (LA, SF, Seattle, Vancouver)</option>
-          </select>
-          <select id="sort-matches" class="filter-select">
-            <option value="interest-desc">Interés: Mayor a Menor</option>
-            <option value="match-asc">Número de Partido (Orden Cronológico)</option>
-            <option value="value-desc">Valor de Plantilla Combinado</option>
-            <option value="cards-desc">Intensidad (Tarjetas Históricas)</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Match Cards Grid -->
-      <div class="matches-grid" id="matches-container">
-        <!-- Match Cards populated by Javascript -->
-        <div class="no-history-msg">Cargando partidos del Mundial 2026...</div>
-      </div>
-    </section>
-
-    <!-- 6. Tactical Config Immersive View -->
-    <section id="tab-tactical" class="tab-panel" style="padding: 3rem 1.5rem; max-width: 900px; margin: 0 auto;">
-      <!-- Back Button -->
-      <button class="back-btn" id="back-to-recommender-btn"
-        style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); padding: 0.6rem 1.2rem; border-radius: 50px; color: var(--text-primary); cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-weight: bold; transition: var(--transition-fast); margin-bottom: 2.5rem;">
-        <i class="fa-solid fa-arrow-left"></i> Volver a Recomendador
-      </button>
-
-      <!-- Centered Header -->
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <h1 class="glitch-text" data-text="ESTILO DE JUEGO"
-          style="font-size: 2.8rem; font-weight: 900; font-family: var(--font-primary); color: white; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0;">
-          Estilo de Juego</h1>
-        <p
-          style="color: var(--text-secondary); font-family: var(--font-secondary); font-size: 1.1rem; max-width: 500px; margin: 0 auto;">
-          Definí la propuesta táctica que preferís y encontrá tus partidos ideales.</p>
-      </div>
-
-      <!-- Mode Selector: Arquetipos vs Ser el DT -->
-      <div class="tactical-mode-selector-wrapper"
-        style="display: flex; justify-content: center; margin-bottom: 3.5rem;">
-        <div class="tactical-mode-selector"
-          style="display: inline-flex; gap: 0.35rem; background: rgba(255, 255, 255, 0.03); padding: 0.35rem; border-radius: 50px; border: 1.5px solid var(--border-glass);">
-          <button class="mode-toggle-btn active" id="btn-tactical-casual" type="button"
-            style="padding: 0.75rem 2rem; border: none; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 0.95rem; background: var(--wc-red); color: white; transition: var(--transition-fast);">Arquetipos
-            Históricos</button>
-          <button class="mode-toggle-btn" id="btn-tactical-analyst" type="button"
-            style="padding: 0.75rem 2rem; border: none; border-radius: 50px; cursor: pointer; font-weight: 800; font-size: 0.95rem; background: transparent; color: var(--text-secondary); transition: var(--transition-fast);">Ser
-            el DT (Personalizado)</button>
-        </div>
-      </div>
-
-      <!-- VISTA A: Carrusel de Arquetipos -->
-      <div id="view-tactical-casual" class="tactical-subview" style="display: block;">
-        <div class="carousel-outer-wrapper"
-          style="display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin: 0 auto; width: 100%; position: relative;">
-          <!-- Left Arrow -->
-          <button class="carousel-arrow" id="carousel-prev-btn"
-            style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem; transition: var(--transition-fast); flex-shrink: 0;"><i
-              class="fa-solid fa-chevron-left"></i></button>
-
-          <!-- Center Immersive Content -->
-          <div class="archetype-carousel-card"
-            style="flex: 1; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); display: flex; flex-direction: column; gap: 2rem; align-items: center; min-height: 520px; justify-content: space-between; position: relative;">
-
-            <div style="text-align: center; width: 100%;">
-              <h2 id="carousel-title"
-                style="font-size: 2.5rem; font-weight: 900; color: var(--accent-gold); margin: 0 0 0.25rem 0; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-primary);">
-                Tiki-Taka</h2>
-              <h4 id="carousel-subtitle"
-                style="font-size: 1.25rem; color: var(--text-secondary); margin: 0 0 1.5rem 0; font-weight: 600; font-family: var(--font-primary);">
-                Juego de Posición y Dominio</h4>
-
-              <!-- Imagen / Ilustración del Arquetipo (Premium Tactical Field Render) -->
-              <div class="archetype-illustration"
-                style="margin: 1.5rem 0; display: flex; align-items: center; justify-content: center;">
-                <div id="archetype-graphic-container"
-                  style="width: 200px; height: 120px; border-radius: 12px; background: rgba(0,0,0,0.4); border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 0 30px rgba(251,191,36,0.15); transition: var(--transition-slow);">
-                  <!-- Dynamic SVG field layout injected here -->
-                </div>
-              </div>
-
-              <p id="carousel-desc"
-                style="font-size: 1.15rem; color: var(--text-primary); line-height: 1.7; margin: 0 auto; max-width: 520px; font-family: var(--font-secondary);">
-                Monopolio del balón, pases cortos, paciencia para desorganizar, uso de toda la cancha y presión
-                asfixiante.</p>
-            </div>
-
-            <!-- Vector Display Metrics -->
-            <div id="carousel-vector-metrics"
-              style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; border-top: 1px solid var(--border-glass); padding-top: 1.75rem; margin-top: 1rem;">
-              <!-- Populated dynamically with mini visual status bars -->
-            </div>
-
-            <button class="btn-mundial btn-mundial--green" id="btn-select-archetype"
-              style="margin-top: 1.5rem; padding: 0.9rem 3.5rem; font-size: 1.15rem; font-weight: 800; box-shadow: var(--shadow-neon); border-radius: 50px;">Seleccionar
-              Estilo</button>
-          </div>
-
-          <!-- Right Arrow -->
-          <button class="carousel-arrow" id="carousel-next-btn"
-            style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem; transition: var(--transition-fast); flex-shrink: 0;"><i
-              class="fa-solid fa-chevron-right"></i></button>
-        </div>
-      </div>
-
-      <!-- VISTA B: Personalizar / Sliders -->
-      <div id="view-tactical-analyst" class="tactical-subview"
-        style="display: none; max-width: 650px; margin: 0 auto; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
-        <h2
-          style="font-size: 2rem; color: var(--accent-cyan); font-weight: 900; text-transform: uppercase; margin: 0 0 0.5rem 0; font-family: var(--font-primary); text-align: center;">
-          Ser el Director Técnico</h2>
-        <p
-          style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 2.5rem; font-family: var(--font-secondary); text-align: center;">
-          Calibrá las variables tácticas a tu medida y convertite en el estratega.</p>
-
-        <div class="sliders-container" style="display: flex; flex-direction: column; gap: 2rem; text-align: left;">
-          <!-- Defensive Slider -->
-          <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="slider-header"
-              style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-              <span>Fase Defensiva</span>
-              <span class="slider-value" id="val-defensa-tab" style="color: var(--accent-cyan);">Bloque Medio
-                (0.0)</span>
-            </div>
-            <input type="range" min="-1.0" max="1.0" step="0.1" value="0.0" class="tactical-slider"
-              id="slider-defensa-tab" style="width: 100%; cursor: pointer;">
-            <div class="slider-labels"
-              style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-              <span>Bloque Bajo</span>
-              <span>Presión Alta</span>
-            </div>
-          </div>
-
-          <!-- Possession Slider -->
-          <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="slider-header"
-              style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-              <span>Fase de Posesión</span>
-              <span class="slider-value" id="val-posesion-tab" style="color: var(--accent-cyan);">Equilibrada
-                (0.0)</span>
-            </div>
-            <input type="range" min="-1.0" max="1.0" step="0.1" value="0.0" class="tactical-slider"
-              id="slider-posesion-tab" style="width: 100%; cursor: pointer;">
-            <div class="slider-labels"
-              style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-              <span>Contragolpe Directo</span>
-              <span>Posesión Tiki-Taka</span>
-            </div>
-          </div>
-
-          <!-- Tempo Slider -->
-          <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="slider-header"
-              style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-              <span>Ritmo de Juego</span>
-              <span class="slider-value" id="val-ritmo-tab" style="color: var(--accent-cyan);">Normal (0.0)</span>
-            </div>
-            <input type="range" min="-1.0" max="1.0" step="0.1" value="0.0" class="tactical-slider"
-              id="slider-ritmo-tab" style="width: 100%; cursor: pointer;">
-            <div class="slider-labels"
-              style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-              <span>Control Pausado</span>
-              <span>Frenético Vertical</span>
-            </div>
-          </div>
-          <!-- Width Slider -->
-          <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="slider-header"
-              style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-              <span>Uso del Ancho</span>
-              <span class="slider-value" id="val-ancho-tab" style="color: var(--accent-cyan);">Equilibrado (0.0)</span>
-            </div>
-            <input type="range" min="-1.0" max="1.0" step="0.1" value="0.0" class="tactical-slider"
-              id="slider-ancho-tab" style="width: 100%; cursor: pointer;">
-            <div class="slider-labels"
-              style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-              <span>Pasillo Central</span>
-              <span>Ataque por Bandas</span>
-            </div>
-          </div>
-        </div>
-
-        <button class="btn-mundial btn-mundial--green" id="btn-apply-custom-tactical"
-          style="margin-top: 2.5rem; padding: 0.9rem 2rem; font-size: 1.15rem; font-weight: 800; width: 100%; box-shadow: var(--shadow-neon); border-radius: 50px;">Aplicar
-          Táctica Personalizada</button>
-      </div>
-
-    </section>
-
-    <!-- 7. Preferences Config Immersive View -->
-    <section id="tab-preferences" class="tab-panel" style="padding: 3rem 1.5rem; max-width: 900px; margin: 0 auto;">
-      <!-- Back Button -->
-      <button class="back-btn" id="back-to-recommender-pref-btn"
-        style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-glass); padding: 0.6rem 1.2rem; border-radius: 50px; color: var(--text-primary); cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-weight: bold; transition: var(--transition-fast); margin-bottom: 2.5rem;">
-        <i class="fa-solid fa-arrow-left"></i> Volver a Recomendador
-      </button>
-
-      <!-- Centered Header -->
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <h1 class="glitch-text" data-text="AJUSTES"
-          style="font-size: 2.8rem; font-weight: 900; font-family: var(--font-primary); color: white; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0;">
-          Ajustes de Recomendación</h1>
-        <p
-          style="color: var(--text-secondary); font-family: var(--font-secondary); font-size: 1.1rem; max-width: 500px; margin: 0 auto;">
-          Calibrá la fricción del juego y el equilibrio entre táctica y espectáculo.</p>
-      </div>
-
-      <!-- Configuración General del Estilo de Juego (Fricción y Ponderación) -->
-      <div class="general-style-settings"
-        style="max-width: 650px; margin: 0 auto; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
-        
-        <!-- Drama/Roce Slider -->
-        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <div class="slider-header"
-            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-            <span>Fricción de Juego (Roce vs Fair Play)</span>
-            <span class="slider-value" id="val-drama-tab" style="color: var(--accent-cyan);">Equilibrada (0.20)</span>
-          </div>
-          <input type="range" min="0.0" max="0.6" step="0.025" value="0.2" class="tactical-slider"
-            id="slider-drama-tab" style="width: 100%; cursor: pointer;">
-          <div class="slider-labels"
-            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-            <span>Juego Limpio / Fair Play</span>
-            <span>Roce Físico / Intensidad</span>
-          </div>
-        </div>
-
-        <!-- Weight Slider (Espectáculo vs Estilo) -->
-        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <div class="slider-header"
-            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-            <span>Enfoque de Recomendación (Táctica vs Espectáculo)</span>
-            <span class="slider-value" id="val-weight-tab" style="color: var(--accent-cyan);">Equilibrado (50/50)</span>
-          </div>
-          <input type="range" min="0.0" max="1.0" step="0.05" value="0.5" class="tactical-slider"
-            id="slider-weight-tab" style="width: 100%; cursor: pointer;">
-          <div class="slider-labels"
-            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-            <span>100% Estilo Táctico</span>
-            <span>100% Espectáculo</span>
-          </div>
-        </div>
-
-        <button class="btn-mundial btn-mundial--green" id="btn-apply-preferences"
-          style="margin-top: 1rem; padding: 0.9rem 2rem; font-size: 1.15rem; font-weight: 800; width: 100%; box-shadow: var(--shadow-neon); border-radius: 50px;">Aplicar
-          Ajustes</button>
-      </div>
-    </section>
-
-    <!-- 2. Groups Tab -->
-    <section id="tab-groups" class="tab-panel">
-      <div class="hero-section">
-        <div class="hero-tag">Fase de Grupos</div>
-        <h1 class="hero-title">Grupos del Mundial (A a L)</h1>
-        <p class="hero-desc">Explora la distribución de las 48 selecciones clasificadas a la Copa del Mundo de Estados
-          Unidos, México y Canadá 2026.</p>
-      </div>
-
-      <div class="groups-container" id="groups-container">
-        <!-- Group Cards populated by Javascript -->
-      </div>
-    </section>
-
-    <!-- 3. Squads Tab -->
-    <section id="tab-squads" class="tab-panel">
-      <div class="hero-section">
-        <div class="hero-tag">Planteles Probables</div>
-        <h1 class="hero-title">Selecciones y Valores de Mercado</h1>
-        <p class="hero-desc">Busca y examina los planteles probables extraídos de Wikipedia, enriquecidos con valores de
-          mercado reales de la API de Transfermarkt y estadísticas de rendimiento.</p>
-      </div>
-
-      <div class="filters-bar">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="search-teams" class="search-input" placeholder="Buscar país o confederación...">
-        </div>
-      </div>
-
-      <div class="countries-grid" id="countries-container">
-        <!-- Country cards populated by Javascript -->
-      </div>
-    </section>
-
-    <!-- 4. Squad Details Sub-tab (Toggled dynamically) -->
-    <section id="squad-details-view" class="squad-view-container">
-      <button class="back-btn" id="back-to-countries-btn">
-        <i class="fa-solid fa-arrow-left"></i> Volver a Selecciones
-      </button>
-
-      <div class="squad-header" id="squad-header-container">
-        <!-- Squad summary statistics dynamically populated -->
-      </div>
-
-      <div class="squad-lineup-container" id="squad-lineup-container">
-        <!-- Pitch and starting XI populated by JS -->
-      </div>
-
-      <div class="squad-list-title">
-        <span>Convocados Probables</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">* Jugadores con participación
-          en partidos recientes o ≥5 caps internacionales. Valor de mercado en M€.</span>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="players-table">
-          <thead>
-            <tr>
-              <th>Jugador</th>
-              <th>Posición</th>
-              <th>Club Actual</th>
-              <th>Edad</th>
-              <th>PJ Int.</th>
-              <th>Goles Int.</th>
-              <th>Min. Recientes</th>
-              <th>Asist. Recientes</th>
-              <th>Propensión Tarjetas</th>
-            </tr>
-          </thead>
-          <tbody id="players-table-body">
-            <!-- Player rows populated by Javascript -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 5. Unresolved Players Tab -->
-    <section id="tab-unresolved" class="tab-panel">
-      <div class="hero-section">
-        <div class="hero-tag">Integridad de Datos</div>
-        <h1 class="hero-title">Registro de Jugadores No Resueltos</h1>
-        <p class="hero-desc">
-          En cumplimiento con las políticas de precisión de datos, no estimamos ni inventamos valores de mercado o
-          métricas avanzadas. Si un jugador no pudo resolverse en la API de Transfermarkt de manera certera, se guarda
-          aquí con el motivo detallado de error, insertándose en su selección con valores nulos (NULL).
-        </p>
-      </div>
-
-      <div class="table-wrapper" style="margin-bottom: 2rem;">
-        <div
-          style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-glass); font-family: var(--font-primary); font-weight: 700; font-size: 1.2rem; color: var(--accent-gold); display: flex; justify-content: space-between; align-items: center;">
-          <span>Jugadores Sin Coincidencia en API (Null-Value log)</span>
-          <span class="injured-badge" id="unresolved-count-badge">0 Registros</span>
-        </div>
-        <div class="modal-body" style="padding: 1.5rem 2rem;">
-          <div class="unresolved-list" id="unresolved-list-container">
-            <!-- Unresolved players populated by Javascript -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Match H2H Modal -->
-  <div class="modal-overlay" id="h2h-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modal-match-title">Detalles del Partido</h3>
-        <button class="close-btn" id="close-modal-btn">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <!-- Teams VS banner -->
-        <div class="modal-teams-vs">
-          <div class="modal-team-block" id="modal-team-home">
-            <!-- Flag & Name -->
-          </div>
-          <div class="modal-vs-divider">VS</div>
-          <div class="modal-team-block" id="modal-team-away">
-            <!-- Flag & Name -->
-          </div>
-        </div>
-
-        <!-- Smart Recommendation Breakdown -->
-        <div class="h2h-title">
-          <i class="fa-solid fa-brain"></i> Análisis del Algoritmo Match Recommender
-        </div>
-
-        <div class="h2h-stats-summary">
-          <div>
-            <div class="h2h-summary-val" id="modal-match-score" style="color: var(--accent-gold); font-size: 2.25rem;">
-              0.0</div>
-            <div class="h2h-summary-lbl">Smart Score</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-match-rank" style="color: var(--accent-teal);">#0</div>
-            <div class="h2h-summary-lbl">Ranking Interés</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-squad-comb-val">0M€</div>
-            <div class="h2h-summary-lbl">Planteles Combinados</div>
-          </div>
-        </div>
-
-        <!-- Sub-scores breakdown -->
-        <div class="h2h-stats-summary"
-          style="margin-top: -0.5rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 10px; padding: 0.75rem; border: 1px dashed var(--border-glass);">
-          <div>
-            <div class="h2h-summary-val" id="modal-spectacle-score" style="font-size: 1.4rem; color: var(--wc-red);">0.0
-            </div>
-            <div class="h2h-summary-lbl">Espectáculo (50%)</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-playstyle-score"
-              style="font-size: 1.4rem; color: var(--accent-cyan);">0.0</div>
-            <div class="h2h-summary-lbl">Estilo de Juego (50%)</div>
-          </div>
-        </div>
-
-        <!-- Metric comparison grids -->
-        <div class="h2h-title">
-          <i class="fa-solid fa-chart-simple"></i> Comparativa de Métricas Recientes
-        </div>
-        <div class="h2h-comparisons-grid">
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Valor de Plantilla (M€)</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-mkt-home">0.0M€</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-mkt-away">0.0M€</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Promedio Goles Esperados (xG)</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-xg-home">0.0</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-xg-away">0.0</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Porcentaje de Posesión</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-poss-home">0%</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-poss-away">0%</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Popularidad Global</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-pop-home">0</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-pop-away">0</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Head to Head History (intl_results & Fjelstul WC) -->
-        <div class="h2h-title">
-          <i class="fa-solid fa-history"></i> Historial Cara a Cara (H2H) General
-        </div>
-
-        <div class="h2h-stats-summary" style="margin-bottom: 1rem;">
-          <div>
-            <div class="h2h-summary-val" id="h2h-total-games">0</div>
-            <div class="h2h-summary-lbl">Partidos</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="h2h-home-wins" style="color: var(--accent-cyan);">0</div>
-            <div class="h2h-summary-lbl" id="h2h-home-lbl">Victoria Local</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="h2h-draws" style="color: var(--text-secondary);">0</div>
-            <div class="h2h-summary-lbl">Empates</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="h2h-away-wins" style="color: var(--accent-gold);">0</div>
-            <div class="h2h-summary-lbl" id="h2h-away-lbl">Victoria Vis.</div>
-          </div>
-        </div>
-
-        <!-- Visual H2H distribution bar -->
-        <div class="h2h-bar-chart">
-          <div class="h2h-bar-home" id="h2h-bar-home-w" style="width: 33%"></div>
-          <div class="h2h-bar-draw" id="h2h-bar-draws-w" style="width: 34%"></div>
-          <div class="h2h-bar-away" id="h2h-bar-away-w" style="width: 33%"></div>
-        </div>
-
-        <div class="h2h-title">
-          <i class="fa-solid fa-soccer-ball"></i> Historial en Copas del Mundo Anteriores
-        </div>
-        <div class="h2h-stats-summary" id="modal-wc-h2h-summary">
-          <!-- WC H2H metrics -->
-        </div>
-
-        <div class="h2h-title">
-          <i class="fa-solid fa-list-check"></i> Últimos Enfrentamientos Directos
-        </div>
-        <div class="table-wrapper" style="border-radius: 12px;">
-          <div id="h2h-past-matches-container">
-            <!-- List of past games -->
-          </div>
-        </div>
-
+      <div class="spectator-card card-fanatico">
+        <h3>FANÁTICO</h3>
+        <p>El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
+        <div class="card-glow"></div>
       </div>
     </div>
   </div>
 
-  <!-- Player Profile Modal (OneFootball Style) -->
-  <div class="modal-overlay" id="player-modal">
-    <div class="modal-content"
-      style="max-width: 750px; background-color: #ffffff; color: #111827; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-      <div class="modal-header" style="border-bottom: none; padding: 1.5rem 2rem 1rem 2rem;">
-        <h3 id="player-modal-name-header" style="font-size: 1.6rem; font-weight: 800; margin: 0; color: #111827;"></h3>
-        <button class="close-btn" id="close-player-modal-btn" style="color: #4b5563;">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 0 2rem 2.5rem 2rem; font-family: 'Inter', sans-serif;">
-
-        <div
-          style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1rem; letter-spacing: 0.5px; text-transform: uppercase;">
-          EQUIPOS</div>
-        <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-          <!-- National Team -->
-          <div
-            style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
-            <div id="player-modal-nt-flag"
-              style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.75rem; overflow: hidden; border: 1px solid #e5e7eb;">
-            </div>
-            <div style="line-height: 1.2;">
-              <div style="font-size: 0.75rem; color: #6b7280; font-weight: 600; margin-bottom: 0.15rem;">Equipo</div>
-              <div id="player-modal-nt-name" style="font-size: 1.15rem; font-weight: 800; color: #111827;"></div>
-            </div>
-          </div>
-          <!-- Club -->
-          <div
-            style="flex: 1; min-width: 250px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
-            <div id="player-modal-club-icon"
-              style="width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f4f6; font-size: 1.5rem; color: #9ca3af; overflow: hidden; border: 1px solid #e5e7eb;">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div style="line-height: 1.2;">
-              <div style="font-size: 0.75rem; color: #6b7280; font-weight: 600; margin-bottom: 0.15rem;">Equipo</div>
-              <div id="player-modal-club-name" style="font-size: 1.15rem; font-weight: 800; color: #111827;"></div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style="font-size: 0.75rem; font-weight: 800; color: #6b7280; margin-bottom: 1.5rem; letter-spacing: 0.5px; text-transform: uppercase;">
-          ESTADÍSTICAS CLAVE</div>
-
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 1rem;">
-          <div>
-            <div id="player-modal-age-val"
-              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
-            <div style="font-size: 0.85rem; color: #aaa;">Edad</div>
-          </div>
-          <div>
-            <div id="player-modal-pos-val"
-              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              -</div>
-            <div style="font-size: 0.85rem; color: #aaa;">Posición</div>
-          </div>
-          <div>
-            <div id="player-modal-country-val"
-              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
-            <div style="font-size: 0.85rem; color: #aaa;">País</div>
-          </div>
-
-          <div>
-            <div id="player-modal-caps-val"
-              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
-            <div style="font-size: 0.85rem; color: #aaa;">Partidos Int.</div>
-          </div>
-          <div>
-            <div id="player-modal-goals-val"
-              style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1;">-</div>
-            <div style="font-size: 0.85rem; color: #aaa;">Goles Int.</div>
-          </div>
-
-        </div>
-
-
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Quiz Overlay Modal -->
-  <div class="quiz-overlay-backdrop" id="quiz-overlay">
-    <div class="quiz-overlay-panel">
-
-      <!-- Quiz Header -->
+  <div id="casual-quiz" class="ui-overlay hidden cq-flow">
+    <div class="quiz-container">
       <div class="quiz-header">
-        <button class="quiz-header__back" id="quiz-btn-back" disabled>
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <span class="quiz-header__step" id="quiz-step-indicator">Pregunta 1 de 6</span>
-        <button class="quiz-header__close" id="quiz-btn-close">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <div class="quiz-progress-bar"><div class="quiz-progress" id="cq-progress"></div></div>
+        <span id="cq-step-text">PASO 1 DE 3</span>
+      </div>
+      
+      <!-- Paso 1 -->
+      <div class="quiz-step active" id="cq-step-1">
+        <h2 class="quiz-question">¿CUÁL ES TU SELECCIÓN FAVORITA?</h2>
+        <p class="quiz-desc">Elige el equipo que llevarás en el corazón durante la copa.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Argentina</button>
+          <button class="quiz-option" onclick="selectOption(this)">Brasil</button>
+          <button class="quiz-option" onclick="selectOption(this)">Francia</button>
+          <button class="quiz-option" onclick="selectOption(this)">Inglaterra</button>
+        </div>
+        <button class="quiz-btn-next" onclick="nextQuizStep(2)" disabled>CONTINUAR</button>
       </div>
 
-      <!-- Quiz Progress -->
-      <div class="quiz-progress-bar">
-        <div class="quiz-progress-bar__fill" id="quiz-progress-fill" style="width: 16.6%;"></div>
+      <!-- Paso 2 -->
+      <div class="quiz-step" id="cq-step-2">
+        <h2 class="quiz-question">¿QUÉ TIPO DE JUEGO PREFIERES?</h2>
+        <p class="quiz-desc">El estilo define la grandeza en el campo.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Ataque Total</button>
+          <button class="quiz-option" onclick="selectOption(this)">Posesión y Control</button>
+          <button class="quiz-option" onclick="selectOption(this)">Defensa Férrea</button>
+          <button class="quiz-option" onclick="selectOption(this)">Contraataque Veloz</button>
+        </div>
+        <button class="quiz-btn-next" onclick="nextQuizStep(3)" disabled>CONTINUAR</button>
       </div>
 
-      <!-- Quiz Body -->
-      <div class="quiz-body">
-
-        <!-- Question 1: Teams -->
-        <div class="quiz-question active" id="quiz-q1">
-          <h2 class="quiz-question__title">¿Qué selección apoyás?</h2>
-          <p class="quiz-question__subtitle">Podés elegir más de una. Estas tendrán prioridad en tus recomendaciones.
-          </p>
-
-          <div class="quiz-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="quiz-search-teams" class="quiz-search-input" placeholder="Buscar país...">
-          </div>
-
-          <div class="quiz-selected-chips" id="quiz-selected-teams-container">
-            <!-- Selected team chips will go here -->
-          </div>
-
-          <div class="quiz-entity-grid" id="quiz-teams-container">
-            <!-- Populated by JS -->
-          </div>
+      <!-- Paso 3 -->
+      <div class="quiz-step" id="cq-step-3">
+        <h2 class="quiz-question">¿A QUÉ JUGADOR SIGUES MÁS?</h2>
+        <p class="quiz-desc">Las leyendas que marcan la diferencia.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Lionel Messi</button>
+          <button class="quiz-option" onclick="selectOption(this)">Kylian Mbappé</button>
+          <button class="quiz-option" onclick="selectOption(this)">Vinícius Jr.</button>
+          <button class="quiz-option" onclick="selectOption(this)">Jude Bellingham</button>
         </div>
-
-        <!-- Question 2: Time Slots -->
-        <div class="quiz-question" id="quiz-q2">
-          <h2 class="quiz-question__title">¿A qué hora podés ver partidos?</h2>
-          <p class="quiz-question__subtitle">Seleccioná todos los horarios que te vengan bien.</p>
-
-          <div class="quiz-cards-grid">
-            <div class="quiz-card-option" data-value="morning">
-              <div class="quiz-card-option__icon">🌅</div>
-              <div class="quiz-card-option__label">9:00 a 12:00</div>
-            </div>
-            <div class="quiz-card-option" data-value="early_afternoon">
-              <div class="quiz-card-option__icon">☀️</div>
-              <div class="quiz-card-option__label">12:00 a 16:00</div>
-            </div>
-            <div class="quiz-card-option" data-value="late_afternoon">
-              <div class="quiz-card-option__icon">🌆</div>
-              <div class="quiz-card-option__label">16:00 a 20:00</div>
-            </div>
-            <div class="quiz-card-option" data-value="evening">
-              <div class="quiz-card-option__icon">🌙</div>
-              <div class="quiz-card-option__label">20:00 en adelante</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Question 3: Emocional Scenarios -->
-        <div class="quiz-question" id="quiz-q3">
-          <h2 class="quiz-question__title">¿Qué tipo de partido te emociona más?</h2>
-          <p class="quiz-question__subtitle">Elegí la opción que mejor te describa.</p>
-
-          <div class="quiz-radio-group">
-            <div class="quiz-radio-option" data-value="goleada">
-              <div class="quiz-radio-dot"></div>
-              <span>🔥 <b>Goleada épica:</b> Muchos goles y arcos abiertos</span>
-            </div>
-            <div class="quiz-radio-option" data-value="tactico">
-              <div class="quiz-radio-dot"></div>
-              <span>🧠 <b>Duelo táctico cerrado:</b> Un 1-0 con máxima tensión e inteligencia</span>
-            </div>
-            <div class="quiz-radio-option" data-value="frenetico">
-              <div class="quiz-radio-dot"></div>
-              <span>⚡ <b>Ida y vuelta frenético:</b> Contraataques y transiciones rápidas</span>
-            </div>
-            <div class="quiz-radio-option" data-value="estrellas">
-              <div class="quiz-radio-dot"></div>
-              <span>✨ <b>Show de estrellas:</b> Jugadas mágicas y regates individuales</span>
-            </div>
-            <div class="quiz-radio-option" data-value="fisico">
-              <div class="quiz-radio-dot"></div>
-              <span>💪 <b>Batalla física:</b> Choque de fuerzas, faltas, intensidad al límite</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Question 4: Favorite Clubs -->
-        <div class="quiz-question" id="quiz-q4">
-          <h2 class="quiz-question__title">¿Cuál es tu equipo favorito?</h2>
-          <p class="quiz-question__subtitle">Buscá y seleccioná tu club o clubes favoritos del mundo.</p>
-
-          <div class="quiz-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="quiz-search-clubs" class="quiz-search-input"
-              placeholder="Buscar equipo (ej: Real Madrid, River Plate)...">
-          </div>
-
-          <div class="quiz-selected-chips" id="quiz-selected-clubs-container"></div>
-
-          <div class="quiz-entity-grid" id="quiz-clubs-container">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-
-        <!-- Question 5: Favorite Players -->
-        <div class="quiz-question" id="quiz-q5">
-          <h2 class="quiz-question__title">¿Tenés jugadores favoritos?</h2>
-          <p class="quiz-question__subtitle">Elegí a los jugadores que no te querés perder.</p>
-
-          <div class="quiz-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="quiz-search-players" class="quiz-search-input"
-              placeholder="Buscar jugador (ej: Messi, Mbappe)...">
-          </div>
-
-          <div class="quiz-selected-chips" id="quiz-selected-players-container"></div>
-
-          <div class="quiz-entity-grid" id="quiz-players-container">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-
-        <!-- Question 6: Posesión Ideal -->
-        <div class="quiz-question" id="quiz-q6">
-          <h2 class="quiz-question__title">Elegí tu posesión ideal</h2>
-          <p class="quiz-question__subtitle">¿Preferís equipos rápidos o que tengan siempre la pelota?</p>
-          
-          <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
-            <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-possession">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🏃 Contra rápida</span>
-              <span>⚖️ Equilibrado</span>
-              <span>🔄 Tiki-taka total</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Question 7: Intensidad / Dureza -->
-        <div class="quiz-question" id="quiz-q7">
-          <h2 class="quiz-question__title">¿Qué nivel de fricción preferís?</h2>
-          <p class="quiz-question__subtitle">¿Juego limpio o al límite del reglamento?</p>
-          
-          <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
-            <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-intensity">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🕊️ Fair play puro</span>
-              <span>⚖️ Equilibrado</span>
-              <span>🔥 Roce total (Faltas)</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Question 8: Juventud vs Experiencia -->
-        <div class="quiz-question" id="quiz-q8">
-          <h2 class="quiz-question__title">¿Juventud o Experiencia?</h2>
-          <p class="quiz-question__subtitle">¿Preferís ver jóvenes promesas o leyendas consagradas?</p>
-
-          <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
-            <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-age">
-            <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🌱 Jóvenes promesas</span>
-              <span>⚖️ Mixto</span>
-              <span>👑 Leyendas veteranas</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quiz Results Screen -->
-        <div class="quiz-question" id="quiz-results">
-          <h2 class="quiz-question__title" style="text-align: center; color: var(--accent-gold);">¡Tu Perfil Mundialista!</h2>
-          <p class="quiz-question__subtitle" style="text-align: center;">Así sos como espectador y estos son tus partidos ideales.</p>
-
-          <div class="quiz-results-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-            
-            <div class="quiz-radar-wrapper" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1rem; border: 1px solid var(--border-glass); aspect-ratio: 1; max-width: 300px; margin: 0 auto; width: 100%;">
-              <canvas id="quiz-radar-chart"></canvas>
-            </div>
-
-            <div class="quiz-top-matches">
-              <h3 style="font-family: var(--font-primary); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.75rem; text-transform: uppercase;">Top 5 Partidos Afines</h3>
-              <div id="quiz-affinity-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                <!-- Populated by JS -->
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Quiz Footer -->
-      <div class="quiz-footer">
-        <button class="btn-mundial btn-mundial--outline" id="quiz-btn-skip">Saltar</button>
-        <button class="btn-mundial" id="quiz-btn-next" disabled>Siguiente &rarr;</button>
+        <button class="quiz-btn-next" onclick="finishQuiz()" disabled>DESCUBRIR MI DESTINO</button>
       </div>
     </div>
   </div>
 
-  <!-- App Footer -->
-  <footer>
-    <p>Mundial 2026 Match Recommender &copy; 2026. Diseñado en modo Ultra Premium.</p>
-    <p>Datos cruzados de Wikipedia, Transfermarkt API y FBref.</p>
-  </footer>
+  <!-- LÓGICA DE UI OVERLAYS -->
+  <script>
+    function startExperience() {
+      // Ocultar UI inicial
+      document.querySelector('.hero-ui').classList.add('fade-out');
+      document.querySelector('.scroll-indicator').classList.add('fade-out');
+      
+      // Mostrar Tarjetas
+      setTimeout(() => {
+        document.getElementById('spectator-selection').classList.add('visible');
+      }, 500);
+    }
 
-  <script type="module" src="js/main.js?v=13"></script>
+    function startQuiz(level) {
+      if(level === 'casual') {
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('casual-quiz').classList.add('visible');
+        }, 500);
+      }
+    }
+
+    function selectOption(btn) {
+      const parent = btn.parentElement;
+      const options = parent.querySelectorAll('.quiz-option');
+      options.forEach(o => o.classList.remove('selected'));
+      btn.classList.add('selected');
+      
+      const step = btn.closest('.quiz-step');
+      const nextBtn = step.querySelector('.quiz-btn-next');
+      nextBtn.disabled = false;
+    }
+
+    function nextQuizStep(nextStepNum) {
+      const currentStep = document.querySelector('.quiz-step.active');
+      currentStep.classList.remove('active');
+      
+      const nextStep = document.getElementById(`cq-step-${nextStepNum}`);
+      if(nextStep) {
+        nextStep.classList.add('active');
+        document.getElementById('cq-step-text').innerText = `PASO ${nextStepNum} DE 3`;
+        document.getElementById('cq-progress').style.width = `${(nextStepNum / 3) * 100}%`;
+      }
+    }
+
+    function finishQuiz() {
+      alert("¡Quiz completado! Preparando tu destino...");
+      // Aquí puedes enlazar la redirección o acción final.
+    }
+  </script>
+
+  <!-- LIBRERÍAS THREE.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <script>
+    // 1. CONFIGURACIÓN BÁSICA DE THREE.JS
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x030303, 0.035); // Niebla oscura para fundir el fondo hacia los bordes
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 15);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // 2. ILUMINACIÓN ÉPICA (DARK + RIM LIGHT)
+    // Luz ambiental extremadamente tenue
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+    scene.add(ambientLight);
+
+    // RIM LIGHT 1 (Izquierda - Plateado/Blanco frío) - Delinea el borde izquierdo
+    const rimLightLeft = new THREE.PointLight(0xffffff, 6, 50);
+    rimLightLeft.position.set(-6, 2, -4);
+    scene.add(rimLightLeft);
+
+    // RIM LIGHT 2 (Derecha - Dorado épico) - Delinea el borde derecho
+    const rimLightRight = new THREE.PointLight(0xf5d061, 8, 50);
+    rimLightRight.position.set(6, -1, -4);
+    scene.add(rimLightRight);
+
+    // 3. CARGA DEL MODELO 3D (GLB)
+    const loader = new THREE.GLTFLoader();
+    let trophyGroup = new THREE.Group();
+    scene.add(trophyGroup);
+
+    // Inclinación ligera hacia adelante majestuosa
+    trophyGroup.rotation.x = 0.12;
+
+    loader.load(
+      'copa.glb', // <--- PLACEHOLDER DEL MODELO
+      function (gltf) {
+        const trophy = gltf.scene;
+
+        // Centrado exacto matemático
+        const box = new THREE.Box3().setFromObject(trophy);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3()).length();
+
+        trophy.position.set(-center.x, -center.y, -center.z);
+
+        // Escala responsiva basada en el tamaño real del modelo
+        const scale = window.innerWidth < 900 ? 5.5 / size : 8.5 / size;
+        trophyGroup.scale.setScalar(scale);
+
+        // Modificamos el material para que sea un "espejo oscuro" que atrapa las luces laterales
+        trophy.traverse((child) => {
+          if (child.isMesh) {
+            // Reemplazamos los materiales para forzar la silueta épica
+            child.material = new THREE.MeshStandardMaterial({
+              color: 0x050505,       // Casi negro absoluto
+              metalness: 1.0,        // Metal puro
+              roughness: 0.35,       // Ligeramente pulido para que la luz rebote en los bordes
+            });
+          }
+        });
+
+        trophyGroup.add(trophy);
+      },
+      undefined,
+      function (error) {
+        console.error('Error cargando el modelo 3D:', error);
+      }
+    );
+
+    // 4. SISTEMA DE PARTÍCULAS INTERACTIVAS (NIEBLA ORB)
+    const particleCount = 180;
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesPositions = new Float32Array(particleCount * 3);
+    const particlesVelocities = [];
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      // Esparcir partículas a lo ancho y profundo
+      particlesPositions[i] = (Math.random() - 0.5) * 35; // x
+      particlesPositions[i + 1] = (Math.random() - 0.5) * 20; // y
+      particlesPositions[i + 2] = (Math.random() - 0.5) * 20 - 4; // z
+      
+      particlesVelocities.push({
+        x: (Math.random() - 0.5) * 0.008,
+        y: Math.random() * 0.015 + 0.005, // Flotan hacia arriba como niebla densa
+        z: (Math.random() - 0.5) * 0.008
+      });
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(particlesPositions, 3));
+
+    // Crear textura procedimental de "Niebla / Orbe"
+    const canvasP = document.createElement('canvas');
+    canvasP.width = 64; canvasP.height = 64;
+    const ctxP = canvasP.getContext('2d');
+    
+    // Gradiente radial: Núcleo blanco -> Borde gris -> Transparente
+    const gradient = ctxP.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+    gradient.addColorStop(0.15, 'rgba(150, 150, 150, 0.6)');
+    gradient.addColorStop(0.4, 'rgba(50, 50, 50, 0.2)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    
+    ctxP.fillStyle = gradient;
+    ctxP.fillRect(0, 0, 64, 64);
+    const particleTexture = new THREE.CanvasTexture(canvasP);
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.8,
+      map: particleTexture,
+      transparent: true,
+      opacity: 0.6,
+      blending: THREE.AdditiveBlending, // Mezcla aditiva para brillo etéreo
+      depthWrite: false
+    });
+
+    const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particleSystem);
+
+    // 5. INTERACCIONES DEL MOUSE Y PARALLAX
+    const mouse = new THREE.Vector2(0, 0);
+    const targetMouse = new THREE.Vector2(0, 0);
+
+    window.addEventListener('mousemove', (event) => {
+      targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Raycaster para detectar la posición del mouse en el plano 3D (para repeler partículas)
+    const raycaster = new THREE.Raycaster();
+    const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+    const mousePos3D = new THREE.Vector3();
+
+    // 6. BUCLE DE ANIMACIÓN
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const elapsedTime = clock.getElapsedTime();
+
+      // Suavizado del movimiento del mouse (Lerp)
+      mouse.x += (targetMouse.x - mouse.x) * 0.05;
+      mouse.y += (targetMouse.y - mouse.y) * 0.05;
+
+      // Parallax sutil de la cámara
+      camera.position.x = mouse.x * 1.5;
+      camera.position.y = mouse.y * 1.5;
+      camera.lookAt(0, 0, 0);
+
+      // Rotación constante del trofeo
+      trophyGroup.rotation.y = elapsedTime * 0.15;
+
+      // Proyectar mouse al plano Z=0 para interactuar con partículas
+      raycaster.setFromCamera(mouse, camera);
+      raycaster.ray.intersectPlane(planeZ, mousePos3D);
+
+      // Animar partículas
+      const positions = particleSystem.geometry.attributes.position.array;
+      
+      for (let i = 0; i < particleCount; i++) {
+        let i3 = i * 3;
+        
+        // Movimiento base flotante
+        positions[i3] += particlesVelocities[i].x;
+        positions[i3 + 1] += particlesVelocities[i].y;
+        positions[i3 + 2] += particlesVelocities[i].z;
+
+        // Resetear partícula si sube demasiado
+        if (positions[i3 + 1] > 12) {
+          positions[i3 + 1] = -12;
+          positions[i3] = (Math.random() - 0.5) * 35; // Nueva posición X aleatoria
+        }
+
+        // FÍSICA: Repulsión con el cursor del mouse
+        const dx = positions[i3] - mousePos3D.x;
+        const dy = positions[i3 + 1] - mousePos3D.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if (dist < 3.5) { // Si está a menos de 3.5 unidades del mouse
+          const force = (3.5 - dist) * 0.03;
+          positions[i3] += (dx / dist) * force;     // Empuja en X
+          positions[i3 + 1] += (dy / dist) * force; // Empuja en Y
+        }
+      }
+      
+      particleSystem.geometry.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // 7. RESPONSIVE
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      if (trophyGroup.children.length > 0) {
+        const box = new THREE.Box3().setFromObject(trophyGroup.children[0]);
+        const size = box.getSize(new THREE.Vector3()).length();
+        const scale = window.innerWidth < 900 ? 5.5 / size : 8.5 / size;
+        trophyGroup.scale.setScalar(scale);
+      }
+    });
+
+    // =========================================================================
+    // 8. NUEVA CAPA DE EFECTOS VISUALES 3D Y 2D (ANFITRIONES)
+    // =========================================================================
+    (function() {
+      // --- A. LUCES 3D (ROJO Y VERDE - Canadá y México) ---
+      const redLight = new THREE.PointLight(0xff0000, 0, 50);
+      const greenLight = new THREE.PointLight(0x00ff66, 0, 50);
+      scene.add(redLight);
+      scene.add(greenLight);
+
+      let active3DEffect = null;
+      let effectStartTime = 0;
+
+      // --- B. CANVAS 2D (ESTRELLAS AZULES - USA) ---
+      const fxCanvas = document.createElement('canvas');
+      fxCanvas.id = 'fx-canvas';
+      fxCanvas.style.position = 'absolute';
+      fxCanvas.style.top = '0';
+      fxCanvas.style.left = '0';
+      fxCanvas.style.width = '100vw';
+      fxCanvas.style.height = '100vh';
+      fxCanvas.style.zIndex = '0'; // Detrás de la copa 3D y su niebla
+      fxCanvas.style.pointerEvents = 'none'; // No interfiere con la interacción
+      document.body.insertBefore(fxCanvas, document.getElementById('canvas-container'));
+
+      const ctx = fxCanvas.getContext('2d');
+      let width, height;
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        fxCanvas.width = width;
+        fxCanvas.height = height;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      let blueStars = [];
+
+      // --- LÓGICA 3D ---
+      function trigger3DEffect(variant) {
+        active3DEffect = variant;
+        effectStartTime = performance.now();
+        
+        if (variant === 1) { // Barrido cruzado
+          redLight.position.set(-15, 2, 3);
+          greenLight.position.set(15, -2, 3);
+        } else if (variant === 2) { // Destello sup/inf
+          redLight.position.set(0, -10, 4);
+          greenLight.position.set(0, 10, 4);
+        } else { // Pulsación misterio
+          redLight.position.set(-5, 0, -10);
+          greenLight.position.set(5, 0, -10);
+        }
+      }
+
+      function update3DLights(time) {
+        if (!active3DEffect) return;
+        const elapsed = (time - effectStartTime) / 1000; // segundos
+        const duration = 4; // Duración base de los efectos 3D
+
+        if (elapsed > duration) {
+          redLight.intensity = 0;
+          greenLight.intensity = 0;
+          active3DEffect = null;
+          return;
+        }
+
+        // Fade in/out suave
+        let fade = 1;
+        if (elapsed < 1) fade = elapsed;
+        else if (elapsed > duration - 1) fade = duration - elapsed;
+
+        const maxInt = 15; // Intensidad máxima ajustada para no quemar el modelo
+
+        if (active3DEffect === 1) { // Barrido cruzado
+          redLight.position.x = -15 + (elapsed * 7.5);
+          greenLight.position.x = 15 - (elapsed * 7.5);
+          redLight.intensity = maxInt * fade;
+          greenLight.intensity = maxInt * fade;
+        } else if (active3DEffect === 2) { // Destello (secuencial)
+          if (elapsed < 2) {
+            redLight.intensity = maxInt * Math.sin((elapsed/2) * Math.PI);
+            greenLight.intensity = 0;
+          } else {
+            redLight.intensity = 0;
+            greenLight.intensity = maxInt * Math.sin(((elapsed-2)/2) * Math.PI);
+          }
+        } else if (active3DEffect === 3) { // Pulsación de atrás hacia adelante
+          redLight.position.z = -10 + (elapsed * 4);
+          greenLight.position.z = -10 + (elapsed * 4);
+          redLight.intensity = (maxInt - 5) * fade * (0.6 + 0.4 * Math.sin(elapsed * 6));
+          greenLight.intensity = (maxInt - 5) * fade * (0.6 + 0.4 * Math.sin(elapsed * 6 + Math.PI));
+        }
+      }
+
+      // --- LÓGICA 2D (AZUL) ---
+      class BlueStar {
+        constructor(variant) {
+          this.variant = variant;
+          this.life = 0;
+          if (variant === 1) { // Constelación estática
+            this.x = width * 0.1 + Math.random() * width * 0.8;
+            this.y = height * 0.1 + Math.random() * height * 0.8;
+            this.maxLife = 80 + Math.random() * 40;
+            this.size = Math.random() * 2 + 1.5;
+          } else if (variant === 2) { // Fugaz masiva
+            this.x = Math.random() > 0.5 ? -100 : width + 100;
+            this.y = Math.random() * height * 0.6;
+            this.vx = (this.x < 0 ? 1 : -1) * (18 + Math.random() * 12);
+            this.vy = 8 + Math.random() * 6;
+            this.maxLife = 60;
+            this.size = 3.5 + Math.random() * 2;
+          } else { // Destello central (Lens Flare)
+            this.x = width / 2;
+            this.y = height / 2;
+            this.maxLife = 120;
+            this.size = 0;
+          }
+        }
+        update() {
+          if (this.variant === 2) {
+            this.x += this.vx;
+            this.y += this.vy;
+          }
+          this.life++;
+          return this.life >= this.maxLife;
+        }
+        draw(ctx) {
+          let progress = this.life / this.maxLife;
+          let alpha = Math.sin(progress * Math.PI);
+          
+          if (this.variant === 1) { // Constelación
+            alpha *= (0.3 + 0.7 * Math.sin(this.life * 0.4)); // Parpadeo agresivo
+            this.drawGlow(ctx, this.x, this.y, this.size, alpha, 25);
+          } else if (this.variant === 2) { // Fugaz
+            ctx.beginPath();
+            ctx.moveTo(this.x, this.y);
+            ctx.lineTo(this.x - this.vx * 4, this.y - this.vy * 4);
+            ctx.strokeStyle = `rgba(150, 220, 255, ${alpha})`;
+            ctx.lineWidth = this.size;
+            ctx.shadowBlur = 25;
+            ctx.shadowColor = '#0088ff';
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+          } else if (this.variant === 3) { // Lens Flare
+            // Expansión rápida, desvanecimiento lento
+            const s = progress < 0.15 ? progress * 600 : (1 - progress) * 150;
+            this.drawGlow(ctx, this.x, this.y, s * 0.3, alpha * 0.9, s);
+            
+            // Rayo horizontal
+            ctx.fillStyle = `rgba(150, 220, 255, ${alpha * 0.6})`;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#00aaff';
+            ctx.fillRect(this.x - s*1.5, this.y - 1.5, s*3, 3);
+            ctx.shadowBlur = 0;
+          }
+        }
+        drawGlow(ctx, x, y, size, alpha, blur) {
+          ctx.beginPath();
+          ctx.arc(x, y, Math.max(0, size), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+          ctx.shadowBlur = blur;
+          ctx.shadowColor = `rgba(0, 150, 255, ${alpha})`;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      function triggerBlue(variant) {
+        if (variant === 1) {
+          for(let i=0; i<6; i++) {
+            setTimeout(() => blueStars.push(new BlueStar(1)), Math.random() * 800);
+          }
+        } else {
+          blueStars.push(new BlueStar(variant));
+        }
+      }
+
+      // --- BUCLE DE ANIMACIÓN SECUNDARIO ---
+      function fxLoop(time) {
+        // 1. Actualizar luces 3D
+        update3DLights(time);
+
+        // 2. Actualizar Canvas 2D
+        ctx.clearRect(0, 0, width, height);
+        ctx.globalCompositeOperation = 'screen';
+        
+        for (let i = blueStars.length - 1; i >= 0; i--) {
+          let dead = blueStars[i].update();
+          blueStars[i].draw(ctx);
+          if (dead) blueStars.splice(i, 1);
+        }
+        
+        requestAnimationFrame(fxLoop);
+      }
+      requestAnimationFrame(fxLoop);
+
+      // --- PROGRAMADOR PRINCIPAL ---
+      function scheduleNext() {
+        const delay = 8000 + Math.random() * 7000; // 8 a 15 segundos
+        setTimeout(() => {
+          // Decidir si es luz 3D (Rojo/Verde) o Canvas 2D (Azul)
+          const is3D = Math.random() > 0.5;
+          const variant = Math.floor(Math.random() * 3) + 1;
+          
+          if (is3D) trigger3DEffect(variant);
+          else triggerBlue(variant);
+          
+          scheduleNext();
+        }, delay);
+      }
+      
+      // Lanzar primer efecto rápido (A los 2.5 segs, una luz 3D para asombrar)
+      setTimeout(() => {
+        trigger3DEffect(1);
+        scheduleNext();
+      }, 2500);
+    })();
+  </script>
 </body>
-
 </html>

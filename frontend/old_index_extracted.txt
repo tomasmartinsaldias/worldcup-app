@@ -1,0 +1,87 @@
+The following changes were made by the USER to: /Users/franmonti/Documents/Austral/worldcup-app/frontend/index.html. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -1,2414 +1,191 @@
+ <!DOCTYPE html>
+ <html lang="es">
+-
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-  <title>MundialPick — Encontrá tu partido</title>
+-  <link rel="preconnect" href="https://fonts.googleapis.com">
+-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-  <link
+-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;600&display=swap"
+-    rel="stylesheet">
++  <title>MundialPick — La Gloria Eterna</title>
++  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+   <style>
+-    *,
+-    *::before,
+-    *::after {
+-      box-sizing: border-box;
+-      margin: 0;
+-      padding: 0;
+-    }
+-
+-    :root {
+-      --yellow: #4d99fe;
+-      --yellow-dim: rgba(77, 153, 254, 0.10);
+-      --yellow-border: rgba(77, 153, 254, 0.22);
+-      --wc-red: #E8231A;
+-      --wc-green: #1A7A3C;
+-      --wc-blue: #1A3F8F;
+-      --bg: #080808;
+-      --bg-card: #0c0c0c;
+-      --text: #F2EFE5;
+-      --text-muted: #606060;
+-      --text-mid: #9e9b90;
+-      --border: #1c1c1c;
+-    }
+-
+-    html {
+-      scroll-behavior: smooth;
+-    }
+-
++    * { box-sizing: border-box; margin: 0; padding: 0; }
++    
+     body {
+-      background: var(--bg);
+-      color: var(--text);
+-      font-family: 'Inter', sans-serif;
+-      min-height: 100vh;
+-      overflow-x: hidden;
+-    }
+-
+-    /* grain */
+-    body::after {
+-      content: '';
+-      position: fixed;
+-      inset: 0;
+-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' 
+<truncated 45216 bytes>
+="scroll-hint">
+-        <span>¿Qué tipo de fanático sos?</span>
+-        <span class="scroll-line"></span>
+-      </div>
+-    </div>
+-
+-    <!-- CARDS GRID -->
+-    <div class="section-header">
+-      <span class="section-num">01</span>
+-      <div class="section-line"></div>
+-      <h2>Elegí tu perfil</h2>
+-      <div class="section-line"></div>
+-      <span class="section-num">03</span>
+-    </div>
+-
+-    <div class="cards-grid">
+-
+-      <!-- CASUAL -->
+-      <div class="fan-card" data-color="red">
+-        <div class="card-img-wrap">
+-          <img
+-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/wAALCAH0AyABAREA/8QAHAAAAQUBAQEAAAAAAAAAAAAAAQACBAUGAwcI/8QAVBAAAQMDAgMEBwUEBggBDAEFAQACAwQFERIhBjFBE1FhcQcUIjJSgZEVI0KhsSQzYsEWNFRy0eElQ1Njc4KSopMmNkRFZIOjsrPS8PGEF3SUwuL/2gAIAQEAAD8A9WSQSQSSwjhHCOEsI4TsIgI4TsI4RwlhEBOARwjhLCWEcJYSwlhLCWEsJYSwlhLCSWEsIJYQIQwkhhDCSCSSCGEEkkEsIEIJIIEIEIYSwmkJYQwhhAhNIQwhhNwgQhhNITSE0hNITSEwhNITCEwhNIXMhMcEwhMITCE0hMITSmlNKaUk0hc3BekIJJJJYSRSATsI4RARATgEQEcI4RwiAjhEBHCOEsI4SwlhLCWEsJYSwhhHCGEsJJJJIIJEIYQSQwhhJBIoJIYSwkglhDCBCCSCBCCCWEMIIYQITSECE1DCGECE0hNITSE0hMITSE0hMITCEwhMcExwXMhMITCEwhNITCE0ppQQKa4L0VBJJJFEBHCOEQEQE4BEBEBHCICdhHCOEsIgI4RSwkklhFLCCSSSSSSCKGEsIIJIIJIJIYQIQSQSSSQSQQQwkgggQgkghhAoFDCahhAhDCBCaQmkJpCaQmkJpCaQmEJhCYQmOCYQmFq5uCYQmEJhCYQmkJpCaUCmkL0QpJJI4SwjhOARwiAnYRwjhEBEBOARwjhHCWEUcJYRwlhLCWEsJYQSSSSSQSSSSQKCCSCSGEigggUEkkkEkkMIJIIIIJFBBBBBBAhAoEIEIFNITSmkIEJpGyYQmkJhCaQmEJhCYQmEJjgubgmELmQmEJpCaQmEJqGF6IgjhLCOEQEQE4BEBHCICcAiAnAIgIgIgIpI4RARSSSSSSSQSSSSQSSSSQSTUkEkEkCgkgUEEkkkEkkCgkmkIJIJIIIIFBBAoIIEJqBCamlBNITCE0hMITSEwhMITCEwhc3BMcFzITCEwhMITCmkIFeiJYSwjhEBHCICcAjhEBEBOATgEcIgIopYRSRSRSSSSSQSSQSSSKBSSSSQQKCCSSCRQQQKCSCSSSCSBQSQQQQSQKCSBTUEECkgU0oIEJpQITSE0hMITCE0hMITSEwhMcEwhc3BcyEwhc3BMITCE
+<truncated 255620 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.
