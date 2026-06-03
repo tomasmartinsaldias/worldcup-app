@@ -1,0 +1,1454 @@
+[
+    {
+        "long_name": "Oumar Diakité",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.988296,
+            -3.092998,
+            0.608367,
+            0.129358
+        ]
+    },
+    {
+        "long_name": "Julián Álvarez",
+        "cluster_id": 2,
+        "overall": 87,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -2.427326,
+            2.773665,
+            1.186578,
+            -0.933613
+        ]
+    },
+    {
+        "long_name": "Masour Ousmane Dembélé",
+        "cluster_id": 3,
+        "overall": 90,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.751063,
+            1.222522,
+            -0.490833,
+            0.152918
+        ]
+    },
+    {
+        "long_name": "Wilson Isidor",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.465394,
+            -0.307263,
+            0.552894,
+            0.222778
+        ]
+    },
+    {
+        "long_name": "Lautaro Javier Martínez",
+        "cluster_id": 2,
+        "overall": 88,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.675376,
+            1.006938,
+            1.721097,
+            -1.992731
+        ]
+    },
+    {
+        "long_name": "Kylian Mbappé Lottin",
+        "cluster_id": 3,
+        "overall": 91,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.12006,
+            -2.38692,
+            0.617976,
+            0.759102
+        ]
+    },
+    {
+        "long_name": "Harry Edward Kane",
+        "cluster_id": 1,
+        "overall": 89,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.093686,
+            0.490144,
+            -1.610057,
+            -0.128518
+        ]
+    },
+    {
+        "long_name": "Christophe Kabongo",
+        "cluster_id": 3,
+        "overall": 68,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.423868,
+            -0.680827,
+            -1.43622,
+            0.834754
+        ]
+    },
+    {
+        "long_name": "Erling Braut Håland",
+        "cluster_id": 1,
+        "overall": 90,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.484873,
+            -1.550217,
+            2.651242,
+            0.855861
+        ]
+    },
+    {
+        "long_name": "Saša Kalajdžić",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            4.805779,
+            3.600224,
+            -3.255025,
+            2.098198
+        ]
+    },
+    {
+        "long_name": "Viktor Einar Gyökeres",
+        "cluster_id": 2,
+        "overall": 87,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.938671,
+            -3.524779,
+            2.802189,
+            1.273596
+        ]
+    },
+    {
+        "long_name": "Marcus Lilian Thuram-Ulien",
+        "cluster_id": 2,
+        "overall": 85,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.162686,
+            1.454504,
+            1.980809,
+            0.870524
+        ]
+    },
+    {
+        "long_name": "Jeremy Alberto Arévalo Mera",
+        "cluster_id": 3,
+        "overall": 62,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.848168,
+            -0.026821,
+            -1.891936,
+            -0.358952
+        ]
+    },
+    {
+        "long_name": "Ayase Ueda上田 綺世",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.387612,
+            -2.281166,
+            -0.425708,
+            -1.512396
+        ]
+    },
+    {
+        "long_name": "Oliver George Arthur Watkins",
+        "cluster_id": 2,
+        "overall": 84,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.040667,
+            1.516577,
+            1.014284,
+            -1.707708
+        ]
+    },
+    {
+        "long_name": "Sepe Elye Wahi",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.18281,
+            -1.045868,
+            -0.621162,
+            0.689382
+        ]
+    },
+    {
+        "long_name": "Petar Musa",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.753109,
+            0.405592,
+            2.118315,
+            0.245378
+        ]
+    },
+    {
+        "long_name": "Omar Khaled Mohamed Marmoush",
+        "cluster_id": 3,
+        "overall": 84,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.880157,
+            -1.889234,
+            -0.743789,
+            0.823057
+        ]
+    },
+    {
+        "long_name": "Cristiano Ronaldo dos Santos Aveiro",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.45292,
+            -2.954951,
+            -1.809172,
+            -0.593458
+        ]
+    },
+    {
+        "long_name": "Ivan Benjamin Elijah Toney",
+        "cluster_id": 2,
+        "overall": 81,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.354411,
+            1.53141,
+            1.519105,
+            -1.343689
+        ]
+    },
+    {
+        "long_name": "Darwin Gabriel Núñez Ribeiro",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.120215,
+            1.433214,
+            2.803388,
+            0.76316
+        ]
+    },
+    {
+        "long_name": "Alexander Isak",
+        "cluster_id": 3,
+        "overall": 88,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.15401,
+            -1.64794,
+            -0.03423,
+            0.489888
+        ]
+    },
+    {
+        "long_name": "Ricardo Daniel Pepi",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.266909,
+            2.305033,
+            0.58506,
+            -1.17517
+        ]
+    },
+    {
+        "long_name": "Nuno Miguel da Costa Jóia",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.158652,
+            -1.689063,
+            -0.817034,
+            -1.104683
+        ]
+    },
+    {
+        "long_name": "Mikel Oyarzabal Ugarte",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.266636,
+            0.91741,
+            -2.70977,
+            0.388259
+        ]
+    },
+    {
+        "long_name": "Mohamed El Amine Amouraمحمد الأمين عمورة",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -5.918871,
+            2.715912,
+            0.354161,
+            -2.291792
+        ]
+    },
+    {
+        "long_name": "Meschack Elia Lina",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -4.453263,
+            -0.48243,
+            -0.342498,
+            -0.083179
+        ]
+    },
+    {
+        "long_name": "Ange-Yoan Bonny",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.929748,
+            -1.059249,
+            0.578093,
+            2.587274
+        ]
+    },
+    {
+        "long_name": "Jan Kuchta",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.004062,
+            -0.405938,
+            1.389516,
+            -0.147983
+        ]
+    },
+    {
+        "long_name": "Jordy Josué Caicedo Medina",
+        "cluster_id": 2,
+        "overall": 66,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.864172,
+            0.281109,
+            1.548442,
+            -1.008663
+        ]
+    },
+    {
+        "long_name": "Lyle Brent Foster",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.151526,
+            0.466734,
+            1.147783,
+            -0.213359
+        ]
+    },
+    {
+        "long_name": "Memphis Depay",
+        "cluster_id": 3,
+        "overall": 81,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.811528,
+            -1.921572,
+            -1.596044,
+            0.999484
+        ]
+    },
+    {
+        "long_name": "Cédric Jan Itten",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.725366,
+            0.656963,
+            0.733288,
+            -0.011217
+        ]
+    },
+    {
+        "long_name": "Keisuke Goto後藤 啓介",
+        "cluster_id": 1,
+        "overall": 57,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.603695,
+            1.891734,
+            -1.321166,
+            0.314687
+        ]
+    },
+    {
+        "long_name": "Ante Budimir",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            4.205312,
+            -1.3831,
+            -1.444682,
+            -2.232521
+        ]
+    },
+    {
+        "long_name": "Kai Lukas Havertz",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.851274,
+            2.198285,
+            -0.696084,
+            1.251404
+        ]
+    },
+    {
+        "long_name": "Juan Camilo Hernández Suárez",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.818598,
+            0.820128,
+            0.827773,
+            0.039781
+        ]
+    },
+    {
+        "long_name": "Saleh Khalid Mohammed Al Shehriصالح خالد الشهري",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.494434,
+            -0.353789,
+            -0.238537,
+            -1.593482
+        ]
+    },
+    {
+        "long_name": "Kevin José Rodríguez Cortéz",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.850307,
+            -0.852208,
+            0.052858,
+            1.297356
+        ]
+    },
+    {
+        "long_name": "Promise Oluwatobi Emmanuel David",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            4.80083,
+            -1.63261,
+            0.305755,
+            0.818661
+        ]
+    },
+    {
+        "long_name": "Amine Ferid Gouiri",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.795153,
+            1.560633,
+            -1.092339,
+            0.712859
+        ]
+    },
+    {
+        "long_name": "Romelu Menama Lukaku Bolingoli",
+        "cluster_id": 1,
+        "overall": 84,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.013389,
+            -0.82275,
+            0.699173,
+            1.65652
+        ]
+    },
+    {
+        "long_name": "Mojmír Chytil",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.377664,
+            -2.103835,
+            1.346638,
+            -0.610383
+        ]
+    },
+    {
+        "long_name": "Nick Woltemade",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.177081,
+            0.585319,
+            -0.045188,
+            1.535469
+        ]
+    },
+    {
+        "long_name": "Ayoub El Kaabiأيوب الكعبي",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.07589,
+            0.554872,
+            1.761236,
+            -2.507964
+        ]
+    },
+    {
+        "long_name": "Tanitoluwa Oluwatimikhin Oluwaseyi",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.316077,
+            -0.670795,
+            1.406586,
+            -0.444756
+        ]
+    },
+    {
+        "long_name": "George David Eric Hirst",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.446087,
+            1.69785,
+            1.342894,
+            -0.410462
+        ]
+    },
+    {
+        "long_name": "José Fajardo Nelson",
+        "cluster_id": 3,
+        "overall": 68,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.983911,
+            0.681961,
+            -1.1964,
+            -1.40995
+        ]
+    },
+    {
+        "long_name": "Jørgen Strand Larsen",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.832945,
+            -1.769541,
+            1.029579,
+            0.209205
+        ]
+    },
+    {
+        "long_name": "Benjamin Peter Waine",
+        "cluster_id": 2,
+        "overall": 62,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.667849,
+            4.183764,
+            1.503632,
+            -0.598771
+        ]
+    },
+    {
+        "long_name": "Patrik Schick",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.341178,
+            -1.511069,
+            -0.878773,
+            1.139274
+        ]
+    },
+    {
+        "long_name": "Raúl Alonso Jiménez Rodríguez",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.988949,
+            1.894844,
+            -1.91076,
+            -0.392084
+        ]
+    },
+    {
+        "long_name": "Julián Andrés Quiñones Quiñones",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.85366,
+            -1.703992,
+            2.220375,
+            0.293204
+        ]
+    },
+    {
+        "long_name": "Tomáš Chorý",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            6.900144,
+            -1.205882,
+            0.131656,
+            0.802794
+        ]
+    },
+    {
+        "long_name": "Gue-sung Cho조규성",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.29203,
+            -0.9261,
+            1.389241,
+            -0.634764
+        ]
+    },
+    {
+        "long_name": "Breel Donald Embolo",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.225354,
+            2.485205,
+            1.866314,
+            1.069293
+        ]
+    },
+    {
+        "long_name": "Deniz Undav",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            0.290327,
+            -1.123074,
+            -1.705835,
+            0.210461
+        ]
+    },
+    {
+        "long_name": "Samed BaždarСамед Баждар",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.353185,
+            3.227549,
+            -1.960697,
+            2.434876
+        ]
+    },
+    {
+        "long_name": "Deniz Gül",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.644125,
+            0.400209,
+            -1.055521,
+            1.478883
+        ]
+    },
+    {
+        "long_name": "Alexander Sørloth",
+        "cluster_id": 1,
+        "overall": 84,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.848875,
+            -1.893318,
+            0.693186,
+            1.678825
+        ]
+    },
+    {
+        "long_name": "Alexander Olof Bernhardsson",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -2.198747,
+            4.294888,
+            1.601893,
+            0.22035
+        ]
+    },
+    {
+        "long_name": "Ibrahim Sabra",
+        "cluster_id": 3,
+        "overall": 61,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.889722,
+            -0.871441,
+            1.473471,
+            0.041806
+        ]
+    },
+    {
+        "long_name": "Gonçalo Matias Ramos",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            1.003298,
+            1.288902,
+            1.722851,
+            -0.896284
+        ]
+    },
+    {
+        "long_name": "Ermedin Demirović",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.267556,
+            1.436762,
+            0.035715,
+            0.607115
+        ]
+    },
+    {
+        "long_name": "Lawrence Shankland",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            0.933989,
+            -1.435078,
+            -0.946447,
+            -0.40268
+        ]
+    },
+    {
+        "long_name": "Jean-Philippe Mateta",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.438542,
+            -0.224015,
+            0.29583,
+            0.964205
+        ]
+    },
+    {
+        "long_name": "Jonathan Christian David",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.860241,
+            -2.148947,
+            0.251702,
+            -0.199856
+        ]
+    },
+    {
+        "long_name": "Kento Shiogai塩貝 健人",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -4.089353,
+            -0.835142,
+            -1.085592,
+            1.0839
+        ]
+    },
+    {
+        "long_name": "Santiago Tomás Giménez",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.37362,
+            1.6226,
+            -0.557168,
+            -0.570028
+        ]
+    },
+    {
+        "long_name": "Ali Ibrahim Karim Ali Al Hamadiعلي الحمادي",
+        "cluster_id": 3,
+        "overall": 66,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.270641,
+            -2.443979,
+            1.238644,
+            0.052492
+        ]
+    },
+    {
+        "long_name": "Igor Thiago Nascimento Rodrigues",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.343147,
+            -0.431206,
+            0.949078,
+            -0.137539
+        ]
+    },
+    {
+        "long_name": "Yoane Wissa",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.149214,
+            -2.462206,
+            -0.2065,
+            -1.181216
+        ]
+    },
+    {
+        "long_name": "Solomon Brandon Michael Clarke Thomas-Asante",
+        "cluster_id": 2,
+        "overall": 69,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -2.230823,
+            0.218646,
+            2.226017,
+            0.03635
+        ]
+    },
+    {
+        "long_name": "Ross Cameron Stewart",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.30758,
+            -0.180674,
+            -0.888371,
+            -0.021451
+        ]
+    },
+    {
+        "long_name": "Ché Zach Everton Fred Adams",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -2.340877,
+            1.525877,
+            0.804555,
+            -1.839724
+        ]
+    },
+    {
+        "long_name": "Arnaldo Antonio Sanabria Ayala",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.080248,
+            -0.722818,
+            -3.392533,
+            0.042412
+        ]
+    },
+    {
+        "long_name": "Federico Sebastián Viñas Barboza",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.032131,
+            -2.188655,
+            0.202468,
+            -1.097648
+        ]
+    },
+    {
+        "long_name": "Nicolas Jackson",
+        "cluster_id": 2,
+        "overall": 80,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.742457,
+            0.059307,
+            1.414422,
+            0.706627
+        ]
+    },
+    {
+        "long_name": "Borja Iglesias Quintas",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.20607,
+            -0.105299,
+            -1.799725,
+            -0.344153
+        ]
+    },
+    {
+        "long_name": "Lyndon John Dykes",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.347998,
+            -1.124512,
+            1.511188,
+            -1.34115
+        ]
+    },
+    {
+        "long_name": "Håkan Gustaf Nilsson",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.908752,
+            -1.381623,
+            0.610763,
+            0.258513
+        ]
+    },
+    {
+        "long_name": "Eldor ShomurodovЭльдор Аъзамат ўғли Шомуродов",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.202197,
+            1.285715,
+            -0.342829,
+            0.027679
+        ]
+    },
+    {
+        "long_name": "Koki Ogawa小川 航基",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            0.97895,
+            0.539731,
+            -3.33097,
+            -1.056632
+        ]
+    },
+    {
+        "long_name": "Azarias Emmanuel Londoño González",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.748398,
+            2.399705,
+            -2.872192,
+            1.205793
+        ]
+    },
+    {
+        "long_name": "Almoez Ali Zainalabedeen Mohamed Abdullaالمعز علي",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.366277,
+            -2.108117,
+            -0.463962,
+            -1.582713
+        ]
+    },
+    {
+        "long_name": "Cheikh Ahmadou Bamba Mbacké Dieng",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.545535,
+            0.159011,
+            -1.350857,
+            -0.944649
+        ]
+    },
+    {
+        "long_name": "Álex Adrián Arce Barrios",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.083082,
+            -3.147262,
+            -3.626649,
+            -1.896078
+        ]
+    },
+    {
+        "long_name": "Michael Gregoritsch",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            5.367505,
+            2.028564,
+            -3.837521,
+            -0.324113
+        ]
+    },
+    {
+        "long_name": "Abdullah Abdulrahman Al Hamdanعبدالله الحمدان",
+        "cluster_id": 2,
+        "overall": 64,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.833645,
+            3.984285,
+            0.413615,
+            1.163963
+        ]
+    },
+    {
+        "long_name": "Folarin Jolaoluwa Jerry Balogun",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.869572,
+            -3.354242,
+            -0.67382,
+            -0.686839
+        ]
+    },
+    {
+        "long_name": "Luis Javier Suárez Charris",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.905326,
+            -0.351259,
+            1.60015,
+            -0.292611
+        ]
+    },
+    {
+        "long_name": "Maximilian Beier",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -3.789519,
+            1.104121,
+            -0.329904,
+            0.054517
+        ]
+    },
+    {
+        "long_name": "Adam Hložek",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.503005,
+            -1.654457,
+            0.190953,
+            2.022999
+        ]
+    },
+    {
+        "long_name": "Haris Tabaković",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            3.999999,
+            -1.945108,
+            0.076977,
+            -1.064439
+        ]
+    },
+    {
+        "long_name": "Hyeon-gyu Oh오현규",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.290065,
+            1.81173,
+            2.916294,
+            -0.995288
+        ]
+    },
+    {
+        "long_name": "Dailon Rocha Livramento do Rosario",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.06555,
+            -0.068547,
+            0.115221,
+            -0.31739
+        ]
+    },
+    {
+        "long_name": "Brian Ebenezer Adjei Brobbey",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.327177,
+            -2.254192,
+            2.388374,
+            -0.315195
+        ]
+    },
+    {
+        "long_name": "Christopher Grant Wood",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            5.679574,
+            -0.200583,
+            -2.130035,
+            -0.506883
+        ]
+    },
+    {
+        "long_name": "Cyle Christopher Larin",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.880642,
+            -2.019963,
+            -0.710779,
+            1.13439
+        ]
+    },
+    {
+        "long_name": "Gonçalo Manuel Ganchinho Guedes",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.904565,
+            1.331234,
+            -1.977948,
+            -0.574313
+        ]
+    },
+    {
+        "long_name": "Edin Džeko",
+        "cluster_id": 1,
+        "overall": 81,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.965036,
+            0.717483,
+            -4.157686,
+            -0.359443
+        ]
+    },
+    {
+        "long_name": "Mehdi Taremiمهدی طارمی",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -0.172333,
+            0.115976,
+            -2.207917,
+            1.019688
+        ]
+    },
+    {
+        "long_name": "John Yeboah Zamora",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -7.070074,
+            -0.400198,
+            -0.404623,
+            -0.456843
+        ]
+    },
+    {
+        "long_name": "Prince Kwabena Adu",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -1.507127,
+            -0.615193,
+            -1.066549,
+            0.133019
+        ]
+    },
+    {
+        "long_name": "Mohamed Zeki Amdouni",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.010009,
+            3.302812,
+            -0.571594,
+            0.667534
+        ]
+    },
+    {
+        "long_name": "Pape Cherif Ndiaye",
+        "cluster_id": 2,
+        "overall": 70,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.74156,
+            0.562203,
+            2.855284,
+            -0.068795
+        ]
+    },
+    {
+        "long_name": "Frantzdy Pierrot",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            4.805865,
+            -1.208066,
+            0.946979,
+            0.863707
+        ]
+    },
+    {
+        "long_name": "Simon Bokoté Banza",
+        "cluster_id": 2,
+        "overall": 81,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.825013,
+            -2.04672,
+            0.856169,
+            -0.630841
+        ]
+    },
+    {
+        "long_name": "Cédric Bakambu",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -0.835894,
+            0.67604,
+            -0.891516,
+            -1.383775
+        ]
+    },
+    {
+        "long_name": "Dayro Mauricio Moreno Galindo",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            0.101019,
+            0.850767,
+            -3.648223,
+            -0.792509
+        ]
+    },
+    {
+        "long_name": "Hee-chan Hwang황희찬 黄喜灿",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.117048,
+            0.857674,
+            -0.557055,
+            -0.024899
+        ]
+    },
+    {
+        "long_name": "Tete Yengi",
+        "cluster_id": 2,
+        "overall": 59,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            2.023205,
+            3.295267,
+            2.114705,
+            1.66073
+        ]
+    },
+    {
+        "long_name": "Jovo Lukić",
+        "cluster_id": 1,
+        "overall": 64,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            1.384927,
+            0.522454,
+            -0.76151,
+            -0.742778
+        ]
+    },
+    {
+        "long_name": "Noah Arinzechukwu Okafor",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -2.574334,
+            -1.241388,
+            -0.865271,
+            2.748481
+        ]
+    },
+    {
+        "long_name": "Igor Matanović",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.275122,
+            0.41361,
+            0.599218,
+            1.244639
+        ]
+    },
+    {
+        "long_name": "Wout François Maria Weghorst",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            6.761473,
+            4.065073,
+            1.539368,
+            -1.68948
+        ]
+    },
+    {
+        "long_name": "Gabriel Ávalos Stumpfs",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.987731,
+            0.982353,
+            1.466427,
+            -0.390069
+        ]
+    },
+    {
+        "long_name": "Haji Amir Wright",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            0.048315,
+            -0.95597,
+            0.799113,
+            1.130348
+        ]
+    },
+    {
+        "long_name": "Mohamed Touré",
+        "cluster_id": 2,
+        "overall": 68,
+        "representative_name": "Lautaro Javier Martínez",
+        "position_vector": [
+            -1.581075,
+            0.266308,
+            2.29811,
+            1.864882
+        ]
+    },
+    {
+        "long_name": "Mohammed Muntariمحمد مونتاري",
+        "cluster_id": 1,
+        "overall": 66,
+        "representative_name": "Erling Braut Håland",
+        "position_vector": [
+            2.374954,
+            -0.225447,
+            -1.245143,
+            -0.902687
+        ]
+    },
+    {
+        "long_name": "Endrick Felipe Moreira de Sousa",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Kylian Mbappé Lottin",
+        "position_vector": [
+            -4.076709,
+            -1.427796,
+            0.225313,
+            -0.609423
+        ]
+    }
+]

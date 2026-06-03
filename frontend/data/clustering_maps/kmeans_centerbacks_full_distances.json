@@ -1,0 +1,842 @@
+[
+    {
+        "cluster_id": 1,
+        "players": [
+            {
+                "long_name": "Nico Cedric Schlotterbeck",
+                "overall": 85,
+                "distance": 1.355382
+            },
+            {
+                "long_name": "Marcos Aoás Corrêa",
+                "overall": 87,
+                "distance": 1.345063
+            },
+            {
+                "long_name": "Wilfried Stephane Singo",
+                "overall": 80,
+                "distance": 1.358608
+            },
+            {
+                "long_name": "Ezri Konsa Ngoyo",
+                "overall": 82,
+                "distance": 1.349273
+            },
+            {
+                "long_name": "Davinson Sánchez Mina",
+                "overall": 82,
+                "distance": 1.354614
+            },
+            {
+                "long_name": "Manuel Obafemi Akanji",
+                "overall": 82,
+                "distance": 1.348573
+            },
+            {
+                "long_name": "Obite Evan Ndicka",
+                "overall": 81,
+                "distance": 1.348371
+            },
+            {
+                "long_name": "Elieser Danilo Baldeiro Lopes",
+                "overall": 75,
+                "distance": 1.34766
+            },
+            {
+                "long_name": "Micky van de Ven",
+                "overall": 82,
+                "distance": 1.368782
+            },
+            {
+                "long_name": "Jan Paul van Hecke",
+                "overall": 80,
+                "distance": 1.338861
+            },
+            {
+                "long_name": "Malick Laye Thiaw",
+                "overall": 78,
+                "distance": 1.352131
+            },
+            {
+                "long_name": "Ko Itakura板倉 滉",
+                "overall": 77,
+                "distance": 1.346726
+            },
+            {
+                "long_name": "Facundo Axel Medina",
+                "overall": 79,
+                "distance": 1.345666
+            },
+            {
+                "long_name": "Alexander Kwabena Baidoo Djiku",
+                "overall": 77,
+                "distance": 1.340481
+            },
+            {
+                "long_name": "Nayef Aguerdنايف أكرد",
+                "overall": 81,
+                "distance": 1.333177
+            },
+            {
+                "long_name": "Dayotchanculle Oswald Upamecano",
+                "overall": 85,
+                "distance": 1.3577
+            },
+            {
+                "long_name": "Leonardo Julián Balerdi Rossa",
+                "overall": 81,
+                "distance": 1.352781
+            },
+            {
+                "long_name": "Aïssa Mandiعيسى ماندي",
+                "overall": 75,
+                "distance": 1.314054
+            },
+            {
+                "long_name": "Pau Cubarsí Paredes",
+                "overall": 82,
+                "distance": 1.353867
+            },
+            {
+                "long_name": "Addji Keaninkin Marc-Israel Guéhi",
+                "overall": 82,
+                "distance": 1.348295
+            },
+            {
+                "long_name": "Arthur Nicolas Theate",
+                "overall": 80,
+                "distance": 1.338872
+            },
+            {
+                "long_name": "Marco Friedl",
+                "overall": 77,
+                "distance": 1.345305
+            },
+            {
+                "long_name": "Eric García Martret",
+                "overall": 79,
+                "distance": 1.338705
+            },
+            {
+                "long_name": "Victor Jörgen Nilsson Lindelöf",
+                "overall": 75,
+                "distance": 1.311496
+            },
+            {
+                "long_name": "Khalid Abdul Mumin Suleman",
+                "overall": 77,
+                "distance": 1.341733
+            },
+            {
+                "long_name": "Dylan Daniel Mahmoud Bronn",
+                "overall": 68,
+                "distance": 1.323359
+            },
+            {
+                "long_name": "Jack William Hendry",
+                "overall": 74,
+                "distance": 1.338071
+            },
+            {
+                "long_name": "Chancel Mbemba Mangulu",
+                "overall": 75,
+                "distance": 1.335303
+            },
+            {
+                "long_name": "Tomás Lemos Araújo",
+                "overall": 78,
+                "distance": 1.358284
+            },
+            {
+                "long_name": "John Souttar",
+                "overall": 73,
+                "distance": 1.336603
+            },
+            {
+                "long_name": "Guy Maxence Lacroix",
+                "overall": 79,
+                "distance": 1.366414
+            },
+            {
+                "long_name": "David Leopold Affengruber",
+                "overall": 75,
+                "distance": 1.349133
+            },
+            {
+                "long_name": "Diego Valentín Gómez",
+                "overall": 76,
+                "distance": 1.358601
+            },
+            {
+                "long_name": "Boualem Khoukhiبوعلام خوخي",
+                "overall": 71,
+                "distance": 1.314402
+            },
+            {
+                "long_name": "Ali Mohammed Ali Lajamiعلي محمد لاجامي",
+                "overall": 70,
+                "distance": 1.342941
+            },
+            {
+                "long_name": "Steven Moreira",
+                "overall": 72,
+                "distance": 1.33367
+            },
+            {
+                "long_name": "Auston Levi-Jesaiah Trusty",
+                "overall": 74,
+                "distance": 1.35028
+            },
+            {
+                "long_name": "Eray Ervin Cömert",
+                "overall": 72,
+                "distance": 1.336044
+            },
+            {
+                "long_name": "César Jasib Montes Castro",
+                "overall": 75,
+                "distance": 1.321556
+            },
+            {
+                "long_name": "Nico Elvedi",
+                "overall": 77,
+                "distance": 1.334709
+            },
+            {
+                "long_name": "Abdukodir Khusanov",
+                "overall": 77,
+                "distance": 1.370355
+            },
+            {
+                "long_name": "Andrés Alberto Andrade Cedeño",
+                "overall": 69,
+                "distance": 1.343417
+            },
+            {
+                "long_name": "Moïse Bombito Lumpungu",
+                "overall": 76,
+                "distance": 1.367182
+            },
+            {
+                "long_name": "Derek Austin Cornelius",
+                "overall": 74,
+                "distance": 1.338594
+            },
+            {
+                "long_name": "Alidu Seidu",
+                "overall": 74,
+                "distance": 1.331451
+            },
+            {
+                "long_name": "Odilon Kossounou Kouakou",
+                "overall": 80,
+                "distance": 1.35145
+            },
+            {
+                "long_name": "Koni De Winter",
+                "overall": 74,
+                "distance": 1.334015
+            },
+            {
+                "long_name": "Mohamed Abdelmonemمحمد عبد المنعم",
+                "overall": 74,
+                "distance": 1.329109
+            },
+            {
+                "long_name": "Timothy Michael Ream",
+                "overall": 72,
+                "distance": 1.281107
+            },
+            {
+                "long_name": "Rafael Jiménez Jarque",
+                "overall": 69,
+                "distance": 1.303084
+            },
+            {
+                "long_name": "Lucas Michel Mendesلوكاس منديز",
+                "overall": 70,
+                "distance": 1.306588
+            },
+            {
+                "long_name": "Ricardo Adé",
+                "overall": 72,
+                "distance": 1.318406
+            },
+            {
+                "long_name": "Kai Clifton Trewin",
+                "overall": 69,
+                "distance": 1.33758
+            },
+            {
+                "long_name": "Jhon Janer Lucumí Bonilla",
+                "overall": 76,
+                "distance": 1.333266
+            },
+            {
+                "long_name": "Logan Evans Costa",
+                "overall": 77,
+                "distance": 1.332469
+            },
+            {
+                "long_name": "Jarell Amorin Quansah",
+                "overall": 75,
+                "distance": 1.343171
+            },
+            {
+                "long_name": "Carl Anders Theodor Starfelt",
+                "overall": 78,
+                "distance": 1.332727
+            },
+            {
+                "long_name": "Antoine Mendy",
+                "overall": 70,
+                "distance": 1.337387
+            },
+            {
+                "long_name": "Alfie Charles Jones",
+                "overall": 71,
+                "distance": 1.329215
+            },
+            {
+                "long_name": "David Zima",
+                "overall": 74,
+                "distance": 1.346368
+            },
+            {
+                "long_name": "Ozan Muhammed Kabak",
+                "overall": 75,
+                "distance": 1.332932
+            },
+            {
+                "long_name": "Tsuyoshi Watanabe渡辺 剛",
+                "overall": 75,
+                "distance": 1.338901
+            },
+            {
+                "long_name": "Miles Gordon Robinson",
+                "overall": 73,
+                "distance": 1.349144
+            },
+            {
+                "long_name": "Michael Joseph Boxall",
+                "overall": 70,
+                "distance": 1.303223
+            },
+            {
+                "long_name": "Jerome Osei Opoku",
+                "overall": 72,
+                "distance": 1.315153
+            },
+            {
+                "long_name": "Shogo Taniguchi谷口 彰悟",
+                "overall": 69,
+                "distance": 1.305328
+            },
+            {
+                "long_name": "Tyler Grant Bindon",
+                "overall": 69,
+                "distance": 1.331597
+            },
+            {
+                "long_name": "Johan Felipe Vásquez Ibarra",
+                "overall": 75,
+                "distance": 1.319168
+            },
+            {
+                "long_name": "Mauricio César Clerez Farias",
+                "overall": 68,
+                "distance": 1.313659
+            },
+            {
+                "long_name": "Mark Alexander McKenzie",
+                "overall": 74,
+                "distance": 1.35397
+            },
+            {
+                "long_name": "Christopher Jeffrey Richards",
+                "overall": 77,
+                "distance": 1.336611
+            },
+            {
+                "long_name": "Junnosuke Suzuki鈴木 淳之介",
+                "overall": 66,
+                "distance": 1.35021
+            },
+            {
+                "long_name": "Nathan Ngoy",
+                "overall": 69,
+                "distance": 1.355422
+            },
+            {
+                "long_name": "Nando Zen Pijnaker",
+                "overall": 67,
+                "distance": 1.32809
+            },
+            {
+                "long_name": "Hannes Delcroix",
+                "overall": 71,
+                "distance": 1.330142
+            },
+            {
+                "long_name": "Chadi Riad Dnanouشادي رياض دنانو",
+                "overall": 72,
+                "distance": 1.326495
+            },
+            {
+                "long_name": "Henrik Sælebakke Falchener",
+                "overall": 65,
+                "distance": 1.331882
+            },
+            {
+                "long_name": "Luca Antony Jaquez",
+                "overall": 69,
+                "distance": 1.33755
+            },
+            {
+                "long_name": "Ayumu Seko瀬古 歩夢",
+                "overall": 69,
+                "distance": 1.328375
+            },
+            {
+                "long_name": "Yeimar Pastor Gómez Andrade",
+                "overall": 75,
+                "distance": 1.321438
+            },
+            {
+                "long_name": "Cameron Robert Burgess",
+                "overall": 73,
+                "distance": 1.295544
+            },
+            {
+                "long_name": "Mauricio Luciano Lollo",
+                "overall": 72,
+                "distance": 1.276486
+            },
+            {
+                "long_name": "Abdulelah Ali Awadh Al Amriعبد الإله علي عوض العمري",
+                "overall": 70,
+                "distance": 1.324719
+            },
+            {
+                "long_name": "Yazan Al Arabيزن أبو عرب",
+                "overall": 75,
+                "distance": 1.34486
+            },
+            {
+                "long_name": "Víctor Gustavo Velázquez Ramos",
+                "overall": 73,
+                "distance": 1.331043
+            },
+            {
+                "long_name": "Alessandro Circati",
+                "overall": 71,
+                "distance": 1.332311
+            },
+            {
+                "long_name": "Scott Fraser McKenna",
+                "overall": 75,
+                "distance": 1.323494
+            },
+            {
+                "long_name": "Dominic John Hyam",
+                "overall": 71,
+                "distance": 1.299684
+            },
+            {
+                "long_name": "Hjalmar Ekdal",
+                "overall": 72,
+                "distance": 1.30828
+            },
+            {
+                "long_name": "Mamadou Moustapha Mbow",
+                "overall": 72,
+                "distance": 1.323947
+            },
+            {
+                "long_name": "Carlos Miguel Harvey Cesneros",
+                "overall": 65,
+                "distance": 1.32406
+            },
+            {
+                "long_name": "Michael Svoboda",
+                "overall": 68,
+                "distance": 1.320208
+            },
+            {
+                "long_name": "Buduka Dylan Batubinsika",
+                "overall": 71,
+                "distance": 1.328469
+            },
+            {
+                "long_name": "Gustaf Johan Lagerbielke",
+                "overall": 71,
+                "distance": 1.30608
+            },
+            {
+                "long_name": "Finn Surman",
+                "overall": 68,
+                "distance": 1.336548
+            },
+            {
+                "long_name": "Montassar Omar Talbiمنتصر الطالبي",
+                "overall": 73,
+                "distance": 1.312117
+            },
+            {
+                "long_name": "Steve Kapuadi",
+                "overall": 71,
+                "distance": 1.324297
+            },
+            {
+                "long_name": "Ime Okon",
+                "overall": 67,
+                "distance": 1.359425
+            },
+            {
+                "long_name": "José María Canale Domínguez",
+                "overall": 69,
+                "distance": 1.318675
+            },
+            {
+                "long_name": "Seyed Majid Hosseiniمجید حسینی",
+                "overall": 68,
+                "distance": 1.302262
+            },
+            {
+                "long_name": "Dennis Hadžikadunić",
+                "overall": 70,
+                "distance": 1.317357
+            },
+            {
+                "long_name": "Joel Robert Waterman",
+                "overall": 68,
+                "distance": 1.287834
+            },
+            {
+                "long_name": "Jehad Abdullatif Ahmed Thakriجهاد ذكري",
+                "overall": 66,
+                "distance": 1.339686
+            },
+            {
+                "long_name": "Jonas Adjei Adjetey",
+                "overall": 70,
+                "distance": 1.344961
+            },
+            {
+                "long_name": "Qasem Mohammed bin Ali Lajamiقاسم الأوجامي",
+                "overall": 63,
+                "distance": 1.318904
+            },
+            {
+                "long_name": "Han-beom Lee이한범",
+                "overall": 69,
+                "distance": 1.319093
+            },
+            {
+                "long_name": "Grant Campbell Hanley",
+                "overall": 70,
+                "distance": 1.291452
+            },
+            {
+                "long_name": "Nicolás Mauricio Zalazar",
+                "overall": 67,
+                "distance": 1.328281
+            },
+            {
+                "long_name": "Nikola Katić",
+                "overall": 69,
+                "distance": 1.306071
+            },
+            {
+                "long_name": "Harry James Souttar",
+                "overall": 73,
+                "distance": 1.310425
+            },
+            {
+                "long_name": "Aurèle Florian Amenda",
+                "overall": 71,
+                "distance": 1.343126
+            },
+            {
+                "long_name": "Brayan Andrés Ceballos Jiménez",
+                "overall": 68,
+                "distance": 1.325774
+            },
+            {
+                "long_name": "Nidal Čelik",
+                "overall": 64,
+                "distance": 1.332935
+            },
+            {
+                "long_name": "Rocky Bushiri Kisonga",
+                "overall": 68,
+                "distance": 1.341498
+            },
+            {
+                "long_name": "Nihad Mujakić",
+                "overall": 67,
+                "distance": 1.325142
+            },
+            {
+                "long_name": "Rodrigo Suárez Marcos",
+                "overall": 63,
+                "distance": 1.339241
+            },
+            {
+                "long_name": "Tarik Muharemović",
+                "overall": 70,
+                "distance": 1.320816
+            },
+            {
+                "long_name": "Mauricio Pineda",
+                "overall": 65,
+                "distance": 1.299813
+            },
+            {
+                "long_name": "Roberto Carlos Lopes",
+                "overall": 66,
+                "distance": 1.285078
+            },
+            {
+                "long_name": "Luc Rollet De Fougerolles",
+                "overall": 60,
+                "distance": 1.338268
+            },
+            {
+                "long_name": "Brian Mauricio Aguilar Caraballo",
+                "overall": 62,
+                "distance": 1.316095
+            },
+            {
+                "long_name": "Olwethu Makhanya",
+                "overall": 57,
+                "distance": 1.340902
+            },
+            {
+                "long_name": "Jorge Luis Cardona Gutiérrez",
+                "overall": 68,
+                "distance": 1.31156
+            },
+            {
+                "long_name": "Lucas Herrington",
+                "overall": 59,
+                "distance": 1.342581
+            },
+            {
+                "long_name": "Liam Craig Gordon",
+                "overall": 64,
+                "distance": 1.278277
+            },
+            {
+                "long_name": "Adem Arous",
+                "overall": 59,
+                "distance": 1.321772
+            }
+        ]
+    },
+    {
+        "cluster_id": 2,
+        "players": [
+            {
+                "long_name": "Virgil van Dijk",
+                "overall": 90,
+                "distance": 2.905558
+            },
+            {
+                "long_name": "Antonio Rüdiger",
+                "overall": 86,
+                "distance": 2.906408
+            },
+            {
+                "long_name": "William Alain André Gabriel Saliba",
+                "overall": 87,
+                "distance": 2.940546
+            },
+            {
+                "long_name": "Waldemar AntonРипцов-Антон Владимир Александрович",
+                "overall": 82,
+                "distance": 2.921685
+            },
+            {
+                "long_name": "Gleison Bremer Silva Nascimento",
+                "overall": 85,
+                "distance": 2.914049
+            },
+            {
+                "long_name": "Rúben dos Santos Gato Alves Dias",
+                "overall": 86,
+                "distance": 2.9222
+            },
+            {
+                "long_name": "Cristian Gabriel Romero",
+                "overall": 82,
+                "distance": 2.920598
+            },
+            {
+                "long_name": "Emmanuel Elysee Djedje Agbadou Badobre",
+                "overall": 79,
+                "distance": 2.920559
+            },
+            {
+                "long_name": "Kalidou Koulibaly",
+                "overall": 82,
+                "distance": 2.890471
+            },
+            {
+                "long_name": "José María Giménez de Vargas",
+                "overall": 83,
+                "distance": 2.905003
+            },
+            {
+                "long_name": "Ibrahima Konaté",
+                "overall": 86,
+                "distance": 2.931767
+            },
+            {
+                "long_name": "Jonathan Glao Tah",
+                "overall": 87,
+                "distance": 2.918338
+            },
+            {
+                "long_name": "Min-jae Kim김민재 金敏在",
+                "overall": 82,
+                "distance": 2.915875
+            },
+            {
+                "long_name": "Roger Ibañez da Silva",
+                "overall": 82,
+                "distance": 2.913656
+            },
+            {
+                "long_name": "Alexsandro Victor de Souza Ribeiro",
+                "overall": 80,
+                "distance": 2.936944
+            },
+            {
+                "long_name": "Daniel Johnson Burn",
+                "overall": 79,
+                "distance": 2.91213
+            },
+            {
+                "long_name": "Kevin Danso",
+                "overall": 79,
+                "distance": 2.925934
+            },
+            {
+                "long_name": "Philipp Lienhart",
+                "overall": 79,
+                "distance": 2.918091
+            },
+            {
+                "long_name": "Merih Demiral",
+                "overall": 78,
+                "distance": 2.916455
+            },
+            {
+                "long_name": "Ousmane Diomande",
+                "overall": 80,
+                "distance": 2.947158
+            },
+            {
+                "long_name": "Danilo Manuel Vieira Espíndola",
+                "overall": 78,
+                "distance": 2.890191
+            },
+            {
+                "long_name": "Isak Malcolm Kwaku Hien",
+                "overall": 78,
+                "distance": 2.923515
+            },
+            {
+                "long_name": "Yerry Fernando Mina González",
+                "overall": 77,
+                "distance": 2.91483
+            },
+            {
+                "long_name": "Brandon Mechele",
+                "overall": 76,
+                "distance": 2.89725
+            },
+            {
+                "long_name": "Issa Laye Lucas Jean Diop",
+                "overall": 76,
+                "distance": 2.919742
+            },
+            {
+                "long_name": "Santiago Ignacio Bueno Sciutto",
+                "overall": 76,
+                "distance": 2.927271
+            }
+        ]
+    },
+    {
+        "cluster_id": 3,
+        "players": [
+            {
+                "long_name": "David Olatukunbo Alaba",
+                "overall": 82,
+                "distance": 3.078201
+            },
+            {
+                "long_name": "Lisandro Martínez",
+                "overall": 81,
+                "distance": 3.058251
+            },
+            {
+                "long_name": "Renato de Palma Veiga",
+                "overall": 76,
+                "distance": 3.037657
+            },
+            {
+                "long_name": "Nathan Benjamin Aké",
+                "overall": 83,
+                "distance": 3.074595
+            },
+            {
+                "long_name": "John Stones",
+                "overall": 82,
+                "distance": 3.085873
+            },
+            {
+                "long_name": "Lucas François Bernard Hernández Pi",
+                "overall": 81,
+                "distance": 3.073864
+            },
+            {
+                "long_name": "Sead Kolašinac",
+                "overall": 79,
+                "distance": 3.092853
+            },
+            {
+                "long_name": "Hiroki Ito伊藤 洋輝",
+                "overall": 78,
+                "distance": 3.064249
+            },
+            {
+                "long_name": "Axel Laurent Angel Lambert Witsel",
+                "overall": 77,
+                "distance": 3.118694
+            },
+            {
+                "long_name": "Nicolás Hernán Gonzalo Otamendi",
+                "overall": 82,
+                "distance": 3.116471
+            },
+            {
+                "long_name": "Omar Federico Alderete Fernández",
+                "overall": 78,
+                "distance": 3.080762
+            },
+            {
+                "long_name": "Aymeric Jean Louis Gerard Alphonse Laporte",
+                "overall": 82,
+                "distance": 3.092844
+            },
+            {
+                "long_name": "Moussa Niakhaté",
+                "overall": 77,
+                "distance": 3.08901
+            }
+        ]
+    }
+]

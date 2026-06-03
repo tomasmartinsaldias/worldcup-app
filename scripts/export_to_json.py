@@ -292,6 +292,13 @@ def main():
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(data_to_export, f, ensure_ascii=False, indent=2)
         
+    # También exportar a frontend/data para despliegue estático (GitHub Pages)
+    frontend_output_path = os.path.join(base_dir, "frontend", "data", "wc2026_data.json")
+    os.makedirs(os.path.dirname(frontend_output_path), exist_ok=True)
+    with open(frontend_output_path, 'w', encoding='utf-8') as f:
+        json.dump(data_to_export, f, ensure_ascii=False, indent=2)
+    print(f"Copia exportada a {frontend_output_path}")
+        
     print("¡Exportación completada con éxito!")
 
 if __name__ == "__main__":

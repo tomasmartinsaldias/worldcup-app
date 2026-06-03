@@ -1,0 +1,3026 @@
+[
+    {
+        "long_name": "Jude Victor William Bellingham",
+        "cluster_id": 1,
+        "overall": 90,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.23432,
+            2.18534,
+            2.112076,
+            -0.525564
+        ]
+    },
+    {
+        "long_name": "Joshua Walter Kimmich",
+        "cluster_id": 1,
+        "overall": 89,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.140853,
+            1.998892,
+            -1.773885,
+            0.652784
+        ]
+    },
+    {
+        "long_name": "Federico Santiago Valverde Dipetta",
+        "cluster_id": 1,
+        "overall": 89,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.016226,
+            2.720201,
+            2.141565,
+            0.45298
+        ]
+    },
+    {
+        "long_name": "Hakan Çalhanoğlu",
+        "cluster_id": 4,
+        "overall": 86,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.039636,
+            0.464617,
+            -2.410021,
+            1.487409
+        ]
+    },
+    {
+        "long_name": "Billy Clifford Gilmour",
+        "cluster_id": 4,
+        "overall": 74,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.885403,
+            0.833832,
+            -4.414701,
+            -1.317225
+        ]
+    },
+    {
+        "long_name": "Rodrigo Hernández Cascante",
+        "cluster_id": 3,
+        "overall": 90,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.834764,
+            -0.482734,
+            0.325544,
+            -0.928089
+        ]
+    },
+    {
+        "long_name": "Alexis Mac Allister",
+        "cluster_id": 4,
+        "overall": 87,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.243413,
+            0.419898,
+            -2.091133,
+            0.799061
+        ]
+    },
+    {
+        "long_name": "Adrien Rabiot-Provost",
+        "cluster_id": 1,
+        "overall": 83,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.923392,
+            0.48706,
+            3.267864,
+            0.602313
+        ]
+    },
+    {
+        "long_name": "Rodrigo Javier de Paul",
+        "cluster_id": 1,
+        "overall": 84,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.475595,
+            1.178991,
+            -0.306849,
+            1.258086
+        ]
+    },
+    {
+        "long_name": "Bruno Miguel Borges Fernandes",
+        "cluster_id": 4,
+        "overall": 87,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.694654,
+            -1.211283,
+            -1.731779,
+            1.258656
+        ]
+    },
+    {
+        "long_name": "Leon Christoph Goretzka",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.280049,
+            -0.033917,
+            2.145761,
+            0.265983
+        ]
+    },
+    {
+        "long_name": "Ray Kendry Páez Andrade",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.600086,
+            -0.256084,
+            1.05094,
+            -1.700278
+        ]
+    },
+    {
+        "long_name": "Frenkie de Jong",
+        "cluster_id": 1,
+        "overall": 87,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.057949,
+            2.974994,
+            0.637512,
+            -1.275649
+        ]
+    },
+    {
+        "long_name": "Tijjani Martinus Jan Reijnders Lekatompessy",
+        "cluster_id": 1,
+        "overall": 86,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.157406,
+            2.039861,
+            0.679114,
+            -0.351849
+        ]
+    },
+    {
+        "long_name": "Pedro González López",
+        "cluster_id": 1,
+        "overall": 89,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.368044,
+            4.487492,
+            -1.445679,
+            -2.129243
+        ]
+    },
+    {
+        "long_name": "Bruno Guimarães Rodrigues Moura",
+        "cluster_id": 1,
+        "overall": 86,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.687894,
+            0.8744,
+            -1.067417,
+            -0.73307
+        ]
+    },
+    {
+        "long_name": "Amir Al Ammariأمير فؤاد عبود العماري",
+        "cluster_id": 4,
+        "overall": 65,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.420609,
+            -1.238736,
+            -0.48422,
+            1.181475
+        ]
+    },
+    {
+        "long_name": "Ryan Jiro Gravenberch",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.502186,
+            1.318554,
+            1.391182,
+            -1.426304
+        ]
+    },
+    {
+        "long_name": "Teun Koopmeiners",
+        "cluster_id": 4,
+        "overall": 81,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.667557,
+            -0.962389,
+            -0.006081,
+            0.732597
+        ]
+    },
+    {
+        "long_name": "Kevin De Bruyne",
+        "cluster_id": 4,
+        "overall": 87,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.493875,
+            -3.184968,
+            -1.630276,
+            0.131816
+        ]
+    },
+    {
+        "long_name": "Mikel Merino Zazón",
+        "cluster_id": 3,
+        "overall": 83,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.295884,
+            -1.56599,
+            0.850645,
+            -0.251195
+        ]
+    },
+    {
+        "long_name": "Enzo Jeremías Fernández",
+        "cluster_id": 4,
+        "overall": 84,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.12044,
+            0.043244,
+            -1.024181,
+            -0.138171
+        ]
+    },
+    {
+        "long_name": "Martin Ødegaard",
+        "cluster_id": 4,
+        "overall": 87,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -3.095888,
+            0.001386,
+            -2.407461,
+            -1.076417
+        ]
+    },
+    {
+        "long_name": "Orkun Kökçü",
+        "cluster_id": 4,
+        "overall": 82,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.145436,
+            0.403613,
+            -1.271866,
+            1.237485
+        ]
+    },
+    {
+        "long_name": "Abbosbek Fayzullaev",
+        "cluster_id": 2,
+        "overall": 65,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.084867,
+            -2.46141,
+            -1.284818,
+            -0.223814
+        ]
+    },
+    {
+        "long_name": "Scott Francis McTominay",
+        "cluster_id": 3,
+        "overall": 85,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.669272,
+            -1.052505,
+            3.75701,
+            -0.360539
+        ]
+    },
+    {
+        "long_name": "Rúben Diogo da Silva Neves",
+        "cluster_id": 4,
+        "overall": 84,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.843233,
+            -2.247368,
+            -2.876687,
+            0.290444
+        ]
+    },
+    {
+        "long_name": "Felix Kalu Nmecha",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.831657,
+            1.892639,
+            4.075617,
+            -0.458124
+        ]
+    },
+    {
+        "long_name": "Youri Tielemans",
+        "cluster_id": 4,
+        "overall": 85,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.784909,
+            -2.108179,
+            -3.0346,
+            -0.292932
+        ]
+    },
+    {
+        "long_name": "Jamal Musiala",
+        "cluster_id": 2,
+        "overall": 88,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.609908,
+            1.566802,
+            1.587743,
+            -1.749448
+        ]
+    },
+    {
+        "long_name": "Luka Modrić",
+        "cluster_id": 4,
+        "overall": 83,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -2.777603,
+            -0.040758,
+            -3.949454,
+            0.956458
+        ]
+    },
+    {
+        "long_name": "Franck Yannick Kessié",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.051822,
+            1.374408,
+            1.958979,
+            2.134759
+        ]
+    },
+    {
+        "long_name": "Giovani Lo Celso",
+        "cluster_id": 4,
+        "overall": 82,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.576657,
+            -0.657845,
+            -1.352796,
+            0.465962
+        ]
+    },
+    {
+        "long_name": "Fredrik Aursnes",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.221321,
+            2.011802,
+            0.183801,
+            0.894879
+        ]
+    },
+    {
+        "long_name": "Bernardo Mota Veiga de Carvalho e Silva",
+        "cluster_id": 4,
+        "overall": 84,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -2.604613,
+            1.012352,
+            -4.111269,
+            -0.349497
+        ]
+    },
+    {
+        "long_name": "Florian Richard Wirtz",
+        "cluster_id": 2,
+        "overall": 89,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.71432,
+            0.695471,
+            -0.0549,
+            -1.274965
+        ]
+    },
+    {
+        "long_name": "Weston James Earl McKennie",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.450899,
+            0.638395,
+            2.227646,
+            0.839361
+        ]
+    },
+    {
+        "long_name": "Quinten Ryan Crispito Timber",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.495498,
+            1.929973,
+            1.546765,
+            0.851288
+        ]
+    },
+    {
+        "long_name": "Moisés Isaac Caicedo Corozo",
+        "cluster_id": 1,
+        "overall": 87,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.807437,
+            3.161905,
+            -0.631772,
+            -0.705144
+        ]
+    },
+    {
+        "long_name": "Vítor Machado Ferreira",
+        "cluster_id": 4,
+        "overall": 89,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -2.38959,
+            2.369383,
+            -2.821553,
+            -0.473272
+        ]
+    },
+    {
+        "long_name": "Francisco Fernandes da Conceição",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -9.072639,
+            1.420805,
+            -0.016991,
+            -0.586951
+        ]
+    },
+    {
+        "long_name": "Lucas Tolentino Coelho de Lima",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.647438,
+            -0.692517,
+            -0.371539,
+            0.498878
+        ]
+    },
+    {
+        "long_name": "Pavel Šulc",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -4.957966,
+            -1.302727,
+            0.590583,
+            -0.130925
+        ]
+    },
+    {
+        "long_name": "Marcel Sabitzer",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.074964,
+            0.063686,
+            -0.586682,
+            2.007038
+        ]
+    },
+    {
+        "long_name": "Elliot Junior Anderson",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.846884,
+            1.959639,
+            -0.137554,
+            -0.20971
+        ]
+    },
+    {
+        "long_name": "Malik Leon Tillman",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.703269,
+            1.073584,
+            3.090751,
+            -0.046746
+        ]
+    },
+    {
+        "long_name": "Exequiel Alejandro Palacios",
+        "cluster_id": 4,
+        "overall": 84,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.038409,
+            0.68137,
+            -2.232797,
+            -0.812838
+        ]
+    },
+    {
+        "long_name": "Rodrigo Zalazar Martínez",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.897801,
+            0.853197,
+            0.459908,
+            1.532506
+        ]
+    },
+    {
+        "long_name": "Lewis Ferguson",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.227993,
+            -0.104369,
+            1.037763,
+            1.282381
+        ]
+    },
+    {
+        "long_name": "Richard Rios Montoya",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.341711,
+            2.191555,
+            1.44574,
+            0.307658
+        ]
+    },
+    {
+        "long_name": "Declan Rice",
+        "cluster_id": 3,
+        "overall": 87,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.014554,
+            0.487754,
+            0.20746,
+            -0.064747
+        ]
+    },
+    {
+        "long_name": "Fabian Rieder",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.837864,
+            -0.50184,
+            -0.284812,
+            -0.445902
+        ]
+    },
+    {
+        "long_name": "Lukáš Provod",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.441813,
+            -1.040167,
+            2.75951,
+            0.957594
+        ]
+    },
+    {
+        "long_name": "Aurélien Djani Tchouameni",
+        "cluster_id": 3,
+        "overall": 84,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.26683,
+            1.140448,
+            1.157534,
+            -1.171151
+        ]
+    },
+    {
+        "long_name": "Marten Elco de Roon",
+        "cluster_id": 3,
+        "overall": 81,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.092173,
+            -0.938206,
+            -1.078157,
+            0.902789
+        ]
+    },
+    {
+        "long_name": "Aníbal Casis Godoy Lemus",
+        "cluster_id": 3,
+        "overall": 70,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.194919,
+            -3.063119,
+            -2.415391,
+            -0.805316
+        ]
+    },
+    {
+        "long_name": "Fabián Ruiz Peña",
+        "cluster_id": 4,
+        "overall": 85,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.095262,
+            -1.297105,
+            -1.040404,
+            -1.311759
+        ]
+    },
+    {
+        "long_name": "Pascal Groß",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.448351,
+            -3.317306,
+            -3.400092,
+            0.201986
+        ]
+    },
+    {
+        "long_name": "Jordy José Alcívar Macías",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.902764,
+            0.072969,
+            -1.465487,
+            2.246728
+        ]
+    },
+    {
+        "long_name": "Aimar Hazar Sher",
+        "cluster_id": 4,
+        "overall": 67,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.111343,
+            2.179545,
+            -2.239779,
+            -0.443336
+        ]
+    },
+    {
+        "long_name": "Granit Xhaka",
+        "cluster_id": 3,
+        "overall": 85,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.462916,
+            -3.805111,
+            -2.470996,
+            -0.267843
+        ]
+    },
+    {
+        "long_name": "Zidane Iqbal",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.121756,
+            0.591725,
+            -1.385866,
+            -1.000658
+        ]
+    },
+    {
+        "long_name": "João Pedro Gonçalves Neves",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.160827,
+            3.702599,
+            -0.151055,
+            -0.495432
+        ]
+    },
+    {
+        "long_name": "Kouadio Emmanuel Boris Koné",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.525167,
+            1.085799,
+            2.145587,
+            -0.283522
+        ]
+    },
+    {
+        "long_name": "N'Golo Kanté",
+        "cluster_id": 1,
+        "overall": 85,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.000189,
+            4.599885,
+            -1.520415,
+            1.371289
+        ]
+    },
+    {
+        "long_name": "Nadiem Amiri",
+        "cluster_id": 4,
+        "overall": 81,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -2.412309,
+            -1.267832,
+            -1.334187,
+            0.194569
+        ]
+    },
+    {
+        "long_name": "Mateo Kovačić",
+        "cluster_id": 4,
+        "overall": 83,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.112296,
+            -0.02129,
+            -2.168957,
+            -0.328709
+        ]
+    },
+    {
+        "long_name": "Orbelín Pineda Alvarado",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -2.313432,
+            2.596161,
+            -0.032708,
+            2.338296
+        ]
+    },
+    {
+        "long_name": "Samir El Mourabetسمير المرابط",
+        "cluster_id": 4,
+        "overall": 66,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.036435,
+            -1.79364,
+            -0.719649,
+            -2.938302
+        ]
+    },
+    {
+        "long_name": "Leandro Daniel Paredes",
+        "cluster_id": 4,
+        "overall": 78,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.038788,
+            -1.523571,
+            -2.5817,
+            1.039431
+        ]
+    },
+    {
+        "long_name": "Warren Zaïre-Emery",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.619719,
+            3.241554,
+            0.9419,
+            -0.657712
+        ]
+    },
+    {
+        "long_name": "Luka Sučić",
+        "cluster_id": 1,
+        "overall": 78,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.80489,
+            -0.240689,
+            1.255631,
+            -0.064118
+        ]
+    },
+    {
+        "long_name": "Ryan Jared Thomas",
+        "cluster_id": 4,
+        "overall": 66,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.985456,
+            -1.35578,
+            -3.121762,
+            1.106762
+        ]
+    },
+    {
+        "long_name": "Jordan Brian Henderson",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.353643,
+            -1.640742,
+            -0.89257,
+            1.12315
+        ]
+    },
+    {
+        "long_name": "Martín Zubimendi Ibáñez",
+        "cluster_id": 1,
+        "overall": 83,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.578389,
+            1.334602,
+            -1.212963,
+            -1.627567
+        ]
+    },
+    {
+        "long_name": "Eberechi Oluchi Eze",
+        "cluster_id": 2,
+        "overall": 83,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.186338,
+            -0.938705,
+            0.189124,
+            0.312431
+        ]
+    },
+    {
+        "long_name": "Matheus Santos Carneiro da Cunha",
+        "cluster_id": 2,
+        "overall": 83,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -4.093243,
+            -2.324731,
+            2.935483,
+            1.093119
+        ]
+    },
+    {
+        "long_name": "Ryan Christie",
+        "cluster_id": 4,
+        "overall": 79,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.538733,
+            1.141158,
+            -1.680777,
+            1.104496
+        ]
+    },
+    {
+        "long_name": "Denis Lemi Zakaria Lako Lado",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.174734,
+            1.53917,
+            3.056665,
+            -0.530143
+        ]
+    },
+    {
+        "long_name": "Ellyes Joris Skhiriإلياس صخيري",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.584634,
+            -0.107235,
+            -0.30547,
+            -0.019044
+        ]
+    },
+    {
+        "long_name": "Juan Camilo Portilla Orozco",
+        "cluster_id": 3,
+        "overall": 73,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.748548,
+            -0.649384,
+            0.681083,
+            0.344272
+        ]
+    },
+    {
+        "long_name": "Mario Pašalić",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            0.485792,
+            -1.483216,
+            1.303529,
+            -0.403955
+        ]
+    },
+    {
+        "long_name": "Jens Castrop",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.054991,
+            3.367012,
+            0.244889,
+            -0.48216
+        ]
+    },
+    {
+        "long_name": "Pathé Ismaël Ciss",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            6.117856,
+            0.638649,
+            1.640202,
+            0.437856
+        ]
+    },
+    {
+        "long_name": "Jefferson Andrés Lerma Solís",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.740135,
+            0.276838,
+            0.340306,
+            2.336648
+        ]
+    },
+    {
+        "long_name": "Rodrigo Bentancur Colmán",
+        "cluster_id": 4,
+        "overall": 80,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.825878,
+            -0.629201,
+            -1.327211,
+            -0.885555
+        ]
+    },
+    {
+        "long_name": "Thomas Teye Partey",
+        "cluster_id": 3,
+        "overall": 83,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.160418,
+            -1.732266,
+            -0.824293,
+            -0.765931
+        ]
+    },
+    {
+        "long_name": "Anis Ben Slimaneأنيس بن سليمان",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.125746,
+            -1.748253,
+            2.074399,
+            -0.42814
+        ]
+    },
+    {
+        "long_name": "Tomáš Ladra",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.75919,
+            -2.296909,
+            1.207244,
+            1.32607
+        ]
+    },
+    {
+        "long_name": "Charles De Ketelaere",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.21656,
+            -2.71999,
+            2.249707,
+            -1.334995
+        ]
+    },
+    {
+        "long_name": "Sofyan Amrabatسفيان أمرابط",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.994238,
+            -0.852954,
+            -0.399364,
+            0.880287
+        ]
+    },
+    {
+        "long_name": "Kevin Duván Castaño Gil",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.469332,
+            1.424121,
+            0.435737,
+            -0.018646
+        ]
+    },
+    {
+        "long_name": "Mohameth Djibril Ibrahima Sow",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.115315,
+            1.397092,
+            0.916953,
+            0.595828
+        ]
+    },
+    {
+        "long_name": "Ardon Jashari",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.539177,
+            1.475292,
+            1.449029,
+            0.773314
+        ]
+    },
+    {
+        "long_name": "Pape Matar Sarr",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.580737,
+            1.512348,
+            -0.273986,
+            -1.361023
+        ]
+    },
+    {
+        "long_name": "Fábio Henrique Tavares",
+        "cluster_id": 3,
+        "overall": 82,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.529174,
+            -2.22578,
+            -1.608477,
+            -0.437581
+        ]
+    },
+    {
+        "long_name": "Hicham Boudaouiهشام بوداوي",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.442416,
+            2.63326,
+            -0.191624,
+            0.444108
+        ]
+    },
+    {
+        "long_name": "Lamine Camara",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.415252,
+            2.818739,
+            -1.15189,
+            -0.156959
+        ]
+    },
+    {
+        "long_name": "Patrick Berg",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.824939,
+            1.031394,
+            -0.03166,
+            0.97081
+        ]
+    },
+    {
+        "long_name": "Kobbie Mainoo",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.408805,
+            1.231972,
+            0.041501,
+            -1.644319
+        ]
+    },
+    {
+        "long_name": "Daniel Olmo Carvajal",
+        "cluster_id": 2,
+        "overall": 85,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.044633,
+            -1.226574,
+            -1.039739,
+            -1.40339
+        ]
+    },
+    {
+        "long_name": "Pablo Martín Páez Gavira",
+        "cluster_id": 1,
+        "overall": 83,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.833951,
+            3.919003,
+            -1.338921,
+            -2.364345
+        ]
+    },
+    {
+        "long_name": "Nicolas Thierry Raskin",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.587933,
+            2.270719,
+            -0.479184,
+            0.570184
+        ]
+    },
+    {
+        "long_name": "Xaver Schlager",
+        "cluster_id": 1,
+        "overall": 80,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.091327,
+            1.167715,
+            -1.002222,
+            0.301006
+        ]
+    },
+    {
+        "long_name": "João Félix Sequeira",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -4.8804,
+            -1.233397,
+            1.573176,
+            0.625532
+        ]
+    },
+    {
+        "long_name": "Guus Berend Til",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.04974,
+            -0.672911,
+            2.85616,
+            0.815325
+        ]
+    },
+    {
+        "long_name": "Hans Vanaken",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.538037,
+            -6.586669,
+            -0.178622,
+            -1.240956
+        ]
+    },
+    {
+        "long_name": "Nikola Vlašić",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.468016,
+            -0.873315,
+            1.171666,
+            0.682611
+        ]
+    },
+    {
+        "long_name": "Seko Mohamed Fofana",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.600407,
+            -1.049796,
+            0.774075,
+            0.679017
+        ]
+    },
+    {
+        "long_name": "Ngal'ayel Mukau",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.608005,
+            1.150172,
+            1.556041,
+            -1.75853
+        ]
+    },
+    {
+        "long_name": "Ziyad Mubarak Al Johani",
+        "cluster_id": 4,
+        "overall": 67,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.013588,
+            0.955483,
+            -1.339995,
+            -1.160338
+        ]
+    },
+    {
+        "long_name": "Remo Marco Freuler",
+        "cluster_id": 4,
+        "overall": 81,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            2.039501,
+            -1.062534,
+            -2.351917,
+            -0.17744
+        ]
+    },
+    {
+        "long_name": "Cristian Roldán",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.139295,
+            2.298176,
+            1.127409,
+            2.369976
+        ]
+    },
+    {
+        "long_name": "Andrej Kramarić",
+        "cluster_id": 2,
+        "overall": 81,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.524133,
+            -3.893638,
+            1.051778,
+            2.677365
+        ]
+    },
+    {
+        "long_name": "Kwasi Sibo",
+        "cluster_id": 3,
+        "overall": 69,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.421782,
+            -0.088733,
+            0.795098,
+            1.286962
+        ]
+    },
+    {
+        "long_name": "Nabil Bentalebنبيل بن طالب",
+        "cluster_id": 4,
+        "overall": 77,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.694724,
+            -3.507029,
+            -2.187912,
+            -0.183392
+        ]
+    },
+    {
+        "long_name": "Daichi Kamada鎌田 大地",
+        "cluster_id": 4,
+        "overall": 77,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.744549,
+            -0.349898,
+            -1.051764,
+            0.453801
+        ]
+    },
+    {
+        "long_name": "Nasser Essa Shafi Al Shardan Al Dawsariناصر عيسى الدوسري",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.200468,
+            -0.067591,
+            -0.887824,
+            0.617097
+        ]
+    },
+    {
+        "long_name": "Pavel Bucha",
+        "cluster_id": 4,
+        "overall": 75,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.371965,
+            0.710304,
+            -0.674606,
+            1.360844
+        ]
+    },
+    {
+        "long_name": "Mohamed Belhadj Mahmoudمحمد بلحاج محمود",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.294551,
+            -0.215661,
+            0.358436,
+            0.441318
+        ]
+    },
+    {
+        "long_name": "Jean-Ricner Bellegarde",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.661161,
+            2.792322,
+            -0.213959,
+            0.801294
+        ]
+    },
+    {
+        "long_name": "Ismaël Kenneth Jordan Koné",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.265259,
+            0.017897,
+            2.073512,
+            -1.408954
+        ]
+    },
+    {
+        "long_name": "Houssem Aouarحسام عوار",
+        "cluster_id": 4,
+        "overall": 77,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -2.08343,
+            -0.739968,
+            -1.470157,
+            0.146488
+        ]
+    },
+    {
+        "long_name": "Carlos Henrique Casimiro",
+        "cluster_id": 3,
+        "overall": 80,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            5.708278,
+            -6.105624,
+            -2.761835,
+            0.152279
+        ]
+    },
+    {
+        "long_name": "Mats Wieffer",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.104148,
+            -0.188233,
+            0.90466,
+            -0.409877
+        ]
+    },
+    {
+        "long_name": "Angelo Stiller",
+        "cluster_id": 4,
+        "overall": 83,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.496167,
+            0.684215,
+            -2.579485,
+            -3.222131
+        ]
+    },
+    {
+        "long_name": "Dong-gyeong Lee이동경",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -2.157971,
+            0.327971,
+            0.76331,
+            2.619015
+        ]
+    },
+    {
+        "long_name": "Paul Wanner",
+        "cluster_id": 2,
+        "overall": 72,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -4.832197,
+            -0.974727,
+            0.230327,
+            -2.001412
+        ]
+    },
+    {
+        "long_name": "Connor Isaac Metcalfe",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.314998,
+            1.08953,
+            0.81611,
+            0.572573
+        ]
+    },
+    {
+        "long_name": "Hannibal Mejbriحنبعل المجبري",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.627621,
+            1.983849,
+            0.858227,
+            0.765425
+        ]
+    },
+    {
+        "long_name": "Francisco António Machado Mota de Castro Trincão",
+        "cluster_id": 2,
+        "overall": 82,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.402776,
+            -1.875532,
+            3.314139,
+            0.217979
+        ]
+    },
+    {
+        "long_name": "Jae-sung Lee이재성 李在成",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.356106,
+            0.378331,
+            1.298677,
+            0.301496
+        ]
+    },
+    {
+        "long_name": "Pape Alassane Gueye",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.115234,
+            0.074128,
+            0.800744,
+            -0.992073
+        ]
+    },
+    {
+        "long_name": "Abdulaziz Hatem Abdallah Mohammedعبد العزيز حاتم",
+        "cluster_id": 4,
+        "overall": 70,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.909968,
+            -2.618662,
+            -0.357507,
+            0.758773
+        ]
+    },
+    {
+        "long_name": "Ao Tanaka田中 碧",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.146391,
+            1.329947,
+            -0.79939,
+            0.286884
+        ]
+    },
+    {
+        "long_name": "Aleksandar Pavlović",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.597874,
+            -0.144732,
+            -0.696799,
+            -2.761273
+        ]
+    },
+    {
+        "long_name": "Ismael Saibari Ben El Basraإسماعيل صيباري",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.461201,
+            -0.609133,
+            3.500468,
+            -0.18109
+        ]
+    },
+    {
+        "long_name": "Nikola Moro",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.258522,
+            -1.620319,
+            0.090379,
+            0.406915
+        ]
+    },
+    {
+        "long_name": "Thiago Ezequiel Almada",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.719928,
+            0.786669,
+            -1.931641,
+            0.599848
+        ]
+    },
+    {
+        "long_name": "Obed Gómez Vargas",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.773584,
+            2.805809,
+            -1.24523,
+            -1.815529
+        ]
+    },
+    {
+        "long_name": "Nicolas Seiwald",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.510899,
+            1.357755,
+            0.204978,
+            -0.000302
+        ]
+    },
+    {
+        "long_name": "Stephen Antunes Eustáquio",
+        "cluster_id": 4,
+        "overall": 77,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.035197,
+            0.358746,
+            -1.469768,
+            0.839795
+        ]
+    },
+    {
+        "long_name": "Alejandro Sebastián Romero Gamarra",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.12137,
+            0.549127,
+            -1.361047,
+            1.343616
+        ]
+    },
+    {
+        "long_name": "Lucas Erik Holger Bergvall",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.441051,
+            1.621117,
+            0.38529,
+            -1.884183
+        ]
+    },
+    {
+        "long_name": "Jamiro Gregory Monteiro Alvarenga",
+        "cluster_id": 4,
+        "overall": 69,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.88412,
+            0.402249,
+            -0.983123,
+            1.398242
+        ]
+    },
+    {
+        "long_name": "Jackson Alexander Irvine",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.337018,
+            -0.817153,
+            1.568959,
+            0.98462
+        ]
+    },
+    {
+        "long_name": "Martin Baturina",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.690549,
+            0.761639,
+            -0.374929,
+            -0.29218
+        ]
+    },
+    {
+        "long_name": "Tyler Shaan Adams",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.864589,
+            4.160372,
+            -0.096468,
+            0.046467
+        ]
+    },
+    {
+        "long_name": "Farès Chaïbiفارس شايبي",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.164033,
+            -0.397369,
+            0.264846,
+            -0.970674
+        ]
+    },
+    {
+        "long_name": "İsmail Yüksek",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.480226,
+            1.75815,
+            1.073102,
+            0.316385
+        ]
+    },
+    {
+        "long_name": "Can Yılmaz Uzun",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.377714,
+            -4.439406,
+            2.513348,
+            -0.620562
+        ]
+    },
+    {
+        "long_name": "Alessandro André Schöpf",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.482523,
+            -0.699896,
+            -1.054387,
+            1.775719
+        ]
+    },
+    {
+        "long_name": "Manuel Ugarte Ribeiro",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.537805,
+            0.291344,
+            -1.321283,
+            -1.076511
+        ]
+    },
+    {
+        "long_name": "Jonathan Osorio",
+        "cluster_id": 4,
+        "overall": 71,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.533366,
+            -2.374328,
+            -3.010119,
+            0.362919
+        ]
+    },
+    {
+        "long_name": "Wataru Endo遠藤 航",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.158736,
+            0.365321,
+            -1.103586,
+            0.115382
+        ]
+    },
+    {
+        "long_name": "Tahith Jose Chong",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.148009,
+            -1.164101,
+            1.449831,
+            -0.551217
+        ]
+    },
+    {
+        "long_name": "Julio César Enciso Espínola",
+        "cluster_id": 2,
+        "overall": 73,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -7.635333,
+            -1.604752,
+            -0.474213,
+            -0.127002
+        ]
+    },
+    {
+        "long_name": "Gustavo Aldolfo Puerta Molano",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.831221,
+            0.368936,
+            -1.948267,
+            -0.065337
+        ]
+    },
+    {
+        "long_name": "Michel Aebischer",
+        "cluster_id": 4,
+        "overall": 74,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.213528,
+            -0.095114,
+            -0.371987,
+            -0.220331
+        ]
+    },
+    {
+        "long_name": "Joe Zen Robert Bell",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.706785,
+            0.198944,
+            1.032703,
+            1.183604
+        ]
+    },
+    {
+        "long_name": "Morgan Elliot Rogers",
+        "cluster_id": 1,
+        "overall": 82,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.755482,
+            0.261138,
+            2.596281,
+            -1.269536
+        ]
+    },
+    {
+        "long_name": "Michal Sadílek",
+        "cluster_id": 4,
+        "overall": 76,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.803503,
+            0.574062,
+            -3.658728,
+            1.326493
+        ]
+    },
+    {
+        "long_name": "Kristian Thorstvedt",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.822798,
+            -3.148497,
+            1.811419,
+            -0.015004
+        ]
+    },
+    {
+        "long_name": "Karim Boudiafكريم بوضياف",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.448047,
+            -3.656489,
+            -0.577574,
+            -0.891328
+        ]
+    },
+    {
+        "long_name": "Yasin Abbas Ayari",
+        "cluster_id": 4,
+        "overall": 75,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.74355,
+            1.38368,
+            -2.515183,
+            -0.341506
+        ]
+    },
+    {
+        "long_name": "Amadou Zeund Georges Ba Mvom Onana",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.566181,
+            0.304343,
+            2.734818,
+            -1.766717
+        ]
+    },
+    {
+        "long_name": "Erik Benjamin Nygren",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.594633,
+            -1.41884,
+            1.588394,
+            0.49289
+        ]
+    },
+    {
+        "long_name": "Besfort Zeneli",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.272227,
+            0.382442,
+            0.522873,
+            -0.616101
+        ]
+    },
+    {
+        "long_name": "Tomáš Souček",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            6.231882,
+            -4.990629,
+            0.132747,
+            0.121151
+        ]
+    },
+    {
+        "long_name": "Justin Dean Kluivert",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -7.153609,
+            -0.228272,
+            1.859083,
+            2.013262
+        ]
+    },
+    {
+        "long_name": "Mohamed Ibrahim Abdullah Kannoمحمد كنو",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.58871,
+            -1.217642,
+            2.004056,
+            1.519837
+        ]
+    },
+    {
+        "long_name": "Mouhamadou Habib Diarra",
+        "cluster_id": 1,
+        "overall": 77,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.38207,
+            0.849238,
+            0.229008,
+            -1.214325
+        ]
+    },
+    {
+        "long_name": "Cameron Peter Devlin",
+        "cluster_id": 1,
+        "overall": 71,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.241883,
+            2.513906,
+            -0.936839,
+            1.070395
+        ]
+    },
+    {
+        "long_name": "Alex Arthur Rufer",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.062275,
+            -1.329221,
+            0.557479,
+            1.507225
+        ]
+    },
+    {
+        "long_name": "Denil Daniel Castillo Preciado",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.846526,
+            -1.003259,
+            -0.508931,
+            -1.04104
+        ]
+    },
+    {
+        "long_name": "Carlos Alberto Rodríguez Gómez",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.88038,
+            2.225606,
+            -0.843085,
+            0.194949
+        ]
+    },
+    {
+        "long_name": "Danley Jean Jacques",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.909117,
+            0.787018,
+            0.766716,
+            -0.70537
+        ]
+    },
+    {
+        "long_name": "Neil El Aynaouiنييل العيناوي",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.537912,
+            -1.054171,
+            0.306888,
+            -1.384062
+        ]
+    },
+    {
+        "long_name": "Seung-ho Paik백승호",
+        "cluster_id": 4,
+        "overall": 72,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            0.06765,
+            -0.338928,
+            -0.184898,
+            1.671137
+        ]
+    },
+    {
+        "long_name": "Mattias Olof Svanberg",
+        "cluster_id": 1,
+        "overall": 76,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.509534,
+            0.052084,
+            0.127006,
+            -0.515341
+        ]
+    },
+    {
+        "long_name": "Toni Fruk",
+        "cluster_id": 2,
+        "overall": 75,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -4.245796,
+            -1.195044,
+            -0.575168,
+            0.283386
+        ]
+    },
+    {
+        "long_name": "Amad Diallo Traoré",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.363255,
+            1.687606,
+            0.234871,
+            -0.950563
+        ]
+    },
+    {
+        "long_name": "Salih Özcan",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.715056,
+            1.628787,
+            0.782722,
+            0.73329
+        ]
+    },
+    {
+        "long_name": "Kenan Yıldız",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.45859,
+            -2.038253,
+            4.478495,
+            -0.051739
+        ]
+    },
+    {
+        "long_name": "Idrissa Gana Gueye",
+        "cluster_id": 4,
+        "overall": 79,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            2.817161,
+            1.422289,
+            -3.228443,
+            1.351196
+        ]
+    },
+    {
+        "long_name": "Juninho Gracielo Bacuna",
+        "cluster_id": 1,
+        "overall": 69,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.052636,
+            -0.334216,
+            1.005664,
+            2.198574
+        ]
+    },
+    {
+        "long_name": "Ibrahim Sangaré",
+        "cluster_id": 3,
+        "overall": 77,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.096289,
+            -2.372618,
+            0.001087,
+            -0.365532
+        ]
+    },
+    {
+        "long_name": "Zeno Koen Debast",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.515469,
+            0.367745,
+            0.766949,
+            -2.027132
+        ]
+    },
+    {
+        "long_name": "Ajdin Hrustić",
+        "cluster_id": 4,
+        "overall": 67,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.882376,
+            -3.930985,
+            -1.95184,
+            0.936348
+        ]
+    },
+    {
+        "long_name": "Diego Alexander Gómez Amarilla",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.44433,
+            -0.023603,
+            0.848974,
+            -0.558318
+        ]
+    },
+    {
+        "long_name": "In-beom Hwang황인범",
+        "cluster_id": 4,
+        "overall": 77,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.622271,
+            -0.435573,
+            -1.956446,
+            -0.47974
+        ]
+    },
+    {
+        "long_name": "Edo Kayembe Kayembe",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.815094,
+            -0.739751,
+            1.725564,
+            1.475468
+        ]
+    },
+    {
+        "long_name": "Callum William McCowatt",
+        "cluster_id": 2,
+        "overall": 67,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -1.73803,
+            -1.017469,
+            1.482131,
+            1.860561
+        ]
+    },
+    {
+        "long_name": "Sebastian Berhalter",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.049971,
+            1.778503,
+            -0.867528,
+            0.890784
+        ]
+    },
+    {
+        "long_name": "Christ Ravynel Inao Oulaï",
+        "cluster_id": 4,
+        "overall": 64,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -3.521495,
+            2.379299,
+            -2.335332,
+            -1.109796
+        ]
+    },
+    {
+        "long_name": "Amir Hadžiahmetović",
+        "cluster_id": 4,
+        "overall": 73,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.165939,
+            -0.227347,
+            -1.391614,
+            0.504584
+        ]
+    },
+    {
+        "long_name": "Samuel de Almeida Costa",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.625339,
+            -0.12774,
+            0.190775,
+            -0.091748
+        ]
+    },
+    {
+        "long_name": "Sander Gard Bolin Berge",
+        "cluster_id": 3,
+        "overall": 79,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            6.092503,
+            -3.913874,
+            1.877102,
+            -2.045314
+        ]
+    },
+    {
+        "long_name": "Assim Omer Al Haj Madiboعاصم ماديبو",
+        "cluster_id": 1,
+        "overall": 65,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.032847,
+            4.299128,
+            0.928067,
+            2.384393
+        ]
+    },
+    {
+        "long_name": "Juan José Cardozo López",
+        "cluster_id": 3,
+        "overall": 62,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.091194,
+            -1.870813,
+            0.387268,
+            -1.12506
+        ]
+    },
+    {
+        "long_name": "Lukáš Červ",
+        "cluster_id": 3,
+        "overall": 74,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.430811,
+            0.25938,
+            0.944301,
+            1.53683
+        ]
+    },
+    {
+        "long_name": "Ramiz Larbi Zerrouki",
+        "cluster_id": 3,
+        "overall": 73,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.789839,
+            -0.765291,
+            -0.40073,
+            1.009385
+        ]
+    },
+    {
+        "long_name": "Yuito Suzuki鈴木 唯人",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.073929,
+            1.190142,
+            0.841783,
+            0.687127
+        ]
+    },
+    {
+        "long_name": "Rani Khedira",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            7.761026,
+            -0.472068,
+            0.552598,
+            0.098361
+        ]
+    },
+    {
+        "long_name": "Dženis Burnić",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.403289,
+            1.176778,
+            0.415213,
+            0.279242
+        ]
+    },
+    {
+        "long_name": "Bilal El Khannoussبلال الخنوص",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.505455,
+            -0.433689,
+            0.275158,
+            -2.389409
+        ]
+    },
+    {
+        "long_name": "Noah Junior Sadiki",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.239929,
+            3.072706,
+            0.976991,
+            -0.42126
+        ]
+    },
+    {
+        "long_name": "Santiago Daniel Arias Fierro",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.266131,
+            -0.030534,
+            -0.813475,
+            0.869644
+        ]
+    },
+    {
+        "long_name": "Patrick Wimmer",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.669634,
+            0.8619,
+            2.84916,
+            -0.092803
+        ]
+    },
+    {
+        "long_name": "Kaishu Sano佐野 海舟",
+        "cluster_id": 1,
+        "overall": 79,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            2.161379,
+            4.510652,
+            0.4798,
+            -0.402672
+        ]
+    },
+    {
+        "long_name": "Carney Chibueze Chukwuemeka",
+        "cluster_id": 2,
+        "overall": 76,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -1.897502,
+            -0.30867,
+            1.758587,
+            -2.12616
+        ]
+    },
+    {
+        "long_name": "Edson Omar Álvarez Velázquez",
+        "cluster_id": 3,
+        "overall": 78,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.509371,
+            0.34991,
+            0.329821,
+            -0.302803
+        ]
+    },
+    {
+        "long_name": "Romano Christian Schmid",
+        "cluster_id": 2,
+        "overall": 78,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.252601,
+            1.437596,
+            -1.387062,
+            -0.894488
+        ]
+    },
+    {
+        "long_name": "Johan Manzambi",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.747723,
+            0.607715,
+            2.352937,
+            -1.172102
+        ]
+    },
+    {
+        "long_name": "Christoph Baumgartner",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.675258,
+            -0.904539,
+            1.669079,
+            -0.202189
+        ]
+    },
+    {
+        "long_name": "Nathan-Dylan Saliba",
+        "cluster_id": 4,
+        "overall": 68,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.883151,
+            0.383017,
+            -0.918801,
+            -0.308382
+        ]
+    },
+    {
+        "long_name": "Kristijan Jakić",
+        "cluster_id": 3,
+        "overall": 76,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.659313,
+            1.508632,
+            1.199242,
+            1.715511
+        ]
+    },
+    {
+        "long_name": "Elisha Owusu",
+        "cluster_id": 4,
+        "overall": 73,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            2.300368,
+            -0.380417,
+            -2.21948,
+            -0.79021
+        ]
+    },
+    {
+        "long_name": "Juan Fernando Quintero Paniagua",
+        "cluster_id": 2,
+        "overall": 77,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -6.738511,
+            -3.821167,
+            -2.963321,
+            1.357453
+        ]
+    },
+    {
+        "long_name": "Jin-gyu Kim김진규 金金圭",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.623304,
+            -0.890845,
+            0.161047,
+            0.629979
+        ]
+    },
+    {
+        "long_name": "Kenneth McLean",
+        "cluster_id": 4,
+        "overall": 72,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            1.478299,
+            -2.144062,
+            -1.211766,
+            1.688845
+        ]
+    },
+    {
+        "long_name": "Muhammad Ahmed Yahya Sahlouli",
+        "cluster_id": 4,
+        "overall": 51,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -3.286454,
+            0.511229,
+            -1.819539,
+            0.530418
+        ]
+    },
+    {
+        "long_name": "Adrián Andrés Cubas",
+        "cluster_id": 4,
+        "overall": 74,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.627278,
+            4.545073,
+            -5.072654,
+            0.352106
+        ]
+    },
+    {
+        "long_name": "Jesper Karlström",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.08837,
+            -0.476354,
+            -0.103269,
+            -0.196729
+        ]
+    },
+    {
+        "long_name": "Musab Fahd Al Juwayrمصعب فهد الجوير",
+        "cluster_id": 4,
+        "overall": 75,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.970975,
+            -0.832753,
+            -1.542417,
+            -0.881442
+        ]
+    },
+    {
+        "long_name": "Morten Thorsby",
+        "cluster_id": 3,
+        "overall": 72,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.706861,
+            -1.676301,
+            0.337163,
+            -0.478205
+        ]
+    },
+    {
+        "long_name": "Charles Monginda Pickel",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            2.625869,
+            -0.91624,
+            1.075453,
+            0.687582
+        ]
+    },
+    {
+        "long_name": "Matías Galarza Fonda",
+        "cluster_id": 4,
+        "overall": 73,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.754277,
+            -1.687279,
+            -1.178411,
+            -1.024506
+        ]
+    },
+    {
+        "long_name": "Caleb Marfo Yirenkyi",
+        "cluster_id": 1,
+        "overall": 67,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.052606,
+            0.565884,
+            1.015037,
+            -1.096163
+        ]
+    },
+    {
+        "long_name": "Azzedine Ounahiعز الدين اوناهي",
+        "cluster_id": 4,
+        "overall": 76,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.783038,
+            -0.15303,
+            -0.966552,
+            -1.360934
+        ]
+    },
+    {
+        "long_name": "Ismaïla Sarr",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -7.079311,
+            -1.880395,
+            4.31654,
+            1.141688
+        ]
+    },
+    {
+        "long_name": "Ala'a Al Hajjiعلاء آل حجي",
+        "cluster_id": 4,
+        "overall": 63,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.13799,
+            -0.842383,
+            -0.683086,
+            1.036696
+        ]
+    },
+    {
+        "long_name": "Abdullah Mohammed Al Khaibariعبدالله الخيبري",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.860043,
+            2.08356,
+            0.189618,
+            0.198401
+        ]
+    },
+    {
+        "long_name": "Aiden Connor O'Neill",
+        "cluster_id": 1,
+        "overall": 70,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.764811,
+            1.692299,
+            1.106405,
+            1.817308
+        ]
+    },
+    {
+        "long_name": "Kevin Enkido Yakobكيفن إنكيدو يعقوب",
+        "cluster_id": 4,
+        "overall": 66,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -0.6826,
+            -1.207715,
+            0.054842,
+            -0.048578
+        ]
+    },
+    {
+        "long_name": "Brenden Russell Aaronson",
+        "cluster_id": 2,
+        "overall": 74,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.83182,
+            1.008186,
+            0.374646,
+            0.112007
+        ]
+    },
+    {
+        "long_name": "Ali Ahmed",
+        "cluster_id": 1,
+        "overall": 68,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -1.133853,
+            1.916125,
+            0.935183,
+            -0.979841
+        ]
+    },
+    {
+        "long_name": "Marko Seufatu Nikola Stamenić",
+        "cluster_id": 3,
+        "overall": 71,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.662965,
+            -0.335364,
+            0.786425,
+            -0.114642
+        ]
+    },
+    {
+        "long_name": "Nicolás Paz Martínez",
+        "cluster_id": 2,
+        "overall": 79,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.500411,
+            -1.030563,
+            2.164798,
+            -3.105569
+        ]
+    },
+    {
+        "long_name": "Matthew Jimmy David Garbett",
+        "cluster_id": 4,
+        "overall": 65,
+        "representative_name": "Vítor Machado Ferreira",
+        "position_vector": [
+            -1.046027,
+            -1.632767,
+            1.044241,
+            0.412752
+        ]
+    },
+    {
+        "long_name": "Érik Antonio Lira Méndez",
+        "cluster_id": 1,
+        "overall": 73,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            1.490474,
+            2.204374,
+            -0.221756,
+            1.274159
+        ]
+    },
+    {
+        "long_name": "Sphephelo Sithole",
+        "cluster_id": 3,
+        "overall": 65,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.46196,
+            -1.930942,
+            1.846333,
+            0.310721
+        ]
+    },
+    {
+        "long_name": "Florian Grillitsch",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            1.980348,
+            -1.347046,
+            -0.603648,
+            -2.177006
+        ]
+    },
+    {
+        "long_name": "Thelonious Gerard Aasgaard",
+        "cluster_id": 2,
+        "overall": 68,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -3.010422,
+            -2.689129,
+            1.34122,
+            -0.333033
+        ]
+    },
+    {
+        "long_name": "Ayyoub Bouaddi",
+        "cluster_id": 1,
+        "overall": 75,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.576457,
+            1.267822,
+            1.169137,
+            -2.590843
+        ]
+    },
+    {
+        "long_name": "Eric Anders Smith",
+        "cluster_id": 3,
+        "overall": 75,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            4.394428,
+            -1.210275,
+            1.741677,
+            -0.304631
+        ]
+    },
+    {
+        "long_name": "Lachlan Ryan Bayliss",
+        "cluster_id": 2,
+        "overall": 62,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -2.671458,
+            -0.486728,
+            0.946592,
+            0.342058
+        ]
+    },
+    {
+        "long_name": "Ibrahim Maza",
+        "cluster_id": 2,
+        "overall": 71,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -5.226978,
+            -0.996709,
+            1.948002,
+            -0.591814
+        ]
+    },
+    {
+        "long_name": "Armin Gigović",
+        "cluster_id": 1,
+        "overall": 72,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            0.089454,
+            -0.907351,
+            0.80909,
+            -0.767027
+        ]
+    },
+    {
+        "long_name": "Benjamin Tahirović",
+        "cluster_id": 3,
+        "overall": 67,
+        "representative_name": "Rodrigo Hernández Cascante",
+        "position_vector": [
+            3.38234,
+            -2.60775,
+            -0.614376,
+            -1.916729
+        ]
+    },
+    {
+        "long_name": "Lennart Karl",
+        "cluster_id": 2,
+        "overall": 63,
+        "representative_name": "Florian Richard Wirtz",
+        "position_vector": [
+            -7.807746,
+            -1.867496,
+            -1.636696,
+            -0.378925
+        ]
+    },
+    {
+        "long_name": "Petar Sučić",
+        "cluster_id": 1,
+        "overall": 74,
+        "representative_name": "Jude Victor William Bellingham",
+        "position_vector": [
+            -0.510197,
+            0.059465,
+            0.727205,
+            -0.919163
+        ]
+    }
+]

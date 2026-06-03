@@ -342,7 +342,13 @@ def update_vectors():
     with open(style_file, "w", encoding="utf-8") as f:
         json.dump(style_data, f, indent=4, ensure_ascii=False)
         
-    print(f"Se actualizaron los vectores y descripciones para {updated_count} selecciones en {style_file}")
+    # También actualizar en frontend/data para despliegue estático
+    frontend_style_file = os.path.join(base_dir, "frontend", "data", "estilos-de-juego", "selecciones_estilo")
+    os.makedirs(os.path.dirname(frontend_style_file), exist_ok=True)
+    with open(frontend_style_file, "w", encoding="utf-8") as f:
+        json.dump(style_data, f, indent=4, ensure_ascii=False)
+        
+    print(f"Se actualizaron los vectores y descripciones para {updated_count} selecciones en {style_file} y frontend/data/estilos-de-juego/selecciones_estilo")
 
 if __name__ == "__main__":
     update_vectors()
