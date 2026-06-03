@@ -81,32 +81,6 @@ function analyzeSquad(team, userPreferences) {
   return { stars, favPlayersBonus, favClubBonus, totalAge, ageCount };
 }
 
-export function calculateQuizAffinity(userVector, match, teams, sofascoreVectors) {
-  if (!userVector || !sofascoreVectors) return 0;
-  
-  const homeCode = match.home_team.fifa_code;
-  const awayCode = match.away_team.fifa_code;
-  
-  const homeName = teams[homeCode]?.name;
-  const awayName = teams[awayCode]?.name;
-
-  const homeVec = sofascoreVectors[homeName];
-  const awayVec = sofascoreVectors[awayName];
-
-  if (!homeVec || !awayVec) return 0;
-
-  // Create match vector (average of home and away)
-  const matchVec = {};
-  const keys = Object.keys(homeVec);
-  for (let i = 0; i < keys.length; i++) {
-    const k = keys[i];
-    matchVec[k] = (homeVec[k] + awayVec[k]) / 2;
-  }
-
-  // Calculate cosine similarity using unified function
-  return calculateCosineSimilarity(userVector, matchVec, keys);
-}
-
 export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0.1) {
   const simA = calculateCosineSimilarity(vectorA, vectorU);
   const simB = calculateCosineSimilarity(vectorB, vectorU);
@@ -117,7 +91,29 @@ export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0
   return matchPrincipal + interaccion;
 }
 
-export function calculateICEScore(match, teams, dramaBeta = 0.2) {
+/**
+ * Calculates the Friction Score (Fricción) for a match.
+ * Based purely on the average drama_norm (faltas + tarjetas) of both teams.
+ * This is a static property of the match — the user's dramaBonus controls
+ * whether it helps or hurts their SmartScore (see calculateSmartScore).
+ * @returns {number} score in [1.0, 10.0]
+ */
+export function calculateFriccionScore(match, teams) {
+  if (match.home_team.is_placeholder || match.away_team.is_placeholder) return 5.0;
+
+  const home = teams[match.home_team.fifa_code];
+  const away = teams[match.away_team.fifa_code];
+  if (!home || !away) return 5.0;
+
+  const hParams = home.espectaculo_params || { drama_norm: 0.5 };
+  const aParams = away.espectaculo_params || { drama_norm: 0.5 };
+
+  const dramaMatch = ((hParams.drama_norm ?? 0.5) + (aParams.drama_norm ?? 0.5)) / 2;
+  // Scale [0,1] → [1,10]
+  return parseFloat((1.0 + 9.0 * dramaMatch).toFixed(1));
+}
+
+export function calculateICEScore(match, teams) {
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
     return 5.0; // default for playoff TBD matches
   }
@@ -133,6 +129,7 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
   const aParams = away.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5, vuln_norm: 0.5 };
 
   const alpha = ICE_CONFIG.alpha; // weight for counter attacks
+  const DRAMA_BETA_FIXED = 0.2;   // fixed — drama is no longer a user param
 
   // 1. La Fusión de Vectores (El Entorno del Partido)
   const ocMatch = (hParams.ocasiones_norm + aParams.ocasiones_norm) / 2;
@@ -168,13 +165,14 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
   const rankingDiff = Math.abs(homeEloBase - awayEloBase);
   const pBrecha = ICE_CONFIG.P_MAX / (1 + Math.exp(-ICE_CONFIG.K_STEEPNESS * (rankingDiff - ICE_CONFIG.R_MID)));
 
-  // 4. Ecuación Final del Sistema (ICEmatch) con Amplificador de Vulnerabilidad
+  // 4. Ecuación Estructural del ICE (estático — sin término drama variable)
+  // El drama se calcula separadamente en calculateFriccionScore()
   const gamma = ICE_CONFIG.gamma;
-  const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch) + (dramaBeta * dramaMatch)) * (1 - pBrecha);
+  const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch) + (DRAMA_BETA_FIXED * dramaMatch)) * (1 - pBrecha);
 
-  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico y Factor de Calidad Absoluta (qMatch)
+  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico (sin dramaBeta variable)
   const ICE_min = ICE_CONFIG.ICE_min;
-  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + dramaBeta); 
+  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + DRAMA_BETA_FIXED);
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   
   // Factor de Calidad Absoluta basado en el Elo dinámico promedio de ambas selecciones
@@ -187,12 +185,12 @@ export function calculateICEScore(match, teams, dramaBeta = 0.2) {
 }
 
 export function calculateSmartScore(match, teams, tacticalVector) {
-  const dramaBeta = state.userPreferences?.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
-  const ice = calculateICEScore(match, teams, dramaBeta);
+  const ice = calculateICEScore(match, teams);
 
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
     match.spectacleScore = ice;
     match.playstyleScore = 5.0;
+    match.friccionScore = 5.0;
     return ice;
   }
 
@@ -202,6 +200,7 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   if (!home || !away) {
     match.spectacleScore = ice;
     match.playstyleScore = 5.0;
+    match.friccionScore = 5.0;
     return ice;
   }
 
@@ -211,8 +210,9 @@ export function calculateSmartScore(match, teams, tacticalVector) {
 
   let spectacleScore = ice;
 
-  // Playstyle Score
-  const vectorU = tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+  // Playstyle Score — compara tacticalVector del usuario con los vectores tácticos de los equipos
+  // El tacticalVector se configura directamente desde el quiz (Q6) o desde los sliders de Ajustes
+  const vectorU = tacticalVector || state.userPreferences?.tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const vectorA = home.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const vectorB = away.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
 
@@ -223,30 +223,34 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     playstyleScore = spectacleScore;
   } else {
     const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
-
     // Linear scale from [-1.1, 1.1] to [1.0, 10.0]
-    const minVal = -1.1;
-    const maxVal = 1.1;
-    playstyleScore = 1.0 + 9.0 * ((rawPlaystyle - minVal) / (maxVal - minVal));
+    playstyleScore = 1.0 + 9.0 * ((rawPlaystyle + 1.1) / 2.2);
     playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
   }
 
-  // Combine spectacle and playstyle scores using custom user weights
-  const wSpectacle = state.userPreferences?.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.7;
+  // Combine spectacle and playstyle scores using user weight
+  const wSpectacle = state.userPreferences?.spectacleWeight ?? 0.5;
   const wPlaystyle = 1.0 - wSpectacle;
   let combinedScore = wSpectacle * spectacleScore + wPlaystyle * playstyleScore;
 
-  if (state.userPreferences?.quizVector && state.appData?.sofascoreVectors) {
-    const affinity = calculateQuizAffinity(state.userPreferences.quizVector, match, teams, state.appData.sofascoreVectors);
-    match.quizAffinity = parseFloat((affinity * 100).toFixed(1));
-    combinedScore += affinity * 2.0; // Boost score up to +2.0
+  // ── Fricción ──────────────────────────────────────────────────────────────
+  // FriccionScore es una propiedad estática del partido (drama_norm de ambos equipos).
+  // dramaBonus determina el SIGNO del efecto en SmartScore:
+  //   +1 → le gusta la fricción: partidos físicos suben en ranking
+  //   -1 → no le gusta: partidos físicos bajan en ranking
+  //    0 → indiferente: sin efecto
+  const friccionScore = calculateFriccionScore(match, teams); // [1.0, 10.0]
+  const dramaBonus = state.userPreferences?.dramaBonus ?? 0;
+  if (dramaBonus !== 0) {
+    const FRICCION_SCALE = 0.12; // impacto máximo: ±0.12 × 4.5 ≈ ±0.54 pts
+    combinedScore += dramaBonus * FRICCION_SCALE * (friccionScore - 5.5);
   }
 
-  // Add specific entity bonuses
+  // ── Bonuses por entidades favoritas ───────────────────────────────────────
   let bonus = 0;
-  
-  if (state.userPreferences?.favoriteTeams && state.userPreferences.favoriteTeams.length > 0) {
-    if (state.userPreferences.favoriteTeams.includes(match.home_team.fifa_code) || 
+
+  if (state.userPreferences?.favoriteTeams?.length > 0) {
+    if (state.userPreferences.favoriteTeams.includes(match.home_team.fifa_code) ||
         state.userPreferences.favoriteTeams.includes(match.away_team.fifa_code)) {
       bonus += 2.5;
     }
@@ -257,8 +261,8 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const totalAge = homeAnalysis.totalAge + awayAnalysis.totalAge;
   const playersCount = homeAnalysis.ageCount + awayAnalysis.ageCount;
 
-  bonus += Math.min(favPlayersBonus, 2.0); // max +2.0 for players
-  bonus += Math.min(favClubBonus, 1.5); // max +1.5 for clubs
+  bonus += Math.min(favPlayersBonus, 2.0);
+  bonus += Math.min(favClubBonus, 1.5);
 
   // Age preference bonus
   let ageBonus = 0;
@@ -275,50 +279,7 @@ export function calculateSmartScore(match, teams, tacticalVector) {
 
   match.spectacleScore = parseFloat(spectacleScore.toFixed(1));
   match.playstyleScore = parseFloat(playstyleScore.toFixed(1));
+  match.friccionScore = parseFloat(friccionScore.toFixed(1));
 
   return parseFloat(combinedScore.toFixed(1));
 }
-
-export function calculateFormRating(player) {
-  let ratingVal = 6.5; // default fallback
-
-  if (player.minutes_recent && player.minutes_recent > 0) {
-    const p90 = 90.0 / player.minutes_recent;
-    const xG90 = (player.xG_intl || 0) * p90;
-    const sca90 = (player.sca_intl || 0) * p90;
-    const gca90 = (player.gca_intl || 0) * p90;
-    const progP90 = (player.progressive_passes_intl || 0) * p90;
-    const progC90 = (player.progressive_carries_intl || 0) * p90;
-
-    let baseScore = 6.0;
-    let performance = 0;
-
-    const pos = (player.position || '').toLowerCase();
-    if (pos.includes('delantero') || pos.includes('forward') || pos.includes('atacante')) {
-      performance = (xG90 * 2.0) + (gca90 * 1.5) + (sca90 * 0.2);
-    } else if (pos.includes('centrocampista') || pos.includes('midfielder')) {
-      performance = (sca90 * 0.4) + (progP90 * 0.15) + (gca90 * 1.0) + (progC90 * 0.1);
-    } else if (pos.includes('defensa') || pos.includes('defender')) {
-      performance = (progC90 * 0.2) + (progP90 * 0.2) + (sca90 * 0.3);
-    } else if (pos.includes('portero') || pos.includes('goalkeeper')) {
-      let gkBase = 1.0;
-      if (player.market_value_eur) gkBase += Math.min(player.market_value_eur / 20.0, 1.5);
-      if (player.caps) gkBase += Math.min(player.caps / 50.0, 1.0);
-      performance = gkBase;
-    } else {
-      performance = (xG90 * 0.5) + (sca90 * 0.2) + (progP90 * 0.1);
-    }
-
-    ratingVal = baseScore + performance;
-  } else {
-    // If no minutes but has market value or caps, we can give a slight bonus to default 6.5
-    let bonus = 0;
-    if (player.market_value_eur) bonus += Math.min(player.market_value_eur / 20.0, 1.0);
-    if (player.caps) bonus += Math.min(player.caps / 50.0, 0.5);
-    ratingVal = 6.5 + bonus;
-  }
-
-  return Math.min(Math.max(ratingVal, 5.0), 9.9);
-}
-
-

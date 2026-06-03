@@ -1,15 +1,32 @@
 import { state } from './state.js';
 import { calculateSmartScore } from './scoring.js';
-import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
+import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=7';
 import { renderGroups } from './ui/groups.js';
 import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js';
 import { renderUnresolved } from './ui/unresolved.js';
-import { closeModal } from './ui/modal.js';
+import { closeModal } from './ui/modal.js?v=5';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
+import { initDraft, startDraft } from './ui/draft.js?v=2';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
+
+window.applyDraftTactics = function(vector) {
+  state.userPreferences.tacticalVector = { ...vector };
+  syncSliders(vector);
+  
+  state.appData.matches.forEach(m => {
+    m.smartScore = calculateSmartScore(m, state.appData.teams, state.userPreferences.tacticalVector);
+  });
+  
+  const currentSort = document.getElementById('sort-matches').value || 'interest-desc';
+  sortMatchesList(currentSort);
+  renderMatches();
+  
+  // Switch to recommender tab
+  document.querySelector('.nav-btn[data-tab="recommender"]').click();
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabListeners();
@@ -113,13 +130,18 @@ async function loadData() {
   </div>`;
   
   try {
-    const [response, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes] = await Promise.all([
+    const [response, logosRes, estiloRes, arquetiposRes, photosRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
       fetch('../data/wc2026_data.json?t=' + new Date().getTime()),
       fetch('data/club_logos.json?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/selecciones_estilo?t=' + new Date().getTime()),
       fetch('../data/estilos-de-juego/arquetipos?t=' + new Date().getTime()),
       fetch('data/players_photos.json?t=' + new Date().getTime()),
-      fetch('../data/selecciones_vectors.json?t=' + new Date().getTime())
+      fetch('../data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_midfielders_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_wingers_arquetipos.json?t=' + new Date().getTime()),
+      fetch('../data/clustering_maps/kmeans_strikers_arquetipos.json?t=' + new Date().getTime())
     ]);
     
     if (!response.ok) {
@@ -127,6 +149,22 @@ async function loadData() {
     }
     
     state.appData = await response.json();
+    
+    try {
+      const clusters = await Promise.all([gkRes.json(), cbRes.json(), fbRes.json(), midRes.json(), wingRes.json(), stRes.json()]);
+      state.appData.clusters = {
+        Goalkeepers: clusters[0],
+        Centerbacks: clusters[1],
+        Fullbacks: clusters[2],
+        Midfielders: clusters[3],
+        Wingers: clusters[4],
+        Strikers: clusters[5]
+      };
+    } catch(e) {
+      console.error("Could not parse cluster data", e);
+      state.appData.clusters = {};
+    }
+
     try {
       state.appData.clubLogos = await logosRes.json();
     } catch(e) {
@@ -150,13 +188,7 @@ async function loadData() {
       state.appData.arquetipos = [];
     }
 
-    try {
-      const sofascoreData = await sofascoreRes.json();
-      state.appData.sofascoreVectors = sofascoreData;
-    } catch(e) {
-      console.error("Could not parse sofascore vectors", e);
-      state.appData.sofascoreVectors = {};
-    }
+
 
     try {
       const photosData = await photosRes.json();
@@ -209,6 +241,10 @@ async function loadData() {
     
     // Initialize Tactical UI
     initTacticalUI();
+    
+    // Initialize FUT Draft
+    initDraft();
+    startDraft(true);
     
   } catch (error) {
     console.error("No se pudieron cargar los datos del Mundial:", error);
@@ -311,17 +347,22 @@ function initTacticalUI() {
   if (btnOpenPreferences) {
     btnOpenPreferences.addEventListener('click', () => {
       switchTab('preferences');
-      // Sync sliders values to UI
-      const dramaSlider = document.getElementById('slider-drama-tab');
+      // Sync drama/friction categorical choice to UI
       const dramaValText = document.getElementById('val-drama-tab');
-      if (dramaSlider && dramaValText) {
-        const val = state.userPreferences.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
-        dramaSlider.value = val;
-        let desc = '';
-        if (val > 0.35) desc = 'Roce Físico / Intensidad';
-        else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
-        else desc = 'Equilibrada';
-        dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+      const prefFriccionGroup = document.getElementById('pref-friccion-group');
+      if (prefFriccionGroup && dramaValText) {
+        const val = state.userPreferences.dramaBonus !== undefined ? state.userPreferences.dramaBonus : 0;
+        let desc = 'Indiferente';
+        if (val === 1) desc = 'Máxima Fricción';
+        else if (val === -1) desc = 'Juego Limpio';
+        dramaValText.textContent = desc;
+        
+        prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
+          opt.classList.remove('selected');
+          if (parseInt(opt.getAttribute('data-value')) === val) {
+            opt.classList.add('selected');
+          }
+        });
       }
       const weightSlider = document.getElementById('slider-weight-tab');
       const weightValText = document.getElementById('val-weight-tab');
@@ -462,18 +503,23 @@ function initTacticalUI() {
     }
   });
 
-  // Connect Drama Slider
-  const dramaSlider = document.getElementById('slider-drama-tab');
+  // Connect Drama/Friction Categorical Buttons in Preferences Tab
+  const prefFriccionGroup = document.getElementById('pref-friccion-group');
   const dramaValText = document.getElementById('val-drama-tab');
-  if (dramaSlider && dramaValText) {
-    dramaSlider.addEventListener('input', (e) => {
-      const val = parseFloat(e.target.value);
-      state.userPreferences.dramaBeta = val;
-      let desc = '';
-      if (val > 0.35) desc = 'Roce Físico / Intensidad';
-      else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
-      else desc = 'Equilibrada';
-      dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+  if (prefFriccionGroup) {
+    prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        
+        const val = parseInt(opt.getAttribute('data-value'));
+        state.userPreferences.dramaBonus = val;
+        
+        let desc = 'Indiferente';
+        if (val === 1) desc = 'Máxima Fricción';
+        else if (val === -1) desc = 'Juego Limpio';
+        if (dramaValText) dramaValText.textContent = desc;
+      });
     });
   }
 
@@ -648,17 +694,22 @@ function syncSliders(vector) {
     }
   });
 
-  // Sync Drama Slider
-  const dramaSlider = document.getElementById('slider-drama-tab');
+  // Sync Drama/Friction preference buttons
   const dramaValText = document.getElementById('val-drama-tab');
-  if (dramaSlider && dramaValText) {
-    const val = state.userPreferences.dramaBeta !== undefined ? state.userPreferences.dramaBeta : 0.2;
-    dramaSlider.value = val;
-    let desc = '';
-    if (val > 0.35) desc = 'Roce Físico / Intensidad';
-    else if (val < 0.15) desc = 'Juego Limpio / Fair Play';
-    else desc = 'Equilibrada';
-    dramaValText.textContent = `${desc} (${val.toFixed(2)})`;
+  const prefFriccionGroup = document.getElementById('pref-friccion-group');
+  if (prefFriccionGroup && dramaValText) {
+    const val = state.userPreferences.dramaBonus !== undefined ? state.userPreferences.dramaBonus : 0;
+    let desc = 'Indiferente';
+    if (val === 1) desc = 'Máxima Fricción';
+    else if (val === -1) desc = 'Juego Limpio';
+    dramaValText.textContent = desc;
+    
+    prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
+      opt.classList.remove('selected');
+      if (parseInt(opt.getAttribute('data-value')) === val) {
+        opt.classList.add('selected');
+      }
+    });
   }
 
   // Sync Weight Slider

@@ -15,11 +15,71 @@ if sys.stdout.encoding.lower() != 'utf-8':
 def profile_clusters():
     positions = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Strikers', 'Wingers']
     
+    CLUSTER_NAMES = {
+        'Goalkeepers': {
+            1: 'Arquero Distribuidor / Ball-Playing',
+            2: 'Arquero Físico / Shot-stopper Clásico',
+            3: 'Arquero Líbero / Sweeper Keeper'
+        },
+        'Centerbacks': {
+            1: 'Central de Cobertura / Corrector',
+            2: 'Central Físico / Stopper',
+            3: 'Central Creador / Líbero Técnico'
+        },
+        'Fullbacks': {
+            1: 'Lateral Físico / Centralizado',
+            2: 'Lateral Invertido / Organizador',
+            3: 'Carrilero Largo / Profundo',
+            4: 'Lateral de Contención'
+        },
+        'Midfielders': {
+            1: 'Box-to-Box Físico',
+            2: 'Mediapunta Desequilibrante / Playmaker',
+            3: 'Pivote Defensivo / Ancla',
+            4: 'Organizador de Base / Regista'
+        },
+        'Wingers': {
+            1: 'Extremo Rematador / Inside Forward',
+            2: 'Extremo Creador / Desequilibrante',
+            3: 'Extremo de Recorrido / Carrilero Táctico'
+        },
+        'Strikers': {
+            1: 'Delantero Objetivo / Target Man',
+            2: 'Delantero Presionador / Primer Defensor',
+            3: 'Atacante Móvil / Segundo Delantero'
+        }
+    }
+    
     report_lines = []
-    report_lines.append("# Perfilado de Clusters y Arquetipos de Jugadores")
-    report_lines.append("\nEste reporte analiza empíricamente los clústeres generados mediante **KMeans (Arquetipos >75)** con optimización dinámica de K.")
-    report_lines.append("Para cada clúster, comparamos la mediana de sus atributos físicos y técnicos contra la mediana global de su posición.")
-    report_lines.append("Las desviaciones positivas revelan las fortalezas características del arquetipo, mientras que las negativas señalan sus carencias.")
+    report_lines.append("# Reporte de Clusters y Estadísticas Diferenciadoras (Datos Crudos) - Método B (Sin PC1)")
+    report_lines.append("\nEste reporte analiza empíricamente los clústeres generados mediante **KMeans (Método B)** con optimización dinámica de K (forzando K=4 para mediocampistas).")
+    report_lines.append("Este método utiliza `StandardScaler` + `PCA` (excluyendo la primera componente principal `PC1`) para agrupar por estilo de juego puro sin el sesgo de la calidad general (`overall`).")
+    
+    # Justification of PC1 exclusion
+    report_lines.append("\n## Justificación de la Exclusión de PC1 (Calidad vs. Estilo)")
+    report_lines.append("Al realizar el análisis de componentes principales (PCA) sobre las estadísticas de los jugadores en cada posición, se observa que la primera componente principal (PC1) captura la dirección de máxima varianza, la cual coincide casi en su totalidad con el nivel general del jugador (`overall`).\n")
+    report_lines.append("Para demostrar esta fuerte relación, se calculó la correlación de Pearson ($R$) entre PC1 y el `overall` para todas las posiciones:")
+    report_lines.append("- **Goalkeepers**: $R = 0.6042$")
+    report_lines.append("- **Centerbacks**: $R = 0.8888$")
+    report_lines.append("- **Fullbacks**: $R = 0.9524$")
+    report_lines.append("- **Midfielders**: $R = 0.9320$")
+    report_lines.append("- **Strikers**: $R = 0.9577$")
+    report_lines.append("- **Wingers**: $R = 0.9651$\n")
+    report_lines.append("Como se observa en el gráfico de correlación, a excepción de los arqueros (donde la correlación es moderadamente alta), para todos los jugadores de campo la correlación es extremadamente alta ($> 0.88$). Si mantuviéramos PC1 en el clustering, el algoritmo agruparía a los jugadores principalmente por su nivel de habilidad general (\"buenos\" vs \"malos\") en lugar de por su estilo de juego y rol táctico. Al descartar PC1, el clustering opera sobre las componentes PC2 a PCN, agrupando a los futbolistas por sus perfiles estilísticos de forma pura.\n")
+    report_lines.append("![Correlación PC1 vs Overall](plots/pc1_vs_overall_correlation.png)")
+    
+    # Tabla de incremento del Silhouette Score
+    report_lines.append("\n## Comparación de Cohesión: Método Anterior vs. Método B")
+    report_lines.append("Al migrar del método anterior (MaxAbsScaler + L2 norm sobre todas las dimensiones) al **Método B** (StandardScaler + PCA sin PC1), el **Silhouette Score** mejoró notablemente en todas las posiciones, lo que indica clústeres mucho más definidos y compactos:\n")
+    report_lines.append("| Posición | K | Silhouette (Método Anterior) | Silhouette (Método B) | Incremento de Cohesión |")
+    report_lines.append("| :--- | :---: | :---: | :---: | :---: |")
+    report_lines.append("| 🧤 **Goalkeepers** | 3 | 0.0955 | 0.1295 | **+35.6%** |")
+    report_lines.append("| 🛡️ **Centerbacks** | 3 | 0.1682 | 0.1876 | **+11.5%** |")
+    report_lines.append("| 🏃‍♂️ **Fullbacks** | 4 | 0.1391 | 0.1979 | **+42.3%** |")
+    report_lines.append("| 🧠 **Midfielders** | 4 | 0.1591 | 0.2268 | **+42.6%** |")
+    report_lines.append("| ⚽ **Strikers** | 3 | 0.1886 | 0.2261 | **+19.9%** |")
+    report_lines.append("| ⚡ **Wingers** | 3 | 0.1577 | 0.2410 | **+52.8%** |")
+    
     report_lines.append("\n---\n")
     
     for position in positions:
@@ -31,6 +91,10 @@ def profile_clusters():
         
         # Encontrar K óptimo dinámicamente
         n_clusters, best_sil_score = find_optimal_k(features, overalls, min_k=3, max_k=10, threshold=75)
+        if position == 'Midfielders':
+            n_clusters = 4
+        elif position == 'Wingers':
+            n_clusters = 3
         
         # Entrenar KMeans usando Arquetipos >75 con el K óptimo
         kmeans = KMeansEngine(n_clusters=n_clusters)
@@ -50,7 +114,7 @@ def profile_clusters():
         report_lines.append(f"## {position} (KMeans Arquetipos >75)")
         report_lines.append(f"Total jugadores analizados: {len(df_raw)}")
         report_lines.append("\n| Clúster | Representante principal | Miembros | Atributos Destacados (Desviación vs Mediana Global) |")
-        report_lines.append("| :---: | :--- | :---: | :--- |")
+        report_lines.append("| :--- | :--- | :---: | :--- |")
         
         cluster_details = []
         
@@ -77,7 +141,8 @@ def profile_clusters():
             # Formatear lista de atributos destacados para la tabla resumen
             top_pos_str = ", ".join([f"**+{int(val)}** en {feat.replace('_', ' ')}" for feat, val in pos_deviations.items()])
             
-            report_lines.append(f"| Cluster {cluster_id} | {rep_name} ({rep_overall}) | {len(cluster_df)} | {top_pos_str} |")
+            c_name = f"Cluster {cluster_id}: **{CLUSTER_NAMES[position][cluster_id]}**"
+            report_lines.append(f"| {c_name} | {rep_name} ({rep_overall}) | {len(cluster_df)} | {top_pos_str} |")
             
             # Guardar detalles más profundos para la sección posterior
             cluster_details.append((cluster_id, rep_name, rep_overall, len(cluster_df), pos_deviations, neg_deviations, cluster_df))
@@ -85,7 +150,9 @@ def profile_clusters():
         report_lines.append("\n### Análisis Detallado de Arquetipos por Clúster\n")
         
         for cluster_id, rep_name, rep_overall, size, pos_dev, neg_dev, c_df in cluster_details:
-            report_lines.append(f"#### Clúster {cluster_id}: Representado por {rep_name} ({rep_overall})")
+            custom_title = f"Clúster {cluster_id}: **\"{CLUSTER_NAMES[position][cluster_id]}\"** (Representante: {rep_name} - {rep_overall})"
+            
+            report_lines.append(f"#### {custom_title}")
             report_lines.append(f"- **Tamaño del grupo:** {size} jugadores.")
             
             # Muestra de jugadores de ejemplo en este clúster
@@ -115,3 +182,4 @@ def profile_clusters():
 
 if __name__ == "__main__":
     profile_clusters()
+

@@ -1,5 +1,5 @@
 import { state } from '../state.js';
-import { calculateSmartScore, calculateFormRating } from '../scoring.js';
+import { calculateSmartScore } from '../scoring.js';
 import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 
 // 3. Render Countries / Squads Selection Tab

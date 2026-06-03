@@ -1,6 +1,6 @@
 import { state } from '../state.js';
 import { createFlagElement, formatKickoff } from '../utils.js';
-import { openH2HModal } from './modal.js';
+import { openH2HModal } from './modal.js?v=5';
 
 // Sorting logic
 export function sortMatchesList(criterion) {
@@ -139,6 +139,14 @@ export function renderMatches() {
       const flagHome = createFlagElement(m.home_team);
       const flagAway = createFlagElement(m.away_team);
 
+      let explanation = "Juego Equilibrado<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(fuerzas muy parejas)</span>";
+      if (m.h2h?.total_matches > 4) explanation = "Rivalidad Histórica<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(mucho historial entre ellos)</span>";
+      else if (m.stage !== 'Group Stage') explanation = "Duelo Decisivo<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(partido de eliminación)</span>";
+      else if (combVal > 1200) explanation = "Choque de Gigantes<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(planteles súper valiosos)</span>";
+      else if (m.smartScore >= 8.5) explanation = "Duelo Imperdible<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(nota casi perfecta)</span>";
+      else if (m.smartScore >= 7.0) explanation = "Alta Expectativa<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(muy recomendado)</span>";
+      else if (combVal > 600) explanation = "Estrellas en Cancha<br><span style='font-size:0.55rem; font-weight:normal; opacity:0.8;'>(varias figuras en juego)</span>";
+
       card.innerHTML = `
         <div class="match-card-header">
           <span class="match-badge">Partido #${m.match_number} &bull; ${m.stage}</span>
@@ -157,6 +165,7 @@ export function renderMatches() {
         <div class="interest-indicator">
           <div class="interest-ring ${interestClass}">${m.smartScore}</div>
           <div class="interest-label">Recomendado</div>
+          <div class="interest-explanation" style="font-size:0.65rem; color:var(--accent-cyan); text-align:center; margin-top:4px; font-weight: bold; line-height: 1.1;">${explanation}</div>
         </div>
         <div class="match-metrics-preview">
           ${combVal > 0 ? `<div class="metric-pill value" title="Valor de plantilla combinado"><i class="fa-solid fa-coins"></i> ${combValStr}</div>` : ''}

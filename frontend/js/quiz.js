@@ -11,16 +11,14 @@ let quizState = {
   answers: {
     teams: [],
     timeSlots: [],
-    emotion: '',
     clubs: [],
     players: [],
-    possession: 50,
-    intensity: 50,
-    agePreference: 50   // 0 = youth, 100 = experience
+    friccion: null,
+    agePreference: null
   }
 };
 
-const TOTAL_QUESTIONS = 9; // 8 questions + 1 results screen
+const TOTAL_QUESTIONS = 7; // 6 questions + 1 results screen
 
 // ---- Cached entity lists (extracted once from appData) ----
 let allClubsList = [];
@@ -107,27 +105,25 @@ export function initQuiz() {
 
   // Init Question logic
   initQ2(); // Horarios
-  initQ3(); // Emocion
-  initQ6(); // Posesion
-  initQ7(); // Intensidad
-  initQ8(); // Age preference
+  initQ5(); // Fricción (categorías → dramaBonus)
+  initQ6(); // Age preference
 }
 
 function openQuiz() {
   quizState.currentQuestion = 0;
   quizState.answers = {
-    teams: [], timeSlots: [], emotion: '',
+    teams: [], timeSlots: [],
     clubs: [], players: [],
-    possession: 50, intensity: 50, agePreference: 50
+    friccion: null, agePreference: null
   };
 
   // Extract entities from loaded data (once)
   if (allPlayersList.length === 0) extractAllEntities();
 
-  // Q1 needs state.appData so we init it here when opening
-  initQ1();
-  initQ4();
-  initQ5();
+  // Initialize questions
+  initQ1(); // Teams
+  initQ3(); // Clubs
+  initQ4(); // Players
 
   updateQuizUI();
   overlay.classList.add('active');
@@ -138,136 +134,44 @@ function closeQuiz() {
 }
 
 // ==========================================
-// VECTOR CALCULATION
+// APLICAR PREFERENCIAS AL SISTEMA DE SCORING
 // ==========================================
-function calculateUserVector() {
+/**
+ * Aplica las respuestas del quiz directamente a state.userPreferences.
+ * Ya no se genera un quizVector separado; cada pregunta configura el parámetro
+ * correspondiente del sistema de scoring existente.
+ */
+function applyQuizToState() {
   const ans = quizState.answers;
-  let vector = {
-    golesPartido: 0.5,
-    posesion: ans.possession / 100,
-    regates: 0.5,
-    tirosPartido: 0.5,
-    faltasPartido: 0.5,
-    tarjetas: 0.5,
-    contraataques_per_game: 0.5,
-    presionAlta: 0.5,
-    porteriaInvictaRatio: 0.5,
-    duelos: 0.5
-  };
 
-  // Adjust from emotion (Q3)
-  switch(ans.emotion) {
-    case 'goleada':
-      vector.golesPartido = 1.0;
-      vector.tirosPartido = 0.9;
-      vector.porteriaInvictaRatio = 0.1;
-      break;
-    case 'tactico':
-      vector.golesPartido = 0.2;
-      vector.porteriaInvictaRatio = 0.9;
-      vector.presionAlta = 0.8;
-      break;
-    case 'frenetico':
-      vector.contraataques_per_game = 1.0;
-      vector.tirosPartido = 0.8;
-      vector.posesion = 0.3;
-      break;
-    case 'estrellas':
-      vector.regates = 1.0;
-      vector.duelos = 0.7;
-      break;
-    case 'fisico':
-      vector.faltasPartido = 1.0;
-      vector.tarjetas = 1.0;
-      vector.duelos = 1.0;
-      vector.presionAlta = 0.9;
-      break;
+  // Q5: Fricción categórica → dramaBonus con signo
+  if (ans.friccion !== null) {
+    const dramaMap = { dislike: -1, neutral: 0, like: 1 };
+    state.userPreferences.dramaBonus = dramaMap[ans.friccion] ?? 0;
   }
 
-  // Adjust from intensity (Q7)
-  const int = ans.intensity / 100;
-  vector.faltasPartido = (vector.faltasPartido + int) / 2;
-  vector.tarjetas = (vector.tarjetas + int) / 2;
-  vector.duelos = (vector.duelos + int) / 2;
-
-  state.userPreferences.quizVector = vector;
-
-  // Set dramaBeta preference
-  let dramaBeta = 0.2;
-  if(ans.emotion === 'fisico') dramaBeta += 0.3;
-  dramaBeta += (ans.intensity - 50) / 100 * 0.4;
-  state.userPreferences.dramaBeta = Math.min(1.0, Math.max(0.0, dramaBeta));
-
-  return vector;
+  // Q6: Age preference
+  if (ans.agePreference !== null) {
+    state.userPreferences.agePreference = ans.agePreference;
+  }
 }
 
 let quizRadarChart = null;
 
 function showResults() {
-  const vector = calculateUserVector();
-
-  // Create/Update radar chart
-  const ctx = document.getElementById('quiz-radar-chart');
-  if (ctx) {
-    if (quizRadarChart) quizRadarChart.destroy();
-
-    quizRadarChart = new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: ['Goles', 'Posesión', 'Regates', 'Intensidad', 'Faltas', 'Contraataques', 'Presión', 'Defensa'],
-        datasets: [{
-          label: 'Tu Perfil',
-          data: [
-            vector.golesPartido,
-            vector.posesion,
-            vector.regates,
-            vector.duelos,
-            (vector.faltasPartido + vector.tarjetas) / 2,
-            vector.contraataques_per_game,
-            vector.presionAlta,
-            vector.porteriaInvictaRatio
-          ].map(v => Math.round(v * 100)),
-          backgroundColor: 'rgba(232, 35, 26, 0.25)',
-          borderColor: 'rgba(232, 35, 26, 1)',
-          borderWidth: 2,
-          pointBackgroundColor: 'rgba(26, 122, 60, 1)',
-          pointBorderColor: '#fff',
-          pointRadius: 4,
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(26, 122, 60, 1)'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        scales: {
-          r: {
-            angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
-            grid: { color: 'rgba(255, 255, 255, 0.08)' },
-            pointLabels: { color: 'rgba(255, 255, 255, 0.7)', font: { family: "'Barlow Condensed', sans-serif", size: 11 } },
-            ticks: { display: false, min: 0, max: 100 }
-          }
-        },
-        plugins: { legend: { display: false } }
-      }
-    });
-  }
+  // Aplicar preferencias al estado ANTES de mostrar resultados
+  applyQuizToState();
+  state.userPreferences.favoriteTeams = quizState.answers.teams;
+  state.userPreferences.favoritePlayers = quizState.answers.players;
+  state.userPreferences.favoriteClubs = quizState.answers.clubs;
 
   // Pre-calculate affinity for matches to show Top 5
   if (state.appData && state.appData.matches) {
     import('./scoring.js').then(module => {
-      // First, persist quiz choices to state so scoring can use them
-      state.userPreferences.favoriteTeams = quizState.answers.teams;
-      state.userPreferences.favoritePlayers = quizState.answers.players;
-      state.userPreferences.favoriteClubs = quizState.answers.clubs;
-      state.userPreferences.agePreference = quizState.answers.agePreference;
-
-      // Calculate smart scores with all quiz bonuses
       state.appData.matches.forEach(m => {
-        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
+        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences.tacticalVector);
       });
 
-      // Sort by smartScore for top 5
       const sorted = [...state.appData.matches]
         .filter(m => !m.home_team?.is_placeholder && !m.away_team?.is_placeholder)
         .sort((a, b) => (b.smartScore || 0) - (a.smartScore || 0));
@@ -298,7 +202,9 @@ function showResults() {
 }
 
 function finishQuiz() {
-  // Persist quiz choices to user preferences
+  // Aplicar preferencias al sistema de scoring
+  applyQuizToState();
+
   if (quizState.answers.teams.length > 0) {
     state.userPreferences.favoriteTeam = quizState.answers.teams[0];
     state.userPreferences.favoriteTeams = quizState.answers.teams;
@@ -322,12 +228,10 @@ function finishQuiz() {
     state.userPreferences.favoriteClubs = quizState.answers.clubs;
   }
 
-  state.userPreferences.agePreference = quizState.answers.agePreference;
-
   if (state.appData && state.appData.matches) {
     import('./scoring.js').then(module => {
       state.appData.matches.forEach(m => {
-        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
+        m.smartScore = module.calculateSmartScore(m, state.appData.teams, state.userPreferences.tacticalVector);
       });
       sortMatchesList(document.getElementById('sort-matches')?.value || 'interest-desc');
       renderMatches();
@@ -380,13 +284,12 @@ function validateCurrentQuestion() {
   switch(quizState.currentQuestion) {
     case 0: isValid = quizState.answers.teams.length > 0; break;
     case 1: isValid = quizState.answers.timeSlots.length > 0; break;
-    case 2: isValid = quizState.answers.emotion !== ''; break;
+    case 2: isValid = quizState.answers.emotion !== null && quizState.answers.emotion !== ''; break;
     case 3: isValid = quizState.answers.clubs.length > 0; break;
     case 4: isValid = quizState.answers.players.length > 0; break;
-    case 5: isValid = true; break; // slider always valid
-    case 6: isValid = true; break; // slider always valid
-    case 7: isValid = true; break; // slider always valid
-    case 8: isValid = true; break; // results screen
+    case 5: isValid = true; break; // friction choice is always valid
+    case 6: isValid = true; break; // age preference slider is always valid
+    case 7: isValid = true; break; // results screen
   }
   btnNext.disabled = !isValid;
 }
@@ -494,25 +397,9 @@ function initQ2() {
 }
 
 // ==========================================
-// Q3: EMOTION
+// Q3: CLUBS (with logos from club_logos.json)
 // ==========================================
 function initQ3() {
-  const options = document.querySelectorAll('#quiz-q3 .quiz-radio-option');
-  options.forEach(opt => {
-    opt.addEventListener('click', () => {
-      options.forEach(o => o.classList.remove('selected'));
-      opt.classList.add('selected');
-      quizState.answers.emotion = opt.getAttribute('data-value');
-      validateCurrentQuestion();
-      setTimeout(() => nextQuestion(), 300);
-    });
-  });
-}
-
-// ==========================================
-// Q4: CLUBS (with logos from club_logos.json)
-// ==========================================
-function initQ4() {
   const container = document.getElementById('quiz-clubs-container');
   const searchInput = document.getElementById('quiz-search-clubs');
   const selectedContainer = document.getElementById('quiz-selected-clubs-container');
@@ -562,7 +449,7 @@ function initQ4() {
         } else {
           quizState.answers.clubs.push(club.name);
         }
-        renderSelectedQ4();
+        renderSelectedQ3();
         renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
@@ -575,7 +462,7 @@ function initQ4() {
     }
   };
 
-  const renderSelectedQ4 = () => {
+  const renderSelectedQ3 = () => {
     selectedContainer.innerHTML = '';
     quizState.answers.clubs.forEach(clubName => {
       const chip = document.createElement('div');
@@ -583,7 +470,7 @@ function initQ4() {
       chip.innerHTML = `${clubName} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
       chip.addEventListener('click', () => {
         quizState.answers.clubs = quizState.answers.clubs.filter(c => c !== clubName);
-        renderSelectedQ4();
+        renderSelectedQ3();
         renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
@@ -593,13 +480,13 @@ function initQ4() {
 
   searchInput.addEventListener('input', (e) => renderGrid(e.target.value));
   renderGrid();
-  renderSelectedQ4();
+  renderSelectedQ3();
 }
 
 // ==========================================
-// Q5: PLAYERS (with photos from players_photos.json)
+// Q4: PLAYERS (with photos from players_photos.json)
 // ==========================================
-function initQ5() {
+function initQ4() {
   const container = document.getElementById('quiz-players-container');
   const searchInput = document.getElementById('quiz-search-players');
   const selectedContainer = document.getElementById('quiz-selected-players-container');
@@ -654,7 +541,7 @@ function initQ5() {
         } else {
           quizState.answers.players.push(player.name);
         }
-        renderSelectedQ5();
+        renderSelectedQ4();
         renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
@@ -667,7 +554,7 @@ function initQ5() {
     }
   };
 
-  const renderSelectedQ5 = () => {
+  const renderSelectedQ4 = () => {
     selectedContainer.innerHTML = '';
     quizState.answers.players.forEach(name => {
       const chip = document.createElement('div');
@@ -675,7 +562,7 @@ function initQ5() {
       chip.innerHTML = `${name} <span class="quiz-chip__remove"><i class="fa-solid fa-xmark"></i></span>`;
       chip.addEventListener('click', () => {
         quizState.answers.players = quizState.answers.players.filter(n => n !== name);
-        renderSelectedQ5();
+        renderSelectedQ4();
         renderGrid(searchInput.value);
         validateCurrentQuestion();
       });
@@ -685,41 +572,33 @@ function initQ5() {
 
   searchInput.addEventListener('input', (e) => renderGrid(e.target.value));
   renderGrid();
-  renderSelectedQ5();
+  renderSelectedQ4();
 }
 
 // ==========================================
-// Q6: POSSESSION
+// Q6: FRICCIÓN (opciones categóricas → dramaBonus)
 // ==========================================
 function initQ6() {
-  const slider = document.getElementById('quiz-slider-possession');
-  if (slider) {
-    slider.addEventListener('input', (e) => {
-      quizState.answers.possession = parseInt(e.target.value);
+  const options = document.querySelectorAll('#quiz-q6 .quiz-radio-option');
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      options.forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      quizState.answers.friccion = opt.getAttribute('data-value');
+      validateCurrentQuestion();
     });
-  }
+  });
 }
 
 // ==========================================
-// Q7: INTENSITY
+// Q7: JUVENTUD VS EXPERIENCIA
 // ==========================================
 function initQ7() {
-  const slider = document.getElementById('quiz-slider-intensity');
-  if (slider) {
-    slider.addEventListener('input', (e) => {
-      quizState.answers.intensity = parseInt(e.target.value);
-    });
-  }
-}
-
-// ==========================================
-// Q8: JUVENTUD VS EXPERIENCIA
-// ==========================================
-function initQ8() {
   const slider = document.getElementById('quiz-slider-age');
   if (slider) {
     slider.addEventListener('input', (e) => {
       quizState.answers.agePreference = parseInt(e.target.value);
+      validateCurrentQuestion();
     });
   }
 }
