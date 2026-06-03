@@ -1,0 +1,374 @@
+[2026-06-03 13:14:02] ERROR: failed to fetch summary for Mamelodi_Sundowns_Football_Club: 404 Client Error: Not Found for url: https://en.wikipedia.org/api/rest_v1/page/summary/Mamelodi_Sundowns_Football_Club
+[2026-06-03 13:14:02] WARN: no image found for Mamelodi Sundowns (article https://es.wikipedia.org/wiki/Mamelodi_Sundowns_Football_Club)
+[2026-06-03 13:14:04] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Orlando_Pirates_FC_logo.svg/330px-Orlando_Pirates_FC_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Orlando_Pirates_FC_logo.svg/330px-Orlando_Pirates_FC_logo.svg.png
+[2026-06-03 13:14:04] FAIL: could not save image for Orlando Pirates
+[2026-06-03 13:14:06] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannover_96_Logo.svg/960px-Hannover_96_Logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannover_96_Logo.svg/960px-Hannover_96_Logo.svg.png
+[2026-06-03 13:14:06] FAIL: could not save image for Hannover 96
+[2026-06-03 13:14:08] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Downtown_Molde_%282023-10-26_11-31-23%29.jpg/3840px-Downtown_Molde_%282023-10-26_11-31-23%29.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Downtown_Molde_%282023-10-26_11-31-23%29.jpg/3840px-Downtown_Molde_%282023-10-26_11-31-23%29.jpg
+[2026-06-03 13:14:08] FAIL: could not save image for Molde
+[2026-06-03 13:14:11] ERROR: failed to fetch summary for Polokwane_City_Football_Club: 404 Client Error: Not Found for url: https://en.wikipedia.org/api/rest_v1/page/summary/Polokwane_City_Football_Club
+[2026-06-03 13:14:11] WARN: no image found for Polokwane City (article https://es.wikipedia.org/wiki/Polokwane_City_Football_Club)
+[2026-06-03 13:14:12] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Philadelphia_Union_2018_logo.svg/330px-Philadelphia_Union_2018_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Philadelphia_Union_2018_logo.svg/330px-Philadelphia_Union_2018_logo.svg.png
+[2026-06-03 13:14:12] FAIL: could not save image for Philadelphia Union
+[2026-06-03 13:14:14] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Kaizer_Chiefs_logo.svg/250px-Kaizer_Chiefs_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Kaizer_Chiefs_logo.svg/250px-Kaizer_Chiefs_logo.svg.png
+[2026-06-03 13:14:14] FAIL: could not save image for Kaizer Chiefs
+[2026-06-03 13:14:15] WARN: no image found for Chicago Fire (article https://es.wikipedia.org/wiki/Chicago_Fire)
+[2026-06-03 13:14:16] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/c/c5/Tondela_-_Portugal_%28152098451%29.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/c/c5/Tondela_-_Portugal_%28152098451%29.jpg
+[2026-06-03 13:14:16] FAIL: could not save image for Tondela
+[2026-06-03 13:14:17] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/5/51/Burnley_Montage.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/5/51/Burnley_Montage.jpg
+[2026-06-03 13:14:17] FAIL: could not save image for Burnley
+[2026-06-03 13:14:19] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/AEL_Limassol_logo.svg/960px-AEL_Limassol_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/AEL_Limassol_logo.svg/960px-AEL_Limassol_logo.svg.png
+[2026-06-03 13:14:19] FAIL: could not save image for AEL Limassol
+[2026-06-03 13:14:21] ERROR: failed to fetch summary for FC_Lokomotiv_Moscú: 404 Client Error: Not Found for url: https://en.wikipedia.org/api/rest_v1/page/summary/FC_Lokomotiv_Mosc%C3%BA
+[2026-06-03 13:14:21] WARN: no image found for FC Tokio (article https://es.wikipedia.org/wiki/FC_Lokomotiv_Mosc%C3%BA)
+[2026-06-03 13:14:22] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Jeonbuk_Hyundai_Motors.svg/330px-Jeonbuk_Hyundai_Motors.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Jeonbuk_Hyundai_Motors.svg/330px-Jeonbuk_Hyundai_Motors.svg.png
+[2026-06-03 13:14:22] FAIL: could not save image for Jeonbuk
+[2026-06-03 13:14:23] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Taehwa_River_from_Hotel_Riverside_Ulsan.jpg/3840px-Taehwa_River_from_Hotel_Riverside_Ulsan.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Taehwa_River_from_Hotel_Riverside_Ulsan.jpg/3840px-Taehwa_River_from_Hotel_Riverside_Ulsan.jpg
+[2026-06-03 13:14:23] FAIL: could not save image for Ulsan
+[2026-06-03 13:14:25] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Korea-Daejeon-Uam_Historic_Park-01.jpg/3840px-Korea-Daejeon-Uam_Historic_Park-01.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Korea-Daejeon-Uam_Historic_Park-01.jpg/3840px-Korea-Daejeon-Uam_Historic_Park-01.jpg
+[2026-06-03 13:14:25] FAIL: could not save image for Daejeon
+[2026-06-03 13:18:44] WARN: no image found for Mamelodi Sundowns (article https://es.wikipedia.org/wiki/Mamelodi_Sundowns_Football_Club)
+[2026-06-03 13:18:45] WARN: no image found for Orlando Pirates (article https://es.wikipedia.org/wiki/Orlando_Pirates_Football_Club)
+[2026-06-03 13:18:46] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannover_96_Logo.svg/langes-960px-Hannover_96_Logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannover_96_Logo.svg/langes-960px-Hannover_96_Logo.svg.png
+[2026-06-03 13:18:46] FAIL: could not save image for Hannover 96
+[2026-06-03 13:18:48] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/9/9f/Lost_Wax-Model_of_apple_in_plaster.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/9/9f/Lost_Wax-Model_of_apple_in_plaster.jpg
+[2026-06-03 13:18:48] FAIL: could not save image for Molde
+[2026-06-03 13:18:49] WARN: no image found for Polokwane City (article https://es.wikipedia.org/wiki/Polokwane_City_Football_Club)
+[2026-06-03 13:18:49] WARN: no image found for Philadelphia Union (article https://es.wikipedia.org/wiki/Philadelphia_Union)
+[2026-06-03 13:18:50] WARN: no image found for Kaizer Chiefs (article https://es.wikipedia.org/wiki/Kaizer_Chiefs_Football_Club)
+[2026-06-03 13:18:51] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Chicago_Fire_logo%2C_2021.svg/langes-960px-Chicago_Fire_logo%2C_2021.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Chicago_Fire_logo%2C_2021.svg/langes-960px-Chicago_Fire_logo%2C_2021.svg.png
+[2026-06-03 13:18:51] FAIL: could not save image for Chicago Fire
+[2026-06-03 13:18:53] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/9/97/Espigueiro_Guardao.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/9/97/Espigueiro_Guardao.jpg
+[2026-06-03 13:18:53] FAIL: could not save image for Tondela
+[2026-06-03 13:18:55] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/1/13/Town_Hall%2C_Manchester_Road_-_geograph.org.uk_-_1318508.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/1/13/Town_Hall%2C_Manchester_Road_-_geograph.org.uk_-_1318508.jpg
+[2026-06-03 13:18:55] FAIL: could not save image for Burnley
+[2026-06-03 13:18:56] WARN: no image found for AEL Limassol (article https://es.wikipedia.org/wiki/AEL_Limassol)
+[2026-06-03 13:18:57] WARN: no image found for FC Tokio (article https://es.wikipedia.org/wiki/FC_Lokomotiv_Mosc%C3%BA)
+[2026-06-03 13:18:59] WARN: no image found for Jeonbuk (article https://es.wikipedia.org/wiki/Jeonbuk_Hyundai_Motors_Football_Club)
+[2026-06-03 13:19:01] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/7/76/Shade_Of_Taehwagang_%2871978891%29.jpeg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/7/76/Shade_Of_Taehwagang_%2871978891%29.jpeg
+[2026-06-03 13:19:01] FAIL: could not save image for Ulsan
+[2026-06-03 13:19:03] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/3/37/Daejeon_metropolitan.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/3/37/Daejeon_metropolitan.png
+[2026-06-03 13:19:03] FAIL: could not save image for Daejeon
+[2026-06-03 13:19:04] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/langes-960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/langes-960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png
+[2026-06-03 13:19:04] FAIL: could not save image for Bayern Múnich
+[2026-06-03 13:19:06] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/5/5c/Monument_for_Kashima_Antlers_near_Kashima_Shrine.JPG: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/5/5c/Monument_for_Kashima_Antlers_near_Kashima_Shrine.JPG
+[2026-06-03 13:19:06] FAIL: could not save image for Kashima Antlers
+[2026-06-03 13:19:08] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/e/e4/20100719_Leifeng_Pagoda_and_West_Lake.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/e/e4/20100719_Leifeng_Pagoda_and_West_Lake.jpg
+[2026-06-03 13:19:08] FAIL: could not save image for Zhejiang
+[2026-06-03 13:19:09] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Red_star.svg/langes-1280px-Red_star.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Red_star.svg/langes-1280px-Red_star.svg.png
+[2026-06-03 13:19:09] FAIL: could not save image for Estrella Roja
+[2026-06-03 13:19:11] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/langes-960px-Borussia_M%C3%B6nchengladbach_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/langes-960px-Borussia_M%C3%B6nchengladbach_logo.svg.png
+[2026-06-03 13:19:11] FAIL: could not save image for Borussia Mönchengladbach
+[2026-06-03 13:19:12] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/2016%EB%85%84_7%EC%9B%94_22%EC%9D%BC_%EC%B6%98%EC%B2%9C%EC%8B%9C_%EC%A0%84%EA%B2%BD_DSC03812.jpg/3840px-2016%EB%85%84_7%EC%9B%94_22%EC%9D%BC_%EC%B6%98%EC%B2%9C%EC%8B%9C_%EC%A0%84%EA%B2%BD_DSC03812.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/2016%EB%85%84_7%EC%9B%94_22%EC%9D%BC_%EC%B6%98%EC%B2%9C%EC%8B%9C_%EC%A0%84%EA%B2%BD_DSC03812.jpg/3840px-2016%EB%85%84_7%EC%9B%94_22%EC%9D%BC_%EC%B6%98%EC%B2%9C%EC%8B%9C_%EC%A0%84%EA%B2%BD_DSC03812.jpg
+[2026-06-03 13:19:12] FAIL: could not save image for Gangwon
+[2026-06-03 13:19:14] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/FK_Austria_Wien_logo.svg/langes-330px-FK_Austria_Wien_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/FK_Austria_Wien_logo.svg/langes-330px-FK_Austria_Wien_logo.svg.png
+[2026-06-03 13:19:14] FAIL: could not save image for Austria Viena
+[2026-06-03 13:19:18] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/View_to_the_Northwest_from_Todbjerg_Tower_2014-07-25_1.jpg/3840px-View_to_the_Northwest_from_Todbjerg_Tower_2014-07-25_1.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/View_to_the_Northwest_from_Todbjerg_Tower_2014-07-25_1.jpg/3840px-View_to_the_Northwest_from_Todbjerg_Tower_2014-07-25_1.jpg
+[2026-06-03 13:19:18] FAIL: could not save image for Midtjylland
+[2026-06-03 13:19:21] WARN: no image found for Al Sharjah (article https://es.wikipedia.org/wiki/Al_Sharjah)
+[2026-06-03 13:19:22] WARN: no image found for Stoke City (article https://es.wikipedia.org/wiki/Stoke_City_Football_Club)
+[2026-06-03 13:19:24] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/0/0f/Library-of-Birmingham-oblique-crop.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/0/0f/Library-of-Birmingham-oblique-crop.jpg
+[2026-06-03 13:19:24] FAIL: could not save image for Birmingham
+[2026-06-03 13:19:26] WARN: no image found for Celtic Glasgow (article https://es.wikipedia.org/wiki/Celtic_Glasgow)
+[2026-06-03 13:19:28] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/2/27/P.3._Swansea_City_Centre_2012.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/2/27/P.3._Swansea_City_Centre_2012.jpg
+[2026-06-03 13:19:28] FAIL: could not save image for Swansea
+[2026-06-03 13:19:29] WARN: no image found for PSG (article https://es.wikipedia.org/wiki/PSG)
+[2026-06-03 13:19:31] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/3/38/Mainz_altstadt.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/3/38/Mainz_altstadt.jpg
+[2026-06-03 13:19:31] FAIL: could not save image for Mainz
+[2026-06-03 13:19:33] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Feyenoord_logo_since_2024.svg/langes-960px-Feyenoord_logo_since_2024.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Feyenoord_logo_since_2024.svg/langes-960px-Feyenoord_logo_since_2024.svg.png
+[2026-06-03 13:19:34] FAIL: could not save image for Feyenoord
+[2026-06-03 13:19:36] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/9/9e/St_Peter%27s_Church%2C_Wolverhampton.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/9/9e/St_Peter%27s_Church%2C_Wolverhampton.jpg
+[2026-06-03 13:19:36] FAIL: could not save image for Wolverhampton
+[2026-06-03 13:19:38] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Los_Angeles_Football_Club.svg/langes-250px-Los_Angeles_Football_Club.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Los_Angeles_Football_Club.svg/langes-250px-Los_Angeles_Football_Club.svg.png
+[2026-06-03 13:19:38] FAIL: could not save image for LAFC
+[2026-06-03 13:19:41] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/1/13/Be%C5%9Fikta%C5%9F_District_Collage.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/1/13/Be%C5%9Fikta%C5%9F_District_Collage.jpg
+[2026-06-03 13:19:41] FAIL: could not save image for Besiktas
+[2026-06-03 13:19:44] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/9/90/Slavia-symbol-nowordmark-RGB.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/9/90/Slavia-symbol-nowordmark-RGB.png
+[2026-06-03 13:19:44] FAIL: could not save image for Slavia Praga
+[2026-06-03 13:19:45] WARN: no image found for PSV (article https://es.wikipedia.org/wiki/PSV)
+[2026-06-03 13:19:47] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Aerial_photograph_of_Biscainhos_Garden_%2816%29.jpg/3840px-Aerial_photograph_of_Biscainhos_Garden_%2816%29.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Aerial_photograph_of_Biscainhos_Garden_%2816%29.jpg/3840px-Aerial_photograph_of_Biscainhos_Garden_%2816%29.jpg
+[2026-06-03 13:19:47] FAIL: could not save image for Braga
+[2026-06-03 13:19:49] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/2/2c/Hoffenheim-waibst-str-web.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/2/2c/Hoffenheim-waibst-str-web.jpg
+[2026-06-03 13:19:49] FAIL: could not save image for Hoffenheim
+[2026-06-03 13:19:52] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/AC-Sparta-LOGO2021.svg/langes-250px-AC-Sparta-LOGO2021.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/AC-Sparta-LOGO2021.svg/langes-250px-AC-Sparta-LOGO2021.svg.png
+[2026-06-03 13:19:52] FAIL: could not save image for Sparta Praga
+[2026-06-03 13:19:53] WARN: no image found for West Ham (article https://es.wikipedia.org/wiki/West_Ham)
+[2026-06-03 13:19:55] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/4/48/OL_LOGO.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/4/48/OL_LOGO.png
+[2026-06-03 13:19:55] FAIL: could not save image for Olympique de Lyon
+[2026-06-03 13:19:58] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/0/09/Hradec_Kr%C3%A1lov%C3%A9_K2_-_9.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/0/09/Hradec_Kr%C3%A1lov%C3%A9_K2_-_9.jpg
+[2026-06-03 13:19:58] FAIL: could not save image for Hradec Kralove
+[2026-06-03 13:19:59] WARN: no image found for Viktoria Plzen (article https://es.wikipedia.org/wiki/Viktoria_Plzen)
+[2026-06-03 13:19:59] SKIP: missing data for entry {'team': 'Cincinatti FC', 'crest_url': None}
+[2026-06-03 13:20:00] WARN: no image found for Bayer Leverkusen (article https://es.wikipedia.org/wiki/Bayer_Leverkusen)
+[2026-06-03 13:20:01] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/b/b7/Mlad%C3%A1_Boleslav.JPG: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/b/b7/Mlad%C3%A1_Boleslav.JPG
+[2026-06-03 13:20:01] FAIL: could not save image for Mlada Boleslav
+[2026-06-03 13:20:03] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Orlando_City_SC_wordmark_purple.svg/langes-250px-Orlando_City_SC_wordmark_purple.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Orlando_City_SC_wordmark_purple.svg/langes-250px-Orlando_City_SC_wordmark_purple.svg.png
+[2026-06-03 13:20:03] FAIL: could not save image for Orlando City
+[2026-06-03 13:20:05] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/f/fc/Barnsley.jpg: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/f/fc/Barnsley.jpg
+[2026-06-03 13:20:05] FAIL: could not save image for Barnsley
+[2026-06-03 13:20:06] WARN: no image found for Inter Miami (article https://es.wikipedia.org/wiki/Inter_Miami)
+[2026-06-03 13:20:08] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/OGC_Nice_%28simplified_logo%29.svg/langes-120px-OGC_Nice_%28simplified_logo%29.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/OGC_Nice_%28simplified_logo%29.svg/langes-120px-OGC_Nice_%28simplified_logo%29.svg.png
+[2026-06-03 13:20:08] FAIL: could not save image for OGC Nice
+[2026-06-03 13:20:09] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olympique_de_Marseille_2026_logo.svg/langes-330px-Olympique_de_Marseille_2026_logo.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olympique_de_Marseille_2026_logo.svg/langes-330px-Olympique_de_Marseille_2026_logo.svg.png
+[2026-06-03 13:20:09] FAIL: could not save image for Olympique de Marseille
+[2026-06-03 13:20:11] ERROR: failed to download image https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/langes-960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png: 403 Client Error: Forbidden for url: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/langes-960px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png
+[2026-06-03 13:20:11] FAIL: could not save image for Bayern Munich
+[2026-06-03 13:20:12] WARN: no image found for Mamelodi Sundowns (article https://es.wikipedia.org/wiki/Mamelodi_Sundowns_Football_Club)
+[2026-06-03 13:20:13] WARN: no image found for Orlando Pirates (article https://es.wikipedia.org/wiki/Orlando_Pirates_Football_Club)
+[2026-06-03 13:20:15] [+] Hannover 96 – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Hannover_96.png
+[2026-06-03 13:20:17] [+] Molde – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Molde.jpg
+[2026-06-03 13:20:18] WARN: no image found for Polokwane City (article https://es.wikipedia.org/wiki/Polokwane_City_Football_Club)
+[2026-06-03 13:20:19] WARN: no image found for Philadelphia Union (article https://es.wikipedia.org/wiki/Philadelphia_Union)
+[2026-06-03 13:20:19] WARN: no image found for Kaizer Chiefs (article https://es.wikipedia.org/wiki/Kaizer_Chiefs_Football_Club)
+[2026-06-03 13:20:22] [+] Chicago Fire – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Chicago_Fire.png
+[2026-06-03 13:20:24] [+] Tondela – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Tondela.jpg
+[2026-06-03 13:20:26] [+] Burnley – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Burnley.jpg
+[2026-06-03 13:20:27] WARN: no image found for AEL Limassol (article https://es.wikipedia.org/wiki/AEL_Limassol)
+[2026-06-03 13:20:27] WARN: no image found for FC Tokio (article https://es.wikipedia.org/wiki/FC_Lokomotiv_Mosc%C3%BA)
+[2026-06-03 13:20:28] WARN: no image found for Jeonbuk (article https://es.wikipedia.org/wiki/Jeonbuk_Hyundai_Motors_Football_Club)
+[2026-06-03 13:20:30] [+] Ulsan – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Ulsan.jpeg
+[2026-06-03 13:20:33] [+] Daejeon – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Daejeon.png
+[2026-06-03 13:20:35] [+] Bayern Múnich – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Bayern_Múnich.png
+[2026-06-03 13:20:38] [+] Kashima Antlers – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Kashima_Antlers.JPG
+[2026-06-03 13:20:39] [+] Zhejiang – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Zhejiang.jpg
+[2026-06-03 13:20:43] [+] Estrella Roja – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Estrella_Roja.png
+[2026-06-03 13:20:46] [+] Borussia Mönchengladbach – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Borussia_Mönchengladbach.png
+[2026-06-03 13:20:49] [+] Gangwon – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Gangwon.jpg
+[2026-06-03 13:20:51] [+] Austria Viena – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Austria_Viena.png
+[2026-06-03 13:20:54] [+] Midtjylland – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Midtjylland.jpg
+[2026-06-03 13:20:55] WARN: no image found for Al Sharjah (article https://es.wikipedia.org/wiki/Al_Sharjah)
+[2026-06-03 13:20:56] WARN: no image found for Stoke City (article https://es.wikipedia.org/wiki/Stoke_City_Football_Club)
+[2026-06-03 13:20:59] [+] Birmingham – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Birmingham.jpg
+[2026-06-03 13:21:00] WARN: no image found for Celtic Glasgow (article https://es.wikipedia.org/wiki/Celtic_Glasgow)
+[2026-06-03 13:21:03] [+] Swansea – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Swansea.jpg
+[2026-06-03 13:21:04] WARN: no image found for PSG (article https://es.wikipedia.org/wiki/PSG)
+[2026-06-03 13:21:07] [+] Mainz – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mainz.jpg
+[2026-06-03 13:21:11] [+] Feyenoord – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Feyenoord.png
+[2026-06-03 13:21:14] [+] Wolverhampton – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Wolverhampton.jpg
+[2026-06-03 13:21:18] [+] LAFC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\LAFC.png
+[2026-06-03 13:21:21] [+] Besiktas – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Besiktas.jpg
+[2026-06-03 13:21:23] [+] Slavia Praga – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Slavia_Praga.png
+[2026-06-03 13:21:25] WARN: no image found for PSV (article https://es.wikipedia.org/wiki/PSV)
+[2026-06-03 13:21:30] [+] Braga – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Braga.jpg
+[2026-06-03 13:21:34] [+] Hoffenheim – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Hoffenheim.jpg
+[2026-06-03 13:21:36] [+] Sparta Praga – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Sparta_Praga.png
+[2026-06-03 13:21:37] WARN: no image found for West Ham (article https://es.wikipedia.org/wiki/West_Ham)
+[2026-06-03 13:21:40] [+] Olympique de Lyon – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Olympique_de_Lyon.png
+[2026-06-03 13:21:44] [+] Hradec Kralove – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Hradec_Kralove.jpg
+[2026-06-03 13:21:45] WARN: no image found for Viktoria Plzen (article https://es.wikipedia.org/wiki/Viktoria_Plzen)
+[2026-06-03 13:21:45] SKIP: missing data for entry {'team': 'Cincinatti FC', 'crest_url': None}
+[2026-06-03 13:21:45] WARN: no image found for Bayer Leverkusen (article https://es.wikipedia.org/wiki/Bayer_Leverkusen)
+[2026-06-03 13:21:48] [+] Mlada Boleslav – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mlada_Boleslav.JPG
+[2026-06-03 13:21:50] [+] Orlando City – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Orlando_City.png
+[2026-06-03 13:21:51] [+] Barnsley – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Barnsley.jpg
+[2026-06-03 13:21:53] WARN: no image found for Inter Miami (article https://es.wikipedia.org/wiki/Inter_Miami)
+[2026-06-03 13:21:55] [+] OGC Nice – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\OGC_Nice.png
+[2026-06-03 13:21:57] [+] Olympique de Marseille – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Olympique_de_Marseille.png
+[2026-06-03 13:22:00] [+] Bayern Munich – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Bayern_Munich.png
+[2026-06-03 13:22:03] [+] Fulham – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Fulham.jpg
+[2026-06-03 13:22:05] WARN: no image found for Celtic (article https://es.wikipedia.org/wiki/Celtic)
+[2026-06-03 13:22:10] [+] Middlesbrough – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Middlesbrough.jpg
+[2026-06-03 13:22:16] [+] Toronto – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Toronto.jpg
+[2026-06-03 13:22:18] [+] Hajduk Split – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Hajduk_Split.jpg
+[2026-06-03 13:22:19] WARN: no image found for Norwich City (article https://es.wikipedia.org/wiki/Norwich_City_Football_Club)
+[2026-06-03 13:22:21] [+] Villarreal – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Villarreal.png
+[2026-06-03 13:22:25] WARN: no image found for Porto (article https://es.wikipedia.org/wiki/Porto)
+[2026-06-03 13:22:26] WARN: no image found for Tigres UANL (article https://es.wikipedia.org/wiki/Tigres_UANL)
+[2026-06-03 13:22:27] WARN: no image found for US Sassuolo Calcio (article https://es.wikipedia.org/wiki/US_Sassuolo_Calcio)
+[2026-06-03 13:22:29] WARN: no image found for Hull City (article https://es.wikipedia.org/wiki/Hull_City_Association_Football_Club)
+[2026-06-03 13:22:32] [+] Anderlecht – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Anderlecht.jpg
+[2026-06-03 13:22:34] [+] Juventus – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Juventus.png
+[2026-06-03 13:22:36] [+] Royale Union Saint-Gilloise – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Royale_Union_Saint_Gilloise.png
+[2026-06-03 13:22:39] [+] Mallorca – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mallorca.jpg
+[2026-06-03 13:22:40] WARN: no image found for FC St. Pauli (article https://es.wikipedia.org/wiki/FC_St._Pauli)
+[2026-06-03 13:22:40] WARN: no image found for HNK Rijeka (article https://es.wikipedia.org/wiki/HNK_Rijeka)
+[2026-06-03 13:22:42] WARN: no image found for NK Slaven Belupo (article https://es.wikipedia.org/wiki/NK_Slaven_Belupo_Koprivnica)
+[2026-06-03 13:22:44] [+] Atalanta – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Atalanta.jpg
+[2026-06-03 13:22:46] [+] Benfica – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Benfica.png
+[2026-06-03 13:22:48] [+] Gaziantep – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Gaziantep.jpg
+[2026-06-03 13:22:51] [+] Schalke 04 – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Schalke_04.png
+[2026-06-03 13:22:53] [+] Sassuolo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Sassuolo.jpg
+[2026-06-03 13:22:54] WARN: no image found for Sampdoria (article https://es.wikipedia.org/wiki/Sampdoria)
+[2026-06-03 13:22:55] WARN: no image found for Lens (article https://es.wikipedia.org/wiki/Lens)
+[2026-06-03 13:22:58] [+] Pafos – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Pafos.jpg
+[2026-06-03 13:23:01] [+] Astana – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Astana.jpg
+[2026-06-03 13:23:03] [+] Karlsruher – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Karlsruher.png
+[2026-06-03 13:23:04] WARN: no image found for Slovan Liberec (article https://es.wikipedia.org/wiki/Slovan_Liberec)
+[2026-06-03 13:23:05] WARN: no image found for Brøndby IF (article https://es.wikipedia.org/wiki/Br%C3%B8ndby_IF)
+[2026-06-03 13:23:06] WARN: no image found for Viktoria Plzeň (article https://es.wikipedia.org/wiki/Viktoria_Plze%C5%88)
+[2026-06-03 13:23:08] [+] Young Boys – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Young_Boys.png
+[2026-06-03 13:23:11] [+] Salzburgo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Salzburgo.jpg
+[2026-06-03 13:23:13] [+] Stuttgart – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Stuttgart.png
+[2026-06-03 13:23:16] [+] Universitatea Cluj – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Universitatea_Cluj.png
+[2026-06-03 13:23:17] WARN: no image found for Jagiellonia Bialystok (article https://es.wikipedia.org/wiki/Jagiellonia_Bia%C5%82ystok)
+[2026-06-03 13:23:19] [+] Borussia Dortmund – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Borussia_Dortmund.png
+[2026-06-03 13:23:20] [+] Lorient – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Lorient.jpg
+[2026-06-03 13:23:22] [+] Inter de Milan – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Inter_de_Milan.png
+[2026-06-03 13:23:23] WARN: no image found for Real Betis (article https://es.wikipedia.org/wiki/Real_Betis_Balompi%C3%A9)
+[2026-06-03 13:23:26] [+] Hamburger SV – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Hamburger_SV.png
+[2026-06-03 13:23:27] WARN: no image found for Eintracht Frankfurt (article https://es.wikipedia.org/wiki/Eintracht_Fr%C3%A1ncfort)
+[2026-06-03 13:23:29] [+] Valencia – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Valencia.png
+[2026-06-03 13:23:32] [+] Sunderland – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Sunderland.jpg
+[2026-06-03 13:23:33] WARN: no image found for Friburgo (article https://es.wikipedia.org/wiki/Friburgo)
+[2026-06-03 13:23:36] [+] Bologna – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Bologna.jpg
+[2026-06-03 13:23:39] [+] Mónaco – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mónaco.png
+[2026-06-03 13:23:42] [+] AC Milan – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\AC_Milan.png
+[2026-06-03 13:23:44] [+] Sevilla – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Sevilla.png
+[2026-06-03 13:23:48] [+] Pisa – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Pisa.jpg
+[2026-06-03 13:23:51] [+] Augsburgo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Augsburgo.jpg
+[2026-06-03 13:23:54] [+] Rennes – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Rennes.jpg
+[2026-06-03 13:23:57] [+] Leeds – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Leeds.jpg
+[2026-06-03 13:23:58] WARN: no image found for Nottingham Forest (article https://es.wikipedia.org/wiki/Nottingham_Forest_Football_Club)
+[2026-06-03 13:24:01] [+] Fortuna Dusseldorf – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Fortuna_Dusseldorf.png
+[2026-06-03 13:24:04] [+] Liverpool – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Liverpool.jpg
+[2026-06-03 13:24:07] [+] Fenerbahce – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Fenerbahce.JPG
+[2026-06-03 13:24:09] [+] Gremio – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Gremio.JPG
+[2026-06-03 13:24:10] WARN: no image found for Flamengo (article https://es.wikipedia.org/wiki/Flamengo)
+[2026-06-03 13:24:11] WARN: no image found for Zenit (article https://es.wikipedia.org/wiki/Zenit)
+[2026-06-03 13:24:13] WARN: no image found for Arsenal (article https://es.wikipedia.org/wiki/Arsenal)
+[2026-06-03 13:24:15] WARN: no image found for Al Ahli (article https://es.wikipedia.org/wiki/Al_Ahli)
+[2026-06-03 13:24:16] WARN: no image found for AS Roma (article https://es.wikipedia.org/wiki/AS_Roma)
+[2026-06-03 13:24:18] [+] Newcastle – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Newcastle.jpg
+[2026-06-03 13:24:20] WARN: no image found for Manchester United (article https://es.wikipedia.org/wiki/Manchester_United_Football_Club)
+[2026-06-03 13:24:23] [+] Botafogo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Botafogo.png
+[2026-06-03 13:24:24] WARN: no image found for Al Ittihad (article https://es.wikipedia.org/wiki/Al-Ittihad_Jeddah_Club)
+[2026-06-03 13:24:27] [+] Brentford – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Brentford.JPG
+[2026-06-03 13:24:30] [+] Santos – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Santos.png
+[2026-06-03 13:24:31] WARN: no image found for FC Barcelona (article https://es.wikipedia.org/wiki/FC_Barcelona)
+[2026-06-03 13:24:33] [+] Bournemouth – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Bournemouth.jpg
+[2026-06-03 13:24:35] WARN: no image found for Real Madrid (article https://es.wikipedia.org/wiki/Real_Madrid_Club_de_F%C3%BAtbol)
+[2026-06-03 13:24:38] [+] Al-Hilal SFC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Al_Hilal_SFC.png
+[2026-06-03 13:24:40] WARN: no image found for RS Berkane (article https://es.wikipedia.org/wiki/RS_Berkane)
+[2026-06-03 13:24:41] WARN: no image found for Raja Casablanca (article https://es.wikipedia.org/wiki/Raja_Casablanca)
+[2026-06-03 13:24:43] [+] Paris Saint-Germain – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Paris_Saint_Germain.png
+[2026-06-03 13:24:43] SKIP: missing data for entry {'team': 'West Ham United/Marsella', 'crest_url': None}
+[2026-06-03 13:24:44] WARN: no image found for FC Twente (article https://es.wikipedia.org/wiki/FC_Twente)
+[2026-06-03 13:24:45] WARN: no image found for Crystal Palace (article https://es.wikipedia.org/wiki/Crystal_Palace)
+[2026-06-03 13:24:46] WARN: no image found for Al Ahly (article https://es.wikipedia.org/wiki/Al-Ahly)
+[2026-06-03 13:24:50] [+] Mechelen – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mechelen.jpg
+[2026-06-03 13:24:53] [+] Genk – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Genk.jpg
+[2026-06-03 13:24:53] SKIP: missing data for entry {'team': 'Fenerbahçe SK/Betis', 'crest_url': None}
+[2026-06-03 13:24:56] [+] PSV Eindhoven – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\PSV_Eindhoven.jpg
+[2026-06-03 13:24:58] [+] Roma – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Roma.png
+[2026-06-03 13:25:01] [+] Girona – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Girona.png
+[2026-06-03 13:25:04] [+] Lille – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Lille.jpg
+[2026-06-03 13:25:06] [+] Estrasburgo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Estrasburgo.jpg
+[2026-06-03 13:25:08] WARN: no image found for Olympiacos FC (article https://es.wikipedia.org/wiki/Olympiacos_FC)
+[2026-06-03 13:25:09] WARN: no image found for Al-Ain FC (article https://es.wikipedia.org/wiki/Al-Ain_FC)
+[2026-06-03 13:25:10] WARN: no image found for SC Bastia (article https://es.wikipedia.org/wiki/SC_Bastia)
+[2026-06-03 13:25:11] WARN: no image found for FC Sochaux (article https://es.wikipedia.org/wiki/FC_Sochaux)
+[2026-06-03 13:25:11] SKIP: missing data for entry {'team': 'FC Cosmos Koblenz', 'crest_url': None}
+[2026-06-03 13:25:14] [+] Angers SCO – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Angers_SCO.png
+[2026-06-03 13:25:15] WARN: no image found for SV Zulte Waregem (article https://es.wikipedia.org/wiki/SV_Zulte_Waregem)
+[2026-06-03 13:25:18] [+] Colorado Springs – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Colorado_Springs.jpg
+[2026-06-03 13:25:22] [+] AS Nancy-Lorraine – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\AS_Nancy_Lorraine.png
+[2026-06-03 13:25:23] WARN: no image found for KAA Gent (article https://es.wikipedia.org/wiki/KAA_Gent)
+[2026-06-03 13:25:26] [+] LDU Quito – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\LDU_Quito.png
+[2026-06-03 13:25:28] [+] FC Lugano – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\FC_Lugano.png
+[2026-06-03 13:25:30] [+] BSC Young Boys II – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\BSC_Young_Boys_II.png
+[2026-06-03 13:25:31] WARN: no image found for FC Vizela (article https://es.wikipedia.org/wiki/FC_Vizela)
+[2026-06-03 13:25:33] WARN: no image found for El Paso Locomotive FC (article https://es.wikipedia.org/wiki/El_Paso_Locomotive_FC)
+[2026-06-03 13:25:34] WARN: no image found for Violette AC (article https://es.wikipedia.org/wiki/Violette_AC)
+[2026-06-03 13:25:35] WARN: no image found for FC Tatran Prešov (article https://es.wikipedia.org/wiki/FC_Tatran_Pre%C5%A1ov)
+[2026-06-03 13:25:36] WARN: no image found for FC Dallas (article https://es.wikipedia.org/wiki/FC_Dallas)
+[2026-06-03 13:25:38] [+] Almere City FC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Almere_City_FC.jpg
+[2026-06-03 13:25:41] [+] AJ Auxerre – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\AJ_Auxerre.jpg
+[2026-06-03 13:25:42] WARN: no image found for Toronto FC (article https://es.wikipedia.org/wiki/Toronto_FC)
+[2026-06-03 13:25:43] WARN: no image found for Sunderland AFC (article https://es.wikipedia.org/wiki/Sunderland_AFC)
+[2026-06-03 13:25:44] WARN: no image found for Esteghlal FC (article https://es.wikipedia.org/wiki/Esteghlal_FC)
+[2026-06-03 13:25:45] WARN: no image found for Çaykur Rizespor (article https://es.wikipedia.org/wiki/%C3%87aykur_Rizespor_Kul%C3%BCb%C3%BC)
+[2026-06-03 13:25:46] [+] Ferencváros TC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Ferencváros_TC.png
+[2026-06-03 13:25:47] WARN: no image found for Heart of Midlothian (article https://es.wikipedia.org/wiki/Heart_of_Midlothian_Football_Club)
+[2026-06-03 13:25:48] WARN: no image found for Rangers (article https://es.wikipedia.org/wiki/Rangers)
+[2026-06-03 13:25:49] WARN: no image found for Hibernian (article https://es.wikipedia.org/wiki/Hibernian_Football_Club)
+[2026-06-03 13:25:51] [+] Al-Ettifaq – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Al_Ettifaq.jpg
+[2026-06-03 13:25:53] [+] Wrexham – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Wrexham.jpg
+[2026-06-03 13:25:56] [+] Dinamo Zagreb – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Dinamo_Zagreb.png
+[2026-06-03 13:25:57] WARN: no image found for Everton (article https://es.wikipedia.org/wiki/Everton)
+[2026-06-03 13:25:58] WARN: no image found for AFC Bournemouth (article https://es.wikipedia.org/wiki/AFC_Bournemouth)
+[2026-06-03 13:26:01] [+] Kilmarnock – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Kilmarnock.jpg
+[2026-06-03 13:26:03] [+] S.S.C. Napoli – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\S_S_C__Napoli.png
+[2026-06-03 13:26:04] WARN: no image found for Aston Villa (article https://es.wikipedia.org/wiki/Aston_Villa_Football_Club)
+[2026-06-03 13:26:05] WARN: no image found for Torino (article https://es.wikipedia.org/wiki/Torino)
+[2026-06-03 13:26:06] WARN: no image found for Charlton Athletic (article https://es.wikipedia.org/wiki/Charlton_Athletic_Football_Club)
+[2026-06-03 13:26:07] WARN: no image found for Ipswich Town (article https://es.wikipedia.org/wiki/Ipswich_Town_Football_Club)
+[2026-06-03 13:26:10] [+] New York City FC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\New_York_City_FC.png
+[2026-06-03 13:26:12] WARN: no image found for New England Revolution (article https://es.wikipedia.org/wiki/New_England_Revolution)
+[2026-06-03 13:26:14] [+] Columbus Crew – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Columbus_Crew.png
+[2026-06-03 13:26:17] [+] Toulouse – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Toulouse.jpg
+[2026-06-03 13:26:19] [+] Charlotte FC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Charlotte_FC.png
+[2026-06-03 13:26:21] WARN: no image found for FC Cincinnati (article https://es.wikipedia.org/wiki/FC_Cincinnati)
+[2026-06-03 13:26:21] WARN: no image found for Vancouver Whitecaps (article https://es.wikipedia.org/wiki/Vancouver_Whitecaps_Football_Club)
+[2026-06-03 13:26:23] WARN: no image found for Seattle Sounders (article https://es.wikipedia.org/wiki/Seattle_Sounders_Football_Club)
+[2026-06-03 13:26:24] WARN: no image found for Leeds United (article https://es.wikipedia.org/wiki/Leeds_United_Football_Club)
+[2026-06-03 13:26:25] WARN: no image found for Club América (article https://es.wikipedia.org/wiki/Club_Am%C3%A9rica)
+[2026-06-03 13:26:26] [+] Olympique de Marsella – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Olympique_de_Marsella.png
+[2026-06-03 13:26:29] [+] AS Monaco – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\AS_Monaco.jpg
+[2026-06-03 13:26:30] WARN: no image found for Coventry City (article https://es.wikipedia.org/wiki/Coventry_City_Football_Club)
+[2026-06-03 13:26:33] [+] RB Leipzig – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\RB_Leipzig.png
+[2026-06-03 13:26:35] [+] Brighton – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Brighton.jpg
+[2026-06-03 13:26:38] [+] Mainz 05 – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mainz_05.png
+[2026-06-03 13:26:40] WARN: no image found for Telstar (article https://es.wikipedia.org/wiki/Telstar)
+[2026-06-03 13:26:42] [+] VVV-Venlo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\VVV_Venlo.png
+[2026-06-03 13:26:43] WARN: no image found for Miami FC (article https://es.wikipedia.org/wiki/Miami_FC)
+[2026-06-03 13:26:44] WARN: no image found for Konyaspor (article https://es.wikipedia.org/wiki/Konyaspor)
+[2026-06-03 13:26:45] WARN: no image found for Kayserispor (article https://es.wikipedia.org/wiki/Kayserispor)
+[2026-06-03 13:26:47] [+] RKC Waalwijk – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\RKC_Waalwijk.png
+[2026-06-03 13:26:49] [+] PEC Zwolle – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\PEC_Zwolle.png
+[2026-06-03 13:26:51] WARN: no image found for N.E.C. (article https://es.wikipedia.org/wiki/N.E.C.)
+[2026-06-03 13:26:52] WARN: no image found for Abha Club (article https://es.wikipedia.org/wiki/Abha_Club)
+[2026-06-03 13:26:53] WARN: no image found for Sparta Rotterdam (article https://es.wikipedia.org/wiki/Sparta_Rotterdam)
+[2026-06-03 13:26:54] [+] FC Volendam – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\FC_Volendam.png
+[2026-06-03 13:26:56] WARN: no image found for Igdir FK (article https://es.wikipedia.org/wiki/Igdir_FK)
+[2026-06-03 13:26:59] [+] FC Zürich – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\FC_Zürich.png
+[2026-06-03 13:27:01] [+] FC Den Bosch – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\FC_Den_Bosch.png
+[2026-06-03 13:27:03] [+] Rotherham – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Rotherham.jpg
+[2026-06-03 13:27:05] [+] RKC – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\RKC.png
+[2026-06-03 13:27:08] [+] Kifisia – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Kifisia.jpg
+[2026-06-03 13:27:09] WARN: no image found for Sheffield United (article https://es.wikipedia.org/wiki/Sheffield_United_Football_Club)
+[2026-06-03 13:27:10] WARN: no image found for Terengganu FC (article https://es.wikipedia.org/wiki/Terengganu_FC)
+[2026-06-03 13:27:11] WARN: no image found for SK Beveren (article https://es.wikipedia.org/wiki/SK_Beveren_(4068))
+[2026-06-03 13:27:14] [+] Maccabi Haifa – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Maccabi_Haifa.jpg
+[2026-06-03 13:27:15] WARN: no image found for Rizespor (article https://es.wikipedia.org/wiki/Rizespor)
+[2026-06-03 13:27:18] [+] Charleroi – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Charleroi.jpg
+[2026-06-03 13:27:19] WARN: no image found for Panathinaikos (article https://es.wikipedia.org/wiki/Panathinaikos)
+[2026-06-03 13:27:24] [+] Auxerre – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Auxerre.jpg
+[2026-06-03 13:27:25] WARN: no image found for Sporting CP (article https://es.wikipedia.org/wiki/Sporting_CP)
+[2026-06-03 13:27:28] [+] Strasbourg – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Strasbourg.jpg
+[2026-06-03 13:27:30] WARN: no image found for Gil Vicente (article https://es.wikipedia.org/wiki/Gil_Vicente)
+[2026-06-03 13:27:33] [+] Galatasaray – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Galatasaray.png
+[2026-06-03 13:27:36] [+] Stade Rennais – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Stade_Rennais.JPG
+[2026-06-03 13:27:38] WARN: no image found for Trabzonspor (article https://es.wikipedia.org/wiki/Trabzonspor)
+[2026-06-03 13:27:39] WARN: no image found for NK Maribor (article https://es.wikipedia.org/wiki/NK_Maribor)
+[2026-06-03 13:27:41] [+] Monaco – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Monaco.png
+[2026-06-03 13:27:43] WARN: no image found for Inter (article https://es.wikipedia.org/wiki/Inter)
+[2026-06-03 13:27:46] [+] Cercle Brugge – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Cercle_Brugge.png
+[2026-06-03 13:27:47] WARN: no image found for Nice (article https://es.wikipedia.org/wiki/Nice)
+[2026-06-03 13:27:48] WARN: no image found for Manchester City (article https://es.wikipedia.org/wiki/Manchester_City_Football_Club)
+[2026-06-03 13:27:50] [+] Inter Milan – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Inter_Milan.png
+[2026-06-03 13:27:52] WARN: no image found for Chelsea (article https://es.wikipedia.org/wiki/Chelsea)
+[2026-06-03 13:27:55] [+] Tottenham – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Tottenham.jpg
+[2026-06-03 13:27:57] [+] Barcelona – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Barcelona.png
+[2026-06-03 13:28:00] [+] Marseille – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Marseille.jpg
+[2026-06-03 13:28:02] WARN: no image found for Corinthians (article https://es.wikipedia.org/wiki/Corinthians)
+[2026-06-03 13:28:03] WARN: no image found for Ajax (article https://es.wikipedia.org/wiki/Ajax)
+[2026-06-03 13:28:06] [+] Kashima Antrlers – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Kashima_Antrlers.JPG
+[2026-06-03 13:28:09] [+] Sanfrecce Hiroshima – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Sanfrecce_Hiroshima.jpg
+[2026-06-03 13:28:13] [+] Parma – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Parma.jpg
+[2026-06-03 13:28:14] WARN: no image found for F. C. Tokyo (article https://es.wikipedia.org/wiki/F._C._Tokyo)
+[2026-06-03 13:28:16] WARN: no image found for Sint-Truidense (article https://es.wikipedia.org/wiki/Sint-Truidense)
+[2026-06-03 13:28:18] [+] Le Havre – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Le_Havre.jpg
+[2026-06-03 13:28:21] [+] Werder Bremen – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Werder_Bremen.png
+[2026-06-03 13:28:25] [+] Copenhague – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Copenhague.jpg
+[2026-06-03 13:28:27] [+] KRC Genk – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\KRC_Genk.png
+[2026-06-03 13:28:30] [+] Stade de Reims – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Stade_de_Reims.png
+[2026-06-03 13:28:34] [+] Wolfsburgo – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Wolfsburgo.jpg
+[2026-06-03 13:28:35] WARN: no image found for NEC Nijmegen (article https://es.wikipedia.org/wiki/NEC_Nijmegen)
+[2026-06-03 13:28:36] WARN: no image found for Sint Truidense (article https://es.wikipedia.org/wiki/Sint-Truidense)
+[2026-06-03 13:28:38] WARN: no image found for Real Sociedad (article https://es.wikipedia.org/wiki/Real_Sociedad)
+[2026-06-03 13:28:39] WARN: no image found for AIK (article https://es.wikipedia.org/wiki/AIK)
+[2026-06-03 13:28:40] WARN: no image found for Derby County (article https://es.wikipedia.org/wiki/Derby_County_Football_Club)
+[2026-06-03 13:28:42] WARN: no image found for Celta de Vigo (article https://es.wikipedia.org/wiki/Celta_de_Vigo)
+[2026-06-03 13:28:46] [+] Mjällby AIF – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Mjällby_AIF.JPG
+[2026-06-03 13:28:49] [+] Udinese – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Udinese.png
+[2026-06-03 13:28:50] [+] Wolfsburg – image saved to c:\Users\Franc\OneDrive\Documentos\ThinkPad\Github\worldcup-app\data\data_frontend\team_logos\Wolfsburg.jpg
