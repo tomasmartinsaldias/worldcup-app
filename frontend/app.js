@@ -62,9 +62,9 @@ function createFlagElement(team) {
   if (team.is_placeholder) {
     return `<div class="team-flag-placeholder"><i class="fa-solid fa-hourglass-half"></i></div>`;
   }
-  // Try loading real flag image, fallback to placeholder if error
+  // Try loading real flag image from API data, fallback to mapping if error
   const code = team.fifa_code;
-  const flagUrl = `https://flagcdn.com/w40/${getCountryIsoCode(code)}.png`;
+  const flagUrl = team.flag_url || `https://flagcdn.com/w40/${getCountryIsoCode(code)}.png`;
   return `<img src="${flagUrl}" class="team-flag-real" onerror="this.outerHTML='<div class=team-flag-placeholder>${code}</div>'">`;
 }
 
@@ -532,23 +532,6 @@ function openCountrySquad(code) {
       
       const starIcon = p.is_star_player ? `<i class="fa-solid fa-star star-badge" title="Estrella"></i>` : '';
       const injuredBadge = p.is_injured ? `<span class="injured-badge" title="Lesionado / Baja para el próximo partido">Lesionado</span>` : '';
-      
-      let valText = 'N/A';
-      if (p.market_value_eur !== null) {
-        valText = `${p.market_value_eur.toFixed(1)} M€`;
-      }
-      
-
-      let efficiencyBadge = '';
-      if (p.efficiency_score !== null) {
-        let cat = 'efficiency-average';
-        if (p.efficiency_score >= 0.40) cat = 'efficiency-excellent';
-        else if (p.efficiency_score >= 0.15) cat = 'efficiency-good';
-        efficiencyBadge = `<span class="player-stat-badge ${cat}">${p.efficiency_score.toFixed(2)}</span>`;
-      } else {
-        efficiencyBadge = '<span class="player-unresolved-label">N/A</span>';
-      }
-      
       let cardBar = '';
       if (p.cards_propensity !== null) {
         let cat = 'safe';
@@ -582,8 +565,6 @@ function openCountrySquad(code) {
         <td>${p.goals !== null ? p.goals : 'N/A'}</td>
         <td style="font-weight: 500;">${p.minutes_recent !== null ? p.minutes_recent : 'N/A'}</td>
         <td style="font-weight: 500;">${p.assists_recent !== null ? p.assists_recent : 'N/A'}</td>
-        <td>${efficiencyBadge}</td>
-        <td class="player-val-cell">${valText}</td>
         <td>${cardBar}</td>
       `;
       
@@ -617,7 +598,7 @@ function renderUnresolved() {
   Object.values(appData.teams).forEach(t => {
     if (t.is_placeholder || !t.squad) return;
     t.squad.forEach(p => {
-      if (p.market_value_eur === null && p.sofascore_rating === null) {
+      if (p.market_value_eur === null) {
         unresolvedList.push({
           name: p.name,
           country: t.name,

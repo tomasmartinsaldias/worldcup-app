@@ -1,0 +1,116 @@
+Francia (World Cup Qual. UEFA 2026):
+Summary
+
+    Sofascore Rating: 7.30
+
+    Matches: 6
+
+    Goals Scored: 16
+
+    Goals Conceded: 4
+
+    Assists: 12
+
+Attacking
+
+    Goals per game: 2.7
+
+    Penalty goals: 2/2
+
+    Free kick goals: 0/1
+
+    Goals from inside the box: 15/81
+
+    Goals from outside the box: 0/50
+
+    Left-footed goals: 3
+
+    Right-footed goals: 10
+
+    Headed goals: 2
+
+    Big chances per game: 5.5
+
+    Big chances missed per game: 3.7
+
+    Total shots per game: 21.8
+
+    Shots on target per game: 7.7
+
+    Shots off target per game: 8
+
+    Blocked shots per game: 6.2
+
+    Succ. dribbles per game: 10.8
+
+    Corners per game: 6.8
+
+    Free kicks per game: 12.2
+
+    Hit woodwork: 4
+
+    Counter attacks: 9
+
+Passes
+
+    Ball possession: 68.5%
+
+    Accurate passes: 592 (90.5%)
+
+    Acc. own half: 176 (93.4%)
+
+    Acc. opposition half: 415 (86.1%)
+
+    Acc. long balls: 21 (67.4%)
+
+    Acc. crosses: 4.8 (21.5%)
+
+Defending
+
+    Clean sheets: 3
+
+    Goals conceded per game: 0.7
+
+    Tackles per game: 12.7
+
+    Interceptions per game: 6.3
+
+    Clearances per game: 9.8
+
+    Saves per game: 0.5
+
+    Balls recovered per game: 46.7
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 1
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 1
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 47.8 (52.2%)
+
+    Ground duels won: 35.7 (52.1%)
+
+    Aerial duels won: 12.2 (52.5%)
+
+    Possession lost per game: 120
+
+    Throw-ins per game: 20.7
+
+    Goal kicks per game: 3.3
+
+    Offsides per game: 0.7
+
+    Fouls per game: 10.2
+
+    Yellow cards per game: 1
+
+    Red cards: 1

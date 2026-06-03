@@ -1,0 +1,115 @@
+Suiza (World Cup Qual. UEFA 2026)
+
+    Sofascore Rating: 7.08
+
+    Matches: 6
+
+    Goals Scored: 14
+
+    Goals Conceded: 2
+
+    Assists: 12
+
+Attacking
+
+    Goals per game: 2.3
+
+    Penalty goals: 2/2
+
+    Free kick goals: 0/1
+
+    Goals from inside the box: 14/46
+
+    Goals from outside the box: 0/19
+
+    Left-footed goals: 6
+
+    Right-footed goals: 5
+
+    Headed goals: 3
+
+    Big chances per game: 3
+
+    Big chances missed per game: 1.5
+
+    Total shots per game: 10.8
+
+    Shots on target per game: 5.3
+
+    Shots off target per game: 3.2
+
+    Blocked shots per game: 2.3
+
+    Succ. dribbles per game: 6.2
+
+    Corners per game: 4.3
+
+    Free kicks per game: 12.5
+
+    Hit woodwork: 1
+
+    Counter attacks: 5
+
+Passes
+
+    Ball possession: 60.5%
+
+    Accurate passes: 521 (88.4%)
+
+    Acc. own half: 264 (93.7%)
+
+    Acc. opposition half: 257 (80.3%)
+
+    Acc. long balls: 20 (55.6%)
+
+    Acc. crosses: 3.8 (23.5%)
+
+Defending
+
+    Clean sheets: 4
+
+    Goals conceded per game: 0.3
+
+    Tackles per game: 14
+
+    Interceptions per game: 6.7
+
+    Clearances per game: 14.7
+
+    Saves per game: 1.3
+
+    Balls recovered per game: 48.7
+
+    Errors leading to shot: 1
+
+    Errors leading to goal: 1
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 1
+
+Other
+
+    Duels won per game: 43.2 (52%)
+
+    Ground duels won: 32.7 (52.8%)
+
+    Aerial duels won: 10.5 (49.6%)
+
+    Possession lost per game: 116.3
+
+    Throw-ins per game: 18.7
+
+    Goal kicks per game: 6.2
+
+    Offsides per game: 1.3
+
+    Fouls per game: 9.7
+
+    Yellow cards per game: 0.7
+
+    Red cards: 0

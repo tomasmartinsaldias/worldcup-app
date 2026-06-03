@@ -1,0 +1,113 @@
+Irak (Arab Cup 2025)
+
+    Sofascore Rating: 6.72
+
+    Matches: 4
+
+    Goals Scored: 4
+
+    Goals Conceded: 4
+
+    Assists: 2
+
+Attacking
+
+    Goals per game: 1
+
+    Penalty goals: 0
+
+    Free kick goals: 0/2
+
+    Goals from inside the box: 3/27
+
+    Goals from outside the box: 0/19
+
+    Left-footed goals: 2
+
+    Right-footed goals: 1
+
+    Headed goals: 0
+
+    Big chances per game: 2
+
+    Big chances missed per game: 1.5
+
+    Total shots per game: 11.5
+
+    Shots on target per game: 3.3
+
+    Shots off target per game: 3.8
+
+    Blocked shots per game: 4.5
+
+    Succ. dribbles per game: 7.5
+
+    Corners per game: 4.3
+
+    Free kicks per game: 13.5
+
+    Hit woodwork: 0
+
+Passes
+
+    Ball possession: 48.8%
+
+    Accurate passes: 311 (79.7%)
+
+    Acc. own half: 165 (87.7%)
+
+    Acc. opposition half: 146 (72.2%)
+
+    Acc. long balls: 17.5 (42.7%)
+
+    Acc. crosses: 4 (19.3%)
+
+Defending
+
+    Clean sheets: 1
+
+    Goals conceded per game: 1
+
+    Tackles per game: 18.8
+
+    Interceptions per game: 9
+
+    Clearances per game: 25.5
+
+    Saves per game: 2
+
+    Balls recovered per game: 51
+
+    Errors leading to shot: 0
+
+    Errors leading to goal: 0
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 0
+
+    Last man tackle: 3
+
+Other
+
+    Duels won per game: 57.8 (53.5%)
+
+    Ground duels won: 39.3 (53.8%)
+
+    Aerial duels won: 18.5 (52.9%)
+
+    Possession lost per game: 137.5
+
+    Throw-ins per game: 18.8
+
+    Goal kicks per game: 7.3
+
+    Offsides per game: 0.8
+
+    Fouls per game: 10
+
+    Yellow cards per game: 1.5
+
+    Red cards: 1

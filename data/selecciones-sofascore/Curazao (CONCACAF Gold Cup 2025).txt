@@ -1,0 +1,115 @@
+Curazao (CONCACAF Gold Cup 2025)
+
+    Sofascore Rating: 6.75
+
+    Matches: 3
+
+    Goals Scored: 2
+
+    Goals Conceded: 3
+
+    Assists: 1
+
+Attacking
+
+    Goals per game: 0.7
+
+    Penalty goals: 0
+
+    Free kick goals: 0/0
+
+    Goals from inside the box: 1/17
+
+    Goals from outside the box: 0/5
+
+    Left-footed goals: 0
+
+    Right-footed goals: 1
+
+    Headed goals: 0
+
+    Big chances per game: 3.3
+
+    Big chances missed per game: 3
+
+    Total shots per game: 7.3
+
+    Shots on target per game: 2.7
+
+    Shots off target per game: 3
+
+    Blocked shots per game: 1.7
+
+    Succ. dribbles per game: 6.7
+
+    Corners per game: 3.3
+
+    Free kicks per game: 12.3
+
+    Hit woodwork: 1
+
+    Counter attacks: 2
+
+Passes
+
+    Ball possession: 53.7%
+
+    Accurate passes: 326 (80.1%)
+
+    Acc. own half: 210 (89.7%)
+
+    Acc. opposition half: 119 (64.1%)
+
+    Acc. long balls: 25 (49%)
+
+    Acc. crosses: 2.3 (20%)
+
+Defending
+
+    Clean sheets: 1
+
+    Goals conceded per game: 1
+
+    Tackles per game: 15.7
+
+    Interceptions per game: 12.7
+
+    Clearances per game: 21
+
+    Saves per game: 1.3
+
+    Balls recovered per game: 47
+
+    Errors leading to shot: 1
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 48.7 (49.3%)
+
+    Ground duels won: 34.3 (47.5%)
+
+    Aerial duels won: 14.3 (54.4%)
+
+    Possession lost per game: 136.7
+
+    Throw-ins per game: 19
+
+    Goal kicks per game: 9
+
+    Offsides per game: 1.3
+
+    Fouls per game: 16
+
+    Yellow cards per game: 3
+
+    Red cards: 0

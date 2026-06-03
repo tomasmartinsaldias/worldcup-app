@@ -1,12 +1,9 @@
-Instructivo – Competencia “Tu tiempo, tu
-Mundial” ⚽🤖
+Instructivo – Competencia “Tu tiempo, tu Mundial” ⚽🤖
 ¡Gracias por inscribirte a la competencia!
 A continuación, te compartimos toda la información importante que debés tener en cuenta
 para participar correctamente.
 ⚽ ¿De qué trata la competencia?
-El desafío consiste en desarrollar un sistema que analice el perfil de un usuario (horarios
-disponibles, equipos, jugadores favoritos u otras variables) para recomendar qué partidos
-de la primera fase del Mundial 2026 debería ver.
+El desafío consiste en desarrollar un sistema que analice el perfil de un usuario (horarios disponibles, equipos, jugadores favoritos u otras variables) para recomendar qué partidos de la primera fase del Mundial 2026 debería ver.
 El sistema deberá clasificar los partidos en tres categorías:
 • Imperdible: Partidos indispensables por relevancia y afinidad.
 • Vale la pena: Partidos interesantes pero no cruciales, o en horarios complejos.
@@ -32,29 +29,16 @@ hasta sistemas de puntuación basados en reglas y heurísticas.
 anotar nuevos equipos.
 💻 Entregables requeridos
 Componente Formato Especificaciones
-1. Demo
-interactiva
-Aplicación web
-pública (GitHub
-Pages)
-Debe permitir configurar un perfil de usuario,
-visualizar recomendaciones de partidos e,
-idealmente, justificar la clasificación realizada.
-2. Informe
-metodológico
-Documento PDF
-(máximo 8
-páginas)
-Debe incluir: resumen ejecutivo, explicación de
-las variables creadas, arquitectura del modelo y
+1. Demo interactiva
+Aplicación web pública (GitHub Pages)
+Debe permitir configurar un perfil de usuario, visualizar recomendaciones de partidos e, idealmente, justificar la clasificación realizada.
+2. Informe metodológico
+Documento PDF (máximo 8 páginas)
+Debe incluir: resumen ejecutivo, explicación de las variables creadas, arquitectura del modelo y
 metodología de validación utilizada.
-3. Repositorio
-de código
-Repositorio público
-(GitHub)
-Debe contener el código fuente completo, los
-datos utilizados y las instrucciones para su
-ejecución.
+3. Repositorio de código
+Repositorio público (GitHub)
+Debe contener el código fuente completo, los datos utilizados y las instrucciones para su ejecución.
 📅 Cronograma
 • Fecha límite de inscripción: viernes 22/05/2026 23:59hs
 • Fecha límite de entregas: jueves 04/06/2026 23:59hs

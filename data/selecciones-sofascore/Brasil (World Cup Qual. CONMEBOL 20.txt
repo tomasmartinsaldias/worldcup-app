@@ -1,0 +1,116 @@
+Brasil (World Cup Qual. CONMEBOL 2026):
+Summary
+
+    Sofascore Rating: 6.93
+
+    Matches: 18
+
+    Goals Scored: 24
+
+    Goals Conceded: 17
+
+    Assists: 14
+
+Attacking
+
+    Goals per game: 1.3
+
+    Penalty goals: 3/5
+
+    Free kick goals: 1/14
+
+    Goals from inside the box: 19/135
+
+    Goals from outside the box: 5/80
+
+    Left-footed goals: 10
+
+    Right-footed goals: 10
+
+    Headed goals: 4
+
+    Big chances per game: 2.1
+
+    Big chances missed per game: 1.4
+
+    Total shots per game: 11.9
+
+    Shots on target per game: 4.2
+
+    Shots off target per game: 4.3
+
+    Blocked shots per game: 3.4
+
+    Succ. dribbles per game: 7.8
+
+    Corners per game: 5.1
+
+    Free kicks per game: 14.7
+
+    Hit woodwork: 8
+
+    Counter attacks: 5
+
+Passes
+
+    Ball possession: 62.1%
+
+    Accurate passes: 461 (88.6%)
+
+    Acc. own half: 244 (94%)
+
+    Acc. opposition half: 221 (80.1%)
+
+    Acc. long balls: 17.9 (62.1%)
+
+    Acc. crosses: 3.4 (23.4%)
+
+Defending
+
+    Clean sheets: 6
+
+    Goals conceded per game: 0.9
+
+    Tackles per game: 14.4
+
+    Interceptions per game: 6.1
+
+    Clearances per game: 12.8
+
+    Saves per game: 2.1
+
+    Balls recovered per game: 44.9
+
+    Errors leading to shot: 5
+
+    Errors leading to goal: 1
+
+    Penalties committed: 1
+
+    Penalty goals conceded: 1
+
+    Clearance off line: 2
+
+    Last man tackle: 2
+
+Other
+
+    Duels won per game: 49.1 (52.5%)
+
+    Ground duels won: 36.6 (51.6%)
+
+    Aerial duels won: 12.5 (55.4%)
+
+    Possession lost per game: 107.7
+
+    Throw-ins per game: 16.8
+
+    Goal kicks per game: 5
+
+    Offsides per game: 0.8
+
+    Fouls per game: 12.7
+
+    Yellow cards per game: 2.2
+
+    Red cards: 1

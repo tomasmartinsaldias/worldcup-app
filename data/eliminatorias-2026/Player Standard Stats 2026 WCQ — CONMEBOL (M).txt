@@ -1,0 +1,270 @@
+ 	                                        Playing Time 	                Performance 	                                                Per 90 Minutes	
+Rk 	Player 	Pos 	Squad Age 	Born 	MP 	Starts 	Min 	90s 	Gls 	Ast 	G+A 	G-PK 	PK 	PKatt 	CrdY 	CrdR 	Gls 	Ast 	G+A 	G-PK 	G+A-PK 	Matches
+1	Nicolás Tagliafico	DF	ar Argentina	33	1992	15	14	1,246	13.8	1	1	2	1	0	0	3	0	0.07	0.07	0.14	0.07	0.14	Matches
+2	Giuliano Simeone	MF	ar Argentina	23	2002	7	3	276	3.1	1	0	1	1	0	0	0	0	0.33	0.00	0.33	0.33	0.33	Matches
+3	Gerónimo Rulli	GK	ar Argentina	33	1992	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+4	Cristian Romero	DF	ar Argentina	27	1998	15	15	1,260	14.0	0	0	0	0	0	0	4	0	0.00	0.00	0.00	0.00	0.00	Matches
+5	Germán Pezzella	DF	ar Argentina	34	1991	2	1	135	1.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+6	Nehuén Pérez	DF	ar Argentina	25	2000	1	0	15	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+7	Nicolás Paz	MF	ar Argentina	21	2004	4	1	99	1.1	0	1	1	0	0	0	0	0	0.00	0.91	0.91	0.00	0.91	Matches
+8	Leandro Paredes	MF	ar Argentina	31	1994	14	6	552	6.1	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+9	Exequiel Palacios	MF	ar Argentina	27	1998	9	1	210	2.3	0	3	3	0	0	0	1	0	0.00	1.29	1.29	0.00	1.29	Matches
+10	Nicolás Otamendi	DF	ar Argentina	37	1988	17	17	1,452	16.1	3	0	3	3	0	0	2	1	0.19	0.00	0.19	0.19	0.19	Matches
+11	Lucas Ocampos	FW,MF	ar Argentina	31	1994	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+12	Gonzalo Montiel	DF	ar Argentina	29	1997	6	4	278	3.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+13	Nahuel Molina	DF	ar Argentina	27	1998	16	14	1,260	14.0	0	1	1	0	0	0	1	0	0.00	0.07	0.07	0.00	0.07	Matches
+14	Lionel Messi	FW,MF	ar Argentina	38	1987	12	10	944	10.5	8	3	11	8	0	0	0	0	0.76	0.29	1.05	0.76	1.05	Matches
+15	Facundo Medina	DF	ar Argentina	26	1999	4	1	105	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+16	Franco Mastantuono	MF	ar Argentina	18	2007	3	1	98	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+17	Lucas Martínez Quarta	DF,MF	ar Argentina	29	1996	1	0	57	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+18	Lisandro Martínez	DF	ar Argentina	28	1998	3	2	159	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+19	Lautaro Martínez	FW	ar Argentina	28	1997	14	8	738	8.2	4	1	5	4	0	0	2	0	0.49	0.12	0.61	0.49	0.61	Matches
+20	Emiliano Martínez	GK	ar Argentina	33	1992	16	16	1,440	16.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+21	Alexis Mac Allister	MF	ar Argentina	27	1998	14	13	1,041	11.6	2	0	2	2	0	0	1	0	0.17	0.00	0.17	0.17	0.17	Matches
+22	Giovani Lo Celso	MF	ar Argentina	29	1996	9	2	251	2.8	0	2	2	0	0	0	1	0	0.00	0.72	0.72	0.00	0.72	Matches
+23	Nicolás González	FW,MF	ar Argentina	27	1998	12	8	721	8.0	2	2	4	2	0	0	0	1	0.25	0.25	0.50	0.25	0.50	Matches
+24	Alejandro Garnacho	MF	ar Argentina	21	2004	3	0	45	0.5	0	1	1	0	0	0	0	0	0.00	2.00	2.00	0.00	2.00	Matches
+25	Juan Foyth	DF	ar Argentina	28	1998	3	0	73	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+26	Enzo Fernández	MF	ar Argentina	25	2001	15	15	1,267	14.1	2	3	5	2	0	0	2	1	0.14	0.21	0.36	0.14	0.36	Matches
+27	Paulo Dybala	FW,MF	ar Argentina	32	1993	2	0	18	0.2	1	0	1	1	0	0	0	0	5.00	0.00	5.00	5.00	5.00	Matches
+28	Ángel Di María	FW	ar Argentina	37	1988	4	1	170	1.9	0	2	2	0	0	0	0	0	0.00	1.06	1.06	0.00	1.06	Matches
+29	Rodrigo De Paul	MF	ar Argentina	31	1994	17	17	1,353	15.0	0	1	1	0	0	0	2	0	0.00	0.07	0.07	0.00	0.07	Matches
+30	Ángel Correa	FW,MF	ar Argentina	30	1995	4	0	28	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+31	Valentín Castellanos	FW	ar Argentina	27	1998	2	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+32	Leonardo Balerdi	DF	ar Argentina	27	1999	7	3	330	3.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+33	Julián Álvarez	FW	ar Argentina	26	2000	18	16	1,325	14.7	4	3	7	4	0	0	1	0	0.27	0.20	0.48	0.27	0.48	Matches
+34	Thiago Almada	MF,FW	ar Argentina	24	2001	7	6	476	5.3	3	2	5	3	0	0	1	0	0.57	0.38	0.95	0.57	0.95	Matches
+85	Estêvão Willian	MF,FW	br Brazil	18	2007	7	2	211	2.3	1	0	1	1	0	0	0	0	0.43	0.00	0.43	0.43	0.43	Matches
+86	Wesley	DF	br Brazil	22	2003	3	2	192	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+87	Wendell	DF,MF	br Brazil	32	1993	1	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+88	Vitinho	DF	br Brazil	26	1999	1	1	60	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+89	Raphael Veiga	MF	br Brazil	30	1995	3	0	21	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+90	Vanderson	DF	br Brazil	24	2001	6	5	442	4.9	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+91	Caio Henrique Oliveira Silva	DF	br Brazil	28	1997	2	1	110	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+92	Sávio	MF	br Brazil	21	2004	6	4	309	3.4	0	1	1	0	0	0	0	0	0.00	0.29	0.29	0.00	0.29	Matches
+93	Douglas Santos	DF	br Brazil	31	1994	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+94	Andrey Santos	MF	br Brazil	21	2004	3	1	110	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+95	Alex Sandro	DF	br Brazil	35	1991	2	2	163	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+96	Rodrygo	MF,FW	br Brazil	25	2001	12	12	964	10.7	3	0	3	3	0	0	1	0	0.28	0.00	0.28	0.28	0.28	Matches
+97	Richarlison	FW	br Brazil	28	1997	8	5	385	4.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+98	Alexsandro Ribeiro	DF	br Brazil	26	1999	3	3	270	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+99	Raphinha	MF	br Brazil	29	1996	13	12	1,051	11.7	5	2	7	2	3	3	4	0	0.43	0.17	0.60	0.17	0.34	Matches
+100	Matheus Pereira	FW,MF	br Brazil	29	1996	1	0	13	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+101	Andreas Pereira	MF	br Brazil	30	1996	2	0	23	0.3	1	0	1	1	0	0	0	0	3.91	0.00	3.91	3.91	3.91	Matches
+102	Pepê	FW,MF	br Brazil	28	1997	1	0	10	0.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+103	Paulinho	FW,MF	br Brazil	25	2000	1	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+104	Lucas Paquetá	MF	br Brazil	28	1997	7	4	334	3.7	1	1	2	1	0	0	3	0	0.27	0.27	0.54	0.27	0.54	Matches
+105	Leo Ortiz	DF	br Brazil	30	1996	2	0	46	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+106	Nino	DF	br Brazil	28	1997	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+107	Neymar	MF	br Brazil	33	1992	4	4	313	3.5	2	3	5	2	0	1	1	0	0.58	0.86	1.44	0.58	1.44	Matches
+108	David Neres	FW,MF	br Brazil	28	1997	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+109	Murillo	DF	br Brazil	23	2002	1	1	45	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+110	Lucas Moura	FW,MF	br Brazil	33	1992	2	0	29	0.3	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+111	Gabriel Martinelli	MF	br Brazil	24	2001	9	4	408	4.5	1	0	1	1	0	0	1	0	0.22	0.00	0.22	0.22	0.22	Matches
+112	Marquinhos	DF	br Brazil	31	1994	18	17	1,515	16.8	1	0	1	1	0	0	0	0	0.06	0.00	0.06	0.06	0.06	Matches
+113	Gabriel Magalhães	DF	br Brazil	28	1997	14	14	1,225	13.6	1	0	1	1	0	0	2	0	0.07	0.00	0.07	0.07	0.07	Matches
+114	Douglas Luiz	MF	br Brazil	27	1998	2	0	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+115	Jean Lucas	MF	br Brazil	27	1998	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+116	Renan Lodi	DF	br Brazil	27	1998	3	3	240	2.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+117	Samuel Lino	FW	br Brazil	26	1999	1	1	60	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+118	Vinicius Júnior	FW,MF	br Brazil	25	2000	11	11	893	9.9	2	1	3	2	0	1	2	0	0.20	0.10	0.30	0.20	0.30	Matches
+119	Kaio Jorge	FW	br Brazil	24	2002	1	0	20	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+120	Joelinton	MF	br Brazil	29	1996	5	1	143	1.6	0	0	0	0	0	0	1	1	0.00	0.00	0.00	0.00	0.00	Matches
+121	João Pedro	FW	br Brazil	24	2001	5	2	268	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+122	Igor Jesus	FW	br Brazil	24	2001	4	4	276	3.1	1	1	2	1	0	0	0	0	0.33	0.33	0.65	0.33	0.65	Matches
+123	Gabriel Jesus	FW	br Brazil	28	1997	5	2	241	2.7	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+124	Roger Ibanez	DF	br Brazil	27	1998	1	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+125	Luiz Henrique	MF,FW	br Brazil	25	2001	8	2	292	3.2	2	2	4	2	0	0	0	0	0.62	0.62	1.23	0.62	1.23	Matches
+126	Bruno Guimarães	MF	br Brazil	28	1997	17	16	1,313	14.6	1	2	3	1	0	0	4	0	0.07	0.14	0.21	0.07	0.21	Matches
+127	João Gomes	MF	br Brazil	24	2001	2	0	51	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+128	Gerson	MF	br Brazil	28	1997	10	5	479	5.3	1	0	1	1	0	0	0	0	0.19	0.00	0.19	0.19	0.19	Matches
+129	Endrick	FW	br Brazil	19	2006	6	1	146	1.6	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+130	Emerson	DF	br Brazil	27	1999	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+131	Éderson	MF	br Brazil	26	1999	1	0	7	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+132	Ederson	GK	br Brazil	32	1993	8	8	720	8.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+133	Danilo	DF	br Brazil	34	1991	8	7	577	6.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+134	Matheus Cunha	MF	br Brazil	26	1999	7	2	243	2.7	1	1	2	1	0	0	1	0	0.37	0.37	0.74	0.37	0.74	Matches
+135	Yan Couto	DF	br Brazil	23	2002	2	1	121	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+136	Casemiro	MF	br Brazil	33	1992	7	7	593	6.6	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+137	Fabrício Bruno	DF	br Brazil	29	1996	1	1	90	1.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+138	Lucas Beraldo	DF	br Brazil	22	2003	1	0	17	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+139	Bento	GK	br Brazil	26	1999	2	1	103	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+140	Carlos Augusto	DF	br Brazil	27	1999	2	2	162	1.8	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+141	Guilherme Arana	DF	br Brazil	28	1997	6	5	446	5.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+142	André	MF	br Brazil	24	2001	10	6	524	5.8	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+143	Alisson	GK	br Brazil	33	1992	9	9	797	8.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+144	Abner	DF	br Brazil	25	2000	4	4	320	3.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+200	Camilo Vargas	GK	co Colombia	36	1989	14	14	1,256	14.0	0	0	0	0	0	0	3	1	0.00	0.00	0.00	0.00	0.00	Matches
+201	Mateus Uribe	MF	co Colombia	34	1991	7	6	414	4.6	1	0	1	1	0	0	0	0	0.22	0.00	0.22	0.22	0.22	Matches
+202	Luis Sinisterra	FW	co Colombia	26	1999	6	1	139	1.5	1	1	2	1	0	0	1	0	0.65	0.65	1.29	0.65	1.29	Matches
+203	Davinson Sánchez	DF	co Colombia	29	1996	12	11	1,042	11.6	1	0	1	1	0	0	3	0	0.09	0.00	0.09	0.09	0.09	Matches
+204	James Rodríguez	MF,FW	co Colombia	34	1991	18	14	1,239	13.8	3	7	10	2	1	1	0	0	0.22	0.51	0.73	0.15	0.65	Matches
+205	Richard Ríos	MF	co Colombia	25	2000	15	10	986	11.0	0	1	1	0	0	0	1	0	0.00	0.09	0.09	0.00	0.09	Matches
+206	Juan Quintero	MF	co Colombia	33	1993	6	1	181	2.0	2	2	4	2	0	0	1	0	0.99	0.99	1.99	0.99	1.99	Matches
+207	Daniel Muñoz	DF	co Colombia	29	1996	13	13	1,170	13.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+208	Yerson Mosquera	DF	co Colombia	24	2001	4	2	175	1.9	1	0	1	1	0	0	1	0	0.51	0.00	0.51	0.51	0.51	Matches
+209	Dayro Moreno	FW,MF	co Colombia	40	1985	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+210	Johan Mojica	DF	co Colombia	33	1992	8	8	714	7.9	0	1	1	0	0	0	1	0	0.00	0.13	0.13	0.00	0.13	Matches
+211	Yerry Mina	DF	co Colombia	31	1994	8	5	457	5.1	1	0	1	1	0	0	2	0	0.20	0.00	0.20	0.20	0.20	Matches
+212	Kevin Mier	GK	co Colombia	25	2000	3	3	270	3.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+213	Roger Martínez	FW	co Colombia	31	1994	1	1	22	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+214	Deiver Machado	DF	co Colombia	32	1993	5	5	405	4.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+215	Jhon Lucumí	DF	co Colombia	27	1998	14	14	1,260	14.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+216	Jefferson Lerma	MF	co Colombia	31	1994	14	12	1,086	12.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+217	Luis Javier Suárez	FW	co Colombia	28	1997	2	1	113	1.3	4	0	4	4	0	0	0	0	3.19	0.00	3.19	3.19	3.19	Matches
+218	Marino Hinestroza	MF	co Colombia	23	2002	2	0	33	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+219	Andrés Gómez	MF	co Colombia	23	2002	2	0	10	0.1	1	0	1	1	0	0	0	0	9.00	0.00	9.00	9.00	9.00	Matches
+220	Andrés Felipe Román	DF,FW	co Colombia	30	1995	1	0	34	0.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+221	Frank Fabra	DF	co Colombia	34	1991	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+222	Jáder Durán	FW	co Colombia	22	2003	10	4	445	4.9	2	1	3	2	0	0	5	0	0.40	0.20	0.61	0.40	0.61	Matches
+223	Willer Ditta	DF	co Colombia	29	1997	2	1	95	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+224	Luis Díaz	FW,MF	co Colombia	29	1997	17	17	1,465	16.3	7	3	10	7	0	1	2	0	0.43	0.18	0.61	0.43	0.61	Matches
+225	Álvaro David Montero	GK	co Colombia	30	1995	2	1	91	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+226	Juan David Cabal	DF	co Colombia	25	2001	2	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+227	Carlos Cuesta	DF	co Colombia	26	1999	5	4	331	3.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+228	Cucho	MF	co Colombia	26	1999	2	1	74	0.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+229	Juan Cuadrado	FW	co Colombia	37	1988	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+230	Jhon Córdoba	FW	co Colombia	32	1993	10	5	510	5.7	2	0	2	2	0	0	3	0	0.35	0.00	0.35	0.35	0.35	Matches
+231	Kevin Castaño	MF	co Colombia	25	2000	9	7	562	6.2	0	1	1	0	0	0	2	0	0.00	0.16	0.16	0.00	0.16	Matches
+232	Rafael Carrascal	MF	co Colombia	33	1992	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+233	Jorge Carrascal	MF	co Colombia	27	1998	7	2	220	2.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+234	Jaminton Campaz	FW	co Colombia	25	2000	5	1	154	1.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+235	Juan Camilo Portilla	MF	co Colombia	27	1998	5	2	194	2.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+236	Rafael Borré	FW,MF	co Colombia	30	1995	9	6	452	5.0	2	0	2	1	1	1	0	0	0.40	0.00	0.40	0.20	0.20	Matches
+237	Cristian Borja	DF	co Colombia	32	1993	4	3	313	3.5	0	1	1	0	0	0	0	0	0.00	0.29	0.29	0.00	0.29	Matches
+238	Wílmar Barrios	MF	co Colombia	32	1993	3	1	99	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+239	Yaser Asprilla	FW,MF	co Colombia	22	2003	2	0	47	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+240	Santiago Arias	DF	co Colombia	34	1992	4	4	359	4.0	0	2	2	0	0	0	0	0	0.00	0.50	0.50	0.00	0.50	Matches
+241	Jhon Arias	MF	co Colombia	28	1997	17	15	1,139	12.7	0	2	2	0	0	0	3	0	0.00	0.16	0.16	0.00	0.16	Matches
+242	Álvaro Angulo	DF	co Colombia	28	1997	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+243	John Yeboah	FW,MF	ec Ecuador	25	2000	9	3	364	4.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+244	Pedro Vite	MF	ec Ecuador	23	2002	9	8	695	7.7	0	2	2	0	0	0	1	0	0.00	0.26	0.26	0.00	0.26	Matches
+245	Gonzalo Valle	GK	ec Ecuador	29	1996	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+246	Enner Valencia	FW	ec Ecuador	36	1989	15	14	1,057	11.7	6	2	8	4	2	4	0	0	0.51	0.17	0.68	0.34	0.51	Matches
+247	Félix Torres Caicedo	DF	ec Ecuador	29	1997	15	11	1,052	11.7	2	0	2	2	0	0	1	0	0.17	0.00	0.17	0.17	0.17	Matches
+248	Junior Sornoza	MF	ec Ecuador	32	1994	2	2	141	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+249	Jeremy Sarmiento	MF	ec Ecuador	23	2002	3	1	113	1.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+250	Kevin Rodríguez	FW	ec Ecuador	25	2000	16	5	550	6.1	1	0	1	1	0	0	0	0	0.16	0.00	0.16	0.16	0.16	Matches
+251	Leonardo Realpe	DF	ec Ecuador	24	2001	1	0	21	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+252	Moisés Ramírez	GK	ec Ecuador	25	2000	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+253	Cristian Ramírez	DF	ec Ecuador	31	1994	1	0	14	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+254	Ángelo Preciado	MF,DF	ec Ecuador	27	1998	13	9	812	9.0	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+255	Gonzalo Plata	MF,FW	ec Ecuador	25	2000	9	8	633	7.0	2	0	2	2	0	0	2	0	0.28	0.00	0.28	0.28	0.28	Matches
+256	Kendry Páez	MF,FW	ec Ecuador	18	2007	12	8	647	7.2	1	1	2	1	0	0	1	0	0.14	0.14	0.28	0.14	0.28	Matches
+257	Willian Pacho	DF	ec Ecuador	24	2001	18	18	1,620	18.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+258	Joel Ordóñez	DF	ec Ecuador	21	2004	8	8	691	7.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+259	Alan Minda	MF	ec Ecuador	22	2003	8	4	312	3.5	1	0	1	1	0	0	0	0	0.29	0.00	0.29	0.29	0.29	Matches
+260	Patrik Mercado	MF	ec Ecuador	22	2003	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+261	John Mercado	FW	ec Ecuador	23	2002	4	1	111	1.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+262	Jhegson Méndez	MF	ec Ecuador	28	1997	2	1	46	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+263	Ángel Mena	MF	ec Ecuador	38	1988	6	1	166	1.8	1	0	1	1	0	0	0	0	0.54	0.00	0.54	0.54	0.54	Matches
+264	Yaimar Medina	DF,MF	ec Ecuador	21	2004	2	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+265	Jhojan Julio	FW	ec Ecuador	27	1998	4	1	125	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+266	Julio Joao Ortíz	MF	ec Ecuador	29	1996	5	1	151	1.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+267	José Hurtado	DF	ec Ecuador	24	2001	3	1	93	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+268	Piero Hincapié	DF	ec Ecuador	24	2002	14	14	1,203	13.4	0	0	0	0	0	0	2	1	0.00	0.00	0.00	0.00	0.00	Matches
+269	Darwin Guagua	FW	ec Ecuador	18	2007	1	1	59	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+270	Carlos Gruezo	MF	ec Ecuador	30	1995	7	4	487	5.4	0	0	0	0	0	0	3	0	0.00	0.00	0.00	0.00	0.00	Matches
+271	Hernán Galíndez	GK	ec Ecuador	38	1987	12	12	1,080	12.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+272	Alan Franco	MF	ec Ecuador	27	1998	13	12	1,057	11.7	0	2	2	0	0	0	3	1	0.00	0.17	0.17	0.00	0.17	Matches
+273	Pervis Estupiñán	DF,MF	ec Ecuador	28	1998	13	13	1,118	12.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+274	Alexander Domínguez	GK	ec Ecuador	38	1987	2	2	180	2.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+275	Janner Corozo	MF	ec Ecuador	30	1995	2	1	92	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+276	José Cifuentes	MF	ec Ecuador	26	1999	3	3	210	2.3	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+277	Jhoanner Chávez	MF,DF	ec Ecuador	23	2002	5	2	203	2.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+278	Denil Castillo	MF	ec Ecuador	21	2004	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+279	Leonardo Campana	FW	ec Ecuador	25	2000	3	0	54	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+280	Moisés Caicedo	MF	ec Ecuador	24	2001	16	16	1,399	15.5	0	3	3	0	0	0	5	1	0.00	0.19	0.19	0.00	0.19	Matches
+281	Jordy Caicedo	FW	ec Ecuador	28	1997	2	1	57	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+282	Beder Caicedo	DF,MF	ec Ecuador	33	1992	1	0	13	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+283	Keny Arroyo	MF	ec Ecuador	19	2006	2	0	33	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+284	Robert Arboleda	DF	ec Ecuador	34	1991	3	3	249	2.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+285	Nilson Angulo	MF	ec Ecuador	22	2003	4	4	306	3.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+286	Jordy Alcivar	MF	ec Ecuador	26	1999	2	1	122	1.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+332	Mathías Villasanti	MF	py Paraguay	29	1997	15	8	739	8.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+333	Héctor Villalba	FW,MF	py Paraguay	31	1994	2	0	61	0.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+334	Wilder Viera	MF	py Paraguay	23	2002	1	0	9	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+335	Gustavo Velásquez	DF	py Paraguay	34	1991	5	3	344	3.8	0	1	1	0	0	0	2	0	0.00	0.26	0.26	0.00	0.26	Matches
+336	Ramón Sosa	MF,FW	py Paraguay	26	1999	17	9	852	9.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+337	Agustín Sández	DF,MF	py Paraguay	25	2001	4	3	222	2.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+338	Richard Sánchez	MF	py Paraguay	29	1996	2	1	135	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+339	Antonio Sanabria	FW,MF	py Paraguay	29	1996	13	8	670	7.4	4	1	5	4	0	0	0	0	0.54	0.13	0.67	0.54	0.67	Matches
+340	Ángel Romero	MF	py Paraguay	33	1992	7	1	143	1.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+341	Robert Rojas	DF	py Paraguay	29	1996	5	3	259	2.9	0	0	0	0	0	0	0	1	0.00	0.00	0.00	0.00	0.00	Matches
+342	Matías Rojas	MF	py Paraguay	30	1995	3	2	132	1.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+343	Blas Riveros	DF	py Paraguay	27	1998	2	1	96	1.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+344	Iván Ramírez	MF	py Paraguay	31	1994	1	1	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+345	Isidro Pitta	FW	py Paraguay	26	1999	5	3	214	2.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+346	Iván Piris	DF	py Paraguay	36	1989	2	0	33	0.4	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+347	Alfio Oviedo	FW	py Paraguay	30	1995	1	0	4	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+348	Richard Ortiz	MF	py Paraguay	35	1990	1	1	45	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+349	Braian Ojeda	MF	py Paraguay	25	2000	2	0	37	0.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+350	Ronaldo Martínez	FW	py Paraguay	29	1996	2	2	105	1.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+351	Ivan Leguizamon	FW,MF	py Paraguay	23	2002	1	0	45	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+352	Kaku	MF	py Paraguay	31	1995	12	1	214	2.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+353	Carlos González Espínola	FW	py Paraguay	32	1993	2	0	45	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+354	Gustavo Gómez	DF	py Paraguay	32	1993	15	15	1,350	15.0	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+355	Diego Gómez	MF	py Paraguay	22	2003	13	12	877	9.7	1	2	3	1	0	0	2	1	0.10	0.21	0.31	0.10	0.31	Matches
+356	Orlando Gill	GK	py Paraguay	25	2000	1	1	90	1.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+357	Matías Galarza	MF	py Paraguay	23	2002	7	3	357	4.0	2	1	3	2	0	0	2	0	0.50	0.25	0.76	0.50	0.76	Matches
+358	Gatito Fernández	GK	py Paraguay	37	1988	11	11	990	11.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+359	Matías Espinoza	DF,MF	py Paraguay	28	1997	4	4	360	4.0	0	1	1	0	0	0	0	0	0.00	0.25	0.25	0.00	0.25	Matches
+360	Alberto Espínola	DF	py Paraguay	34	1991	1	1	66	0.7	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+361	Julio Enciso	MF,FW	py Paraguay	22	2004	10	9	792	8.8	3	1	4	2	1	2	0	0	0.34	0.11	0.45	0.23	0.34	Matches
+362	Hugo Cuenca	MF	py Paraguay	21	2005	1	0	5	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+363	Andrés Cubas	MF	py Paraguay	29	1996	13	13	1,123	12.5	0	0	0	0	0	0	4	0	0.00	0.00	0.00	0.00	0.00	Matches
+364	Carlos Coronel	GK	py Paraguay	29	1996	6	6	540	6.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+365	Óscar Cardozo	FW	py Paraguay	42	1983	1	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+366	Álvaro Campuzano	MF	py Paraguay	30	1995	3	2	166	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+367	Juan Cáceres	DF,MF	py Paraguay	25	2000	12	10	924	10.3	0	1	1	0	0	0	3	0	0.00	0.10	0.10	0.00	0.10	Matches
+368	Hernesto Caballero	MF	py Paraguay	34	1991	2	0	73	0.8	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+369	Damián Bobadilla	MF	py Paraguay	24	2001	9	6	509	5.7	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+370	Adam Bareiro	FW	py Paraguay	29	1996	3	3	208	2.3	0	0	0	0	0	0	2	0	0.00	0.00	0.00	0.00	0.00	Matches
+371	Fabián Balbuena	DF	py Paraguay	34	1991	9	8	731	8.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+372	Gabriel Ávalos	FW	py Paraguay	35	1990	11	4	411	4.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+373	Santiago Arzamendia	DF	py Paraguay	27	1998	1	0	8	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+374	Alex Arce	FW	py Paraguay	30	1995	5	2	190	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+375	Júnior Alonso	DF	py Paraguay	32	1993	12	12	1,060	11.8	1	1	2	1	0	0	4	0	0.08	0.08	0.17	0.08	0.17	Matches
+376	Miguel Almirón	MF,FW	py Paraguay	31	1994	15	15	1,280	14.2	1	1	2	1	0	0	2	0	0.07	0.07	0.14	0.07	0.14	Matches
+377	Omar Alderete	DF	py Paraguay	29	1996	14	14	1,208	13.4	2	0	2	2	0	0	2	0	0.15	0.00	0.15	0.15	0.15	Matches
+378	Rodrigo Zalazar	FW,MF	uy Uruguay	26	1999	2	0	44	0.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+379	Federico Viñas	FW	uy Uruguay	27	1998	5	1	91	1.0	1	0	1	1	0	0	0	0	0.99	0.00	0.99	0.99	0.99	Matches
+380	Matías Viña	DF	uy Uruguay	28	1997	6	5	412	4.6	0	1	1	0	0	0	2	0	0.00	0.22	0.22	0.00	0.22	Matches
+381	Matías Vecino	FW,MF	uy Uruguay	34	1991	2	0	23	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+382	Guillermo Varela	DF	uy Uruguay	32	1993	8	6	498	5.5	0	1	1	0	0	0	1	0	0.00	0.18	0.18	0.00	0.18	Matches
+383	Federico Valverde	MF	uy Uruguay	27	1998	15	14	1,286	14.3	2	0	2	2	0	0	3	0	0.14	0.00	0.14	0.14	0.14	Matches
+384	Manuel Ugarte	MF	uy Uruguay	24	2001	16	14	1,265	14.1	1	0	1	1	0	0	4	0	0.07	0.00	0.07	0.07	0.07	Matches
+385	Facundo Torres	MF	uy Uruguay	25	2000	4	0	80	0.9	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+386	Luis Suárez	FW	uy Uruguay	39	1987	2	1	108	1.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+387	Marcelo Saracchi	DF	uy Uruguay	27	1998	5	2	189	2.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+388	Luciano Rodríguez	FW	uy Uruguay	22	2003	1	0	1	0.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+389	Brian Rodríguez	MF,FW	uy Uruguay	25	2000	8	5	430	4.8	0	1	1	0	0	0	1	0	0.00	0.21	0.21	0.00	0.21	Matches
+390	Sergio Rochet	GK	uy Uruguay	32	1993	14	14	1,260	14.0	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+391	Joaquín Piquerez	DF	uy Uruguay	27	1998	7	4	367	4.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+392	Facundo Pellistri	FW,MF	uy Uruguay	24	2001	17	14	1,165	12.9	0	2	2	0	0	0	0	0	0.00	0.15	0.15	0.00	0.15	Matches
+393	Mathías Olivera	DF	uy Uruguay	28	1997	12	10	885	9.8	1	1	2	1	0	0	4	0	0.10	0.10	0.20	0.10	0.20	Matches
+394	Cristian Olivera	FW,MF	uy Uruguay	23	2002	9	5	488	5.4	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+395	Lucas Olaza	DF	uy Uruguay	31	1994	2	2	166	1.8	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+396	Darwin Núñez	FW	uy Uruguay	26	1999	13	12	969	10.8	5	2	7	4	1	1	1	0	0.46	0.19	0.65	0.37	0.56	Matches
+397	Nahitan Nández	DF,MF	uy Uruguay	30	1995	13	12	1,045	11.6	0	0	0	0	0	0	6	0	0.00	0.00	0.00	0.00	0.00	Matches
+398	Miguel Merentiel	FW	uy Uruguay	29	1996	1	0	45	0.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+399	Bruno Méndez	DF	uy Uruguay	26	1999	2	0	28	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+400	Santiago Mele	GK	uy Uruguay	28	1997	4	4	360	4.0	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+401	Emiliano Martínez	MF	uy Uruguay	26	1999	2	1	102	1.1	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+402	Nicolas Marichal	DF	uy Uruguay	24	2001	2	1	131	1.5	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+403	José María Giménez	DF	uy Uruguay	31	1995	9	8	765	8.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+404	Maxi Gómez	FW	uy Uruguay	29	1996	1	0	18	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+405	Nicolas Fonseca	MF	uy Uruguay	27	1998	4	1	106	1.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+406	Nicolás De La Cruz	MF	uy Uruguay	28	1997	8	6	567	6.3	3	3	6	3	0	0	1	0	0.48	0.48	0.95	0.48	0.95	Matches
+407	Giorgian De Arrascaeta	MF	uy Uruguay	31	1994	8	6	462	5.1	2	0	2	2	0	0	0	0	0.39	0.00	0.39	0.39	0.39	Matches
+408	Felipe Carballo	MF	uy Uruguay	29	1996	3	0	54	0.6	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+409	Agustín Canobbio	MF	uy Uruguay	27	1998	3	1	76	0.8	1	0	1	1	0	0	0	0	1.18	0.00	1.18	1.18	1.18	Matches
+410	Sebastián Cáceres	DF	uy Uruguay	26	1999	12	11	916	10.2	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+411	Santiago Bueno	DF	uy Uruguay	27	1998	4	3	315	3.5	0	0	0	0	0	0	1	0	0.00	0.00	0.00	0.00	0.00	Matches
+412	Rodrigo Bentancur	MF	uy Uruguay	28	1997	9	8	732	8.1	0	1	1	0	0	0	4	0	0.00	0.12	0.12	0.00	0.12	Matches
+413	José Luis Rodríguez Bebanz	DF	uy Uruguay	28	1997	1	0	25	0.3	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+414	Ronald Araújo	DF	uy Uruguay	26	1999	8	8	720	8.0	1	0	1	1	0	0	2	0	0.12	0.00	0.12	0.12	0.12	Matches
+415	Maximiliano Araújo	MF,FW	uy Uruguay	25	2000	15	14	1,170	13.0	0	4	4	0	0	0	0	0	0.00	0.31	0.31	0.00	0.31	Matches
+416	Kevin Amaro	DF	uy Uruguay	21	2004	1	0	20	0.2	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+417	Agustín Álvarez	FW	uy Uruguay	24	2001	1	0	6	0.1	0	0	0	0	0	0	0	0	0.00	0.00	0.00	0.00	0.00	Matches
+418	Rodrigo Aguirre	FW,MF	uy Uruguay	31	1994	7	5	430	4.8	3	1	4	3	0	0	1	0	0.63	0.21	0.84	0.63	0.84	Matches

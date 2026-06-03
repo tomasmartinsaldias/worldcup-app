@@ -1,0 +1,116 @@
+España (World Cup Qual. UEFA 2026):
+Summary
+
+    Sofascore Rating: 7.34
+
+    Matches: 6
+
+    Goals Scored: 21
+
+    Goals Conceded: 2
+
+    Assists: 15
+
+Attacking
+
+    Goals per game: 3.5
+
+    Penalty goals: 2/3
+
+    Free kick goals: 1/2
+
+    Goals from inside the box: 17/105
+
+    Goals from outside the box: 3/32
+
+    Left-footed goals: 9
+
+    Right-footed goals: 7
+
+    Headed goals: 4
+
+    Big chances per game: 7.5
+
+    Big chances missed per game: 5.2
+
+    Total shots per game: 22.8
+
+    Shots on target per game: 9.7
+
+    Shots off target per game: 7.2
+
+    Blocked shots per game: 6
+
+    Succ. dribbles per game: 6.5
+
+    Corners per game: 7.2
+
+    Free kicks per game: 6.3
+
+    Hit woodwork: 5
+
+    Counter attacks: 9
+
+Passes
+
+    Ball possession: 70.5%
+
+    Accurate passes: 670 (91.9%)
+
+    Acc. own half: 221 (95.8%)
+
+    Acc. opposition half: 446 (87.1%)
+
+    Acc. long balls: 22.5 (74.2%)
+
+    Acc. crosses: 4.5 (21.8%)
+
+Defending
+
+    Clean sheets: 5
+
+    Goals conceded per game: 0.3
+
+    Tackles per game: 13
+
+    Interceptions per game: 5.7
+
+    Clearances per game: 13.3
+
+    Saves per game: 1.7
+
+    Balls recovered per game: 46.2
+
+    Errors leading to shot: 1
+
+    Errors leading to goal: 0
+
+    Penalties committed: 0
+
+    Penalty goals conceded: 0
+
+    Clearance off line: 0
+
+    Last man tackle: 0
+
+Other
+
+    Duels won per game: 34.3 (50.1%)
+
+    Ground duels won: 25.8 (48.7%)
+
+    Aerial duels won: 8.5 (54.8%)
+
+    Possession lost per game: 103.2
+
+    Throw-ins per game: 18
+
+    Goal kicks per game: 2.3
+
+    Offsides per game: 2
+
+    Fouls per game: 9.8
+
+    Yellow cards per game: 0.7
+
+    Red cards: 0
