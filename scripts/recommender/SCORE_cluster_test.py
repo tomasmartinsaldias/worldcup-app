@@ -28,9 +28,10 @@ favourite_clusters = {
 db_path = Path("data/recommender_data/convocados.db")   # ← nueva ubicación
 
 # 4️⃣ Ejecutar
-total_score,breakdown = run_score(match, favourite_clusters, db_path=db_path)
+print("--- Test con a = 4.0 (Default) ---")
+total_score, breakdown = run_score(match, favourite_clusters, db_path=db_path, a=4.0)
 
-print(f"Total score: {total_score:.4f}")
+print(f"Total score (a=4.0): {total_score:.4f}")
 for pos, players in breakdown.items():
     if not players:
         continue
@@ -38,3 +39,12 @@ for pos, players in breakdown.items():
     for p in players:
         print(f"  {p['player']} ({p['country']}): {p['contribution']:.4f}")
     print()
+
+print("\n--- Test con a = 2.0 ---")
+total_score_2, breakdown_2 = run_score(match, favourite_clusters, db_path=db_path, a=2.0)
+print(f"Total score (a=2.0): {total_score_2:.4f}")
+
+print("\n--- Test con a = 6.0 ---")
+total_score_6, breakdown_6 = run_score(match, favourite_clusters, db_path=db_path, a=6.0)
+print(f"Total score (a=6.0): {total_score_6:.4f}")
+

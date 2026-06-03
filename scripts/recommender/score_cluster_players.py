@@ -56,21 +56,25 @@ DB_PATH = BASE_DIR / "data" / "recommender_data" / "convocados.db"
 # Public helper for programmatic use
 # ---------------------------------------------------------------------------
 
-def run_score(match: str, favourite_clusters: Dict[str, int], db_path: str = None) -> Tuple[float, Dict[str, List[Dict[str, Any]]]]:
+import math
+
+def run_score(match: Union[str, Tuple[str, str]], favourite_clusters: Dict[str, int], db_path: str = None, a: float = 3.0) -> Tuple[float, Dict[str, List[Dict[str, Any]]]]:
     """Convenient wrapper to call :func:`score_match` directly.
 
     Parameters
     ----------
-    match: str
-        Match description, e.g. ``"Argentina vs Francia"``.
+    match: str or tuple
+        Match description, e.g. ``"Argentina vs Francia"`` or ``("Argentina", "Francia")``.
     favourite_clusters: dict
         Mapping ``position → cluster_id``.
     db_path: str, optional
         Path to the ``convocados.db`` SQLite file. If omitted the default path
         ``DB_PATH`` (project ``data/convocados.db``) is used.
+    a: float, default 4.0
+        Hyperparameter 'a' for the scoring formula.
     """
     path = Path(db_path) if db_path else DB_PATH
-    return score_match(favourite_clusters, match, db_path=path)
+    return score_match(favourite_clusters, match, db_path=path, a=a)
 
 DIST_DIR = BASE_DIR / "data" / "clustering_maps"
 
@@ -190,7 +194,8 @@ def parse_match_string(match: str) -> Tuple[str, str]:
 def score_match(
     favourite_clusters: Dict[str, int],
     match: Union[str, Tuple[str, str]],
-    db_path: Path = DB_PATH
+    db_path: Path = DB_PATH,
+    a: float = 4.0
 ) -> Tuple[float, Dict[str, List[Dict[str, Any]]]]:
     """Calculate the total score for a match.
 
@@ -202,25 +207,8 @@ def score_match(
         Either a string ``"Country1 vs Country2"`` or a tuple/list ``("Country1", "Country2")``.
     db_path: pathlib.Path, optional
         Path to ``convocados.db``. Defaults to the project‑relative path.
-
-    Returns
-    -------
-    total_score: float
-        Sum of the contributions of all players from both teams.
-    breakdown: dict
-        ``position → list`` where each list element is a dict with keys
-        ``player``, ``country`` and ``contribution``.
-    """
-    """Calculate the total score for a match.
-
-    Parameters
-    ----------
-    favourite_clusters: dict
-        Mapping ``position → cluster_id`` for the *user's* favourite clusters.
-    match: str
-        Text describing the match, e.g. ``"Argentina vs Francia"``.
-    db_path: pathlib.Path, optional
-        Path to ``convocados.db``. Defaults to the project‑relative path.
+    a: float, default 4.0
+        Hyperparameter 'a' for the scoring formula.
 
     Returns
     -------
@@ -272,11 +260,17 @@ def score_match(
                 # Normalize the DB name before lookup to match the keys created above
                 norm_name = normalize_name(name)
                 distance = fav_distances.get(name) or fav_distances.get(norm_name)
-                if distance is None or distance == 0:
+                if distance is None:
                     contribution = 0.0
                 else:
-                    contribution = 1.0 / distance
-                if contribution:
+                    if abs(a) < 1e-9:
+                        contribution = 1.0 - distance
+                    else:
+                        exp_neg_a = math.exp(-a)
+                        contribution = (math.exp(-a * distance) - exp_neg_a) / (1.0 - exp_neg_a)
+                    # Clamp contribution to [0, 1]
+                    contribution = max(0.0, min(1.0, contribution))
+                if contribution > 0:
                     total_score += contribution
                     breakdown[position].append(
                         {
@@ -315,6 +309,12 @@ if __name__ == "__main__":
         ),
     )
     parser.add_argument(
+        "--a",
+        type=float,
+        default=4.0,
+        help="Hyperparameter 'a' for the scoring formula (default: 4.0).",
+    )
+    parser.add_argument(
         "--example",
         action="store_true",
         help="Run a built‑in example with dummy data.",
@@ -342,7 +342,7 @@ if __name__ == "__main__":
             raise SystemExit(f"Unable to read favourite clusters: {exc}")
         match_str = args.match
 
-    total, details = score_match(fav_clusters, match_str)
+    total, details = score_match(fav_clusters, match_str, a=args.a)
     print(f"Total match score: {total:.4f}\n")
     for pos, players in details.items():
         if not players:
