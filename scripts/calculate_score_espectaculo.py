@@ -443,7 +443,7 @@ def adjust_raw_stats_by_confederation(raw_stats):
 
 
 def main():
-    base_dir = "c:/Users/tomas/Desktop/proyectos/worldcup-app"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     results_path = os.path.join(base_dir, "data", "international-results", "results.csv")
     ranking_path = os.path.join(base_dir, "data", "ranking_fifa.txt")

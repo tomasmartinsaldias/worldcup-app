@@ -375,6 +375,8 @@ def fetch_all_teams_from_api() -> list[dict]:
     for comp in competitions:
         comp_id   = comp.get("id")
         comp_name = comp.get("name", "<sin nombre>")
+        # Extraemos el país de la competición (ej: England, France)
+        comp_country = comp.get("area", {}).get("name") or "Unknown"
         if not comp_id:
             continue
         try:
@@ -388,6 +390,9 @@ def fetch_all_teams_from_api() -> list[dict]:
             for team in teams:
                 tid = team.get("id")
                 if tid and tid not in seen_ids:
+                    # Etiquetamos el equipo con la competición de origen y su país
+                    team["_competition_name"] = comp_name
+                    team["_competition_country"] = comp_country
                     all_teams.append(team)
                     seen_ids.add(tid)
             log.info("Competición '%s': %d equipos.", comp_name, len(teams))
@@ -415,6 +420,8 @@ def fetch_all_teams_from_api() -> list[dict]:
         for team in batch:
             tid = team.get("id")
             if tid and tid not in seen_ids:
+                team["_competition_name"] = "Unknown"
+                team["_competition_country"] = "Unknown"
                 all_teams.append(team)
                 seen_ids.add(tid)
         log.info("Paginación offset=%d: %d equipos en el batch.", offset, len(batch))
@@ -435,24 +442,34 @@ def preprocess_api_teams(api_teams: list[dict]) -> list[dict]:
     Normaliza y limpia los campos `name` y `shortName` de cada equipo.
 
     Genera las claves:
-      - name_clean  : full_normalize(name)
-      - short_clean : full_normalize(shortName)
-      - crest       : URL del escudo (puede ser None)
-      - original_name: nombre sin modificar para reportes
+      - name_clean     : full_normalize(name)
+      - short_clean    : full_normalize(shortName)
+      - crest          : URL del escudo (puede ser None)
+      - league         : nombre de la competición de origen
+      - league_country : país de la competición
+      - country        : país del equipo (area.name)
+      - original_name  : nombre sin modificar para reportes
     """
     processed = []
     for team in api_teams:
-        name       = team.get("name")       or ""
-        short_name = team.get("shortName")  or ""
-        crest      = team.get("crest")      or None
+        name = team.get("name") or ""
+        short_name = team.get("shortName") or ""
+        crest = team.get("crest") or None
+        league = team.get("_competition_name") or "Unknown"
+        league_country = team.get("_competition_country") or "Unknown"
+        team_country = team.get("area", {}).get("name") or "Unknown"
 
         processed.append({
             "name_clean":    full_normalize(name),
             "short_clean":   full_normalize(short_name),
             "crest":         crest,
+            "league":        league,
+            "league_country": league_country,
+            "country":       team_country,
             "original_name": name,
         })
     return processed
+
 
 
 # ---------------------------------------------------------------------------
@@ -503,14 +520,17 @@ def main() -> None:
         result = find_match(local_name, api_teams_processed)
 
         if result:
-            crest = result["crest"]
-            matched.append({"team": local_name, "crest": crest})
+            crest  = result["crest"]
+            league = result["league"]
+            league_country = result.get("league_country", "Unknown")
+            country = result.get("country", "Unknown")
+            matched.append({"team": local_name, "crest": crest, "league": league, "league_country": league_country, "country": country})
 
             if crest:
                 preview = crest[:60] + "..." if len(crest) > 60 else crest
-                log.info("MATCH: %-45s → %s", local_name, preview)
+                log.info("MATCH: %-45s [%s | %s | %s] → %s", local_name, league, league_country, country, preview)
             else:
-                log.warning("MATCH SIN CREST: %s", local_name)
+                log.warning("MATCH SIN CREST: %s [%s | %s | %s]", local_name, league, league_country, country)
         else:
             unmatched.append(local_name)
             log.warning("SIN COINCIDENCIA: %s", local_name)
