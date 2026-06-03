@@ -335,12 +335,14 @@ function updateDraftState() {
   if (draftPhase === 3) activeGroups = ['Midfielders'];
   if (draftPhase === 4) activeGroups = ['Wingers', 'Strikers'];
 
+  let hasHighlighted = false;
   document.querySelectorAll('.draft-slot').forEach(el => {
     const group = el.dataset.group;
     if (activeGroups.includes(group)) {
       if (!draftedPlayers[el.dataset.id]) {
         el.classList.remove('locked');
         el.classList.add('highlighted');
+        hasHighlighted = true;
       } else {
         el.classList.remove('highlighted');
         el.classList.remove('locked');
@@ -352,6 +354,11 @@ function updateDraftState() {
       }
     }
   });
+
+  const pitch = document.getElementById('pitch-container');
+  if (pitch) {
+    pitch.classList.add('draft-active-mode');
+  }
 }
 
 function getPlayerPhoto(name) {

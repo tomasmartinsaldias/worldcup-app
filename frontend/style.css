@@ -2805,6 +2805,7 @@ footer a:hover {
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  transition: background 0.4s ease;
 }
 
 .pitch-container::before {
@@ -2834,6 +2835,23 @@ footer a:hover {
   border: 2px solid rgba(255, 255, 255, 0.4);
   pointer-events: none;
   z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* --- Active Mode Dimming --- */
+.pitch-container.draft-active-mode {
+  background: linear-gradient(90deg, #2c332e 0%, #1e2420 100%);
+}
+.pitch-container.draft-active-mode .pitch-lines-overlay {
+  opacity: 0.15;
+}
+.pitch-container.draft-active-mode .draft-slot {
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.pitch-container.draft-active-mode .draft-slot:not(.highlighted):not(.filled) {
+  opacity: 0.25;
+  filter: grayscale(100%) brightness(50%);
+  pointer-events: none;
 }
 
 .pitch-center-line {
