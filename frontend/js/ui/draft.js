@@ -2,37 +2,37 @@ import { state } from '../state.js';
 import { calculateCosineSimilarity } from '../scoring.js';
 
 const CLUSTER_METADATA = {
-  'Goalkeepers': { 
-    1: { name: 'Arquero Distribuidor / Ball-Playing', desc: 'El primer eslabón en la cadena de construcción de juego. Superioridad absoluta en técnica y frialdad táctica.' }, 
-    2: { name: 'Arquero Físico / Shot-stopper Clásico', desc: 'Perfil reactivo tradicional. Dominan el arco por presencia física y reflejos, pero carecen de fundamentos técnicos con los pies.' }, 
-    3: { name: 'Arquero Líbero / Sweeper Keeper', desc: 'Arqueros modernos orientados a la anticipación y el achique rápido. Ventaja masiva en movilidad y posicionamiento preventivo.' } 
+  'Goalkeepers': {
+    1: { name: 'Arquero Distribuidor / Ball-Playing', desc: 'El primer eslabón en la cadena de construcción de juego. Superioridad absoluta en técnica y frialdad táctica.' },
+    2: { name: 'Arquero Físico / Shot-stopper Clásico', desc: 'Perfil reactivo tradicional. Dominan el arco por presencia física y reflejos, pero carecen de fundamentos técnicos con los pies.' },
+    3: { name: 'Arquero Líbero / Sweeper Keeper', desc: 'Arqueros modernos orientados a la anticipación y el achique rápido. Ventaja masiva en movilidad y posicionamiento preventivo.' }
   },
-  'Centerbacks': { 
-    1: { name: 'Central de Cobertura / Corrector', desc: 'Especialistas en defender a campo abierto y realizar coberturas en velocidad. Perfil atlético y de anticipación.' }, 
-    2: { name: 'Central Físico / Stopper', desc: 'Especialistas en el duelo directo y el contacto. Dominan en potencia, fuerza y agresividad.' }, 
-    3: { name: 'Central Creador / Líbero Técnico', desc: 'Defensores con una aportación ofensiva y de distribución inusual. Suelen ser zurdos o laterales reconvertidos.' } 
+  'Centerbacks': {
+    1: { name: 'Central de Cobertura / Corrector', desc: 'Especialistas en defender a campo abierto y realizar coberturas en velocidad. Perfil atlético y de anticipación.' },
+    2: { name: 'Central Físico / Stopper', desc: 'Especialistas en el duelo directo y el contacto. Dominan en potencia, fuerza y agresividad.' },
+    3: { name: 'Central Creador / Líbero Técnico', desc: 'Defensores con una aportación ofensiva y de distribución inusual. Suelen ser zurdos o laterales reconvertidos.' }
   },
-  'Fullbacks': { 
-    1: { name: 'Lateral Físico / Centralizado', desc: 'Laterales pesados, generalmente utilizados para cerrar la línea de 4 o dominar el juego aéreo. Fuerte presencia estática.' }, 
-    2: { name: 'Lateral Invertido / Organizador', desc: 'Jugadores de banda con técnica de mediocampistas, que suelen interiorizar su posición aportando pases precisos.' }, 
-    3: { name: 'Carrilero Largo / Profundo', desc: 'Perfiles de gran recorrido físico que actúan casi como extremos, con llegada directa al gol.' }, 
-    4: { name: 'Lateral de Contención', desc: 'Defensores puros ubicados en la banda, fuertes en el 1v1 con velocidad y agilidad defensiva.' } 
+  'Fullbacks': {
+    1: { name: 'Lateral Físico / Centralizado', desc: 'Laterales pesados, generalmente utilizados para cerrar la línea de 4 o dominar el juego aéreo. Fuerte presencia estática.' },
+    2: { name: 'Lateral Invertido / Organizador', desc: 'Jugadores de banda con técnica de mediocampistas, que suelen interiorizar su posición aportando pases precisos.' },
+    3: { name: 'Carrilero Largo / Profundo', desc: 'Perfiles de gran recorrido físico que actúan casi como extremos, con llegada directa al gol.' },
+    4: { name: 'Lateral de Contención', desc: 'Defensores puros ubicados en la banda, fuertes en el 1v1 con velocidad y agilidad defensiva.' }
   },
-  'Midfielders': { 
-    1: { name: 'Box-to-Box Físico', desc: 'Mediocampistas de ida y vuelta que dominan a través de la intensidad física, el recorrido y la recuperación activa.' }, 
-    2: { name: 'Mediapunta Desequilibrante / Playmaker', desc: 'Jugadores de último tercio orientados al desborde, desequilibrio y la definición en espacios reducidos.' }, 
-    3: { name: 'Pivote Defensivo / Ancla', desc: 'El balance táctico del equipo. Destructores de juego y dominadores del espacio central.' }, 
-    4: { name: 'Organizador de Base / Regista', desc: 'Creadores de juego desde la primera línea, especialistas a balón parado con alta precisión técnica.' } 
+  'Midfielders': {
+    1: { name: 'Box-to-Box Físico', desc: 'Mediocampistas de ida y vuelta que dominan a través de la intensidad física, el recorrido y la recuperación activa.' },
+    2: { name: 'Mediapunta Desequilibrante / Playmaker', desc: 'Jugadores de último tercio orientados al desborde, desequilibrio y la definición en espacios reducidos.' },
+    3: { name: 'Pivote Defensivo / Ancla', desc: 'El balance táctico del equipo. Destructores de juego y dominadores del espacio central.' },
+    4: { name: 'Organizador de Base / Regista', desc: 'Creadores de juego desde la primera línea, especialistas a balón parado con alta precisión técnica.' }
   },
-  'Wingers': { 
-    1: { name: 'Extremo Rematador / Inside Forward', desc: 'Extremos con alma de centrodelantero, que pisan el área permanentemente para definir.' }, 
-    2: { name: 'Extremo Creador / Desequilibrante', desc: 'Especialistas en el 1v1, ágiles, que buscan el desborde o el tiro con efecto.' }, 
-    3: { name: 'Extremo de Recorrido / Carrilero Táctico', desc: 'Jugadores de banda con un despliegue defensivo masivo, útiles en esquemas de transiciones.' } 
+  'Wingers': {
+    1: { name: 'Extremo Rematador / Inside Forward', desc: 'Extremos con alma de centrodelantero, que pisan el área permanentemente para definir.' },
+    2: { name: 'Extremo Creador / Desequilibrante', desc: 'Especialistas en el 1v1, ágiles, que buscan el desborde o el tiro con efecto.' },
+    3: { name: 'Extremo de Recorrido / Carrilero Táctico', desc: 'Jugadores de banda con un despliegue defensivo masivo, útiles en esquemas de transiciones.' }
   },
-  'Strikers': { 
-    1: { name: 'Delantero Objetivo / Target Man', desc: 'Puntos de referencia estáticos en el área, letales en el remate de primera intención y en el choque físico.' }, 
-    2: { name: 'Delantero Presionador / Primer Defensor', desc: 'Atacantes de altísimo sacrificio táctico, diseñados para sistemas de presión alta.' }, 
-    3: { name: 'Atacante Móvil / Segundo Delantero', desc: 'Delanteros que caen a bandas, rompen al espacio en carrera y generan sus propias oportunidades.' } 
+  'Strikers': {
+    1: { name: 'Delantero Objetivo / Target Man', desc: 'Puntos de referencia estáticos en el área, letales en el remate de primera intención y en el choque físico.' },
+    2: { name: 'Delantero Presionador / Primer Defensor', desc: 'Atacantes de altísimo sacrificio táctico, diseñados para sistemas de presión alta.' },
+    3: { name: 'Atacante Móvil / Segundo Delantero', desc: 'Delanteros que caen a bandas, rompen al espacio en carrera y generan sus propias oportunidades.' }
   }
 };
 
@@ -48,8 +48,8 @@ const GROUP_QUESTIONS = {
 const GROUP_IMAGES = {
   'Goalkeepers': { 1: 'gk_1.jpg', 2: 'gk_2.jpg', 3: 'gk_3.jpg' },
   'Centerbacks': { 1: 'cb_1.jpg', 2: 'cb_2.jpg', 3: 'cb_3.jpg' },
-  'Fullbacks': { 1: 'fb_1.jpg', 2: 'fb_2.jpg', 3: 'fb_3.jpg' },
-  'Midfielders': { 1: 'mid_1.jpg', 2: 'mid_2.jpg', 3: 'mid_3.jpg' },
+  'Fullbacks': { 1: 'fb_1.jpg', 2: 'fb_2.jpg', 3: 'fb_3.jpg', 4: 'fb_1.jpg' },
+  'Midfielders': { 1: 'mid_1.jpg', 2: 'mid_2.jpg', 3: 'mid_3.jpg', 4: 'mid_1.jpg' },
   'Wingers': { 1: 'winger_1.jpg', 2: 'winger_2.jpg', 3: 'winger_3.jpg' },
   'Strikers': { 1: 'striker_1.jpg', 2: 'striker_2.jpg', 3: 'striker_3.jpg' }
 };
@@ -166,7 +166,7 @@ export function initDraft() {
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reiniciando...';
       btn.style.pointerEvents = 'none';
       btn.style.opacity = '0.8';
-      
+
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.style.pointerEvents = 'auto';
