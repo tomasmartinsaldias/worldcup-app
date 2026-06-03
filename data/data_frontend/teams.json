@@ -1,27 +1,45 @@
 [
   {
     "team": "AC Milan",
-    "crest": "https://crests.football-data.org/98.png"
+    "crest": "https://crests.football-data.org/98.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "AFC Bournemouth",
-    "crest": "https://crests.football-data.org/bournemouth.png"
+    "crest": "https://crests.football-data.org/bournemouth.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "AJ Auxerre",
-    "crest": "https://crests.football-data.org/519.png"
+    "crest": "https://crests.football-data.org/519.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "AS Monaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "AS Roma",
-    "crest": "https://crests.football-data.org/100.png"
+    "crest": "https://crests.football-data.org/100.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Ajax",
-    "crest": "https://crests.football-data.org/678.png"
+    "crest": "https://crests.football-data.org/678.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Netherlands"
   },
   {
     "team": "Al Ahli",
@@ -41,19 +59,31 @@
   },
   {
     "team": "Angers SCO",
-    "crest": "https://crests.football-data.org/532.png"
+    "crest": "https://crests.football-data.org/532.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Arsenal",
-    "crest": "https://crests.football-data.org/57.png"
+    "crest": "https://crests.football-data.org/57.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Aston Villa",
-    "crest": "https://crests.football-data.org/58.png"
+    "crest": "https://crests.football-data.org/58.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Atalanta",
-    "crest": "https://crests.football-data.org/102.png"
+    "crest": "https://crests.football-data.org/102.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Athletic Bilbao",
@@ -69,27 +99,45 @@
   },
   {
     "team": "Atlético Madrid",
-    "crest": "https://crests.football-data.org/78.png"
+    "crest": "https://crests.football-data.org/78.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Atlético de Madrid",
-    "crest": "https://crests.football-data.org/78.png"
+    "crest": "https://crests.football-data.org/78.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Augsburgo",
-    "crest": "https://crests.football-data.org/16.png"
+    "crest": "https://crests.football-data.org/16.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Auxerre",
-    "crest": "https://crests.football-data.org/519.png"
+    "crest": "https://crests.football-data.org/519.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Barcelona",
-    "crest": "https://crests.football-data.org/81.png"
+    "crest": "https://crests.football-data.org/81.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Barnsley",
-    "crest": "https://crests.football-data.org/328.png"
+    "crest": "https://crests.football-data.org/328.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Bayer 04 Leverkusen",
@@ -97,23 +145,38 @@
   },
   {
     "team": "Bayer Leverkusen",
-    "crest": "https://crests.football-data.org/3.png"
+    "crest": "https://crests.football-data.org/3.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Bayern Munich",
-    "crest": "https://crests.football-data.org/5.png"
+    "crest": "https://crests.football-data.org/5.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Bayern Múnich",
-    "crest": "https://crests.football-data.org/5.png"
+    "crest": "https://crests.football-data.org/5.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Benfica",
-    "crest": "https://crests.football-data.org/1903.png"
+    "crest": "https://crests.football-data.org/1903.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Birmingham",
-    "crest": "https://crests.football-data.org/332.png"
+    "crest": "https://crests.football-data.org/332.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Boca Juniors",
@@ -121,95 +184,164 @@
   },
   {
     "team": "Bodo Glimt",
-    "crest": "https://crests.football-data.org/5721.png"
+    "crest": "https://crests.football-data.org/5721.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Norway"
   },
   {
     "team": "Bologna",
-    "crest": "https://crests.football-data.org/103.png"
+    "crest": "https://crests.football-data.org/103.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Borussia Dortmund",
-    "crest": "https://crests.football-data.org/4.png"
+    "crest": "https://crests.football-data.org/4.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Borussia Mönchengladbach",
-    "crest": "https://crests.football-data.org/18.png"
+    "crest": "https://crests.football-data.org/18.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Botafogo",
-    "crest": "https://crests.football-data.org/1770.png"
+    "crest": "https://crests.football-data.org/1770.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Bournemouth",
-    "crest": "https://crests.football-data.org/bournemouth.png"
+    "crest": "https://crests.football-data.org/bournemouth.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Braga",
-    "crest": "https://crests.football-data.org/5613.png"
+    "crest": "https://crests.football-data.org/5613.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Brentford",
-    "crest": "https://crests.football-data.org/402.png"
+    "crest": "https://crests.football-data.org/402.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Brighton",
-    "crest": "https://crests.football-data.org/397.png"
+    "crest": "https://crests.football-data.org/397.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Burnley",
-    "crest": "https://crests.football-data.org/328.png"
+    "crest": "https://crests.football-data.org/328.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Cagliari",
-    "crest": "https://crests.football-data.org/104.png"
+    "crest": "https://crests.football-data.org/104.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Casa Pia",
-    "crest": "https://crests.football-data.org/6618.png"
+    "crest": "https://crests.football-data.org/6618.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Charlton Athletic",
-    "crest": "https://crests.football-data.org/348.png"
+    "crest": "https://crests.football-data.org/348.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Chelsea",
-    "crest": "https://crests.football-data.org/61.png"
+    "crest": "https://crests.football-data.org/61.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Como",
-    "crest": "https://crests.football-data.org/7397.png"
+    "crest": "https://crests.football-data.org/7397.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Corinthians",
-    "crest": "https://crests.football-data.org/1779.png"
+    "crest": "https://crests.football-data.org/1779.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Coventry City",
-    "crest": "https://crests.football-data.org/1076.png"
+    "crest": "https://crests.football-data.org/1076.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Cremonese",
-    "crest": "https://crests.football-data.org/457.png"
+    "crest": "https://crests.football-data.org/457.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Crystal Palace",
-    "crest": "https://crests.football-data.org/354.png"
+    "crest": "https://crests.football-data.org/354.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Derby County",
-    "crest": "https://crests.football-data.org/342.png"
+    "crest": "https://crests.football-data.org/342.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Eintracht Frankfurt",
-    "crest": "https://crests.football-data.org/19.png"
+    "crest": "https://crests.football-data.org/19.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Estrasburgo",
-    "crest": "https://crests.football-data.org/576.png"
+    "crest": "https://crests.football-data.org/576.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Estrela da Amadora",
-    "crest": "https://crests.football-data.org/9136.png"
+    "crest": "https://crests.football-data.org/9136.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Estudiantes",
@@ -217,19 +349,31 @@
   },
   {
     "team": "Everton",
-    "crest": "https://crests.football-data.org/62.png"
+    "crest": "https://crests.football-data.org/62.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "FC Augsburg",
-    "crest": "https://crests.football-data.org/16.png"
+    "crest": "https://crests.football-data.org/16.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "FC Barcelona",
-    "crest": "https://crests.football-data.org/81.png"
+    "crest": "https://crests.football-data.org/81.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "FC Nantes",
-    "crest": "https://crests.football-data.org/543.png"
+    "crest": "https://crests.football-data.org/543.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "FC Porto",
@@ -237,71 +381,122 @@
   },
   {
     "team": "FC St. Pauli",
-    "crest": "https://crests.football-data.org/20.png"
+    "crest": "https://crests.football-data.org/20.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "FC Twente",
-    "crest": "https://crests.football-data.org/666.png"
+    "crest": "https://crests.football-data.org/666.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "FC Volendam",
-    "crest": "https://crests.football-data.org/1919.png"
+    "crest": "https://crests.football-data.org/1919.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Feyenoord",
-    "crest": "https://crests.football-data.org/675.png"
+    "crest": "https://crests.football-data.org/675.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Fiorentina",
-    "crest": "https://crests.football-data.org/99.png"
+    "crest": "https://crests.football-data.org/99.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Flamengo",
-    "crest": "https://w7.pngwing.com/pngs/137/482/png-transparent-black-and-red-striped-shield-logo-clube-de-regatas-do-flamengo-flamengo-basketball-campeonato-brasileiro-serie-a-flamengo-rio-de-janeiro-copa-do-brasil-pegasus-thumbnail.png"
+    "crest": "https://crests.football-data.org/1783.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Fluminense",
-    "crest": "https://crests.football-data.org/1765.png"
+    "crest": "https://crests.football-data.org/1765.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Friburgo",
-    "crest": "https://crests.football-data.org/17.png"
+    "crest": "https://crests.football-data.org/17.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Fulham",
-    "crest": "https://crests.football-data.org/63.png"
+    "crest": "https://crests.football-data.org/63.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Galatasaray",
-    "crest": "https://w7.pngwing.com/pngs/137/482/png-transparent-black-and-red-striped-shield-logo-clube-de-regatas-do-flamengo-flamengo-basketball-campeonato-brasileiro-serie-a-flamengo-rio-de-janeiro-copa-do-brasil-pegasus-thumbnail.png"
+    "crest": "https://crests.football-data.org/610.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Turkey"
   },
   {
     "team": "Genoa",
-    "crest": "https://crests.football-data.org/107.png"
+    "crest": "https://crests.football-data.org/107.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Gil Vicente",
-    "crest": "https://crests.football-data.org/5533.png"
+    "crest": "https://crests.football-data.org/5533.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Gremio",
-    "crest": "https://crests.football-data.org/1767.png"
+    "crest": "https://crests.football-data.org/1767.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Hamburger SV",
-    "crest": "https://crests.football-data.org/7.png"
+    "crest": "https://crests.football-data.org/7.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Hellas Verona",
-    "crest": "https://crests.football-data.org/450.png"
+    "crest": "https://crests.football-data.org/450.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Hoffenheim",
-    "crest": "https://crests.football-data.org/2.png"
+    "crest": "https://crests.football-data.org/2.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Hull City",
-    "crest": "https://crests.football-data.org/322.png"
+    "crest": "https://crests.football-data.org/322.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Independiente",
@@ -309,7 +504,10 @@
   },
   {
     "team": "Inter",
-    "crest": "https://crests.football-data.org/108.png"
+    "crest": "https://crests.football-data.org/108.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Inter Miami CF",
@@ -317,7 +515,10 @@
   },
   {
     "team": "Ipswich Town",
-    "crest": "https://crests.football-data.org/349.png"
+    "crest": "https://crests.football-data.org/349.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Jeonbuk Hyundai Motors",
@@ -325,7 +526,10 @@
   },
   {
     "team": "Juventus",
-    "crest": "https://crests.football-data.org/109.png"
+    "crest": "https://crests.football-data.org/109.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Kashima Antlers",
@@ -341,15 +545,24 @@
   },
   {
     "team": "Le Havre",
-    "crest": "https://crests.football-data.org/533.png"
+    "crest": "https://crests.football-data.org/533.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Leeds",
-    "crest": "https://crests.football-data.org/341.png"
+    "crest": "https://crests.football-data.org/341.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Leeds United",
-    "crest": "https://crests.football-data.org/341.png"
+    "crest": "https://crests.football-data.org/341.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Leicester City",
@@ -357,23 +570,38 @@
   },
   {
     "team": "Leipzig",
-    "crest": "https://crests.football-data.org/721.png"
+    "crest": "https://crests.football-data.org/721.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Lille",
-    "crest": "https://crests.football-data.org/521.png"
+    "crest": "https://crests.football-data.org/521.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Liverpool",
-    "crest": "https://crests.football-data.org/64.png"
+    "crest": "https://crests.football-data.org/64.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Lorient",
-    "crest": "https://crests.football-data.org/525.png"
+    "crest": "https://crests.football-data.org/525.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Los Angeles FC",
@@ -385,63 +613,108 @@
   },
   {
     "team": "Mainz",
-    "crest": "https://crests.football-data.org/15.png"
+    "crest": "https://crests.football-data.org/15.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Mainz 05",
-    "crest": "https://crests.football-data.org/15.png"
+    "crest": "https://crests.football-data.org/15.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Manchester City",
-    "crest": "https://crests.football-data.org/65.png"
+    "crest": "https://crests.football-data.org/65.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Manchester United",
-    "crest": "https://crests.football-data.org/65.png"
+    "crest": "https://crests.football-data.org/65.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Marseille",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Marsella",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Middlesbrough",
-    "crest": "https://crests.football-data.org/343.png"
+    "crest": "https://crests.football-data.org/343.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Milan",
-    "crest": "https://crests.football-data.org/98.png"
+    "crest": "https://crests.football-data.org/98.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Millwall",
-    "crest": "https://crests.football-data.org/384.png"
+    "crest": "https://crests.football-data.org/384.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Monaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "Mónaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "Nacional",
-    "crest": "https://crests.football-data.org/5529.png"
+    "crest": "https://crests.football-data.org/5529.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Napoli",
-    "crest": "https://crests.football-data.org/113.png"
+    "crest": "https://crests.football-data.org/113.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Newcastle",
-    "crest": "https://crests.football-data.org/67.png"
+    "crest": "https://crests.football-data.org/67.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Newcastle United",
-    "crest": "https://crests.football-data.org/67.png"
+    "crest": "https://crests.football-data.org/67.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Newell's Old Boys",
@@ -449,71 +722,122 @@
   },
   {
     "team": "Nice",
-    "crest": "https://crests.football-data.org/522.png"
+    "crest": "https://crests.football-data.org/522.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Norwich City",
-    "crest": "https://crests.football-data.org/68.png"
+    "crest": "https://crests.football-data.org/68.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Nottingham Forest",
-    "crest": "https://crests.football-data.org/351.png"
+    "crest": "https://crests.football-data.org/351.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Nottingham Forest F.C.",
-    "crest": "https://crests.football-data.org/351.png"
+    "crest": "https://crests.football-data.org/351.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "OGC Nice",
-    "crest": "https://crests.football-data.org/522.png"
+    "crest": "https://crests.football-data.org/522.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Olympiacos FC",
-    "crest": "https://crests.football-data.org/654.png"
+    "crest": "https://crests.football-data.org/654.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Greece"
   },
   {
     "team": "Olympique de Lyon",
-    "crest": "https://crests.football-data.org/523.png"
+    "crest": "https://crests.football-data.org/523.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Olympique de Marseille",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Olympique de Marsella",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "PEC Zwolle",
-    "crest": "https://crests.football-data.org/684.png"
+    "crest": "https://crests.football-data.org/684.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "PSG",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "PSV",
-    "crest": "https://crests.football-data.org/674.png"
+    "crest": "https://crests.football-data.org/674.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Netherlands"
   },
   {
     "team": "Palmeiras",
-    "crest": "data:image/jpeg;base64,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"
+    "crest": "https://crests.football-data.org/1769.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Paranaense",
-    "crest": "https://crests.football-data.org/1768.png"
+    "crest": "https://crests.football-data.org/1768.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Paris",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Paris Saint-Germain",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Parma",
-    "crest": "https://crests.football-data.org/112.png"
+    "crest": "https://crests.football-data.org/112.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Peñarol",
@@ -521,19 +845,31 @@
   },
   {
     "team": "Pisa",
-    "crest": "https://crests.football-data.org/487.png"
+    "crest": "https://crests.football-data.org/487.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Porto",
-    "crest": "https://crests.football-data.org/503.png"
+    "crest": "https://crests.football-data.org/503.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "RB Leipzig",
-    "crest": "https://crests.football-data.org/721.png"
+    "crest": "https://crests.football-data.org/721.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "RC Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Racing Club",
@@ -541,11 +877,17 @@
   },
   {
     "team": "Racing Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Rangers",
-    "crest": "https://crests.football-data.org/69.png"
+    "crest": "https://crests.football-data.org/69.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Real Betis",
@@ -553,7 +895,10 @@
   },
   {
     "team": "Real Madrid",
-    "crest": "https://crests.football-data.org/86.png"
+    "crest": "https://crests.football-data.org/86.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Real Sociedad",
@@ -565,7 +910,10 @@
   },
   {
     "team": "Roma",
-    "crest": "https://crests.football-data.org/100.png"
+    "crest": "https://crests.football-data.org/100.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Rosario Central",
@@ -573,11 +921,17 @@
   },
   {
     "team": "Royale Union Saint-Gilloise",
-    "crest": "https://crests.football-data.org/3929.png"
+    "crest": "https://crests.football-data.org/3929.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Belgium"
   },
   {
     "team": "S.S.C. Napoli",
-    "crest": "https://crests.football-data.org/113.png"
+    "crest": "https://crests.football-data.org/113.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "San Lorenzo",
@@ -585,11 +939,17 @@
   },
   {
     "team": "Santos",
-    "crest": "https://crests.football-data.org/6685.png"
+    "crest": "https://crests.football-data.org/6685.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Sassuolo",
-    "crest": "https://crests.football-data.org/471.png"
+    "crest": "https://crests.football-data.org/471.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Seattle Sounders FC",
@@ -601,115 +961,213 @@
   },
   {
     "team": "Sheffield United",
-    "crest": "https://crests.football-data.org/345.png"
+    "crest": "https://crests.football-data.org/345.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Sheffield United F.C.",
-    "crest": "https://crests.football-data.org/345.png"
+    "crest": "https://crests.football-data.org/345.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Slavia Praga",
-    "crest": "https://crests.football-data.org/930.png"
+    "crest": "https://crests.football-data.org/930.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Czech Republic"
   },
   {
     "team": "Sparta Rotterdam",
-    "crest": "https://crests.football-data.org/6806.png"
+    "crest": "https://crests.football-data.org/6806.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
-    "team": "Sporting CP",
-    "crest": "https://crests.football-data.org/498.png"
+    "team": "Sporting",
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Sporting Braga",
-    "crest": "https://crests.football-data.org/5613.png"
+    "crest": "https://crests.football-data.org/5613.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
+  },
+  {
+    "team": "Sporting CP",
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
+  },
+  {
+    "team": "Sporting de Portugal",
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Stade Nyonnais",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stade Rennais",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stade de Reims",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stoke City",
-    "crest": "https://crests.football-data.org/70.png"
+    "crest": "https://crests.football-data.org/70.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Strasbourg",
-    "crest": "https://crests.football-data.org/576.png"
+    "crest": "https://crests.football-data.org/576.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stuttgart",
-    "crest": "https://crests.football-data.org/10.png"
+    "crest": "https://crests.football-data.org/10.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Sunderland",
-    "crest": "https://crests.football-data.org/71.png"
+    "crest": "https://crests.football-data.org/71.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Sunderland AFC",
-    "crest": "https://crests.football-data.org/71.png"
+    "crest": "https://crests.football-data.org/71.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Swansea",
-    "crest": "https://crests.football-data.org/72.png"
+    "crest": "https://crests.football-data.org/72.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   },
   {
     "team": "Swansea City A.F.C.",
-    "crest": "https://crests.football-data.org/72.png"
+    "crest": "https://crests.football-data.org/72.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   },
   {
     "team": "TSG Hoffenheim",
-    "crest": "https://crests.football-data.org/2.png"
+    "crest": "https://crests.football-data.org/2.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Telstar",
-    "crest": "https://crests.football-data.org/1912.png"
+    "crest": "https://crests.football-data.org/1912.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Tondela",
-    "crest": "https://crests.football-data.org/1049.png"
+    "crest": "https://crests.football-data.org/1049.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Torino",
-    "crest": "https://crests.football-data.org/586.png"
+    "crest": "https://crests.football-data.org/586.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Tottenham",
-    "crest": "https://crests.football-data.org/73.png"
+    "crest": "https://crests.football-data.org/73.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Tottenham Hotspur",
-    "crest": "https://crests.football-data.org/73.png"
+    "crest": "https://crests.football-data.org/73.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Toulouse",
-    "crest": "https://crests.football-data.org/511.png"
+    "crest": "https://crests.football-data.org/511.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Twente",
-    "crest": "https://crests.football-data.org/666.png"
+    "crest": "https://crests.football-data.org/666.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "US Sassuolo Calcio",
-    "crest": "https://crests.football-data.org/471.png"
+    "crest": "https://crests.football-data.org/471.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Udinese",
-    "crest": "https://crests.football-data.org/115.png"
+    "crest": "https://crests.football-data.org/115.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Union Berlin",
-    "crest": "https://crests.football-data.org/28.png"
+    "crest": "https://crests.football-data.org/28.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Union Saint-Gilloise",
-    "crest": "https://crests.football-data.org/3929.png"
+    "crest": "https://crests.football-data.org/3929.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Belgium"
   },
   {
     "team": "Urawa Red Diamonds",
@@ -721,7 +1179,10 @@
   },
   {
     "team": "Vasco da Gama",
-    "crest": "https://crests.football-data.org/1780.png"
+    "crest": "https://crests.football-data.org/1780.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "VfB Stuttgart",
@@ -729,50 +1190,86 @@
   },
   {
     "team": "Villareal",
-    "crest": "https://crests.football-data.org/94.png"
+    "crest": "https://crests.football-data.org/94.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Villarreal",
-    "crest": "https://crests.football-data.org/94.png"
+    "crest": "https://crests.football-data.org/94.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Vitória",
-    "crest": "https://crests.football-data.org/1782.png"
+    "crest": "https://crests.football-data.org/1782.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Watford",
-    "crest": "https://crests.football-data.org/346.png"
+    "crest": "https://crests.football-data.org/346.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Werder Bremen",
-    "crest": "https://crests.football-data.org/12.png"
+    "crest": "https://crests.football-data.org/12.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "West Ham",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "West Ham United",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "West Ham United/Marsella",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Wolfsburg",
-    "crest": "https://crests.football-data.org/11.png"
+    "crest": "https://crests.football-data.org/11.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Wolfsburgo",
-    "crest": "https://crests.football-data.org/11.png"
+    "crest": "https://crests.football-data.org/11.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Wolverhampton",
-    "crest": "https://crests.football-data.org/76.png"
+    "crest": "https://crests.football-data.org/76.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Wrexham",
-    "crest": "https://crests.football-data.org/404.png"
+    "crest": "https://crests.football-data.org/404.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   }
 ]
