@@ -1,654 +1,1143 @@
 [
   {
     "team": "AC Milan",
-    "crest": "https://crests.football-data.org/98.png"
+    "crest": "https://crests.football-data.org/98.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "AFC Bournemouth",
-    "crest": "https://crests.football-data.org/bournemouth.png"
+    "crest": "https://crests.football-data.org/bournemouth.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "AJ Auxerre",
-    "crest": "https://crests.football-data.org/519.png"
+    "crest": "https://crests.football-data.org/519.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "AS Monaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "AS Roma",
-    "crest": "https://crests.football-data.org/100.png"
+    "crest": "https://crests.football-data.org/100.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Ajax",
-    "crest": "https://crests.football-data.org/678.png"
+    "crest": "https://crests.football-data.org/678.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Netherlands"
   },
   {
     "team": "Angers SCO",
-    "crest": "https://crests.football-data.org/532.png"
+    "crest": "https://crests.football-data.org/532.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Arsenal",
-    "crest": "https://crests.football-data.org/57.png"
+    "crest": "https://crests.football-data.org/57.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Aston Villa",
-    "crest": "https://crests.football-data.org/58.png"
+    "crest": "https://crests.football-data.org/58.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Atalanta",
-    "crest": "https://crests.football-data.org/102.png"
+    "crest": "https://crests.football-data.org/102.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Atlético Madrid",
-    "crest": "https://crests.football-data.org/78.png"
+    "crest": "https://crests.football-data.org/78.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Atlético de Madrid",
-    "crest": "https://crests.football-data.org/78.png"
+    "crest": "https://crests.football-data.org/78.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Augsburgo",
-    "crest": "https://crests.football-data.org/16.png"
+    "crest": "https://crests.football-data.org/16.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Auxerre",
-    "crest": "https://crests.football-data.org/519.png"
+    "crest": "https://crests.football-data.org/519.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Barcelona",
-    "crest": "https://crests.football-data.org/81.png"
+    "crest": "https://crests.football-data.org/81.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Barnsley",
-    "crest": "https://crests.football-data.org/328.png"
+    "crest": "https://crests.football-data.org/328.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Bayer Leverkusen",
-    "crest": "https://crests.football-data.org/3.png"
+    "crest": "https://crests.football-data.org/3.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Bayern Munich",
-    "crest": "https://crests.football-data.org/5.png"
+    "crest": "https://crests.football-data.org/5.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Bayern Múnich",
-    "crest": "https://crests.football-data.org/5.png"
+    "crest": "https://crests.football-data.org/5.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Benfica",
-    "crest": "https://crests.football-data.org/1903.png"
+    "crest": "https://crests.football-data.org/1903.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Birmingham",
-    "crest": "https://crests.football-data.org/332.png"
+    "crest": "https://crests.football-data.org/332.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Bodo Glimt",
-    "crest": "https://crests.football-data.org/5721.png"
+    "crest": "https://crests.football-data.org/5721.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Norway"
   },
   {
     "team": "Bologna",
-    "crest": "https://crests.football-data.org/103.png"
+    "crest": "https://crests.football-data.org/103.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Borussia Dortmund",
-    "crest": "https://crests.football-data.org/4.png"
+    "crest": "https://crests.football-data.org/4.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Borussia Mönchengladbach",
-    "crest": "https://crests.football-data.org/18.png"
+    "crest": "https://crests.football-data.org/18.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Botafogo",
-    "crest": "https://crests.football-data.org/1770.png"
+    "crest": "https://crests.football-data.org/1770.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Bournemouth",
-    "crest": "https://crests.football-data.org/bournemouth.png"
+    "crest": "https://crests.football-data.org/bournemouth.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Braga",
-    "crest": "https://crests.football-data.org/5613.png"
+    "crest": "https://crests.football-data.org/5613.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Brentford",
-    "crest": "https://crests.football-data.org/402.png"
+    "crest": "https://crests.football-data.org/402.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Brighton",
-    "crest": "https://crests.football-data.org/397.png"
+    "crest": "https://crests.football-data.org/397.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Burnley",
-    "crest": "https://crests.football-data.org/328.png"
+    "crest": "https://crests.football-data.org/328.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Cagliari",
-    "crest": "https://crests.football-data.org/104.png"
+    "crest": "https://crests.football-data.org/104.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Casa Pia",
-    "crest": "https://crests.football-data.org/6618.png"
+    "crest": "https://crests.football-data.org/6618.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Charlton Athletic",
-    "crest": "https://crests.football-data.org/348.png"
+    "crest": "https://crests.football-data.org/348.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Chelsea",
-    "crest": "https://crests.football-data.org/61.png"
+    "crest": "https://crests.football-data.org/61.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Como",
-    "crest": "https://crests.football-data.org/7397.png"
+    "crest": "https://crests.football-data.org/7397.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Corinthians",
-    "crest": "https://crests.football-data.org/1779.png"
+    "crest": "https://crests.football-data.org/1779.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Coventry City",
-    "crest": "https://crests.football-data.org/1076.png"
+    "crest": "https://crests.football-data.org/1076.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Cremonese",
-    "crest": "https://crests.football-data.org/457.png"
+    "crest": "https://crests.football-data.org/457.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Crystal Palace",
-    "crest": "https://crests.football-data.org/354.png"
+    "crest": "https://crests.football-data.org/354.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Derby County",
-    "crest": "https://crests.football-data.org/342.png"
+    "crest": "https://crests.football-data.org/342.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Eintracht Frankfurt",
-    "crest": "https://crests.football-data.org/19.png"
+    "crest": "https://crests.football-data.org/19.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Germany"
   },
   {
     "team": "Estrasburgo",
-    "crest": "https://crests.football-data.org/576.png"
+    "crest": "https://crests.football-data.org/576.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Estrela da Amadora",
-    "crest": "https://crests.football-data.org/9136.png"
+    "crest": "https://crests.football-data.org/9136.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Everton",
-    "crest": "https://crests.football-data.org/62.png"
+    "crest": "https://crests.football-data.org/62.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "FC Augsburg",
-    "crest": "https://crests.football-data.org/16.png"
+    "crest": "https://crests.football-data.org/16.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "FC Barcelona",
-    "crest": "https://crests.football-data.org/81.png"
+    "crest": "https://crests.football-data.org/81.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "FC Nantes",
-    "crest": "https://crests.football-data.org/543.png"
+    "crest": "https://crests.football-data.org/543.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "FC St. Pauli",
-    "crest": "https://crests.football-data.org/20.png"
+    "crest": "https://crests.football-data.org/20.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "FC Twente",
-    "crest": "https://crests.football-data.org/666.png"
+    "crest": "https://crests.football-data.org/666.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "FC Volendam",
-    "crest": "https://crests.football-data.org/1919.png"
+    "crest": "https://crests.football-data.org/1919.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Feyenoord",
-    "crest": "https://crests.football-data.org/675.png"
+    "crest": "https://crests.football-data.org/675.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Fiorentina",
-    "crest": "https://crests.football-data.org/99.png"
+    "crest": "https://crests.football-data.org/99.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Flamengo",
-    "crest": "https://crests.football-data.org/1783.png"
+    "crest": "https://crests.football-data.org/1783.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Fluminense",
-    "crest": "https://crests.football-data.org/1765.png"
+    "crest": "https://crests.football-data.org/1765.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Friburgo",
-    "crest": "https://crests.football-data.org/17.png"
+    "crest": "https://crests.football-data.org/17.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Fulham",
-    "crest": "https://crests.football-data.org/63.png"
+    "crest": "https://crests.football-data.org/63.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Galatasaray",
-    "crest": "https://crests.football-data.org/610.png"
+    "crest": "https://crests.football-data.org/610.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Turkey"
   },
   {
     "team": "Genoa",
-    "crest": "https://crests.football-data.org/107.png"
+    "crest": "https://crests.football-data.org/107.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Gil Vicente",
-    "crest": "https://crests.football-data.org/5533.png"
+    "crest": "https://crests.football-data.org/5533.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Gremio",
-    "crest": "https://crests.football-data.org/1767.png"
+    "crest": "https://crests.football-data.org/1767.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Hamburger SV",
-    "crest": "https://crests.football-data.org/7.png"
+    "crest": "https://crests.football-data.org/7.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Hellas Verona",
-    "crest": "https://crests.football-data.org/450.png"
+    "crest": "https://crests.football-data.org/450.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Hoffenheim",
-    "crest": "https://crests.football-data.org/2.png"
+    "crest": "https://crests.football-data.org/2.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Hull City",
-    "crest": "https://crests.football-data.org/322.png"
+    "crest": "https://crests.football-data.org/322.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Inter",
-    "crest": "https://crests.football-data.org/108.png"
+    "crest": "https://crests.football-data.org/108.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Ipswich Town",
-    "crest": "https://crests.football-data.org/349.png"
+    "crest": "https://crests.football-data.org/349.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Juventus",
-    "crest": "https://crests.football-data.org/109.png"
+    "crest": "https://crests.football-data.org/109.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Le Havre",
-    "crest": "https://crests.football-data.org/533.png"
+    "crest": "https://crests.football-data.org/533.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Leeds",
-    "crest": "https://crests.football-data.org/341.png"
+    "crest": "https://crests.football-data.org/341.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Leeds United",
-    "crest": "https://crests.football-data.org/341.png"
+    "crest": "https://crests.football-data.org/341.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Leipzig",
-    "crest": "https://crests.football-data.org/721.png"
+    "crest": "https://crests.football-data.org/721.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Lille",
-    "crest": "https://crests.football-data.org/521.png"
+    "crest": "https://crests.football-data.org/521.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Liverpool",
-    "crest": "https://crests.football-data.org/64.png"
+    "crest": "https://crests.football-data.org/64.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Lorient",
-    "crest": "https://crests.football-data.org/525.png"
+    "crest": "https://crests.football-data.org/525.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Mainz",
-    "crest": "https://crests.football-data.org/15.png"
+    "crest": "https://crests.football-data.org/15.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Mainz 05",
-    "crest": "https://crests.football-data.org/15.png"
+    "crest": "https://crests.football-data.org/15.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Manchester City",
-    "crest": "https://crests.football-data.org/65.png"
+    "crest": "https://crests.football-data.org/65.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Manchester United",
-    "crest": "https://crests.football-data.org/65.png"
+    "crest": "https://crests.football-data.org/65.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Marseille",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Marsella",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Middlesbrough",
-    "crest": "https://crests.football-data.org/343.png"
+    "crest": "https://crests.football-data.org/343.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Milan",
-    "crest": "https://crests.football-data.org/98.png"
+    "crest": "https://crests.football-data.org/98.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Millwall",
-    "crest": "https://crests.football-data.org/384.png"
+    "crest": "https://crests.football-data.org/384.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Monaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "Mónaco",
-    "crest": "https://crests.football-data.org/548.png"
+    "crest": "https://crests.football-data.org/548.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Monaco"
   },
   {
     "team": "Nacional",
-    "crest": "https://crests.football-data.org/5529.png"
+    "crest": "https://crests.football-data.org/5529.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Napoli",
-    "crest": "https://crests.football-data.org/113.png"
+    "crest": "https://crests.football-data.org/113.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Newcastle",
-    "crest": "https://crests.football-data.org/67.png"
+    "crest": "https://crests.football-data.org/67.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Newcastle United",
-    "crest": "https://crests.football-data.org/67.png"
+    "crest": "https://crests.football-data.org/67.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Nice",
-    "crest": "https://crests.football-data.org/522.png"
+    "crest": "https://crests.football-data.org/522.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Norwich City",
-    "crest": "https://crests.football-data.org/68.png"
+    "crest": "https://crests.football-data.org/68.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Nottingham Forest",
-    "crest": "https://crests.football-data.org/351.png"
+    "crest": "https://crests.football-data.org/351.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Nottingham Forest F.C.",
-    "crest": "https://crests.football-data.org/351.png"
+    "crest": "https://crests.football-data.org/351.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "OGC Nice",
-    "crest": "https://crests.football-data.org/522.png"
+    "crest": "https://crests.football-data.org/522.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Olympiacos FC",
-    "crest": "https://crests.football-data.org/654.png"
+    "crest": "https://crests.football-data.org/654.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Greece"
   },
   {
     "team": "Olympique de Lyon",
-    "crest": "https://crests.football-data.org/523.png"
+    "crest": "https://crests.football-data.org/523.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Olympique de Marseille",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Olympique de Marsella",
-    "crest": "https://crests.football-data.org/516.png"
+    "crest": "https://crests.football-data.org/516.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "PEC Zwolle",
-    "crest": "https://crests.football-data.org/684.png"
+    "crest": "https://crests.football-data.org/684.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "PSG",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "PSV",
-    "crest": "https://crests.football-data.org/674.png"
+    "crest": "https://crests.football-data.org/674.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Netherlands"
   },
   {
     "team": "Palmeiras",
-    "crest": "https://crests.football-data.org/1769.png"
+    "crest": "https://crests.football-data.org/1769.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Paranaense",
-    "crest": "https://crests.football-data.org/1768.png"
+    "crest": "https://crests.football-data.org/1768.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Paris",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Paris Saint-Germain",
-    "crest": "https://crests.football-data.org/524.png"
+    "crest": "https://crests.football-data.org/524.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "France"
   },
   {
     "team": "Parma",
-    "crest": "https://crests.football-data.org/112.png"
+    "crest": "https://crests.football-data.org/112.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Pisa",
-    "crest": "https://crests.football-data.org/487.png"
+    "crest": "https://crests.football-data.org/487.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Porto",
-    "crest": "https://crests.football-data.org/503.png"
+    "crest": "https://crests.football-data.org/503.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "RB Leipzig",
-    "crest": "https://crests.football-data.org/721.png"
+    "crest": "https://crests.football-data.org/721.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "RC Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Racing Lens",
-    "crest": "https://crests.football-data.org/546.png"
+    "crest": "https://crests.football-data.org/546.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Rangers",
-    "crest": "https://crests.football-data.org/69.png"
+    "crest": "https://crests.football-data.org/69.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Real Madrid",
-    "crest": "https://crests.football-data.org/86.png"
+    "crest": "https://crests.football-data.org/86.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Roma",
-    "crest": "https://crests.football-data.org/100.png"
+    "crest": "https://crests.football-data.org/100.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Royale Union Saint-Gilloise",
-    "crest": "https://crests.football-data.org/3929.png"
+    "crest": "https://crests.football-data.org/3929.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Belgium"
   },
   {
     "team": "S.S.C. Napoli",
-    "crest": "https://crests.football-data.org/113.png"
+    "crest": "https://crests.football-data.org/113.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Italy"
   },
   {
     "team": "Santos",
-    "crest": "https://crests.football-data.org/6685.png"
+    "crest": "https://crests.football-data.org/6685.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Sassuolo",
-    "crest": "https://crests.football-data.org/471.png"
+    "crest": "https://crests.football-data.org/471.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Sheffield United",
-    "crest": "https://crests.football-data.org/345.png"
+    "crest": "https://crests.football-data.org/345.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Sheffield United F.C.",
-    "crest": "https://crests.football-data.org/345.png"
+    "crest": "https://crests.football-data.org/345.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Slavia Praga",
-    "crest": "https://crests.football-data.org/930.png"
+    "crest": "https://crests.football-data.org/930.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Czech Republic"
   },
   {
     "team": "Sparta Rotterdam",
-    "crest": "https://crests.football-data.org/6806.png"
+    "crest": "https://crests.football-data.org/6806.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Sporting",
-    "crest": "https://crests.football-data.org/498.png"
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Sporting Braga",
-    "crest": "https://crests.football-data.org/5613.png"
+    "crest": "https://crests.football-data.org/5613.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Sporting CP",
-    "crest": "https://crests.football-data.org/498.png"
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Sporting de Portugal",
-    "crest": "https://crests.football-data.org/498.png"
+    "crest": "https://crests.football-data.org/498.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Portugal"
   },
   {
     "team": "Stade Nyonnais",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stade Rennais",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stade de Reims",
-    "crest": "https://crests.football-data.org/529.png"
+    "crest": "https://crests.football-data.org/529.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stoke City",
-    "crest": "https://crests.football-data.org/70.png"
+    "crest": "https://crests.football-data.org/70.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Strasbourg",
-    "crest": "https://crests.football-data.org/576.png"
+    "crest": "https://crests.football-data.org/576.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Stuttgart",
-    "crest": "https://crests.football-data.org/10.png"
+    "crest": "https://crests.football-data.org/10.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Sunderland",
-    "crest": "https://crests.football-data.org/71.png"
+    "crest": "https://crests.football-data.org/71.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Sunderland AFC",
-    "crest": "https://crests.football-data.org/71.png"
+    "crest": "https://crests.football-data.org/71.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Swansea",
-    "crest": "https://crests.football-data.org/72.png"
+    "crest": "https://crests.football-data.org/72.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   },
   {
     "team": "Swansea City A.F.C.",
-    "crest": "https://crests.football-data.org/72.png"
+    "crest": "https://crests.football-data.org/72.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   },
   {
     "team": "TSG Hoffenheim",
-    "crest": "https://crests.football-data.org/2.png"
+    "crest": "https://crests.football-data.org/2.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Telstar",
-    "crest": "https://crests.football-data.org/1912.png"
+    "crest": "https://crests.football-data.org/1912.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "Tondela",
-    "crest": "https://crests.football-data.org/1049.png"
+    "crest": "https://crests.football-data.org/1049.png",
+    "league": "Primeira Liga",
+    "league_country": "Portugal",
+    "country": "Portugal"
   },
   {
     "team": "Torino",
-    "crest": "https://crests.football-data.org/586.png"
+    "crest": "https://crests.football-data.org/586.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Tottenham",
-    "crest": "https://crests.football-data.org/73.png"
+    "crest": "https://crests.football-data.org/73.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Tottenham Hotspur",
-    "crest": "https://crests.football-data.org/73.png"
+    "crest": "https://crests.football-data.org/73.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Toulouse",
-    "crest": "https://crests.football-data.org/511.png"
+    "crest": "https://crests.football-data.org/511.png",
+    "league": "Ligue 1",
+    "league_country": "France",
+    "country": "France"
   },
   {
     "team": "Twente",
-    "crest": "https://crests.football-data.org/666.png"
+    "crest": "https://crests.football-data.org/666.png",
+    "league": "Eredivisie",
+    "league_country": "Netherlands",
+    "country": "Netherlands"
   },
   {
     "team": "US Sassuolo Calcio",
-    "crest": "https://crests.football-data.org/471.png"
+    "crest": "https://crests.football-data.org/471.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Udinese",
-    "crest": "https://crests.football-data.org/115.png"
+    "crest": "https://crests.football-data.org/115.png",
+    "league": "Serie A",
+    "league_country": "Italy",
+    "country": "Italy"
   },
   {
     "team": "Union Berlin",
-    "crest": "https://crests.football-data.org/28.png"
+    "crest": "https://crests.football-data.org/28.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Union Saint-Gilloise",
-    "crest": "https://crests.football-data.org/3929.png"
+    "crest": "https://crests.football-data.org/3929.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Belgium"
   },
   {
     "team": "Vasco da Gama",
-    "crest": "https://crests.football-data.org/1780.png"
+    "crest": "https://crests.football-data.org/1780.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Villareal",
-    "crest": "https://crests.football-data.org/94.png"
+    "crest": "https://crests.football-data.org/94.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Villarreal",
-    "crest": "https://crests.football-data.org/94.png"
+    "crest": "https://crests.football-data.org/94.png",
+    "league": "UEFA Champions League",
+    "league_country": "Europe",
+    "country": "Spain"
   },
   {
     "team": "Vitória",
-    "crest": "https://crests.football-data.org/1782.png"
+    "crest": "https://crests.football-data.org/1782.png",
+    "league": "Campeonato Brasileiro Série A",
+    "league_country": "Brazil",
+    "country": "Brazil"
   },
   {
     "team": "Watford",
-    "crest": "https://crests.football-data.org/346.png"
+    "crest": "https://crests.football-data.org/346.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Werder Bremen",
-    "crest": "https://crests.football-data.org/12.png"
+    "crest": "https://crests.football-data.org/12.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "West Ham",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "West Ham United",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "West Ham United/Marsella",
-    "crest": "https://crests.football-data.org/563.png"
+    "crest": "https://crests.football-data.org/563.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Wolfsburg",
-    "crest": "https://crests.football-data.org/11.png"
+    "crest": "https://crests.football-data.org/11.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Wolfsburgo",
-    "crest": "https://crests.football-data.org/11.png"
+    "crest": "https://crests.football-data.org/11.png",
+    "league": "Bundesliga",
+    "league_country": "Germany",
+    "country": "Germany"
   },
   {
     "team": "Wolverhampton",
-    "crest": "https://crests.football-data.org/76.png"
+    "crest": "https://crests.football-data.org/76.png",
+    "league": "Premier League",
+    "league_country": "England",
+    "country": "England"
   },
   {
     "team": "Wrexham",
-    "crest": "https://crests.football-data.org/404.png"
+    "crest": "https://crests.football-data.org/404.png",
+    "league": "Championship",
+    "league_country": "England",
+    "country": "Wales"
   }
 ]
