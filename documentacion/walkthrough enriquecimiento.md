@@ -138,5 +138,5 @@ Todos los componentes de software desarrollados en esta fase se encuentran vincu
 - **Diccionario de Base de Datos**: [README.md](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/README.md) – Detalla la estructura del modelo SQLite simplificado de 22 tablas y cómo ejecutar la aplicación.
 - **Frontend HTML**: [index.html](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/index.html) – Estructura semántica de la interfaz.
 - **Frontend Estilos**: [style.css](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/style.css) – Hojas de estilo modo oscuro premium y micro-animaciones.
-- **Frontend Lógica**: [app.js](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/app.js) – Motor del Recomendador, Algoritmo Smart Score, búsquedas y renderizado.
-- **Archivo de Datos Consolidado**: [wc2026_data.json](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/data/wc2026_data.json) – JSON plano consumido por el navegador.
+- **Frontend Lógica Modular**: Carpeta [js/](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/js/) con modularización de lógica en [main.js](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/js/main.js), recomendador, draft y quiz.
+- **Archivo de Datos Consolidado**: [wc2026_data.json](file:///c:/Users/tomas/Desktop/proyectos/worldcup-app/frontend/data/wc2026_data.json) – JSON plano autocontenido en la carpeta de datos del frontend.
