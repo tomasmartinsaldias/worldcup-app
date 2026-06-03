@@ -1,10 +1,10 @@
 import { state } from './state.js';
 import { calculateSmartScore } from './scoring.js';
-import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
+import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=7';
 import { renderGroups } from './ui/groups.js';
 import { renderCountries, filterTeams, closeSquadDetails, openCountrySquad } from './ui/squads.js';
 import { renderUnresolved } from './ui/unresolved.js';
-import { closeModal } from './ui/modal.js';
+import { closeModal } from './ui/modal.js?v=5';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
 import { initDraft, startDraft } from './ui/draft.js?v=2';
