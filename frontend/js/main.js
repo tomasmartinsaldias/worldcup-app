@@ -7,14 +7,28 @@ import { renderUnresolved } from './ui/unresolved.js';
 import { closeModal } from './ui/modal.js';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
+import { initDraft, startDraft } from './draft.js';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
+window.startDraft = startDraft;
+window.applyDraftTactics = function(vector) {
+  state.userPreferences.tacticalVector = vector;
+  recalculateAndRender();
+  const fanaticUi = document.getElementById('fanatic-quiz');
+  if (fanaticUi) {
+    fanaticUi.classList.remove('visible');
+    // Si la función de index.html existe para resetear el estado global
+    if (window.returnToHomepage) window.returnToHomepage();
+  }
+  document.querySelector('.nav-btn[data-tab="recommender"]').click();
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTabListeners();
   loadData();
   initQuiz();
+  initDraft();
   
   const savedSort = localStorage.getItem('sort-matches');
   if (savedSort) document.getElementById('sort-matches').value = savedSort;

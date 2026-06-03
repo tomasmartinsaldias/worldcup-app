@@ -2683,3 +2683,349 @@ footer a:hover {
   color: var(--wc-green);
   font-size: 1.1rem;
 }
+
+/* ============ FANATIC DRAFT (FUT DRAFT) ============ */
+
+/* Pitch Container (Minimalist Wireframe) */
+.pitch-fanatic {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: rgba(10, 15, 25, 0.4);
+  border: 1px solid rgba(10, 88, 255, 0.2);
+  box-shadow: inset 0 0 50px rgba(10, 88, 255, 0.1);
+  overflow: hidden;
+}
+
+.pitch-fanatic::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(10, 88, 255, 0.3);
+}
+
+.pitch-fanatic::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border: 2px solid rgba(10, 88, 255, 0.3);
+  border-radius: 50%;
+}
+
+/* Slots del Draft */
+.draft-slot {
+  position: absolute;
+  width: 80px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 20, 35, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(10, 88, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.draft-slot:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  border-color: #0A58FF;
+  box-shadow: 0 0 20px rgba(10, 88, 255, 0.6);
+}
+
+.draft-slot.active {
+  border-color: #0A58FF;
+  box-shadow: 0 0 25px rgba(10, 88, 255, 0.8);
+  animation: pulseNeon 1.5s infinite;
+}
+
+@keyframes pulseNeon {
+  0% { box-shadow: 0 0 10px rgba(10, 88, 255, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(10, 88, 255, 0.9); }
+  100% { box-shadow: 0 0 10px rgba(10, 88, 255, 0.5); }
+}
+
+.draft-slot-pos {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0A58FF;
+  text-shadow: 0 0 5px rgba(10, 88, 255, 0.5);
+  margin-bottom: 5px;
+}
+
+.draft-slot-add {
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.draft-slot-img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.draft-slot-name {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+}
+
+.draft-slot-ovr {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #0A58FF;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 3px 6px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(10, 88, 255, 0.8);
+}
+
+/* Modales y Cartas de Draft (Glassmorphism Fanático) */
+.draft-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.fut-card-large {
+  width: 180px;
+  height: 250px;
+  background: rgba(15, 20, 35, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 88, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.fut-card-large::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.fut-card-large:hover {
+  transform: translateY(-8px);
+  border-color: #0A58FF;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px rgba(10, 88, 255, 0.5);
+}
+
+.fc-ovr {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 10px #0A58FF;
+  align-self: flex-start;
+  line-height: 1;
+}
+
+.fc-pos {
+  font-size: 1rem;
+  color: #0A58FF;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.fc-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid rgba(10, 88, 255, 0.4);
+}
+
+.fc-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.fc-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  width: 100%;
+}
+
+.fc-stat span {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Opciones de Formación */
+.formation-card {
+  background: rgba(15, 20, 35, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(10, 88, 255, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 250px;
+}
+
+.formation-card h4 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(10, 88, 255, 0.6);
+}
+
+.formation-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #0A58FF;
+  box-shadow: 0 10px 25px rgba(10, 88, 255, 0.4);
+}
+
+.formation-pros-cons {
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.formation-pro {
+  color: #4ade80;
+  margin-bottom: 4px;
+}
+
+.formation-con {
+  color: #f87171;
+}
+
+/* Pitch lines & overlays */
+.pitch-lines-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.draft-start-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(10, 15, 25, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.btn-start-draft {
+  background: rgba(10, 88, 255, 0.8);
+  border: 1px solid #0A58FF;
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  box-shadow: 0 0 20px rgba(10, 88, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-start-draft:hover {
+  background: #0A58FF;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(10, 88, 255, 0.8);
+}
+
+/* =========================================
+   PLANTILLAS BASE SIMPLIFICADAS
+   ========================================= */
+
+/* Glass Overlay genérico que NO bloquea el fondo 3D cuando está vacío o atrás */
+.glass-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 15, 25, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  pointer-events: auto; /* Bloquea clics debajo de sí mismo para enfocar en la UI */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Permitir que la escena 3D se mueva si el quiz no cubre todo.
+   Si se requiere interacción passthrough, se puede poner none aquí
+   y auto en el .quiz-container */
+
+.glass-overlay.hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Grid estático para la maqueta del Draft */
+.draft-static-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Placeholders oscuros tipo metálicos */
+.draft-placeholder-card {
+  width: 120px;
+  height: 180px;
+  background: rgba(15, 20, 25, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
+
+.draft-placeholder-card:hover {
+  border-color: rgba(10, 88, 255, 0.5);
+  box-shadow: 0 0 20px rgba(10, 88, 255, 0.3), inset 0 0 10px rgba(10, 88, 255, 0.1);
+}
