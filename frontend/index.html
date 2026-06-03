@@ -493,6 +493,297 @@
       text-shadow: 0 2px 10px rgba(0,0,0,0.8);
       pointer-events: none;
     }
+
+    /* --- RECOMENDACIONES --- */
+    .recommendations-container {
+      margin-top: 2rem;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .rec-carousel {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scrollbar-width: none;
+      transition: all 0.5s ease;
+      -ms-overflow-style: none;
+    }
+
+    .rec-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .expanded-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-height: 65vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 10px;
+      align-items: start;
+      justify-content: stretch;
+      scroll-behavior: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .expanded-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .btn-back-minimal {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background: #000;
+      border: 1px solid #f5d061;
+      color: #f5d061;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+    .btn-back-minimal:hover {
+      background: rgba(245, 208, 97, 0.2);
+      box-shadow: 0 0 15px rgba(245, 208, 97, 0.4);
+    }
+
+    .rec-card {
+      min-width: 240px;
+      height: 260px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      flex: 0 0 auto;
+    }
+
+    .expanded-grid .rec-card {
+      min-width: 250px;
+    }
+
+    .rec-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4) saturate(1.2);
+      transition: all 0.4s ease;
+      z-index: 1;
+    }
+
+    .rec-card:hover .rec-bg {
+      filter: brightness(0.6) saturate(1.5);
+      transform: scale(1.05);
+    }
+
+    .rec-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 70%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+      z-index: 2;
+    }
+
+    .rec-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(245, 208, 97, 0.2);
+      border-color: rgba(245, 208, 97, 0.5);
+    }
+
+    .rec-content {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      z-index: 3;
+      text-align: left;
+    }
+
+    .rec-score {
+      display: inline-block;
+      background: rgba(245, 208, 97, 0.2);
+      color: #f5d061;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(245, 208, 97, 0.5);
+    }
+
+    .rec-teams {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 5px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .rec-type {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    /* Modal H2H & Metrics Styles */
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .stats-teams {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .stats-team-flag {
+      text-align: center;
+    }
+    .stats-team-flag img {
+      width: 60px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      margin-bottom: 5px;
+    }
+    .stats-team-flag p {
+      font-family: 'Outfit', sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .stats-team-flag span {
+      color: #999;
+      font-size: 0.8rem;
+    }
+    .vs-badge {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #e24a4a;
+    }
+
+    .h2h-box {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .h2h-title {
+      font-size: 0.85rem;
+      color: #4a90e2;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .h2h-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .h2h-stat {
+      text-align: center;
+    }
+    .h2h-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+    .h2h-stat span {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .h2h-bar {
+      display: flex;
+      height: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .h2h-bar > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .h2h-green { background: #2e8b57; }
+    .h2h-gray { background: #555; }
+    .h2h-red { background: #e24a4a; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 18, 22, 0.95);
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.05) inset, 0 5px 15px rgba(0,0,0,0.8);
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .metric-card:hover {
+      border-color: rgba(0, 255, 102, 0.6);
+      box-shadow: 0 0 30px rgba(0, 255, 102, 0.15) inset, 0 10px 20px rgba(0,0,0,0.9);
+      transform: translateY(-2px);
+    }
+    
+    .metric-title {
+      font-size: 0.75rem;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .metric-values {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Outfit', sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .metric-val-a { color: #2e8b57; }
+    .metric-val-b { color: #e24a4a; }
+    
+    .metric-bar-container {
+      height: 4px;
+      background: #333;
+      display: flex;
+      border-radius: 2px;
+    }
+    .metric-bar-a { background: #2e8b57; }
+    .metric-bar-b { background: #e24a4a; }
+
+
   </style>
 </head>
 <body>
@@ -544,56 +835,179 @@
     </div>
   </div>
 
-
-  <!-- PLANTILLA GENÉRICA DE QUIZ (Simplificada) -->
-  <div id="quiz-overlay" class="ui-overlay glass-overlay hidden">
+  <div id="casual-quiz" class="ui-overlay hidden cq-flow">
     <div class="quiz-container">
       <div class="quiz-header">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="quiz-progress"></div></div>
-        <span id="quiz-step-text">PASO 1</span>
+        <div class="quiz-progress-bar"><div class="quiz-progress" id="cq-progress"></div></div>
+        <span id="cq-step-text">PASO 1 DE 3</span>
       </div>
       
-      <div class="quiz-step active" id="generic-quiz-step">
-        <h2 class="quiz-question" id="quiz-title">TÍTULO DE PREGUNTA</h2>
-        <p class="quiz-desc" id="quiz-subtitle">Descripción genérica de la pregunta.</p>
-        <div class="quiz-options" id="quiz-options-container">
-          <!-- Opciones inyectadas por JS -->
+      <!-- Paso 1 -->
+      <div class="quiz-step active" id="cq-step-1">
+        <h2 class="quiz-question">¿CUÁL ES TU SELECCIÓN FAVORITA?</h2>
+        <p class="quiz-desc">Elige el equipo que llevarás en el corazón durante la copa.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Argentina</button>
+          <button class="quiz-option" onclick="selectOption(this)">Brasil</button>
+          <button class="quiz-option" onclick="selectOption(this)">Francia</button>
+          <button class="quiz-option" onclick="selectOption(this)">Inglaterra</button>
         </div>
-        <button class="quiz-btn-next" id="quiz-btn-next" onclick="nextGenericQuizStep()" disabled>CONTINUAR</button>
+        <button class="quiz-btn-next" onclick="nextQuizStep(2)" disabled>CONTINUAR</button>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="quiz-step" id="cq-step-2">
+        <h2 class="quiz-question">¿QUÉ TIPO DE JUEGO PREFIERES?</h2>
+        <p class="quiz-desc">El estilo define la grandeza en el campo.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Ataque Total</button>
+          <button class="quiz-option" onclick="selectOption(this)">Posesión y Control</button>
+          <button class="quiz-option" onclick="selectOption(this)">Defensa Férrea</button>
+          <button class="quiz-option" onclick="selectOption(this)">Contraataque Veloz</button>
+        </div>
+        <button class="quiz-btn-next" onclick="nextQuizStep(3)" disabled>CONTINUAR</button>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="quiz-step" id="cq-step-3">
+        <h2 class="quiz-question">¿A QUÉ JUGADOR SIGUES MÁS?</h2>
+        <p class="quiz-desc">Las leyendas que marcan la diferencia.</p>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="selectOption(this)">Lionel Messi</button>
+          <button class="quiz-option" onclick="selectOption(this)">Kylian Mbappé</button>
+          <button class="quiz-option" onclick="selectOption(this)">Vinícius Jr.</button>
+          <button class="quiz-option" onclick="selectOption(this)">Jude Bellingham</button>
+        </div>
+        <button class="quiz-btn-next" onclick="finishQuiz()" disabled>DESCUBRIR MI DESTINO</button>
       </div>
     </div>
   </div>
 
-  <!-- PLANTILLA ESTÁTICA DEL DRAFT -->
-  <div id="draft-template" class="ui-overlay glass-overlay hidden">
+  <div id="fanatic-quiz" class="ui-overlay hidden fq-flow">
+    <canvas id="fanatic-stars"></canvas>
     <div class="quiz-container fanatic-container">
-      <div class="hero-section" style="text-align: center; margin-bottom: 2rem;">
-        <h1 class="hero-title" style="font-size: 3rem; color: #ffffff; text-shadow: 0 0 20px rgba(10, 88, 255, 0.8);">FUT DRAFT (PLANTILLA)</h1>
-        <p class="hero-desc" style="color: #c0c0c0; font-size: 1.2rem;">Maqueta estática sin lógica pesada.</p>
-      </div>
-
-      <!-- Grid Visual Estático -->
-      <div class="draft-static-grid">
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
-        <div class="draft-placeholder-card"></div>
+      <div class="quiz-header">
+        <div class="quiz-progress-bar"><div class="quiz-progress" id="fq-progress"></div></div>
+        <span id="fq-step-text">PASO 1 DE 5</span>
       </div>
       
-      <div style="text-align: center; margin-top: 2rem;">
-        <button class="quiz-btn-next" style="padding: 1rem 3rem; font-size: 1.2rem; opacity: 1;" onclick="finishDraftTemplate()">
-          Ir a Recomendador
-        </button>
+      <!-- Paso 1 -->
+      <div class="quiz-step active" id="fq-step-1">
+        <h2 class="quiz-question">¿QUÉ MOMENTO ES MÁS ÉPICO?</h2>
+        <p class="quiz-desc">La adrenalina pura se define en estos instantes.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">GOL EN EL ÚLTIMO MINUTO</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">TANDA DE PENALES</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="quiz-step" id="fq-step-2">
+        <h2 class="quiz-question">¿TU ESTILO DE LEYENDA?</h2>
+        <p class="quiz-desc">Los nombres que cambian la historia.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1e1e11414457?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL 10 MÁGICO</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1551280857-2b9bbe52ccbd?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL 9 GOLEADOR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="quiz-step" id="fq-step-3">
+        <h2 class="quiz-question">¿LA TÁCTICA PERFECTA?</h2>
+        <p class="quiz-desc">La pizarra del estratega determina la victoria.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">POSESIÓN ABSOLUTA</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6d0a624f11?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">CONTRA LETAL</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="quiz-step" id="fq-step-4">
+        <h2 class="quiz-question">¿RIVALIDAD HISTÓRICA?</h2>
+        <p class="quiz-desc">El peso de la historia se siente en la cancha.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL CLÁSICO LOCAL</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1524015368236-bbf6f72545b6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">FINAL DEL MUNDO</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 5 -->
+      <div class="quiz-step" id="fq-step-5">
+        <h2 class="quiz-question">¿EL MAYOR LOGRO?</h2>
+        <p class="quiz-desc">El trofeo definitivo que todo jugador sueña levantar.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1614632537190-23e4146777db?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">CHAMPIONS LEAGUE</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1600250395221-ea1c32286fb6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">LA COPA DEL MUNDO</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- OVERLAY DE RECOMENDACIONES -->
+  <div id="recommendations-overlay" class="ui-overlay hidden">
+    <button class="btn-back-minimal" onclick="returnToHomepage()">
+      <i class="fa-solid fa-arrow-left"></i> VOLVER AL INICIO
+    </button>
+    <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center;">
+      <h2 class="overlay-title" style="font-size: 2.2rem;">TU DESTINO MUNDIALISTA</h2>
+      <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los partidos que no puedes perderte.</p>
+      
+      <div class="rec-carousel-wrapper" style="overflow-x: auto; padding-bottom: 20px;">
+        <div class="rec-carousel" id="recommendations-carousel" style="display: flex; gap: 20px; transition: all 0.4s ease;">
+          <!-- Cards injected via JS -->
+        </div>
+      </div>
+      
+      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()" style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER MÁS PARTIDOS</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE ESTADÍSTICAS -->
+  <div id="stats-modal-overlay" class="ui-overlay hidden" style="z-index: 20;">
+    <div class="stats-modal" style="background: #11141a; border: 1px solid #2a2e35; padding: 2rem; border-radius: 12px; max-width: 700px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
+      <button class="stats-close" onclick="closeMatchStats()" style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
+      
+      <div class="stats-header" style="margin-bottom: 2rem; border-bottom: 1px solid #2a2e35; padding-bottom: 1rem;">
+        <h2 id="stats-title" style="font-family: 'Outfit'; font-size: 1.4rem; color: #fff;">Partido #61 &bull; Group Stage</h2>
+      </div>
+      
+      <div class="stats-body" style="text-align: left;" id="stats-body-content">
+        <!-- Content generated by JS -->
+      </div>
+      
+    </div>
+  </div>
+
   <!-- LÓGICA DE UI OVERLAYS -->
   <script>
     let appState = 'homepage'; // 'homepage', 'transition', 'spectator', 'quiz'
@@ -614,10 +1028,17 @@
     }
 
     function returnToHomepage() {
-      if (appState !== 'spectator') return;
+      if (appState !== 'spectator' && appState !== 'recommendations') return;
+      
       appState = 'transition';
 
       document.getElementById('spectator-selection').classList.remove('visible');
+      document.getElementById('recommendations-overlay').classList.remove('visible');
+      
+      // Also hide quizes if they were visible
+      document.getElementById('casual-quiz').classList.remove('visible');
+      document.getElementById('fanatic-quiz').classList.remove('visible');
+
       setTimeout(() => {
         document.querySelector('.hero-ui').classList.remove('fade-out');
         document.querySelector('.scroll-indicator').classList.remove('fade-out');
@@ -634,87 +1055,433 @@
       }
     });
 
-
-    // --- LÓGICA DE PLANTILLAS SIMPLIFICADAS ---
-
-    const quizQuestions = [
-      {
-        title: "PREGUNTA DE EJEMPLO",
-        desc: "Descripción de prueba para la plantilla.",
-        options: ["Opción A", "Opción B", "Opción C", "Opción D"]
-      }
-      // Añade más preguntas aquí en el futuro
-    ];
-    let currentQuestionIndex = 0;
-
     function startQuiz(level) {
-      appState = 'transition';
-      document.getElementById('spectator-selection').classList.remove('visible');
+      if(level === 'casual') {
+        appState = 'transition';
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('casual-quiz').classList.add('visible');
+          appState = 'quiz-casual';
+        }, 500);
+      } else if(level === 'fanatico') {
+        appState = 'transition';
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('fanatic-quiz').classList.add('visible');
+          appState = 'quiz-fanatic';
+          initFanaticStars();
+          currentPattern = 0;
+        }, 500);
+      }
+    }
+
+    // --- LÓGICA FANÁTICO ---
+    const fanaticCanvas = document.getElementById('fanatic-stars');
+    const fctx = fanaticCanvas.getContext('2d');
+    let fWidth, fHeight;
+    
+    function initFanaticStars() {
+      fWidth = window.innerWidth;
+      fHeight = window.innerHeight;
+      fanaticCanvas.width = fWidth;
+      fanaticCanvas.height = fHeight;
+      
+      fctx.clearRect(0, 0, fWidth, fHeight);
+      
+      // Estrellas fijas dibujadas una sola vez (0 lag)
+      for(let i=0; i<150; i++) {
+        const x = Math.random() * fWidth;
+        const y = Math.random() * fHeight;
+        const size = Math.random() * 1.5 + 0.5;
+        const opacity = Math.random() * 0.7 + 0.3;
+        
+        fctx.beginPath();
+        fctx.arc(x, y, size, 0, Math.PI * 2);
+        fctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        
+        // Solo algunas brillan sutilmente para no sobrecargar el renderizado
+        if (Math.random() > 0.8) {
+          fctx.shadowBlur = 8;
+          fctx.shadowColor = '#0A58FF'; // Toque azul neón
+        } else {
+          fctx.shadowBlur = 0;
+        }
+        
+        fctx.fill();
+        fctx.shadowBlur = 0;
+      }
+    }
+    
+    window.addEventListener('resize', () => {
+      if(appState === 'quiz-fanatic') initFanaticStars();
+    });
+
+    function changeStarPattern() {
+      // Al cambiar de pregunta, simplemente redibujamos un nuevo cielo estrellado al instante
+      if(appState === 'quiz-fanatic') {
+        initFanaticStars();
+      }
+    }
+
+    function nextFanaticStep(currentStepNum, btn) {
+      if(btn) btn.classList.add('fq-selected');
       
       setTimeout(() => {
-        if(level === 'casual') {
-          appState = 'quiz-casual';
-          document.getElementById('quiz-overlay').classList.add('visible');
-          loadGenericQuestion(0);
-        } else if(level === 'fanatico') {
-          appState = 'quiz-fanatic';
-          document.getElementById('draft-template').classList.add('visible');
+        const currentStep = document.getElementById(`fq-step-${currentStepNum}`);
+        if(currentStep) currentStep.classList.remove('active');
+        
+        const nextStepNum = currentStepNum + 1;
+        const nextStep = document.getElementById(`fq-step-${nextStepNum}`);
+        
+        if(nextStep) {
+          nextStep.classList.add('active');
+          document.getElementById('fq-step-text').innerText = `PASO ${nextStepNum} DE 5`;
+          document.getElementById('fq-progress').style.width = `${(nextStepNum / 5) * 100}%`;
+          
+          changeStarPattern();
+        } else {
+          showRecommendations();
         }
       }, 500);
     }
 
-    function loadGenericQuestion(index) {
-      if (index >= quizQuestions.length) {
-        finishGenericQuiz();
-        return;
-      }
-      
-      const q = quizQuestions[index];
-      document.getElementById('quiz-step-text').innerText = `PASO ${index + 1} DE ${quizQuestions.length}`;
-      document.getElementById('quiz-progress').style.width = `${((index + 1) / quizQuestions.length) * 100}%`;
-      
-      document.getElementById('quiz-title').innerText = q.title;
-      document.getElementById('quiz-subtitle').innerText = q.desc;
-      
-      const optionsContainer = document.getElementById('quiz-options-container');
-      optionsContainer.innerHTML = '';
-      
-      q.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-option';
-        btn.innerText = opt;
-        btn.onclick = () => selectGenericOption(btn);
-        optionsContainer.appendChild(btn);
-      });
-      
-      document.getElementById('quiz-btn-next').disabled = true;
-    }
-
-    function selectGenericOption(btn) {
+    function selectOption(btn) {
       const parent = btn.parentElement;
       const options = parent.querySelectorAll('.quiz-option');
       options.forEach(o => o.classList.remove('selected'));
       btn.classList.add('selected');
       
-      document.getElementById('quiz-btn-next').disabled = false;
+      const step = btn.closest('.quiz-step');
+      const nextBtn = step.querySelector('.quiz-btn-next');
+      nextBtn.disabled = false;
     }
 
-    function nextGenericQuizStep() {
-      currentQuestionIndex++;
-      loadGenericQuestion(currentQuestionIndex);
+    function nextQuizStep(nextStepNum) {
+      const currentStep = document.querySelector('.quiz-step.active');
+      currentStep.classList.remove('active');
+      
+      const nextStep = document.getElementById(`cq-step-${nextStepNum}`);
+      if(nextStep) {
+        nextStep.classList.add('active');
+        document.getElementById('cq-step-text').innerText = `PASO ${nextStepNum} DE 3`;
+        document.getElementById('cq-progress').style.width = `${(nextStepNum / 3) * 100}%`;
+      }
     }
 
-    function finishGenericQuiz() {
-      alert("¡Quiz completado! (Plantilla base)");
-      // Redirigir o volver al inicio
-      document.getElementById('quiz-overlay').classList.add('hidden');
-      returnToHomepage();
+    function finishQuiz() {
+      showRecommendations();
     }
 
-    function finishDraftTemplate() {
-      alert("¡FUT Draft Completado! (Plantilla base)");
-      document.getElementById('draft-template').classList.add('hidden');
-      returnToHomepage();
+    // --- RECOMENDACIONES ---
+    function showRecommendations() {
+      appState = 'transition';
+      // Ocultar quizes
+      document.getElementById('casual-quiz').classList.remove('visible');
+      document.getElementById('fanatic-quiz').classList.remove('visible');
+      
+      setTimeout(() => {
+        document.getElementById('recommendations-overlay').classList.add('visible');
+        appState = 'recommendations';
+        renderRecommendedCards();
+      }, 500);
+    }
+
+    let cachedWcData = null;
+    let allValidMatches = [];
+    let showingAllRecs = false;
+
+    function renderRecommendedCards() {
+      const carousel = document.getElementById('recommendations-carousel');
+      carousel.innerHTML = '<p>Cargando partidos recomendados...</p>';
+
+      fetch('../data/wc2026_data.json')
+        .then(res => res.json())
+        .then(data => {
+          cachedWcData = data;
+          
+          // Select valid matches
+          allValidMatches = data.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
+          
+          showingAllRecs = false;
+          updateCarouselUI();
+        })
+        .catch(err => {
+          console.error("Error fetching matches", err);
+          carousel.innerHTML = '<p>Error al cargar recomendaciones.</p>';
+        });
+    }
+
+    function updateCarouselUI() {
+      const carousel = document.getElementById('recommendations-carousel');
+      carousel.innerHTML = '';
+      
+      const matchesToShow = showingAllRecs ? allValidMatches : allValidMatches.slice(0, 4);
+
+      const explanations = [
+        "Coincide con tu equipo favorito",
+        "Similitud en estilo táctico",
+        "Duelo de alta posesión",
+        "Rivalidad histórica",
+        "Partidazo asegurado",
+        "Alta popularidad global"
+      ];
+
+      matchesToShow.forEach((match, index) => {
+        const exp = explanations[index % explanations.length];
+        const score = Math.max(70, 98 - (index % allValidMatches.length));
+        const card = document.createElement('div');
+        card.className = 'rec-card';
+        card.innerHTML = `
+          <div class="rec-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="rec-content">
+            <div class="rec-score">${score}% AFINIDAD</div>
+            <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
+            <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
+            <p class="rec-type">${match.stage}</p>
+          </div>
+        `;
+        card.onclick = () => openMatchStats(match);
+        carousel.appendChild(card);
+      });
+      
+      // Duplicate for infinite scroll if showing all
+      if (showingAllRecs) {
+        matchesToShow.forEach((match, index) => {
+          const exp = explanations[index % explanations.length];
+          const score = Math.max(70, 98 - (index % allValidMatches.length));
+          const card = document.createElement('div');
+          card.className = 'rec-card';
+          card.innerHTML = `
+            <div class="rec-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="rec-content">
+              <div class="rec-score">${score}% AFINIDAD</div>
+              <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
+              <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
+              <p class="rec-type">${match.stage}</p>
+            </div>
+          `;
+          card.onclick = () => openMatchStats(match);
+          carousel.appendChild(card);
+        });
+      }
+    }
+
+    let autoScrollInterval = null;
+    let scrollSpeed = -1; 
+    
+    function startAutoScroll() {
+      const carousel = document.getElementById('recommendations-carousel');
+      stopAutoScroll();
+      
+      scrollSpeed = 1;
+
+      autoScrollInterval = setInterval(() => {
+        if (showingAllRecs && carousel.classList.contains('expanded-grid')) {
+          carousel.scrollTop += scrollSpeed;
+          
+          // Infinite scroll logic
+          const maxScroll = carousel.scrollHeight / 2;
+          if (carousel.scrollTop >= maxScroll) {
+            carousel.scrollTop -= maxScroll;
+          } else if (carousel.scrollTop <= 0 && scrollSpeed < 0) {
+            carousel.scrollTop += maxScroll;
+          }
+        }
+      }, 20); // Faster tick for smoother movement
+      
+      carousel.onmousemove = (e) => {
+        const rect = carousel.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        const height = rect.height;
+        
+        const normalizedY = (y / height) - 0.5; 
+        
+        if (Math.abs(normalizedY) < 0.1) {
+          scrollSpeed = 0;
+        } else {
+          scrollSpeed = normalizedY * 20; // Much faster scaling
+        }
+      };
+      
+      carousel.onmouseleave = () => {
+        scrollSpeed = -1; // Default moving up (scrolling to top)
+      };
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+    }
+
+    function toggleSeeMore() {
+      showingAllRecs = !showingAllRecs;
+      const carousel = document.getElementById('recommendations-carousel');
+      
+      // Smooth fade transition
+      carousel.style.opacity = 0;
+      
+      setTimeout(() => {
+        carousel.classList.toggle('expanded-grid', showingAllRecs);
+        const btn = document.getElementById('btn-see-more');
+        btn.innerText = showingAllRecs ? 'VER MENOS' : 'VER TODOS LOS PARTIDOS';
+        
+        updateCarouselUI();
+        
+        carousel.style.opacity = 1;
+        
+        if (showingAllRecs) {
+          // Start at bottom if default is scroll up, but let's just start at top
+          setTimeout(() => {
+            if (showingAllRecs) startAutoScroll();
+          }, 800);
+        } else {
+          stopAutoScroll();
+          carousel.scrollTop = 0; // Reset scroll
+        }
+      }, 400); // Wait for fade out
+    }
+
+    function openMatchStats(match) {
+      document.getElementById('stats-modal-overlay').classList.add('visible');
+      document.getElementById('stats-title').innerHTML = `Partido #${match.match_number} &bull; ${match.stage}`;
+      
+      const homeFifa = match.home_team.fifa_code;
+      const awayFifa = match.away_team.fifa_code;
+      const homeFlag = `https://flagcdn.com/w80/${getCountryIsoCode(homeFifa)}.png`;
+      const awayFlag = `https://flagcdn.com/w80/${getCountryIsoCode(awayFifa)}.png`;
+
+      // H2H Logic
+      const h2h = match.h2h || { total_matches: 0, home_wins: 0, away_wins: 0, draws: 0 };
+      const totalH2H = h2h.total_matches > 0 ? h2h.total_matches : 1;
+      const homePct = Math.round((h2h.home_wins / totalH2H) * 100);
+      const drawPct = Math.round((h2h.draws / totalH2H) * 100);
+      const awayPct = Math.round((h2h.away_wins / totalH2H) * 100);
+
+      // Metrics Logic (Safe Fallback)
+      const tDataHome = cachedWcData?.teams?.[homeFifa]?.metrics || {};
+      const tDataAway = cachedWcData?.teams?.[awayFifa]?.metrics || {};
+
+      const formatVal = (v) => v !== undefined ? v : 'N/A';
+      
+      const mHome = {
+        val: tDataHome.market_value_eur || 100,
+        xg: tDataHome.recent_xg_avg || 1.0,
+        pos: tDataHome.recent_possession_avg || 50,
+        pop: tDataHome.global_popularity_score || 50
+      };
+      
+      const mAway = {
+        val: tDataAway.market_value_eur || 100,
+        xg: tDataAway.recent_xg_avg || 1.0,
+        pos: tDataAway.recent_possession_avg || 50,
+        pop: tDataAway.global_popularity_score || 50
+      };
+
+      const computeBar = (a, b) => {
+        const sum = a + b || 1;
+        return [(a/sum)*100, (b/sum)*100];
+      };
+
+      const [valA, valB] = computeBar(mHome.val, mAway.val);
+      const [xgA, xgB] = computeBar(mHome.xg, mAway.xg);
+      const [popA, popB] = computeBar(mHome.pop, mAway.pop);
+
+      document.getElementById('stats-body-content').innerHTML = `
+        <div class="stats-teams">
+          <div class="stats-team-flag">
+            <img src="${homeFlag}" onerror="this.src='../img/placeholder_flag.png'" alt="${match.home_team.name}">
+            <p>${match.home_team.name}</p>
+            <span>Grupo ${match.home_team.group}</span>
+          </div>
+          <div class="vs-badge">VS</div>
+          <div class="stats-team-flag">
+            <img src="${awayFlag}" onerror="this.src='../img/placeholder_flag.png'" alt="${match.away_team.name}">
+            <p>${match.away_team.name}</p>
+            <span>Grupo ${match.away_team.group}</span>
+          </div>
+        </div>
+
+        <div class="modal-grid">
+          <div class="h2h-box">
+            <div class="h2h-title"><i class="fa-solid fa-clock-rotate-left"></i> HISTORIAL CARA A CARA (H2H) GENERAL</div>
+            <div class="h2h-stats">
+              <div class="h2h-stat"><strong>${h2h.total_matches}</strong><span style="color:#aaa;">PARTIDOS</span></div>
+              <div class="h2h-stat"><strong style="color:#2e8b57">${h2h.home_wins}</strong><span style="color:#2e8b57">VICTORIAS ${homeFifa}</span></div>
+              <div class="h2h-stat"><strong style="color:#aaa">${h2h.draws}</strong><span style="color:#aaa">EMPATES</span></div>
+              <div class="h2h-stat"><strong style="color:#e24a4a">${h2h.away_wins}</strong><span style="color:#e24a4a">VICTORIAS ${awayFifa}</span></div>
+            </div>
+            ${h2h.total_matches > 0 ? `
+              <div class="h2h-bar">
+                <div class="h2h-green" style="width: ${homePct}%">${homePct > 10 ? homePct+'%' : ''}</div>
+                <div class="h2h-gray" style="width: ${drawPct}%">${drawPct > 10 ? drawPct+'%' : ''}</div>
+                <div class="h2h-red" style="width: ${awayPct}%">${awayPct > 10 ? awayPct+'%' : ''}</div>
+              </div>
+            ` : '<p style="text-align:center; font-size:0.8rem; color:#666;">No hay enfrentamientos previos.</p>'}
+          </div>
+
+          <div class="h2h-title" style="margin-top: 1rem;"><i class="fa-solid fa-chart-simple"></i> COMPARATIVA DE MÉTRICAS RECIENTES</div>
+          
+          <div class="metrics-grid">
+            <!-- Valor -->
+            <div class="metric-card">
+              <div class="metric-title">VALOR DE PLANTILLA (M€)</div>
+              <div class="metric-values">
+                <span class="metric-val-a">${mHome.val}M€</span>
+                <span class="metric-val-b">${mAway.val}M€</span>
+              </div>
+              <div class="metric-bar-container">
+                <div class="metric-bar-a" style="width: ${valA}%"></div>
+                <div class="metric-bar-b" style="width: ${valB}%"></div>
+              </div>
+            </div>
+
+            <!-- XG -->
+            <div class="metric-card">
+              <div class="metric-title">PROMEDIO GOLES ESPERADOS (XG)</div>
+              <div class="metric-values">
+                <span class="metric-val-a">${mHome.xg.toFixed(2)}</span>
+                <span class="metric-val-b">${mAway.xg.toFixed(2)}</span>
+              </div>
+              <div class="metric-bar-container">
+                <div class="metric-bar-a" style="width: ${xgA}%"></div>
+                <div class="metric-bar-b" style="width: ${xgB}%"></div>
+              </div>
+            </div>
+
+            <!-- Posesion -->
+            <div class="metric-card">
+              <div class="metric-title">PORCENTAJE DE POSESIÓN</div>
+              <div class="metric-values">
+                <span class="metric-val-a">${mHome.pos.toFixed(1)}%</span>
+                <span style="font-size: 0.8rem; color: #555; align-self: center;">VS</span>
+                <span class="metric-val-b">${mAway.pos.toFixed(1)}%</span>
+              </div>
+            </div>
+
+            <!-- Popularidad -->
+            <div class="metric-card">
+              <div class="metric-title">POPULARIDAD GLOBAL</div>
+              <div class="metric-values">
+                <span class="metric-val-a">${mHome.pop}</span>
+                <span class="metric-val-b">${mAway.pop}</span>
+              </div>
+              <div class="metric-bar-container">
+                <div class="metric-bar-a" style="width: ${popA}%"></div>
+                <div class="metric-bar-b" style="width: ${popB}%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Helper flag iso mapping simple (would normally be full map)
+    function getCountryIsoCode(fifaCode) {
+      const map = { 'ARG': 'ar', 'FRA': 'fr', 'BRA': 'br', 'ENG': 'gb-eng', 'ESP': 'es', 'GER': 'de', 'MEX': 'mx', 'USA': 'us', 'NOR': 'no', 'SEN': 'sn' };
+      return map[fifaCode] || fifaCode.toLowerCase().substring(0, 2);
+    }
+
+    function closeMatchStats() {
+      document.getElementById('stats-modal-overlay').classList.remove('visible');
     }
   </script>
 
