@@ -1,5 +1,4 @@
 import { state } from '../state.js';
-import { calculateFormRating } from '../scoring.js';
 import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 
 export function openPlayerProfile(teamCode, playerId) {
