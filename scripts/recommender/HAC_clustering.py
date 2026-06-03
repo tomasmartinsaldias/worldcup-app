@@ -71,7 +71,7 @@ class DataPreprocessor:
         return features_pca_B, df['long_name'].values, overalls
 
 class ClusteringEngine:
-    def __init__(self, n_clusters=5, metric='cosine', linkage='average'):
+    def __init__(self, n_clusters=5, metric='euclidean', linkage='ward'):
         self.model = AgglomerativeClustering(n_clusters=n_clusters, metric=metric, linkage=linkage)
         
     def fit_predict(self, features):
@@ -306,7 +306,7 @@ def main():
             # -------------------------------------------------------
             # 5a. HAC (Hierarchical Agglomerative Clustering) 
             # -------------------------------------------------------
-            hac_engine = ClusteringEngine(n_clusters=n_clusters, metric='cosine', linkage='average')
+            hac_engine = ClusteringEngine(n_clusters=n_clusters, metric='euclidean', linkage='ward')
             hac_labels = hac_engine.fit_predict(features)
             hac_reps = hac_engine.find_representatives(hac_labels, player_names, overalls)
 
