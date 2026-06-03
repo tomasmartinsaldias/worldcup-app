@@ -1,0 +1,54 @@
+<USER_REQUEST>
+/frontend-design Actúa como un desarrollador Frontend experto en interfaces modernas, 3D (Three.js / model-viewer) y animaciones interactivas. Tengo un archivo `index.html` base y quiero transformarlo por completo en una landing page épica, minimalista y muy elegante. 
+
+Toma el código HTML/CSS actual que te comparto en mi contexto y aplica obligatoriamente los siguientes cambios paso a paso:
+
+FASE 1: LIMPIEZA DEL CÓDIGO ACTUAL
+1. Elimina por completo la barra de navegación (`<nav>` y todo su contenido).
+2. Elimina el canvas de partículas anterior (`#particles-canvas`) y cualquier efecto de luz o resplandor de fondo (como `.hero::before` o los gradientes azules).
+3. Elimina las variables de colores azules y reinicia la paleta cromática a una estética oscura, elegante y épica (negros, grises oscuros, blancos, dorados sutiles o plateados).
+
+FASE 2: NUEVA ESTRUCTURA Y MODELO 3D
+1. Integra un contenedor central para un modelo 3D de la Copa del Mundo. Usa `<model-viewer>` o la configuración necesaria de Three.js.
+2. El modelo debe ocupar gran parte del centro de la pantalla, estar ligeramente inclinado hacia adelante y rotar sobre su propio eje automáticamente.
+3. Aplica filtros CSS o iluminación 3D para que el modelo se vea principalmente como una "sombra" oscura, pero resalta fuertemente los bordes (efecto rim light / fresnel) para que la silueta de la Copa del Mundo sea inconfundible y majestuosa.
+
+FASE 3: TEXTOS LATERALES
+1. Agrega dos bloques de texto (uno a la izquierda y otro a la derecha del modelo 3D).
+2. Tienen que estar centrados verticalmente. Asegúrate de que no estén pegados a los bordes de la pantalla (usa un padding elegante, ej. `padding: 0 4rem`).
+3. El texto debe ser muy breve, conciso, con una tipografía moderna (como la familia 'Outfit' o 'Inter' que ya está importada), usando un color claro brillante o un degradado sutil metálico.
+   - Texto Izquierdo sugerido: "La gloria eterna a un paso."
+   - Texto Derecho sugerido: "Descubre tu destino en la cancha."
+
+FASE 4: PA
+<truncated 69 bytes>
+las de fondo usando JavaScript (puede ser con un `<canvas>` nuevo).
+2. Las partículas deben tener aspecto de "niebla" o "esferas pequeñas": un núcleo blanco con un borde o resplandor gris difuminado.
+3. Deben flotar lentamente por el fondo.
+4. Haz que sean interactivas: cuando el usuario acerque el puntero del mouse, las partículas deben reaccionar (por ejemplo, alejarse suavemente del cursor o acelerar su movimiento).
+
+Por favor, devuélveme el código completo (HTML, CSS y el script de JS integrado) en un solo bloque listo para probar. Usa placeholders limpios si necesitas enlazar el archivo `.glb` del modelo 3D.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-02T20:23:16-03:00.
+
+The user's current state is as follows:
+Active Document: /Users/franmonti/Documents/Austral/worldcup-app/frontend/index.html (LANGUAGE_HTML)
+Cursor is on line: 2663
+Other open documents:
+- /Users/franmonti/Documents/Austral/worldcup-app/.agents/skills/my-skill/SKILL.md (LANGUAGE_MARKDOWN)
+- /Users/franmonti/Documents/Austral/worldcup-app/.agents/mcp_config.json (LANGUAGE_JSON)
+- /Users/franmonti/Documents/Austral/worldcup-app/frontend/index.html (LANGUAGE_HTML)
+Running terminal commands:
+- python3 -m http.server 8081
+ (in /Users/franmonti/Documents/Austral/worldcup-app, running for 7h13m3s)
+
+The user has mentioned some items in the form @[ITEM]. Here is extra information about the items that were mentioned by the user, in the order that they appear:
+
+/frontend-design is a [Slash Command]:
+<SKILL>The user requested you read and use the "frontend-design" skill. The path to the skill file is:
+/Users/franmonti/Documents/Austral/worldcup-app/.agents/skills/frontend-design/SKILL.md</SKILL>
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from Gemini 3.5 Flash (Low) to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
