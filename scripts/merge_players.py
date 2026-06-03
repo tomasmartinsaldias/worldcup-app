@@ -264,18 +264,45 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(merged_list, f, ensure_ascii=False, indent=2)
         
-    # Calculate complete records count
-    complete_count = sum(
-        1 for p in merged_list
-        if p["Overall"] is not None 
-        and p["_URL"] is not None 
-        and p["Posicion"] is not None 
-        and p["Cluster_id"] is not None 
-        and p["Dist_centroid"] is not None 
-        and p["edad"] is not None 
-        and p["valor_de_mercado"] is not None
-    )
+    # Calculate complete records count and stats per country
+    complete_count = 0
+    country_stats = {}
+    
+    for p in merged_list:
+        c = p["pais"]
+        if c not in country_stats:
+            country_stats[c] = {"total": 0, "complete": 0}
+        country_stats[c]["total"] += 1
+        
+        is_p_complete = (
+            p["Overall"] is not None 
+            and p["_URL"] is not None 
+            and p["Posicion"] is not None 
+            and p["Cluster_id"] is not None 
+            and p["Dist_centroid"] is not None 
+            and p["edad"] is not None 
+            and p["valor_de_mercado"] is not None
+        )
+        if is_p_complete:
+            complete_count += 1
+            country_stats[c]["complete"] += 1
+
     complete_pct = (complete_count / len(merged_list)) * 100 if merged_list else 0.0
+
+    print("\n--- Proporción de información completa por selección ---")
+    for country, stats in sorted(country_stats.items()):
+        total = stats["total"]
+        complete = stats["complete"]
+        pct = (complete / total) * 100 if total > 0 else 0.0
+        # Use safe print for country name to avoid UnicodeEncodeError in Windows terminal
+        log_line = f"  {country}: {complete}/{total} ({pct:.1f}%)"
+        try:
+            print(log_line)
+        except UnicodeEncodeError:
+            try:
+                print(log_line.encode('cp1252', errors='replace').decode('cp1252'))
+            except Exception:
+                print(log_line.encode('ascii', errors='replace').decode('ascii'))
 
     print(f"\nSuccessfully unified player data. Output written to: {output_path}")
     print(f"Total unified players: {len(merged_list)}")
