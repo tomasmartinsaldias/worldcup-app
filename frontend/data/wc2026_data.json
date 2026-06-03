@@ -17,7 +17,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.647,
+        "contra_norm": 0.49,
+        "drama_norm": 0.664,
+        "vuln_norm": 0.431
+      },
       "squad": [
         {
           "id": 1277,
@@ -402,7 +407,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.724,
+        "contra_norm": 0.143,
+        "drama_norm": 0.617,
+        "vuln_norm": 0.888
+      },
       "squad": [
         {
           "id": 1287,
@@ -787,7 +797,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.798,
+        "contra_norm": 0.388,
+        "drama_norm": 0.605,
+        "vuln_norm": 0.985
+      },
       "squad": [
         {
           "id": 1307,
@@ -1172,7 +1187,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.556,
+        "contra_norm": 0.13,
+        "drama_norm": 0.833,
+        "vuln_norm": 0.784
+      },
       "squad": [
         {
           "id": 1360,
@@ -1599,7 +1619,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.91,
+        "contra_norm": 0.708,
+        "drama_norm": 0.604,
+        "vuln_norm": 0.44
+      },
       "squad": [
         {
           "id": 1369,
@@ -1970,7 +1995,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.376,
+        "contra_norm": 0.512,
+        "drama_norm": 0.887,
+        "vuln_norm": 0.608
+      },
       "squad": [
         {
           "id": 1390,
@@ -2355,7 +2385,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.434,
+        "contra_norm": 0.0,
+        "drama_norm": 0.311,
+        "vuln_norm": 1.0
+      },
       "squad": [
         {
           "id": 1424,
@@ -2740,7 +2775,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.444,
+        "contra_norm": 0.386,
+        "drama_norm": 0.435,
+        "vuln_norm": 0.337
+      },
       "squad": [
         {
           "id": 1453,
@@ -3125,7 +3165,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.942,
+        "contra_norm": 0.215,
+        "drama_norm": 0.572,
+        "vuln_norm": 0.591
+      },
       "squad": [
         {
           "id": 1467,
@@ -3510,7 +3555,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.818,
+        "contra_norm": 0.297,
+        "drama_norm": 0.973,
+        "vuln_norm": 0.351
+      },
       "squad": [
         {
           "id": 1513,
@@ -3895,7 +3945,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.0,
+        "contra_norm": 0.0,
+        "drama_norm": 0.679,
+        "vuln_norm": 0.872
+      },
       "squad": [
         {
           "id": 1517,
@@ -4280,7 +4335,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.417,
+        "contra_norm": 0.398,
+        "drama_norm": 0.585,
+        "vuln_norm": 0.731
+      },
       "squad": [
         {
           "id": 1547,
@@ -4665,7 +4725,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.868,
+        "contra_norm": 0.48,
+        "drama_norm": 0.563,
+        "vuln_norm": 0.673
+      },
       "squad": [
         {
           "id": 1588,
@@ -5050,7 +5115,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.209,
+        "contra_norm": 0.269,
+        "drama_norm": 0.548,
+        "vuln_norm": 0.491
+      },
       "squad": [
         {
           "id": 1609,
@@ -5407,7 +5477,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.667,
+        "contra_norm": 0.219,
+        "drama_norm": 0.57,
+        "vuln_norm": 0.495
+      },
       "squad": [
         {
           "id": 1632,
@@ -5792,7 +5867,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.209,
+        "contra_norm": 0.779,
+        "drama_norm": 0.433,
+        "vuln_norm": 0.911
+      },
       "squad": [
         {
           "id": 1652,
@@ -6177,7 +6257,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.699,
+        "contra_norm": 0.448,
+        "drama_norm": 0.59,
+        "vuln_norm": 0.436
+      },
       "squad": [
         {
           "id": 1683,
@@ -6562,7 +6647,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.635,
+        "contra_norm": 0.44,
+        "drama_norm": 0.916,
+        "vuln_norm": 0.716
+      },
       "squad": [
         {
           "id": 1705,
@@ -6947,7 +7037,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.891,
+        "contra_norm": 0.521,
+        "drama_norm": 1.0,
+        "vuln_norm": 0.804
+      },
       "squad": [
         {
           "id": 1724,
@@ -7332,7 +7427,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.652,
+        "contra_norm": 0.386,
+        "drama_norm": 0.583,
+        "vuln_norm": 0.33
+      },
       "squad": [
         {
           "id": 1758,
@@ -7717,7 +7817,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.647,
+        "contra_norm": 0.198,
+        "drama_norm": 0.549,
+        "vuln_norm": 0.467
+      },
       "squad": [
         {
           "id": 1776,
@@ -8102,7 +8207,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.582,
+        "contra_norm": 0.0,
+        "drama_norm": 0.736,
+        "vuln_norm": 1.0
+      },
       "squad": [
         {
           "id": 1816,
@@ -8487,7 +8597,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.121,
+        "contra_norm": 0.179,
+        "drama_norm": 0.651,
+        "vuln_norm": 1.0
+      },
       "squad": [
         {
           "id": 1846,
@@ -8872,7 +8987,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.347,
+        "contra_norm": 0.37,
+        "drama_norm": 1.0,
+        "vuln_norm": 0.996
+      },
       "squad": [
         {
           "id": 1854,
@@ -9257,7 +9377,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.713,
+        "contra_norm": 0.318,
+        "drama_norm": 0.48,
+        "vuln_norm": 0.648
+      },
       "squad": [
         {
           "id": 1902,
@@ -9642,7 +9767,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.718,
+        "contra_norm": 0.3,
+        "drama_norm": 0.637,
+        "vuln_norm": 0.549
+      },
       "squad": [
         {
           "id": 1915,
@@ -10041,7 +10171,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.749,
+        "drama_norm": 0.603,
+        "vuln_norm": 0.775
+      },
       "squad": [
         {
           "id": 1952,
@@ -10426,7 +10561,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.446,
+        "contra_norm": 0.172,
+        "drama_norm": 0.0,
+        "vuln_norm": 0.326
+      },
       "squad": [
         {
           "id": 1958,
@@ -10811,7 +10951,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.641,
+        "drama_norm": 0.488,
+        "vuln_norm": 0.348
+      },
       "squad": [
         {
           "id": 1993,
@@ -11196,7 +11341,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.165,
+        "contra_norm": 0.242,
+        "drama_norm": 0.845,
+        "vuln_norm": 0.849
+      },
       "squad": [
         {
           "id": 2011,
@@ -11581,7 +11731,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.877,
+        "contra_norm": 0.715,
+        "drama_norm": 0.475,
+        "vuln_norm": 0.684
+      },
       "squad": [
         {
           "id": 2040,
@@ -11966,7 +12121,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.478,
+        "contra_norm": 0.687,
+        "drama_norm": 0.599,
+        "vuln_norm": 0.504
+      },
       "squad": [
         {
           "id": 2080,
@@ -12351,7 +12511,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.982,
+        "contra_norm": 0.662,
+        "drama_norm": 0.492,
+        "vuln_norm": 0.535
+      },
       "squad": [
         {
           "id": 2101,
@@ -12736,7 +12901,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.972,
+        "contra_norm": 1.0,
+        "drama_norm": 0.991,
+        "vuln_norm": 0.35
+      },
       "squad": [
         {
           "id": 2123,
@@ -13149,7 +13319,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.458,
+        "contra_norm": 0.655,
+        "drama_norm": 0.947,
+        "vuln_norm": 0.45
+      },
       "squad": [
         {
           "id": 2152,
@@ -13534,7 +13709,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.984,
+        "contra_norm": 1.0,
+        "drama_norm": 0.462,
+        "vuln_norm": 0.512
+      },
       "squad": [
         {
           "id": 2192,
@@ -13919,7 +14099,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 1.0,
+        "contra_norm": 0.472,
+        "drama_norm": 0.463,
+        "vuln_norm": 0.46
+      },
       "squad": [
         {
           "id": 2209,
@@ -14304,7 +14489,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.717,
+        "contra_norm": 0.81,
+        "drama_norm": 1.0,
+        "vuln_norm": 0.51
+      },
       "squad": [
         {
           "id": 2222,
@@ -14703,7 +14893,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.436,
+        "contra_norm": 0.393,
+        "drama_norm": 0.852,
+        "vuln_norm": 0.469
+      },
       "squad": [
         {
           "id": 2268,
@@ -15088,7 +15283,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.945,
+        "contra_norm": 0.912,
+        "drama_norm": 0.597,
+        "vuln_norm": 0.565
+      },
       "squad": [
         {
           "id": 2273,
@@ -15473,7 +15673,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.873,
+        "contra_norm": 0.462,
+        "drama_norm": 0.281,
+        "vuln_norm": 0.748
+      },
       "squad": [
         {
           "id": 2316,
@@ -15872,7 +16077,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.449,
+        "contra_norm": 0.3,
+        "drama_norm": 0.484,
+        "vuln_norm": 0.681
+      },
       "squad": [
         {
           "id": 2327,
@@ -16257,7 +16467,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.263,
+        "contra_norm": 0.439,
+        "drama_norm": 0.78,
+        "vuln_norm": 0.495
+      },
       "squad": [
         {
           "id": 2360,
@@ -16628,7 +16843,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 1.0,
+        "contra_norm": 1.0,
+        "drama_norm": 0.648,
+        "vuln_norm": 0.634
+      },
       "squad": [
         {
           "id": 2377,
@@ -17013,7 +17233,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.592,
+        "contra_norm": 0.358,
+        "drama_norm": 0.496,
+        "vuln_norm": 0.2
+      },
       "squad": [
         {
           "id": 2421,
@@ -17398,7 +17623,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.91,
+        "contra_norm": 0.493,
+        "drama_norm": 0.478,
+        "vuln_norm": 0.467
+      },
       "squad": [
         {
           "id": 2449,
@@ -17783,7 +18013,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.434,
+        "contra_norm": 0.084,
+        "drama_norm": 0.919,
+        "vuln_norm": 0.821
+      },
       "squad": [
         {
           "id": 2472,
@@ -18182,7 +18417,12 @@
         "sofascore_rating_avg": null,
         "cards_per_match_avg": 1.5
       },
-      "espectaculo_params": null,
+      "espectaculo_params": {
+        "ocasiones_norm": 0.998,
+        "contra_norm": 0.761,
+        "drama_norm": 0.441,
+        "vuln_norm": 0.647
+      },
       "squad": [
         {
           "id": 2496,
