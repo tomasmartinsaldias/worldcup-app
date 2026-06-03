@@ -31,7 +31,8 @@ def main():
         SELECT 
             t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder, t.is_confirmed_squad, t.dt,
             m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, m.global_popularity_score,
-            m.progressive_passes_per_90_avg, m.sofascore_rating_avg, m.cards_per_match_avg
+            m.progressive_passes_per_90_avg, m.sofascore_rating_avg, m.cards_per_match_avg,
+            m.ocasiones_norm, m.contra_norm, m.drama_norm, m.vuln_norm
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
@@ -40,7 +41,8 @@ def main():
     groups_dict = {}
     
     for row in cursor.fetchall():
-        (tid, name, code, group_letter, is_placeholder, is_confirmed, dt, val, xg, poss, pop, prog_passes, sofascore, cards) = row
+        (tid, name, code, group_letter, is_placeholder, is_confirmed, dt, val, xg, poss, pop, prog_passes, sofascore, cards,
+         oc_norm, ca_norm, drama_norm, vuln_norm) = row
         
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
@@ -60,7 +62,12 @@ def main():
                 "sofascore_rating_avg": sofascore,
                 "cards_per_match_avg": cards
             }
-            espectaculo_params = None
+            espectaculo_params = {
+                "ocasiones_norm": oc_norm,
+                "contra_norm": ca_norm,
+                "drama_norm": drama_norm,
+                "vuln_norm": vuln_norm
+            }
             
         teams_dict[code] = {
             "id": tid,
