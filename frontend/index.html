@@ -257,14 +257,14 @@
       opacity: 0.15;
     }
 
-    .card-casual { --accent-color: #00ff66; --accent-color-glow: rgba(0, 255, 102, 0.3); }
-    .card-intermedio { --accent-color: #ff2a2a; --accent-color-glow: rgba(255, 42, 42, 0.3); }
+    .card-casual { --accent-color: #00ff66; --accent-color-glow: rgba(0, 255, 102, 0.3); box-shadow: 0 0 25px rgba(5, 173, 36, 0.692) inset, 0 0 15px rgba(0, 136, 255, 0.2);}
+    .card-intermedio { --accent-color: #ff2a2a; --accent-color-glow: rgba(255, 42, 42, 0.3); box-shadow: 0 0 25px rgba(200, 5, 8, 0.604) inset, 0 0 15px rgba(0, 136, 255, 0.2); }
     .card-fanatico { 
       --accent-color: #0088ff; 
       --accent-color-glow: rgba(0, 136, 255, 0.5); 
       /* Tratamiento Premium Fanático */
-      border: 1px solid rgba(0, 136, 255, 0.4);
-      box-shadow: 0 0 25px rgba(0, 136, 255, 0.15) inset, 0 0 15px rgba(0, 136, 255, 0.2);
+  
+      box-shadow: 0 0 25px rgba(0, 26, 255, 0.405) inset, 0 0 15px rgba(0, 136, 255, 0.2);
     }
     .card-fanatico .card-glow {
       opacity: 0.1; /* Resplandor constante */
@@ -396,6 +396,103 @@
       pointer-events: none;
       transition: opacity 0.8s ease;
     }
+
+    /* --- QUIZ FANATICO --- */
+    #fanatic-stars {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+    }
+    
+    .fq-flow .fanatic-container {
+      background: rgba(10, 10, 15, 0.6);
+      border: 1px solid rgba(10, 88, 255, 0.3);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(10, 88, 255, 0.15) inset;
+      animation: fanaticPulse 4s infinite alternate;
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+      padding: 3rem;
+      border-radius: 16px;
+      width: 100%;
+    }
+    
+    @keyframes fanaticPulse {
+      0% { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(10, 88, 255, 0.1) inset; }
+      100% { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 60px rgba(10, 88, 255, 0.3) inset; }
+    }
+
+    .fq-flow .quiz-progress {
+      background: #0A58FF;
+      box-shadow: 0 0 15px #0A58FF;
+      width: 20%;
+    }
+    .fq-flow .quiz-header span {
+      color: #0A58FF;
+    }
+
+    .fanatic-cards-wrapper {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      height: 350px;
+    }
+    
+    .fanatic-card {
+      flex: 1;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .fanatic-card .bg-image {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.4);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .fanatic-card:hover .bg-image, .fanatic-card.fq-selected .bg-image {
+      filter: grayscale(0%) brightness(0.8);
+      transform: scale(1.05);
+    }
+
+    .fanatic-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .fanatic-card:hover, .fanatic-card.fq-selected {
+      border-color: #0A58FF;
+      box-shadow: 0 0 30px rgba(10, 88, 255, 0.6), 0 0 15px #0A58FF inset;
+      transform: translateY(-5px);
+    }
+
+    .fanatic-card .card-content {
+      position: relative;
+      z-index: 2;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -439,7 +536,7 @@
         <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-fanatico">
+      <div class="spectator-card card-fanatico" onclick="startQuiz('fanatico')">
         <h3>FANÁTICO</h3>
         <p>El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
         <div class="card-glow"></div>
@@ -495,9 +592,104 @@
     </div>
   </div>
 
+  <div id="fanatic-quiz" class="ui-overlay hidden fq-flow">
+    <canvas id="fanatic-stars"></canvas>
+    <div class="quiz-container fanatic-container">
+      <div class="quiz-header">
+        <div class="quiz-progress-bar"><div class="quiz-progress" id="fq-progress"></div></div>
+        <span id="fq-step-text">PASO 1 DE 5</span>
+      </div>
+      
+      <!-- Paso 1 -->
+      <div class="quiz-step active" id="fq-step-1">
+        <h2 class="quiz-question">¿QUÉ MOMENTO ES MÁS ÉPICO?</h2>
+        <p class="quiz-desc">La adrenalina pura se define en estos instantes.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">GOL EN EL ÚLTIMO MINUTO</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">TANDA DE PENALES</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="quiz-step" id="fq-step-2">
+        <h2 class="quiz-question">¿TU ESTILO DE LEYENDA?</h2>
+        <p class="quiz-desc">Los nombres que cambian la historia.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1e1e11414457?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL 10 MÁGICO</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1551280857-2b9bbe52ccbd?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL 9 GOLEADOR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="quiz-step" id="fq-step-3">
+        <h2 class="quiz-question">¿LA TÁCTICA PERFECTA?</h2>
+        <p class="quiz-desc">La pizarra del estratega determina la victoria.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">POSESIÓN ABSOLUTA</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6d0a624f11?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">CONTRA LETAL</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="quiz-step" id="fq-step-4">
+        <h2 class="quiz-question">¿RIVALIDAD HISTÓRICA?</h2>
+        <p class="quiz-desc">El peso de la historia se siente en la cancha.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">EL CLÁSICO LOCAL</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1524015368236-bbf6f72545b6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">FINAL DEL MUNDO</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paso 5 -->
+      <div class="quiz-step" id="fq-step-5">
+        <h2 class="quiz-question">¿EL MAYOR LOGRO?</h2>
+        <p class="quiz-desc">El trofeo definitivo que todo jugador sueña levantar.</p>
+        <div class="fanatic-cards-wrapper">
+          <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1614632537190-23e4146777db?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">CHAMPIONS LEAGUE</div>
+          </div>
+          <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
+            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1600250395221-ea1c32286fb6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="card-content">LA COPA DEL MUNDO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- LÓGICA DE UI OVERLAYS -->
   <script>
+    let appState = 'homepage'; // 'homepage', 'transition', 'spectator', 'quiz'
+
     function startExperience() {
+      if (appState !== 'homepage') return;
+      appState = 'transition';
+
       // Ocultar UI inicial
       document.querySelector('.hero-ui').classList.add('fade-out');
       document.querySelector('.scroll-indicator').classList.add('fade-out');
@@ -505,16 +697,119 @@
       // Mostrar Tarjetas
       setTimeout(() => {
         document.getElementById('spectator-selection').classList.add('visible');
+        appState = 'spectator';
       }, 500);
     }
 
+    function returnToHomepage() {
+      if (appState !== 'spectator') return;
+      appState = 'transition';
+
+      document.getElementById('spectator-selection').classList.remove('visible');
+      setTimeout(() => {
+        document.querySelector('.hero-ui').classList.remove('fade-out');
+        document.querySelector('.scroll-indicator').classList.remove('fade-out');
+        appState = 'homepage';
+      }, 500);
+    }
+
+    // Event listener para el scroll (rueda del mouse o trackpad)
+    window.addEventListener('wheel', (event) => {
+      if (appState === 'homepage' && event.deltaY > 10) {
+        startExperience();
+      } else if (appState === 'spectator' && event.deltaY < -10) {
+        returnToHomepage();
+      }
+    });
+
     function startQuiz(level) {
       if(level === 'casual') {
+        appState = 'transition';
         document.getElementById('spectator-selection').classList.remove('visible');
         setTimeout(() => {
           document.getElementById('casual-quiz').classList.add('visible');
+          appState = 'quiz-casual';
+        }, 500);
+      } else if(level === 'fanatico') {
+        appState = 'transition';
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('fanatic-quiz').classList.add('visible');
+          appState = 'quiz-fanatic';
+          initFanaticStars();
+          currentPattern = 0;
         }, 500);
       }
+    }
+
+    // --- LÓGICA FANÁTICO ---
+    const fanaticCanvas = document.getElementById('fanatic-stars');
+    const fctx = fanaticCanvas.getContext('2d');
+    let fWidth, fHeight;
+    
+    function initFanaticStars() {
+      fWidth = window.innerWidth;
+      fHeight = window.innerHeight;
+      fanaticCanvas.width = fWidth;
+      fanaticCanvas.height = fHeight;
+      
+      fctx.clearRect(0, 0, fWidth, fHeight);
+      
+      // Estrellas fijas dibujadas una sola vez (0 lag)
+      for(let i=0; i<150; i++) {
+        const x = Math.random() * fWidth;
+        const y = Math.random() * fHeight;
+        const size = Math.random() * 1.5 + 0.5;
+        const opacity = Math.random() * 0.7 + 0.3;
+        
+        fctx.beginPath();
+        fctx.arc(x, y, size, 0, Math.PI * 2);
+        fctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        
+        // Solo algunas brillan sutilmente para no sobrecargar el renderizado
+        if (Math.random() > 0.8) {
+          fctx.shadowBlur = 8;
+          fctx.shadowColor = '#0A58FF'; // Toque azul neón
+        } else {
+          fctx.shadowBlur = 0;
+        }
+        
+        fctx.fill();
+        fctx.shadowBlur = 0;
+      }
+    }
+    
+    window.addEventListener('resize', () => {
+      if(appState === 'quiz-fanatic') initFanaticStars();
+    });
+
+    function changeStarPattern() {
+      // Al cambiar de pregunta, simplemente redibujamos un nuevo cielo estrellado al instante
+      if(appState === 'quiz-fanatic') {
+        initFanaticStars();
+      }
+    }
+
+    function nextFanaticStep(currentStepNum, btn) {
+      if(btn) btn.classList.add('fq-selected');
+      
+      setTimeout(() => {
+        const currentStep = document.getElementById(`fq-step-${currentStepNum}`);
+        if(currentStep) currentStep.classList.remove('active');
+        
+        const nextStepNum = currentStepNum + 1;
+        const nextStep = document.getElementById(`fq-step-${nextStepNum}`);
+        
+        if(nextStep) {
+          nextStep.classList.add('active');
+          document.getElementById('fq-step-text').innerText = `PASO ${nextStepNum} DE 5`;
+          document.getElementById('fq-progress').style.width = `${(nextStepNum / 5) * 100}%`;
+          
+          changeStarPattern();
+        } else {
+          alert("¡Nivel Fanático completado! Tu destino épico aguarda.");
+        }
+      }, 500);
     }
 
     function selectOption(btn) {
@@ -653,7 +948,7 @@
     const gradient = ctxP.createRadialGradient(32, 32, 0, 32, 32, 32);
     gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
     gradient.addColorStop(0.15, 'rgba(150, 150, 150, 0.6)');
-    gradient.addColorStop(0.4, 'rgba(50, 50, 50, 0.2)');
+    gradient.addColorStop(0.7, 'rgba(50, 50, 50, 0.2)');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
     
     ctxP.fillStyle = gradient;
@@ -918,13 +1213,24 @@
           }
         }
         drawGlow(ctx, x, y, size, alpha, blur) {
-          ctx.beginPath();
-          ctx.arc(x, y, Math.max(0, size), 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-          ctx.shadowBlur = blur;
-          ctx.shadowColor = `rgba(0, 150, 255, ${alpha})`;
-          ctx.fill();
-          ctx.shadowBlur = 0;
+          // OPTIMIZACIÓN: Se usa createRadialGradient en lugar de shadowBlur, que causa caída masiva de FPS en radios grandes.
+          if (blur > 0) {
+            const radius = Math.max(0.1, size + blur);
+            const grad = ctx.createRadialGradient(x, y, Math.max(0, size * 0.2), x, y, radius);
+            grad.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+            grad.addColorStop(0.35, `rgba(0, 150, 255, ${alpha * 0.7})`);
+            grad.addColorStop(1, `rgba(0, 150, 255, 0)`);
+            
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = grad;
+            ctx.fill();
+          } else {
+            ctx.beginPath();
+            ctx.arc(x, y, Math.max(0, size), 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            ctx.fill();
+          }
         }
       }
 
@@ -939,18 +1245,26 @@
       }
 
       // --- BUCLE DE ANIMACIÓN SECUNDARIO ---
+      let fxNeedsClear = false;
+
       function fxLoop(time) {
         // 1. Actualizar luces 3D
         update3DLights(time);
 
-        // 2. Actualizar Canvas 2D
-        ctx.clearRect(0, 0, width, height);
-        ctx.globalCompositeOperation = 'screen';
-        
-        for (let i = blueStars.length - 1; i >= 0; i--) {
-          let dead = blueStars[i].update();
-          blueStars[i].draw(ctx);
-          if (dead) blueStars.splice(i, 1);
+        // 2. Actualizar Canvas 2D solo si hay elementos (ahorra 90% de GPU)
+        if (blueStars.length > 0) {
+          ctx.clearRect(0, 0, width, height);
+          ctx.globalCompositeOperation = 'screen';
+          
+          for (let i = blueStars.length - 1; i >= 0; i--) {
+            let dead = blueStars[i].update();
+            blueStars[i].draw(ctx);
+            if (dead) blueStars.splice(i, 1);
+          }
+          fxNeedsClear = true;
+        } else if (fxNeedsClear) {
+          ctx.clearRect(0, 0, width, height);
+          fxNeedsClear = false;
         }
         
         requestAnimationFrame(fxLoop);
