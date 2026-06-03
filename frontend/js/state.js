@@ -8,31 +8,20 @@ let userPreferences = {
   favoritePlayers: [],
   preferredTime: [], // array of 'morning', 'afternoon', 'evening'
   tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 },
-  dramaBeta: 0.2,
   spectacleWeight: 0.5,
-  quizVector: {
-    golesPartido: 0,
-    posesion: 0,
-    regates: 0,
-    tirosPartido: 0,
-    faltasPartido: 0,
-    tarjetas: 0,
-    contraataques_per_game: 0,
-    presionAlta: 0,
-    porteriaInvictaRatio: 0,
-    duelos: 0
-  }
+  // dramaBonus: -1 (no gusta fricción) | 0 (indiferente) | +1 (gusta fricción)
+  // Controla si el FriccionScore suma o resta al SmartScore final
+  dramaBonus: 0
 };
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, sofascoreRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
+    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
       fetch(`../data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`../data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
       fetch(`../data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
       fetch(`data/players_photos.json?t=${new Date().getTime()}`),
-      fetch(`../data/selecciones_vectors.json?t=${new Date().getTime()}`),
       fetch(`../data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=${new Date().getTime()}`),
       fetch(`../data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=${new Date().getTime()}`),
       fetch(`../data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=${new Date().getTime()}`),
@@ -57,9 +46,6 @@ export async function loadData() {
       Wingers: clusters[4],
       Strikers: clusters[5]
     };
-
-    const sofascoreData = await sofascoreRes.json();
-    state.appData.sofascoreVectors = sofascoreData;
 
     const photosData = await photosRes.json();
     state.appData.photoIndex = {};

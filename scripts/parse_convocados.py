@@ -16,6 +16,7 @@ def normalize_name(text):
         'ã': 'a', 'õ': 'o', 'â': 'a', 'ê': 'e', 'î': 'i', 'ô': 'o', 'û': 'u',
         'à': 'a', 'è': 'e', 'ì': 'i', 'ò': 'o', 'ù': 'u',
         'ä': 'a', 'ë': 'e', 'ï': 'i', 'ö': 'o', 'ü': 'u',
+        'ø': 'o', 'æ': 'ae', 'å': 'a', 'ß': 'ss', 'ð': 'd', 'þ': 'th',
     }
     for k, v in char_map.items():
         text = text.replace(k, v)
@@ -28,16 +29,8 @@ def clean_for_api_search(name):
     if not isinstance(name, str):
         return ""
     name = name.replace("?", "i")
-    char_map = {
-        'ı': 'i', 'ğ': 'g', 'ş': 's', 'ç': 'c', 'ö': 'o', 'ü': 'u',
-        'İ': 'I', 'Ğ': 'G', 'Ş': 'S', 'Ç': 'C', 'Ö': 'O', 'Ü': 'U',
-        'ñ': 'n', 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
-        'ã': 'a', 'õ': 'o', 'â': 'a', 'ê': 'e', 'î': 'i', 'ô': 'o', 'û': 'u',
-        'à': 'a', 'è': 'e', 'ì': 'i', 'ò': 'o', 'ù': 'u',
-        'ä': 'a', 'ë': 'e', 'ï': 'i', 'ö': 'o', 'ü': 'u',
-    }
-    for k, v in char_map.items():
-        name = name.replace(k, v)
+    name = unicodedata.normalize('NFD', name)
+    name = "".join([c for c in name if not unicodedata.combining(c)])
     name = re.sub(r'[^a-zA-Z0-9\s\-]', '', name)
     return " ".join(name.split())
 
@@ -234,6 +227,9 @@ def parse_players_line(line):
             club = "Agente Libre"
         
         name = name.replace('*', '').strip()
+        name = re.sub(r'^(?:and|y|e)\b\s*', '', name, flags=re.IGNORECASE).strip()
+        if not name:
+            continue
         club = standardize_club_name(club)
         cleaned_players.append((name, club))
         
@@ -311,6 +307,8 @@ def resolve_name_aliases(name):
         return "Leonardo " + name[4:]
     if norm.startswith("lea "):
         return "Leandro " + name[4:]
+    if norm.startswith("andy "):
+        return "Andrew " + name[5:]
         
     return name
 
@@ -318,11 +316,83 @@ def resolve_from_transfermarkt_cache(cursor, player_name, fifa_code, current_age
     player_name = resolve_name_aliases(player_name)
     cursor.execute("SELECT response_json FROM cache_transfermarkt WHERE query = ?;", (player_name,))
     row = cursor.fetchone()
+    if row:
+        try:
+            api_data = json.loads(row[0])
+            if not api_data or not api_data.get('results'):
+                row = None
+        except Exception:
+            row = None
+            
     if not row:
         clean_name = clean_for_api_search(player_name)
         cursor.execute("SELECT response_json FROM cache_transfermarkt WHERE query = ?;", (clean_name,))
         row = cursor.fetchone()
+        if row:
+            try:
+                api_data = json.loads(row[0])
+                if not api_data or not api_data.get('results'):
+                    row = None
+            except Exception:
+                row = None
         
+    if not row:
+        # Fallback to Jaccard or SequenceMatcher search of query column in the cache to handle inverted names, different spellings, or typos (e.g. Erling Braut Haaland, Jin-seop vs Jin-seob)
+        import difflib
+        cursor.execute("SELECT query, response_json FROM cache_transfermarkt;")
+        all_cache = cursor.fetchall()
+        norm_p = normalize_name(player_name)
+        tokens_p = set(norm_p.split())
+        if tokens_p:
+            best_query_score = -1.0
+            best_row = None
+            for q_name, q_json in all_cache:
+                try:
+                    q_data = json.loads(q_json)
+                    if not q_data or not q_data.get('results'):
+                        continue
+                except Exception:
+                    continue
+                norm_q = normalize_name(q_name)
+                
+                # Method 1: Jaccard (token-based, good for word additions/inversions)
+                tokens_q = set(norm_q.split())
+                jacc = len(tokens_p.intersection(tokens_q)) / len(tokens_p.union(tokens_q)) if tokens_q else 0.0
+                
+                # Method 2: Sequence similarity (character-based, good for spelling differences/typos)
+                seq_ratio = difflib.SequenceMatcher(None, norm_p, norm_q).ratio()
+                
+                # Combine score
+                is_match = (jacc >= 0.5) or (seq_ratio >= 0.8)
+                score = max(jacc, seq_ratio)
+                
+                if is_match and score > best_query_score:
+                    best_query_score = score
+                    best_row = q_json
+            if best_row:
+                row = (best_row,)
+                
+    if not row:
+        import requests
+        import urllib.parse
+        try:
+            print(f"  [API] Buscando '{player_name}' en API local...")
+            url = f"http://127.0.0.1:8000/players/search/{urllib.parse.quote(player_name)}"
+            resp = requests.get(url, timeout=10)
+            if resp.status_code == 200:
+                resp_data = resp.json()
+                if resp_data and resp_data.get('results'):
+                    resp_str = json.dumps(resp_data)
+                    cursor.execute("INSERT OR REPLACE INTO cache_transfermarkt (query, response_json) VALUES (?, ?);", (player_name, resp_str))
+                    clean_name = clean_for_api_search(player_name)
+                    if clean_name != player_name:
+                        cursor.execute("INSERT OR REPLACE INTO cache_transfermarkt (query, response_json) VALUES (?, ?);", (clean_name, resp_str))
+                    cursor.connection.commit()
+                    row = (resp_str,)
+                    print(f"    [+] Guardado en cache para '{player_name}'")
+        except Exception as e:
+            print(f"    [-] Error consultando API local: {e}")
+
     if row:
         try:
             api_data = json.loads(row[0])
@@ -353,14 +423,19 @@ def resolve_from_transfermarkt_cache(cursor, player_name, fifa_code, current_age
                         if abs(current_age - cand_age) > 3:
                             continue
                             
+                    import difflib
                     set1 = set(normalize_name(player_name).split())
                     set2 = set(normalize_name(cand_name).split())
                     if not set1 or not set2:
                         continue
                     jaccard = len(set1.intersection(set2)) / len(set1.union(set2))
+                    seq_ratio = difflib.SequenceMatcher(None, normalize_name(player_name), normalize_name(cand_name)).ratio()
                     
-                    if jaccard > best_score and jaccard >= 0.35:
-                        best_score = jaccard
+                    is_cand_match = (jaccard >= 0.35) or (seq_ratio >= 0.8)
+                    score = max(jaccard, seq_ratio)
+                    
+                    if is_cand_match and score > best_score:
+                        best_score = score
                         best_cand = cand
                         
                 if best_cand:
@@ -404,6 +479,33 @@ def get_golden_dataset_stats(csv_by_team, fifa_to_csv_teams, fifa_code, player_n
         
     return None
 
+def load_ages_from_wcq(wcq_dir, name_to_code):
+    wcq_ages = {}
+    for filename in os.listdir(wcq_dir):
+        if filename.startswith("Player Standard Stats") and filename.endswith(".txt"):
+            filepath = os.path.join(wcq_dir, filename)
+            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                for line in f:
+                    if not line.strip() or line.startswith('Rk') or line.startswith('\t'):
+                        continue
+                    parts = line.strip().split('\t')
+                    if len(parts) < 5:
+                        continue
+                    player_name = parts[1].strip()
+                    squad_col = parts[3].strip()
+                    squad_parts = squad_col.split(' ', 1)
+                    if len(squad_parts) < 2:
+                        continue
+                    norm_team = normalize_name(squad_parts[1].strip())
+                    code = name_to_code.get(norm_team)
+                    if code:
+                        try:
+                            age = int(parts[4].strip())
+                            wcq_ages[(normalize_name(player_name), code)] = age
+                        except ValueError:
+                            pass
+    return wcq_ages
+
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
@@ -422,7 +524,35 @@ def main():
     
     # Agregar columna is_confirmed_squad a wc2026_teams si no existe
     add_column_if_not_exists(cursor, "wc2026_teams", "is_confirmed_squad", "BOOLEAN DEFAULT 0")
+    add_column_if_not_exists(cursor, "wc2026_teams", "dt", "TEXT")
     conn.commit()
+
+    # Cargar mapeo de nombres a códigos FIFA para wcq_ages
+    cursor.execute("SELECT fifa_code, wc2026_name, historical_name, intl_results_name FROM team_mappings;")
+    name_to_code = {}
+    for code, wc, hist, intl in cursor.fetchall():
+        candidates = set()
+        for name in [wc, hist, intl]:
+            if name:
+                candidates.add(normalize_name(name))
+        
+        if code == 'USA': candidates.update([normalize_name(x) for x in ['usa', 'united states', 'us']])
+        elif code == 'MEX': candidates.update([normalize_name(x) for x in ['mexico', 'mex']])
+        elif code == 'CAN': candidates.update([normalize_name(x) for x in ['canada', 'can']])
+        elif code == 'IRN': candidates.update([normalize_name(x) for x in ['ir iran', 'iran', 'irn']])
+        elif code == 'KOR': candidates.update([normalize_name(x) for x in ['korea republic', 'south korea', 'korea', 'kor']])
+        elif code == 'CIV': candidates.update([normalize_name(x) for x in ["côte d'ivoire", "cote d'ivoire", "ivory coast", "civ"]])
+        elif code == 'COD': candidates.update([normalize_name(x) for x in ["congo dr", "dr congo", "cod"]])
+        elif code == 'TUR': candidates.update([normalize_name(x) for x in ["türkiye", "turkey", "tur"]])
+        elif code == 'CZE': candidates.update([normalize_name(x) for x in ["czechia", "czech republic", "cze"]])
+        elif code == 'BIH': candidates.update([normalize_name(x) for x in ["bosnia", "herzegovina", "bosnia and herzegovina", "bosnia-herzegovina"]])
+        
+        for cand in candidates:
+            if cand:
+                name_to_code[cand] = code
+
+    wcq_dir = os.path.join(base_dir, "data", "eliminatorias-2026")
+    wcq_ages = load_ages_from_wcq(wcq_dir, name_to_code)
     
     # 1. Parsear el archivo Lista de Convocados.md
     print("Leyendo y parseando Lista de Convocados.md...")
@@ -456,7 +586,8 @@ def main():
                 teams_data[current_team] = {
                     'is_confirmed': False,
                     'players': [],
-                    'destacados': []
+                    'destacados': [],
+                    'dt': None
                 }
             i += 1
             continue
@@ -466,7 +597,11 @@ def main():
             label = parts[0].strip().lower()
             content = parts[1].strip()
             
-            if 'destacado' in label:
+            if label == 'dt':
+                dt_name = content.strip().rstrip('.')
+                if current_team and current_team in teams_data:
+                    teams_data[current_team]['dt'] = dt_name
+            elif 'destacado' in label:
                 dest_names = []
                 raw_names = re.split(r',|\s+y\s+|\s+e\s+', content)
                 for rn in raw_names:
@@ -476,6 +611,16 @@ def main():
                 if current_team and current_team in teams_data:
                     teams_data[current_team]['destacados'] = dest_names
             else:
+                # Handle trailing DT (like Argentina: Delanteros: ... DT: Lionel Scaloni.)
+                dt_match = re.search(r'\.?\s+DT:\s*(.*)$', line, re.IGNORECASE)
+                if dt_match:
+                    dt_name = dt_match.group(1).strip().rstrip('.')
+                    if current_team and current_team in teams_data:
+                        teams_data[current_team]['dt'] = dt_name
+                    line = line[:dt_match.start()].strip()
+                    parts = line.split(':', 1)
+                    label = parts[0].strip().lower()
+                
                 role = 'Defensa'
                 for k, v in role_mapping.items():
                     if k in label:
@@ -498,7 +643,8 @@ def main():
             teams_data[current_team] = {
                 'is_confirmed': True,
                 'players': [],
-                'destacados': []
+                'destacados': [],
+                'dt': None
             }
         i += 1
         
@@ -533,12 +679,13 @@ def main():
         
         # Si el equipo no está en el MD o está marcado como no confirmado
         if not md_data or not md_data['is_confirmed']:
-            cursor.execute("UPDATE wc2026_teams SET is_confirmed_squad = 0 WHERE fifa_code = ?;", (fifa_code,))
-            print(f"Selección {team_name} ({fifa_code}): Marcada como NO confirmada.")
+            cursor.execute("UPDATE wc2026_teams SET is_confirmed_squad = 0, dt = NULL WHERE fifa_code = ?;", (fifa_code,))
+            print(f"Seleccion ({fifa_code}): Marcada como NO confirmada.")
             continue
             
-        cursor.execute("UPDATE wc2026_teams SET is_confirmed_squad = 1 WHERE fifa_code = ?;", (fifa_code,))
-        print(f"Selección {team_name} ({fifa_code}): Procesando plantilla confirmada (MD)...")
+        dt_name = md_data.get('dt')
+        cursor.execute("UPDATE wc2026_teams SET is_confirmed_squad = 1, dt = ? WHERE fifa_code = ?;", (dt_name, fifa_code))
+        print(f"Seleccion ({fifa_code}): Procesando plantilla confirmada (MD)...")
         
         # Eliminar el plantel anterior (para evitar heredar datos obsoletos) e insertar de cero
         cursor.execute("DELETE FROM scraped_wc2026_probable_squads WHERE fifa_code = ?;", (fifa_code,))
@@ -573,12 +720,15 @@ def main():
             if not fp['is_new']:
                 continue
                 
+            wcq_age = wcq_ages.get((normalize_name(fp['name']), fifa_code))
+            search_age = wcq_age
+            
             # Resolver market value, age y club (desde cache o golden dataset)
-            mv_m, tm_age, tm_club = resolve_from_transfermarkt_cache(cursor, fp['name'], fifa_code)
+            mv_m, tm_age, tm_club = resolve_from_transfermarkt_cache(cursor, fp['name'], fifa_code, search_age)
             p_club = tm_club if tm_club is not None else fp['club']
             p_club = standardize_club_name(p_club)
             p_mv = mv_m
-            p_age = tm_age if tm_age is not None else (fp['age'] if 'age' in fp else 26)
+            p_age = tm_age if tm_age is not None else (search_age if search_age is not None else 26)
             
             p_caps = 0
             p_goals = 0

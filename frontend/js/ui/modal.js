@@ -14,6 +14,15 @@ export function openH2HModal(match) {
   // Set sub-scores
   document.getElementById('modal-spectacle-score').textContent = match.spectacleScore ? match.spectacleScore.toFixed(1) : '5.0';
   document.getElementById('modal-playstyle-score').textContent = match.playstyleScore ? match.playstyleScore.toFixed(1) : '5.0';
+  document.getElementById('modal-friccion-score').textContent = match.friccionScore ? match.friccionScore.toFixed(1) : '5.5';
+
+  // Dynamic percentages for labels
+  const wSpectacle = state.userPreferences?.spectacleWeight ?? 0.5;
+  const wPlaystyle = 1.0 - wSpectacle;
+  const specLbl = document.getElementById('modal-spectacle-lbl');
+  const styleLbl = document.getElementById('modal-playstyle-lbl');
+  if (specLbl) specLbl.textContent = `Espectáculo (${Math.round(wSpectacle * 100)}%)`;
+  if (styleLbl) styleLbl.textContent = `Estilo de Juego (${Math.round(wPlaystyle * 100)}%)`;
   
   // Set rank interest (out of 104 matches)
   if (state.appData && state.appData.matches) {

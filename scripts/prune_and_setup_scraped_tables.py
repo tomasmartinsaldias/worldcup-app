@@ -41,25 +41,21 @@ def main():
     print("Tablas eliminadas exitosamente.")
     
     print("\n--- 2. Creando nuevas tablas para Scraping ---")
-    # Tabla: scraped_team_metrics
+    # Tabla: scraped_team_metrics (solo market value)
+    cursor.execute("DROP TABLE IF EXISTS scraped_team_metrics;")
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS scraped_team_metrics (
+    CREATE TABLE scraped_team_metrics (
         fifa_code TEXT PRIMARY KEY,
         market_value_eur REAL,
-        recent_xg_avg REAL,
-        recent_possession_avg REAL,
-        global_popularity_score REAL,
-        progressive_passes_per_90_avg REAL,
-        sofascore_rating_avg REAL,
-        cards_per_match_avg REAL,
         FOREIGN KEY (fifa_code) REFERENCES wc2026_teams (fifa_code)
     );
     """)
-    print("Creada tabla 'scraped_team_metrics'.")
+    print("Creada tabla 'scraped_team_metrics' (solo market value).")
     
-    # Tabla: scraped_wc2026_probable_squads
+    # Tabla: scraped_wc2026_probable_squads (sin columnas FBref)
+    cursor.execute("DROP TABLE IF EXISTS scraped_wc2026_probable_squads;")
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS scraped_wc2026_probable_squads (
+    CREATE TABLE scraped_wc2026_probable_squads (
         player_id INTEGER PRIMARY KEY AUTOINCREMENT,
         player_name TEXT,
         fifa_code TEXT,
@@ -77,7 +73,7 @@ def main():
         FOREIGN KEY (fifa_code) REFERENCES wc2026_teams (fifa_code)
     );
     """)
-    print("Creada tabla 'scraped_wc2026_probable_squads'.")
+    print("Creada tabla 'scraped_wc2026_probable_squads' (sin columnas FBref).")
     
     # Tabla: scraped_unresolved_players
     cursor.execute("""
