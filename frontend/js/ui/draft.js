@@ -48,8 +48,8 @@ const GROUP_QUESTIONS = {
 const GROUP_IMAGES = {
   'Goalkeepers': { 1: 'gk_1.jpg', 2: 'gk_2.jpg', 3: 'gk_3.jpg' },
   'Centerbacks': { 1: 'cb_1.jpg', 2: 'cb_2.jpg', 3: 'cb_3.jpg' },
-  'Fullbacks': { 1: 'fb_1.jpg', 2: 'fb_2.jpg', 3: 'fb_3.jpg', 4: 'fb_1.jpg' },
-  'Midfielders': { 1: 'mid_1.jpg', 2: 'mid_2.jpg', 3: 'mid_3.jpg', 4: 'mid_1.jpg' },
+  'Fullbacks': { 1: 'fb_1.jpg', 2: 'fb_2.jpg', 3: 'fb_3.jpg', 4: 'fb_4.jpg' },
+  'Midfielders': { 1: 'mid_1.jpg', 2: 'mid_2.jpg', 3: 'mid_3.jpg', 4: 'mid_4.jpg' },
   'Wingers': { 1: 'winger_1.jpg', 2: 'winger_2.jpg', 3: 'winger_3.jpg' },
   'Strikers': { 1: 'striker_1.jpg', 2: 'striker_2.jpg', 3: 'striker_3.jpg' }
 };
@@ -423,15 +423,14 @@ function openDraftOptions(slotId, groupName) {
     const archetype = metadata[clusterId];
     const wrapper = document.createElement('div');
     wrapper.style.animation = `smoothFadeInUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.3}s both`;
-    const imgName = (GROUP_IMAGES[groupName] && GROUP_IMAGES[groupName][clusterId])
-      ? GROUP_IMAGES[groupName][clusterId]
-      : 'default.jpg';
-    const imgUrl = `assets/images/${imgName}`;
+    const imgBaseName = (GROUP_IMAGES[groupName] && GROUP_IMAGES[groupName][clusterId])
+      ? GROUP_IMAGES[groupName][clusterId].split('.')[0]
+      : 'default';
 
     const card = document.createElement('div');
     card.className = 'archetype-selection-card';
     card.innerHTML = `
-      <div class="archetype-img-container" style="background: linear-gradient(to bottom, rgba(15,16,21,0) 0%, #0f1015 100%), url('${imgUrl}') center/cover;">
+      <div class="archetype-img-container">
         <div class="archetype-badge">OPCIÓN 0${index + 1}</div>
       </div>
       <div class="archetype-info">
@@ -440,6 +439,26 @@ function openDraftOptions(slotId, groupName) {
         <p class="archetype-desc">${archetype.desc}</p>
       </div>
     `;
+
+    const imgContainer = card.querySelector('.archetype-img-container');
+    const exts = ['jpg', 'png', 'jpeg', 'webp'];
+    let extIdx = 0;
+    const tryNextExt = () => {
+      if (extIdx >= exts.length) {
+         imgContainer.style.background = `linear-gradient(to bottom, rgba(15,16,21,0) 0%, #0f1015 100%), url('assets/images/default.jpg') top center/cover no-repeat`;
+         return;
+      }
+      const testImg = new Image();
+      testImg.onload = () => {
+        imgContainer.style.background = `linear-gradient(to bottom, rgba(15,16,21,0) 0%, #0f1015 100%), url('${testImg.src}') top center/cover no-repeat`;
+      };
+      testImg.onerror = () => {
+        extIdx++;
+        tryNextExt();
+      };
+      testImg.src = `assets/images/${imgBaseName}.${exts[extIdx]}?v=${new Date().getTime()}`;
+    };
+    tryNextExt();
 
     card.addEventListener('click', () => showPlayersForArchetype(slotId, groupName, clusterId));
     wrapper.appendChild(card);
