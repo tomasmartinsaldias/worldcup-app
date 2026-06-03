@@ -3434,3 +3434,189 @@ footer a:hover {
     transform: translateY(0);
   }
 }
+/* ======================================================
+   PREMIUM ANIMATIONS & MICRO-INTERACTIONS
+   ====================================================== */
+
+@keyframes fadeUpEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.match-card {
+  animation: fadeUpEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, box-shadow;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease, border-color 0.4s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(26, 122, 60, 0.15);
+  border-color: rgba(26, 122, 60, 0.4);
+  z-index: 10;
+}
+
+@keyframes pulseInterestRing {
+  0% { box-shadow: 0 0 0 0 rgba(232, 35, 26, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(232, 35, 26, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 35, 26, 0); }
+}
+
+.interest-ring.high-interest {
+  animation: pulseInterestRing 2s infinite;
+}
+
+@keyframes modalReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-content {
+  animation: modalReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.btn-mundial {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-mundial::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.btn-mundial:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.btn-mundial:active {
+  transform: scale(0.96);
+}
+
+@keyframes barFill {
+  from { width: 0%; }
+}
+
+.h2h-bar-home, .h2h-bar-away, .h2h-bar-draw {
+  animation: barFill 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ======================================================
+   EXTRA PREMIUM ANIMATIONS
+   ====================================================== */
+
+/* Background gradient panning */
+@keyframes panBackground {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+body {
+  background-size: 150% 150%;
+  animation: panBackground 25s ease-in-out infinite;
+}
+
+/* Logo icon floating */
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-4px) rotate(5deg); }
+}
+.logo i {
+  animation: floatIcon 4s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Match card metric pills pop */
+.match-card .metric-pill {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.match-card:hover .metric-pill {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Team rows interactive flags */
+.match-teams .team-row img {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+}
+.match-teams .team-row:hover img {
+  transform: scale(1.2) rotate(-5deg);
+  filter: brightness(1.1) contrast(1.1);
+  z-index: 2;
+}
+.match-teams .team-row .team-name {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.match-teams .team-row:hover .team-name {
+  transform: translateX(4px);
+  color: var(--wc-white);
+}
+
+/* Search input expanding focus */
+.search-wrapper input, .controls-container select {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.search-wrapper input:focus, .controls-container select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(26, 122, 60, 0.3);
+}
+
+.comp-metric-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.comp-metric-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(26, 122, 60, 0.3);
+  border-color: rgba(26, 122, 60, 0.4);
+}
+
+/* Interest ring smooth scale pulse */
+@keyframes breathingRing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.interest-ring {
+  animation: breathingRing 4s ease-in-out infinite;
+}
+
+/* Staggered entrance for matches */
+.match-card {
+  animation: fadeUpEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.match-card:nth-child(1) { animation-delay: 0.05s; }
+.match-card:nth-child(2) { animation-delay: 0.1s; }
+.match-card:nth-child(3) { animation-delay: 0.15s; }
+.match-card:nth-child(4) { animation-delay: 0.2s; }
+.match-card:nth-child(5) { animation-delay: 0.25s; }
+.match-card:nth-child(6) { animation-delay: 0.3s; }
+.match-card:nth-child(7) { animation-delay: 0.35s; }
+.match-card:nth-child(8) { animation-delay: 0.4s; }
+.match-card:nth-child(9) { animation-delay: 0.45s; }
+.match-card:nth-child(10) { animation-delay: 0.5s; }

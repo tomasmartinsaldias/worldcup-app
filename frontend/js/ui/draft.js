@@ -445,8 +445,8 @@ function openDraftOptions(slotId, groupName) {
     let extIdx = 0;
     const tryNextExt = () => {
       if (extIdx >= exts.length) {
-         imgContainer.style.background = `linear-gradient(to bottom, rgba(15,16,21,0) 0%, #0f1015 100%), url('assets/images/default.jpg') top center/cover no-repeat`;
-         return;
+        imgContainer.style.background = `linear-gradient(to bottom, rgba(15,16,21,0) 0%, #0f1015 100%), url('assets/images/default.jpg') top center/cover no-repeat`;
+        return;
       }
       const testImg = new Image();
       testImg.onload = () => {
@@ -456,7 +456,7 @@ function openDraftOptions(slotId, groupName) {
         extIdx++;
         tryNextExt();
       };
-      testImg.src = `assets/images/${imgBaseName}.${exts[extIdx]}?v=${new Date().getTime()}`;
+      testImg.src = `assets/images/${imgBaseName}.${exts[extIdx]}`;
     };
     tryNextExt();
 

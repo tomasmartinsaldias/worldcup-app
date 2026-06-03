@@ -16,7 +16,7 @@
     content="Descubre los partidos más atractivos del torneo con nuestro algoritmo avanzado.">
   <meta property="og:image" content="https://images.tomas.me/mundial-2026-hero.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=34">
+  <link rel="stylesheet" href="style.css?v=35">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -548,80 +548,9 @@
           </div>
         </div>
 
-        <!-- Smart Recommendation Breakdown -->
-        <div class="h2h-title">
-          <i class="fa-solid fa-brain"></i> Análisis del Algoritmo Match Recommender
-        </div>
 
-        <div class="h2h-stats-summary">
-          <div>
-            <div class="h2h-summary-val" id="modal-match-score" style="color: var(--accent-gold); font-size: 2.25rem;">
-              0.0</div>
-            <div class="h2h-summary-lbl">Smart Score</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-match-rank" style="color: var(--accent-teal);">#0</div>
-            <div class="h2h-summary-lbl">Ranking Interés</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-squad-comb-val">0M€</div>
-            <div class="h2h-summary-lbl">Planteles Combinados</div>
-          </div>
-        </div>
 
-        <!-- Sub-scores breakdown -->
-        <div class="h2h-stats-summary"
-          style="margin-top: -0.5rem; margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.02); border-radius: 10px; padding: 0.75rem; border: 1px dashed var(--border-glass);">
-          <div>
-            <div class="h2h-summary-val" id="modal-spectacle-score" style="font-size: 1.4rem; color: var(--wc-red);">0.0
-            </div>
-            <div class="h2h-summary-lbl">Espectáculo (50%)</div>
-          </div>
-          <div>
-            <div class="h2h-summary-val" id="modal-playstyle-score"
-              style="font-size: 1.4rem; color: var(--accent-cyan);">0.0</div>
-            <div class="h2h-summary-lbl">Estilo de Juego (50%)</div>
-          </div>
-        </div>
 
-        <!-- Metric comparison grids -->
-        <div class="h2h-title">
-          <i class="fa-solid fa-chart-simple"></i> Comparativa de Métricas Recientes
-        </div>
-        <div class="h2h-comparisons-grid">
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Valor de Plantilla (M€)</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-mkt-home">0.0M€</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-mkt-away">0.0M€</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Promedio Goles Esperados (xG)</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-xg-home">0.0</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-xg-away">0.0</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Porcentaje de Posesión</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-poss-home">0%</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-poss-away">0%</span>
-            </div>
-          </div>
-          <div class="comp-metric-card">
-            <div class="comp-metric-header">Popularidad Global</div>
-            <div class="comp-metric-vs">
-              <span class="comp-val-left" id="comp-val-pop-home">0</span>
-              <span style="color: var(--text-muted)">vs</span>
-              <span class="comp-val-right" id="comp-val-pop-away">0</span>
-            </div>
-          </div>
-        </div>
 
         <!-- Head to Head History (intl_results & Fjelstul WC) -->
         <div class="h2h-title">
@@ -654,19 +583,62 @@
           <div class="h2h-bar-away" id="h2h-bar-away-w" style="width: 33%"></div>
         </div>
 
-        <div class="h2h-title">
-          <i class="fa-solid fa-soccer-ball"></i> Historial en Copas del Mundo Anteriores
-        </div>
-        <div class="h2h-stats-summary" id="modal-wc-h2h-summary">
-          <!-- WC H2H metrics -->
-        </div>
+
 
         <div class="h2h-title">
           <i class="fa-solid fa-list-check"></i> Últimos Enfrentamientos Directos
         </div>
-        <div class="table-wrapper" style="border-radius: 12px;">
+        <div class="table-wrapper" style="border-radius: 12px; margin-bottom: 2rem;">
           <div id="h2h-past-matches-container">
             <!-- List of past games -->
+          </div>
+        </div>
+
+        <!-- Metric comparison grids -->
+        <div class="h2h-title">
+          <i class="fa-solid fa-chart-simple"></i> Comparativa de Métricas Recientes
+        </div>
+        <div class="h2h-comparisons-grid">
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Valor de Plantilla (M€)</div>
+            <div class="comp-metric-vs" style="margin-bottom: 0.5rem; justify-content: space-between;">
+              <span class="comp-val-left" id="comp-val-mkt-home">0.0M€</span>
+              <span class="comp-val-right" id="comp-val-mkt-away">0.0M€</span>
+            </div>
+            <div class="h2h-bar-chart" style="height: 6px; margin-top: 0; border-radius: 3px;">
+              <div class="h2h-bar-home" id="comp-bar-mkt-home" style="width: 50%; background-color: var(--accent-green);"></div>
+              <div class="h2h-bar-away" id="comp-bar-mkt-away" style="width: 50%; background-color: var(--wc-red);"></div>
+            </div>
+          </div>
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Promedio Goles Esperados (xG)</div>
+            <div class="comp-metric-vs" style="margin-bottom: 0.5rem; justify-content: space-between;">
+              <span class="comp-val-left" id="comp-val-xg-home">0.0</span>
+              <span class="comp-val-right" id="comp-val-xg-away">0.0</span>
+            </div>
+            <div class="h2h-bar-chart" style="height: 6px; margin-top: 0; border-radius: 3px;">
+              <div class="h2h-bar-home" id="comp-bar-xg-home" style="width: 50%; background-color: var(--accent-green);"></div>
+              <div class="h2h-bar-away" id="comp-bar-xg-away" style="width: 50%; background-color: var(--wc-red);"></div>
+            </div>
+          </div>
+          <div class="comp-metric-card" style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="comp-metric-header" style="text-align: center;">Porcentaje de Posesión</div>
+            <div class="comp-metric-vs" style="justify-content: center; gap: 2rem; margin-top: 0.5rem;">
+              <span class="comp-val-left" id="comp-val-poss-home">0%</span>
+              <span style="color: var(--text-muted)">vs</span>
+              <span class="comp-val-right" id="comp-val-poss-away">0%</span>
+            </div>
+          </div>
+          <div class="comp-metric-card">
+            <div class="comp-metric-header">Popularidad Global</div>
+            <div class="comp-metric-vs" style="margin-bottom: 0.5rem; justify-content: space-between;">
+              <span class="comp-val-left" id="comp-val-pop-home">0</span>
+              <span class="comp-val-right" id="comp-val-pop-away">0</span>
+            </div>
+            <div class="h2h-bar-chart" style="height: 6px; margin-top: 0; border-radius: 3px;">
+              <div class="h2h-bar-home" id="comp-bar-pop-home" style="width: 50%; background-color: var(--accent-green);"></div>
+              <div class="h2h-bar-away" id="comp-bar-pop-away" style="width: 50%; background-color: var(--wc-red);"></div>
+            </div>
           </div>
         </div>
 
@@ -981,7 +953,7 @@
   </footer>
 
   <script src="js/ui/draft.js?v=3"></script>
-  <script type="module" src="js/main.js?v=19"></script>
+  <script type="module" src="js/main.js?v=26"></script>
 </body>
 
 </html>
