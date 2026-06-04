@@ -9,7 +9,7 @@ let userPreferences = {
   preferredTime: [], // array of 'morning', 'afternoon', 'evening'
   tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 },
   spectacleWeight: 0.5,
-  // dramaBonus: -1 (no gusta fricción) | 0 (indiferente) | +1 (gusta fricción)
+  // dramaBonus: -1 (no gusta fricci├│n) | 0 (indiferente) | +1 (gusta fricci├│n)
   // Controla si el FriccionScore suma o resta al SmartScore final
   dramaBonus: 0
 };
@@ -47,18 +47,45 @@ export async function loadData() {
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
 
-    const clusters = await Promise.all([gkRes, cbRes, fbRes, midRes, wingRes, stRes].map(parseJSON));
-
-    state.appData.clusters = {
-      Goalkeepers: clusters[0],
-      Centerbacks: clusters[1],
-      Fullbacks: clusters[2],
-      Midfielders: clusters[3],
-      Wingers: clusters[4],
-      Strikers: clusters[5]
-    };
-
     const photosData = await parseJSON(photosRes) || [];
+      const finalPhotosData = await parseJSON(finalRes) || [];
+  
+      state.appData.playersFinal = finalPhotosData;
+      
+      state.appData.clusters = {
+        Goalkeepers: [],
+        Centerbacks: [],
+        Fullbacks: [],
+        Midfielders: [],
+        Wingers: [],
+        Strikers: []
+      };
+  
+      const positionMap = {
+        'Goalkeeper': 'Goalkeepers',
+        'Centerbacks': 'Centerbacks',
+        'Fullbacks': 'Fullbacks',
+        'Midfielder': 'Midfielders',
+        'Wingers': 'Wingers',
+        'Striker': 'Strikers'
+      };
+  
+      if (finalPhotosData && finalPhotosData.length > 0) {
+        finalPhotosData.forEach(p => {
+          if (p.Posicion && positionMap[p.Posicion]) {
+            const groupName = positionMap[p.Posicion];
+            if (p.Cluster_id !== null && p.Cluster_id !== undefined) {
+              state.appData.clusters[groupName].push({
+                long_name: p.NAME,
+                overall: p.Overall,
+                cluster_id: p.Cluster_id,
+                dist_centroid: p.Dist_centroid,
+                photoUrl: p._URL
+              });
+            }
+          }
+        });
+      }
     
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
@@ -86,7 +113,7 @@ export async function loadData() {
       if (fn) state.appData.photoIndex[fn] = p.p;
       if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
 
-      // Add a fallback for names like "S. Giménez" mapping to "Santiago Giménez"
+      // Add a fallback for names like "S. Gim├®nez" mapping to "Santiago Gim├®nez"
       const parts = fn.split(' ');
       if (parts.length > 1) {
         const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
