@@ -796,10 +796,16 @@ export function initDraft() {
 
   if (btnApply) {
     btnApply.addEventListener('click', () => {
-      if (window.applyDraftTactics) {
+      document.getElementById('draft-template').classList.remove('visible');
+      document.getElementById('draft-template').classList.add('hidden');
+      
+      if (typeof window.showRecommendations === 'function') {
+        window.showRecommendations();
+      } else if (window.applyDraftTactics) {
         window.applyDraftTactics(state.userPreferences.tacticalVector);
       } else {
-        document.querySelector('.nav-btn[data-tab="recommender"]').click();
+        const recommenderTab = document.querySelector('.nav-btn[data-tab="recommender"]');
+        if (recommenderTab) recommenderTab.click();
       }
     });
   }
