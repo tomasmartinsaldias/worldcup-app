@@ -93,15 +93,29 @@ window.finishSurvey = function() {
   console.log("Encuesta finalizada. Datos del recomendador Antigravity:", results);
   
   // Aquí podemos mostrar las recomendaciones, pero por ahora mostramos un alert
-  alert("¡Encuesta Completada! Revisar consola para ver el JSON generado.\nSe conectará con las recomendaciones en el siguiente paso.");
+  console.log("¡Encuesta Completada! Revisar consola para ver el JSON generado.");
   
-  // Para propósitos del demo, podemos enviarlo de vuelta al homepage
-  if(window.returnToHomepage) {
-    window.returnToHomepage();
-  } else {
-    document.getElementById('antigravity-survey').classList.remove('visible');
-    setTimeout(() => {
-        document.getElementById('antigravity-survey').classList.add('hidden');
-    }, 500);
-  }
+  document.getElementById('antigravity-survey').classList.remove('visible');
+  setTimeout(() => {
+    document.getElementById('antigravity-survey').classList.add('hidden');
+    
+    if (currentSurveyType === 'fanatico') {
+      if (window.startDraft) {
+        document.getElementById('draft-template').classList.remove('hidden');
+        document.getElementById('draft-template').classList.add('visible');
+        window.startDraft(true, '11v11');
+      }
+    } else if (currentSurveyType === 'intermedio') {
+      if (window.startDraft) {
+        document.getElementById('draft-template').classList.remove('hidden');
+        document.getElementById('draft-template').classList.add('visible');
+        window.startDraft(true, '7v7');
+      }
+    } else {
+      // Para casual o por defecto
+      if(window.returnToHomepage) {
+        window.returnToHomepage();
+      }
+    }
+  }, 500);
 };
