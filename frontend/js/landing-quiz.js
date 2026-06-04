@@ -29,10 +29,15 @@ function startQuiz(level) {
 
     // --- LÓGICA FANÁTICO ---
     const fanaticCanvas = document.getElementById('fanatic-stars');
-    const fctx = fanaticCanvas.getContext('2d');
+    let fctx = null;
     let fWidth, fHeight;
     
+    if (fanaticCanvas) {
+      fctx = fanaticCanvas.getContext('2d');
+    }
+    
     function initFanaticStars() {
+      if (!fanaticCanvas) return;
       fWidth = window.innerWidth;
       fHeight = window.innerHeight;
       fanaticCanvas.width = fWidth;
@@ -128,8 +133,10 @@ function startQuiz(level) {
     function showRecommendations() {
       window.appState = 'transition';
       // Ocultar quizes
-      document.getElementById('casual-quiz').classList.remove('visible');
-      document.getElementById('fanatic-quiz').classList.remove('visible');
+      const casualQuiz = document.getElementById('casual-quiz');
+      if (casualQuiz) casualQuiz.classList.remove('visible');
+      const fanaticQuiz = document.getElementById('fanatic-quiz');
+      if (fanaticQuiz) fanaticQuiz.classList.remove('visible');
       
       setTimeout(() => {
         document.getElementById('recommendations-overlay').classList.add('visible');
