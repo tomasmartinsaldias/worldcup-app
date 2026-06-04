@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MundialPick — La Gloria Eterna</title>
+  <link rel="icon" type="image/png" href="img/descarga.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
     rel="stylesheet">
@@ -1196,29 +1197,48 @@
     </div>
   </div>
 
-  
+
   <!-- SIMON'S FUT DRAFT -->
   <div id="draft-template" class="ui-overlay hidden draft-flow" style="z-index: 101;">
-    <div class="quiz-container draft-container" style="width: 95%; max-width: 1200px; height: 85vh; background: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 136, 255, 0.5); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 26, 255, 0.2) inset; display: flex; flex-direction: column; position: relative; overflow: hidden;">
-      <div class="quiz-header" style="margin-bottom: 1rem; z-index: 10; display: flex; justify-content: flex-start; align-items: center; gap: 3rem;">
-        <span style="font-size: 1.5rem; color: #0088ff; font-family: 'Outfit'; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);">FUT DRAFT MUNDIALISTA</span>
+    <div class="quiz-container draft-container"
+      style="width: 95%; max-width: 1200px; height: 85vh; background: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 136, 255, 0.5); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 26, 255, 0.2) inset; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+      <div class="quiz-header"
+        style="margin-bottom: 1rem; z-index: 10; display: flex; justify-content: flex-start; align-items: center; gap: 3rem;">
+        <span
+          style="font-size: 1.5rem; color: #0088ff; font-family: 'Outfit'; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);">FUT
+          DRAFT MUNDIALISTA</span>
       </div>
-      <div id="pitch-container" class="pitch-container" style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
+      <div id="pitch-container" class="pitch-container"
+        style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
       </div>
-      <div id="draft-modal" class="ui-overlay hidden" style="z-index: 100; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; background: rgba(0,0,0,0.85);">
-        <div class="draft-options-panel" style="background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); padding: 2rem; border-radius: 12px; width: 95%; max-width: 1000px; text-align: center; border: 1px solid rgba(0, 136, 255, 0.5); max-height: 90%; overflow-y: auto;">
-          <button id="close-draft-modal-btn" style="position: absolute; top: 1rem; right: 1rem; background: transparent; color: white; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10;"><i class="fa-solid fa-xmark"></i></button>
+      <div id="draft-modal" class="ui-overlay hidden"
+        style="z-index: 100; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; background: rgba(0,0,0,0.85);">
+        <div class="draft-options-panel"
+          style="background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); padding: 2rem; border-radius: 12px; width: 95%; max-width: 1000px; text-align: center; border: 1px solid rgba(0, 136, 255, 0.5); max-height: 90%; overflow-y: auto;">
+          <button id="close-draft-modal-btn"
+            style="position: absolute; top: 1rem; right: 1rem; background: transparent; color: white; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10;"><i
+              class="fa-solid fa-xmark"></i></button>
           <h2 id="draft-modal-title" style="color: white; margin-bottom: 2rem; font-family: 'Outfit';"></h2>
           <div id="draft-options-container" class="draft-options-grid"></div>
         </div>
       </div>
-      <div id="draft-summary-banner" class="draft-summary-hidden" style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0, 10, 25, 0.98) 40%, transparent); padding: 3rem 2rem 2rem; text-align: center; color: white; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 50;">
-        <h2 style="display: none; font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 1rem;">Estilo: <span id="draft-tactical-result" style="color: #0088ff; text-shadow: 0 0 15px rgba(0, 136, 255, 0.6);"></span></h2>
-        <p id="draft-tactical-explanation" style="display: none; font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; color: #ccc;"></p>
+      <div id="draft-summary-banner" class="draft-summary-hidden"
+        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0, 10, 25, 0.98) 40%, transparent); padding: 3rem 2rem 2rem; text-align: center; color: white; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 50;">
+        <h2 style="display: none; font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 1rem;">Estilo: <span
+            id="draft-tactical-result" style="color: #0088ff; text-shadow: 0 0 15px rgba(0, 136, 255, 0.6);"></span>
+        </h2>
+        <p id="draft-tactical-explanation"
+          style="display: none; font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; color: #ccc;"></p>
         <div style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
-          <button id="btn-restart-draft" class="quiz-btn-next" style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i class="fa-solid fa-rotate-right"></i> Reiniciar</button>
-          <button class="quiz-btn-next" onclick="returnToHomepage()" style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i class="fa-solid fa-arrow-left"></i> Salir</button>
-          <button id="btn-apply-draft-tactics" class="quiz-btn-next" style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;">Ir a Recomendaciones</button>
+          <button id="btn-restart-draft" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-rotate-right"></i> Reiniciar</button>
+          <button class="quiz-btn-next" onclick="returnToHomepage()"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-arrow-left"></i> Salir</button>
+          <button id="btn-apply-draft-tactics" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;">Ir
+            a Recomendaciones</button>
         </div>
       </div>
     </div>
@@ -1483,7 +1503,7 @@
       matchesToShow.forEach((match, index) => {
         const exp = explanations[index % explanations.length];
         const score = Math.max(70, 98 - (index % allValidMatches.length));
-        
+
         let stadiumUrl = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
         if (match.stadium && match.stadium.venue_name && STADIUM_IMAGES[match.stadium.venue_name]) {
           stadiumUrl = STADIUM_IMAGES[match.stadium.venue_name];
