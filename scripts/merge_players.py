@@ -22,22 +22,22 @@ def normalize_string(s):
     }
     for char, repl in replacements.items():
         s = s.replace(char, repl)
-        
+
     s = unicodedata.normalize('NFD', s)
     s = s.encode('ascii', 'ignore').decode('utf-8').strip().lower()
-    
+
     # Strip Arabic article prefixes al / el at word boundaries
     s = re.sub(r'\b(al|el)\b\s*', '', s)
-    
+
     # Normalize common prefix spacings
     s = s.replace('abdul ', 'abdul').replace('abdel ', 'abdel')
-    
+
     # Map nickname joe to joseph at word boundary
     s = re.sub(r'\bjoe\b', 'joseph', s)
-    
+
     # Normalize suffixes like "jr." or "jr" to "junior"
     s = re.sub(r'\bjr\b\.?', 'junior', s)
-    
+
     # Map common nicknames/diminutivos to their full matches
     name_variants = {
         'leo messi': 'lionel messi',
@@ -67,14 +67,14 @@ def normalize_string(s):
     }
     for k, v in name_variants.items():
         s = s.replace(k, v)
-        
+
     return s
 
 def match_names(norm_db, norm_target):
     # Exact match
     if norm_db == norm_target:
         return True
-        
+
     # Wildcard match if \ufffd (replacement char) is present
     if '\ufffd' in norm_db or '\u00ef\u00bf\u00bd' in norm_db:
         pat_str = norm_db.replace('\ufffd', '.?').replace('\u00ef\u00bf\u00bd', '.?')
@@ -84,20 +84,20 @@ def match_names(norm_db, norm_target):
                 return True
         except Exception:
             pass
-            
+
     # Word-level containment (exact words, ignoring connectors)
     connectors = {'de', 'e', 'y', 'da', 'do', 'di', 'la', 'el', 'al', 'del', 'dos'}
     db_words = [w for w in norm_db.split() if '\ufffd' not in w and w not in connectors and len(w) > 1]
     target_words = set(w for w in norm_target.split() if w not in connectors)
-    
+
     if db_words and all(dw in target_words for dw in db_words):
         return True
-        
+
     return False
 
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    
+
     # 1. Load Convocados from db
     db_convocados_path = os.path.join(base_dir, "data", "recommender_data", "convocados.db")
     print(f"Loading convocados from {db_convocados_path}...")
@@ -113,7 +113,7 @@ def main():
     print(f"Loading photos from {photos_path}...")
     with open(photos_path, "r", encoding="utf-8") as f:
         photos_data = json.load(f)
-    
+
     # Index photos by normalized name for fast O(1) lookup
     photo_lookup = {}
     photos_list = []
@@ -142,10 +142,10 @@ def main():
         if not pos_match:
             continue
         position = pos_match.group(1).title()
-        
+
         with open(file_path, "r", encoding="utf-8") as f:
             clusters = json.load(f)
-            
+
         for cluster in clusters:
             cluster_id = cluster.get("cluster_id")
             for player in cluster.get("players", []):
@@ -196,7 +196,7 @@ def main():
         country_db = item["pais"]
         club_db = item["equipo"]
         norm_db = normalize_string(name_db)
-        
+
         # A. Find Photo URL
         photo_url = None
         if norm_db in photo_lookup:
@@ -209,7 +209,7 @@ def main():
                     break
         if not photo_url:
             not_found_photos += 1
-                
+
         # B. Find Kmeans data
         kmeans_info = None
         if norm_db in kmeans_lookup:
@@ -241,10 +241,10 @@ def main():
         cluster_id = kmeans_info["cluster_id"] if kmeans_info else None
         dist_centroid = kmeans_info["distance"] if kmeans_info else None
         position = kmeans_info["position"] if kmeans_info else None
-        
+
         age = squad_info["age"] if squad_info else None
         market_value = squad_info["market_value_eur"] if squad_info else None
-        
+
         merged_list.append({
             "NAME": name_db,
             "Overall": overall,
@@ -263,24 +263,24 @@ def main():
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(merged_list, f, ensure_ascii=False, indent=2)
-        
+
     # Calculate complete records count and stats per country
     complete_count = 0
     country_stats = {}
-    
+
     for p in merged_list:
         c = p["pais"]
         if c not in country_stats:
             country_stats[c] = {"total": 0, "complete": 0}
         country_stats[c]["total"] += 1
-        
+
         is_p_complete = (
-            p["Overall"] is not None 
-            and p["_URL"] is not None 
-            and p["Posicion"] is not None 
-            and p["Cluster_id"] is not None 
-            and p["Dist_centroid"] is not None 
-            and p["edad"] is not None 
+            p["Overall"] is not None
+            and p["_URL"] is not None
+            and p["Posicion"] is not None
+            and p["Cluster_id"] is not None
+            and p["Dist_centroid"] is not None
+            and p["edad"] is not None
             and p["valor_de_mercado"] is not None
         )
         if is_p_complete:

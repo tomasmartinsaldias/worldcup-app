@@ -27,8 +27,6 @@ Pasos generales:
 """
 
 import json
-import math
-import os
 import random
 import sqlite3
 import sys

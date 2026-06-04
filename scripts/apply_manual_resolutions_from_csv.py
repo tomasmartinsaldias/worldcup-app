@@ -8,7 +8,9 @@ un `resolved_name` no vacío, actualiza la tabla `scraped_unresolved_players`:
 Este script complementa `load_player_alternatives.py` cuando queremos forzar
 resoluciones manuales.
 """
-import csv, json, os, sqlite3
+import csv
+import os
+import sqlite3
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))
 DB_PATH = os.path.join(BASE_DIR, "data", "worldcup_combined.db")

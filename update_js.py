@@ -1,4 +1,3 @@
-import sys
 
 with open('frontend/index.html', 'r') as f:
     lines = f.readlines()
@@ -97,11 +96,11 @@ for i, line in enumerate(lines):
     if 'function finishQuiz()' in line:
         # we will skip until the closing brace of finishQuiz()
         pass
-    
+
     if skip and line.strip() == '// 1. CONFIGURACIÓN BÁSICA DE THREE.JS':
         # we skipped too far? No, the closing script tag is before this
         pass
-        
+
     if skip and line.strip() == '</script>':
         # the closing script tag. We stop skipping here.
         skip = False

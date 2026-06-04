@@ -35,17 +35,17 @@ def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     csv_path = os.path.join(base_dir, "data", "fbref_qualifiers_cache.csv")
-    
+
     if not os.path.exists(db_path):
         print(f"Error: No se encontró la base de datos en {db_path}")
         return
     if not os.path.exists(csv_path):
         print(f"Error: No se encontró el caché de clasificatorias en {csv_path}")
         return
-        
+
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    
+
     # 1. Agregar columnas a scraped_wc2026_probable_squads si no existen
     add_column_if_not_exists(cursor, "scraped_wc2026_probable_squads", "xG_intl", "REAL")
     add_column_if_not_exists(cursor, "scraped_wc2026_probable_squads", "sca_intl", "INTEGER")
@@ -53,7 +53,7 @@ def main():
     add_column_if_not_exists(cursor, "scraped_wc2026_probable_squads", "progressive_passes_intl", "INTEGER")
     add_column_if_not_exists(cursor, "scraped_wc2026_probable_squads", "progressive_carries_intl", "INTEGER")
     conn.commit()
-    
+
     # 2. Cargar mapeo de nombres de equipos
     cursor.execute("SELECT fifa_code, wc2026_name, historical_name, intl_results_name FROM team_mappings;")
     fifa_to_csv_teams = {}
@@ -69,13 +69,13 @@ def main():
         elif code == 'COD': candidates.update(["congo dr", "dr congo"])
         elif code == 'TUR': candidates.update(["türkiye", "turkey"])
         fifa_to_csv_teams[code] = list(candidates)
-        
+
     # 3. Leer CSV de FBref
     print(f"Cargando estadísticas de FBref desde {csv_path}...")
     df = pd.read_csv(csv_path)
     df['norm_player'] = df['Player'].apply(normalize_name)
     df['norm_squad'] = df['Squad'].apply(lambda x: x.lower().strip() if isinstance(x, str) else "")
-    
+
     # Organizar el CSV por Squad
     csv_by_squad = {}
     for idx, row in df.iterrows():
@@ -83,34 +83,34 @@ def main():
         if sq not in csv_by_squad:
             csv_by_squad[sq] = []
         csv_by_squad[sq].append(row)
-        
+
     # 4. Cargar todos los jugadores de la BD
     cursor.execute("SELECT player_id, player_name, fifa_code FROM scraped_wc2026_probable_squads;")
     players = cursor.fetchall()
-    
+
     matched_count = 0
     print("Enriqueciendo jugadores en base de datos con estadísticas avanzadas de clasificatorias...")
-    
+
     for pid, name, fifa_code in players:
         norm_name = normalize_name(name)
         possible_squads = fifa_to_csv_teams.get(fifa_code, [])
-        
+
         # Buscar en el CSV
         csv_rows = []
         for sq in possible_squads:
             if sq in csv_by_squad:
                 csv_rows.extend(csv_by_squad[sq])
-                
+
         # Buscar mejor coincidencia
         best_row = None
         best_score = 0.0
-        
+
         for row in csv_rows:
             norm_c_player = row['norm_player']
             if norm_name == norm_c_player:
                 best_row = row
                 break
-                
+
             # Jaccard token overlap
             tokens_p = set(norm_name.split())
             tokens_c = set(norm_c_player.split())
@@ -121,10 +121,10 @@ def main():
                 if jaccard > best_score:
                     best_score = jaccard
                     best_row = row
-                    
+
         if best_row is not None and (best_row['norm_player'] == norm_name or best_score >= 0.49):
             matched_count += 1
-            
+
             # Obtener métricas
             def get_float(val):
                 if pd.isna(val) or val == "":
@@ -133,7 +133,7 @@ def main():
                     return float(val)
                 except ValueError:
                     return None
-                    
+
             def get_int(val):
                 if pd.isna(val) or val == "":
                     return None
@@ -141,13 +141,13 @@ def main():
                     return int(float(val))
                 except ValueError:
                     return None
-                    
+
             xg = get_float(best_row.get('xG'))
             sca = get_int(best_row.get('sca'))
             gca = get_int(best_row.get('gca'))
             pp = get_int(best_row.get('progressive_passes'))
             pc = get_int(best_row.get('progressive_carries'))
-            
+
             # Actualizar BD
             cursor.execute("""
                 UPDATE scraped_wc2026_probable_squads
@@ -158,9 +158,9 @@ def main():
                     progressive_carries_intl = ?
                 WHERE player_id = ?;
             """, (xg, sca, gca, pp, pc, pid))
-            
+
     conn.commit()
-    
+
     # Calcular y actualizar recent_xg_avg para las selecciones basándose en el promedio de xG_intl
     print("\nCalculando promedios de xG por selección desde los jugadores...")
     cursor.execute("""
@@ -177,11 +177,11 @@ def main():
                 SET recent_xg_avg = ?
                 WHERE fifa_code = ?;
             """, (round(avg_xg, 3), code))
-            
+
     conn.commit()
     conn.close()
-    
-    print(f"\n--- Enriquecimiento con Métricas de FBref Completado ---")
+
+    print("\n--- Enriquecimiento con Métricas de FBref Completado ---")
     print(f"Jugadores cruzados y enriquecidos exitosamente: {matched_count} de {len(players)}")
 
 if __name__ == "__main__":

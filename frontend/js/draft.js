@@ -323,10 +323,10 @@ window.openDraftOverlay = function() {
 }
 
 // Para compatibilidad con el código existente que exporta initDraft/startDraft
-function initDraft() {
+export function initDraft() {
   // Nada que hacer aquí, se llama a openDraftOverlay desde index.html o consola
 }
 
-function startDraft() {
-  window.openDraftOverlay();
+export function startDraft(silent = false) {
+  if (!silent) window.openDraftOverlay();
 }

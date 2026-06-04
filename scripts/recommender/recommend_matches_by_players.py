@@ -23,7 +23,6 @@ so that the final list always contains 6 *distinct* players.
 All input players are excluded from the recommendation pool.
 """
 
-import sys
 import os
 import heapq
 import json
@@ -81,18 +80,18 @@ def _resolve_player_indices(df: pd.DataFrame, player_names: list[str]) -> dict[s
         # Try exact match first
         mask = df['long_name'].apply(lambda x: normalize_name(x) == name_clean)
         matches = df[mask]
-        
+
         if matches.empty:
             # Try word subset matching
             name_parts = set(name_clean.split())
             mask = df['long_name'].apply(lambda x: name_parts.issubset(set(normalize_name(x).split())))
             matches = df[mask]
-            
+
         if matches.empty:
             # Try simple substring matching
             mask = df['long_name'].apply(lambda x: name_clean in normalize_name(x))
             matches = df[mask]
-            
+
         if matches.empty:
             raise ValueError(f"Jugador '{name}' no encontrado en el dataset de similitud.")
         resolved[name] = matches.index[0]
@@ -139,7 +138,7 @@ def _build_neighbour_lists(
                 continue
             df_long_name = df.loc[i, 'long_name']
             norm_df_name = normalize_name(df_long_name)
-            
+
             # Find in db_info
             match_info = db_info.get(norm_df_name)
             if not match_info:
@@ -147,15 +146,15 @@ def _build_neighbour_lists(
                     if len(norm_db_name) > 2 and len(norm_df_name) > 2 and (norm_db_name in norm_df_name or norm_df_name in norm_db_name):
                         match_info = info
                         break
-            
+
             if match_info:
                 real_name, equipo, pais = match_info
             else:
                 real_name = df_long_name
                 equipo = "Desconocido"
-                
+
             candidates.append((float(distances[i]), i, real_name, equipo))
-        
+
         # Sort ascending by distance (= descending by similarity)
         candidates.sort(key=lambda x: x[0])
         neighbour_lists[name] = candidates

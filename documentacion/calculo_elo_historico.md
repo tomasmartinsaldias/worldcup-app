@@ -60,11 +60,71 @@ Implementar drenaje dinámico y regresión a la media en la base de datos local 
 
 ---
 
-## 5. Elo Dinámico por Jugadores Estrella
-Para evitar la colinealidad (premiar doblemente la calidad del plantel al sumar un bonus por estrellas de forma aislada y un Elo alto), las estrellas ahora alimentan directamente un **Elo Dinámico ($Elo_{\text{dinámico}}$)** que solo afecta el factor de calidad del partido ($Q_{\text{match}}$):
-
-$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 100 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 5}$$
+$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 200 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 3}$$
 
 * Donde $N_{\text{stars}}$ es la cantidad total de jugadores estrella convocados para el encuentro en ambos planteles.
-* El modificador tiene un comportamiento asintótico (piso de $+0$ y techo de $+100$ puntos Elo) para evitar que potencias con planteles saturados de estrellas (ej. Francia o Brasil) disparen el puntaje de manera artificial.
+* El modificador tiene un comportamiento asintótico (piso de $+0$ y techo de $+200$ puntos Elo) para evitar que potencias con planteles saturados de estrellas (ej. Francia o Brasil) disparen el puntaje de manera artificial. El parámetro de semisaturación $k=3$ asegura que la presencia de estrellas tenga un peso significativo en el cálculo del factor de calidad ($Q_{\text{match}}$).
 * Para el cálculo de la paridad competitiva ($P_{\text{Brecha}}$), se mantiene el **Elo base** para evitar que una asimetría de estrellas en un partido parejo altere negativamente la brecha.
+
+---
+
+## 6. Actualización de Elo Dinámico en Vivo y Momentum (EMA) en el Simulador
+Para el módulo del simulador de resultados del mundial en el cliente, las puntuaciones ingresadas por el usuario actualizan de manera interactiva el Elo de las selecciones. Esto permite capturar el estado de forma y la moral (momentum) de los equipos a lo largo del torneo.
+
+### 6.1. Ecuación de Actualización con Momentum
+Cuando se simula el resultado de un partido, se calcula la expectativa clásica $W_e$ y el resultado real $W$ (Victoria = 1.0, Empate = 0.5, Derrota = 0.0) para obtener el error de predicción $E$:
+$$E = W - W_e$$
+
+El **momentum acumulado ($M_t$)** es una media móvil exponencial (EMA) del error de predicción del equipo en sus partidos jugados durante el mundial:
+$$M_t = \alpha \cdot E_t + (1 - \alpha) \cdot M_{t-1}$$
+* Donde $\alpha = 0.4$ es la constante de suavizado. Un $\alpha$ alto prioriza el desempeño del partido inmediatamente anterior, mientras que el resto amortigua el historial del torneo.
+* El momentum se inicializa en $0.0$ al comenzar el certamen.
+
+### 6.2. Constante K Dinámica
+El factor de actualización $K$ se ajusta multiplicativamente según la importancia de la fase del torneo ($\Omega_{\text{fase}}$) y el valor absoluto del momentum ($M_t$):
+$$K_{\text{dinámico}} = K_{\text{base}} \times \Omega_{\text{fase}} \times (1 + \lambda \cdot |M_t|)$$
+
+* **$K_{\text{base}} = 32$** (constante base de peso).
+* **$\lambda = 0.5$** (sensibilidad del momentum). Un equipo en racha positiva o negativa que sorprende continuamente al modelo (alto $|M_t|$) sufrirá o se beneficiará de mayores variaciones de Elo en los siguientes encuentros.
+* **$\Omega_{\text{fase}}$ (Ponderación de la fase):**
+  * Fase de grupos (Group Stage): $\Omega_{\text{fase}} = 1.0$
+  * Rondas eliminatorias intermedias (Round of 32, Round of 16, Quarter-finals): $\Omega_{\text{fase}} = 1.5$
+  * Semifinales, Partido por el 3° Puesto y Final: $\Omega_{\text{fase}} = 2.0$
+
+Una vez calculado el ajuste, se actualiza el Elo y se redondea al entero más cercano:
+$$R_{\text{nuevo}} = R_{\text{anterior}} + \text{round}(K_{\text{dinámico}} \times E)$$
+
+Este Elo actualizado se propaga cronológicamente como el Elo de partida (pre-match) de los siguientes encuentros del equipo en el torneo, afectando instantáneamente su ICE y posición en las recomendaciones.
+
+---
+
+## 7. Modelo Probabilístico de Simulación de Resultados
+
+Los resultados automáticos generados mediante el botón "Simular Restantes" (y la simulación por jornadas) se computan en base a la brecha de ELO dinámico de los contrincantes, descartando la aleatoriedad pura en favor de una distribución de probabilidad estadística alineada con el rendimiento histórico.
+
+### 7.1. Determinación del Ganador del Partido
+Se calcula la probabilidad esperada de victoria $W_{e}$ para el equipo local utilizando la diferencia de ELO dinámico acumulado (que incluye el plus por estrellas convocadas):
+$$W_{e} = \frac{1}{1 + 10^{-(ELO_{\text{Local}} - ELO_{\text{Visitante}})/400}}$$
+
+A partir de esta expectativa, se derivan las probabilidades para los tres posibles desenlaces del partido:
+* **Probabilidad de Empate ($P_{\text{empate}}$):** Fija en $0.26$ ($26\%$), correspondiente a la tasa histórica promedio de empates en mundiales.
+* **Probabilidad de Victoria Local ($P_{\text{local}}$):** $0.74 \times W_{e}$
+* **Probabilidad de Victoria Visitante ($P_{\text{visitante}}$):** $0.74 \times (1.0 - W_{e})$
+
+El motor simula el partido generando un número pseudo-aleatorio uniforme $r \in [0, 1)$ y aplicando las siguientes fronteras:
+* Si $r < P_{\text{local}}$: El partido es una victoria para el equipo local.
+* Si $P_{\text{local}} \le r < P_{\text{local}} + P_{\text{empate}}$: El partido resulta en empate.
+* Si $r \ge P_{\text{local}} + P_{\text{empate}}$: El partido es una victoria para el equipo visitante.
+
+### 7.2. Distribución Dinámica de Goles
+Una vez obtenido el desenlace, los goles se asignan de forma coherente con el resultado:
+* **Empate:** Ambos equipos reciben el mismo número de goles, seleccionando al azar un valor en el rango $[0, 2]$.
+* **Victoria:** El ganador recibe una cantidad aleatoria de goles en el rango $[1, 3]$. El perdedor recibe una cantidad de goles seleccionada aleatoriamente que es estrictamente menor a la del ganador (garantizando la coherencia del marcador).
+
+### 7.3. Resolución de Definiciones por Penales en Play-offs
+Debido a que en la Fase Eliminatoria (dieciseisavos a final) los partidos no pueden terminar en empate, cuando la simulación inicial resulta en tablas:
+* Se simula una definición por penales.
+* La probabilidad de que cada equipo gane la tanda de penales se pondera directamente usando la probabilidad esperada $W_{e}$, simulando que el equipo con mayor nivel ELO tiene una ventaja de efectividad/jerarquía proporcional en la tanda:
+  - Si un número aleatorio uniforme es menor que $W_{e}$, avanza el local.
+  - De lo contrario, avanza el visitante.
+

@@ -71,14 +71,6 @@ export function openH2HModal(match) {
     document.getElementById('comp-val-mkt-home').textContent = valHome ? `${valHome.toFixed(1)}M€` : 'N/A';
     document.getElementById('comp-val-mkt-away').textContent = valAway ? `${valAway.toFixed(1)}M€` : 'N/A';
 
-    const xgHome = homeTeamInfo.metrics?.recent_xg_avg || 0;
-    const xgAway = awayTeamInfo.metrics?.recent_xg_avg || 0;
-    const totalXg = xgHome + xgAway;
-    document.getElementById('comp-bar-xg-home').style.width = totalXg > 0 ? `${(xgHome / totalXg) * 100}%` : '50%';
-    document.getElementById('comp-bar-xg-away').style.width = totalXg > 0 ? `${(xgAway / totalXg) * 100}%` : '50%';
-    document.getElementById('comp-val-xg-home').textContent = xgHome ? xgHome.toFixed(2) : 'N/A';
-    document.getElementById('comp-val-xg-away').textContent = xgAway ? xgAway.toFixed(2) : 'N/A';
-
     document.getElementById('comp-val-poss-home').textContent = homeTeamInfo.metrics?.recent_possession_avg ? homeTeamInfo.metrics.recent_possession_avg.toFixed(1) + '%' : 'N/A';
     document.getElementById('comp-val-poss-away').textContent = awayTeamInfo.metrics?.recent_possession_avg ? awayTeamInfo.metrics.recent_possession_avg.toFixed(1) + '%' : 'N/A';
 
@@ -150,8 +142,6 @@ export function openH2HModal(match) {
     // If playoff placeholders
     document.getElementById('comp-val-mkt-home').textContent = 'N/A';
     document.getElementById('comp-val-mkt-away').textContent = 'N/A';
-    document.getElementById('comp-val-xg-home').textContent = 'N/A';
-    document.getElementById('comp-val-xg-away').textContent = 'N/A';
     document.getElementById('comp-val-poss-home').textContent = 'N/A';
     document.getElementById('comp-val-poss-away').textContent = 'N/A';
     document.getElementById('comp-val-pop-home').textContent = 'N/A';
@@ -159,8 +149,6 @@ export function openH2HModal(match) {
 
     document.getElementById('comp-bar-mkt-home').style.width = '50%';
     document.getElementById('comp-bar-mkt-away').style.width = '50%';
-    document.getElementById('comp-bar-xg-home').style.width = '50%';
-    document.getElementById('comp-bar-xg-away').style.width = '50%';
     document.getElementById('comp-bar-pop-home').style.width = '50%';
     document.getElementById('comp-bar-pop-away').style.width = '50%';
 

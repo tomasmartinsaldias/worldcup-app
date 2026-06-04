@@ -1,4 +1,4 @@
-import pandas as pd 
+import pandas as pd
 import sqlite3
 import unicodedata
 import re
@@ -20,22 +20,22 @@ def normalize_string(s):
     }
     for char, repl in replacements.items():
         s = s.replace(char, repl)
-        
+
     s = unicodedata.normalize('NFD', s)
     s = s.encode('ascii', 'ignore').decode('utf-8').strip().lower()
-    
+
     # Strip Arabic article prefixes al / el at word boundaries
     s = re.sub(r'\b(al|el)\b\s*', '', s)
-    
+
     # Normalize common prefix spacings
     s = s.replace('abdul ', 'abdul').replace('abdel ', 'abdel')
-    
+
     # Map nickname joe to joseph at word boundary
     s = re.sub(r'\bjoe\b', 'joseph', s)
-    
+
     # Normalize suffixes like "jr." or "jr" to "junior"
     s = re.sub(r'\bjr\b\.?', 'junior', s)
-    
+
     # Map common nicknames/diminutivos to their full matches in the CSV
     name_variants = {
         'leo messi': 'lionel messi',
@@ -65,7 +65,7 @@ def normalize_string(s):
     }
     for k, v in name_variants.items():
         s = s.replace(k, v)
-        
+
     return s
 
 df = pd.read_csv("data/player_similarity/FC26_20250921.csv", encoding="utf-8", low_memory=False)
@@ -119,17 +119,17 @@ COUNTRY_MAP = {
 }
 
 columns_to_keep = [
-    'short_name', 'long_name', 'overall', 'potential', 'age', 'height_cm', 'weight_kg','nationality_name', 'skill_moves', 
+    'short_name', 'long_name', 'overall', 'potential', 'age', 'height_cm', 'weight_kg','nationality_name', 'skill_moves',
     'pace', 'passing', 'shooting', 'dribbling', 'defending', 'physic',
-    "attacking_crossing", "attacking_finishing", "attacking_heading_accuracy", 
-    "attacking_short_passing", "attacking_volleys", "skill_dribbling", 
-    "skill_curve", "skill_fk_accuracy", "skill_long_passing", 
-    "skill_ball_control", "movement_acceleration", "movement_sprint_speed", 
-    "movement_agility", "movement_reactions", "movement_balance", 
-    "power_shot_power", "power_jumping", "power_stamina", 
-    "power_strength", "power_long_shots", "mentality_aggression", 
-    "mentality_interceptions", "mentality_positioning", "mentality_vision", 
-    "mentality_penalties", "mentality_composure", "defending_marking_awareness", 
+    "attacking_crossing", "attacking_finishing", "attacking_heading_accuracy",
+    "attacking_short_passing", "attacking_volleys", "skill_dribbling",
+    "skill_curve", "skill_fk_accuracy", "skill_long_passing",
+    "skill_ball_control", "movement_acceleration", "movement_sprint_speed",
+    "movement_agility", "movement_reactions", "movement_balance",
+    "power_shot_power", "power_jumping", "power_stamina",
+    "power_strength", "power_long_shots", "mentality_aggression",
+    "mentality_interceptions", "mentality_positioning", "mentality_vision",
+    "mentality_penalties", "mentality_composure", "defending_marking_awareness",
     "defending_standing_tackle", "defending_sliding_tackle"
 ]
 
@@ -160,29 +160,29 @@ df_filtered['short_name_lower'] = df_filtered['short_name'].apply(normalize_stri
 for index, row_db in df_convocados.iterrows():
     jugador_db_raw = str(row_db['jugador'])
     pais_db_raw = str(row_db['pais'])
-    
+
     jugador_db = normalize_string(jugador_db_raw)
     pais_db_norm = normalize_string(pais_db_raw)
-    
+
     # Traducir nombre del país para restringir el ámbito de búsqueda y evitar homónimos
     english_country = COUNTRY_MAP.get(pais_db_norm)
     if not english_country:
         df_country = df_filtered
     else:
         df_country = df_filtered[df_filtered['nationality_name'] == english_country]
-        
+
     # Método 1: Búsqueda de palabra exacta en nombre largo o corto
     pattern = r'\b' + re.escape(jugador_db) + r'\b'
     matches = df_country[df_country['long_name_lower'].str.contains(pattern, na=False, regex=True) |
                          df_country['short_name_lower'].str.contains(pattern, na=False, regex=True)]
-    
+
     # Método 2: Inclusión de palabras en nombre largo (ej. "Lyle Foster" en "Lyle Brent Foster")
     if len(matches) == 0:
         words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
         if words:
             mask = df_country['long_name_lower'].apply(lambda name: all(w in name for w in words))
             matches = df_country[mask]
-            
+
     # Método 3: Inclusión de palabras en nombre corto
     if len(matches) == 0:
         words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
@@ -194,13 +194,13 @@ for index, row_db in df_convocados.iterrows():
     if len(matches) == 0 and english_country is not None:
         matches = df_filtered[df_filtered['long_name_lower'].str.contains(pattern, na=False, regex=True) |
                               df_filtered['short_name_lower'].str.contains(pattern, na=False, regex=True)]
-        
+
         if len(matches) == 0:
             words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
             if words:
                 mask = df_filtered['long_name_lower'].apply(lambda name: all(w in name for w in words))
                 matches = df_filtered[mask]
-                
+
         if len(matches) == 0:
             words = [w for w in re.split(r'[^a-zA-Z0-9]', jugador_db) if len(w) > 1]
             if words:

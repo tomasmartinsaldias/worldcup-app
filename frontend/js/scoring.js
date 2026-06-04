@@ -151,11 +151,12 @@ export function calculateICEScore(match, teams) {
     }
   }
 
-  const homeEloBase = home.metrics ? (home.metrics.elo_rating || 1500) : 1500;
-  const awayEloBase = away.metrics ? (away.metrics.elo_rating || 1500) : 1500;
+  const homeEloBase = (state.teamElos && state.teamElos[match.home_team.fifa_code]) || (home.metrics ? (home.metrics.elo_rating || 1500) : 1500);
+  const awayEloBase = (state.teamElos && state.teamElos[match.away_team.fifa_code]) || (away.metrics ? (away.metrics.elo_rating || 1500) : 1500);
   
-  const homeEloBoost = homeStars > 0 ? 100 * (homeStars / (homeStars + 5)) : 0;
-  const awayEloBoost = awayStars > 0 ? 100 * (awayStars / (awayStars + 5)) : 0;
+  // Michaelis-Menten: techo +200, semisaturación k=3 → 3 estrellas aportan +100 Elo (vs. +37.5 anterior)
+  const homeEloBoost = homeStars > 0 ? 200 * (homeStars / (homeStars + 3)) : 0;
+  const awayEloBoost = awayStars > 0 ? 200 * (awayStars / (awayStars + 3)) : 0;
   
   const rHome = homeEloBase + homeEloBoost;
   const rAway = awayEloBase + awayEloBoost;
@@ -175,10 +176,33 @@ export function calculateICEScore(match, teams) {
   const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + DRAMA_BETA_FIXED);
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   
-  // Factor de Calidad Absoluta basado en el Elo dinámico promedio de ambas selecciones
+  // Factor de Calidad Absoluta basado en el Elo dinámico promedio de ambas selecciones.
+  // Pivote: 1400 (mínimo real del torneo). Techo 1.0 se alcanza en Elo 2100 (amplitud = 700).
   const avgElo = (rHome + rAway) / 2;
-  const qMatch = Math.max(0.60, Math.min(1.0, 0.60 + 0.40 * ((avgElo - 1600) / 500)));
+  const qMatch = Math.max(0.60, Math.min(1.0, 0.60 + 0.40 * ((avgElo - 1400) / 700)));
   score = score * qMatch;
+
+  // Stake multiplier based on qualification statuses (only for Group Stage)
+  if (match.stage === 'Group Stage') {
+    const statuses = state.teamStatuses || {};
+    const hStatus = statuses[match.home_team.fifa_code] || 'PLAYING_FOR_LIFE';
+    const aStatus = statuses[match.away_team.fifa_code] || 'PLAYING_FOR_LIFE';
+    
+    const statusMultipliers = {
+      'PLAYING_FOR_LIFE': 1.0,
+      'QUALIFIED': 0.85,
+      'FIRST_PLACE_ASSURED': 0.70,
+      'ELIMINATED': 0.60
+    };
+    
+    const mHome = statusMultipliers[hStatus] || 1.0;
+    const mAway = statusMultipliers[aStatus] || 1.0;
+    // Media Armónica: dominada por el valor menor, penaliza severamente la asimetría.
+    // Caso (1.0 vs 0.60) → 0.750 < Caso (0.85 vs 0.70) → 0.767. Orden correcto.
+    const matchStakeMultiplier = (2 * mHome * mAway) / (mHome + mAway);
+    
+    score = score * matchStakeMultiplier;
+  }
 
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));

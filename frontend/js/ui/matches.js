@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state, getSimulatedScores } from '../state.js';
 import { createFlagElement, formatKickoff } from '../utils.js';
 import { openH2HModal } from './modal.js?v=5';
 
@@ -49,7 +49,11 @@ export function renderMatches() {
   const regionFilter = document.getElementById('filter-region').value;
 
   // Filter matches
+  const simulatedScores = getSimulatedScores();
   const filtered = state.appData.matches.filter(m => {
+    // Exclude matches that already have a simulated result
+    if (simulatedScores[m.match_number] !== undefined) return false;
+
     // Search filter
     const matchesSearch =
       m.match_label.toLowerCase().includes(searchVal) ||

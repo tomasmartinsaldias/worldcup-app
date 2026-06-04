@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import sys, io
+import sys
+import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 sys.stdin  = io.TextIOWrapper(sys.stdin.buffer,  encoding='utf-8', errors='replace')
 """
@@ -16,7 +17,13 @@ Uso:
   python scripts/cache_unresolved_manual.py --all       (muestra los 69, incluso los ya resueltos)
 """
 
-import os, sys, csv, json, sqlite3, unicodedata, re, urllib.parse
+import os
+import sys
+import json
+import sqlite3
+import unicodedata
+import re
+import urllib.parse
 import requests
 
 def display(text):
@@ -202,7 +209,7 @@ def main():
     print(f"\n{'='*60}")
     print(f"  Revisión manual — {total} unresolved en DB")
     print(f"  Se resolverán solos: {total - len(will_fail)} | Necesitan revisión: {len(will_fail)}")
-    print(f"  Comandos: número=elegir | s=saltar | q=salir | b=buscar otro nombre")
+    print("  Comandos: número=elegir | s=saltar | q=salir | b=buscar otro nombre")
     print(f"{'='*60}\n")
 
     shown = 0
@@ -323,7 +330,7 @@ def main():
                 print("  Entrada inválida.")
 
     print(f"\n{'='*60}")
-    print(f"  Revisión completada.")
+    print("  Revisión completada.")
     print(f"  Guardados en caché: {saved}")
     print(f"  Saltados:          {skipped}")
     print(f"{'='*60}")

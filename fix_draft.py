@@ -1,4 +1,3 @@
-import re
 
 with open('/Users/franmonti/Documents/Austral/worldcup-app/frontend/js/draft.js', 'r', encoding='utf-8') as f:
     content = f.read()

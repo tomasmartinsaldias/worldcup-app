@@ -1,4 +1,6 @@
-import os, json, sqlite3
+import os
+import json
+import sqlite3
 
 # Paths
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))

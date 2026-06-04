@@ -6,14 +6,14 @@ def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
     output_path = os.path.join(base_dir, "data", "wc2026_data.json")
-    
+
     if not os.path.exists(db_path):
         print(f"Error: No se encontró la base de datos en {db_path}")
         return
-        
+
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    
+
     # 1. Cargar Mapeos de Equipos
     print("Cargando mapeos de equipos...")
     cursor.execute("SELECT fifa_code, wc2026_name, historical_name, intl_results_name FROM team_mappings;")
@@ -24,43 +24,41 @@ def main():
             "historical_name": row[2],
             "intl_results_name": row[3]
         }
-        
+
     # 2. Cargar Selecciones y Métricas de Scraping
     print("Cargando selecciones y sus métricas...")
     cursor.execute("""
         SELECT 
             t.id, t.team_name, t.fifa_code, t.group_letter, t.is_placeholder, t.is_confirmed_squad, t.dt,
-            m.market_value_eur, m.recent_xg_avg, m.recent_possession_avg, m.global_popularity_score,
-            m.progressive_passes_per_90_avg, m.sofascore_rating_avg, m.cards_per_match_avg,
-            m.ocasiones_norm, m.contra_norm, m.drama_norm, m.vuln_norm
+            m.market_value_eur, m.recent_possession_avg, m.global_popularity_score,
+            m.cards_per_match_avg,
+            m.ocasiones_norm, m.contra_norm, m.drama_norm, m.vuln_norm, m.elo_rating
         FROM wc2026_teams t
         LEFT JOIN scraped_team_metrics m ON t.fifa_code = m.fifa_code;
     """)
-    
+
     teams_dict = {}
     groups_dict = {}
-    
+
     for row in cursor.fetchall():
-        (tid, name, code, group_letter, is_placeholder, is_confirmed, dt, val, xg, poss, pop, prog_passes, sofascore, cards,
-         oc_norm, ca_norm, drama_norm, vuln_norm) = row
-        
+        (tid, name, code, group_letter, is_placeholder, is_confirmed, dt, val, poss, pop, cards,
+         oc_norm, ca_norm, drama_norm, vuln_norm, elo_rating) = row
+
         # Agrupar por grupo para la vista de grupos
         if group_letter and not is_placeholder:
             if group_letter not in groups_dict:
                 groups_dict[group_letter] = []
             groups_dict[group_letter].append(code)
-            
+
         metrics = None
         espectaculo_params = None
         if not is_placeholder:
             metrics = {
                 "market_value_eur": val,
-                "recent_xg_avg": xg,
                 "recent_possession_avg": poss,
                 "global_popularity_score": pop,
-                "progressive_passes_per_90_avg": prog_passes,
-                "sofascore_rating_avg": sofascore,
-                "cards_per_match_avg": cards
+                "cards_per_match_avg": cards,
+                "elo_rating": elo_rating
             }
             espectaculo_params = {
                 "ocasiones_norm": oc_norm,
@@ -68,7 +66,7 @@ def main():
                 "drama_norm": drama_norm,
                 "vuln_norm": vuln_norm
             }
-            
+
         teams_dict[code] = {
             "id": tid,
             "name": name,
@@ -81,7 +79,7 @@ def main():
             "espectaculo_params": espectaculo_params,
             "squad": []
         }
-        
+
     # 3. Cargar Jugadores de cada Selección
     print("Cargando planteles probables...")
     cursor.execute("""
@@ -92,7 +90,7 @@ def main():
         FROM scraped_wc2026_probable_squads ps
         JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code;
     """)
-    
+
     for row in cursor.fetchall():
         (pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec) = row
         if code in teams_dict:
@@ -110,11 +108,11 @@ def main():
                 "assists_recent": assists_rec,
                 "minutes_recent": mins_rec
             })
-            
+
     # Ordenar planteles por nombre
     for code in teams_dict:
         teams_dict[code]["squad"].sort(key=lambda x: x["name"])
-        
+
     # 4. Cargar Ciudades Anfitrionas y Estadios
     print("Cargando sedes y estadios...")
     cursor.execute("SELECT id, city_name, country, venue_name, region_cluster, airport_code FROM wc2026_host_cities;")
@@ -132,9 +130,8 @@ def main():
         }
         stadiums.append(stadium_info)
         stadiums_dict[sid] = stadium_info
-        
+
     # 5. Cargar Partidos y Calcular H2H
-    print("Procesando partidos y calculando H2H histórico...")
     cursor.execute("""
         SELECT 
             m.id, m.match_number, m.kickoff_at, m.match_label,
@@ -144,19 +141,18 @@ def main():
         LEFT JOIN wc2026_teams t1 ON m.home_team_id = t1.id
         LEFT JOIN wc2026_teams t2 ON m.away_team_id = t2.id
         LEFT JOIN wc2026_tournament_stages s ON m.stage_id = s.id
-        WHERE s.stage_name = 'Group Stage'
         ORDER BY m.match_number;
     """)
-    
+
     matches = []
-    
+
     for row in cursor.fetchall():
         mid, match_num, kickoff, label, home_code, away_code, city_id, stage_name = row
-        
+
         home_team = teams_dict.get(home_code)
         away_team = teams_dict.get(away_code)
         stadium = stadiums_dict.get(city_id)
-        
+
         h2h_data = {
             "total_matches": 0,
             "home_wins": 0,
@@ -170,18 +166,18 @@ def main():
             "wc_draws": 0,
             "last_matches": []
         }
-        
+
         # Calcular H2H si ambos equipos no son placeholders y están mapeados
         if home_team and away_team and not home_team["is_placeholder"] and not away_team["is_placeholder"]:
             map_home = mappings.get(home_code)
             map_away = mappings.get(away_code)
-            
+
             if map_home and map_away:
                 h_intl = map_home["intl_results_name"]
                 a_intl = map_away["intl_results_name"]
                 h_hist = map_home["historical_name"]
                 a_hist = map_away["historical_name"]
-                
+
                 # A. H2H en partidos internacionales generales (intl_results)
                 if h_intl and a_intl:
                     cursor.execute("""
@@ -191,13 +187,13 @@ def main():
                            OR (home_team = ? AND away_team = ?)
                         ORDER BY date DESC;
                     """, (h_intl, a_intl, a_intl, h_intl))
-                    
+
                     intl_rows = cursor.fetchall()
                     h2h_data["total_matches"] = len(intl_rows)
-                    
+
                     for idx, i_row in enumerate(intl_rows):
                         date_str, tourn, h_team, a_team, h_score, a_score = i_row
-                        
+
                         # Determinar quién anotó qué goles
                         if h_team == h_intl:
                             g_home = int(h_score) if h_score is not None else 0
@@ -205,10 +201,10 @@ def main():
                         else:
                             g_home = int(a_score) if a_score is not None else 0
                             g_away = int(h_score) if h_score is not None else 0
-                            
+
                         h2h_data["home_goals"] += g_home
                         h2h_data["away_goals"] += g_away
-                        
+
                         # Resultados
                         if g_home > g_away:
                             h2h_data["home_wins"] += 1
@@ -216,7 +212,7 @@ def main():
                             h2h_data["away_wins"] += 1
                         else:
                             h2h_data["draws"] += 1
-                            
+
                         # Guardar los últimos 5 partidos como muestra
                         if idx < 5:
                             h2h_data["last_matches"].append({
@@ -226,7 +222,7 @@ def main():
                                 "away_team": a_team,
                                 "score": f"{int(h_score)}-{int(a_score)}" if h_score is not None and a_score is not None else "N/A"
                             })
-                            
+
                 # B. H2H específico de Mundiales Pasados (Calculado con intl_results)
                 if h_intl and a_intl:
                     cursor.execute("""
@@ -237,16 +233,16 @@ def main():
                           AND tournament = 'FIFA World Cup'
                         ORDER BY date DESC;
                     """, (h_intl, a_intl, a_intl, h_intl))
-                    
+
                     wc_rows = cursor.fetchall()
                     h2h_data["wc_matches"] = len(wc_rows)
-                    
+
                     for w_row in wc_rows:
                         date_str, h_team, a_team, h_score, a_score = w_row
-                        
+
                         g_home = int(h_score) if h_score is not None else 0
                         g_away = int(a_score) if a_score is not None else 0
-                        
+
                         if g_home == g_away:
                             h2h_data["wc_draws"] += 1
                         else:
@@ -261,7 +257,7 @@ def main():
                                     h2h_data["wc_home_wins"] += 1
                                 else:
                                     h2h_data["wc_away_wins"] += 1
-                                
+
         match_data = {
             "id": mid,
             "match_number": match_num,
@@ -284,9 +280,9 @@ def main():
             "h2h": h2h_data
         }
         matches.append(match_data)
-        
+
     conn.close()
-    
+
     # 6. Guardar en JSON
     data_to_export = {
         "teams": teams_dict,
@@ -294,18 +290,18 @@ def main():
         "matches": matches,
         "groups": groups_dict
     }
-    
+
     print(f"Exportando datos a {output_path}...")
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(data_to_export, f, ensure_ascii=False, indent=2)
-        
+
     # También exportar a frontend/data para despliegue estático (GitHub Pages)
     frontend_output_path = os.path.join(base_dir, "frontend", "data", "wc2026_data.json")
     os.makedirs(os.path.dirname(frontend_output_path), exist_ok=True)
     with open(frontend_output_path, 'w', encoding='utf-8') as f:
         json.dump(data_to_export, f, ensure_ascii=False, indent=2)
     print(f"Copia exportada a {frontend_output_path}")
-        
+
     print("¡Exportación completada con éxito!")
 
 if __name__ == "__main__":

@@ -9,7 +9,11 @@ de convocados que está en 'Lista de Convocados.md'.
 - Cuando hay una única coincidencia con similitud >= 0.85, marca `resolved = 1`.
 """
 
-import os, re, sqlite3, unicodedata, difflib
+import os
+import re
+import sqlite3
+import unicodedata
+import difflib
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))
 DB_PATH = os.path.join(BASE_DIR, "data", "worldcup_combined.db")
