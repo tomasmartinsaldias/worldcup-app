@@ -6,18 +6,23 @@ function startQuiz(level) {
           document.getElementById('casual-quiz').classList.add('visible');
           window.appState = 'quiz-casual';
         }, 500);
-            } else if(level === 'fanatico') {
+      } else if(level === 'intermedio') {
         window.appState = 'transition';
         document.getElementById('spectator-selection').classList.remove('visible');
         setTimeout(() => {
           if (typeof window.openDraftOverlay === 'function') {
             window.openDraftOverlay();
-          } else if (typeof startDraft === 'function') {
-            startDraft();
-          } else {
-            console.error("Draft functions not found in global scope.");
           }
           window.appState = 'draft';
+        }, 500);
+      } else if(level === 'fanatico') {
+        window.appState = 'transition';
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('draft-template').classList.remove('hidden');
+          document.getElementById('draft-template').classList.add('visible');
+          window.appState = 'draft';
+          if (window.startDraft) window.startDraft(true);
         }, 500);
       }
     }

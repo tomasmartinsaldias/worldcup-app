@@ -254,6 +254,8 @@ export function initDraft() {
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
       document.getElementById('draft-modal').classList.remove('active');
+      document.getElementById('draft-modal').classList.add('hidden');
+      document.getElementById('draft-modal').classList.remove('visible');
     });
   }
 }
@@ -482,6 +484,8 @@ function openDraftOptions(slotId, groupName) {
   title.textContent = question;
   container.innerHTML = '';
   modal.classList.add('active');
+  modal.classList.remove('hidden');
+  modal.classList.add('visible');
 
   if (!state.appData || !state.appData.clusters || !state.appData.clusters[groupName]) {
     container.innerHTML = 'Error: Datos de clusters no cargados.';
@@ -601,6 +605,8 @@ function selectPlayer(player) {
   }
 
   document.getElementById('draft-modal').classList.remove('active');
+      document.getElementById('draft-modal').classList.add('hidden');
+      document.getElementById('draft-modal').classList.remove('visible');
 
   updateDraftState();
   checkDraftCompletion();

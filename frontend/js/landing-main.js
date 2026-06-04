@@ -32,6 +32,12 @@
       const fanatic = document.getElementById('fanatic-quiz');
       if (fanatic) fanatic.classList.remove('visible');
 
+      const futDraft = document.getElementById('draft-template');
+      if (futDraft) {
+        futDraft.classList.remove('visible');
+        futDraft.classList.add('hidden');
+      }
+
       const draft = document.getElementById('draft-overlay');
       if (draft) {
         draft.classList.remove('visible');
