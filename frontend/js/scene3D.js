@@ -7,7 +7,7 @@
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(0, 0, 15);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "high-performance" });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
@@ -64,10 +64,24 @@
         });
 
         trophyGroup.add(trophy);
+
+        // Hide loader once 3D model is ready
+        const loaderEl = document.getElementById('global-loader');
+        if (loaderEl) {
+            loaderEl.classList.add('fade-out');
+            setTimeout(() => loaderEl.remove(), 800);
+        }
       },
       undefined,
       function (error) {
         console.error('Error cargando el modelo 3D:', error);
+        
+        // Hide loader even on error so user isn't stuck
+        const loaderEl = document.getElementById('global-loader');
+        if (loaderEl) {
+            loaderEl.classList.add('fade-out');
+            setTimeout(() => loaderEl.remove(), 800);
+        }
       }
     );
 
