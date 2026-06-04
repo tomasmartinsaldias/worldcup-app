@@ -9,9 +9,9 @@
   <meta property="og:description" content="Elige tu nivel, simula marcadores y vive el mundial 2026.">
   <meta property="og:image" content="img/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/components.css?v=2">
-  <link rel="stylesheet" href="draft.css">
+    <link rel="stylesheet" href="css/styles.css?v=9">
+  <link rel="stylesheet" href="css/components.css?v=9">
+  <link rel="stylesheet" href="draft.css?v=9">
 </head>
 <body>
 
@@ -239,20 +239,20 @@
   </div>
 
   <!-- LÓGICA DE UI OVERLAYS -->
-<script src="js/landing-main.js"></script>
-  <script src="js/landing-quiz.js"></script>
-  <script src="js/particles.js"></script>
+  <script src="js/landing-main.js?v=9"></script>
+  <script src="js/landing-quiz.js?v=9"></script>
+  <script src="js/particles.js?v=9"></script>
 
   <!-- LIBRERÍAS THREE.JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-  <script src="js/scene3D.js"></script>
-  <script src="js/draft.js"></script>
+  <script src="js/scene3D.js?v=9"></script>
+  <script src="js/draft.js?v=9"></script>
 
   <script type="module" charset="utf-8">
-    import { loadData } from './js/state.js';
-    import { initDraft, startDraft } from './js/ui/draft.js';
+    import { loadData } from './js/state.js?v=3';
+    import { initDraft, startDraft } from './js/ui/draft.js?v=3';
     loadData();
     window.startDraft = startDraft;
     document.addEventListener('DOMContentLoaded', () => {

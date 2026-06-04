@@ -19,14 +19,21 @@ async function initDraftData() {
   if (isDraftLoaded) return;
   try {
     const [teamsRes, countriesRes, playersRes] = await Promise.all([
-      fetch('../data/data_frontend/teams.json'),
-      fetch('../data/data_frontend/countries.json'),
-      fetch('../data/data_frontend/players_final.json')
+      fetch('/data/data_frontend/teams.json').catch(() => fetch('../data/data_frontend/teams.json')),
+      fetch('/data/data_frontend/countries.json').catch(() => fetch('../data/data_frontend/countries.json')),
+      fetch('/data/data_frontend/players_final.json').catch(() => fetch('../data/data_frontend/players_final.json'))
     ]);
 
-    const teams = await teamsRes.json();
-    const countries = await countriesRes.json();
-    const players = await playersRes.json();
+    const checkRes = async (res) => {
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      const text = await res.text();
+      try { return JSON.parse(text); } 
+      catch (e) { throw new Error(`Invalid JSON: ${text.substring(0, 50)}...`); }
+    };
+
+    const teams = await checkRes(teamsRes);
+    const countries = await checkRes(countriesRes);
+    const players = await checkRes(playersRes);
 
     // Sort data
     draftData.teams = teams.sort((a, b) => a.team.localeCompare(b.team));
@@ -38,7 +45,7 @@ async function initDraftData() {
     isDraftLoaded = true;
     renderDraftUI();
   } catch (error) {
-    console.error("Error loading draft data:", error);
+    console.error("Error loading draft data. Ensure server is running at project root:", error);
   }
 }
 
@@ -103,7 +110,7 @@ function renderTeams() {
     html += `
       <div class="draft-card ${isSelected}" data-type="team" data-id="${originalIndex}">
 
-        <img src="${t.crest}" alt="${t.team}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src=\'../img/placeholder_player.png\';">
+        <img src="${t.crest}" alt="${t.team}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
         <span class="name">${t.team}</span>
       </div>
     `;
@@ -131,7 +138,7 @@ function renderCountries() {
     html += `
       <div class="draft-card ${isSelected}" data-type="country" data-id="${originalIndex}">
 
-        <img src="${c.flag_url}" alt="${c.country}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src=\'../img/placeholder_player.png\';">
+        <img src="${c.flag_url}" alt="${c.country}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
         <span class="name">${c.country}</span>
       </div>
     `;
@@ -156,12 +163,12 @@ function renderPlayers() {
   paginated.forEach((p) => {
     const originalIndex = draftData.players.indexOf(p);
     const isSelected = draftState.players.includes(originalIndex) ? 'selected' : '';
-    const imgUrl = p._URL || '../img/placeholder_player.png';
+    const imgUrl = p._URL || '/frontend/img/placeholder_player.png';
     html += `
       <div class="draft-card ${isSelected}" data-type="player" data-id="${originalIndex}">
 
         <div class="overall">${p.Overall}</div>
-        <img src="${imgUrl}" alt="${p.NAME}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src=\'../img/placeholder_player.png\';">
+        <img src="${imgUrl}" alt="${p.NAME}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
         <span class="name">${p.NAME}</span>
       </div>
     `;
