@@ -828,6 +828,8 @@ export function startDraft(isInitial = false, type = null) {
 
   const pitch = document.getElementById('pitch-container');
   if (!pitch) return;
+  
+  pitch.classList.add('draft-active-mode');
 
   pitch.innerHTML = `
     <div class="pitch-lines-overlay">

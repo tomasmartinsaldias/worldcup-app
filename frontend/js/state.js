@@ -59,16 +59,17 @@ export async function loadData() {
       'Centerbacks': 'Centerbacks', 'Fullbacks': 'Fullbacks', 'Wingers': 'Wingers'
     };
 
-    // Process finalPhotosData
     finalPhotosData.forEach(p => {
-      if (p.NAME && p._URL) {
+      const urlKey = Object.keys(p).find(k => k.includes('_URL'));
+      const url = urlKey ? p[urlKey] : undefined;
+      if (p.NAME && url) {
         const n = robustNormalise(p.NAME);
         if (n) {
-          state.appData.photoIndex[n] = p._URL;
+          state.appData.photoIndex[n] = url;
           const parts = n.split(' ');
           if (parts.length > 1) {
             const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
-            state.appData.photoIndex[short] = p._URL;
+            state.appData.photoIndex[short] = url;
           }
         }
       }
@@ -78,7 +79,7 @@ export async function loadData() {
           long_name: p.NAME,
           overall: p.Overall,
           cluster_id: p.Cluster_id,
-          photoUrl: p._URL,
+          photoUrl: url,
         });
       }
     });
