@@ -9,8 +9,8 @@
   <meta property="og:description" content="Elige tu nivel, simula marcadores y vive el mundial 2026.">
   <meta property="og:image" content="img/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=10">
-  <link rel="stylesheet" href="css/components.css?v=10">
+    <link rel="stylesheet" href="css/styles.css?v=11">
+  <link rel="stylesheet" href="css/components.css?v=11">
   <link rel="stylesheet" href="draft.css?v=10">
 </head>
 <body>
@@ -52,17 +52,17 @@
     <h2 class="overlay-title">ELIGE TU NIVEL</h2>
     <p class="overlay-subtitle">Elige cómo vas a vivir el mundial para personalizar tu experiencia.</p>
     <div class="cards-grid">
-      <div class="spectator-card card-casual" onclick="startQuiz('casual')">
+      <div class="spectator-card card-casual" onclick="openSurvey('casual')">
         <h3>CASUAL</h3>
         <p>Disfrutas los partidos importantes, pero no sigues el día a día.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-intermedio" onclick="window.location.href = 'app.html'">
+      <div class="spectator-card card-intermedio" onclick="openSurvey('intermedio')">
         <h3>INTERMEDIO</h3>
         <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-fanatico" onclick="startQuiz('fanatico')">
+      <div class="spectator-card card-fanatico" onclick="openSurvey('fanatico')">
         <h3>FANÁTICO</h3>
         <p>El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
         <div class="card-glow"></div>
@@ -70,56 +70,102 @@
     </div>
   </div>
 
-  <div id="casual-quiz" class="ui-overlay hidden cq-flow">
-    <div class="quiz-container">
+  <div id="antigravity-survey" class="ui-overlay hidden survey-flow">
+    <div class="quiz-container survey-container" style="max-width: 800px;">
       <div class="quiz-header">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="cq-progress"></div></div>
-        <span id="cq-step-text">PASO 1 DE 3</span>
+        <div class="quiz-progress-bar"><div class="quiz-progress" id="survey-progress" style="width: 33.3%;"></div></div>
+        <span id="survey-step-text">PASO 1 DE 3</span>
       </div>
       
-      <!-- Paso 1 -->
-      <div class="quiz-step active" id="cq-step-1">
-        <h2 class="quiz-question">¿CUÁL ES TU SELECCIÓN FAVORITA?</h2>
-        <p class="quiz-desc">Elige el equipo que llevarás en el corazón durante la copa.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Argentina</button>
-          <button class="quiz-option" onclick="selectOption(this)">Brasil</button>
-          <button class="quiz-option" onclick="selectOption(this)">Francia</button>
-          <button class="quiz-option" onclick="selectOption(this)">Inglaterra</button>
+      <!-- Paso 1: Pasión vs Espectáculo -->
+      <div class="quiz-step survey-step active" id="survey-step-1">
+        <h2 class="quiz-question">¿CÓMO VIVES EL FÚTBOL?</h2>
+        <p class="quiz-desc">A la hora de sentarte a mirar un partido, ¿hacia qué extremo inclinas la balanza?</p>
+        
+        <div class="slider-wrapper main-slider-wrapper">
+          <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-passion" oninput="updateSliderText('passion', this.value)">
+          <div class="slider-labels">
+            <span class="label-left">Lealtad y Resultado</span>
+            <span class="label-right">Puro Espectáculo</span>
+          </div>
+          <div class="dynamic-text-box" id="text-passion">Equilibrio perfecto entre pasión y buen juego.</div>
         </div>
-        <button class="quiz-btn-next" onclick="nextQuizStep(2)" disabled>CONTINUAR</button>
+
+        <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
       </div>
 
-      <!-- Paso 2 -->
-      <div class="quiz-step" id="cq-step-2">
-        <h2 class="quiz-question">¿QUÉ TIPO DE JUEGO PREFIERES?</h2>
-        <p class="quiz-desc">El estilo define la grandeza en el campo.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Ataque Total</button>
-          <button class="quiz-option" onclick="selectOption(this)">Posesión y Control</button>
-          <button class="quiz-option" onclick="selectOption(this)">Defensa Férrea</button>
-          <button class="quiz-option" onclick="selectOption(this)">Contraataque Veloz</button>
+      <!-- Paso 2: ADN del Partido -->
+      <div class="quiz-step survey-step" id="survey-step-2">
+        <h2 class="quiz-question">ADN DEL PARTIDO</h2>
+        <p class="quiz-desc">El estilo define la grandeza en el campo. ¿Qué prefieres ver?</p>
+        
+        <div class="sliders-group">
+          <!-- Fricción -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-shield-halved"></i> Juego Trabado</span>
+              <span>Fluido / Limpio <i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction">
+          </div>
+
+          <!-- Goles -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-lock"></i> Cerrado y Táctico</span>
+              <span>Festival de Goles <i class="fa-solid fa-futbol"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals">
+          </div>
+
+          <!-- Equidad -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-scale-unbalanced"></i> David vs Goliat</span>
+              <span>Choque de Titanes <i class="fa-solid fa-scale-balanced"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-balance">
+          </div>
         </div>
-        <button class="quiz-btn-next" onclick="nextQuizStep(3)" disabled>CONTINUAR</button>
+
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;" onclick="prevSurveyStep(1)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(3)">CONTINUAR</button>
+        </div>
       </div>
 
-      <!-- Paso 3 -->
-      <div class="quiz-step" id="cq-step-3">
-        <h2 class="quiz-question">¿A QUÉ JUGADOR SIGUES MÁS?</h2>
-        <p class="quiz-desc">Las leyendas que marcan la diferencia.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Lionel Messi</button>
-          <button class="quiz-option" onclick="selectOption(this)">Kylian Mbappé</button>
-          <button class="quiz-option" onclick="selectOption(this)">Vinícius Jr.</button>
-          <button class="quiz-option" onclick="selectOption(this)">Jude Bellingham</button>
+      <!-- Paso 3: Los Protagonistas -->
+      <div class="quiz-step survey-step" id="survey-step-3">
+        <h2 class="quiz-question">LOS PROTAGONISTAS</h2>
+        <p class="quiz-desc">¿Qué tiene más peso para ti a la hora de elegir qué mirar?</p>
+        
+        <div class="sliders-group">
+          <!-- Jugadores -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span>El Sistema</span>
+              <span>Las Estrellas <i class="fa-solid fa-star"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-players">
+          </div>
+
+          <!-- Equipo -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span>El escudo no importa</span>
+              <span>Historia de la Nación <i class="fa-solid fa-flag"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-team">
+          </div>
         </div>
-        <button class="quiz-btn-next" onclick="finishQuiz()" disabled>DESCUBRIR MI DESTINO</button>
+
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;" onclick="prevSurveyStep(2)">ATRÁS</button>
+          <button class="quiz-btn-next btn-glow-pulse" onclick="finishSurvey()">CALCULAR MI DESTINO</button>
+        </div>
       </div>
+
     </div>
-  </div>
-
-  <div id="fanatic-quiz" class="ui-overlay hidden fq-flow">
-    
   </div>
 
 
@@ -247,8 +293,8 @@
   </div>
 
   <!-- LÓGICA DE UI OVERLAYS -->
-  <script src="js/landing-main.js?v=10"></script>
-  <script src="js/landing-quiz.js?v=10"></script>
+  <script src="js/landing-main.js?v=12"></script>
+  <script src="js/survey.js?v=1"></script>
   <script src="js/particles.js?v=10"></script>
 
   <!-- LIBRERÍAS THREE.JS -->
