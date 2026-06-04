@@ -1,0 +1,160 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: #030303;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden; /* Sin scroll para la experiencia landing pura */
+      width: 100vw;
+      height: 100vh;
+    }
+    
+    /* Contenedor del canvas 3D y partículas */
+    #canvas-container {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+    }
+
+    /* Viñeta oscura para enfocar el centro y ocultar imperfecciones de los bordes */
+    .vignette {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% 50%, transparent 15%, #030303 85%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Contenedor de la interfaz (Textos laterales) */
+    .hero-ui {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6rem;
+      pointer-events: none; /* Para que el mouse interactúe con el canvas 3D */
+    }
+
+    .hero-text-block {
+      max-width: 350px;
+      pointer-events: auto; /* Permitir selección de texto / clics */
+    }
+
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+
+    .epic-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff 0%, #7a7a7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .epic-text-right {
+      background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease-out 0.5s forwards;
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInIndicator {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    /* Botón de continuar animado */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeInIndicator 2s ease-out 1.5s forwards;
+    }
+
+    .scroll-indicator span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      transition: color 0.3s;
+      margin-right: -3px; /* Compensa el letter-spacing extra a la derecha */
+    }
+
+    .scroll-indicator:hover span {
+      color: #f5d061;
+    }
+
+    .mouse-outline {
+      width: 22px; height: 36px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      position: relative;
+      display: flex; justify-content: center;
+      transition: border-color 0.3s;
+    }
+    
+    .scroll-indicator:hover .mouse-outline {
+      border-color: #8a7330;
+    }
+
+    .scroll-wheel {
+      width: 2px; height: 6px;
+      background-color: #999;
+      border-radius: 2px;
+      margin-top: 6px;
+      animation: scrollWheel 1.5s infinite;
+    }
+
+    @keyframes scrollWheel {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(12px); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-ui {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5rem 2rem 8rem 2rem;
+      }
+      .hero-text-block { text-align: center; max-width: 100%; }
+      .epic-text { font-size: 2.8rem; }
+    }
+
+    /* --- OVERLAYS UI --- */
+    

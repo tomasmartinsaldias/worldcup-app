@@ -162,17 +162,82 @@ export function initDraft() {
   if (btnRestart) {
     btnRestart.addEventListener('click', (e) => {
       const btn = e.currentTarget;
-      const originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reiniciando...';
       btn.style.pointerEvents = 'none';
-      btn.style.opacity = '0.8';
+      btn.style.opacity = '0.7';
 
+      const pitch = document.getElementById('pitch-container');
+      const summary = document.getElementById('draft-summary-banner');
+
+      // Step 1: fade out everything in the draft container
+      const draftContainer = pitch ? pitch.parentElement : null;
+      if (draftContainer) {
+        draftContainer.style.transition = 'opacity 0.5s ease';
+        draftContainer.style.opacity = '0';
+      }
+
+      // Step 2: after fade-out, show loading overlay, then restart
       setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.pointerEvents = 'auto';
-        btn.style.opacity = '1';
-        startDraft(true);
-      }, 700);
+        // Inject full-screen loading overlay on top of pitch
+        if (pitch) {
+          pitch.innerHTML = '';
+        }
+        if (summary) {
+          summary.classList.add('draft-summary-hidden');
+        }
+
+        // Create loading screen
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.id = 'draft-restart-loading';
+        loadingOverlay.style.cssText = `
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(5, 8, 18, 0.97); z-index: 999;
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          border-radius: 16px; opacity: 0;
+          transition: opacity 0.4s ease;
+        `;
+        loadingOverlay.innerHTML = `
+          <div style="text-align:center;">
+            <div style="font-size:3.5rem; margin-bottom:1.5rem; animation: spinAnim 1.2s linear infinite; display:inline-block;">⚽</div>
+            <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#fff; letter-spacing:2px; margin-bottom:0.5rem;">
+              Reiniciando Draft
+            </div>
+            <div id="restart-dots" style="font-family:'Outfit',sans-serif; font-size:1.6rem; color:#0088ff; letter-spacing:4px; min-height:2rem;"></div>
+          </div>
+        `;
+
+        document.getElementById('draft-template').appendChild(loadingOverlay);
+        // Fade in overlay
+        requestAnimationFrame(() => { requestAnimationFrame(() => { loadingOverlay.style.opacity = '1'; }); });
+
+        // Animate dots
+        let dotCount = 0;
+        const dotsEl = document.getElementById('restart-dots');
+        const dotsInterval = setInterval(() => {
+          dotCount = (dotCount + 1) % 4;
+          if (dotsEl) dotsEl.textContent = '●'.repeat(dotCount) + '○'.repeat(3 - dotCount);
+        }, 300);
+
+        // Fade main container back in slowly while overlay is up
+        if (draftContainer) {
+          draftContainer.style.opacity = '1';
+        }
+
+        // Step 3: after 1.6s, fade out overlay and launch fresh draft
+        setTimeout(() => {
+          clearInterval(dotsInterval);
+          loadingOverlay.style.opacity = '0';
+          setTimeout(() => {
+            loadingOverlay.remove();
+            btn.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Reiniciar';
+            btn.style.pointerEvents = 'auto';
+            btn.style.opacity = '1';
+            startDraft(true);
+          }, 400);
+        }, 1600);
+
+      }, 550);
     });
   }
 
@@ -189,6 +254,8 @@ export function initDraft() {
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
       document.getElementById('draft-modal').classList.remove('active');
+      document.getElementById('draft-modal').classList.add('hidden');
+      document.getElementById('draft-modal').classList.remove('visible');
     });
   }
 }
@@ -417,6 +484,8 @@ function openDraftOptions(slotId, groupName) {
   title.textContent = question;
   container.innerHTML = '';
   modal.classList.add('active');
+  modal.classList.remove('hidden');
+  modal.classList.add('visible');
 
   if (!state.appData || !state.appData.clusters || !state.appData.clusters[groupName]) {
     container.innerHTML = 'Error: Datos de clusters no cargados.';
@@ -536,6 +605,8 @@ function selectPlayer(player) {
   }
 
   document.getElementById('draft-modal').classList.remove('active');
+      document.getElementById('draft-modal').classList.add('hidden');
+      document.getElementById('draft-modal').classList.remove('visible');
 
   updateDraftState();
   checkDraftCompletion();
@@ -572,10 +643,10 @@ function completeDraft() {
   avgPassing /= players.length;
   avgDefending /= players.length;
 
-  // Map normalized feature values (~0.15) to [-1, 1] range.
-  let ritmo = (avgPace - 0.15) * 15;
-  let posesion = (avgPassing - 0.15) * 15;
-  let defensa = (avgDefending - 0.15) * 15;
+  // Map standardized feature values (mean 0, std 1) to approximately [-1, 1] range.
+  let ritmo = avgPace / 3;
+  let posesion = avgPassing / 3;
+  let defensa = avgDefending / 3;
 
   // Ancho is heavily dictated by formation choice
   let ancho = 0;
