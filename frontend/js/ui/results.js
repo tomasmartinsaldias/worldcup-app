@@ -21,12 +21,21 @@ export function renderResults() {
           <div class="results-stats" id="results-stats-container" style="color: var(--text-secondary); font-size: 0.9rem; font-family: var(--font-secondary); font-weight: 500;">
             Cargando estadísticas de simulación...
           </div>
-          <div class="results-actions" style="display: flex; gap: 0.75rem;">
-            <button class="btn-mundial btn-mundial--green" id="btn-simulate-remaining" style="padding: 0.7rem 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 50px; font-weight: bold; cursor: pointer;">
+          <div class="results-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <button class="btn-mundial btn-mundial--green" id="btn-simulate-j1" style="padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+              Simular J1
+            </button>
+            <button class="btn-mundial btn-mundial--green" id="btn-simulate-j2" style="padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+              Simular J2
+            </button>
+            <button class="btn-mundial btn-mundial--green" id="btn-simulate-j3" style="padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+              Simular J3
+            </button>
+            <button class="btn-mundial btn-mundial--green" id="btn-simulate-remaining" style="padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold; cursor: pointer; background: var(--accent-cyan); border-color: var(--accent-cyan); color: #000;">
               <i class="fa-solid fa-wand-magic-sparkles"></i> Simular Restantes
             </button>
-            <button class="btn-mundial btn-mundial--outline" id="btn-reset-simulator" style="padding: 0.7rem 1.5rem; border-color: rgba(232, 35, 26, 0.4); color: var(--wc-red); display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 50px; font-weight: bold; cursor: pointer;">
-              <i class="fa-solid fa-trash-can"></i> Limpiar Marcadores
+            <button class="btn-mundial btn-mundial--outline" id="btn-reset-simulator" style="padding: 0.6rem 1.2rem; border-color: rgba(232, 35, 26, 0.4); color: var(--wc-red); display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold; cursor: pointer;">
+              <i class="fa-solid fa-trash-can"></i> Limpiar
             </button>
           </div>
         </div>
@@ -45,6 +54,9 @@ export function renderResults() {
     `;
 
     // Bind event listeners
+    document.getElementById('btn-simulate-j1').addEventListener('click', () => simulateRound(1));
+    document.getElementById('btn-simulate-j2').addEventListener('click', () => simulateRound(2));
+    document.getElementById('btn-simulate-j3').addEventListener('click', () => simulateRound(3));
     document.getElementById('btn-simulate-remaining').addEventListener('click', simulateRemainingMatches);
     document.getElementById('btn-reset-simulator').addEventListener('click', () => {
       if (confirm('¿Estás seguro de que quieres borrar todos los marcadores simulados?')) {
@@ -92,6 +104,15 @@ function updateStatsBar() {
 function renderGroupsContent() {
   const grid = document.getElementById('results-groups-grid');
   if (!grid || !state.appData || !state.appData.groups) return;
+
+  // Save the currently focused element's details to restore focus later
+  const activeEl = document.activeElement;
+  let focusedMatch = null;
+  let focusedTeam = null;
+  if (activeEl && activeEl.classList.contains('sim-score-input')) {
+    focusedMatch = activeEl.getAttribute('data-match');
+    focusedTeam = activeEl.getAttribute('data-team');
+  }
 
   grid.innerHTML = '';
   const simulatedScores = getSimulatedScores();
@@ -297,7 +318,7 @@ function renderGroupsContent() {
 
   // Bind inputs event listeners
   grid.querySelectorAll('.sim-score-input').forEach(input => {
-    input.addEventListener('change', (e) => {
+    const handleScoreChange = (e) => {
       const mNum = parseInt(input.getAttribute('data-match'));
       const team = input.getAttribute('data-team');
       const val = input.value;
@@ -321,7 +342,10 @@ function renderGroupsContent() {
       if (window.recalculateAndRender) window.recalculateAndRender();
       updateStatsBar();
       renderGroupsContent();
-    });
+    };
+
+    input.addEventListener('change', handleScoreChange);
+    input.addEventListener('input', handleScoreChange);
 
     // Prevent negative numbers and e/E keys
     input.addEventListener('keydown', (e) => {
@@ -330,6 +354,14 @@ function renderGroupsContent() {
       }
     });
   });
+
+  // Restore focus if it was focused before redrawing
+  if (focusedMatch && focusedTeam) {
+    const newInput = grid.querySelector(`.sim-score-input[data-match="${focusedMatch}"][data-team="${focusedTeam}"]`);
+    if (newInput) {
+      newInput.focus();
+    }
+  }
 }
 
 function simulateRemainingMatches() {
@@ -399,3 +431,87 @@ function simulateRemainingMatches() {
     alert('Todos los partidos ya tienen marcadores cargados.');
   }
 }
+
+function simulateRound(roundNumber) {
+  if (!state.appData || !state.appData.matches) return;
+
+  const simulatedScores = getSimulatedScores();
+  let count = 0;
+
+  // Recalculate states to get initial updated ELOs
+  recalculateTournamentState();
+
+  const sortedMatches = [...state.appData.matches].sort((a, b) => a.match_number - b.match_number);
+
+  // Define match bounds for the specified round (Jornada)
+  let minMatch = 1;
+  let maxMatch = 72;
+  if (roundNumber === 1) {
+    minMatch = 1;
+    maxMatch = 24;
+  } else if (roundNumber === 2) {
+    minMatch = 25;
+    maxMatch = 48;
+  } else if (roundNumber === 3) {
+    minMatch = 49;
+    maxMatch = 72;
+  }
+
+  sortedMatches.forEach(m => {
+    if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
+    if (m.match_number < minMatch || m.match_number > maxMatch) return;
+    if (simulatedScores[m.match_number] !== undefined) return; // Skip already played
+
+    const hCode = m.home_team.fifa_code;
+    const aCode = m.away_team.fifa_code;
+
+    const eloH = state.teamElos[hCode] || 1500;
+    const eloA = state.teamElos[aCode] || 1500;
+
+    // Calculate win expectation as win probability weight
+    const diff = (eloH - eloA) / 400;
+    const We_h = 1 / (1 + Math.pow(10, -diff));
+
+    // Base probabilities
+    const P_draw = 0.26;
+    const P_home = 0.74 * We_h;
+    const P_away = 0.74 * (1.0 - We_h);
+
+    const r = Math.random();
+
+    let scoreHome = 0;
+    let scoreAway = 0;
+
+    if (r < P_home) {
+      // Home win
+      scoreHome = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
+      scoreAway = Math.floor(Math.random() * scoreHome); // less than home score
+    } else if (r < P_home + P_draw) {
+      // Draw
+      scoreHome = Math.floor(Math.random() * 3); // 0 to 2 goals
+      scoreAway = scoreHome;
+    } else {
+      // Away win
+      scoreAway = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
+      scoreHome = Math.floor(Math.random() * scoreAway); // less than away score
+    }
+
+    // Save score
+    simulatedScores[m.match_number] = {
+      home: scoreHome,
+      away: scoreAway
+    };
+    count++;
+  });
+
+  if (count > 0) {
+    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+    recalculateTournamentState();
+    if (window.recalculateAndRender) window.recalculateAndRender();
+    renderResults();
+    alert(`¡Simulados con éxito ${count} partidos de la Jornada ${roundNumber} usando pesos ELO!`);
+  } else {
+    alert(`Todos los partidos de la Jornada ${roundNumber} ya tienen marcadores cargados.`);
+  }
+}
+

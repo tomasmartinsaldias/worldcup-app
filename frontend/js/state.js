@@ -17,17 +17,17 @@ let userPreferences = {
 export async function loadData() {
   try {
     const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
-      fetch(`../data/wc2026_data.json?t=${new Date().getTime()}`),
-      fetch(`../data/club_logos.json?t=${new Date().getTime()}`),
-      fetch(`../data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
-      fetch(`../data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
-      fetch(`../data/players_photos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_midfielders_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`../data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
+      fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
+      fetch(`data/club_logos.json?t=${new Date().getTime()}`),
+      fetch(`data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
+      fetch(`data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
+      fetch(`data/players_photos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_midfielders_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
+      fetch(`data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
     ]);
     state.appData = await mainRes.json();
     state.appData.clubLogos = await logosRes.json();
@@ -52,7 +52,7 @@ export async function loadData() {
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
     try {
-      const finalRes = await fetch(`../data/data_frontend/players_final.json?t=${new Date().getTime()}`);
+      const finalRes = await fetch(`data/data_frontend/players_final.json?t=${new Date().getTime()}`);
       if (finalRes.ok) finalPhotosData = await finalRes.json();
     } catch (e) {
       console.error("Could not fetch players_final.json", e);

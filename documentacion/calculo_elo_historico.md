@@ -60,13 +60,10 @@ Implementar drenaje dinámico y regresión a la media en la base de datos local 
 
 ---
 
-## 5. Elo Dinámico por Jugadores Estrella
-Para evitar la colinealidad (premiar doblemente la calidad del plantel al sumar un bonus por estrellas de forma aislada y un Elo alto), las estrellas ahora alimentan directamente un **Elo Dinámico ($Elo_{\text{dinámico}}$)** que solo afecta el factor de calidad del partido ($Q_{\text{match}}$):
-
-$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 100 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 5}$$
+$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 200 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 3}$$
 
 * Donde $N_{\text{stars}}$ es la cantidad total de jugadores estrella convocados para el encuentro en ambos planteles.
-* El modificador tiene un comportamiento asintótico (piso de $+0$ y techo de $+100$ puntos Elo) para evitar que potencias con planteles saturados de estrellas (ej. Francia o Brasil) disparen el puntaje de manera artificial.
+* El modificador tiene un comportamiento asintótico (piso de $+0$ y techo de $+200$ puntos Elo) para evitar que potencias con planteles saturados de estrellas (ej. Francia o Brasil) disparen el puntaje de manera artificial. El parámetro de semisaturación $k=3$ asegura que la presencia de estrellas tenga un peso significativo en el cálculo del factor de calidad ($Q_{\text{match}}$).
 * Para el cálculo de la paridad competitiva ($P_{\text{Brecha}}$), se mantiene el **Elo base** para evitar que una asimetría de estrellas en un partido parejo altere negativamente la brecha.
 
 ---

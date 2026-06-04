@@ -258,7 +258,7 @@ class UXAuditor:
             # Extract first font from stack
             first_font = family.split(',')[0].strip().strip('"\'')
 
-            if first_font.lower() not in {'sans-serif', 'serif', 'monospace', 'cursive', 'fantasy', 'system-ui', 'inherit', 'arial', 'georgia', 'times new roman', 'courier new', 'verdana', 'helvetica', 'tahoma'}:
+            if first_font.lower() not in {'sans-serif', 'serif', 'monospace', 'cursive', 'fantasy', 'system-ui', 'inherit', 'arial', 'georgia', 'times new roman', 'courier new', 'verdana', 'helvetica', 'tahoma'} and not first_font.lower().startswith('var('):
                 font_families.add(first_font.lower())
 
         if len(font_families) > 3:

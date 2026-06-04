@@ -86,10 +86,12 @@ $$ice = \left[ OC_{\text{match}} \times (1.0 + \gamma \cdot Vuln_{\text{match}})
 ### 5.4. Factor de Calidad Absoluta ($Q_{\text{match}}$) y Elo Dinámico
 Para reflejar el peso de la jerarquía individual sin colinealidad (evitando duplicar el premio al sumar estrellas a un Elo de por sí alto), las estrellas convocadas alimentan un **Elo Dinámico**:
 
-$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 100 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 5}$$
+$$Elo_{\text{dinámico}} = Elo_{\text{base}} + 200 \times \frac{N_{\text{stars}}}{N_{\text{stars}} + 3}$$
 
-La calidad absoluta ($Q_{\text{match}}$) escala linealmente basándose en el promedio de los Elos dinámicos del partido:
-$$Q_{\text{match}} = \max\left(0.60, \min\left(1.0, 0.60 + 0.40 \times \frac{Elo_{\text{dinámico, prom}} - 1600}{500}\right)\right)$$
+*El techo asintótico se amplía a $+200$ puntos y la constante de semisaturación se reduce a $k=3$, de modo que 3 estrellas convocadas aportan $+100$ Elo (en lugar de $+37.5$ con los parámetros anteriores), haciendo que la presencia de cracks sea matemáticamente perceptible en $Q_{\text{match}}$.*
+
+La calidad absoluta ($Q_{\text{match}}$) escala linealmente basándose en el promedio de los Elos dinámicos del partido. El pivote se fija en **1400** (mínimo real del torneo en un Mundial de 48 equipos) y la amplitud del divisor es **700**, de modo que el techo $Q = 1.0$ se alcanza en $Elo_{\text{prom}} = 2100$:
+$$Q_{\text{match}} = \max\left(0.60, \min\left(1.0, 0.60 + 0.40 \times \frac{Elo_{\text{dinámico, prom}} - 1400}{700}\right)\right)$$
 
 ### 5.5. Multiplicador Dinámico por Situación en Fase de Grupos ($M_{\text{match}}$)
 Para reflejar la tensión competitiva real del partido en el transcurso del torneo, el modelo incorpora un multiplicador de conveniencia y urgencia según el estado de clasificación de los contendientes en su grupo.
@@ -100,8 +102,14 @@ A cada selección se le asigna dinámicamente uno de cuatro estados de clasifica
 * **`FIRST_PLACE_ASSURED` (1° Asegurado):** Ya tiene asegurada la primera posición de su grupo, por lo que el partido no altera su destino. Multiplicador $M_{\text{equipo}} = 0.70$.
 * **`ELIMINATED` (Eliminado):** Ya no tiene posibilidades matemáticas de avanzar a octavos de final. Multiplicador $M_{\text{equipo}} = 0.60$.
 
-El multiplicador del partido ($M_{\text{match}}$) es la media aritmética de los multiplicadores individuales de ambos contendientes:
-$$M_{\text{match}} = \frac{M_{\text{home}} + M_{\text{away}}}{2}$$
+El multiplicador del partido ($M_{\text{match}}$) es la **Media Armónica** de los multiplicadores individuales de ambos contendientes:
+$$M_{\text{match}} = \frac{2 \times M_{\text{home}} \times M_{\text{away}}}{M_{\text{home}} + M_{\text{away}}}$$
+
+**Justificación matemática frente a la Media Aritmética y Geométrica:** La media armónica está dominada por el valor más pequeño del conjunto, penalizando severamente la asimetría. A diferencia de la media geométrica, cuyo resultado depende del *producto* de los factores (preservando el orden incorrecto cuando $1.0 \times 0.60 = 0.60 > 0.85 \times 0.70 = 0.595$), la armónica corrige el ordenamiento:
+* **Caso A** — Se juega la vida ($1.0$) vs. Eliminado ($0.60$): $M_{\text{match}} = \frac{2 \times 1.20}{1.60} = 0.750$.
+* **Caso B** — Clasificado ($0.85$) vs. 1° Asegurado ($0.70$): $M_{\text{match}} = \frac{2 \times 0.595}{1.55} = 0.767$.
+
+El Caso B (0.767) supera correctamente al Caso A (0.750), reflejando la realidad competitiva.
 
 Este factor se aplica directamente multiplicando el Score de Espectáculo:
 $$Score_{\text{Espectáculo Final}} = Score_{\text{Espectáculo Base}} \times Q_{\text{match}} \times M_{\text{match}}$$
