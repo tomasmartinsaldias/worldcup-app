@@ -1239,7 +1239,10 @@ function selectPlayer(player) {
     `;
   }
 
-  document.getElementById('draft-modal').classList.remove('active');
+  const modal = document.getElementById('draft-modal');
+  modal.classList.remove('active');
+  modal.classList.remove('visible');
+  modal.classList.add('hidden');
 
   updateDraftState();
   checkDraftCompletion();
