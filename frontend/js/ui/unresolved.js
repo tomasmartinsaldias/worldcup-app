@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state } from '../futstate.js';
 
 // 5. Render Unresolved Players List Tab
 export function renderUnresolved() {

@@ -1,4 +1,4 @@
-import { state, calculateStandings } from '../state.js';
+import { state, calculateStandings } from '../futstate.js';
 import { createFlagElement } from '../utils.js';
 import { openCountrySquad } from './squads.js';
 

@@ -1,4 +1,4 @@
-import { state, getSimulatedScores, saveSimulatedScore, clearAllSimulatedScores, recalculateTournamentState, calculateStandings } from '../state.js';
+import { state, getSimulatedScores, saveSimulatedScore, clearAllSimulatedScores, recalculateTournamentState, calculateStandings } from '../futstate.js';
 import { createFlagElement } from '../utils.js';
 
 let selectedGroupFilter = 'all'; // 'all' or 'A'-'L'

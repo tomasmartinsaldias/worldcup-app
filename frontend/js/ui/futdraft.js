@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state } from '../futstate.js';
 import { calculateCosineSimilarity } from '../scoring.js';
 
 const CLUSTER_METADATA = {

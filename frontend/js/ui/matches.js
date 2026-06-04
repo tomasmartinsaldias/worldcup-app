@@ -1,4 +1,4 @@
-import { state, getSimulatedScores } from '../state.js';
+import { state, getSimulatedScores } from '../futstate.js';
 import { createFlagElement, formatKickoff } from '../utils.js';
 import { openH2HModal } from './modal.js?v=5';
 
