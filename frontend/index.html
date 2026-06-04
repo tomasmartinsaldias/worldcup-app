@@ -979,14 +979,14 @@
         <p>Disfrutas los partidos importantes, pero no sigues el día a día.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-intermedio">
+      <div class="spectator-card card-intermedio" onclick="startQuiz('intermedio')">
         <h3>INTERMEDIO</h3>
-        <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
+        <p>Draft 7v7. Conoces a los equipos principales y sigues los torneos internacionales.</p>
         <div class="card-glow"></div>
       </div>
       <div class="spectator-card card-fanatico" onclick="startQuiz('fanatico')">
         <h3>FANÁTICO</h3>
-        <p>El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
+        <p>Draft 11v11. El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
         <div class="card-glow"></div>
       </div>
     </div>
@@ -1286,7 +1286,15 @@
         setTimeout(() => {
           document.getElementById('draft-template').classList.add('visible');
           appState = 'draft';
-          if (window.startDraft) window.startDraft(true);
+          if (window.startDraft) window.startDraft(true, '11v11');
+        }, 500);
+      } else if (level === 'intermedio') {
+        appState = 'transition';
+        document.getElementById('spectator-selection').classList.remove('visible');
+        setTimeout(() => {
+          document.getElementById('draft-template').classList.add('visible');
+          appState = 'draft';
+          if (window.startDraft) window.startDraft(true, '7v7');
         }, 500);
       }
     }
@@ -1417,6 +1425,25 @@
     let allValidMatches = [];
     let showingAllRecs = false;
 
+    const STADIUM_IMAGES = {
+      "BC Place": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/BC_Place_2015_Women%27s_FIFA_World_Cup.jpg/960px-BC_Place_2015_Women%27s_FIFA_World_Cup.jpg",
+      "AT&T Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Arlington_June_2020_4_%28AT%26T_Stadium%29.jpg/960px-Arlington_June_2020_4_%28AT%26T_Stadium%29.jpg",
+      "Estadio BBVA": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Mexico_Guadalupe_Monterrey_Estadio_BBVA_Bancomer_fifa_world_cup_2026_6.JPG/960px-Mexico_Guadalupe_Monterrey_Estadio_BBVA_Bancomer_fifa_world_cup_2026_6.JPG",
+      "Hard Rock Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Hard_Rock_Stadium_for_Super_Bowl_LIV_%2849606710103%29.jpg/960px-Hard_Rock_Stadium_for_Super_Bowl_LIV_%2849606710103%29.jpg",
+      "SoFi Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SoFi_Stadium_2023.jpg/960px-SoFi_Stadium_2023.jpg",
+      "MetLife Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Metlife_stadium_%28Aerial_view%29.jpg/960px-Metlife_stadium_%28Aerial_view%29.jpg",
+      "Lumen Field": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/2025_FIFA_Club_World_Cup_-_Seattle_Sounders_FC_vs._Atl%C3%A9tico_Madrid_-_05.jpg/960px-2025_FIFA_Club_World_Cup_-_Seattle_Sounders_FC_vs._Atl%C3%A9tico_Madrid_-_05.jpg",
+      "Arrowhead Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Aerial_view_of_Arrowhead_Stadium_08-31-2013.jpg/960px-Aerial_view_of_Arrowhead_Stadium_08-31-2013.jpg",
+      "Estadio Azteca": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg/960px-Vista_a%C3%A9rea_del_Estadio_Azteca_-_2026_-_02.jpg",
+      "Lincoln Financial Field": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lincoln_Financial_Field_%28Aerial_view%29.jpg/960px-Lincoln_Financial_Field_%28Aerial_view%29.jpg",
+      "Estadio Akron": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Estadio_Akron_02-07-2022_cabecera_sur_lado_derecho_%283%29.jpg/960px-Estadio_Akron_02-07-2022_cabecera_sur_lado_derecho_%283%29.jpg",
+      "BMO Field": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Toronto_BMO_Field_in_2024.jpg/960px-Toronto_BMO_Field_in_2024.jpg",
+      "NRG Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nrg_stadium.jpg/960px-Nrg_stadium.jpg",
+      "Mercedes-Benz Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mercedes_Benz_Stadium_time_lapse_capture_2017-08-13.jpg/960px-Mercedes_Benz_Stadium_time_lapse_capture_2017-08-13.jpg",
+      "Gillette Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Gillette_Stadium_%28Top_View%29.jpg/960px-Gillette_Stadium_%28Top_View%29.jpg",
+      "Levi's Stadium": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Levi%27s_Stadium_in_February_2016_prior_to_Super_Bowl_50_%2824398261729%29.jpg/960px-Levi%27s_Stadium_in_February_2016_prior_to_Super_Bowl_50_%2824398261729%29.jpg",
+    };
+
     function renderRecommendedCards() {
       const carousel = document.getElementById('recommendations-carousel');
       carousel.innerHTML = '<p>Cargando partidos recomendados...</p>';
@@ -1456,10 +1483,16 @@
       matchesToShow.forEach((match, index) => {
         const exp = explanations[index % explanations.length];
         const score = Math.max(70, 98 - (index % allValidMatches.length));
+        
+        let stadiumUrl = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
+        if (match.stadium && match.stadium.venue_name && STADIUM_IMAGES[match.stadium.venue_name]) {
+          stadiumUrl = STADIUM_IMAGES[match.stadium.venue_name];
+        }
+
         const card = document.createElement('div');
         card.className = 'rec-card';
         card.innerHTML = `
-          <div class="rec-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="rec-bg" style="background-image: url('${stadiumUrl}')"></div>
           <div class="rec-content">
             <div class="rec-score">${score}% AFINIDAD</div>
             <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
