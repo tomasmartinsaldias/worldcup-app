@@ -1079,6 +1079,17 @@ function getPlayerPhoto(name) {
     if (state.appData.photoIndex[lastOnly]) return state.appData.photoIndex[lastOnly];
   }
 
+  // Deep fallback: search the full array
+  if (state.appData.playersPhotos) {
+    const found = state.appData.playersPhotos.find(p => {
+      const pN = robustNormalise(p.n);
+      const pFn = robustNormalise(p.fn);
+      // Try to match last names or full substrings
+      return (pN && fn.includes(pN)) || (pFn && fn.includes(pFn)) || (pN && pN.includes(fn)) || (pFn && pFn.includes(fn));
+    });
+    if (found) return found.p;
+  }
+
   return 'https://cdn.sofifa.net/players/notfound_0_120.png';
 }
 
