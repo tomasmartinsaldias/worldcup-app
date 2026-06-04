@@ -7,11 +7,15 @@ window.openSurvey = function(type) {
   // Hide the selection overlay
   document.getElementById('spectator-selection').classList.remove('visible');
   
-  // Show survey overlay
   const survey = document.getElementById('antigravity-survey');
+  survey.setAttribute('data-theme', type);
   survey.classList.remove('hidden');
   survey.classList.add('visible');
   
+  if (window.initDraftData) {
+    window.initDraftData();
+  }
+
   // Reset to step 1
   changeSurveyStep(1);
 };
@@ -34,10 +38,22 @@ function changeSurveyStep(stepIndex) {
     targetStep.classList.add('active');
   }
   
-  const progressPercent = (stepIndex / 3) * 100;
+  const totalSteps = 6;
+  const progressPercent = (stepIndex / totalSteps) * 100;
   document.getElementById('survey-progress').style.width = `${progressPercent}%`;
-  document.getElementById('survey-step-text').innerText = `PASO ${stepIndex} DE 3`;
+  document.getElementById('survey-step-text').innerText = `PASO ${stepIndex} DE ${totalSteps}`;
 }
+
+window.selectVisualOption = function(questionId, value, element) {
+  // Guardar valor
+  window.surveyData = window.surveyData || {};
+  window.surveyData[questionId] = value;
+
+  // Actualizar UI
+  const parent = element.closest('.visual-options-grid');
+  parent.querySelectorAll('.visual-card').forEach(el => el.classList.remove('selected'));
+  element.classList.add('selected');
+};
 
 window.updateSliderText = function(sliderId, value) {
   const textBox = document.getElementById(`text-${sliderId}`);
@@ -58,14 +74,20 @@ window.updateSliderText = function(sliderId, value) {
 };
 
 window.finishSurvey = function() {
+  window.surveyData = window.surveyData || {};
+  const draftResults = window.draftState || { team: null, countries: [], players: [] };
+
   const results = {
     userType: currentSurveyType,
-    passion: document.getElementById('slider-passion').value,
-    friction: document.getElementById('slider-friction').value,
-    goals: document.getElementById('slider-goals').value,
-    balance: document.getElementById('slider-balance').value,
-    players: document.getElementById('slider-players').value,
-    team: document.getElementById('slider-team').value
+    passion: document.getElementById('slider-passion') ? document.getElementById('slider-passion').value : null,
+    friction: document.getElementById('slider-friction') ? document.getElementById('slider-friction').value : null,
+    goals: document.getElementById('slider-goals') ? document.getElementById('slider-goals').value : null,
+    balance: document.getElementById('slider-balance') ? document.getElementById('slider-balance').value : null,
+    q1_player_loyalty: window.surveyData['q1'] || null,
+    q2_team_loyalty: window.surveyData['q2'] || null,
+    fav_player: draftResults.players,
+    fav_team: draftResults.team,
+    supported_nations: draftResults.countries
   };
   
   console.log("Encuesta finalizada. Datos del recomendador Antigravity:", results);

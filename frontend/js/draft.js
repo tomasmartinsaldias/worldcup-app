@@ -1,6 +1,6 @@
 // Lógica del sistema Draft
 
-const draftState = {
+window.draftState = {
   team: null,
   countries: [],
   players: []
@@ -15,7 +15,7 @@ let draftData = {
 let isDraftLoaded = false;
 
 // 1. Fetching Data
-async function initDraftData() {
+window.initDraftData = async function initDraftData() {
   if (isDraftLoaded) return;
   try {
     const [teamsRes, countriesRes, playersRes] = await Promise.all([
@@ -323,10 +323,10 @@ window.openDraftOverlay = function() {
 }
 
 // Para compatibilidad con el código existente que exporta initDraft/startDraft
-export function initDraft() {
+function initDraft() {
   // Nada que hacer aquí, se llama a openDraftOverlay desde index.html o consola
 }
 
-export function startDraft(silent = false) {
+function startDraft(silent = false) {
   if (!silent) window.openDraftOverlay();
 }
