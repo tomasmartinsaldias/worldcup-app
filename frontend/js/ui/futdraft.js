@@ -1243,6 +1243,43 @@ function completeDraft() {
   summary.classList.remove('draft-summary-hidden');
   summary.classList.add('show-summary-anim'); // Apply slide down animation
 
+  // Calculate Tactical Vector based on the drafted players
+  // Indices from FC26 normalized numeric_cols: 3=pace, 4=passing, 7=defending, 8=physic
+  let avgPace = 0, avgPassing = 0, avgDefending = 0;
+
+  const players = Object.values(draftedPlayers);
+  players.forEach(p => {
+    if (p.position_vector && p.position_vector.length >= 8) {
+      avgPace += p.position_vector[3];
+      avgPassing += p.position_vector[4];
+      avgDefending += p.position_vector[7];
+    }
+  });
+
+  if (players.length > 0) {
+    avgPace /= players.length;
+    avgPassing /= players.length;
+    avgDefending /= players.length;
+  }
+
+  // Map standardized feature values (mean 0, std 1) to approximately [-1, 1] range.
+  let ritmo = avgPace / 3;
+  let posesion = avgPassing / 3;
+  let defensa = avgDefending / 3;
+
+  // Ancho is heavily dictated by formation choice
+  let ancho = 0;
+  if (currentFormation === '4-3-3' || currentFormation === '2-3-1') ancho = 0.8;
+  else if (currentFormation === '4-4-2' || currentFormation === '2-2-2') ancho = 0.4;
+  else if (currentFormation === '3-5-2' || currentFormation === '3-2-1') ancho = 0.2;
+  else if (currentFormation === '4-2-3-1' || currentFormation === '4-3-2-1') ancho = -0.2;
+
+  ritmo = Math.max(-1, Math.min(1, ritmo));
+  posesion = Math.max(-1, Math.min(1, posesion));
+  defensa = Math.max(-1, Math.min(1, defensa));
+
+  const draftedVector = { defensa, posesion, ritmo, ancho };
+
   const archetypes = state.appData.arquetipos;
   let bestArch = null;
 
