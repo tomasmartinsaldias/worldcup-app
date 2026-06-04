@@ -16,18 +16,11 @@ let userPreferences = {
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
+    const [mainRes, logosRes, estiloRes, arquetiposRes] = await Promise.all([
       fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
-      fetch(`data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`),
-      fetch(`data/players_photos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_goalkeepers_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_centerbacks_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_fullbacks_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_midfielders_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
-      fetch(`data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
+      fetch(`data/estilos-de-juego/arquetipos?t=${new Date().getTime()}`)
     ]);
     state.appData = await mainRes.json();
     state.appData.clubLogos = await logosRes.json();
@@ -36,23 +29,11 @@ export async function loadData() {
     const arquetiposData = await arquetiposRes.json();
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
-
-    const clusters = await Promise.all([gkRes.json(), cbRes.json(), fbRes.json(), midRes.json(), wingRes.json(), stRes.json()]);
-    state.appData.clusters = {
-      Goalkeepers: clusters[0],
-      Centerbacks: clusters[1],
-      Fullbacks: clusters[2],
-      Midfielders: clusters[3],
-      Wingers: clusters[4],
-      Strikers: clusters[5]
-    };
-
-    const photosData = await photosRes.json();
     
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
     try {
-      const finalRes = await fetch(`data/data_frontend/players_final.json?t=${new Date().getTime()}`);
+      const finalRes = await fetch(`../data/data_frontend/players_final.json?t=${new Date().getTime()}`);
       if (finalRes.ok) finalPhotosData = await finalRes.json();
     } catch (e) {
       console.error("Could not fetch players_final.json", e);
@@ -69,27 +50,36 @@ export async function loadData() {
         .replace(/[^\x00-\x7F]/g, '')
         .toLowerCase().trim();
     };
-    photosData.forEach(p => {
-      const n = robustNormalise(p.n);
-      const fn = robustNormalise(p.fn);
-      if (fn) state.appData.photoIndex[fn] = p.p;
-      if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
-
-      // Add a fallback for names like "S. Giménez" mapping to "Santiago Giménez"
-      const parts = fn.split(' ');
-      if (parts.length > 1) {
-        const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
-        if (!state.appData.photoIndex[short]) state.appData.photoIndex[short] = p.p;
-      }
-    });
     
+    state.appData.clusters = {
+      Goalkeepers: [], Centerbacks: [], Fullbacks: [], Midfielders: [], Wingers: [], Strikers: []
+    };
+    const posMap = {
+      'Goalkeeper': 'Goalkeepers', 'Midfielder': 'Midfielders', 'Striker': 'Strikers',
+      'Centerbacks': 'Centerbacks', 'Fullbacks': 'Fullbacks', 'Wingers': 'Wingers'
+    };
+
     // Process finalPhotosData
     finalPhotosData.forEach(p => {
       if (p.NAME && p._URL) {
         const n = robustNormalise(p.NAME);
-        if (n && !state.appData.photoIndex[n]) {
+        if (n) {
           state.appData.photoIndex[n] = p._URL;
+          const parts = n.split(' ');
+          if (parts.length > 1) {
+            const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
+            state.appData.photoIndex[short] = p._URL;
+          }
         }
+      }
+      
+      if (p.Posicion && posMap[p.Posicion]) {
+        state.appData.clusters[posMap[p.Posicion]].push({
+          long_name: p.NAME,
+          overall: p.Overall,
+          cluster_id: p.Cluster_id,
+          photoUrl: p._URL,
+        });
       }
     });
 
