@@ -48,19 +48,48 @@ export async function loadData() {
     };
 
     const photosData = await photosRes.json();
+    
+    // Fetch players_final.json for fallback faces
+    let finalPhotosData = [];
+    try {
+      const finalRes = await fetch(`data/data_frontend/players_final.json?t=${new Date().getTime()}`);
+      if (finalRes.ok) finalPhotosData = await finalRes.json();
+    } catch (e) {
+      console.error("Could not fetch players_final.json", e);
+    }
+    
     state.appData.photoIndex = {};
-    const normalise = str => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
+    const robustNormalise = str => {
+      if (!str) return '';
+      return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\u00f8/gi, 'o').replace(/\u00f0/gi, 'd').replace(/\u00fe/gi, 'th')
+        .replace(/\u00e6/gi, 'ae').replace(/\u0142/gi, 'l').replace(/\u00df/gi, 'ss').replace(/\u0153/gi, 'oe')
+        .replace(/[^\x00-\x7F]/g, '')
+        .toLowerCase().trim();
+    };
     photosData.forEach(p => {
-      const n = normalise(p.n);
-      const fn = normalise(p.fn);
+      const n = robustNormalise(p.n);
+      const fn = robustNormalise(p.fn);
       if (fn) state.appData.photoIndex[fn] = p.p;
       if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
 
       // Add a fallback for names like "S. Giménez" mapping to "Santiago Giménez"
       const parts = fn.split(' ');
       if (parts.length > 1) {
-        const short = normalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
+        const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
         if (!state.appData.photoIndex[short]) state.appData.photoIndex[short] = p.p;
+      }
+    });
+    
+    // Process finalPhotosData
+    finalPhotosData.forEach(p => {
+      if (p.NAME && p._URL) {
+        const n = robustNormalise(p.NAME);
+        if (n && !state.appData.photoIndex[n]) {
+          state.appData.photoIndex[n] = p._URL;
+        }
       }
     });
 

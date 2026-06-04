@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MundialPick — La Gloria Eterna</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="draft.css">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background-color: #030303;
       color: #eaeaea;
       font-family: 'Inter', sans-serif;
-      overflow: hidden; /* Sin scroll para la experiencia landing pura */
+      overflow: hidden;
+      /* Sin scroll para la experiencia landing pura */
       width: 100vw;
       height: 100vh;
     }
-    
+
     /* Contenedor del canvas 3D y partículas */
     #canvas-container {
       position: absolute;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 1;
     }
 
     /* Viñeta oscura para enfocar el centro y ocultar imperfecciones de los bordes */
     .vignette {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: radial-gradient(circle at 50% 50%, transparent 15%, #030303 85%);
       z-index: 2;
       pointer-events: none;
@@ -36,22 +51,32 @@
     /* Contenedor de la interfaz (Textos laterales) */
     .hero-ui {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 3;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 6rem;
-      pointer-events: none; /* Para que el mouse interactúe con el canvas 3D */
+      pointer-events: none;
+      /* Para que el mouse interactúe con el canvas 3D */
     }
 
     .hero-text-block {
       max-width: 350px;
-      pointer-events: auto; /* Permitir selección de texto / clics */
+      pointer-events: auto;
+      /* Permitir selección de texto / clics */
     }
 
-    .text-left { text-align: left; }
-    .text-right { text-align: right; }
+    .text-left {
+      text-align: left;
+    }
+
+    .text-right {
+      text-align: right;
+    }
 
     .epic-text {
       font-family: 'Outfit', sans-serif;
@@ -86,13 +111,27 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInIndicator {
-      from { opacity: 0; transform: translate(-50%, 20px); }
-      to { opacity: 1; transform: translate(-50%, 0); }
+      from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
     }
 
     /* Botón de continuar animado */
@@ -120,7 +159,8 @@
       text-transform: uppercase;
       color: #777;
       transition: color 0.3s;
-      margin-right: -3px; /* Compensa el letter-spacing extra a la derecha */
+      margin-right: -3px;
+      /* Compensa el letter-spacing extra a la derecha */
     }
 
     .scroll-indicator:hover span {
@@ -128,20 +168,23 @@
     }
 
     .mouse-outline {
-      width: 22px; height: 36px;
+      width: 22px;
+      height: 36px;
       border: 1px solid #444;
       border-radius: 12px;
       position: relative;
-      display: flex; justify-content: center;
+      display: flex;
+      justify-content: center;
       transition: border-color 0.3s;
     }
-    
+
     .scroll-indicator:hover .mouse-outline {
       border-color: #8a7330;
     }
 
     .scroll-wheel {
-      width: 2px; height: 6px;
+      width: 2px;
+      height: 6px;
       background-color: #999;
       border-radius: 2px;
       margin-top: 6px;
@@ -149,8 +192,15 @@
     }
 
     @keyframes scrollWheel {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(12px); opacity: 0; }
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(12px);
+        opacity: 0;
+      }
     }
 
     /* Responsive */
@@ -160,14 +210,24 @@
         justify-content: space-between;
         padding: 5rem 2rem 8rem 2rem;
       }
-      .hero-text-block { text-align: center; max-width: 100%; }
-      .epic-text { font-size: 2.8rem; }
+
+      .hero-text-block {
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .epic-text {
+        font-size: 2.8rem;
+      }
     }
 
     /* --- OVERLAYS UI --- */
     .ui-overlay {
       position: absolute;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 10;
       background: rgba(10, 10, 10, 0.7);
       backdrop-filter: blur(10px);
@@ -180,7 +240,9 @@
       pointer-events: none;
       transition: opacity 0.8s ease;
     }
-    .ui-overlay.visible {
+
+    .ui-overlay.visible,
+    .ui-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
@@ -196,6 +258,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .overlay-subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
@@ -209,6 +272,7 @@
       gap: 2rem;
       max-width: 1000px;
     }
+
     .spectator-card {
       position: relative;
       width: 280px;
@@ -220,6 +284,7 @@
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s, box-shadow 0.4s;
     }
+
     .spectator-card h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.5rem;
@@ -228,6 +293,7 @@
       position: relative;
       z-index: 2;
     }
+
     .spectator-card p {
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
@@ -236,10 +302,13 @@
       position: relative;
       z-index: 2;
     }
+
     .card-glow {
       position: absolute;
-      top: 50%; left: 50%;
-      width: 100%; height: 100%;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
       background: radial-gradient(circle at center, var(--accent-color) 0%, transparent 70%);
       transform: translate(-50%, -50%);
       opacity: 0;
@@ -248,26 +317,40 @@
       pointer-events: none;
       mix-blend-mode: screen;
     }
+
     .spectator-card:hover {
       transform: translateY(-10px);
       border-color: var(--accent-color);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--accent-color-glow);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-color-glow);
     }
+
     .spectator-card:hover .card-glow {
       opacity: 0.15;
     }
 
-    .card-casual { --accent-color: #00ff66; --accent-color-glow: rgba(0, 255, 102, 0.3); box-shadow: 0 0 25px rgba(5, 173, 36, 0.692) inset, 0 0 15px rgba(0, 136, 255, 0.2);}
-    .card-intermedio { --accent-color: #ff2a2a; --accent-color-glow: rgba(255, 42, 42, 0.3); box-shadow: 0 0 25px rgba(200, 5, 8, 0.604) inset, 0 0 15px rgba(0, 136, 255, 0.2); }
-    .card-fanatico { 
-      --accent-color: #0088ff; 
-      --accent-color-glow: rgba(0, 136, 255, 0.5); 
+    .card-casual {
+      --accent-color: #00ff66;
+      --accent-color-glow: rgba(0, 255, 102, 0.3);
+      box-shadow: 0 0 25px rgba(5, 173, 36, 0.692) inset, 0 0 15px rgba(0, 136, 255, 0.2);
+    }
+
+    .card-intermedio {
+      --accent-color: #ff2a2a;
+      --accent-color-glow: rgba(255, 42, 42, 0.3);
+      box-shadow: 0 0 25px rgba(200, 5, 8, 0.604) inset, 0 0 15px rgba(0, 136, 255, 0.2);
+    }
+
+    .card-fanatico {
+      --accent-color: #0088ff;
+      --accent-color-glow: rgba(0, 136, 255, 0.5);
       /* Tratamiento Premium Fanático */
-  
+
       box-shadow: 0 0 25px rgba(0, 26, 255, 0.405) inset, 0 0 15px rgba(0, 136, 255, 0.2);
     }
+
     .card-fanatico .card-glow {
-      opacity: 0.1; /* Resplandor constante */
+      opacity: 0.1;
+      /* Resplandor constante */
     }
 
     /* --- QUIZ CASUAL --- */
@@ -278,22 +361,25 @@
       border: 1px solid rgba(0, 255, 102, 0.2);
       border-radius: 16px;
       padding: 3rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(0, 255, 102, 0.05) inset;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 102, 0.05) inset;
     }
+
     .quiz-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 3rem;
     }
+
     .quiz-progress-bar {
       flex-grow: 1;
       height: 4px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 2px;
       margin-right: 2rem;
       overflow: hidden;
     }
+
     .quiz-progress {
       height: 100%;
       width: 33%;
@@ -301,6 +387,7 @@
       box-shadow: 0 0 10px #00ff66;
       transition: width 0.5s ease;
     }
+
     .quiz-header span {
       font-family: 'Outfit', sans-serif;
       font-size: 0.8rem;
@@ -312,12 +399,21 @@
       display: none;
       animation: fadeInStep 0.5s ease forwards;
     }
+
     .quiz-step.active {
       display: block;
     }
+
     @keyframes fadeInStep {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .quiz-question {
@@ -327,6 +423,7 @@
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
     }
+
     .quiz-desc {
       font-family: 'Inter', sans-serif;
       color: #888;
@@ -339,6 +436,7 @@
       gap: 1rem;
       margin-bottom: 2.5rem;
     }
+
     .quiz-option {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -351,10 +449,12 @@
       cursor: pointer;
       transition: all 0.3s;
     }
+
     .quiz-option:hover {
       background: rgba(255, 255, 255, 0.06);
       border-color: rgba(255, 255, 255, 0.2);
     }
+
     .quiz-option.selected {
       background: rgba(0, 255, 102, 0.05);
       border-color: #00ff66;
@@ -376,11 +476,13 @@
       cursor: pointer;
       transition: all 0.3s;
     }
+
     .quiz-btn-next:disabled {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       color: #555;
       cursor: not-allowed;
     }
+
     .quiz-btn-next:not(:disabled):hover {
       background: #33ff88;
       box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
@@ -391,6 +493,7 @@
       opacity: 0;
       transition: opacity 0.8s ease;
     }
+
     .scroll-indicator.fade-out {
       opacity: 0;
       pointer-events: none;
@@ -400,14 +503,17 @@
     /* --- QUIZ FANATICO --- */
     #fanatic-stars {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
-    
+
     .fq-flow .fanatic-container {
       background: rgba(10, 10, 15, 0.6);
       border: 1px solid rgba(10, 88, 255, 0.3);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(10, 88, 255, 0.15) inset;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(10, 88, 255, 0.15) inset;
       animation: fanaticPulse 4s infinite alternate;
       max-width: 900px;
       position: relative;
@@ -416,10 +522,15 @@
       border-radius: 16px;
       width: 100%;
     }
-    
+
     @keyframes fanaticPulse {
-      0% { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(10, 88, 255, 0.1) inset; }
-      100% { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 60px rgba(10, 88, 255, 0.3) inset; }
+      0% {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(10, 88, 255, 0.1) inset;
+      }
+
+      100% {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 60px rgba(10, 88, 255, 0.3) inset;
+      }
     }
 
     .fq-flow .quiz-progress {
@@ -427,6 +538,7 @@
       box-shadow: 0 0 15px #0A58FF;
       width: 20%;
     }
+
     .fq-flow .quiz-header span {
       color: #0A58FF;
     }
@@ -437,7 +549,7 @@
       margin-bottom: 1rem;
       height: 350px;
     }
-    
+
     .fanatic-card {
       flex: 1;
       border-radius: 12px;
@@ -450,10 +562,13 @@
       padding: 1.5rem;
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    
+
     .fanatic-card .bg-image {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-size: cover;
       background-position: center;
       filter: grayscale(100%) brightness(0.4);
@@ -461,7 +576,8 @@
       z-index: -1;
     }
 
-    .fanatic-card:hover .bg-image, .fanatic-card.fq-selected .bg-image {
+    .fanatic-card:hover .bg-image,
+    .fanatic-card.fq-selected .bg-image {
       filter: grayscale(0%) brightness(0.8);
       transform: scale(1.05);
     }
@@ -469,13 +585,17 @@
     .fanatic-card::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
       z-index: 0;
       pointer-events: none;
     }
 
-    .fanatic-card:hover, .fanatic-card.fq-selected {
+    .fanatic-card:hover,
+    .fanatic-card.fq-selected {
       border-color: #0A58FF;
       box-shadow: 0 0 30px rgba(10, 88, 255, 0.6), 0 0 15px #0A58FF inset;
       transform: translateY(-5px);
@@ -490,7 +610,7 @@
       letter-spacing: 2px;
       color: #fff;
       text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
       pointer-events: none;
     }
 
@@ -529,7 +649,7 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    
+
     .expanded-grid::-webkit-scrollbar {
       display: none;
     }
@@ -554,6 +674,7 @@
       transition: all 0.3s;
       z-index: 10;
     }
+
     .btn-back-minimal:hover {
       background: rgba(245, 208, 97, 0.2);
       box-shadow: 0 0 15px rgba(245, 208, 97, 0.4);
@@ -566,8 +687,8 @@
       border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       flex: 0 0 auto;
     }
@@ -578,7 +699,10 @@
 
     .rec-bg {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-size: cover;
       background-position: center;
       filter: brightness(0.4) saturate(1.2);
@@ -594,8 +718,11 @@
     .rec-card::after {
       content: "";
       position: absolute;
-      bottom: 0; left: 0; right: 0; height: 70%;
-      background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
       z-index: 2;
     }
 
@@ -633,7 +760,7 @@
       color: #fff;
       margin-bottom: 5px;
       font-weight: 700;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
     .rec-type {
@@ -647,33 +774,38 @@
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
-    
+
     .stats-teams {
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin-bottom: 1.5rem;
     }
+
     .stats-team-flag {
       text-align: center;
     }
+
     .stats-team-flag img {
       width: 60px;
       height: 40px;
       object-fit: cover;
       border-radius: 4px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       margin-bottom: 5px;
     }
+
     .stats-team-flag p {
       font-family: 'Outfit', sans-serif;
       font-weight: bold;
       font-size: 1.1rem;
     }
+
     .stats-team-flag span {
       color: #999;
       font-size: 0.8rem;
     }
+
     .vs-badge {
       font-weight: bold;
       font-size: 1.5rem;
@@ -681,12 +813,12 @@
     }
 
     .h2h-box {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 12px;
       padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
-    
+
     .h2h-title {
       font-size: 0.85rem;
       color: #4a90e2;
@@ -702,14 +834,17 @@
       justify-content: space-between;
       margin-bottom: 1rem;
     }
+
     .h2h-stat {
       text-align: center;
     }
+
     .h2h-stat strong {
       display: block;
       font-size: 1.5rem;
       font-family: 'Outfit', sans-serif;
     }
+
     .h2h-stat span {
       font-size: 0.75rem;
       color: #888;
@@ -723,7 +858,8 @@
       overflow: hidden;
       margin-top: 10px;
     }
-    .h2h-bar > div {
+
+    .h2h-bar>div {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -731,9 +867,18 @@
       font-weight: bold;
       color: #fff;
     }
-    .h2h-green { background: #2e8b57; }
-    .h2h-gray { background: #555; }
-    .h2h-red { background: #e24a4a; }
+
+    .h2h-green {
+      background: #2e8b57;
+    }
+
+    .h2h-gray {
+      background: #555;
+    }
+
+    .h2h-red {
+      background: #e24a4a;
+    }
 
     .metrics-grid {
       display: grid;
@@ -744,7 +889,7 @@
     .metric-card {
       background: rgba(15, 18, 22, 0.95);
       border: 1px solid rgba(0, 255, 102, 0.2);
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.05) inset, 0 5px 15px rgba(0,0,0,0.8);
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.05) inset, 0 5px 15px rgba(0, 0, 0, 0.8);
       padding: 1rem;
       border-radius: 8px;
       transition: all 0.3s ease;
@@ -752,10 +897,10 @@
 
     .metric-card:hover {
       border-color: rgba(0, 255, 102, 0.6);
-      box-shadow: 0 0 30px rgba(0, 255, 102, 0.15) inset, 0 10px 20px rgba(0,0,0,0.9);
+      box-shadow: 0 0 30px rgba(0, 255, 102, 0.15) inset, 0 10px 20px rgba(0, 0, 0, 0.9);
       transform: translateY(-2px);
     }
-    
+
     .metric-title {
       font-size: 0.75rem;
       color: #fff;
@@ -763,6 +908,7 @@
       margin-bottom: 0.5rem;
       letter-spacing: 1px;
     }
+
     .metric-values {
       display: flex;
       justify-content: space-between;
@@ -771,21 +917,32 @@
       font-size: 1.1rem;
       margin-bottom: 5px;
     }
-    .metric-val-a { color: #2e8b57; }
-    .metric-val-b { color: #e24a4a; }
-    
+
+    .metric-val-a {
+      color: #2e8b57;
+    }
+
+    .metric-val-b {
+      color: #e24a4a;
+    }
+
     .metric-bar-container {
       height: 4px;
       background: #333;
       display: flex;
       border-radius: 2px;
     }
-    .metric-bar-a { background: #2e8b57; }
-    .metric-bar-b { background: #e24a4a; }
 
+    .metric-bar-a {
+      background: #2e8b57;
+    }
 
+    .metric-bar-b {
+      background: #e24a4a;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Contenedores -->
@@ -838,10 +995,12 @@
   <div id="casual-quiz" class="ui-overlay hidden cq-flow">
     <div class="quiz-container">
       <div class="quiz-header">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="cq-progress"></div></div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress" id="cq-progress"></div>
+        </div>
         <span id="cq-step-text">PASO 1 DE 3</span>
       </div>
-      
+
       <!-- Paso 1 -->
       <div class="quiz-step active" id="cq-step-1">
         <h2 class="quiz-question">¿CUÁL ES TU SELECCIÓN FAVORITA?</h2>
@@ -887,21 +1046,27 @@
     <canvas id="fanatic-stars"></canvas>
     <div class="quiz-container fanatic-container">
       <div class="quiz-header">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="fq-progress"></div></div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress" id="fq-progress"></div>
+        </div>
         <span id="fq-step-text">PASO 1 DE 5</span>
       </div>
-      
+
       <!-- Paso 1 -->
       <div class="quiz-step active" id="fq-step-1">
         <h2 class="quiz-question">¿QUÉ MOMENTO ES MÁS ÉPICO?</h2>
         <p class="quiz-desc">La adrenalina pura se define en estos instantes.</p>
         <div class="fanatic-cards-wrapper">
           <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">GOL EN EL ÚLTIMO MINUTO</div>
           </div>
           <div class="fanatic-card" onclick="nextFanaticStep(1, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">TANDA DE PENALES</div>
           </div>
         </div>
@@ -913,11 +1078,15 @@
         <p class="quiz-desc">Los nombres que cambian la historia.</p>
         <div class="fanatic-cards-wrapper">
           <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1e1e11414457?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1518605368461-1e1e11414457?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">EL 10 MÁGICO</div>
           </div>
           <div class="fanatic-card" onclick="nextFanaticStep(2, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1551280857-2b9bbe52ccbd?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1551280857-2b9bbe52ccbd?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">EL 9 GOLEADOR</div>
           </div>
         </div>
@@ -929,11 +1098,15 @@
         <p class="quiz-desc">La pizarra del estratega determina la victoria.</p>
         <div class="fanatic-cards-wrapper">
           <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">POSESIÓN ABSOLUTA</div>
           </div>
           <div class="fanatic-card" onclick="nextFanaticStep(3, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6d0a624f11?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1431324155629-1a6d0a624f11?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">CONTRA LETAL</div>
           </div>
         </div>
@@ -945,11 +1118,15 @@
         <p class="quiz-desc">El peso de la historia se siente en la cancha.</p>
         <div class="fanatic-cards-wrapper">
           <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">EL CLÁSICO LOCAL</div>
           </div>
           <div class="fanatic-card" onclick="nextFanaticStep(4, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1524015368236-bbf6f72545b6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1524015368236-bbf6f72545b6?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">FINAL DEL MUNDO</div>
           </div>
         </div>
@@ -961,13 +1138,69 @@
         <p class="quiz-desc">El trofeo definitivo que todo jugador sueña levantar.</p>
         <div class="fanatic-cards-wrapper">
           <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1614632537190-23e4146777db?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1614632537190-23e4146777db?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">CHAMPIONS LEAGUE</div>
           </div>
           <div class="fanatic-card" onclick="nextFanaticStep(5, this)">
-            <div class="bg-image" style="background-image: url('https://images.unsplash.com/photo-1600250395221-ea1c32286fb6?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="bg-image"
+              style="background-image: url('https://images.unsplash.com/photo-1600250395221-ea1c32286fb6?q=80&w=600&auto=format&fit=crop')">
+            </div>
             <div class="card-content">LA COPA DEL MUNDO</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUT DRAFT REAL UI -->
+  <div id="draft-template" class="ui-overlay hidden draft-flow">
+    <div class="quiz-container draft-container"
+      style="width: 95%; max-width: 1200px; height: 85vh; background: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 136, 255, 0.5); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 26, 255, 0.2) inset; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+
+      <div class="quiz-header"
+        style="margin-bottom: 1rem; z-index: 10; display: flex; justify-content: flex-start; align-items: center; gap: 3rem;">
+        <span
+          style="font-size: 1.5rem; color: #0088ff; font-family: 'Outfit'; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);">FUT
+          DRAFT MUNDIALISTA</span>
+        <div style="display: flex; gap: 1rem; visibility: hidden;">
+        </div>
+      </div>
+
+      <!-- El pitch de la cancha -->
+      <div id="pitch-container" class="pitch-container"
+        style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
+      </div>
+
+      <!-- Modal de Selección de Opciones (Nested) -->
+      <div id="draft-modal" class="ui-overlay hidden"
+        style="z-index: 100; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; background: rgba(0,0,0,0.85);">
+        <div class="draft-options-panel"
+          style="background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); padding: 2rem; border-radius: 12px; width: 95%; max-width: 1000px; text-align: center; border: 1px solid rgba(0, 136, 255, 0.5); max-height: 90%; overflow-y: auto;">
+          <h2 id="draft-modal-title" style="color: white; margin-bottom: 2rem; font-family: 'Outfit';"></h2>
+          <div id="draft-options-container" class="draft-options-grid"></div>
+        </div>
+      </div>
+
+      <!-- Resumen y Resultados del Draft -->
+      <div id="draft-summary-banner" class="draft-summary-hidden"
+        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0, 10, 25, 0.98) 40%, transparent); padding: 3rem 2rem 2rem; text-align: center; color: white; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 50;">
+        <h2 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 1rem;">Estilo: <span
+            id="draft-tactical-result" style="color: #0088ff; text-shadow: 0 0 15px rgba(0, 136, 255, 0.6);"></span>
+        </h2>
+        <p id="draft-tactical-explanation"
+          style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; color: #ccc;"></p>
+        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
+          <button id="btn-restart-draft" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-rotate-right"></i> Reiniciar</button>
+          <button class="quiz-btn-next" onclick="returnToHomepage()"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-arrow-left"></i> Salir</button>
+          <button id="btn-apply-draft-tactics" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;">Ir
+            a Recomendaciones</button>
         </div>
       </div>
     </div>
@@ -980,31 +1213,38 @@
     </button>
     <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center;">
       <h2 class="overlay-title" style="font-size: 2.2rem;">TU DESTINO MUNDIALISTA</h2>
-      <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los partidos que no puedes perderte.</p>
-      
+      <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los
+        partidos que no puedes perderte.</p>
+
       <div class="rec-carousel-wrapper" style="overflow-x: auto; padding-bottom: 20px;">
-        <div class="rec-carousel" id="recommendations-carousel" style="display: flex; gap: 20px; transition: all 0.4s ease;">
+        <div class="rec-carousel" id="recommendations-carousel"
+          style="display: flex; gap: 20px; transition: all 0.4s ease;">
           <!-- Cards injected via JS -->
         </div>
       </div>
-      
-      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()" style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER MÁS PARTIDOS</button>
+
+      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()"
+        style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER
+        MÁS PARTIDOS</button>
     </div>
   </div>
 
   <!-- MODAL DE ESTADÍSTICAS -->
   <div id="stats-modal-overlay" class="ui-overlay hidden" style="z-index: 20;">
-    <div class="stats-modal" style="background: #11141a; border: 1px solid #2a2e35; padding: 2rem; border-radius: 12px; max-width: 700px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
-      <button class="stats-close" onclick="closeMatchStats()" style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
-      
+    <div class="stats-modal"
+      style="background: #11141a; border: 1px solid #2a2e35; padding: 2rem; border-radius: 12px; max-width: 700px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
+      <button class="stats-close" onclick="closeMatchStats()"
+        style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
+
       <div class="stats-header" style="margin-bottom: 2rem; border-bottom: 1px solid #2a2e35; padding-bottom: 1rem;">
-        <h2 id="stats-title" style="font-family: 'Outfit'; font-size: 1.4rem; color: #fff;">Partido #61 &bull; Group Stage</h2>
+        <h2 id="stats-title" style="font-family: 'Outfit'; font-size: 1.4rem; color: #fff;">Partido #61 &bull; Group
+          Stage</h2>
       </div>
-      
+
       <div class="stats-body" style="text-align: left;" id="stats-body-content">
         <!-- Content generated by JS -->
       </div>
-      
+
     </div>
   </div>
 
@@ -1019,7 +1259,7 @@
       // Ocultar UI inicial
       document.querySelector('.hero-ui').classList.add('fade-out');
       document.querySelector('.scroll-indicator').classList.add('fade-out');
-      
+
       // Mostrar Tarjetas
       setTimeout(() => {
         document.getElementById('spectator-selection').classList.add('visible');
@@ -1028,16 +1268,17 @@
     }
 
     function returnToHomepage() {
-      if (appState !== 'spectator' && appState !== 'recommendations') return;
-      
+      if (appState !== 'spectator' && appState !== 'recommendations' && appState !== 'draft') return;
+
       appState = 'transition';
 
       document.getElementById('spectator-selection').classList.remove('visible');
       document.getElementById('recommendations-overlay').classList.remove('visible');
-      
+
       // Also hide quizes if they were visible
       document.getElementById('casual-quiz').classList.remove('visible');
       document.getElementById('fanatic-quiz').classList.remove('visible');
+      document.getElementById('draft-template').classList.remove('visible');
 
       setTimeout(() => {
         document.querySelector('.hero-ui').classList.remove('fade-out');
@@ -1056,49 +1297,59 @@
     });
 
     function startQuiz(level) {
-      if(level === 'casual') {
+      if (level === 'casual') {
         appState = 'transition';
         document.getElementById('spectator-selection').classList.remove('visible');
         setTimeout(() => {
           document.getElementById('casual-quiz').classList.add('visible');
           appState = 'quiz-casual';
         }, 500);
-      } else if(level === 'fanatico') {
+      } else if (level === 'fanatico') {
         appState = 'transition';
         document.getElementById('spectator-selection').classList.remove('visible');
         setTimeout(() => {
-          document.getElementById('fanatic-quiz').classList.add('visible');
-          appState = 'quiz-fanatic';
-          initFanaticStars();
-          currentPattern = 0;
+          document.getElementById('draft-template').classList.add('visible');
+          appState = 'draft';
+          if (window.startDraft) window.startDraft(true);
         }, 500);
       }
     }
+
+    function finishDraftTemplate() {
+      document.getElementById('draft-template').classList.remove('visible');
+      showRecommendations();
+    }
+
+    window.applyDraftTactics = function (vector) {
+      // The logic to apply vector to recommendations can be extended here if needed
+      document.getElementById('draft-template').classList.remove('visible');
+      showRecommendations();
+    };
 
     // --- LÓGICA FANÁTICO ---
     const fanaticCanvas = document.getElementById('fanatic-stars');
     const fctx = fanaticCanvas.getContext('2d');
     let fWidth, fHeight;
-    
+
     function initFanaticStars() {
       fWidth = window.innerWidth;
       fHeight = window.innerHeight;
       fanaticCanvas.width = fWidth;
       fanaticCanvas.height = fHeight;
-      
+
       fctx.clearRect(0, 0, fWidth, fHeight);
-      
+
       // Estrellas fijas dibujadas una sola vez (0 lag)
-      for(let i=0; i<150; i++) {
+      for (let i = 0; i < 150; i++) {
         const x = Math.random() * fWidth;
         const y = Math.random() * fHeight;
         const size = Math.random() * 1.5 + 0.5;
         const opacity = Math.random() * 0.7 + 0.3;
-        
+
         fctx.beginPath();
         fctx.arc(x, y, size, 0, Math.PI * 2);
         fctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-        
+
         // Solo algunas brillan sutilmente para no sobrecargar el renderizado
         if (Math.random() > 0.8) {
           fctx.shadowBlur = 8;
@@ -1106,38 +1357,38 @@
         } else {
           fctx.shadowBlur = 0;
         }
-        
+
         fctx.fill();
         fctx.shadowBlur = 0;
       }
     }
-    
+
     window.addEventListener('resize', () => {
-      if(appState === 'quiz-fanatic') initFanaticStars();
+      if (appState === 'quiz-fanatic') initFanaticStars();
     });
 
     function changeStarPattern() {
       // Al cambiar de pregunta, simplemente redibujamos un nuevo cielo estrellado al instante
-      if(appState === 'quiz-fanatic') {
+      if (appState === 'quiz-fanatic') {
         initFanaticStars();
       }
     }
 
     function nextFanaticStep(currentStepNum, btn) {
-      if(btn) btn.classList.add('fq-selected');
-      
+      if (btn) btn.classList.add('fq-selected');
+
       setTimeout(() => {
         const currentStep = document.getElementById(`fq-step-${currentStepNum}`);
-        if(currentStep) currentStep.classList.remove('active');
-        
+        if (currentStep) currentStep.classList.remove('active');
+
         const nextStepNum = currentStepNum + 1;
         const nextStep = document.getElementById(`fq-step-${nextStepNum}`);
-        
-        if(nextStep) {
+
+        if (nextStep) {
           nextStep.classList.add('active');
           document.getElementById('fq-step-text').innerText = `PASO ${nextStepNum} DE 5`;
           document.getElementById('fq-progress').style.width = `${(nextStepNum / 5) * 100}%`;
-          
+
           changeStarPattern();
         } else {
           showRecommendations();
@@ -1150,7 +1401,7 @@
       const options = parent.querySelectorAll('.quiz-option');
       options.forEach(o => o.classList.remove('selected'));
       btn.classList.add('selected');
-      
+
       const step = btn.closest('.quiz-step');
       const nextBtn = step.querySelector('.quiz-btn-next');
       nextBtn.disabled = false;
@@ -1159,9 +1410,9 @@
     function nextQuizStep(nextStepNum) {
       const currentStep = document.querySelector('.quiz-step.active');
       currentStep.classList.remove('active');
-      
+
       const nextStep = document.getElementById(`cq-step-${nextStepNum}`);
-      if(nextStep) {
+      if (nextStep) {
         nextStep.classList.add('active');
         document.getElementById('cq-step-text').innerText = `PASO ${nextStepNum} DE 3`;
         document.getElementById('cq-progress').style.width = `${(nextStepNum / 3) * 100}%`;
@@ -1178,7 +1429,7 @@
       // Ocultar quizes
       document.getElementById('casual-quiz').classList.remove('visible');
       document.getElementById('fanatic-quiz').classList.remove('visible');
-      
+
       setTimeout(() => {
         document.getElementById('recommendations-overlay').classList.add('visible');
         appState = 'recommendations';
@@ -1198,10 +1449,10 @@
         .then(res => res.json())
         .then(data => {
           cachedWcData = data;
-          
+
           // Select valid matches
           allValidMatches = data.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
-          
+
           showingAllRecs = false;
           updateCarouselUI();
         })
@@ -1214,7 +1465,7 @@
     function updateCarouselUI() {
       const carousel = document.getElementById('recommendations-carousel');
       carousel.innerHTML = '';
-      
+
       const matchesToShow = showingAllRecs ? allValidMatches : allValidMatches.slice(0, 4);
 
       const explanations = [
@@ -1243,7 +1494,7 @@
         card.onclick = () => openMatchStats(match);
         carousel.appendChild(card);
       });
-      
+
       // Duplicate for infinite scroll if showing all
       if (showingAllRecs) {
         matchesToShow.forEach((match, index) => {
@@ -1267,18 +1518,18 @@
     }
 
     let autoScrollInterval = null;
-    let scrollSpeed = -1; 
-    
+    let scrollSpeed = -1;
+
     function startAutoScroll() {
       const carousel = document.getElementById('recommendations-carousel');
       stopAutoScroll();
-      
+
       scrollSpeed = 1;
 
       autoScrollInterval = setInterval(() => {
         if (showingAllRecs && carousel.classList.contains('expanded-grid')) {
           carousel.scrollTop += scrollSpeed;
-          
+
           // Infinite scroll logic
           const maxScroll = carousel.scrollHeight / 2;
           if (carousel.scrollTop >= maxScroll) {
@@ -1288,21 +1539,21 @@
           }
         }
       }, 20); // Faster tick for smoother movement
-      
+
       carousel.onmousemove = (e) => {
         const rect = carousel.getBoundingClientRect();
         const y = e.clientY - rect.top;
         const height = rect.height;
-        
-        const normalizedY = (y / height) - 0.5; 
-        
+
+        const normalizedY = (y / height) - 0.5;
+
         if (Math.abs(normalizedY) < 0.1) {
           scrollSpeed = 0;
         } else {
           scrollSpeed = normalizedY * 20; // Much faster scaling
         }
       };
-      
+
       carousel.onmouseleave = () => {
         scrollSpeed = -1; // Default moving up (scrolling to top)
       };
@@ -1315,19 +1566,19 @@
     function toggleSeeMore() {
       showingAllRecs = !showingAllRecs;
       const carousel = document.getElementById('recommendations-carousel');
-      
+
       // Smooth fade transition
       carousel.style.opacity = 0;
-      
+
       setTimeout(() => {
         carousel.classList.toggle('expanded-grid', showingAllRecs);
         const btn = document.getElementById('btn-see-more');
         btn.innerText = showingAllRecs ? 'VER MENOS' : 'VER TODOS LOS PARTIDOS';
-        
+
         updateCarouselUI();
-        
+
         carousel.style.opacity = 1;
-        
+
         if (showingAllRecs) {
           // Start at bottom if default is scroll up, but let's just start at top
           setTimeout(() => {
@@ -1343,7 +1594,7 @@
     function openMatchStats(match) {
       document.getElementById('stats-modal-overlay').classList.add('visible');
       document.getElementById('stats-title').innerHTML = `Partido #${match.match_number} &bull; ${match.stage}`;
-      
+
       const homeFifa = match.home_team.fifa_code;
       const awayFifa = match.away_team.fifa_code;
       const homeFlag = `https://flagcdn.com/w80/${getCountryIsoCode(homeFifa)}.png`;
@@ -1361,14 +1612,14 @@
       const tDataAway = cachedWcData?.teams?.[awayFifa]?.metrics || {};
 
       const formatVal = (v) => v !== undefined ? v : 'N/A';
-      
+
       const mHome = {
         val: tDataHome.market_value_eur || 100,
         xg: tDataHome.recent_xg_avg || 1.0,
         pos: tDataHome.recent_possession_avg || 50,
         pop: tDataHome.global_popularity_score || 50
       };
-      
+
       const mAway = {
         val: tDataAway.market_value_eur || 100,
         xg: tDataAway.recent_xg_avg || 1.0,
@@ -1378,7 +1629,7 @@
 
       const computeBar = (a, b) => {
         const sum = a + b || 1;
-        return [(a/sum)*100, (b/sum)*100];
+        return [(a / sum) * 100, (b / sum) * 100];
       };
 
       const [valA, valB] = computeBar(mHome.val, mAway.val);
@@ -1411,9 +1662,9 @@
             </div>
             ${h2h.total_matches > 0 ? `
               <div class="h2h-bar">
-                <div class="h2h-green" style="width: ${homePct}%">${homePct > 10 ? homePct+'%' : ''}</div>
-                <div class="h2h-gray" style="width: ${drawPct}%">${drawPct > 10 ? drawPct+'%' : ''}</div>
-                <div class="h2h-red" style="width: ${awayPct}%">${awayPct > 10 ? awayPct+'%' : ''}</div>
+                <div class="h2h-green" style="width: ${homePct}%">${homePct > 10 ? homePct + '%' : ''}</div>
+                <div class="h2h-gray" style="width: ${drawPct}%">${drawPct > 10 ? drawPct + '%' : ''}</div>
+                <div class="h2h-red" style="width: ${awayPct}%">${awayPct > 10 ? awayPct + '%' : ''}</div>
               </div>
             ` : '<p style="text-align:center; font-size:0.8rem; color:#666;">No hay enfrentamientos previos.</p>'}
           </div>
@@ -1573,7 +1824,7 @@
       particlesPositions[i] = (Math.random() - 0.5) * 35; // x
       particlesPositions[i + 1] = (Math.random() - 0.5) * 20; // y
       particlesPositions[i + 2] = (Math.random() - 0.5) * 20 - 4; // z
-      
+
       particlesVelocities.push({
         x: (Math.random() - 0.5) * 0.008,
         y: Math.random() * 0.015 + 0.005, // Flotan hacia arriba como niebla densa
@@ -1587,14 +1838,14 @@
     const canvasP = document.createElement('canvas');
     canvasP.width = 64; canvasP.height = 64;
     const ctxP = canvasP.getContext('2d');
-    
+
     // Gradiente radial: Núcleo blanco -> Borde gris -> Transparente
     const gradient = ctxP.createRadialGradient(32, 32, 0, 32, 32, 32);
     gradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
     gradient.addColorStop(0.15, 'rgba(150, 150, 150, 0.6)');
     gradient.addColorStop(0.7, 'rgba(50, 50, 50, 0.2)');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    
+
     ctxP.fillStyle = gradient;
     ctxP.fillRect(0, 0, 64, 64);
     const particleTexture = new THREE.CanvasTexture(canvasP);
@@ -1650,10 +1901,10 @@
 
       // Animar partículas
       const positions = particleSystem.geometry.attributes.position.array;
-      
+
       for (let i = 0; i < particleCount; i++) {
         let i3 = i * 3;
-        
+
         // Movimiento base flotante
         positions[i3] += particlesVelocities[i].x;
         positions[i3 + 1] += particlesVelocities[i].y;
@@ -1668,7 +1919,7 @@
         // FÍSICA: Repulsión con el cursor del mouse
         const dx = positions[i3] - mousePos3D.x;
         const dy = positions[i3 + 1] - mousePos3D.y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 3.5) { // Si está a menos de 3.5 unidades del mouse
           const force = (3.5 - dist) * 0.03;
@@ -1676,7 +1927,7 @@
           positions[i3 + 1] += (dy / dist) * force; // Empuja en Y
         }
       }
-      
+
       particleSystem.geometry.attributes.position.needsUpdate = true;
       renderer.render(scene, camera);
     }
@@ -1701,7 +1952,7 @@
     // =========================================================================
     // 8. NUEVA CAPA DE EFECTOS VISUALES 3D Y 2D (ANFITRIONES)
     // =========================================================================
-    (function() {
+    (function () {
       // --- A. LUCES 3D (ROJO Y VERDE - Canadá y México) ---
       const redLight = new THREE.PointLight(0xff0000, 0, 50);
       const greenLight = new THREE.PointLight(0x00ff66, 0, 50);
@@ -1741,7 +1992,7 @@
       function trigger3DEffect(variant) {
         active3DEffect = variant;
         effectStartTime = performance.now();
-        
+
         if (variant === 1) { // Barrido cruzado
           redLight.position.set(-15, 2, 3);
           greenLight.position.set(15, -2, 3);
@@ -1780,11 +2031,11 @@
           greenLight.intensity = maxInt * fade;
         } else if (active3DEffect === 2) { // Destello (secuencial)
           if (elapsed < 2) {
-            redLight.intensity = maxInt * Math.sin((elapsed/2) * Math.PI);
+            redLight.intensity = maxInt * Math.sin((elapsed / 2) * Math.PI);
             greenLight.intensity = 0;
           } else {
             redLight.intensity = 0;
-            greenLight.intensity = maxInt * Math.sin(((elapsed-2)/2) * Math.PI);
+            greenLight.intensity = maxInt * Math.sin(((elapsed - 2) / 2) * Math.PI);
           }
         } else if (active3DEffect === 3) { // Pulsación de atrás hacia adelante
           redLight.position.z = -10 + (elapsed * 4);
@@ -1829,7 +2080,7 @@
         draw(ctx) {
           let progress = this.life / this.maxLife;
           let alpha = Math.sin(progress * Math.PI);
-          
+
           if (this.variant === 1) { // Constelación
             alpha *= (0.3 + 0.7 * Math.sin(this.life * 0.4)); // Parpadeo agresivo
             this.drawGlow(ctx, this.x, this.y, this.size, alpha, 25);
@@ -1847,12 +2098,12 @@
             // Expansión rápida, desvanecimiento lento
             const s = progress < 0.15 ? progress * 600 : (1 - progress) * 150;
             this.drawGlow(ctx, this.x, this.y, s * 0.3, alpha * 0.9, s);
-            
+
             // Rayo horizontal
             ctx.fillStyle = `rgba(150, 220, 255, ${alpha * 0.6})`;
             ctx.shadowBlur = 10;
             ctx.shadowColor = '#00aaff';
-            ctx.fillRect(this.x - s*1.5, this.y - 1.5, s*3, 3);
+            ctx.fillRect(this.x - s * 1.5, this.y - 1.5, s * 3, 3);
             ctx.shadowBlur = 0;
           }
         }
@@ -1864,7 +2115,7 @@
             grad.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
             grad.addColorStop(0.35, `rgba(0, 150, 255, ${alpha * 0.7})`);
             grad.addColorStop(1, `rgba(0, 150, 255, 0)`);
-            
+
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fillStyle = grad;
@@ -1880,7 +2131,7 @@
 
       function triggerBlue(variant) {
         if (variant === 1) {
-          for(let i=0; i<6; i++) {
+          for (let i = 0; i < 6; i++) {
             setTimeout(() => blueStars.push(new BlueStar(1)), Math.random() * 800);
           }
         } else {
@@ -1899,7 +2150,7 @@
         if (blueStars.length > 0) {
           ctx.clearRect(0, 0, width, height);
           ctx.globalCompositeOperation = 'screen';
-          
+
           for (let i = blueStars.length - 1; i >= 0; i--) {
             let dead = blueStars[i].update();
             blueStars[i].draw(ctx);
@@ -1910,7 +2161,7 @@
           ctx.clearRect(0, 0, width, height);
           fxNeedsClear = false;
         }
-        
+
         requestAnimationFrame(fxLoop);
       }
       requestAnimationFrame(fxLoop);
@@ -1922,14 +2173,14 @@
           // Decidir si es luz 3D (Rojo/Verde) o Canvas 2D (Azul)
           const is3D = Math.random() > 0.5;
           const variant = Math.floor(Math.random() * 3) + 1;
-          
+
           if (is3D) trigger3DEffect(variant);
           else triggerBlue(variant);
-          
+
           scheduleNext();
         }, delay);
       }
-      
+
       // Lanzar primer efecto rápido (A los 2.5 segs, una luz 3D para asombrar)
       setTimeout(() => {
         trigger3DEffect(1);
@@ -1937,5 +2188,21 @@
       }, 2500);
     })();
   </script>
+
+  <script type="module" charset="utf-8">
+    import { loadData } from './js/state.js';
+    import { initDraft, startDraft } from './js/ui/draft.js';
+
+    // Iniciar carga de datos (para clusters, jugadores, etc.)
+    loadData();
+
+    // Exportar para que estén disponibles globalmente
+    window.startDraft = startDraft;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initDraft();
+    });
+  </script>
 </body>
+
 </html>
