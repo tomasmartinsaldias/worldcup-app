@@ -29,15 +29,26 @@ export async function loadData() {
       fetch(`../data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
       fetch(`../data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
     ]);
-    state.appData = await mainRes.json();
-    state.appData.clubLogos = await logosRes.json();
+    
+    const parseJSON = async (res) => {
+      try {
+        if (res.ok) return await res.json();
+        return null;
+      } catch (e) {
+        return null;
+      }
+    };
+    
+    state.appData = await parseJSON(mainRes) || {};
+    state.appData.clubLogos = await parseJSON(logosRes) || {};
 
-    const estiloData = await estiloRes.json();
-    const arquetiposData = await arquetiposRes.json();
+    const estiloData = await parseJSON(estiloRes) || { response: [] };
+    const arquetiposData = await parseJSON(arquetiposRes) || { archetypes: [] };
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
 
-    const clusters = await Promise.all([gkRes.json(), cbRes.json(), fbRes.json(), midRes.json(), wingRes.json(), stRes.json()]);
+    const clusters = await Promise.all([gkRes, cbRes, fbRes, midRes, wingRes, stRes].map(parseJSON));
+
     state.appData.clusters = {
       Goalkeepers: clusters[0],
       Centerbacks: clusters[1],
@@ -47,7 +58,7 @@ export async function loadData() {
       Strikers: clusters[5]
     };
 
-    const photosData = await photosRes.json();
+    const photosData = await parseJSON(photosRes) || [];
     
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
