@@ -132,7 +132,6 @@ def main():
         stadiums_dict[sid] = stadium_info
 
     # 5. Cargar Partidos y Calcular H2H
-    print("Procesando partidos y calculando H2H histórico...")
     cursor.execute("""
         SELECT 
             m.id, m.match_number, m.kickoff_at, m.match_label,
@@ -142,7 +141,6 @@ def main():
         LEFT JOIN wc2026_teams t1 ON m.home_team_id = t1.id
         LEFT JOIN wc2026_teams t2 ON m.away_team_id = t2.id
         LEFT JOIN wc2026_tournament_stages s ON m.stage_id = s.id
-        WHERE s.stage_name = 'Group Stage'
         ORDER BY m.match_number;
     """)
 

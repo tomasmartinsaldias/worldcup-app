@@ -2,6 +2,7 @@ import { state, getSimulatedScores, saveSimulatedScore, clearAllSimulatedScores,
 import { createFlagElement } from '../utils.js';
 
 let selectedGroupFilter = 'all'; // 'all' or 'A'-'L'
+let activeStageTab = 'groups'; // 'groups' or 'knockout'
 
 export function renderResults() {
   const container = document.getElementById('tab-results');
@@ -12,11 +13,20 @@ export function renderResults() {
     container.innerHTML = `
       <div class="hero-section">
         <div class="hero-tag">Resultados y Simulación</div>
-        <h2 class="hero-title">Simulador de Fase de Grupos</h2>
-        <p class="hero-desc">Carga marcadores para actualizar posiciones, ELO dinámico con momentum (EMA) y multiplicadores de espectáculo en tiempo real.</p>
+        <h2 class="hero-title" id="results-hero-title">Simulador de Fase de Grupos</h2>
+        <p class="hero-desc" id="results-hero-desc">Carga marcadores para actualizar posiciones, ELO dinámico con momentum (EMA) y multiplicadores de espectáculo en tiempo real.</p>
       </div>
 
       <div class="results-layout-wrapper">
+        <div class="results-stage-tabs" style="display: flex; gap: 1rem; border-bottom: 2px solid var(--border-glass); margin-bottom: 2.5rem; padding-bottom: 0.5rem;">
+          <button class="stage-tab-btn active" data-stage="groups" style="background: none; border: none; color: #ffffff; font-family: var(--font-primary); font-size: 1.15rem; font-weight: 800; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.3s; border-bottom: 3px solid var(--accent-cyan); position: relative;">
+            Fase de Grupos
+          </button>
+          <button class="stage-tab-btn" data-stage="knockout" style="background: none; border: none; color: var(--text-muted); font-family: var(--font-primary); font-size: 1.15rem; font-weight: 800; padding: 0.5rem 1rem; cursor: pointer; transition: all 0.3s; position: relative;">
+            Fase Eliminatoria
+          </button>
+        </div>
+
         <div class="results-controls-bar" style="display: flex; justify-content: space-between; align-items: center; background: rgba(18, 18, 26, 0.65); border: 1px solid var(--border-glass); padding: 1.2rem 1.8rem; border-radius: 16px; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
           <div class="results-stats" id="results-stats-container" style="color: var(--text-secondary); font-size: 0.9rem; font-family: var(--font-secondary); font-weight: 500;">
             Cargando estadísticas de simulación...
@@ -74,10 +84,51 @@ export function renderResults() {
         renderGroupsContent();
       });
     });
+
+    container.querySelectorAll('.stage-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        container.querySelectorAll('.stage-tab-btn').forEach(b => {
+          b.classList.remove('active');
+          b.style.color = 'var(--text-muted)';
+          b.style.borderBottom = 'none';
+        });
+        btn.classList.add('active');
+        btn.style.color = '#ffffff';
+        btn.style.borderBottom = '3px solid var(--accent-cyan)';
+        activeStageTab = btn.getAttribute('data-stage');
+        
+        const groupSelector = container.querySelector('.results-group-selector');
+        const simJ1 = document.getElementById('btn-simulate-j1');
+        const simJ2 = document.getElementById('btn-simulate-j2');
+        const simJ3 = document.getElementById('btn-simulate-j3');
+        
+        if (activeStageTab === 'groups') {
+          if (groupSelector) groupSelector.style.display = 'flex';
+          if (simJ1) simJ1.style.display = 'inline-flex';
+          if (simJ2) simJ2.style.display = 'inline-flex';
+          if (simJ3) simJ3.style.display = 'inline-flex';
+          document.getElementById('results-hero-title').innerText = 'Simulador de Fase de Grupos';
+          document.getElementById('results-hero-desc').innerText = 'Carga marcadores para actualizar posiciones, ELO dinámico con momentum (EMA) y multiplicadores de espectáculo en tiempo real.';
+          renderGroupsContent();
+        } else {
+          if (groupSelector) groupSelector.style.display = 'none';
+          if (simJ1) simJ1.style.display = 'none';
+          if (simJ2) simJ2.style.display = 'none';
+          if (simJ3) simJ3.style.display = 'none';
+          document.getElementById('results-hero-title').innerText = 'Simulador de Fase Eliminatoria';
+          document.getElementById('results-hero-desc').innerText = 'Carga marcadores para resolver las llaves de play-offs, actualizar el ELO dinámico y ver el campeón del mundo en tiempo real.';
+          renderKnockoutContent();
+        }
+      });
+    });
   }
 
   updateStatsBar();
-  renderGroupsContent();
+  if (activeStageTab === 'groups') {
+    renderGroupsContent();
+  } else {
+    renderKnockoutContent();
+  }
 }
 
 function updateStatsBar() {
@@ -370,12 +421,14 @@ function simulateRemainingMatches() {
   const simulatedScores = getSimulatedScores();
   let count = 0;
 
-  // Recalculate states to get initial updated ELOs
-  recalculateTournamentState();
-
+  // We need to simulate chronological matches one by one, recalculating state after each,
+  // so that knockout placeholders propagate team resolutions.
   const sortedMatches = [...state.appData.matches].sort((a, b) => a.match_number - b.match_number);
 
   sortedMatches.forEach(m => {
+    // Dynamically update placeholder teams before simulating this match
+    recalculateTournamentState();
+
     if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
     if (simulatedScores[m.match_number] !== undefined) return; // Skip already played
 
@@ -385,7 +438,6 @@ function simulateRemainingMatches() {
     const eloH = state.teamElos[hCode] || 1500;
     const eloA = state.teamElos[aCode] || 1500;
 
-    // Calculate win expectation as win probability weight
     const diff = (eloH - eloA) / 400;
     const We_h = 1 / (1 + Math.pow(10, -diff));
 
@@ -400,24 +452,38 @@ function simulateRemainingMatches() {
     let scoreAway = 0;
 
     if (r < P_home) {
-      // Home win
-      scoreHome = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
-      scoreAway = Math.floor(Math.random() * scoreHome); // less than home score
+      scoreHome = Math.floor(Math.random() * 3) + 1;
+      scoreAway = Math.floor(Math.random() * scoreHome);
     } else if (r < P_home + P_draw) {
-      // Draw
-      scoreHome = Math.floor(Math.random() * 3); // 0 to 2 goals
+      scoreHome = Math.floor(Math.random() * 3);
       scoreAway = scoreHome;
     } else {
-      // Away win
-      scoreAway = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
-      scoreHome = Math.floor(Math.random() * scoreAway); // less than away score
+      scoreAway = Math.floor(Math.random() * 3) + 1;
+      scoreHome = Math.floor(Math.random() * scoreAway);
     }
 
-    // Save score (manually update simulatedScores local list and recalculate at the end for efficiency)
-    simulatedScores[m.match_number] = {
-      home: scoreHome,
-      away: scoreAway
-    };
+    if (m.stage !== 'Group Stage') {
+      // Knockout matches cannot end in a draw. If a draw is simulated, we choose a winner via ELO
+      if (scoreHome === scoreAway) {
+        const rWinner = Math.random();
+        const winnerWinner = rWinner < We_h ? 'home' : 'away';
+        simulatedScores[m.match_number] = {
+          home: scoreHome,
+          away: scoreAway,
+          winner: winnerWinner
+        };
+      } else {
+        simulatedScores[m.match_number] = {
+          home: scoreHome,
+          away: scoreAway
+        };
+      }
+    } else {
+      simulatedScores[m.match_number] = {
+        home: scoreHome,
+        away: scoreAway
+      };
+    }
     count++;
   });
 
@@ -438,12 +504,10 @@ function simulateRound(roundNumber) {
   const simulatedScores = getSimulatedScores();
   let count = 0;
 
-  // Recalculate states to get initial updated ELOs
   recalculateTournamentState();
 
   const sortedMatches = [...state.appData.matches].sort((a, b) => a.match_number - b.match_number);
 
-  // Define match bounds for the specified round (Jornada)
   let minMatch = 1;
   let maxMatch = 72;
   if (roundNumber === 1) {
@@ -460,7 +524,7 @@ function simulateRound(roundNumber) {
   sortedMatches.forEach(m => {
     if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
     if (m.match_number < minMatch || m.match_number > maxMatch) return;
-    if (simulatedScores[m.match_number] !== undefined) return; // Skip already played
+    if (simulatedScores[m.match_number] !== undefined) return;
 
     const hCode = m.home_team.fifa_code;
     const aCode = m.away_team.fifa_code;
@@ -468,11 +532,9 @@ function simulateRound(roundNumber) {
     const eloH = state.teamElos[hCode] || 1500;
     const eloA = state.teamElos[aCode] || 1500;
 
-    // Calculate win expectation as win probability weight
     const diff = (eloH - eloA) / 400;
     const We_h = 1 / (1 + Math.pow(10, -diff));
 
-    // Base probabilities
     const P_draw = 0.26;
     const P_home = 0.74 * We_h;
     const P_away = 0.74 * (1.0 - We_h);
@@ -483,20 +545,16 @@ function simulateRound(roundNumber) {
     let scoreAway = 0;
 
     if (r < P_home) {
-      // Home win
-      scoreHome = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
-      scoreAway = Math.floor(Math.random() * scoreHome); // less than home score
+      scoreHome = Math.floor(Math.random() * 3) + 1;
+      scoreAway = Math.floor(Math.random() * scoreHome);
     } else if (r < P_home + P_draw) {
-      // Draw
-      scoreHome = Math.floor(Math.random() * 3); // 0 to 2 goals
+      scoreHome = Math.floor(Math.random() * 3);
       scoreAway = scoreHome;
     } else {
-      // Away win
-      scoreAway = Math.floor(Math.random() * 3) + 1; // 1 to 3 goals
-      scoreHome = Math.floor(Math.random() * scoreAway); // less than away score
+      scoreAway = Math.floor(Math.random() * 3) + 1;
+      scoreHome = Math.floor(Math.random() * scoreAway);
     }
 
-    // Save score
     simulatedScores[m.match_number] = {
       home: scoreHome,
       away: scoreAway
@@ -512,6 +570,202 @@ function simulateRound(roundNumber) {
     alert(`¡Simulados con éxito ${count} partidos de la Jornada ${roundNumber} usando pesos ELO!`);
   } else {
     alert(`Todos los partidos de la Jornada ${roundNumber} ya tienen marcadores cargados.`);
+  }
+}
+
+function renderKnockoutContent() {
+  const grid = document.getElementById('results-groups-grid');
+  if (!grid || !state.appData) return;
+
+  const activeEl = document.activeElement;
+  let focusedMatch = null;
+  let focusedTeam = null;
+  if (activeEl && activeEl.classList.contains('sim-score-input')) {
+    focusedMatch = activeEl.getAttribute('data-match');
+    focusedTeam = activeEl.getAttribute('data-team');
+  }
+
+  grid.innerHTML = '';
+  const simulatedScores = getSimulatedScores();
+
+  const stagesOrder = [
+    { key: 'Round of 32', label: 'Dieciseisavos de Final' },
+    { key: 'Round of 16', label: 'Octavos de Final' },
+    { key: 'Quarter-finals', label: 'Cuartos de Final' },
+    { key: 'Semi-finals', label: 'Semifinales' },
+    { key: 'Play-off for third place', label: 'Tercer Puesto' },
+    { key: 'Final', label: 'Gran Final' }
+  ];
+
+  stagesOrder.forEach(stageInfo => {
+    const stageMatches = state.appData.matches.filter(m => m.stage === stageInfo.key).sort((a, b) => a.match_number - b.match_number);
+    if (stageMatches.length === 0) return;
+
+    const stageCard = document.createElement('div');
+    stageCard.className = 'results-group-card';
+    stageCard.style.cssText = 'background: rgba(12, 12, 16, 0.4); border: 1px solid var(--border-glass); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.4);';
+
+    let matchesHtml = stageMatches.map(m => {
+      const score = simulatedScores[m.match_number];
+      
+      let eloChangeHome = '';
+      let eloChangeAway = '';
+      if (score !== undefined && m.home_team_elo_post !== undefined && m.home_team_elo_pre !== undefined) {
+        const diffH = m.home_team_elo_post - m.home_team_elo_pre;
+        const diffA = m.away_team_elo_post - m.away_team_elo_pre;
+        eloChangeHome = `<span style="font-size:0.7rem; margin-left: 5px; font-weight:bold; color: ${diffH >= 0 ? '#4ade80' : '#f87171'};">${diffH >= 0 ? '+' : ''}${diffH}</span>`;
+        eloChangeAway = `<span style="font-size:0.7rem; margin-left: 5px; font-weight:bold; color: ${diffA >= 0 ? '#4ade80' : '#f87171'};">${diffA >= 0 ? '+' : ''}${diffA}</span>`;
+      }
+
+      const hTeamData = state.appData.teams[m.home_team.fifa_code] || m.home_team;
+      const aTeamData = state.appData.teams[m.away_team.fifa_code] || m.away_team;
+      const flagHome = createFlagElement(hTeamData);
+      const flagAway = createFlagElement(aTeamData);
+
+      let tiebreakerHtml = '';
+      if (score !== undefined && score.home !== null && score.away !== null && score.home === score.away) {
+        const selectedWinner = score.winner || 'home';
+        tiebreakerHtml = `
+          <div class="tiebreaker-container" style="display: flex; align-items: center; gap: 1.5rem; margin-top: 0.5rem; justify-content: center; width: 100%; padding: 0.4rem; background: rgba(251, 191, 36, 0.05); border: 1px dashed rgba(251, 191, 36, 0.2); border-radius: 8px;">
+            <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px;"><i class="fa-solid fa-trophy" style="font-size:0.7rem;"></i> Ganador Penales:</span>
+            <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: ${selectedWinner === 'home' ? '#ffffff' : 'var(--text-muted)'}; cursor: pointer; font-weight: 700; margin: 0;">
+              <input type="radio" name="tb-${m.match_number}" value="home" ${selectedWinner === 'home' ? 'checked' : ''} class="tb-radio" data-match="${m.match_number}" style="accent-color: var(--accent-cyan); cursor: pointer;">
+              ${m.home_team.name || 'Local'}
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: ${selectedWinner === 'away' ? '#ffffff' : 'var(--text-muted)'}; cursor: pointer; font-weight: 700; margin: 0;">
+              <input type="radio" name="tb-${m.match_number}" value="away" ${selectedWinner === 'away' ? 'checked' : ''} class="tb-radio" data-match="${m.match_number}" style="accent-color: var(--accent-cyan); cursor: pointer;">
+              ${m.away_team.name || 'Visitante'}
+            </label>
+          </div>
+        `;
+      }
+
+      const matchStakeMultiplier = m.stage === 'Semi-finals' || m.stage === 'Final' || m.stage === 'Play-off for third place' ? 2.0 : 1.5;
+
+      return `
+        <div class="results-match-row" style="background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.2rem 1.5rem; display: flex; flex-direction: column; transition: all 0.3s; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; width: 100%;">
+            <div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 0.2rem;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase;">Partido #${m.match_number}</span>
+              <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-secondary);"><i class="fa-solid fa-map-location-dot" style="margin-right: 4px; font-size: 0.75rem;"></i> ${m.stadium?.venue_name || 'TBD'}</span>
+            </div>
+
+            <!-- Team Home -->
+            <div style="flex: 2; min-width: 160px; display: flex; align-items: center; justify-content: flex-end; gap: 0.8rem; text-align: right;">
+              <div style="line-height: 1.2;">
+                <div style="font-weight: 700; font-size: 0.95rem; color: ${m.home_team.is_placeholder ? 'var(--text-muted)' : '#ffffff'};">${m.home_team.name}</div>
+                ${!m.home_team.is_placeholder ? `<div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-secondary);">ELO: <strong style="color: var(--accent-cyan);">${m.home_team_elo_pre || 1500}</strong>${eloChangeHome}</div>` : ''}
+              </div>
+              ${flagHome}
+            </div>
+
+            <!-- Score Input Box -->
+            <div style="display: flex; align-items: center; gap: 0.5rem; background: rgba(0, 0, 0, 0.3); border: 1.5px solid var(--border-glass); padding: 0.4rem 0.8rem; border-radius: 10px;">
+              <input type="number" min="0" max="99" class="sim-score-input" data-match="${m.match_number}" data-team="home" value="${score !== undefined ? score.home : ''}" placeholder="-" style="width: 38px; background: transparent; border: none; text-align: center; color: #ffffff; font-weight: 800; font-size: 1.2rem; font-family: var(--font-primary); outline: none;" ${m.home_team.is_placeholder || m.away_team.is_placeholder ? 'disabled' : ''}>
+              <span style="color: var(--border-glass); font-weight: bold;">:</span>
+              <input type="number" min="0" max="99" class="sim-score-input" data-match="${m.match_number}" data-team="away" value="${score !== undefined ? score.away : ''}" placeholder="-" style="width: 38px; background: transparent; border: none; text-align: center; color: #ffffff; font-weight: 800; font-size: 1.2rem; font-family: var(--font-primary); outline: none;" ${m.home_team.is_placeholder || m.away_team.is_placeholder ? 'disabled' : ''}>
+            </div>
+
+            <!-- Team Away -->
+            <div style="flex: 2; min-width: 160px; display: flex; align-items: center; justify-content: flex-start; gap: 0.8rem;">
+              ${flagAway}
+              <div style="line-height: 1.2;">
+                <div style="font-weight: 700; font-size: 0.95rem; color: ${m.away_team.is_placeholder ? 'var(--text-muted)' : '#ffffff'};">${m.away_team.name}</div>
+                ${!m.away_team.is_placeholder ? `<div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-secondary);">ELO: <strong style="color: var(--accent-cyan);">${m.away_team_elo_pre || 1500}</strong>${eloChangeAway}</div>` : ''}
+              </div>
+            </div>
+
+            <!-- Match Type (Knockout dynamic stake) -->
+            <div style="flex: 1.2; min-width: 120px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: bold;">Multiplicador</span>
+              <span class="results-stake-badge stake-high" style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); color: #4ade80; padding: 2px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: bold; font-family: var(--font-primary); display: inline-flex; align-items: center; gap: 4px;">
+                <i class="fa-solid fa-fire" style="font-size:0.65rem;"></i> ${matchStakeMultiplier.toFixed(2)}x
+              </span>
+            </div>
+          </div>
+          ${tiebreakerHtml}
+        </div>
+      `;
+    }).join('');
+
+    stageCard.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--border-glass); padding-bottom: 1rem; margin-bottom: 0.5rem;">
+        <h2 style="font-family: var(--font-primary); font-size: 1.5rem; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">${stageInfo.label}</h2>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-secondary);"><i class="fa-solid fa-sitemap" style="color: var(--accent-gold); margin-right: 4px;"></i> Directa</span>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        ${matchesHtml}
+      </div>
+    `;
+
+    grid.appendChild(stageCard);
+  });
+
+  // Bind score inputs event listeners
+  grid.querySelectorAll('.sim-score-input').forEach(input => {
+    const handleScoreChange = (e) => {
+      const mNum = parseInt(input.getAttribute('data-match'));
+      const team = input.getAttribute('data-team');
+      const val = input.value;
+
+      const simulatedScores = getSimulatedScores();
+      const current = simulatedScores[mNum] || { home: null, away: null };
+
+      if (val === '') {
+        current[team] = null;
+      } else {
+        current[team] = parseInt(val);
+      }
+
+      if (current.home === null || current.away === null || isNaN(current.home) || isNaN(current.away)) {
+        saveSimulatedScore(mNum, null, null);
+      } else {
+        const winner = (current.home === current.away) ? (current.winner || 'home') : undefined;
+        saveSimulatedScore(mNum, current.home, current.away);
+        if (winner) {
+          const updatedScores = getSimulatedScores();
+          updatedScores[mNum].winner = winner;
+          localStorage.setItem('simulatedScores', JSON.stringify(updatedScores));
+        }
+      }
+
+      if (window.recalculateAndRender) window.recalculateAndRender();
+      updateStatsBar();
+      renderKnockoutContent();
+    };
+
+    input.addEventListener('change', handleScoreChange);
+    input.addEventListener('input', handleScoreChange);
+
+    input.addEventListener('keydown', (e) => {
+      if (['e', 'E', '+', '-', '.'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Bind tiebreaker radio buttons event listeners
+  grid.querySelectorAll('.tb-radio').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const mNum = parseInt(radio.getAttribute('data-match'));
+      const winner = radio.value;
+      const simulatedScores = getSimulatedScores();
+      if (simulatedScores[mNum]) {
+        simulatedScores[mNum].winner = winner;
+        localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+        if (window.recalculateAndRender) window.recalculateAndRender();
+        renderKnockoutContent();
+      }
+    });
+  });
+
+  // Restore focus if it was focused before redrawing
+  if (focusedMatch && focusedTeam) {
+    const newInput = grid.querySelector(`.sim-score-input[data-match="${focusedMatch}"][data-team="${focusedTeam}"]`);
+    if (newInput) {
+      newInput.focus();
+    }
   }
 }
 

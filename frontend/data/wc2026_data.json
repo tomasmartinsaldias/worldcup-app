@@ -23097,6 +23097,1286 @@
           }
         ]
       }
+    },
+    {
+      "id": 73,
+      "match_number": 73,
+      "kickoff_at": "2026-06-28 15:00:00-07",
+      "match_label": "2A vs 2B",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 6,
+        "city_name": "Los Angeles",
+        "country": "USA",
+        "venue_name": "SoFi Stadium",
+        "region_cluster": "West",
+        "airport_code": "LAX"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 74,
+      "match_number": 74,
+      "kickoff_at": "2026-06-29 13:00:00-05",
+      "match_label": "1C vs 2F",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 4,
+        "city_name": "Houston",
+        "country": "USA",
+        "venue_name": "NRG Stadium",
+        "region_cluster": "Central",
+        "airport_code": "IAH"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 75,
+      "match_number": 75,
+      "kickoff_at": "2026-06-29 16:30:00-04",
+      "match_label": "1E vs 3ABCDF",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 2,
+        "city_name": "Boston",
+        "country": "USA",
+        "venue_name": "Gillette Stadium",
+        "region_cluster": "East",
+        "airport_code": "BOS"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 76,
+      "match_number": 76,
+      "kickoff_at": "2026-06-29 21:00:00-06",
+      "match_label": "1F vs 2C",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 16,
+        "city_name": "Monterrey",
+        "country": "Mexico",
+        "venue_name": "Estadio BBVA",
+        "region_cluster": "Central",
+        "airport_code": "MTY"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 77,
+      "match_number": 77,
+      "kickoff_at": "2026-06-30 13:00:00-05",
+      "match_label": "2E vs 2I",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 3,
+        "city_name": "Dallas",
+        "country": "USA",
+        "venue_name": "AT&T Stadium",
+        "region_cluster": "Central",
+        "airport_code": "DAL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 78,
+      "match_number": 78,
+      "kickoff_at": "2026-06-30 17:00:00-04",
+      "match_label": "1I vs 3CDFGH",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 8,
+        "city_name": "New York/New Jersey",
+        "country": "USA",
+        "venue_name": "MetLife Stadium",
+        "region_cluster": "East",
+        "airport_code": "EWR"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 79,
+      "match_number": 79,
+      "kickoff_at": "2026-06-30 21:00:00-06",
+      "match_label": "1A vs 3CEFHI",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 15,
+        "city_name": "Mexico City",
+        "country": "Mexico",
+        "venue_name": "Estadio Azteca",
+        "region_cluster": "Central",
+        "airport_code": "MEX"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 80,
+      "match_number": 80,
+      "kickoff_at": "2026-07-01 12:00:00-04",
+      "match_label": "1L vs 3EHIJK",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 1,
+        "city_name": "Atlanta",
+        "country": "USA",
+        "venue_name": "Mercedes-Benz Stadium",
+        "region_cluster": "East",
+        "airport_code": "ATL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 81,
+      "match_number": 81,
+      "kickoff_at": "2026-07-01 16:00:00-07",
+      "match_label": "1G vs 3AEHIJ",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 11,
+        "city_name": "Seattle",
+        "country": "USA",
+        "venue_name": "Lumen Field",
+        "region_cluster": "West",
+        "airport_code": "SEA"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 82,
+      "match_number": 82,
+      "kickoff_at": "2026-07-01 20:00:00-07",
+      "match_label": "1D vs 3BEFIJ",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 10,
+        "city_name": "San Francisco Bay Area",
+        "country": "USA",
+        "venue_name": "Levi's Stadium",
+        "region_cluster": "West",
+        "airport_code": "SFO"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 83,
+      "match_number": 83,
+      "kickoff_at": "2026-07-02 15:00:00-07",
+      "match_label": "1H vs 2J",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 6,
+        "city_name": "Los Angeles",
+        "country": "USA",
+        "venue_name": "SoFi Stadium",
+        "region_cluster": "West",
+        "airport_code": "LAX"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 84,
+      "match_number": 84,
+      "kickoff_at": "2026-07-02 19:00:00-04",
+      "match_label": "2K vs 2L",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 12,
+        "city_name": "Toronto",
+        "country": "Canada",
+        "venue_name": "BMO Field",
+        "region_cluster": "East",
+        "airport_code": "YYZ"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 85,
+      "match_number": 85,
+      "kickoff_at": "2026-07-02 23:00:00-07",
+      "match_label": "1B vs 3EFGIJ",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 13,
+        "city_name": "Vancouver",
+        "country": "Canada",
+        "venue_name": "BC Place",
+        "region_cluster": "West",
+        "airport_code": "YVR"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 86,
+      "match_number": 86,
+      "kickoff_at": "2026-07-03 14:00:00-05",
+      "match_label": "2D vs 2G",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 3,
+        "city_name": "Dallas",
+        "country": "USA",
+        "venue_name": "AT&T Stadium",
+        "region_cluster": "Central",
+        "airport_code": "DAL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 87,
+      "match_number": 87,
+      "kickoff_at": "2026-07-03 18:00:00-04",
+      "match_label": "1J vs 2H",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 7,
+        "city_name": "Miami",
+        "country": "USA",
+        "venue_name": "Hard Rock Stadium",
+        "region_cluster": "East",
+        "airport_code": "MIA"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 88,
+      "match_number": 88,
+      "kickoff_at": "2026-07-03 21:30:00-05",
+      "match_label": "1K vs 3DEIJL",
+      "stage": "Round of 32",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 5,
+        "city_name": "Kansas City",
+        "country": "USA",
+        "venue_name": "Arrowhead Stadium",
+        "region_cluster": "Central",
+        "airport_code": "MCI"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 89,
+      "match_number": 89,
+      "kickoff_at": "2026-07-04 13:00:00-05",
+      "match_label": "W73 vs W75",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 4,
+        "city_name": "Houston",
+        "country": "USA",
+        "venue_name": "NRG Stadium",
+        "region_cluster": "Central",
+        "airport_code": "IAH"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 90,
+      "match_number": 90,
+      "kickoff_at": "2026-07-04 17:00:00-04",
+      "match_label": "W74 vs W77",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 9,
+        "city_name": "Philadelphia",
+        "country": "USA",
+        "venue_name": "Lincoln Financial Field",
+        "region_cluster": "East",
+        "airport_code": "PHL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 91,
+      "match_number": 91,
+      "kickoff_at": "2026-07-05 16:00:00-04",
+      "match_label": "W76 vs W78",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 8,
+        "city_name": "New York/New Jersey",
+        "country": "USA",
+        "venue_name": "MetLife Stadium",
+        "region_cluster": "East",
+        "airport_code": "EWR"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 92,
+      "match_number": 92,
+      "kickoff_at": "2026-07-05 20:00:00-06",
+      "match_label": "W79 vs W80",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 15,
+        "city_name": "Mexico City",
+        "country": "Mexico",
+        "venue_name": "Estadio Azteca",
+        "region_cluster": "Central",
+        "airport_code": "MEX"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 93,
+      "match_number": 93,
+      "kickoff_at": "2026-07-06 15:00:00-05",
+      "match_label": "W83 vs W84",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 3,
+        "city_name": "Dallas",
+        "country": "USA",
+        "venue_name": "AT&T Stadium",
+        "region_cluster": "Central",
+        "airport_code": "DAL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 94,
+      "match_number": 94,
+      "kickoff_at": "2026-07-06 20:00:00-07",
+      "match_label": "W81 vs W82",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 11,
+        "city_name": "Seattle",
+        "country": "USA",
+        "venue_name": "Lumen Field",
+        "region_cluster": "West",
+        "airport_code": "SEA"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 95,
+      "match_number": 95,
+      "kickoff_at": "2026-07-07 12:00:00-04",
+      "match_label": "W86 vs W88",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 1,
+        "city_name": "Atlanta",
+        "country": "USA",
+        "venue_name": "Mercedes-Benz Stadium",
+        "region_cluster": "East",
+        "airport_code": "ATL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 96,
+      "match_number": 96,
+      "kickoff_at": "2026-07-07 16:00:00-07",
+      "match_label": "W85 vs W87",
+      "stage": "Round of 16",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 13,
+        "city_name": "Vancouver",
+        "country": "Canada",
+        "venue_name": "BC Place",
+        "region_cluster": "West",
+        "airport_code": "YVR"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 97,
+      "match_number": 97,
+      "kickoff_at": "2026-07-09 16:00:00-04",
+      "match_label": "W89 vs W90",
+      "stage": "Quarterfinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 2,
+        "city_name": "Boston",
+        "country": "USA",
+        "venue_name": "Gillette Stadium",
+        "region_cluster": "East",
+        "airport_code": "BOS"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 98,
+      "match_number": 98,
+      "kickoff_at": "2026-07-10 15:00:00-07",
+      "match_label": "W93 vs W94",
+      "stage": "Quarterfinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 6,
+        "city_name": "Los Angeles",
+        "country": "USA",
+        "venue_name": "SoFi Stadium",
+        "region_cluster": "West",
+        "airport_code": "LAX"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 99,
+      "match_number": 99,
+      "kickoff_at": "2026-07-11 17:00:00-04",
+      "match_label": "W91 vs W92",
+      "stage": "Quarterfinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 7,
+        "city_name": "Miami",
+        "country": "USA",
+        "venue_name": "Hard Rock Stadium",
+        "region_cluster": "East",
+        "airport_code": "MIA"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 100,
+      "match_number": 100,
+      "kickoff_at": "2026-07-11 21:00:00-05",
+      "match_label": "W95 vs W100",
+      "stage": "Quarterfinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 5,
+        "city_name": "Kansas City",
+        "country": "USA",
+        "venue_name": "Arrowhead Stadium",
+        "region_cluster": "Central",
+        "airport_code": "MCI"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 101,
+      "match_number": 101,
+      "kickoff_at": "2026-07-14 15:00:00-05",
+      "match_label": "W97 vs W98",
+      "stage": "Semifinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 3,
+        "city_name": "Dallas",
+        "country": "USA",
+        "venue_name": "AT&T Stadium",
+        "region_cluster": "Central",
+        "airport_code": "DAL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 102,
+      "match_number": 102,
+      "kickoff_at": "2026-07-15 15:00:00-04",
+      "match_label": "W99 vs W100",
+      "stage": "Semifinals",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 1,
+        "city_name": "Atlanta",
+        "country": "USA",
+        "venue_name": "Mercedes-Benz Stadium",
+        "region_cluster": "East",
+        "airport_code": "ATL"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 103,
+      "match_number": 103,
+      "kickoff_at": "2026-07-18 17:00:00-04",
+      "match_label": "RU101 vs RU102",
+      "stage": "Third Place Playoff",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 7,
+        "city_name": "Miami",
+        "country": "USA",
+        "venue_name": "Hard Rock Stadium",
+        "region_cluster": "East",
+        "airport_code": "MIA"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
+    },
+    {
+      "id": 104,
+      "match_number": 104,
+      "kickoff_at": "2026-07-19 15:00:00-04",
+      "match_label": "W101 vs W102",
+      "stage": "Final",
+      "home_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "away_team": {
+        "fifa_code": null,
+        "name": "TBD",
+        "is_placeholder": true,
+        "group": null
+      },
+      "stadium": {
+        "id": 8,
+        "city_name": "New York/New Jersey",
+        "country": "USA",
+        "venue_name": "MetLife Stadium",
+        "region_cluster": "East",
+        "airport_code": "EWR"
+      },
+      "h2h": {
+        "total_matches": 0,
+        "home_wins": 0,
+        "away_wins": 0,
+        "draws": 0,
+        "home_goals": 0,
+        "away_goals": 0,
+        "wc_matches": 0,
+        "wc_home_wins": 0,
+        "wc_away_wins": 0,
+        "wc_draws": 0,
+        "last_matches": []
+      }
     }
   ],
   "groups": {

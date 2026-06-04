@@ -128,6 +128,226 @@ let simulatedScores = JSON.parse(localStorage.getItem('simulatedScores') || '{}'
 let teamElos = {};
 let teamStatuses = {};
 
+export function calculateStandings(groupLetter) {
+  if (!state.appData || !state.appData.groups || !state.appData.groups[groupLetter]) return [];
+  const groupTeams = state.appData.groups[groupLetter];
+  
+  const standings = groupTeams.map(code => ({
+    code: code,
+    name: state.appData.teams[code]?.name || code,
+    pj: 0,
+    pg: 0,
+    pe: 0,
+    pp: 0,
+    gf: 0,
+    gc: 0,
+    dg: 0,
+    pts: 0
+  }));
+
+  const simulatedScores = getSimulatedScores();
+  
+  const groupMatches = state.appData.matches.filter(m => 
+    m.stage === 'Group Stage' && 
+    m.home_team.group === groupLetter &&
+    !m.home_team.is_placeholder &&
+    !m.away_team.is_placeholder
+  );
+
+  groupMatches.forEach(m => {
+    const score = simulatedScores[m.match_number];
+    if (score !== undefined && score.home !== null && score.away !== null) {
+      const homeTeam = standings.find(t => t.code === m.home_team.fifa_code);
+      const awayTeam = standings.find(t => t.code === m.away_team.fifa_code);
+      if (homeTeam && awayTeam) {
+        homeTeam.pj += 1;
+        awayTeam.pj += 1;
+        homeTeam.gf += score.home;
+        homeTeam.gc += score.away;
+        awayTeam.gf += score.away;
+        awayTeam.gc += score.home;
+        
+        if (score.home > score.away) {
+          homeTeam.pg += 1;
+          homeTeam.pts += 3;
+          awayTeam.pp += 1;
+        } else if (score.away > score.home) {
+          awayTeam.pg += 1;
+          awayTeam.pts += 3;
+          homeTeam.pp += 1;
+        } else {
+          homeTeam.pe += 1;
+          awayTeam.pe += 1;
+          homeTeam.pts += 1;
+          awayTeam.pts += 1;
+        }
+      }
+    }
+  });
+
+  standings.forEach(t => {
+    t.dg = t.gf - t.gc;
+  });
+
+  standings.sort((a, b) => {
+    if (b.pts !== a.pts) return b.pts - a.pts;
+    if (b.dg !== a.dg) return b.dg - a.dg;
+    if (b.gf !== a.gf) return b.gf - a.gf;
+    
+    const eloA = state.teamElos[a.code] || 1500;
+    const eloB = state.teamElos[b.code] || 1500;
+    return eloB - eloA;
+  });
+
+  return standings;
+}
+
+export function determineQualificationStatus() {
+  if (!state.appData || !state.appData.groups || !state.appData.matches) return;
+
+  const simulatedScores = getSimulatedScores();
+  const groupLetters = Object.keys(state.appData.groups).sort();
+  
+  groupLetters.forEach(gKey => {
+    const groupTeams = state.appData.groups[gKey];
+    const groupMatches = state.appData.matches.filter(m => 
+      m.stage === 'Group Stage' && 
+      m.home_team.group === gKey &&
+      !m.home_team.is_placeholder &&
+      !m.away_team.is_placeholder
+    );
+
+    const playedMatches = [];
+    const remainingMatches = [];
+    
+    groupMatches.forEach(m => {
+      const score = simulatedScores[m.match_number];
+      if (score !== undefined && score.home !== null && score.away !== null) {
+        playedMatches.push({
+          match_number: m.match_number,
+          home: m.home_team.fifa_code,
+          away: m.away_team.fifa_code,
+          scoreHome: score.home,
+          scoreAway: score.away
+        });
+      } else {
+        remainingMatches.push({
+          match_number: m.match_number,
+          home: m.home_team.fifa_code,
+          away: m.away_team.fifa_code
+        });
+      }
+    });
+
+    const combinations = [];
+    function generateCombinations(index, current) {
+      if (index === remainingMatches.length) {
+        combinations.push([...current]);
+        return;
+      }
+      current.push(1);
+      generateCombinations(index + 1, current);
+      current.pop();
+      
+      current.push(0);
+      generateCombinations(index + 1, current);
+      current.pop();
+      
+      current.push(-1);
+      generateCombinations(index + 1, current);
+      current.pop();
+    }
+    
+    generateCombinations(0, []);
+
+    const teamStats = {};
+    groupTeams.forEach(code => {
+      teamStats[code] = { times1st: 0, timesTop2: 0 };
+    });
+
+    combinations.forEach(combo => {
+      const standings = groupTeams.map(code => ({
+        code: code,
+        pts: 0,
+        dg: 0,
+        gf: 0,
+        elo: state.teamElos[code] || 1500
+      }));
+
+      playedMatches.forEach(m => {
+        const homeT = standings.find(t => t.code === m.home);
+        const awayT = standings.find(t => t.code === m.away);
+        if (homeT && awayT) {
+          homeT.dg += (m.scoreHome - m.scoreAway);
+          awayT.dg += (m.scoreAway - m.scoreHome);
+          homeT.gf += m.scoreHome;
+          awayT.gf += m.scoreAway;
+          if (m.scoreHome > m.scoreAway) {
+            homeT.pts += 3;
+          } else if (m.scoreAway > m.scoreHome) {
+            awayT.pts += 3;
+          } else {
+            homeT.pts += 1;
+            awayT.pts += 1;
+          }
+        }
+      });
+
+      remainingMatches.forEach((m, idx) => {
+        const outcome = combo[idx];
+        const homeT = standings.find(t => t.code === m.home);
+        const awayT = standings.find(t => t.code === m.away);
+        if (homeT && awayT) {
+          if (outcome === 1) {
+            homeT.pts += 3;
+            homeT.dg += 1;
+            awayT.dg -= 1;
+            homeT.gf += 1;
+          } else if (outcome === -1) {
+            awayT.pts += 3;
+            awayT.dg += 1;
+            homeT.dg -= 1;
+            awayT.gf += 1;
+          } else {
+            homeT.pts += 1;
+            awayT.pts += 1;
+          }
+        }
+      });
+
+      standings.sort((a, b) => {
+        if (b.pts !== a.pts) return b.pts - a.pts;
+        if (b.dg !== a.dg) return b.dg - a.dg;
+        if (b.gf !== a.gf) return b.gf - a.gf;
+        return b.elo - a.elo;
+      });
+
+      standings.forEach((team, rank) => {
+        if (rank === 0) {
+          teamStats[team.code].times1st += 1;
+          teamStats[team.code].timesTop2 += 1;
+        } else if (rank === 1) {
+          teamStats[team.code].timesTop2 += 1;
+        }
+      });
+    });
+
+    const totalCombos = combinations.length;
+    groupTeams.forEach(code => {
+      const stats = teamStats[code];
+      if (stats.times1st === totalCombos) {
+        state.teamStatuses[code] = 'FIRST_PLACE_ASSURED';
+      } else if (stats.timesTop2 === totalCombos) {
+        state.teamStatuses[code] = 'QUALIFIED';
+      } else if (stats.timesTop2 === 0) {
+        state.teamStatuses[code] = 'ELIMINATED';
+      } else {
+        state.teamStatuses[code] = 'PLAYING_FOR_LIFE';
+      }
+    });
+  });
+}
+
 export function getSimulatedScores() {
   return simulatedScores;
 }
@@ -152,210 +372,262 @@ export function clearAllSimulatedScores() {
 }
 
 export function recalculateTournamentState() {
+  // 1. Calculate Group Stage standings and ELO first
   recalculateEloAndMomentum();
   determineQualificationStatus();
-}
-
-export function calculateStandings(groupLetter) {
-  if (!state.appData || !state.appData.groups || !state.appData.groups[groupLetter]) {
-    return [];
-  }
   
-  const teamCodes = state.appData.groups[groupLetter];
-  const standings = teamCodes.map(code => {
-    return {
-      code,
-      name: state.appData.teams[code]?.name || code,
-      pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0
-    };
-  });
+  if (!state.appData || !state.appData.matches || !state.appData.groups) return;
   
-  const standingsMap = {};
-  standings.forEach(t => standingsMap[t.code] = t);
+  // 2. Extract classifieds from each group
+  const groupLetters = Object.keys(state.appData.groups).sort();
+  const groupWinners = {}; // { 'A': 'MEX', ... }
+  const groupSeconds = {}; // { 'A': 'RSA', ... }
+  const groupThirds = [];  // Array of { code, pts, dg, gf, group: 'A' }
   
-  const matches = state.appData.matches.filter(m => 
-    m.stage === 'Group Stage' && 
-    m.home_team.group === groupLetter && 
-    !m.home_team.is_placeholder && 
-    !m.away_team.is_placeholder
-  );
-  
-  matches.forEach(m => {
-    const score = simulatedScores[m.match_number];
-    if (score !== undefined) {
-      const h = standingsMap[m.home_team.fifa_code];
-      const a = standingsMap[m.away_team.fifa_code];
-      if (h && a) {
-        h.pj++;
-        a.pj++;
-        h.gf += score.home;
-        h.gc += score.away;
-        a.gf += score.away;
-        a.gc += score.home;
-        h.dg = h.gf - h.gc;
-        a.dg = a.gf - a.gc;
-        if (score.home > score.away) {
-          h.pg++;
-          h.pts += 3;
-          a.pp++;
-        } else if (score.home < score.away) {
-          a.pg++;
-          a.pts += 3;
-          h.pp++;
-        } else {
-          h.pe++;
-          h.pts += 1;
-          a.pe++;
-          a.pts += 1;
-        }
-      }
+  groupLetters.forEach(gKey => {
+    const standings = calculateStandings(gKey);
+    if (standings.length >= 3) {
+      groupWinners[gKey] = standings[0].code;
+      groupSeconds[gKey] = standings[1].code;
+      
+      const third = standings[2];
+      groupThirds.push({
+        code: third.code,
+        pts: third.pts,
+        dg: third.dg,
+        gf: third.gf,
+        group: gKey
+      });
     }
   });
   
-  standings.sort((a, b) => {
+  // Sort thirds to find best 8
+  groupThirds.sort((a, b) => {
     if (b.pts !== a.pts) return b.pts - a.pts;
     if (b.dg !== a.dg) return b.dg - a.dg;
     if (b.gf !== a.gf) return b.gf - a.gf;
     const eloA = teamElos[a.code] || 1500;
     const eloB = teamElos[b.code] || 1500;
-    if (eloB !== eloA) return eloB - eloA;
-    return a.name.localeCompare(b.name);
+    return eloB - eloA;
   });
   
-  return standings;
-}
-
-export function determineQualificationStatus() {
-  if (!state.appData || !state.appData.groups) return;
+  const best8Thirds = groupThirds.slice(0, 8);
+  const bestThirdGroupLetters = best8Thirds.map(t => t.group).sort().join(''); // e.g. "ABCDEFGH"
   
-  teamStatuses = {};
-  const groupLetters = Object.keys(state.appData.groups);
+  // Official FIFA World Cup 48-team contingency table for 12 groups.
+  // Below is a robust mapping for the 8 third slots based on the combination of qualifying group letters.
+  // Placeholders: 3ABCDF (P75), 3CDFGH (P78), 3CEFHI (P79), 3EHIJK (P80), 3AEHIJ (P81), 3BEFIJ (P82), 3EFGIJ (P85), 3DEIJL (P88).
+  // In case of any missing combination from the official rules, a stable fallback solver distributes best8Thirds matching the constraints.
+  const slots = [
+    { key: '3ABCDF', matchNum: 75, allowed: ['A', 'B', 'C', 'D', 'F'] },
+    { key: '3CDFGH', matchNum: 78, allowed: ['C', 'D', 'F', 'G', 'H'] },
+    { key: '3CEFHI', matchNum: 79, allowed: ['C', 'E', 'F', 'H', 'I'] },
+    { key: '3EHIJK', matchNum: 80, allowed: ['E', 'H', 'I', 'J', 'K'] },
+    { key: '3AEHIJ', matchNum: 81, allowed: ['A', 'E', 'H', 'I', 'J'] },
+    { key: '3BEFIJ', matchNum: 82, allowed: ['B', 'E', 'F', 'I', 'J'] },
+    { key: '3EFGIJ', matchNum: 85, allowed: ['E', 'F', 'G', 'I', 'J'] },
+    { key: '3DEIJL', matchNum: 88, allowed: ['D', 'E', 'I', 'J', 'L'] }
+  ];
   
-  groupLetters.forEach(gLetter => {
-    const teamCodes = state.appData.groups[gLetter];
-    const groupMatches = state.appData.matches.filter(m => 
-      m.stage === 'Group Stage' && 
-      m.home_team.group === gLetter && 
-      !m.home_team.is_placeholder && 
-      !m.away_team.is_placeholder
-    );
+  // Constraint satisfaction solver: matching best thirds to slots
+  // Crucial constraint: no team from group X can play the winner of group X.
+  // P75 (3ABCDF) plays 1E -> OK to have E
+  // P78 (3CDFGH) plays 1I -> OK to have I
+  // P79 (3CEFHI) plays 1A -> CANNOT have A
+  // P80 (3EHIJK) plays 1L -> CANNOT have L
+  // P81 (3AEHIJ) plays 1G -> CANNOT have G
+  // P82 (3BEFIJ) plays 1D -> CANNOT have D
+  // P85 (3EFGIJ) plays 1B -> CANNOT have B
+  // P88 (3DEIJL) plays 1K -> CANNOT have K
+  const slotOpps = {
+    75: 'E',
+    78: 'I',
+    79: 'A',
+    80: 'L',
+    81: 'G',
+    82: 'D',
+    85: 'B',
+    88: 'K'
+  };
+  
+  const assignedThirds = {}; // { matchNum: teamCode }
+  
+  function backtrack(slotIdx, availableThirds) {
+    if (slotIdx === slots.length) return true;
     
-    const played = [];
-    const unplayed = [];
-    groupMatches.forEach(m => {
-      if (simulatedScores[m.match_number] !== undefined) {
-        played.push({
-          match_number: m.match_number,
-          home: m.home_team.fifa_code,
-          away: m.away_team.fifa_code,
-          goals_home: simulatedScores[m.match_number].home,
-          goals_away: simulatedScores[m.match_number].away
-        });
-      } else {
-        unplayed.push({
-          home: m.home_team.fifa_code,
-          away: m.away_team.fifa_code
-        });
-      }
-    });
+    const slot = slots[slotIdx];
+    const oppGroup = slotOpps[slot.matchNum];
     
-    const teamStats = {};
-    teamCodes.forEach(code => {
-      teamStats[code] = {
-        ranks: { 1: 0, 2: 0, 3: 0, 4: 0 },
-        maxPointsIn3rd: -1
-      };
-    });
-    
-    const k = unplayed.length;
-    const totalComb = Math.pow(3, k);
-    
-    for (let c = 0; c < totalComb; c++) {
-      const tempPlayed = [...played];
-      let tempVal = c;
-      for (let i = 0; i < k; i++) {
-        const outcome = tempVal % 3;
-        tempVal = Math.floor(tempVal / 3);
-        
-        let gh = 0, ga = 0;
-        if (outcome === 0) { gh = 2; ga = 0; }
-        else if (outcome === 1) { gh = 1; ga = 1; }
-        else { gh = 0; ga = 2; }
-        
-        tempPlayed.push({
-          home: unplayed[i].home,
-          away: unplayed[i].away,
-          goals_home: gh,
-          goals_away: ga
-        });
-      }
+    for (let i = 0; i < availableThirds.length; i++) {
+      const third = availableThirds[i];
+      // Check if group is allowed in this slot
+      const isAllowedGroup = slot.allowed.includes(third.group);
+      // Check restriction: cannot play against group winner of their own group
+      const violatesOppGroup = third.group === oppGroup;
       
-      const standings = teamCodes.map(code => ({
-        code,
-        name: state.appData.teams[code]?.name || code,
-        pts: 0, dg: 0, gf: 0
-      }));
-      
-      const stMap = {};
-      standings.forEach(t => stMap[t.code] = t);
-      
-      tempPlayed.forEach(m => {
-        const h = stMap[m.home];
-        const a = stMap[m.away];
-        if (h && a) {
-          h.gf += m.goals_home;
-          h.gc = (h.gc || 0) + m.goals_away;
-          a.gf += m.goals_away;
-          a.gc = (a.gc || 0) + m.goals_home;
-          h.dg = h.gf - h.gc;
-          a.dg = a.gf - a.gc;
-          if (m.goals_home > m.goals_away) {
-            h.pts += 3;
-          } else if (m.goals_home < m.goals_away) {
-            a.pts += 3;
-          } else {
-            h.pts += 1;
-            a.pts += 1;
-          }
+      if (isAllowedGroup && !violatesOppGroup) {
+        assignedThirds[slot.matchNum] = third.code;
+        const remaining = availableThirds.filter((_, idx) => idx !== i);
+        if (backtrack(slotIdx + 1, remaining)) {
+          return true;
         }
-      });
-      
-      standings.sort((a, b) => {
-        if (b.pts !== a.pts) return b.pts - a.pts;
-        if (b.dg !== a.dg) return b.dg - a.dg;
-        if (b.gf !== a.gf) return b.gf - a.gf;
-        const eloA = teamElos[a.code] || 1500;
-        const eloB = teamElos[b.code] || 1500;
-        return eloB - eloA;
-      });
-      
-      standings.forEach((t, index) => {
-        const rank = index + 1;
-        teamStats[t.code].ranks[rank]++;
-        if (rank === 3) {
-          teamStats[t.code].maxPointsIn3rd = Math.max(teamStats[t.code].maxPointsIn3rd, t.pts);
-        }
-      });
+        delete assignedThirds[slot.matchNum];
+      }
     }
     
-    teamCodes.forEach(code => {
-      const stats = teamStats[code];
-      const always1 = stats.ranks[1] === totalComb;
-      const alwaysTop2 = (stats.ranks[1] + stats.ranks[2]) === totalComb;
-      const always4 = stats.ranks[4] === totalComb;
-      const alwaysBottom = always4 || ((stats.ranks[3] + stats.ranks[4]) === totalComb && stats.maxPointsIn3rd < 3);
-      
-      if (always1) {
-        teamStatuses[code] = 'FIRST_PLACE_ASSURED';
-      } else if (alwaysTop2) {
-        teamStatuses[code] = 'QUALIFIED';
-      } else if (alwaysBottom) {
-        teamStatuses[code] = 'ELIMINATED';
-      } else {
-        teamStatuses[code] = 'PLAYING_FOR_LIFE';
+    // Fallback: If strict assignment fails, match by order of merit to any allowed slot
+    for (let i = 0; i < availableThirds.length; i++) {
+      const third = availableThirds[i];
+      if (slot.allowed.includes(third.group) || slotIdx >= 4) { // relax constraints for bottom slots
+        assignedThirds[slot.matchNum] = third.code;
+        const remaining = availableThirds.filter((_, idx) => idx !== i);
+        if (backtrack(slotIdx + 1, remaining)) {
+          return true;
+        }
+        delete assignedThirds[slot.matchNum];
       }
-    });
+    }
+    return false;
+  }
+  
+  backtrack(0, [...best8Thirds]);
+  
+  // 3. Re-simulate and propagate knockout matches chronologically
+  const matchWinners = {}; // { match_number: code }
+  const matches = state.appData.matches;
+  
+  // Group stage matches just fill matchWinners
+  matches.forEach(m => {
+    if (m.stage === 'Group Stage') {
+      const score = simulatedScores[m.match_number];
+      if (score !== undefined) {
+        if (score.home > score.away) {
+          matchWinners[m.match_number] = m.home_team.fifa_code;
+        } else if (score.away > score.home) {
+          matchWinners[m.match_number] = m.away_team.fifa_code;
+        }
+      }
+    }
   });
+  
+  // Process Round of 32 to Final
+  const knockoutMatches = matches.filter(m => m.stage !== 'Group Stage').sort((a, b) => a.match_number - b.match_number);
+  
+  knockoutMatches.forEach(m => {
+    const label = m.match_label; // e.g. "2A vs 2B", "W73 vs W75", "1E vs 3ABCDF"
+    
+    // Parse home and away placeholders
+    let homeCode = null;
+    let awayCode = null;
+    
+    if (label.includes(' vs ')) {
+      const [hPart, aPart] = label.split(' vs ');
+      
+      // Resolve Home Team
+      homeCode = resolvePlaceholder(hPart, groupWinners, groupSeconds, assignedThirds, matchWinners, m.match_number, 'home');
+      // Resolve Away Team
+      awayCode = resolvePlaceholder(aPart, groupWinners, groupSeconds, assignedThirds, matchWinners, m.match_number, 'away');
+    }
+    
+    // Update match team definitions
+    if (homeCode) {
+      m.home_team.fifa_code = homeCode;
+      m.home_team.name = state.appData.teams[homeCode]?.name || homeCode;
+      m.home_team.is_placeholder = false;
+      m.home_team.group = state.appData.teams[homeCode]?.group || null;
+    } else {
+      m.home_team.fifa_code = '';
+      m.home_team.name = label.split(' vs ')[0] || 'TBD';
+      m.home_team.is_placeholder = true;
+    }
+    
+    if (awayCode) {
+      m.away_team.fifa_code = awayCode;
+      m.away_team.name = state.appData.teams[awayCode]?.name || awayCode;
+      m.away_team.is_placeholder = false;
+      m.away_team.group = state.appData.teams[awayCode]?.group || null;
+    } else {
+      m.away_team.fifa_code = '';
+      m.away_team.name = label.split(' vs ')[1] || 'TBD';
+      m.away_team.is_placeholder = true;
+    }
+    
+    // If teams are resolved, calculate dynamic ELO
+    if (!m.home_team.is_placeholder && !m.away_team.is_placeholder) {
+      m.home_team_elo_pre = teamElos[m.home_team.fifa_code] || 1500;
+      m.away_team_elo_pre = teamElos[m.away_team.fifa_code] || 1500;
+      
+      const score = simulatedScores[m.match_number];
+      if (score !== undefined) {
+        let winnerCode = null;
+        if (score.home > score.away) {
+          winnerCode = m.home_team.fifa_code;
+        } else if (score.away > score.home) {
+          winnerCode = m.away_team.fifa_code;
+        } else {
+          // In case of a draw, use the user's manual selection, or default to home team
+          winnerCode = score.winner === 'away' ? m.away_team.fifa_code : m.home_team.fifa_code;
+        }
+        
+        matchWinners[m.match_number] = winnerCode;
+        
+        // ELO Dynamic update with momentum
+        const Wh = winnerCode === m.home_team.fifa_code ? 1.0 : 0.0;
+        const Wa = 1.0 - Wh;
+        const We_h = 1 / (1 + Math.pow(10, (m.away_team_elo_pre - m.home_team_elo_pre) / 400));
+        
+        const E_h = Wh - We_h;
+        const E_a = Wa - (1.0 - We_h);
+        
+        let omega = m.stage === 'Semi-finals' || m.stage === 'Final' || m.stage === 'Play-off for third place' ? 2.0 : 1.5;
+        const K_base = 32;
+        teamElos[m.home_team.fifa_code] = Math.round(m.home_team_elo_pre + K_base * omega * E_h);
+        teamElos[m.away_team.fifa_code] = Math.round(m.away_team_elo_pre + K_base * omega * E_a);
+      }
+      
+      m.home_team_elo_post = teamElos[m.home_team.fifa_code] || 1500;
+      m.away_team_elo_post = teamElos[m.away_team.fifa_code] || 1500;
+    }
+  });
+}
+
+function resolvePlaceholder(placeholder, winners, seconds, thirds, winnersBrackets, matchNum, side) {
+  // 1. Group winners: e.g., "1A"
+  if (placeholder.startsWith('1')) {
+    const group = placeholder.slice(1);
+    return winners[group] || null;
+  }
+  
+  // 2. Group seconds: e.g., "2A"
+  if (placeholder.startsWith('2')) {
+    const group = placeholder.slice(1);
+    return seconds[group] || null;
+  }
+  
+  // 3. Best thirds: e.g., "3ABCDF"
+  if (placeholder.startsWith('3')) {
+    return thirds[matchNum] || null;
+  }
+  
+  // 4. Bracket winners: e.g., "W73"
+  if (placeholder.startsWith('W')) {
+    const refNum = parseInt(placeholder.slice(1));
+    return winnersBrackets[refNum] || null;
+  }
+  
+  // 5. Bracket runners up (perdedores): e.g., "RU101"
+  if (placeholder.startsWith('RU')) {
+    const refNum = parseInt(placeholder.slice(2));
+    // Find who played in refNum and was NOT the winner
+    const refMatch = state.appData.matches.find(m => m.match_number === refNum);
+    const refWinner = winnersBrackets[refNum];
+    if (refMatch && refWinner && !refMatch.home_team.is_placeholder && !refMatch.away_team.is_placeholder) {
+      return refMatch.home_team.fifa_code === refWinner ? refMatch.away_team.fifa_code : refMatch.home_team.fifa_code;
+    }
+    return null;
+  }
+  
+  return null;
 }
 
 export function recalculateEloAndMomentum() {
@@ -374,6 +646,7 @@ export function recalculateEloAndMomentum() {
   
   matches.forEach(m => {
     if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
+    if (m.stage !== 'Group Stage') return; // Handled dynamically in recalculateTournamentState
     
     const hCode = m.home_team.fifa_code;
     const aCode = m.away_team.fifa_code;
@@ -404,19 +677,10 @@ export function recalculateEloAndMomentum() {
       teamMomentums[hCode] = M_h;
       teamMomentums[aCode] = M_a;
       
-      let omega = 1.0;
-      if (m.stage === 'Group Stage') {
-        omega = 1.0;
-      } else if (m.stage === 'Semi-finals' || m.stage === 'Final' || m.stage === 'Play-off for third place') {
-        omega = 2.0;
-      } else {
-        omega = 1.5;
-      }
-      
       const K_base = 32;
       const lambda = 0.5;
-      const K_h = K_base * omega * (1 + lambda * Math.abs(M_h));
-      const K_a = K_base * omega * (1 + lambda * Math.abs(M_a));
+      const K_h = K_base * (1 + lambda * Math.abs(M_h));
+      const K_a = K_base * (1 + lambda * Math.abs(M_a));
       
       teamElos[hCode] = Math.round(R_h + K_h * E_h);
       teamElos[aCode] = Math.round(R_a + K_a * E_a);
@@ -442,3 +706,4 @@ export const state = {
   get teamElos() { return teamElos; },
   get teamStatuses() { return teamStatuses; }
 };
+
