@@ -5,7 +5,7 @@ import os
 import time
 
 countries = [
-    'england', 'spain', 'italy', 'germany', 'france', 
+    'england', 'spain', 'italy', 'germany', 'france',
     'argentina', 'brazil', 'portugal', 'netherlands', 'belgium',
     'scotland', 'turkey', 'mexico', 'usa', 'greece', 'saudi-arabia', 'qatar', 'uae', 'japan', 'south-korea'
 ]
@@ -16,7 +16,7 @@ for country in countries:
     try:
         req = urllib.request.Request(f'https://football-logos.cc/{country}/', headers={'User-Agent': 'Mozilla/5.0'})
         html = urllib.request.urlopen(req).read().decode('utf-8')
-        
+
         matches = re.findall(r'<img\s+src="(https://images\.football-logos\.cc/[^"]+\.svg)"\s+alt="([^"]+) vector logo"', html)
         for src, name in matches:
             clean_name = name.strip()

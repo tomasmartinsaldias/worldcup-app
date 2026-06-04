@@ -1,0 +1,23 @@
+# Ruff configuration file
+exclude = [
+    ".agents",
+    ".venv",
+    "downloaded_files",
+    "scratch",
+]
+
+[lint]
+# Enable standard rules
+select = ["E", "F", "W"]
+# Ignore style warnings in data & migration utility scripts
+ignore = [
+    "E501", # line too long
+    "E701", # multiple statements on one line
+    "E402", # module import not at top
+    "F601", # dictionary key repeated
+    "F841", # local variable unused
+    "E722", # bare except
+    "W293", # blank line contains whitespace
+    "W291", # trailing whitespace
+    "E702", # multiple statements on one line (semicolon)
+]

@@ -3,7 +3,8 @@
 Actualiza manualmente los clubes de jugadores que siguen sin resolverse
 (Nico Williams y Nicolás González) usando los IDs conocidos en el CSV.
 """
-import os, sqlite3
+import os
+import sqlite3
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))
 DB_PATH = os.path.join(BASE_DIR, "data", "worldcup_combined.db")

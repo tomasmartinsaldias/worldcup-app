@@ -91,6 +91,23 @@ $$Elo_{\text{dinámico}} = Elo_{\text{base}} + 100 \times \frac{N_{\text{stars}}
 La calidad absoluta ($Q_{\text{match}}$) escala linealmente basándose en el promedio de los Elos dinámicos del partido:
 $$Q_{\text{match}} = \max\left(0.60, \min\left(1.0, 0.60 + 0.40 \times \frac{Elo_{\text{dinámico, prom}} - 1600}{500}\right)\right)$$
 
+### 5.5. Multiplicador Dinámico por Situación en Fase de Grupos ($M_{\text{match}}$)
+Para reflejar la tensión competitiva real del partido en el transcurso del torneo, el modelo incorpora un multiplicador de conveniencia y urgencia según el estado de clasificación de los contendientes en su grupo.
+
+A cada selección se le asigna dinámicamente uno de cuatro estados de clasificación posibles a partir de la simulación exhaustiva de los escenarios restantes del grupo:
+* **`PLAYING_FOR_LIFE` (Se juega la vida):** Aún puede clasificar o quedar eliminado según los resultados. Multiplicador $M_{\text{equipo}} = 1.0$.
+* **`QUALIFIED` (Clasificado):** Ya tiene garantizado el pase a la siguiente fase, pero el orden final (1° o 2°) aún no está asegurado. Multiplicador $M_{\text{equipo}} = 0.85$.
+* **`FIRST_PLACE_ASSURED` (1° Asegurado):** Ya tiene asegurada la primera posición de su grupo, por lo que el partido no altera su destino. Multiplicador $M_{\text{equipo}} = 0.70$.
+* **`ELIMINATED` (Eliminado):** Ya no tiene posibilidades matemáticas de avanzar a octavos de final. Multiplicador $M_{\text{equipo}} = 0.60$.
+
+El multiplicador del partido ($M_{\text{match}}$) es la media aritmética de los multiplicadores individuales de ambos contendientes:
+$$M_{\text{match}} = \frac{M_{\text{home}} + M_{\text{away}}}{2}$$
+
+Este factor se aplica directamente multiplicando el Score de Espectáculo:
+$$Score_{\text{Espectáculo Final}} = Score_{\text{Espectáculo Base}} \times Q_{\text{match}} \times M_{\text{match}}$$
+
+*Nota: Para las fases de eliminación directa (playoffs/knockout), ambos equipos están obligatoriamente jugando por su vida, por lo que se asume por defecto $M_{\text{match}} = 1.0$.*
+
 ---
 
 ## 6. Normalización Final

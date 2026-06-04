@@ -36,8 +36,8 @@
   --accent-gold: var(--wc-red);
   --accent-teal: var(--wc-blue-mid);
   --accent-cyan: var(--wc-green);
-  --accent-purple: var(--wc-blue);
-  --accent-magenta: var(--wc-red);
+  --accent-blue-alt: var(--wc-blue);
+  --accent-pink-compat: var(--wc-red);
   --accent-lime: var(--wc-green);
   --accent-orange: #FF4400;
 
@@ -1225,7 +1225,7 @@ main.app-container {
   color: var(--wc-red);
 }
 
-.stat-val.purple {
+.stat-val.wc-blue-text {
   color: var(--wc-blue);
 }
 
@@ -2775,7 +2775,7 @@ footer a:hover {
 }
 
 .quiz-affinity-rank {
-  font-family: var(--font-display);
+  font-family: var(--font-primary);
   font-size: 1.25rem;
   font-weight: 900;
   color: var(--border-glass);

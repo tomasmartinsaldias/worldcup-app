@@ -1,4 +1,3 @@
-import sys
 
 with open('frontend/index.html', 'r') as f:
     lines = f.readlines()
@@ -79,7 +78,7 @@ for i, line in enumerate(lines):
                 out_lines.pop()
             else:
                 break
-        
+
     if not skip:
         out_lines.append(line)
 

@@ -107,15 +107,11 @@ export function openCountrySquad(code, origin = 'squads') {
         <div class="stat-lbl">Valor de Plantel</div>
       </div>
       <div class="stat-item">
-        <div class="stat-val">${t.metrics?.recent_xg_avg?.toFixed(2) || 'N/A'}</div>
-        <div class="stat-lbl">Goles Esperados (xG)</div>
-      </div>
-      <div class="stat-item">
         <div class="stat-val">${t.metrics?.recent_possession_avg ? t.metrics.recent_possession_avg.toFixed(1) + '%' : 'N/A'}</div>
         <div class="stat-lbl">Posesión Prom.</div>
       </div>
       <div class="stat-item">
-        <div class="stat-val purple">${t.metrics?.cards_per_match_avg?.toFixed(2) || 'N/A'}</div>
+        <div class="stat-val wc-blue-text">${t.metrics?.cards_per_match_avg?.toFixed(2) || 'N/A'}</div>
         <div class="stat-lbl">Tarjetas por Part.</div>
       </div>
       <div class="stat-item" style="min-width: 140px;" title="Estrellas clave en la plantilla">
@@ -123,7 +119,7 @@ export function openCountrySquad(code, origin = 'squads') {
         <div class="stat-lbl">Jugadores Clave</div>
       </div>
       <div class="stat-item" title="Bajas médicas o lesionados en el plantel probable">
-        <div class="stat-val ${injuredCount > 0 ? 'purple' : ''}" style="color: ${injuredCount > 0 ? 'var(--accent-red)' : ''}">${injuredCount}</div>
+        <div class="stat-val ${injuredCount > 0 ? 'wc-blue-text' : ''}" style="color: ${injuredCount > 0 ? 'var(--accent-red)' : ''}">${injuredCount}</div>
         <div class="stat-lbl">Bajas / Lesionados</div>
       </div>
       <div class="stat-item" title="Racha invicta actual en partidos internacionales">

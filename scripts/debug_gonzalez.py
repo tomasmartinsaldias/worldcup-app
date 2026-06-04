@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-import sqlite3, os, json
+import sqlite3
+import os
+import json
 BASE = r"c:/Users/tomas/Desktop/proyectos/worldcup-app"
 DB = os.path.join(BASE, "data", "worldcup_combined.db")
 conn = sqlite3.connect(DB)

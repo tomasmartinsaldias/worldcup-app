@@ -6,7 +6,13 @@ Enriquece los jugadores de scraped_unresolved_players con datos de Transfermarkt
 Replica la lógica de resolve_from_transfermarkt_cache de populate_data.py.
 """
 
-import os, re, json, sqlite3, unicodedata, difflib, urllib.parse
+import os
+import re
+import json
+import sqlite3
+import unicodedata
+import difflib
+import urllib.parse
 import requests
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))

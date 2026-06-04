@@ -23,7 +23,6 @@ more than necessary.
 """
 
 import json
-import os
 import sqlite3
 from pathlib import Path
 from typing import Dict, List, Tuple, Any, Union

@@ -4,17 +4,17 @@ import sqlite3
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     db_path = os.path.join(base_dir, "data", "worldcup_combined.db")
-    
+
     if not os.path.exists(db_path):
         print(f"Error: No se encontró la base de datos en {db_path}")
         return
-        
+
     initial_size = os.path.getsize(db_path)
     print(f"Tamaño inicial de la base de datos: {initial_size / (1024 * 1024):.2f} MB")
-    
+
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    
+
     # 1. Lista de tablas a eliminar
     tables_to_drop = [
         # Árbitros
@@ -28,18 +28,18 @@ def main():
         # Rendimiento detallado redundante
         "team_appearances", "goals",
         # Formatos e información agregada secundaria
-        "formats", "groups", "group_standings", "tournament_standings", 
+        "formats", "groups", "group_standings", "tournament_standings",
         "award_winners", "awards", "host_countries"
     ]
-    
+
     print("\n--- 1. Eliminando 23 tablas de ruido analítico ---")
     for table in tables_to_drop:
         print(f"Eliminando tabla '{table}'...")
         cursor.execute(f"DROP TABLE IF EXISTS {table};")
-        
+
     conn.commit()
     print("Tablas eliminadas exitosamente.")
-    
+
     print("\n--- 2. Creando nuevas tablas para Scraping ---")
     # Tabla: scraped_team_metrics (solo market value)
     cursor.execute("DROP TABLE IF EXISTS scraped_team_metrics;")
@@ -51,7 +51,7 @@ def main():
     );
     """)
     print("Creada tabla 'scraped_team_metrics' (solo market value).")
-    
+
     # Tabla: scraped_wc2026_probable_squads (sin columnas FBref)
     cursor.execute("DROP TABLE IF EXISTS scraped_wc2026_probable_squads;")
     cursor.execute("""
@@ -74,7 +74,7 @@ def main():
     );
     """)
     print("Creada tabla 'scraped_wc2026_probable_squads' (sin columnas FBref).")
-    
+
     # Tabla: scraped_unresolved_players
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS scraped_unresolved_players (
@@ -94,13 +94,13 @@ def main():
     cursor.execute("ALTER TABLE scraped_unresolved_players ADD COLUMN alternative_names TEXT;")
     print("Added column 'alternative_names' to scraped_unresolved_players.")
 
-    
+
     conn.commit()
-    
+
     print("\n--- 3. Optimizando base de datos (VACUUM) ---")
     conn.execute("VACUUM;")
     print("Base de datos optimizada y compactada.")
-    
+
     # Resumen de tablas actuales
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
     tables = [row[0] for row in cursor.fetchall()]
@@ -109,9 +109,9 @@ def main():
         cursor.execute(f"SELECT COUNT(*) FROM {table};")
         count = cursor.fetchone()[0]
         print(f"  - {table}: {count} filas")
-        
+
     conn.close()
-    
+
     final_size = os.path.getsize(db_path)
     print(f"\nTamaño final de la base de datos: {final_size / (1024 * 1024):.2f} MB")
     print(f"Reducción de tamaño: {(1 - final_size/initial_size)*100:.1f}%")

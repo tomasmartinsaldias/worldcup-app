@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MundialPick — La Gloria Eterna</title>
+  <meta name="description" content="MundialPick: Experimenta el Mundial 2026 en 3D interactivo y encuentra los partidos recomendados a tu medida.">
+  <meta property="og:title" content="MundialPick — La Gloria Eterna">
+  <meta property="og:description" content="Elige tu nivel, simula marcadores y vive el mundial 2026.">
+  <meta property="og:image" content="img/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -510,7 +514,7 @@
 
     <div class="hero-text-block text-right">
       <div class="subtitle">Tu experiencia</div>
-      <h1 class="epic-text epic-text-right">Descubre<br>tu destino<br>en la cancha.</h1>
+      <h2 class="epic-text epic-text-right">Descubre<br>tu destino<br>en la cancha.</h2>
     </div>
   </div>
 
@@ -531,7 +535,7 @@
         <p>Disfrutas los partidos importantes, pero no sigues el día a día.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-intermedio">
+      <div class="spectator-card card-intermedio" onclick="window.location.href = 'app.html'">
         <h3>INTERMEDIO</h3>
         <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
         <div class="card-glow"></div>
@@ -568,7 +572,7 @@
   <div id="draft-template" class="ui-overlay glass-overlay hidden">
     <div class="quiz-container fanatic-container">
       <div class="hero-section" style="text-align: center; margin-bottom: 2rem;">
-        <h1 class="hero-title" style="font-size: 3rem; color: #ffffff; text-shadow: 0 0 20px rgba(10, 88, 255, 0.8);">FUT DRAFT (PLANTILLA)</h1>
+        <h2 class="hero-title" style="font-size: 3rem; color: #ffffff; text-shadow: 0 0 20px rgba(10, 88, 255, 0.8);">FUT DRAFT (PLANTILLA)</h2>
         <p class="hero-desc" style="color: #c0c0c0; font-size: 1.2rem;">Maqueta estática sin lógica pesada.</p>
       </div>
 
@@ -705,16 +709,15 @@
     }
 
     function finishGenericQuiz() {
-      alert("¡Quiz completado! (Plantilla base)");
-      // Redirigir o volver al inicio
+      alert("¡Quiz completado! Redireccionando al Recomendador...");
       document.getElementById('quiz-overlay').classList.add('hidden');
-      returnToHomepage();
+      window.location.href = 'app.html';
     }
 
     function finishDraftTemplate() {
-      alert("¡FUT Draft Completado! (Plantilla base)");
+      alert("¡FUT Draft Completado! Redireccionando al Recomendador...");
       document.getElementById('draft-template').classList.add('hidden');
-      returnToHomepage();
+      window.location.href = 'app.html';
     }
   </script>
 

@@ -16,13 +16,13 @@ def get_sofifa_position(player_name, country_name):
     query = player_name
     url = f"https://sofifa.com/players?keyword={urllib.parse.quote(query)}"
     headers = {"User-Agent": "Mozilla/5.0"}
-    
+
     try:
         resp = requests.get(url, headers=headers, timeout=5)
         soup = BeautifulSoup(resp.text, 'html.parser')
-        
+
         table = soup.find('table', class_='table')
-            
+
         if table:
             first_row = table.find('tbody').find('tr')
             if first_row:
@@ -31,7 +31,7 @@ def get_sofifa_position(player_name, country_name):
                     return pos_span.text.strip().upper()
     except Exception as e:
         print(f"  [!] Error buscando {player_name}: {e}")
-        
+
     return None
 
 def fallback_position(generic_pos):
@@ -47,26 +47,26 @@ def main():
     if not os.path.exists(JSON_PATH):
         print("JSON no encontrado")
         return
-        
+
     with open(JSON_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
-        
+
     teams = data.get('teams', {})
-    
+
     print("Iniciando extracción de posiciones exactas desde SoFIFA (EA FC 25)...")
-    
+
     # Solo procesamos los titulares para ahorrar tiempo (son los que dibujamos en la cancha)
     for code, team in teams.items():
         if team.get('is_placeholder'): continue
         if code not in ['ARG', 'JPN', 'MAR']: continue
-        
+
         lineup = team.get('last_known_lineup')
         if not lineup or not lineup.get('starting_xi'):
             continue
-            
+
         print(f"Procesando {team['name']}...")
         starters = lineup['starting_xi']
-        
+
         for player in team.get('squad', []):
             # Nos interesa saber la posicion exacta de los que son titulares
             # pero tambien le asignamos a todo el plantel si es facil
@@ -90,7 +90,7 @@ def main():
         # Guardar cada X equipos por si corta
         with open(JSON_PATH, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-            
+
     print("Finalizado. Posiciones EA FC inyectadas.")
 
 if __name__ == '__main__':

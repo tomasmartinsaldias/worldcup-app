@@ -9,7 +9,15 @@ Mejoras respecto a la versión anterior:
 - Registra en `transfermarkt_updates.log` cada intento y su resultado.
 """
 
-import os, re, sqlite3, unicodedata, json, time, datetime, urllib.parse, http.client
+import os
+import re
+import sqlite3
+import unicodedata
+import json
+import time
+import datetime
+import urllib.parse
+import http.client
 from html.parser import HTMLParser
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))
@@ -104,7 +112,7 @@ def search_transfermarkt(name_variants):
             conn.close()
             if parser.found and parser.club:
                 return parser.club, parser.url
-        except Exception as e:
+        except Exception:
             # Si la petición falla, pasamos a la siguiente variante
             continue
     return None, None

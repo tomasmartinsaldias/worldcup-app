@@ -5,7 +5,10 @@ Si el nombre coincide con la lista de convocados pero el club es distinto,
 restablece resolved = 0 y vacía la columna club para que la posterior
 actualización lo corrija.
 """
-import os, re, sqlite3, unicodedata
+import os
+import re
+import sqlite3
+import unicodedata
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))
 DB_PATH = os.path.join(BASE_DIR, "data", "worldcup_combined.db")

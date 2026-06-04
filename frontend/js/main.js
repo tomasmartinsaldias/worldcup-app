@@ -1,4 +1,4 @@
-import { state } from './state.js';
+import { state, recalculateTournamentState } from './state.js';
 import { calculateSmartScore } from './scoring.js';
 import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js?v=7';
 import { renderGroups } from './ui/groups.js';
@@ -8,6 +8,7 @@ import { closeModal } from './ui/modal.js?v=5';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
 import { initDraft, startDraft } from './draft.js';
+import { renderResults } from './ui/results.js';
 
 window.openCountrySquad = openCountrySquad;
 window.openPlayerProfile = openPlayerProfile;
@@ -114,6 +115,12 @@ function switchTab(tabName) {
   } else {
     const targetPanel = document.getElementById(`tab-${tabName}`);
     if (targetPanel) targetPanel.classList.add('active');
+  }
+
+  if (tabName === 'results') {
+    renderResults();
+  } else if (tabName === 'groups') {
+    renderGroups();
   }
 }
 
@@ -224,6 +231,8 @@ async function loadData() {
     mapTeamEstilos(state.appData);
     
     populateTeamPreference();
+    
+    recalculateTournamentState();
     
     state.appData.matches.forEach(m => {
       m.smartScore = calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
@@ -725,10 +734,20 @@ function syncSliders(vector) {
 
 function recalculateAndRender() {
   if (state.appData && state.appData.matches) {
+    recalculateTournamentState();
     state.appData.matches.forEach(m => {
       m.smartScore = calculateSmartScore(m, state.appData.teams, state.userPreferences?.tacticalVector);
     });
     sortMatchesList(document.getElementById('sort-matches').value || 'interest-desc');
     renderMatches();
+    
+    // Re-render current active tab UI if it depends on tournament state
+    if (state.activeTab === 'groups') {
+      renderGroups();
+    } else if (state.activeTab === 'results') {
+      renderResults();
+    }
   }
 }
+
+window.recalculateAndRender = recalculateAndRender;

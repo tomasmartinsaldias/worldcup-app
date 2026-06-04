@@ -84,7 +84,7 @@ def main():
     for d in raw_data:
         matches = d.get('matches', 1)
         matches = matches if matches > 0 else 1
-        
+
         proc = {
             'name': d['name'],
             'golesPartido': d['golesPartido'],
@@ -116,8 +116,8 @@ def main():
                 vector[key] = (d[key] - min_v) / (max_v - min_v)
             else:
                 vector[key] = 0.5 # Default if all values are the same
-        
-        # Mapping name to fifa_code would be ideal, but for now we key by name. 
+
+        # Mapping name to fifa_code would be ideal, but for now we key by name.
         # The frontend can normalize names to match.
         final_vectors[d['name']] = vector
 

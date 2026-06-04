@@ -14,7 +14,16 @@ Pasos:
 6. Registra cada intento en `transfermarkt_updates.log`.
 """
 
-import csv, json, os, sqlite3, unicodedata, urllib.parse, http.client, time, datetime, re, json
+import csv
+import os
+import sqlite3
+import unicodedata
+import urllib.parse
+import http.client
+import time
+import datetime
+import re
+import json
 from html.parser import HTMLParser
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, "..", ".."))

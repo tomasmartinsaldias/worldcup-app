@@ -151,8 +151,8 @@ export function calculateICEScore(match, teams) {
     }
   }
 
-  const homeEloBase = home.metrics ? (home.metrics.elo_rating || 1500) : 1500;
-  const awayEloBase = away.metrics ? (away.metrics.elo_rating || 1500) : 1500;
+  const homeEloBase = (state.teamElos && state.teamElos[match.home_team.fifa_code]) || (home.metrics ? (home.metrics.elo_rating || 1500) : 1500);
+  const awayEloBase = (state.teamElos && state.teamElos[match.away_team.fifa_code]) || (away.metrics ? (away.metrics.elo_rating || 1500) : 1500);
   
   const homeEloBoost = homeStars > 0 ? 100 * (homeStars / (homeStars + 5)) : 0;
   const awayEloBoost = awayStars > 0 ? 100 * (awayStars / (awayStars + 5)) : 0;
@@ -179,6 +179,26 @@ export function calculateICEScore(match, teams) {
   const avgElo = (rHome + rAway) / 2;
   const qMatch = Math.max(0.60, Math.min(1.0, 0.60 + 0.40 * ((avgElo - 1600) / 500)));
   score = score * qMatch;
+
+  // Stake multiplier based on qualification statuses (only for Group Stage)
+  if (match.stage === 'Group Stage') {
+    const statuses = state.teamStatuses || {};
+    const hStatus = statuses[match.home_team.fifa_code] || 'PLAYING_FOR_LIFE';
+    const aStatus = statuses[match.away_team.fifa_code] || 'PLAYING_FOR_LIFE';
+    
+    const statusMultipliers = {
+      'PLAYING_FOR_LIFE': 1.0,
+      'QUALIFIED': 0.85,
+      'FIRST_PLACE_ASSURED': 0.70,
+      'ELIMINATED': 0.60
+    };
+    
+    const mHome = statusMultipliers[hStatus] || 1.0;
+    const mAway = statusMultipliers[aStatus] || 1.0;
+    const matchStakeMultiplier = (mHome + mAway) / 2;
+    
+    score = score * matchStakeMultiplier;
+  }
 
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
