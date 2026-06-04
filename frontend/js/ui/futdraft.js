@@ -806,7 +806,10 @@ export function initDraft() {
 
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
-      document.getElementById('draft-modal').classList.remove('active');
+      const modal = document.getElementById('draft-modal');
+      modal.classList.remove('active');
+      modal.classList.remove('visible');
+      modal.classList.add('hidden');
     });
   }
 }
@@ -1105,6 +1108,8 @@ function openDraftOptions(slotId, groupName) {
   const question = GROUP_QUESTIONS[groupName] || `Seleccioná tu ${groupName}`;
   title.textContent = question;
   container.innerHTML = '';
+  modal.classList.remove('hidden');
+  modal.classList.add('visible');
   modal.classList.add('active');
 
   if (!state.appData || !state.appData.clusters || !state.appData.clusters[groupName]) {
