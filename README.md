@@ -12,7 +12,7 @@ Abre una terminal en la raíz del proyecto y levanta el servidor web local para 
 python -m http.server 8000
 ```
 Luego, abre tu navegador e ingresa a:  
-👉 **`http://localhost:8000/frontend/app.html`**
+👉 **`http://localhost:8000/frontend/`**
 
 ---
 
