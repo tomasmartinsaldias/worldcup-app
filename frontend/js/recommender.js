@@ -82,9 +82,9 @@ export function mapSurveyToPreferences(surveyResults) {
       w_tactica_cluster = 8;
     }
   } else {
-    // Casual: no clustering at all
+    // Casual: no clustering at all, no tactical weight at all
     w_tactica_cluster = 0;
-    w_tactica = 3; // lower tactical weight for casual users
+    w_tactica = 0;
   }
 
   // Build preferences object

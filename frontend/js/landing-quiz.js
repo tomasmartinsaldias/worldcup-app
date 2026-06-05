@@ -514,10 +514,6 @@ function openMatchStatsById(id) {
 // Bind to window to allow HTML inline onclick attributes to find them
 window.startQuiz = startQuiz;
 window.nextFanaticStep = nextFanaticStep;
-window.nextQuizStep = nextQuizStep;
-window.finishQuiz = finishQuiz;
-window.showRecommendations = showRecommendations;
-window.toggleSeeMore = toggleSeeMore;
 window.openMatchStats = openMatchStats;
 window.openMatchStatsById = openMatchStatsById;
 window.closeMatchStats = closeMatchStats;
