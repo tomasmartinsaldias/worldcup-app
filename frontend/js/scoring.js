@@ -475,9 +475,11 @@ export function calculateSmartScore(match, teams, tacticalVector) {
 
   const userPref = state.userPreferences || {};
 
-  const w_esp = userPref.w_espectaculo ?? 5;
+  const w_ent = userPref.w_entretenimiento ?? 5;
   const w_tac = userPref.w_tactica ?? 5;
   const w_afec = userPref.w_afectivo ?? 5;
+  
+  const w_esp = userPref.w_espectaculo ?? 5;
   const w_fric = userPref.w_friccion ?? 5;
 
   const vectorU = tacticalVector || userPref.tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
@@ -532,15 +534,14 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   }
 
   // 1. Pesos Macro normalizados (3 componentes principales):
-  // El macro peso de Entretenimiento es la suma de w_esp + w_fric
-  const w_ent_raw = w_esp + w_fric;
-  const w_sum = w_ent_raw + w_tac + w_afec;
-  const W_ent = w_sum > 0 ? w_ent_raw / w_sum : 0.3333;
+  const w_sum = w_ent + w_tac + w_afec;
+  const W_ent = w_sum > 0 ? w_ent / w_sum : 0.3333;
   const W_tec = w_sum > 0 ? w_tac / w_sum : 0.3333;
   const W_af = w_sum > 0 ? w_afec / w_sum : 0.3333;
 
   // 2. Micro componente de Entretenimiento (Espectáculo + Fricción):
-  const x_ent = w_ent_raw > 0 ? (w_esp * spectacleScore + w_fric * displayFriccionScore) / w_ent_raw : spectacleScore;
+  const w_ent_sub_sum = w_esp + w_fric;
+  const x_ent = w_ent_sub_sum > 0 ? (w_esp * spectacleScore + w_fric * displayFriccionScore) / w_ent_sub_sum : spectacleScore;
 
   // 3. Componente Afectiva:
   const m_club = hasFavClubs ? 1 : 0;

@@ -3,7 +3,7 @@ let appData = null;
 let activeTab = localStorage.getItem('activeTab') || 'recommender';
 let selectedCountryCode = null;
 let userPreferences = {
-  // Pesos macro-componentes de 1 a 10
+  w_entretenimiento: 5,
   w_espectaculo: 5,
   w_tactica: 5,
   w_afectivo: 5,

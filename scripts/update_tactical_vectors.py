@@ -50,8 +50,10 @@ def get_sofascore_teams_data(sofascore_dir):
         if "(" in filename:
             parts = filename.split("(")
             country_name_sp = parts[0].strip()
+            tournament_raw = parts[1].replace(").txt", "").replace(".txt", "").strip()
         else:
             country_name_sp = filename.replace(".txt", "").strip()
+            tournament_raw = ""
 
         norm_sp = normalize_name(country_name_sp)
         fifa_code = SPANISH_TO_FIFA.get(norm_sp)
@@ -87,11 +89,12 @@ def get_sofascore_teams_data(sofascore_dir):
         else:
             stats["attempted_crosses"] = 0.0
 
+        stats["tournament_raw"] = tournament_raw
         teams_stats[fifa_code] = stats
 
     return teams_stats
 
-def calculate_cdif_for_all(db_path, results_csv, ranking_txt):
+def calculate_cdif_for_all(db_path, results_csv, ranking_txt, teams_stats):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
@@ -140,6 +143,24 @@ def calculate_cdif_for_all(db_path, results_csv, ranking_txt):
                         return rankings_dict[n2]
         return 100
 
+    def map_raw_tournament_to_csv(raw_tour):
+        if not raw_tour:
+            return None
+        raw_tour = raw_tour.lower()
+        if "world cup qual" in raw_tour:
+            return ["FIFA World Cup qualification"]
+        if "gold cup" in raw_tour:
+            return ["CONCACAF Gold Cup", "CONCACAF Gold Cup qualification"]
+        if "arab cup" in raw_tour:
+            return ["Arab Cup"]
+        if "asian cup" in raw_tour:
+            return ["AFC Asian Cup", "AFC Asian Cup qualification"]
+        if "africa cup of nations qual" in raw_tour:
+            return ["Africa Cup of Nations qualification"]
+        if "africa cup of nations" in raw_tour:
+            return ["Africa Cup of Nations", "Africa Cup of Nations qualification"]
+        return None
+
     df = pd.read_csv(results_csv)
     df['date'] = pd.to_datetime(df['date'])
     df_recent = df[df['date'] >= '2022-01-01']
@@ -149,6 +170,10 @@ def calculate_cdif_for_all(db_path, results_csv, ranking_txt):
     all_codes = [r[0] for r in cursor.fetchall()]
 
     for code in all_codes:
+        stats = teams_stats.get(code, {})
+        raw_tour = stats.get("tournament_raw", "")
+        allowed_tournaments = map_raw_tournament_to_csv(raw_tour)
+
         intl_name = None
         if code in code_to_names:
             intl_name = code_to_names[code]["intl"]
@@ -161,6 +186,11 @@ def calculate_cdif_for_all(db_path, results_csv, ranking_txt):
             intl_name = code_to_names[code]["wc"]
 
         m = df_recent[((df_recent['home_team'] == intl_name) | (df_recent['away_team'] == intl_name))]
+        if allowed_tournaments:
+            m_filtered = m[m['tournament'].isin(allowed_tournaments)]
+            if not m_filtered.empty:
+                m = m_filtered
+
         opponents = []
         for _, row in m.iterrows():
             opp = row['away_team'] if row['home_team'] == intl_name else row['home_team']
@@ -196,11 +226,11 @@ def update_vectors():
     results_csv = os.path.join(base_dir, "data", "international-results", "results.csv")
     ranking_txt = os.path.join(base_dir, "data", "ranking_fifa.txt")
 
-    print("Calculando coeficientes Cdif...")
-    cdif_dict = calculate_cdif_for_all(db_path, results_csv, ranking_txt)
-
     print("Cargando SofaScore de los equipos...")
     teams_stats = get_sofascore_teams_data(sofascore_dir)
+
+    print("Calculando coeficientes Cdif...")
+    cdif_dict = calculate_cdif_for_all(db_path, results_csv, ranking_txt, teams_stats)
 
     codes = list(teams_stats.keys())
 
