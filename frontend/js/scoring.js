@@ -547,9 +547,9 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const m_sel = hasFavTeams ? 1 : 0;
   const m_jug = hasFavPlayers ? 1 : 0;
 
-  const w_club_sub = 0.3;
-  const w_sel_sub = 0.4;
-  const w_jug_sub = 0.3;
+  const w_club_sub = userPref.w_afectivo_club ?? 3;
+  const w_sel_sub = userPref.w_afectivo_seleccion ?? 4;
+  const w_jug_sub = userPref.w_afectivo_jugador ?? 3;
 
   const sub_sum = (m_club * w_club_sub) + (m_sel * w_sel_sub) + (m_jug * w_jug_sub);
   let s_afectivo = 0.0;

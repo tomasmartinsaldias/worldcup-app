@@ -13,7 +13,10 @@ let userPreferences = {
   // Controla si el FriccionScore suma o resta al SmartScore final
   dramaBonus: 0,
   w_tactica_estilo: 5,
-  w_tactica_cluster: 5
+  w_tactica_cluster: 5,
+  w_afectivo_club: 3,
+  w_afectivo_seleccion: 4,
+  w_afectivo_jugador: 3
 };
 
 export async function loadData() {
