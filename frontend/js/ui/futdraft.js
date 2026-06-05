@@ -159,21 +159,21 @@ let draftPhase = 0;
 
 const FORMATIONS_HTML = `
   <style>
-    .formation-card-title { color: var(--draft-color-main); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.1rem; font-family: 'Outfit', sans-serif; letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .formation-card-title { color: #e74c3c; font-size: 1.3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.1rem; font-family: 'Outfit', sans-serif; letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .formation-card-subtitle { color: #ccc; font-size: 0.8rem; margin-bottom: 0.4rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .mini-pitch { width: 100%; height: 95px; border: 2px solid var(--draft-color-main); border-radius: 8px; background: #1a3320; position: relative; overflow: hidden; flex-shrink: 0; margin: 0 auto 0.4rem auto; max-width: 220px; }
+    .mini-pitch { width: 100%; height: 95px; border: 2px solid #e74c3c; border-radius: 8px; background: #1a3320; position: relative; overflow: hidden; flex-shrink: 0; margin: 0 auto 0.4rem auto; max-width: 220px; }
     .mini-pitch-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.3); }
     .mini-pitch-circle { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 25px; height: 25px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; }
     .mini-pitch-arrow { position: absolute; left: 30%; top: 50%; transform: translateY(-50%); width: 40%; height: 3px; background: #2ecc71; z-index: 2; }
     .mini-pitch-arrow::after { content: ''; position: absolute; right: -6px; top: -3px; border-left: 6px solid #2ecc71; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
-    .mini-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--draft-color-main); transform: translate(-50%, -50%); z-index: 3; box-shadow: 0 0 4px rgba(0,0,0,0.5); }
+    .mini-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #e74c3c; transform: translate(-50%, -50%); z-index: 3; box-shadow: 0 0 4px rgba(0,0,0,0.5); }
     .mini-dot.gk { background: #3498db; }
     .style-description { font-size: 0.75rem; color: #fff; margin-bottom: 0.4rem; line-height: 1.3; font-family: var(--font-secondary); }
     .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; width: 100%; padding: 0; box-sizing: border-box; }
     .metric-item { display: flex; flex-direction: column; gap: 0.1rem; text-align: left; background: rgba(255,255,255,0.02); padding: 0.2rem 0.3rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); box-sizing: border-box; overflow: hidden; }
     .metric-title { font-size: 0.6rem; font-weight: bold; color: var(--text-primary); font-family: var(--font-primary); }
     .metric-bar-bg { background: rgba(255,255,255,0.08); height: 4px; border-radius: 4px; overflow: hidden; margin: 0.1rem 0; width: 100%; }
-    .metric-bar-fill { background: linear-gradient(90deg, var(--draft-color-main) 0%, var(--draft-color-light) 100%); height: 100%; border-radius: 4px; box-shadow: 0 0 6px rgba(231,76,60,0.45); }
+    .metric-bar-fill { background: linear-gradient(90deg, #e74c3c 0%, #ff7979 100%); height: 100%; border-radius: 4px; box-shadow: 0 0 6px rgba(231,76,60,0.45); }
     .metric-labels { display: flex; justify-content: space-between; font-size: 0.5rem; color: var(--text-muted); font-family: var(--font-secondary); }
   </style>
   <div class="draft-controls" style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5rem 0;">
@@ -434,21 +434,21 @@ const FORMATIONS_HTML = `
 
 const FORMATIONS_HTML_7V7 = `
   <style>
-    .formation-card-title { color: var(--draft-color-main); font-size: 1.3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.1rem; font-family: 'Outfit', sans-serif; letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .formation-card-title { color: #e74c3c; font-size: 1.3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.1rem; font-family: 'Outfit', sans-serif; letter-spacing: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .formation-card-subtitle { color: #ccc; font-size: 0.8rem; margin-bottom: 0.4rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .mini-pitch { width: 100%; height: 95px; border: 2px solid var(--draft-color-main); border-radius: 8px; background: #1a3320; position: relative; overflow: hidden; flex-shrink: 0; margin: 0 auto 0.4rem auto; max-width: 220px; }
+    .mini-pitch { width: 100%; height: 95px; border: 2px solid #e74c3c; border-radius: 8px; background: #1a3320; position: relative; overflow: hidden; flex-shrink: 0; margin: 0 auto 0.4rem auto; max-width: 220px; }
     .mini-pitch-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.3); }
     .mini-pitch-circle { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 25px; height: 25px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; }
     .mini-pitch-arrow { position: absolute; left: 30%; top: 50%; transform: translateY(-50%); width: 40%; height: 3px; background: #2ecc71; z-index: 2; }
     .mini-pitch-arrow::after { content: ''; position: absolute; right: -6px; top: -3px; border-left: 6px solid #2ecc71; border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
-    .mini-dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--draft-color-main); transform: translate(-50%, -50%); z-index: 3; box-shadow: 0 0 4px rgba(0,0,0,0.5); }
+    .mini-dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #e74c3c; transform: translate(-50%, -50%); z-index: 3; box-shadow: 0 0 4px rgba(0,0,0,0.5); }
     .mini-dot.gk { background: #3498db; }
     .style-description { font-size: 0.75rem; color: #fff; margin-bottom: 0.4rem; line-height: 1.3; font-family: var(--font-secondary); }
     .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; width: 100%; padding: 0; box-sizing: border-box; }
     .metric-item { display: flex; flex-direction: column; gap: 0.1rem; text-align: left; background: rgba(255,255,255,0.02); padding: 0.2rem 0.3rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); box-sizing: border-box; overflow: hidden; }
     .metric-title { font-size: 0.6rem; font-weight: bold; color: var(--text-primary); font-family: var(--font-primary); }
     .metric-bar-bg { background: rgba(255,255,255,0.08); height: 4px; border-radius: 4px; overflow: hidden; margin: 0.1rem 0; width: 100%; }
-    .metric-bar-fill { background: linear-gradient(90deg, var(--draft-color-main) 0%, var(--draft-color-light) 100%); height: 100%; border-radius: 4px; box-shadow: 0 0 6px rgba(231,76,60,0.45); }
+    .metric-bar-fill { background: linear-gradient(90deg, #e74c3c 0%, #ff7979 100%); height: 100%; border-radius: 4px; box-shadow: 0 0 6px rgba(231,76,60,0.45); }
     .metric-labels { display: flex; justify-content: space-between; font-size: 0.5rem; color: var(--text-muted); font-family: var(--font-secondary); }
   </style>
   <div class="draft-controls" style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5rem 0;">
@@ -823,15 +823,6 @@ export function initDraft() {
 export function startDraft(isInitial = false, type = null) {
   if (type) window.currentDraftMode = type;
   
-  const template = document.getElementById('draft-template');
-  if (template) {
-    if (window.currentDraftMode === '7v7') {
-      template.classList.add('theme-intermedio');
-    } else {
-      template.classList.remove('theme-intermedio');
-    }
-  }
-  
   if (window.currentDraftMode === '7v7' && !['2-3-1', '3-2-1', '2-2-2'].includes(currentFormation)) {
     currentFormation = '2-3-1';
   } else if (window.currentDraftMode === '11v11' && !['4-3-3', '4-4-2', '3-5-2', '4-2-3-1', '4-3-2-1'].includes(currentFormation)) {
@@ -1192,8 +1183,12 @@ function showPlayersForArchetype(slotId, groupName, clusterId) {
 
   const players = state.appData.clusters[groupName].filter(p => p.cluster_id == clusterId);
 
+  // Excluir jugadores que ya hayan sido seleccionados en otra posición
+  const draftedNames = Object.values(draftedPlayers).filter(p => p).map(p => p.long_name);
+  const availablePlayers = players.filter(p => !draftedNames.includes(p.long_name));
+
   // Sort descending by overall (handling missing overalls as 0)
-  const sorted = players.sort((a, b) => (b.overall || 0) - (a.overall || 0));
+  const sorted = availablePlayers.sort((a, b) => (b.overall || 0) - (a.overall || 0));
 
   // Take top 10 players
   const top10 = sorted.slice(0, 10);
