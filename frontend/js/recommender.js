@@ -38,7 +38,7 @@ export function mapSurveyToPreferences(surveyResults) {
     w_friccion = 7;
   } else if (friction <= 60) {
     frictionPreference = 'indiferente';
-    w_friccion = 5;
+    w_friccion = 2;
   } else {
     frictionPreference = 'fair_play';
     w_friccion = 7;

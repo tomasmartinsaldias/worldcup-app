@@ -480,7 +480,7 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const w_afec = userPref.w_afectivo ?? 5;
   
   const w_esp = userPref.w_espectaculo ?? 5;
-  const w_fric = userPref.w_friccion ?? 5;
+  const w_fric = userPref.w_friccion ?? 2;
 
   const vectorU = tacticalVector || userPref.tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const isDefaultU = vectorU.defensa === 0 && vectorU.posesion === 0 && vectorU.ritmo === 0 && vectorU.ancho === 0;
@@ -497,8 +497,10 @@ export function calculateSmartScore(match, teams, tacticalVector) {
 
   // Activation and transformation for friction component (needed for UI display only)
   const frictionPreference = userPref.frictionPreference || 'indiferente';
-  let x_fric = dramaMatch;
-  if (frictionPreference === 'fair_play') {
+  let x_fric = 0.4444; // neutral default (yields exactly 5.0 score)
+  if (frictionPreference === 'trabado') {
+    x_fric = dramaMatch;
+  } else if (frictionPreference === 'fair_play') {
     x_fric = 1.0 - dramaMatch;
   }
   const displayFriccionScore = 1.0 + 9.0 * x_fric;

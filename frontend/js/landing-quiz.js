@@ -532,7 +532,7 @@ function openRecSettings() {
       w_tactica: userPref.w_tactica ?? 5,
       w_afectivo: userPref.w_afectivo ?? 5,
       w_espectaculo: userPref.w_espectaculo ?? 5,
-      w_friccion: userPref.w_friccion ?? 5,
+      w_friccion: userPref.w_friccion ?? 2,
       w_tactica_estilo: userPref.w_tactica_estilo ?? 5,
       w_tactica_cluster: userPref.w_tactica_cluster ?? 5,
       w_afectivo_club: userPref.w_afectivo_club ?? 3,
