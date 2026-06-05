@@ -26,11 +26,13 @@
       const rec = document.getElementById('recommendations-overlay');
       if (rec) rec.classList.remove('visible');
       
-      const casual = document.getElementById('casual-quiz');
-      if (casual) casual.classList.remove('visible');
+      const survey = document.getElementById('antigravity-survey');
+      if (survey) {
+        survey.classList.remove('visible');
+        setTimeout(() => survey.classList.add('hidden'), 500);
+      }
       
-      const fanatic = document.getElementById('fanatic-quiz');
-      if (fanatic) fanatic.classList.remove('visible');
+      // Obsolete overlays (already removed from HTML)
 
       const futDraft = document.getElementById('draft-template');
       if (futDraft) {

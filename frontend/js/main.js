@@ -1,4 +1,4 @@
-import { state, recalculateTournamentState, fifaToSpanish } from './state.js';
+import { state, recalculateTournamentState, fifaToSpanish } from './futstate.js';
 import { calculateSmartScore } from './scoring.js';
 import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
 import { renderGroups } from './ui/groups.js';
@@ -7,7 +7,7 @@ import { renderUnresolved } from './ui/unresolved.js';
 import { closeModal } from './ui/modal.js';
 import { openPlayerProfile } from './ui/player_profile.js';
 import { initQuiz } from './quiz.js';
-import { initDraft, startDraft } from './draft.js';
+import { initDraft, startDraft } from './futdraft.js';
 import { renderResults } from './ui/results.js';
 
 window.openCountrySquad = openCountrySquad;

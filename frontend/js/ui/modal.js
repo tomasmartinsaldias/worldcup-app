@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state } from '../futstate.js';
 import { createFlagElement } from '../utils.js';
 import { getCombinedValue } from './matches.js';
 

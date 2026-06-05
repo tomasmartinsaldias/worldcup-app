@@ -29,10 +29,15 @@ function startQuiz(level) {
 
     // --- LÓGICA FANÁTICO ---
     const fanaticCanvas = document.getElementById('fanatic-stars');
-    const fctx = fanaticCanvas.getContext('2d');
+    let fctx = null;
     let fWidth, fHeight;
     
+    if (fanaticCanvas) {
+      fctx = fanaticCanvas.getContext('2d');
+    }
+    
     function initFanaticStars() {
+      if (!fanaticCanvas) return;
       fWidth = window.innerWidth;
       fHeight = window.innerHeight;
       fanaticCanvas.width = fWidth;
@@ -128,8 +133,10 @@ function startQuiz(level) {
     function showRecommendations() {
       window.appState = 'transition';
       // Ocultar quizes
-      document.getElementById('casual-quiz').classList.remove('visible');
-      document.getElementById('fanatic-quiz').classList.remove('visible');
+      const casualQuiz = document.getElementById('casual-quiz');
+      if (casualQuiz) casualQuiz.classList.remove('visible');
+      const fanaticQuiz = document.getElementById('fanatic-quiz');
+      if (fanaticQuiz) fanaticQuiz.classList.remove('visible');
       
       setTimeout(() => {
         document.getElementById('recommendations-overlay').classList.add('visible');
@@ -163,6 +170,33 @@ function startQuiz(level) {
         });
     }
 
+
+    // Mapa de estadios → fotos locales
+    const STADIUM_IMAGES = {
+      'Estadio Azteca':          'img/stadiums/Estadio_Azteca.jpg',
+      'Estadio Akron':           'img/stadiums/Estadio_Akron.jpg',
+      'Estadio BBVA':            'img/stadiums/Estadio_BBVA.jpg',
+      'MetLife Stadium':         'img/stadiums/MetLife_Stadium.jpg',
+      'SoFi Stadium':            'img/stadiums/SoFi_Stadium.jpg',
+      'AT&T Stadium':            'img/stadiums/ATandT_Stadium.jpg',
+      'Hard Rock Stadium':       'img/stadiums/Hard_Rock_Stadium.jpg',
+      'Mercedes-Benz Stadium':   'img/stadiums/Mercedes-Benz_Stadium.jpg',
+      'Lumen Field':             'img/stadiums/Lumen_Field.jpg',
+      'NRG Stadium':             'img/stadiums/NRG_Stadium.jpg',
+      'Gillette Stadium':        'img/stadiums/Gillette_Stadium.jpg',
+      "Levi's Stadium":          'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'Lincoln Financial Field': 'img/stadiums/Lincoln_Financial_Field.jpg',
+      'Arrowhead Stadium':       'img/stadiums/Arrowhead_Stadium.jpg',
+      'BC Place':                'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'BMO Field':               'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+    };
+    const STADIUM_FALLBACK = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
+
+    function getStadiumImage(match) {
+      const venue = match.stadium && match.stadium.venue_name;
+      return STADIUM_IMAGES[venue] || STADIUM_FALLBACK;
+    }
+
     function updateCarouselUI() {
       const carousel = document.getElementById('recommendations-carousel');
       carousel.innerHTML = '';
@@ -184,12 +218,13 @@ function startQuiz(level) {
         const card = document.createElement('div');
         card.className = 'rec-card';
         card.innerHTML = `
-          <div class="rec-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
           <div class="rec-content">
             <div class="rec-score">${score}% AFINIDAD</div>
             <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
             <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
             <p class="rec-type">${match.stage}</p>
+            <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
           </div>
         `;
         card.onclick = () => openMatchStats(match);
@@ -204,7 +239,7 @@ function startQuiz(level) {
           const card = document.createElement('div');
           card.className = 'rec-card';
           card.innerHTML = `
-            <div class="rec-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop')"></div>
+            <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
             <div class="rec-content">
               <div class="rec-score">${score}% AFINIDAD</div>
               <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>

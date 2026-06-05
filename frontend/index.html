@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MundialPick — La Gloria Eterna</title>
-  <meta name="description" content="MundialPick: Experimenta el Mundial 2026 en 3D interactivo y encuentra los partidos recomendados a tu medida.">
+  <meta name="description"
+    content="MundialPick: Experimenta el Mundial 2026 en 3D interactivo y encuentra los partidos recomendados a tu medida.">
   <meta property="og:title" content="MundialPick — La Gloria Eterna">
   <meta property="og:description" content="Elige tu nivel, simula marcadores y vive el mundial 2026.">
   <meta property="og:image" content="img/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=9">
-  <link rel="stylesheet" href="css/components.css?v=9">
-  <link rel="stylesheet" href="draft.css?v=9">
+  <link rel="stylesheet" href="img/logo.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/components.css?v=11">
+  <link rel="stylesheet" href="draft.css?v=13">
 </head>
+
 <body>
+
+  <!-- GLOBAL LOADER -->
+  <div id="global-loader" class="global-loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">CARGANDO EL MUNDIAL...</div>
+    </div>
+  </div>
 
   <!-- Contenedores -->
   <div id="canvas-container"></div>
@@ -44,137 +58,222 @@
     <h2 class="overlay-title">ELIGE TU NIVEL</h2>
     <p class="overlay-subtitle">Elige cómo vas a vivir el mundial para personalizar tu experiencia.</p>
     <div class="cards-grid">
-      <div class="spectator-card card-casual" onclick="startQuiz('casual')">
+      <div class="spectator-card card-casual" onclick="openSurvey('casual')">
         <h3>CASUAL</h3>
         <p>Disfrutas los partidos importantes, pero no sigues el día a día.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-intermedio" onclick="window.location.href = 'app.html'">
+      <div class="spectator-card card-intermedio" onclick="openSurvey('intermedio')">
         <h3>INTERMEDIO</h3>
-        <p>Conoces a los equipos principales y sigues los torneos internacionales.</p>
+        <p>Draft 7v7. Conoces a los equipos principales y sigues los torneos internacionales.</p>
         <div class="card-glow"></div>
       </div>
-      <div class="spectator-card card-fanatico" onclick="startQuiz('fanatico')">
+      <div class="spectator-card card-fanatico" onclick="openSurvey('fanatico')">
         <h3>FANÁTICO</h3>
-        <p>El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
+        <p>Draft 11v11. El fútbol es tu vida. Vives y respiras la Copa del Mundo.</p>
         <div class="card-glow"></div>
       </div>
     </div>
   </div>
 
-  <div id="casual-quiz" class="ui-overlay hidden cq-flow">
-    <div class="quiz-container">
+  <div id="antigravity-survey" class="ui-overlay hidden survey-flow">
+    <div class="quiz-container survey-container" style="max-width: 800px;">
       <div class="quiz-header">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="cq-progress"></div></div>
-        <span id="cq-step-text">PASO 1 DE 3</span>
-      </div>
-      
-      <!-- Paso 1 -->
-      <div class="quiz-step active" id="cq-step-1">
-        <h2 class="quiz-question">¿CUÁL ES TU SELECCIÓN FAVORITA?</h2>
-        <p class="quiz-desc">Elige el equipo que llevarás en el corazón durante la copa.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Argentina</button>
-          <button class="quiz-option" onclick="selectOption(this)">Brasil</button>
-          <button class="quiz-option" onclick="selectOption(this)">Francia</button>
-          <button class="quiz-option" onclick="selectOption(this)">Inglaterra</button>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress" id="survey-progress" style="width: 33.3%;"></div>
         </div>
-        <button class="quiz-btn-next" onclick="nextQuizStep(2)" disabled>CONTINUAR</button>
+        <span id="survey-step-text">PASO 1 DE 3</span>
       </div>
 
-      <!-- Paso 2 -->
-      <div class="quiz-step" id="cq-step-2">
-        <h2 class="quiz-question">¿QUÉ TIPO DE JUEGO PREFIERES?</h2>
-        <p class="quiz-desc">El estilo define la grandeza en el campo.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Ataque Total</button>
-          <button class="quiz-option" onclick="selectOption(this)">Posesión y Control</button>
-          <button class="quiz-option" onclick="selectOption(this)">Defensa Férrea</button>
-          <button class="quiz-option" onclick="selectOption(this)">Contraataque Veloz</button>
+      <!-- Paso 1: Pasión vs Espectáculo -->
+      <div class="quiz-step survey-step active" id="survey-step-1">
+        <h2 class="quiz-question">¿CÓMO VIVES EL FÚTBOL?</h2>
+        <p class="quiz-desc">A la hora de sentarte a mirar un partido, ¿hacia qué extremo inclinas la balanza?</p>
+
+        <div class="slider-wrapper main-slider-wrapper">
+          <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-passion"
+            oninput="updateSliderText('passion', this.value)">
+          <div class="slider-labels">
+            <span class="label-left">Lealtad y Resultado</span>
+            <span class="label-right">Puro Espectáculo</span>
+          </div>
+          <div class="dynamic-text-box" id="text-passion">Equilibrio perfecto entre pasión y buen juego.</div>
         </div>
-        <button class="quiz-btn-next" onclick="nextQuizStep(3)" disabled>CONTINUAR</button>
+
+        <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
       </div>
 
-      <!-- Paso 3 -->
-      <div class="quiz-step" id="cq-step-3">
-        <h2 class="quiz-question">¿A QUÉ JUGADOR SIGUES MÁS?</h2>
-        <p class="quiz-desc">Las leyendas que marcan la diferencia.</p>
-        <div class="quiz-options">
-          <button class="quiz-option" onclick="selectOption(this)">Lionel Messi</button>
-          <button class="quiz-option" onclick="selectOption(this)">Kylian Mbappé</button>
-          <button class="quiz-option" onclick="selectOption(this)">Vinícius Jr.</button>
-          <button class="quiz-option" onclick="selectOption(this)">Jude Bellingham</button>
-        </div>
-        <button class="quiz-btn-next" onclick="finishQuiz()" disabled>DESCUBRIR MI DESTINO</button>
-      </div>
-    </div>
-  </div>
+      <!-- Paso 2: ADN del Partido -->
+      <div class="quiz-step survey-step" id="survey-step-2">
+        <h2 class="quiz-question">ADN DEL PARTIDO</h2>
+        <p class="quiz-desc">El estilo define la grandeza en el campo. ¿Qué prefieres ver?</p>
 
-  <div id="fanatic-quiz" class="ui-overlay hidden fq-flow">
-    
-  </div>
+        <div class="sliders-group">
+          <!-- Fricción -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-shield-halved"></i> Juego Trabado</span>
+              <span>Fluido / Limpio <i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction">
+          </div>
 
+          <!-- Goles -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-lock"></i> Cerrado y Táctico</span>
+              <span>Festival de Goles <i class="fa-solid fa-futbol"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals">
+          </div>
 
-  <!-- DRAFT SYSTEM OVERLAY -->
-  <div id="draft-overlay" class="ui-overlay glass-overlay hidden" style="z-index: 100;">
-    <div class="quiz-container draft-container" style="max-width: 900px; padding: 2rem;">
-      <div class="quiz-header" style="margin-bottom: 20px;">
-        <div class="quiz-progress-bar"><div class="quiz-progress" id="draft-progress" style="width: 33.3%;"></div></div>
-        <span id="draft-step-text">PASO 1 DE 3</span>
-      </div>
-      
-      <!-- Paso 1: Elegir Equipo -->
-      <div class="quiz-step draft-step active" id="draft-step-1">
-        <h2 class="quiz-question">ELEGIR EQUIPO (MAX 1)</h2>
-        <p class="quiz-desc">Elige el equipo base de tu Draft.</p>
-        <div class="draft-controls">
-          <input type="text" id="search-teams" class="draft-search-input" placeholder="Buscar equipo..." onkeyup="filterDraft('teams')">
-          <div class="draft-pagination" id="pagination-teams"></div>
+          <!-- Equidad -->
+          <div class="slider-wrapper">
+            <div class="slider-labels top-labels">
+              <span><i class="fa-solid fa-scale-unbalanced"></i> David vs Goliat</span>
+              <span>Choque de Titanes <i class="fa-solid fa-scale-balanced"></i></span>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-balance">
+          </div>
         </div>
-        <div class="draft-grid" id="draft-teams-grid">
-          <!-- JS injects here -->
-        </div>
+
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;" onclick="returnToHomepage()">CERRAR</button>
-          <button class="quiz-btn-next draft-next-btn" onclick="nextDraftStep(2)">SIGUIENTE</button>
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(1)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(3)">CONTINUAR</button>
         </div>
       </div>
 
-      <!-- Paso 2: Elegir Países -->
-      <div class="quiz-step draft-step" id="draft-step-2">
-        <h2 class="quiz-question">ELEGIR PAÍSES (MAX 4)</h2>
-        <p class="quiz-desc">Selecciona los países con mayor impacto estratégico.</p>
-        <div class="draft-controls">
-          <input type="text" id="search-countries" class="draft-search-input" placeholder="Buscar país..." onkeyup="filterDraft('countries')">
-          <div class="draft-pagination" id="pagination-countries"></div>
+      <!-- Paso 3: Preguntas Visuales -->
+      <div class="quiz-step survey-step" id="survey-step-3">
+        <h2 class="quiz-question">LEALTAD Y PROTAGONISTAS</h2>
+        <p class="quiz-desc">Queremos entender qué tiene más peso para vos: ¿la camiseta o el talento?</p>
+
+        <div class="visual-question-block">
+          <p class="visual-question-title">Si tu jugador favorito se fuera a un club de segunda división, ¿qué harías?
+          </p>
+          <div class="visual-options-grid">
+            <div class="visual-card" onclick="selectVisualOption('q1', 'none', this)"
+              style="background-image: url('data/img/placeholder_stadium_empty.jpg')">
+              <div class="visual-card-overlay">
+                <span>No vería más sus partidos</span>
+              </div>
+            </div>
+            <div class="visual-card" onclick="selectVisualOption('q1', 'less', this)"
+              style="background-image: url('data/img/placeholder_bench.jpg')">
+              <div class="visual-card-overlay">
+                <span>Lo apoyaría menos / No lo sé</span>
+              </div>
+            </div>
+            <div class="visual-card" onclick="selectVisualOption('q1', 'always', this)"
+              style="background-image: url('data/img/placeholder_fan.jpg')">
+              <div class="visual-card-overlay">
+                <span>Seguiría apoyándolo</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="draft-grid" id="draft-countries-grid">
-          <!-- JS injects here -->
+
+        <div class="visual-question-block" style="margin-top: 2rem;">
+          <p class="visual-question-title">¿Preferís que tu equipo gane jugando mal o ver un partidazo de dos equipos
+            que no te importen?</p>
+          <div class="visual-options-grid">
+            <div class="visual-card" onclick="selectVisualOption('q2', 'spectacle', this)"
+              style="background-image: url('data/img/placeholder_spectacle.jpg')">
+              <div class="visual-card-overlay">
+                <span>Mi equipo no lo es todo</span>
+              </div>
+            </div>
+            <div class="visual-card" onclick="selectVisualOption('q2', 'neutral', this)"
+              style="background-image: url('data/img/placeholder_tv.jpg')">
+              <div class="visual-card-overlay">
+                <span>No sé</span>
+              </div>
+            </div>
+            <div class="visual-card" onclick="selectVisualOption('q2', 'team_always', this)"
+              style="background-image: url('data/img/placeholder_win.jpg')">
+              <div class="visual-card-overlay">
+                <span>Mi equipo es lo más importante</span>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;" onclick="prevDraftStep(1)">ATRÁS</button>
-          <button class="quiz-btn-next draft-next-btn" onclick="nextDraftStep(3)">SIGUIENTE</button>
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(2)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(4)">CONTINUAR</button>
         </div>
       </div>
 
-      <!-- Paso 3: Elegir Jugadores -->
-      <div class="quiz-step draft-step" id="draft-step-3">
+      <!-- Paso 4: Jugador Favorito -->
+      <div class="quiz-step survey-step" id="survey-step-4">
         <h2 class="quiz-question">ELEGIR JUGADORES (MAX 6)</h2>
-        <p class="quiz-desc">Conforma tu plantilla de leyendas.</p>
+        <p class="quiz-desc">Conforma tu plantilla de leyendas o elige a tus jugadores favoritos.</p>
+
         <div class="draft-controls">
-          <input type="text" id="search-players" class="draft-search-input" placeholder="Buscar jugador..." onkeyup="filterDraft('players')">
+          <input type="text" id="search-players" class="draft-search-input" placeholder="Buscar jugador..."
+            onkeyup="filterDraft('players')">
           <div class="draft-pagination" id="pagination-players"></div>
         </div>
         <div class="draft-grid draft-grid-players" id="draft-players-grid">
           <!-- JS injects here -->
         </div>
+
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;" onclick="prevDraftStep(2)">ATRÁS</button>
-          <button class="quiz-btn-next draft-next-btn" onclick="finishDraft()">FINALIZAR</button>
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(3)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(5)">CONTINUAR</button>
         </div>
       </div>
+
+      <!-- Paso 5: Equipo Favorito -->
+      <div class="quiz-step survey-step" id="survey-step-5">
+        <h2 class="quiz-question">ELEGIR EQUIPO (MAX 1)</h2>
+        <p class="quiz-desc">Ese equipo que seguís todo el año en su liga y torneos continentales.</p>
+
+        <div class="draft-controls">
+          <input type="text" id="search-teams" class="draft-search-input" placeholder="Buscar equipo..."
+            onkeyup="filterDraft('teams')">
+          <div class="draft-pagination" id="pagination-teams"></div>
+        </div>
+        <div class="draft-grid" id="draft-teams-grid">
+          <!-- JS injects here -->
+        </div>
+
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(4)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(6)">CONTINUAR</button>
+        </div>
+      </div>
+
+      <!-- Paso 6: Selecciones que Apoya -->
+      <div class="quiz-step survey-step" id="survey-step-6">
+        <h2 class="quiz-question">ELEGIR PAÍSES (MAX 4)</h2>
+        <p class="quiz-desc">Selecciona los países con mayor impacto emocional o estratégico.</p>
+
+        <div class="draft-controls">
+          <input type="text" id="search-countries" class="draft-search-input" placeholder="Buscar país..."
+            onkeyup="filterDraft('countries')">
+          <div class="draft-pagination" id="pagination-countries"></div>
+        </div>
+        <div class="draft-grid" id="draft-countries-grid">
+          <!-- JS injects here -->
+        </div>
+
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(5)">ATRÁS</button>
+          <button class="quiz-btn-next btn-glow-pulse" onclick="finishSurvey()">CALCULAR MI DESTINO</button>
+        </div>
+      </div>
+
     </div>
   </div>
+
+
+  <!-- DRAFT SYSTEM OVERLAY ELIMINADO PARA USARSE DENTRO DE SURVEY -->
 
   <!-- OVERLAY DE RECOMENDACIONES -->
   <div id="recommendations-overlay" class="ui-overlay hidden">
@@ -183,76 +282,103 @@
     </button>
     <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center;">
       <h2 class="overlay-title" style="font-size: 2.2rem;">TU DESTINO MUNDIALISTA</h2>
-      <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los partidos que no puedes perderte.</p>
-      
+      <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los
+        partidos que no puedes perderte.</p>
+
       <div class="rec-carousel-wrapper" style="overflow-x: auto; padding-bottom: 20px;">
-        <div class="rec-carousel" id="recommendations-carousel" style="display: flex; gap: 20px; transition: all 0.4s ease;">
+        <div class="rec-carousel" id="recommendations-carousel"
+          style="display: flex; gap: 20px; transition: all 0.4s ease;">
           <!-- Cards injected via JS -->
         </div>
       </div>
-      
-      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()" style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER MÁS PARTIDOS</button>
+
+      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()"
+        style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER
+        MÁS PARTIDOS</button>
     </div>
   </div>
 
   <!-- MODAL DE ESTADÍSTICAS -->
   <div id="stats-modal-overlay" class="ui-overlay hidden" style="z-index: 20;">
-    <div class="stats-modal" style="background: #11141a; border: 1px solid #2a2e35; padding: 2rem; border-radius: 12px; max-width: 700px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
-      <button class="stats-close" onclick="closeMatchStats()" style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
-      
+    <div class="stats-modal"
+      style="background: #11141a; border: 1px solid #2a2e35; padding: 2rem; border-radius: 12px; max-width: 700px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
+      <button class="stats-close" onclick="closeMatchStats()"
+        style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
+
       <div class="stats-header" style="margin-bottom: 2rem; border-bottom: 1px solid #2a2e35; padding-bottom: 1rem;">
-        <h2 id="stats-title" style="font-family: 'Outfit'; font-size: 1.4rem; color: #fff;">Partido #61 &bull; Group Stage</h2>
+        <h2 id="stats-title" style="font-family: 'Outfit'; font-size: 1.4rem; color: #fff;">Partido #61 &bull; Group
+          Stage</h2>
       </div>
-      
+
       <div class="stats-body" style="text-align: left;" id="stats-body-content">
         <!-- Content generated by JS -->
       </div>
-      
     </div>
   </div>
 
-  
+
   <!-- SIMON'S FUT DRAFT -->
   <div id="draft-template" class="ui-overlay hidden draft-flow" style="z-index: 101;">
-    <div class="quiz-container draft-container" style="width: 95%; max-width: 1200px; height: 85vh; background: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 136, 255, 0.5); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 26, 255, 0.2) inset; display: flex; flex-direction: column; position: relative; overflow: hidden;">
-      <div class="quiz-header" style="margin-bottom: 1rem; z-index: 10; display: flex; justify-content: flex-start; align-items: center; gap: 3rem;">
-        <span style="font-size: 1.5rem; color: #0088ff; font-family: 'Outfit'; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);">FUT DRAFT MUNDIALISTA</span>
+    <div class="quiz-container draft-container"
+      style="width: 95%; max-width: 1200px; height: 85vh; background: rgba(10, 12, 16, 0.95); border: 1px solid rgba(0, 136, 255, 0.5); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0, 26, 255, 0.2) inset; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+      <div class="quiz-header"
+        style="margin-bottom: 1rem; z-index: 10; display: flex; justify-content: flex-start; align-items: center; gap: 3rem;">
+        <span
+          style="font-size: 1.5rem; color: #0088ff; font-family: 'Outfit'; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 136, 255, 0.5);">FUT
+          DRAFT MUNDIALISTA</span>
       </div>
-      <div id="pitch-container" class="pitch-container" style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
+      <div id="pitch-container" class="pitch-container"
+        style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 12px; overflow: hidden;">
       </div>
-      <div id="draft-modal" class="ui-overlay hidden" style="z-index: 100; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; background: rgba(0,0,0,0.85);">
-        <div class="draft-options-panel" style="background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); padding: 2rem; border-radius: 12px; width: 95%; max-width: 1000px; text-align: center; border: 1px solid rgba(0, 136, 255, 0.5); max-height: 90%; overflow-y: auto;">
-          <button id="close-draft-modal-btn" style="position: absolute; top: 1rem; right: 1rem; background: transparent; color: white; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10;"><i class="fa-solid fa-xmark"></i></button>
+      <div id="draft-modal" class="ui-overlay hidden"
+        style="z-index: 100; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 16px; background: rgba(0,0,0,0.85);">
+        <div class="draft-options-panel"
+          style="background: rgba(10, 12, 16, 0.95); backdrop-filter: blur(10px); padding: 2rem; border-radius: 12px; width: 95%; max-width: 1000px; text-align: center; border: 1px solid rgba(0, 136, 255, 0.5); max-height: 90%; overflow-y: auto;">
+          <button id="close-draft-modal-btn"
+            style="position: absolute; top: 1rem; right: 1rem; background: transparent; color: white; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10;"><i
+              class="fa-solid fa-xmark"></i></button>
           <h2 id="draft-modal-title" style="color: white; margin-bottom: 2rem; font-family: 'Outfit';"></h2>
           <div id="draft-options-container" class="draft-options-grid"></div>
         </div>
       </div>
-      <div id="draft-summary-banner" class="draft-summary-hidden" style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0, 10, 25, 0.98) 40%, transparent); padding: 3rem 2rem 2rem; text-align: center; color: white; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 50;">
-        <h2 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 1rem;">Estilo: <span id="draft-tactical-result" style="color: #0088ff; text-shadow: 0 0 15px rgba(0, 136, 255, 0.6);"></span></h2>
-        <p id="draft-tactical-explanation" style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; color: #ccc;"></p>
+      <div id="draft-summary-banner" class="draft-summary-hidden"
+        style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0, 10, 25, 0.98) 40%, transparent); padding: 3rem 2rem 2rem; text-align: center; color: white; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 50;">
+        <h2 style="display: none; font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 1rem;">Estilo: <span
+            id="draft-tactical-result" style="color: #0088ff; text-shadow: 0 0 15px rgba(0, 136, 255, 0.6);"></span>
+        </h2>
+        <p id="draft-tactical-explanation"
+          style="display: none; font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; color: #ccc;"></p>
         <div style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
-          <button id="btn-restart-draft" class="quiz-btn-next" style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; border-radius: 8px;">Reiniciar</button>
-          <button class="quiz-btn-next" onclick="returnToHomepage()" style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; border-radius: 8px;">Salir</button>
+          <button id="btn-restart-draft" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-rotate-right"></i> Reiniciar</button>
+          <button class="quiz-btn-next" onclick="returnToHomepage()"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;"><i
+              class="fa-solid fa-arrow-left"></i> Salir</button>
+          <button id="btn-apply-draft-tactics" class="quiz-btn-next"
+            style="width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #0088ff 0%, #004488 100%); color: #fff; border: 1px solid #00aaff; box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); border-radius: 8px;">Ir
+            a Recomendaciones</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- LÓGICA DE UI OVERLAYS -->
-  <script src="js/landing-main.js?v=9"></script>
-  <script src="js/landing-quiz.js?v=9"></script>
-  <script src="js/particles.js?v=9"></script>
+  <script src="js/landing-main.js?v=12"></script>
+  <script src="js/landing-quiz.js?v=5"></script>
+  <script src="js/survey.js?v=3"></script>
+  <script src="js/particles.js?v=10"></script>
 
   <!-- LIBRERÍAS THREE.JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-  <script src="js/scene3D.js?v=9"></script>
-  <script src="js/draft.js?v=9"></script>
+  <script src="js/scene3D.js?v=13"></script>
+  <script type="module" src="js/ui/futdraft.js?v=11"></script>
 
   <script type="module" charset="utf-8">
-    import { loadData } from './js/state.js?v=3';
-    import { initDraft, startDraft } from './js/ui/draft.js?v=3';
+    import { loadData } from './js/futstate.js';
+    import { initDraft, startDraft } from './js/ui/futdraft.js?v=3';
     loadData();
     window.startDraft = startDraft;
     document.addEventListener('DOMContentLoaded', () => {

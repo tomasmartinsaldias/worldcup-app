@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state } from '../futstate.js';
 import { calculateSmartScore } from '../scoring.js';
 import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 

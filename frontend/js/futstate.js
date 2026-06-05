@@ -3,28 +3,20 @@ let appData = null;
 let activeTab = localStorage.getItem('activeTab') || 'recommender';
 let selectedCountryCode = null;
 let userPreferences = {
-  // Pesos macro-componentes de 1 a 10
-  w_espectaculo: 5,
-  w_tactica: 5,
-  w_afectivo: 5,
-  w_friccion: 5,
-  
-  // Configuración afectiva
-  favoriteTeams: [],      // Máximo 4 selecciones (Indice 0 es la principal)
-  favoriteClubs: [],      // Lista de clubes favoritos
-  favoritePlayers: [],    // Lista de jugadores favoritos
-  
-  // Nivel de fricción interna deseada (0.0: Fair play puro, 0.2: Normal, 0.6: Roce total)
-  dramaBeta: 0.2, 
-  
+  favoriteTeam: '',
   matchStyle: 'all', // 'all', 'closed', 'chaotic'
+  favoritePlayers: [],
   preferredTime: [], // array of 'morning', 'afternoon', 'evening'
-  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 }
+  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 },
+  spectacleWeight: 0.5,
+  // dramaBonus: -1 (no gusta fricción) | 0 (indiferente) | +1 (gusta fricción)
+  // Controla si el FriccionScore suma o resta al SmartScore final
+  dramaBonus: 0
 };
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes, photosRes, gkRes, cbRes, fbRes, midRes, wingRes, stRes] = await Promise.all([
+    const [mainRes, logosRes, estiloRes, arquetiposRes] = await Promise.all([
       fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
@@ -37,7 +29,7 @@ export async function loadData() {
       fetch(`data/clustering_maps/kmeans_wingers_arquetipos.json?t=${new Date().getTime()}`),
       fetch(`data/clustering_maps/kmeans_strikers_arquetipos.json?t=${new Date().getTime()}`)
     ]);
-    
+
     const parseJSON = async (res) => {
       try {
         if (res.ok) return await res.json();
@@ -46,7 +38,7 @@ export async function loadData() {
         return null;
       }
     };
-    
+
     state.appData = await parseJSON(mainRes) || {};
     state.appData.clubLogos = await parseJSON(logosRes) || {};
 
@@ -55,28 +47,15 @@ export async function loadData() {
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
 
-    const clusters = await Promise.all([gkRes, cbRes, fbRes, midRes, wingRes, stRes].map(parseJSON));
-
-    state.appData.clusters = {
-      Goalkeepers: clusters[0],
-      Centerbacks: clusters[1],
-      Fullbacks: clusters[2],
-      Midfielders: clusters[3],
-      Wingers: clusters[4],
-      Strikers: clusters[5]
-    };
-
-    const photosData = await parseJSON(photosRes) || [];
-    
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
     try {
-      const finalRes = await fetch(`data/data_frontend/players_final.json?t=${new Date().getTime()}`);
+      const finalRes = await fetch(`../data/data_frontend/players_final.json?t=${new Date().getTime()}`);
       if (finalRes.ok) finalPhotosData = await finalRes.json();
     } catch (e) {
       console.error("Could not fetch players_final.json", e);
     }
-    
+
     state.appData.photoIndex = {};
     const robustNormalise = str => {
       if (!str) return '';
@@ -88,27 +67,37 @@ export async function loadData() {
         .replace(/[^\x00-\x7F]/g, '')
         .toLowerCase().trim();
     };
-    photosData.forEach(p => {
-      const n = robustNormalise(p.n);
-      const fn = robustNormalise(p.fn);
-      if (fn) state.appData.photoIndex[fn] = p.p;
-      if (n && !state.appData.photoIndex[n]) state.appData.photoIndex[n] = p.p;
 
-      // Add a fallback for names like "S. Giménez" mapping to "Santiago Giménez"
-      const parts = fn.split(' ');
-      if (parts.length > 1) {
-        const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
-        if (!state.appData.photoIndex[short]) state.appData.photoIndex[short] = p.p;
-      }
-    });
-    
-    // Process finalPhotosData
+    state.appData.clusters = {
+      Goalkeepers: [], Centerbacks: [], Fullbacks: [], Midfielders: [], Wingers: [], Strikers: []
+    };
+    const posMap = {
+      'Goalkeeper': 'Goalkeepers', 'Midfielder': 'Midfielders', 'Striker': 'Strikers',
+      'Centerbacks': 'Centerbacks', 'Fullbacks': 'Fullbacks', 'Wingers': 'Wingers'
+    };
+
     finalPhotosData.forEach(p => {
-      if (p.NAME && p._URL) {
+      const urlKey = Object.keys(p).find(k => k.includes('_URL'));
+      const url = urlKey ? p[urlKey] : undefined;
+      if (p.NAME && url) {
         const n = robustNormalise(p.NAME);
-        if (n && !state.appData.photoIndex[n]) {
-          state.appData.photoIndex[n] = p._URL;
+        if (n) {
+          state.appData.photoIndex[n] = url;
+          const parts = n.split(' ');
+          if (parts.length > 1) {
+            const short = robustNormalise(`${parts[0][0]}. ${parts[parts.length - 1]}`);
+            state.appData.photoIndex[short] = url;
+          }
         }
+      }
+
+      if (p.Posicion && posMap[p.Posicion]) {
+        state.appData.clusters[posMap[p.Posicion]].push({
+          long_name: p.NAME,
+          overall: p.Overall,
+          cluster_id: p.Cluster_id,
+          photoUrl: url,
+        });
       }
     });
 
@@ -121,16 +110,6 @@ export async function loadData() {
   }
 }
 
-export const fifaToSpanish = {
-  'ARG': 'argentina', 'BRA': 'brasil', 'FRA': 'francia', 'ENG': 'inglaterra', 'ESP': 'espana', 'GER': 'alemania', 'POR': 'portugal',
-  'URU': 'uruguay', 'NED': 'paises bajos', 'CRO': 'croacia', 'JPN': 'japon', 'USA': 'estados unidos', 'MEX': 'mexico', 'MAR': 'marruecos',
-  'COL': 'colombia', 'BEL': 'belgica', 'NOR': 'noruega', 'SEN': 'senegal', 'EGY': 'egipto', 'SWE': 'suecia', 'KOR': 'corea del sur',
-  'TUR': 'turquia', 'SUI': 'suiza', 'CAN': 'canada', 'ECU': 'ecuador', 'AUT': 'austria', 'ALG': 'argelia', 'CIV': 'costa de marfil',
-  'SCO': 'escocia', 'AUS': 'australia', 'GHA': 'ghana', 'KSA': 'arabia saudita', 'PAR': 'paraguay', 'CZE': 'republica checa', 'COD': 'republica democratica del congo',
-  'BIH': 'bosnia y herzegovina', 'CPV': 'cabo verde', 'TUN': 'tunez', 'IRQ': 'irak', 'RSA': 'sudafrica', 'UZB': 'uzbekistan', 'QAT': 'qatar',
-  'NZL': 'nueva zelanda', 'JOR': 'jordania', 'PAN': 'panama', 'HAI': 'haiti', 'CUR': 'curazao'
-};
-
 function mapTeamEstilos(appData) {
   if (!appData || !appData.teams || !appData.estilos) return;
   const normalise = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
@@ -141,7 +120,7 @@ function mapTeamEstilos(appData) {
   });
 
   Object.values(appData.teams).forEach(team => {
-    const key = fifaToSpanish[team.fifa_code] || normalise(team.name);
+    const key = normalise(team.name);
     if (estiloMap[key]) {
       team.tactical_vector = estiloMap[key].vector;
       team.analisis_tactico = estiloMap[key].analisis_tactico;
@@ -160,7 +139,7 @@ let teamStatuses = {};
 export function calculateStandings(groupLetter) {
   if (!state.appData || !state.appData.groups || !state.appData.groups[groupLetter]) return [];
   const groupTeams = state.appData.groups[groupLetter];
-  
+
   const standings = groupTeams.map(code => ({
     code: code,
     name: state.appData.teams[code]?.name || code,
@@ -175,9 +154,9 @@ export function calculateStandings(groupLetter) {
   }));
 
   const simulatedScores = getSimulatedScores();
-  
-  const groupMatches = state.appData.matches.filter(m => 
-    m.stage === 'Group Stage' && 
+
+  const groupMatches = state.appData.matches.filter(m =>
+    m.stage === 'Group Stage' &&
     m.home_team.group === groupLetter &&
     !m.home_team.is_placeholder &&
     !m.away_team.is_placeholder
@@ -195,7 +174,7 @@ export function calculateStandings(groupLetter) {
         homeTeam.gc += score.away;
         awayTeam.gf += score.away;
         awayTeam.gc += score.home;
-        
+
         if (score.home > score.away) {
           homeTeam.pg += 1;
           homeTeam.pts += 3;
@@ -222,7 +201,7 @@ export function calculateStandings(groupLetter) {
     if (b.pts !== a.pts) return b.pts - a.pts;
     if (b.dg !== a.dg) return b.dg - a.dg;
     if (b.gf !== a.gf) return b.gf - a.gf;
-    
+
     const eloA = state.teamElos[a.code] || 1500;
     const eloB = state.teamElos[b.code] || 1500;
     return eloB - eloA;
@@ -236,11 +215,11 @@ export function determineQualificationStatus() {
 
   const simulatedScores = getSimulatedScores();
   const groupLetters = Object.keys(state.appData.groups).sort();
-  
+
   groupLetters.forEach(gKey => {
     const groupTeams = state.appData.groups[gKey];
-    const groupMatches = state.appData.matches.filter(m => 
-      m.stage === 'Group Stage' && 
+    const groupMatches = state.appData.matches.filter(m =>
+      m.stage === 'Group Stage' &&
       m.home_team.group === gKey &&
       !m.home_team.is_placeholder &&
       !m.away_team.is_placeholder
@@ -248,7 +227,7 @@ export function determineQualificationStatus() {
 
     const playedMatches = [];
     const remainingMatches = [];
-    
+
     groupMatches.forEach(m => {
       const score = simulatedScores[m.match_number];
       if (score !== undefined && score.home !== null && score.away !== null) {
@@ -277,16 +256,16 @@ export function determineQualificationStatus() {
       current.push(1);
       generateCombinations(index + 1, current);
       current.pop();
-      
+
       current.push(0);
       generateCombinations(index + 1, current);
       current.pop();
-      
+
       current.push(-1);
       generateCombinations(index + 1, current);
       current.pop();
     }
-    
+
     generateCombinations(0, []);
 
     const teamStats = {};
@@ -404,21 +383,21 @@ export function recalculateTournamentState() {
   // 1. Calculate Group Stage standings and ELO first
   recalculateEloAndMomentum();
   determineQualificationStatus();
-  
+
   if (!state.appData || !state.appData.matches || !state.appData.groups) return;
-  
+
   // 2. Extract classifieds from each group
   const groupLetters = Object.keys(state.appData.groups).sort();
   const groupWinners = {}; // { 'A': 'MEX', ... }
   const groupSeconds = {}; // { 'A': 'RSA', ... }
   const groupThirds = [];  // Array of { code, pts, dg, gf, group: 'A' }
-  
+
   groupLetters.forEach(gKey => {
     const standings = calculateStandings(gKey);
     if (standings.length >= 3) {
       groupWinners[gKey] = standings[0].code;
       groupSeconds[gKey] = standings[1].code;
-      
+
       const third = standings[2];
       groupThirds.push({
         code: third.code,
@@ -429,7 +408,7 @@ export function recalculateTournamentState() {
       });
     }
   });
-  
+
   // Sort thirds to find best 8
   groupThirds.sort((a, b) => {
     if (b.pts !== a.pts) return b.pts - a.pts;
@@ -439,10 +418,10 @@ export function recalculateTournamentState() {
     const eloB = teamElos[b.code] || 1500;
     return eloB - eloA;
   });
-  
+
   const best8Thirds = groupThirds.slice(0, 8);
   const bestThirdGroupLetters = best8Thirds.map(t => t.group).sort().join(''); // e.g. "ABCDEFGH"
-  
+
   // Official FIFA World Cup 48-team contingency table for 12 groups.
   // Below is a robust mapping for the 8 third slots based on the combination of qualifying group letters.
   // Placeholders: 3ABCDF (P75), 3CDFGH (P78), 3CEFHI (P79), 3EHIJK (P80), 3AEHIJ (P81), 3BEFIJ (P82), 3EFGIJ (P85), 3DEIJL (P88).
@@ -457,7 +436,7 @@ export function recalculateTournamentState() {
     { key: '3EFGIJ', matchNum: 85, allowed: ['E', 'F', 'G', 'I', 'J'] },
     { key: '3DEIJL', matchNum: 88, allowed: ['D', 'E', 'I', 'J', 'L'] }
   ];
-  
+
   // Constraint satisfaction solver: matching best thirds to slots
   // Crucial constraint: no team from group X can play the winner of group X.
   // P75 (3ABCDF) plays 1E -> OK to have E
@@ -478,22 +457,22 @@ export function recalculateTournamentState() {
     85: 'B',
     88: 'K'
   };
-  
+
   const assignedThirds = {}; // { matchNum: teamCode }
-  
+
   function backtrack(slotIdx, availableThirds) {
     if (slotIdx === slots.length) return true;
-    
+
     const slot = slots[slotIdx];
     const oppGroup = slotOpps[slot.matchNum];
-    
+
     for (let i = 0; i < availableThirds.length; i++) {
       const third = availableThirds[i];
       // Check if group is allowed in this slot
       const isAllowedGroup = slot.allowed.includes(third.group);
       // Check restriction: cannot play against group winner of their own group
       const violatesOppGroup = third.group === oppGroup;
-      
+
       if (isAllowedGroup && !violatesOppGroup) {
         assignedThirds[slot.matchNum] = third.code;
         const remaining = availableThirds.filter((_, idx) => idx !== i);
@@ -503,7 +482,7 @@ export function recalculateTournamentState() {
         delete assignedThirds[slot.matchNum];
       }
     }
-    
+
     // Fallback: If strict assignment fails, match by order of merit to any allowed slot
     for (let i = 0; i < availableThirds.length; i++) {
       const third = availableThirds[i];
@@ -518,13 +497,13 @@ export function recalculateTournamentState() {
     }
     return false;
   }
-  
+
   backtrack(0, [...best8Thirds]);
-  
+
   // 3. Re-simulate and propagate knockout matches chronologically
   const matchWinners = {}; // { match_number: code }
   const matches = state.appData.matches;
-  
+
   // Group stage matches just fill matchWinners
   matches.forEach(m => {
     if (m.stage === 'Group Stage') {
@@ -538,26 +517,26 @@ export function recalculateTournamentState() {
       }
     }
   });
-  
+
   // Process Round of 32 to Final
   const knockoutMatches = matches.filter(m => m.stage !== 'Group Stage').sort((a, b) => a.match_number - b.match_number);
-  
+
   knockoutMatches.forEach(m => {
     const label = m.match_label; // e.g. "2A vs 2B", "W73 vs W75", "1E vs 3ABCDF"
-    
+
     // Parse home and away placeholders
     let homeCode = null;
     let awayCode = null;
-    
+
     if (label.includes(' vs ')) {
       const [hPart, aPart] = label.split(' vs ');
-      
+
       // Resolve Home Team
       homeCode = resolvePlaceholder(hPart, groupWinners, groupSeconds, assignedThirds, matchWinners, m.match_number, 'home');
       // Resolve Away Team
       awayCode = resolvePlaceholder(aPart, groupWinners, groupSeconds, assignedThirds, matchWinners, m.match_number, 'away');
     }
-    
+
     // Update match team definitions
     if (homeCode) {
       m.home_team.fifa_code = homeCode;
@@ -569,7 +548,7 @@ export function recalculateTournamentState() {
       m.home_team.name = label.split(' vs ')[0] || 'TBD';
       m.home_team.is_placeholder = true;
     }
-    
+
     if (awayCode) {
       m.away_team.fifa_code = awayCode;
       m.away_team.name = state.appData.teams[awayCode]?.name || awayCode;
@@ -580,12 +559,12 @@ export function recalculateTournamentState() {
       m.away_team.name = label.split(' vs ')[1] || 'TBD';
       m.away_team.is_placeholder = true;
     }
-    
+
     // If teams are resolved, calculate dynamic ELO
     if (!m.home_team.is_placeholder && !m.away_team.is_placeholder) {
       m.home_team_elo_pre = teamElos[m.home_team.fifa_code] || 1500;
       m.away_team_elo_pre = teamElos[m.away_team.fifa_code] || 1500;
-      
+
       const score = simulatedScores[m.match_number];
       if (score !== undefined) {
         let winnerCode = null;
@@ -597,23 +576,23 @@ export function recalculateTournamentState() {
           // In case of a draw, use the user's manual selection, or default to home team
           winnerCode = score.winner === 'away' ? m.away_team.fifa_code : m.home_team.fifa_code;
         }
-        
+
         matchWinners[m.match_number] = winnerCode;
-        
+
         // ELO Dynamic update with momentum
         const Wh = winnerCode === m.home_team.fifa_code ? 1.0 : 0.0;
         const Wa = 1.0 - Wh;
         const We_h = 1 / (1 + Math.pow(10, (m.away_team_elo_pre - m.home_team_elo_pre) / 400));
-        
+
         const E_h = Wh - We_h;
         const E_a = Wa - (1.0 - We_h);
-        
+
         let omega = m.stage === 'Semi-finals' || m.stage === 'Final' || m.stage === 'Play-off for third place' ? 2.0 : 1.5;
         const K_base = 32;
         teamElos[m.home_team.fifa_code] = Math.round(m.home_team_elo_pre + K_base * omega * E_h);
         teamElos[m.away_team.fifa_code] = Math.round(m.away_team_elo_pre + K_base * omega * E_a);
       }
-      
+
       m.home_team_elo_post = teamElos[m.home_team.fifa_code] || 1500;
       m.away_team_elo_post = teamElos[m.away_team.fifa_code] || 1500;
     }
@@ -626,24 +605,24 @@ function resolvePlaceholder(placeholder, winners, seconds, thirds, winnersBracke
     const group = placeholder.slice(1);
     return winners[group] || null;
   }
-  
+
   // 2. Group seconds: e.g., "2A"
   if (placeholder.startsWith('2')) {
     const group = placeholder.slice(1);
     return seconds[group] || null;
   }
-  
+
   // 3. Best thirds: e.g., "3ABCDF"
   if (placeholder.startsWith('3')) {
     return thirds[matchNum] || null;
   }
-  
+
   // 4. Bracket winners: e.g., "W73"
   if (placeholder.startsWith('W')) {
     const refNum = parseInt(placeholder.slice(1));
     return winnersBrackets[refNum] || null;
   }
-  
+
   // 5. Bracket runners up (perdedores): e.g., "RU101"
   if (placeholder.startsWith('RU')) {
     const refNum = parseInt(placeholder.slice(2));
@@ -655,66 +634,66 @@ function resolvePlaceholder(placeholder, winners, seconds, thirds, winnersBracke
     }
     return null;
   }
-  
+
   return null;
 }
 
 export function recalculateEloAndMomentum() {
   if (!state.appData || !state.appData.teams || !state.appData.matches) return;
-  
+
   teamElos = {};
   const teamMomentums = {};
-  
+
   Object.keys(state.appData.teams).forEach(code => {
     const t = state.appData.teams[code];
     teamElos[code] = t.metrics?.elo_rating || 1500;
     teamMomentums[code] = 0.0;
   });
-  
+
   const matches = [...state.appData.matches].sort((a, b) => a.match_number - b.match_number);
-  
+
   matches.forEach(m => {
     if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
     if (m.stage !== 'Group Stage') return; // Handled dynamically in recalculateTournamentState
-    
+
     const hCode = m.home_team.fifa_code;
     const aCode = m.away_team.fifa_code;
-    
+
     m.home_team_elo_pre = teamElos[hCode] || 1500;
     m.away_team_elo_pre = teamElos[aCode] || 1500;
-    
+
     const score = simulatedScores[m.match_number];
     if (score !== undefined) {
       const hs = score.home;
       const as = score.away;
-      
+
       const Wh = hs > as ? 1.0 : (hs === as ? 0.5 : 0.0);
       const Wa = 1.0 - Wh;
-      
+
       const R_h = m.home_team_elo_pre;
       const R_a = m.away_team_elo_pre;
-      
+
       const We_h = 1 / (1 + Math.pow(10, (R_a - R_h) / 400));
       const We_a = 1.0 - We_h;
-      
+
       const E_h = Wh - We_h;
       const E_a = Wa - We_a;
-      
+
       const alpha = 0.4;
       const M_h = alpha * E_h + (1 - alpha) * (teamMomentums[hCode] || 0.0);
       const M_a = alpha * E_a + (1 - alpha) * (teamMomentums[aCode] || 0.0);
       teamMomentums[hCode] = M_h;
       teamMomentums[aCode] = M_a;
-      
+
       const K_base = 32;
       const lambda = 0.5;
       const K_h = K_base * (1 + lambda * Math.abs(M_h));
       const K_a = K_base * (1 + lambda * Math.abs(M_a));
-      
+
       teamElos[hCode] = Math.round(R_h + K_h * E_h);
       teamElos[aCode] = Math.round(R_a + K_a * E_a);
     }
-    
+
     m.home_team_elo_post = teamElos[hCode] || 1500;
     m.away_team_elo_post = teamElos[aCode] || 1500;
   });

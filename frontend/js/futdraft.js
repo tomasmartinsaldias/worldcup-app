@@ -1,6 +1,6 @@
 // Lógica del sistema Draft
 
-const draftState = {
+window.draftState = {
   team: null,
   countries: [],
   players: []
@@ -15,13 +15,13 @@ let draftData = {
 let isDraftLoaded = false;
 
 // 1. Fetching Data
-async function initDraftData() {
+window.initDraftData = async function initDraftData() {
   if (isDraftLoaded) return;
   try {
     const [teamsRes, countriesRes, playersRes] = await Promise.all([
-      fetch('/data/data_frontend/teams.json').catch(() => fetch('../data/data_frontend/teams.json')),
-      fetch('/data/data_frontend/countries.json').catch(() => fetch('../data/data_frontend/countries.json')),
-      fetch('/data/data_frontend/players_final.json').catch(() => fetch('../data/data_frontend/players_final.json'))
+      fetch('../data/data_frontend/teams.json'),
+      fetch('../data/data_frontend/countries.json'),
+      fetch('../data/data_frontend/players_final.json')
     ]);
 
     const checkRes = async (res) => {
@@ -322,11 +322,4 @@ window.openDraftOverlay = function() {
   changeDraftStep(1); // Reset to step 1
 }
 
-// Para compatibilidad con el código existente que exporta initDraft/startDraft
-export function initDraft() {
-  // Nada que hacer aquí, se llama a openDraftOverlay desde index.html o consola
-}
-
-export function startDraft(silent = false) {
-  if (!silent) window.openDraftOverlay();
-}
+// End of futdraft.js

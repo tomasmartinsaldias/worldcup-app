@@ -1,4 +1,4 @@
-import { state } from './state.js';
+import { state } from './futstate.js';
 
 // ==========================================
 // CONFIGURACIÓN DE PARÁMETROS Y COEFICIENTES

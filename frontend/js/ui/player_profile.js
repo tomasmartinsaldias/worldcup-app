@@ -1,4 +1,4 @@
-import { state } from '../state.js';
+import { state } from '../futstate.js';
 import { createFlagElement, getPlayerPhotoUrl } from '../utils.js';
 
 export function openPlayerProfile(teamCode, playerId) {
