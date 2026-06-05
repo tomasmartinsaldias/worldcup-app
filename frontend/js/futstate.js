@@ -16,7 +16,12 @@ let userPreferences = {
   w_tactica_cluster: 5,
   w_afectivo_club: 3,
   w_afectivo_seleccion: 4,
-  w_afectivo_jugador: 3
+  w_afectivo_jugador: 3,
+  w_entretenimiento: 5,
+  w_tactica: 5,
+  w_afectivo: 5,
+  w_espectaculo: 5,
+  w_friccion: 5
 };
 
 export async function loadData() {
