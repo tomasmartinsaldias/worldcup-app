@@ -142,8 +142,8 @@ function nextFanaticStep(currentStepNum, btn) {
         if (!cachedWcData) {
           const res = await fetch('data/wc2026_data.json');
           cachedWcData = await res.json();
-          allValidMatches = cachedWcData.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
         }
+        allValidMatches = cachedWcData.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
 
         const rawResults = window.surveyRawResults || { userType: 'casual' };
         const prefs = mapSurveyToPreferences(rawResults);
@@ -192,31 +192,21 @@ function nextFanaticStep(currentStepNum, btn) {
       const container = document.getElementById('recommendations-list');
       container.innerHTML = '';
       
-      const imperdibleIn = [];
-      const imperdibleOut = [];
-      const valeLaPenaIn = [];
-      const valeLaPenaOut = [];
-      const resumenIn = [];
-      const resumenOut = [];
+      const imperdible = [];
+      const valeLaPena = [];
+      const resumen = [];
 
       window.scoredMatches.forEach(item => {
         const pct = Math.min(100, Math.round(item.score * 10));
         
         if (pct >= 80) {
-          if (item.outOfSchedule) imperdibleOut.push(item);
-          else imperdibleIn.push(item);
+          imperdible.push(item);
         } else if (pct >= 50) {
-          if (item.outOfSchedule) valeLaPenaOut.push(item);
-          else valeLaPenaIn.push(item);
+          valeLaPena.push(item);
         } else {
-          if (item.outOfSchedule) resumenOut.push(item);
-          else resumenIn.push(item);
+          resumen.push(item);
         }
       });
-
-      const imperdible = [...imperdibleIn, ...imperdibleOut];
-      const valeLaPena = [...valeLaPenaIn, ...valeLaPenaOut];
-      const resumen = [...resumenIn, ...resumenOut];
 
       const buildCard = (item) => {
         const { match, score, explanation } = item;
