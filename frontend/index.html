@@ -87,17 +87,17 @@
 
       <!-- Paso 1: Pasión vs Espectáculo -->
       <div class="quiz-step survey-step active" id="survey-step-1">
-        <h2 class="quiz-question">¿CÓMO VIVES EL FÚTBOL?</h2>
-        <p class="quiz-desc">A la hora de sentarte a mirar un partido, ¿hacia qué extremo inclinas la balanza?</p>
+        <h2 class="quiz-question">EL IMPACTO DE LA DERROTA</h2>
+        <p class="quiz-desc">Si tu equipo pierde un partido clave, ¿cuánto afecta tu estado de ánimo y tu vida personal?</p>
 
         <div class="slider-wrapper main-slider-wrapper">
           <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-passion"
             oninput="updateSliderText('passion', this.value)">
           <div class="slider-labels">
-            <span class="label-left">Lealtad y Resultado</span>
-            <span class="label-right">Puro Espectáculo</span>
+            <span class="label-left">SE ME PASA RÁPIDO</span>
+            <span class="label-right">ME ARRUINA LA SEMANA</span>
           </div>
-          <div class="dynamic-text-box" id="text-passion">Equilibrio perfecto entre pasión y buen juego.</div>
+          <div class="dynamic-text-box" id="text-passion">Me duele bastante, pero trato de que no me arruine el día.</div>
         </div>
 
         <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
@@ -112,7 +112,7 @@
           <!-- Fricción -->
           <div class="slider-wrapper">
             <div class="slider-labels top-labels">
-              <span><i class="fa-solid fa-shield-halved"></i> Juego Trabado</span>
+              <span><i class="fa-solid fa-shield-halved"></i> Muchas patadas/juego trabado</span>
               <span>Fluido / Limpio <i class="fa-solid fa-wand-magic-sparkles"></i></span>
             </div>
             <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction">
@@ -126,15 +126,15 @@
             </div>
             <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals">
           </div>
-
-          <!-- Equidad -->
-          <div class="slider-wrapper">
+          <!-- Táctica vs Talento -->
+          <div class="slider-wrapper" id="tactics-slider-wrapper">
             <div class="slider-labels top-labels">
-              <span><i class="fa-solid fa-scale-unbalanced"></i> David vs Goliat</span>
-              <span>Choque de Titanes <i class="fa-solid fa-scale-balanced"></i></span>
+              <span><i class="fa-solid fa-chess-board"></i> Prioridad al DT</span>
+              <span>Talento individual <i class="fa-solid fa-users"></i></span>
             </div>
-            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-balance">
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-tactics">
           </div>
+
         </div>
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
@@ -154,19 +154,19 @@
           </p>
           <div class="visual-options-grid">
             <div class="visual-card" onclick="selectVisualOption('q1', 'none', this)"
-              style="background-image: url('data/img/placeholder_stadium_empty.jpg')">
+              style="background: linear-gradient(135deg, #2a0808, #000)">
               <div class="visual-card-overlay">
                 <span>No vería más sus partidos</span>
               </div>
             </div>
             <div class="visual-card" onclick="selectVisualOption('q1', 'less', this)"
-              style="background-image: url('data/img/placeholder_bench.jpg')">
+              style="background: linear-gradient(135deg, #1f1c08, #000)">
               <div class="visual-card-overlay">
                 <span>Lo apoyaría menos / No lo sé</span>
               </div>
             </div>
             <div class="visual-card" onclick="selectVisualOption('q1', 'always', this)"
-              style="background-image: url('data/img/placeholder_fan.jpg')">
+              style="background: linear-gradient(135deg, #082a15, #000)">
               <div class="visual-card-overlay">
                 <span>Seguiría apoyándolo</span>
               </div>
@@ -179,19 +179,19 @@
             que no te importen?</p>
           <div class="visual-options-grid">
             <div class="visual-card" onclick="selectVisualOption('q2', 'spectacle', this)"
-              style="background-image: url('data/img/placeholder_spectacle.jpg')">
+              style="background: linear-gradient(135deg, #0f172a, #000)">
               <div class="visual-card-overlay">
                 <span>Mi equipo no lo es todo</span>
               </div>
             </div>
             <div class="visual-card" onclick="selectVisualOption('q2', 'neutral', this)"
-              style="background-image: url('data/img/placeholder_tv.jpg')">
+              style="background: linear-gradient(135deg, #1e293b, #000)">
               <div class="visual-card-overlay">
                 <span>No sé</span>
               </div>
             </div>
             <div class="visual-card" onclick="selectVisualOption('q2', 'team_always', this)"
-              style="background-image: url('data/img/placeholder_win.jpg')">
+              style="background: linear-gradient(135deg, #330000, #000)">
               <div class="visual-card-overlay">
                 <span>Mi equipo es lo más importante</span>
               </div>
@@ -366,6 +366,7 @@
   <!-- LÓGICA DE UI OVERLAYS -->
   <script src="js/landing-main.js?v=12"></script>
   <script src="js/landing-quiz.js?v=5"></script>
+  <script src="js/futdraft.js?v=1"></script>
   <script src="js/survey.js?v=3"></script>
   <script src="js/particles.js?v=10"></script>
 

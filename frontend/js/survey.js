@@ -12,6 +12,11 @@ window.openSurvey = function(type) {
   survey.classList.remove('hidden');
   survey.classList.add('visible');
   
+  const tacticsSlider = document.getElementById('tactics-slider-wrapper');
+  if (tacticsSlider) {
+    tacticsSlider.style.display = type === 'casual' ? 'none' : 'block';
+  }
+  
   if (window.initDraftData) {
     window.initDraftData();
   }
@@ -63,11 +68,11 @@ window.updateSliderText = function(sliderId, value) {
   let text = '';
 
   if (sliderId === 'passion') {
-    if (val < 20) text = "Solo importa ganar. El juego bonito es secundario.";
-    else if (val < 40) text = "Prefiero ganar, pero que no sea aburrido.";
-    else if (val < 60) text = "Equilibrio perfecto entre pasión y buen juego.";
-    else if (val < 80) text = "Quiero ver show, goles y lujos.";
-    else text = "Fútbol espectáculo total, sin importar el resultado.";
+    if (val < 20) text = "A los 5 minutos ya estoy pensando en otra cosa.";
+    else if (val < 40) text = "Me da bronca un rato, pero no me quita el sueño.";
+    else if (val < 60) text = "Me duele bastante, pero trato de que no me arruine el día.";
+    else if (val < 80) text = "Quedo cruzado de mal humor todo el fin de semana.";
+    else text = "No quiero hablar con nadie, me arruina la semana entera.";
   }
   
   textBox.innerText = text;
@@ -82,6 +87,7 @@ window.finishSurvey = function() {
     passion: document.getElementById('slider-passion') ? document.getElementById('slider-passion').value : null,
     friction: document.getElementById('slider-friction') ? document.getElementById('slider-friction').value : null,
     goals: document.getElementById('slider-goals') ? document.getElementById('slider-goals').value : null,
+    tactics: document.getElementById('slider-tactics') ? document.getElementById('slider-tactics').value : null,
     balance: document.getElementById('slider-balance') ? document.getElementById('slider-balance').value : null,
     q1_player_loyalty: window.surveyData['q1'] || null,
     q2_team_loyalty: window.surveyData['q2'] || null,
