@@ -9840,18 +9840,6 @@
     "equipo": "Manchester United"
   },
   {
-    "NAME": "Emiliano Martínez",
-    "Overall": 85,
-    "_URL": "https://cdn.sofifa.net/players/202/811/26_120.png",
-    "Posicion": "Goalkeeper",
-    "Cluster_id": 3,
-    "Dist_centroid": 1.640372,
-    "edad": 33,
-    "valor_de_mercado": 12.0,
-    "pais": "Uruguay",
-    "equipo": "Palmeiras"
-  },
-  {
     "NAME": "Rodrigo Zalazar",
     "Overall": 79,
     "_URL": "https://cdn.sofifa.net/players/251/377/26_120.png",

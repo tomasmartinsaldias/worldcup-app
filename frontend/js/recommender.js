@@ -99,11 +99,16 @@ export function mapSurveyToPreferences(surveyResults) {
     w_afectivo_club: 3,
     w_afectivo_seleccion,
     w_afectivo_jugador,
-    favoriteTeams: surveyResults.supportedNations || [],
+    favoriteTeams: surveyResults.supportedNations ? surveyResults.supportedNations.map(nation => {
+      if (!state.appData || !state.appData.teams) return nation;
+      const teamEntry = Object.values(state.appData.teams).find(t => t.name.toLowerCase() === nation.toLowerCase());
+      return teamEntry ? teamEntry.fifa_code : nation;
+    }) : [],
     favoriteClubs: surveyResults.favoriteTeam ? [surveyResults.favoriteTeam] : [],
     favoritePlayers: surveyResults.favoritePlayers || [],
     draftedClusters: isCasual ? [] : (state.userPreferences?.draftedClusters || []),
     tacticalVector: state.userPreferences?.tacticalVector || { defensa: 0, posesion: 0, ritmo: 0, ancho: 0 },
+    availableTimeRanges: surveyResults.availableTimeRanges || { morning: false, noon: false, afternoon: false, night: false },
   };
 
   return prefs;
@@ -127,6 +132,13 @@ export function generateRecommendations(userPreferences) {
 
   const teams = state.appData.teams;
   const tacticalVector = userPreferences.tacticalVector;
+  
+  const timeRanges = userPreferences.availableTimeRanges || {
+    morning: false, noon: false, afternoon: false, night: false
+  };
+  
+  // If no time ranges selected, assume available all day
+  const hasTimeConstraint = Object.values(timeRanges).some(v => v === true);
 
   const scored = [];
 
@@ -135,8 +147,30 @@ export function generateRecommendations(userPreferences) {
 
     const score = calculateSmartScore(match, teams, tacticalVector);
     const explanation = getMatchExplanation(match, userPreferences, teams);
+    
+    // Check time availability
+    let outOfSchedule = false;
+    if (hasTimeConstraint && match.kickoff_at) {
+      // Format "2026-07-03 18:00:00-04" -> "2026-07-03T18:00:00-04:00" for strict ISO parsing
+      let dateStr = match.kickoff_at.replace(' ', 'T');
+      if (dateStr.length === 22) dateStr += ':00'; // Append minutes to timezone if missing
+      
+      const dateObj = new Date(dateStr);
+      if (!isNaN(dateObj.getTime())) {
+        const h = dateObj.getHours(); // Local timezone hour
+        let inRange = false;
+        if (timeRanges.morning && h >= 8 && h < 12) inRange = true;
+        if (timeRanges.noon && h >= 12 && h < 16) inRange = true;
+        if (timeRanges.afternoon && h >= 16 && h < 20) inRange = true;
+        if (timeRanges.night && (h >= 20 || h < 8)) inRange = true; // Night catches 20:00 to 07:59
+        
+        if (!inRange) {
+          outOfSchedule = true;
+        }
+      }
+    }
 
-    scored.push({ match, score, explanation });
+    scored.push({ match, score, explanation, outOfSchedule });
   });
 
   // Sort descending by score

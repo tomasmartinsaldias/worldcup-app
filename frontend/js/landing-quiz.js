@@ -154,8 +154,10 @@ function startQuiz(level) {
     let showingAllRecs = false;
 
     async function renderRecommendedCards() {
-      const carousel = document.getElementById('recommendations-carousel');
-      carousel.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">⚽ Analizando tu perfil...</p>';
+      const container = document.getElementById('recommendations-list');
+      if (container) {
+        container.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">⚽ Analizando tu perfil...</p>';
+      }
 
       try {
         const { mapSurveyToPreferences, generateRecommendations } = await import('./recommender.js');
@@ -174,11 +176,13 @@ function startQuiz(level) {
         const scored = generateRecommendations(prefs);
         window.scoredMatches = scored;
         
-        showingAllRecs = false;
-        updateCarouselUI();
+        renderCategorizedResults();
       } catch (err) {
         console.error("Error generating recommendations", err);
-        carousel.innerHTML = '<p>Error al calcular recomendaciones. Por favor reintenta.</p>';
+        const container = document.getElementById('recommendations-list');
+        if (container) {
+          container.innerHTML = '<p>Error al calcular recomendaciones. Por favor reintenta.</p>';
+        }
       }
     }
 
@@ -208,42 +212,42 @@ function startQuiz(level) {
       const venue = match.stadium && match.stadium.venue_name;
       return STADIUM_IMAGES[venue] || STADIUM_FALLBACK;
     }
-
-    function updateCarouselUI() {
-      const carousel = document.getElementById('recommendations-carousel');
-      carousel.innerHTML = '';
+    function renderCategorizedResults() {
+      const container = document.getElementById('recommendations-list');
+      container.innerHTML = '';
       
-      const matchesToShow = showingAllRecs ? window.scoredMatches : window.scoredMatches.slice(0, 4);
+      const imperdibleIn = [];
+      const imperdibleOut = [];
+      const valeLaPenaIn = [];
+      const valeLaPenaOut = [];
+      const resumenIn = [];
+      const resumenOut = [];
 
-      matchesToShow.forEach((item, index) => {
-        const { match, score, explanation } = item;
-        const displayScore = Math.min(100, Math.round(score * 10)); // Convert [0, 10] score to %
-
-        const card = document.createElement('div');
-        card.className = 'rec-card';
-        card.innerHTML = `
-          <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
-          <div class="rec-content">
-            <div class="rec-score">${displayScore}% AFINIDAD</div>
-            <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${explanation}</div>
-            <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
-            <p class="rec-type">${match.stage}</p>
-            <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
-          </div>
-        `;
-        card.onclick = () => openMatchStats(match);
-        carousel.appendChild(card);
+      window.scoredMatches.forEach(item => {
+        const pct = Math.min(100, Math.round(item.score * 10));
+        
+        if (pct >= 80) {
+          if (item.outOfSchedule) imperdibleOut.push(item);
+          else imperdibleIn.push(item);
+        } else if (pct >= 50) {
+          if (item.outOfSchedule) valeLaPenaOut.push(item);
+          else valeLaPenaIn.push(item);
+        } else {
+          if (item.outOfSchedule) resumenOut.push(item);
+          else resumenIn.push(item);
+        }
       });
-      
-      // Duplicate for infinite scroll if showing all
-      if (showingAllRecs) {
-        matchesToShow.forEach((item, index) => {
-          const { match, score, explanation } = item;
-          const displayScore = Math.min(100, Math.round(score * 10));
 
-          const card = document.createElement('div');
-          card.className = 'rec-card';
-          card.innerHTML = `
+      const imperdible = [...imperdibleIn, ...imperdibleOut];
+      const valeLaPena = [...valeLaPenaIn, ...valeLaPenaOut];
+      const resumen = [...resumenIn, ...resumenOut];
+
+      const buildCard = (item) => {
+        const { match, score, explanation } = item;
+        const displayScore = Math.min(100, Math.round(score * 10));
+        const extraClass = item.outOfSchedule ? ' out-of-schedule-card' : '';
+        return `
+          <div class="rec-card${extraClass}" onclick="openMatchStatsById('${match.id}')">
             <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
             <div class="rec-content">
               <div class="rec-score">${displayScore}% AFINIDAD</div>
@@ -251,86 +255,31 @@ function startQuiz(level) {
               <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
               <p class="rec-type">${match.stage}</p>
               <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
+              ${item.outOfSchedule ? '<p style="font-size:0.75rem; color:#ff8888; margin-top:4px;"><i class="fa-solid fa-clock"></i> Fuera de tu horario</p>' : ''}
             </div>
-          `;
-          card.onclick = () => openMatchStats(match);
-          carousel.appendChild(card);
-        });
-      }
-    }
-
-    let autoScrollInterval = null;
-    let scrollSpeed = -1; 
-    
-    function startAutoScroll() {
-      const carousel = document.getElementById('recommendations-carousel');
-      stopAutoScroll();
-      
-      scrollSpeed = 1;
-
-      autoScrollInterval = setInterval(() => {
-        if (showingAllRecs && carousel.classList.contains('expanded-grid')) {
-          carousel.scrollTop += scrollSpeed;
-          
-          // Infinite scroll logic
-          const maxScroll = carousel.scrollHeight / 2;
-          if (carousel.scrollTop >= maxScroll) {
-            carousel.scrollTop -= maxScroll;
-          } else if (carousel.scrollTop <= 0 && scrollSpeed < 0) {
-            carousel.scrollTop += maxScroll;
-          }
-        }
-      }, 20); // Faster tick for smoother movement
-      
-      carousel.onmousemove = (e) => {
-        const rect = carousel.getBoundingClientRect();
-        const y = e.clientY - rect.top;
-        const height = rect.height;
-        
-        const normalizedY = (y / height) - 0.5; 
-        
-        if (Math.abs(normalizedY) < 0.1) {
-          scrollSpeed = 0;
-        } else {
-          scrollSpeed = normalizedY * 20; // Much faster scaling
-        }
+          </div>
+        `;
       };
-      
-      carousel.onmouseleave = () => {
-        scrollSpeed = -1; // Default moving up (scrolling to top)
+
+      const addSection = (title, icon, items, className) => {
+        if (items.length === 0) return;
+        const section = document.createElement('div');
+        section.className = `category-section ${className}`;
+        
+        const gridHtml = items.map(buildCard).join('');
+        
+        section.innerHTML = `
+          <h3 class="category-title"><i class="${icon}"></i> ${title}</h3>
+          <div class="matches-grid">
+            ${gridHtml}
+          </div>
+        `;
+        container.appendChild(section);
       };
-    }
 
-    function stopAutoScroll() {
-      if (autoScrollInterval) clearInterval(autoScrollInterval);
-    }
-
-    function toggleSeeMore() {
-      showingAllRecs = !showingAllRecs;
-      const carousel = document.getElementById('recommendations-carousel');
-      
-      // Smooth fade transition
-      carousel.style.opacity = 0;
-      
-      setTimeout(() => {
-        carousel.classList.toggle('expanded-grid', showingAllRecs);
-        const btn = document.getElementById('btn-see-more');
-        btn.innerText = showingAllRecs ? 'VER MENOS' : 'VER TODOS LOS PARTIDOS';
-        
-        updateCarouselUI();
-        
-        carousel.style.opacity = 1;
-        
-        if (showingAllRecs) {
-          // Start at bottom if default is scroll up, but let's just start at top
-          setTimeout(() => {
-            if (showingAllRecs) startAutoScroll();
-          }, 800);
-        } else {
-          stopAutoScroll();
-          carousel.scrollTop = 0; // Reset scroll
-        }
-      }, 400); // Wait for fade out
+      addSection('Imperdible', 'fa-solid fa-fire', imperdible, 'section-imperdible');
+      addSection('Vale la pena', 'fa-solid fa-thumbs-up', valeLaPena, 'section-valelapena');
+      addSection('Para ver el resumen', 'fa-solid fa-tv', resumen, 'section-resumen');
     }
 
     function openMatchStats(match) {
@@ -381,13 +330,13 @@ function startQuiz(level) {
       document.getElementById('stats-body-content').innerHTML = `
         <div class="stats-teams">
           <div class="stats-team-flag">
-            <img src="${homeFlag}" onerror="this.src='./img/placeholder_flag.png'" alt="${match.home_team.name}">
+            <img src="${homeFlag}" onerror="this.src='./img/placeholder_flag.svg'" alt="${match.home_team.name}">
             <p>${match.home_team.name}</p>
             <span>Grupo ${match.home_team.group}</span>
           </div>
           <div class="vs-badge">VS</div>
           <div class="stats-team-flag">
-            <img src="${awayFlag}" onerror="this.src='./img/placeholder_flag.png'" alt="${match.away_team.name}">
+            <img src="${awayFlag}" onerror="this.src='./img/placeholder_flag.svg'" alt="${match.away_team.name}">
             <p>${match.away_team.name}</p>
             <span>Grupo ${match.away_team.group}</span>
           </div>

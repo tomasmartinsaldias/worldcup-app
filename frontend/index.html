@@ -82,11 +82,47 @@
         <div class="quiz-progress-bar">
           <div class="quiz-progress" id="survey-progress" style="width: 33.3%;"></div>
         </div>
-        <span id="survey-step-text">PASO 1 DE 3</span>
+        <span id="survey-step-text">PASO 1 DE 7</span>
       </div>
 
-      <!-- Paso 1: Pasión vs Espectáculo -->
+      
+      <!-- Paso 1: Disponibilidad Horaria -->
       <div class="quiz-step survey-step active" id="survey-step-1">
+        <h2 class="quiz-question">DISPONIBILIDAD HORARIA</h2>
+        <p class="quiz-desc">¿En qué momentos del día tienes disponibilidad para ver los partidos? Selecciona todos los que apliquen.</p>
+        
+        <div class="time-range-grid">
+          <div class="time-range-card" onclick="toggleTimeRange('morning', this)">
+            <i class="fa-solid fa-sun"></i>
+            <span>Mañana</span>
+            <small>08:00 - 12:00</small>
+          </div>
+          <div class="time-range-card" onclick="toggleTimeRange('noon', this)">
+            <i class="fa-solid fa-mug-hot"></i>
+            <span>Mediodía</span>
+            <small>12:00 - 16:00</small>
+          </div>
+          <div class="time-range-card" onclick="toggleTimeRange('afternoon', this)">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>Tarde</span>
+            <small>16:00 - 20:00</small>
+          </div>
+          <div class="time-range-card" onclick="toggleTimeRange('night', this)">
+            <i class="fa-solid fa-moon"></i>
+            <span>Noche</span>
+            <small>20:00 - 00:00</small>
+          </div>
+        </div>
+
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(0)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
+        </div>
+      </div>
+
+<!-- Paso 1: Pasión vs Espectáculo -->
+      <div class="quiz-step survey-step" id="survey-step-2">
         <h2 class="quiz-question">EL IMPACTO DE LA DERROTA</h2>
         <p class="quiz-desc">Si tu equipo pierde un partido clave, ¿cuánto afecta tu estado de ánimo y tu vida personal?</p>
 
@@ -99,12 +135,15 @@
           </div>
           <div class="dynamic-text-box" id="text-passion">Me duele bastante, pero trato de que no me arruine el día.</div>
         </div>
-
-        <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
+        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
+            onclick="prevSurveyStep(1)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(3)">CONTINUAR</button>
+        </div>
       </div>
 
       <!-- Paso 2: ADN del Partido -->
-      <div class="quiz-step survey-step" id="survey-step-2">
+      <div class="quiz-step survey-step" id="survey-step-3">
         <h2 class="quiz-question">ADN DEL PARTIDO</h2>
         <p class="quiz-desc">El estilo define la grandeza en el campo. ¿Qué prefieres ver?</p>
 
@@ -139,13 +178,13 @@
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(1)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(3)">CONTINUAR</button>
+            onclick="prevSurveyStep(2)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(4)">CONTINUAR</button>
         </div>
       </div>
 
       <!-- Paso 3: Preguntas Visuales -->
-      <div class="quiz-step survey-step" id="survey-step-3">
+      <div class="quiz-step survey-step" id="survey-step-4">
         <h2 class="quiz-question">LEALTAD Y PROTAGONISTAS</h2>
         <p class="quiz-desc">Queremos entender qué tiene más peso para vos: ¿la camiseta o el talento?</p>
 
@@ -201,13 +240,13 @@
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(2)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(4)">CONTINUAR</button>
+            onclick="prevSurveyStep(3)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(5)">CONTINUAR</button>
         </div>
       </div>
 
       <!-- Paso 4: Jugador Favorito -->
-      <div class="quiz-step survey-step" id="survey-step-4">
+      <div class="quiz-step survey-step" id="survey-step-5">
         <h2 class="quiz-question">ELEGIR JUGADORES (MAX 6)</h2>
         <p class="quiz-desc">Conforma tu plantilla de leyendas o elige a tus jugadores favoritos.</p>
 
@@ -222,13 +261,13 @@
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(3)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(5)">CONTINUAR</button>
+            onclick="prevSurveyStep(4)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(6)">CONTINUAR</button>
         </div>
       </div>
 
       <!-- Paso 5: Equipo Favorito -->
-      <div class="quiz-step survey-step" id="survey-step-5">
+      <div class="quiz-step survey-step" id="survey-step-6">
         <h2 class="quiz-question">ELEGIR EQUIPO (MAX 1)</h2>
         <p class="quiz-desc">Ese equipo que seguís todo el año en su liga y torneos continentales.</p>
 
@@ -243,13 +282,13 @@
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(4)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(6)">CONTINUAR</button>
+            onclick="prevSurveyStep(5)">ATRÁS</button>
+          <button class="quiz-btn-next" onclick="nextSurveyStep(7)">CONTINUAR</button>
         </div>
       </div>
 
       <!-- Paso 6: Selecciones que Apoya -->
-      <div class="quiz-step survey-step" id="survey-step-6">
+      <div class="quiz-step survey-step" id="survey-step-7">
         <h2 class="quiz-question">ELEGIR PAÍSES (MAX 4)</h2>
         <p class="quiz-desc">Selecciona los países con mayor impacto emocional o estratégico.</p>
 
@@ -264,7 +303,7 @@
 
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(5)">ATRÁS</button>
+            onclick="prevSurveyStep(6)">ATRÁS</button>
           <button class="quiz-btn-next btn-glow-pulse" onclick="finishSurvey()">CALCULAR MI DESTINO</button>
         </div>
       </div>
@@ -285,16 +324,9 @@
       <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los
         partidos que no puedes perderte.</p>
 
-      <div class="rec-carousel-wrapper" style="overflow-x: auto; padding-bottom: 20px;">
-        <div class="rec-carousel" id="recommendations-carousel"
-          style="display: flex; gap: 20px; transition: all 0.4s ease;">
-          <!-- Cards injected via JS -->
-        </div>
+      <div id="recommendations-list" class="recommendations-list-container">
+        <!-- Categories and Cards injected via JS -->
       </div>
-
-      <button class="quiz-btn-next" id="btn-see-more" onclick="toggleSeeMore()"
-        style="margin-top: 2rem; width: auto; padding: 1rem 3rem; background: linear-gradient(135deg, #f5d061 0%, #8a7330 100%); border: none; border-radius: 30px; font-weight: bold; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(245, 208, 97, 0.4);">VER
-        MÁS PARTIDOS</button>
     </div>
   </div>
 
@@ -365,7 +397,7 @@
 
   <!-- LÓGICA DE UI OVERLAYS -->
   <script src="js/landing-main.js?v=12"></script>
-  <script src="js/landing-quiz.js?v=5"></script>
+  <script src="js/landing-quiz.js?v=6"></script>
   <script src="js/futdraft.js?v=1"></script>
   <script src="js/survey.js?v=3"></script>
   <script src="js/particles.js?v=10"></script>
@@ -375,7 +407,7 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
   <script src="js/scene3D.js?v=13"></script>
-  <script type="module" src="js/ui/futdraft.js?v=12"></script>
+  <script type="module" src="js/ui/futdraft.js?v=13"></script>
 
   <script type="module" charset="utf-8">
     import { loadData } from './js/futstate.js';

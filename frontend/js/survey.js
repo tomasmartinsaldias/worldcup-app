@@ -34,6 +34,13 @@ window.prevSurveyStep = function(stepIndex) {
 };
 
 function changeSurveyStep(stepIndex) {
+  if (stepIndex === 0) {
+    document.getElementById('antigravity-survey').classList.remove('visible');
+    document.getElementById('antigravity-survey').classList.add('hidden');
+    document.getElementById('spectator-selection').classList.add('visible');
+    return;
+  }
+
   document.querySelectorAll('.survey-step').forEach(step => {
     step.classList.remove('active');
   });
@@ -43,7 +50,7 @@ function changeSurveyStep(stepIndex) {
     targetStep.classList.add('active');
   }
   
-  const totalSteps = 6;
+  const totalSteps = 7;
   const progressPercent = (stepIndex / totalSteps) * 100;
   document.getElementById('survey-progress').style.width = `${progressPercent}%`;
   document.getElementById('survey-step-text').innerText = `PASO ${stepIndex} DE ${totalSteps}`;
@@ -78,6 +85,22 @@ window.updateSliderText = function(sliderId, value) {
   textBox.innerText = text;
 };
 
+window.selectedTimeRanges = {
+  morning: false,
+  noon: false,
+  afternoon: false,
+  night: false
+};
+
+window.toggleTimeRange = function(range, element) {
+  window.selectedTimeRanges[range] = !window.selectedTimeRanges[range];
+  if (window.selectedTimeRanges[range]) {
+    element.classList.add('selected');
+  } else {
+    element.classList.remove('selected');
+  }
+};
+
 window.finishSurvey = function() {
   window.surveyData = window.surveyData || {};
   const draftResults = window.draftState || { team: null, countries: [], players: [] };
@@ -99,8 +122,10 @@ window.finishSurvey = function() {
     q2_team_loyalty: window.surveyData['q2'] || null,
     favoritePlayers: resolvedPlayers,
     favoriteTeam: resolvedTeam,
-    supportedNations: resolvedCountries
+    supportedNations: resolvedCountries,
+    availableTimeRanges: window.selectedTimeRanges
   };
+
   
   window.surveyRawResults = results; // Save for recommender.js
   console.log("Encuesta finalizada. Datos guardados en window.surveyRawResults:", results);

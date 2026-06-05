@@ -881,8 +881,23 @@ export function startDraft(isInitial = false, type = null) {
     const overlay = document.createElement('div');
     overlay.className = 'draft-start-overlay';
     overlay.id = 'draft-start-overlay';
-    overlay.innerHTML = `<button class="btn-start-draft" id="btn-start-draft-overlay">Empezar FUT Draft</button>`;
+    overlay.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+        <button class="btn-start-draft" id="btn-start-draft-overlay">Empezar FUT Draft</button>
+        <button id="btn-skip-draft-overlay" style="background: transparent; color: #888; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.9rem; text-decoration: underline; padding: 0.5rem;">Saltar Draft</button>
+      </div>
+    `;
     pitch.appendChild(overlay);
+
+    document.getElementById('btn-skip-draft-overlay').addEventListener('click', () => {
+      document.getElementById('draft-template').classList.remove('visible');
+      document.getElementById('draft-template').classList.add('hidden');
+      if (typeof window.showRecommendations === 'function') {
+        window.showRecommendations();
+      } else if (window.applyDraftTactics) {
+        window.applyDraftTactics({ pace: 50, passing: 50, defending: 50 });
+      }
+    });
 
     document.getElementById('btn-start-draft-overlay').addEventListener('click', () => {
       const btn = document.getElementById('btn-start-draft-overlay');
