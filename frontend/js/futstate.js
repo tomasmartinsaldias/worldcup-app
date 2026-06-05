@@ -11,7 +11,9 @@ let userPreferences = {
   spectacleWeight: 0.5,
   // dramaBonus: -1 (no gusta fricción) | 0 (indiferente) | +1 (gusta fricción)
   // Controla si el FriccionScore suma o resta al SmartScore final
-  dramaBonus: 0
+  dramaBonus: 0,
+  w_tactica_estilo: 5,
+  w_tactica_cluster: 5
 };
 
 export async function loadData() {
