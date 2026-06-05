@@ -123,18 +123,37 @@
 
 <!-- Paso 1: Pasión vs Espectáculo -->
       <div class="quiz-step survey-step" id="survey-step-2">
-        <h2 class="quiz-question">EL IMPACTO DE LA DERROTA</h2>
-        <p class="quiz-desc">Si tu equipo pierde un partido clave, ¿cuánto afecta tu estado de ánimo y tu vida personal?</p>
+        <h2 class="quiz-question">PASIÓN Y ENTRETENIMIENTO</h2>
+        <p class="quiz-desc">Queremos entender qué te motiva a ver fútbol.</p>
 
-        <div class="slider-wrapper main-slider-wrapper">
-          <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-passion"
-            oninput="updateSliderText('passion', this.value)">
-          <div class="slider-labels">
-            <span class="label-left">SE ME PASA RÁPIDO</span>
-            <span class="label-right">ME ARRUINA LA SEMANA</span>
+        <div class="sliders-group">
+          <!-- Pasión (El impacto de la derrota) -->
+          <div class="slider-wrapper">
+            <div style="font-size:0.9rem; color:#aaa; margin-bottom: 6px; font-weight: bold; font-family: Outfit;">EL IMPACTO DE LA DERROTA</div>
+            <p style="font-size:0.75rem; color:#888; margin-top:0; margin-bottom:12px; font-family: Inter;">Si tu equipo pierde un partido clave, ¿cuánto afecta tu estado de ánimo?</p>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-passion"
+              oninput="updateSliderText('passion', this.value)">
+            <div class="slider-labels">
+              <span class="label-left" style="font-size:0.75rem;">SE ME PASA RÁPIDO</span>
+              <span class="label-right" style="font-size:0.75rem;">ME ARRUINA LA SEMANA</span>
+            </div>
+            <div class="dynamic-text-box" id="text-passion" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Me duele bastante, pero trato de que no me arruine el día.</div>
           </div>
-          <div class="dynamic-text-box" id="text-passion">Me duele bastante, pero trato de que no me arruine el día.</div>
+
+          <!-- Si no juegan los tuyos -->
+          <div class="slider-wrapper" style="margin-top: 2rem;">
+            <div style="font-size:0.9rem; color:#aaa; margin-bottom: 6px; font-weight: bold; font-family: Outfit;">SI NO JUEGAN LOS TUYOS</div>
+            <p style="font-size:0.75rem; color:#888; margin-top:0; margin-bottom:12px; font-family: Inter;">Cuando tu equipo o tus jugadores favoritos no están en cancha, ¿lo mirás igual?</p>
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-neutral-interest"
+              oninput="updateSliderText('neutral-interest', this.value)">
+            <div class="slider-labels">
+              <span class="label-left" style="font-size:0.75rem;">NO LO MIRO</span>
+              <span class="label-right" style="font-size:0.75rem;">ME ENGANCHO IGUAL</span>
+            </div>
+            <div class="dynamic-text-box" id="text-neutral-interest" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Depende de qué tan importante sea el partido.</div>
+          </div>
         </div>
+
         <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
           <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
             onclick="prevSurveyStep(1)">ATRÁS</button>
@@ -319,6 +338,9 @@
     <button class="btn-back-minimal" onclick="returnToHomepage()">
       <i class="fa-solid fa-arrow-left"></i> VOLVER AL INICIO
     </button>
+    <button class="btn-settings-minimal" onclick="openRecSettings()" style="position: absolute; right: 2rem; top: 2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-family: 'Outfit'; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; z-index: 10;">
+      <i class="fa-solid fa-gear"></i> AJUSTES DE ALGORITMO
+    </button>
     <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center;">
       <h2 class="overlay-title" style="font-size: 2.2rem;">TU DESTINO MUNDIALISTA</h2>
       <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los
@@ -326,6 +348,144 @@
 
       <div id="recommendations-list" class="recommendations-list-container">
         <!-- Categories and Cards injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CONFIGURACIÓN DE RECOMENDACIONES -->
+  <div id="rec-settings-modal" class="ui-overlay hidden" style="z-index: 30;">
+    <div class="stats-modal" style="background: #11141a; border: 1px solid #2a2e35; padding: 2.5rem; border-radius: 16px; max-width: 800px; width: 95%; position: relative; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;">
+      <button class="stats-close" onclick="closeRecSettings()" style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
+      
+      <div class="stats-header" style="margin-bottom: 1.5rem; border-bottom: 1px solid #2a2e35; padding-bottom: 1rem;">
+        <h2 style="font-family: 'Outfit'; font-size: 1.6rem; color: #fff; display: flex; align-items: center; gap: 10px; margin: 0;">
+          <i class="fa-solid fa-gears" style="color: #0088ff;"></i> Personalizar Recomendaciones
+        </h2>
+      </div>
+
+      <!-- Settings Tabs Navigation -->
+      <div class="settings-tabs" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem;">
+        <button class="settings-tab-btn active" onclick="switchRecSettingsTab('weights')" id="tab-btn-weights" style="background: transparent; border: none; color: #0088ff; font-family: 'Outfit'; font-size: 1rem; font-weight: bold; cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid #0088ff; transition: all 0.3s;">
+          <i class="fa-solid fa-sliders"></i> Pesos de Algoritmo
+        </button>
+        <button class="settings-tab-btn" onclick="switchRecSettingsTab('simulation')" id="tab-btn-simulation" style="background: transparent; border: none; color: #888; font-family: 'Outfit'; font-size: 1rem; font-weight: bold; cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid transparent; transition: all 0.3s;">
+          <i class="fa-solid fa-circle-play"></i> Simulación y Resultados
+        </button>
+      </div>
+
+      <!-- Tab Content: Weights -->
+      <div id="settings-tab-weights" class="settings-tab-content" style="flex-grow: 1; overflow-y: auto; padding-right: 5px;">
+        <!-- Macros -->
+        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #0088ff; margin-top: 0; margin-bottom: 1rem;">PESOS MACRO (Afinidad General)</h3>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-bottom: 2rem; background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span style="color: #eee;">🍿 Entretenimiento (Espectáculo/Fricción):</span>
+              <strong id="val-macro-ent">5</strong>
+            </div>
+            <input type="range" id="input-macro-ent" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-ent', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span style="color: #eee;">🧠 Táctica (Estilo/Clusters):</span>
+              <strong id="val-macro-tac">5</strong>
+            </div>
+            <input type="range" id="input-macro-tac" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-tac', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span style="color: #eee;">❤️ Afectivo (Clubes/Selecciones/Jugadores):</span>
+              <strong id="val-macro-afec">5</strong>
+            </div>
+            <input type="range" id="input-macro-afec" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-afec', this.value)" style="width: 100%;">
+          </div>
+        </div>
+
+        <!-- Micros -->
+        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #0088ff; margin-bottom: 1rem;">PESOS MICRO (Detalle de Componentes)</h3>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.2rem; background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+          <!-- Entretenimiento Sub-weights -->
+          <div style="font-weight: bold; font-size: 0.85rem; color: #888; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">Sub-pesos Entretenimiento</div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Goles/Ocasiones (Espectáculo):</span>
+              <strong id="val-micro-esp">5</strong>
+            </div>
+            <input type="range" id="input-micro-esp" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-esp', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Fricción (Tarjetas/Intensidad):</span>
+              <strong id="val-micro-fric">5</strong>
+            </div>
+            <input type="range" id="input-micro-fric" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-fric', this.value)" style="width: 100%;">
+          </div>
+
+          <!-- Táctica Sub-weights -->
+          <div style="font-weight: bold; font-size: 0.85rem; color: #888; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px; margin-top: 10px;">Sub-pesos Táctica</div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Estilo de Juego (Vectores):</span>
+              <strong id="val-micro-testilo">5</strong>
+            </div>
+            <input type="range" id="input-micro-testilo" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-testilo', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Similitud de Clusters:</span>
+              <strong id="val-micro-tcluster">5</strong>
+            </div>
+            <input type="range" id="input-micro-tcluster" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-tcluster', this.value)" style="width: 100%;">
+          </div>
+
+          <!-- Afectivo Sub-weights -->
+          <div style="font-weight: bold; font-size: 0.85rem; color: #888; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px; margin-top: 10px;">Sub-pesos Afectivo</div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Club Favorito:</span>
+              <strong id="val-micro-aclub">3</strong>
+            </div>
+            <input type="range" id="input-micro-aclub" min="0" max="10" step="1" value="3" oninput="updateSettingValue('micro-aclub', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Selección Favorita:</span>
+              <strong id="val-micro-asel">4</strong>
+            </div>
+            <input type="range" id="input-micro-asel" min="0" max="10" step="1" value="4" oninput="updateSettingValue('micro-asel', this.value)" style="width: 100%;">
+          </div>
+          <div class="slider-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
+              <span>Jugador Favorito:</span>
+              <strong id="val-micro-ajug">3</strong>
+            </div>
+            <input type="range" id="input-micro-ajug" min="0" max="10" step="1" value="3" oninput="updateSettingValue('micro-ajug', this.value)" style="width: 100%;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Simulation -->
+      <div id="settings-tab-simulation" class="settings-tab-content hidden" style="flex-grow: 1; display: flex; flex-direction: column; overflow: hidden;">
+        <!-- Control buttons -->
+        <div class="sim-actions" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); align-items: center;">
+          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j1')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J1</button>
+          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j2')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J2</button>
+          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j3')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J3</button>
+          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('remaining')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #0088ff; border-color: #0088ff; color: #fff;">Simular Restantes</button>
+          <button class="btn-mundial btn-mundial--outline" onclick="runRecSimulation('reset')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; border-color: rgba(232, 35, 26, 0.4); color: #ff3b30; font-weight: bold; background: transparent;">Limpiar</button>
+          <span style="margin-left: auto; display: flex; align-items: center; font-size: 0.8rem; color: #aaa;" id="rec-sim-status-label">Simulados: 0 / 104</span>
+        </div>
+
+        <!-- Match list for manual inputs -->
+        <div style="flex-grow: 1; overflow-y: auto; padding: 10px; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; background: rgba(0,0,0,0.2);" id="rec-sim-matches-list">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid #2a2e35; padding-top: 1.2rem;">
+        <button class="btn-mundial btn-mundial--outline" onclick="closeRecSettings()" style="padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: bold; cursor: pointer; background: transparent; color: white; border-color: #555;">Cancelar</button>
+        <button class="btn-mundial btn-mundial--green" onclick="saveRecSettings()" style="padding: 0.6rem 2rem; border-radius: 30px; font-weight: bold; background: #0088ff; border-color: #0088ff; color: #fff; cursor: pointer;">Guardar y Recalcular</button>
       </div>
     </div>
   </div>

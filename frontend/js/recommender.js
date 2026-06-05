@@ -50,7 +50,7 @@ export function mapSurveyToPreferences(surveyResults) {
   else if (goals < 70) w_espectaculo = 5;
   else w_espectaculo = 8;
 
-  // 4. Q2 adjustments to espectaculo and seleccion weights
+  // 4. Q2 adjustments to espectaculo and seleccion weights (Restored)
   let w_afectivo_seleccion = 4;
   if (surveyResults.q2_team_loyalty === 'team_always') {
     w_afectivo_seleccion = 7;
@@ -59,6 +59,13 @@ export function mapSurveyToPreferences(surveyResults) {
     w_afectivo_seleccion = 2;
     w_espectaculo = Math.min(10, w_espectaculo + 1);
   }
+
+  // 4.5. Neutral Interest Slider -> w_entretenimiento
+  const neutralInterest = parseInt(surveyResults.neutralInterest) || 50;
+  let w_entretenimiento = 5;
+  if (neutralInterest < 30) w_entretenimiento = 2;
+  else if (neutralInterest < 70) w_entretenimiento = 5;
+  else w_entretenimiento = 8;
 
   // 5. Q1 → w_afectivo_jugador (player loyalty)
   let w_afectivo_jugador = 3;
@@ -89,11 +96,13 @@ export function mapSurveyToPreferences(surveyResults) {
 
   // Build preferences object
   const prefs = {
+    w_entretenimiento,
     w_espectaculo,
     w_tactica,
     w_afectivo,
     w_friccion,
     frictionPreference,
+    friction,
     w_tactica_estilo,
     w_tactica_cluster,
     w_afectivo_club: 3,
@@ -110,6 +119,10 @@ export function mapSurveyToPreferences(surveyResults) {
     tacticalVector: state.userPreferences?.tacticalVector || { defensa: 0, posesion: 0, ritmo: 0, ancho: 0 },
     availableTimeRanges: surveyResults.availableTimeRanges || { morning: false, noon: false, afternoon: false, night: false },
   };
+
+  if (window.customWeights) {
+    Object.assign(prefs, window.customWeights);
+  }
 
   return prefs;
 }

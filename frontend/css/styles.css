@@ -711,3 +711,82 @@
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
+
+/* RECOMMENDATIONS SETTINGS MODAL STYLING */
+.btn-settings-minimal:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+}
+.btn-settings-minimal:active {
+  transform: translateY(0);
+}
+
+.settings-tab-btn:hover {
+  color: #0088ff !important;
+}
+
+.slider-group input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  transition: background 0.3s;
+}
+.slider-group input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.slider-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0088ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 136, 255, 0.5);
+  transition: transform 0.1s;
+}
+.slider-group input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+#settings-tab-weights::-webkit-scrollbar,
+#settings-tab-simulation::-webkit-scrollbar,
+#rec-sim-matches-list::-webkit-scrollbar {
+  width: 6px;
+}
+#settings-tab-weights::-webkit-scrollbar-track,
+#settings-tab-simulation::-webkit-scrollbar-track,
+#rec-sim-matches-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+#settings-tab-weights::-webkit-scrollbar-thumb,
+#settings-tab-simulation::-webkit-scrollbar-thumb,
+#rec-sim-matches-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+#settings-tab-weights::-webkit-scrollbar-thumb:hover,
+#settings-tab-simulation::-webkit-scrollbar-thumb:hover,
+#rec-sim-matches-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#rec-sim-matches-list input[type="number"]::-webkit-inner-spin-button,
+#rec-sim-matches-list input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#rec-sim-matches-list input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide inactive settings tab contents */
+.settings-tab-content.hidden {
+  display: none !important;
+}

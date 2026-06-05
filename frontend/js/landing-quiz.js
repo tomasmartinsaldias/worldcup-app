@@ -517,4 +517,379 @@ window.nextFanaticStep = nextFanaticStep;
 window.openMatchStats = openMatchStats;
 window.openMatchStatsById = openMatchStatsById;
 window.closeMatchStats = closeMatchStats;
+
+// --- RECOMENDACIONES CONFIGURATION MODAL ---
+function openRecSettings() {
+  const modal = document.getElementById('rec-settings-modal');
+  if (!modal) return;
+
+  const userPref = state.userPreferences || {};
+
+  // If customWeights doesn't exist yet, populate it from userPref
+  if (!window.customWeights) {
+    window.customWeights = {
+      w_entretenimiento: userPref.w_entretenimiento ?? 5,
+      w_tactica: userPref.w_tactica ?? 5,
+      w_afectivo: userPref.w_afectivo ?? 5,
+      w_espectaculo: userPref.w_espectaculo ?? 5,
+      w_friccion: userPref.w_friccion ?? 5,
+      w_tactica_estilo: userPref.w_tactica_estilo ?? 5,
+      w_tactica_cluster: userPref.w_tactica_cluster ?? 5,
+      w_afectivo_club: userPref.w_afectivo_club ?? 3,
+      w_afectivo_seleccion: userPref.w_afectivo_seleccion ?? 4,
+      w_afectivo_jugador: userPref.w_afectivo_jugador ?? 3,
+    };
+  }
+
+  // Populate sliders and labels
+  const mapping = {
+    'macro-ent': 'w_entretenimiento',
+    'macro-tac': 'w_tactica',
+    'macro-afec': 'w_afectivo',
+    'micro-esp': 'w_espectaculo',
+    'micro-fric': 'w_friccion',
+    'micro-testilo': 'w_tactica_estilo',
+    'micro-tcluster': 'w_tactica_cluster',
+    'micro-aclub': 'w_afectivo_club',
+    'micro-asel': 'w_afectivo_seleccion',
+    'micro-ajug': 'w_afectivo_jugador'
+  };
+
+  for (const [htmlId, key] of Object.entries(mapping)) {
+    const input = document.getElementById(`input-${htmlId}`);
+    const label = document.getElementById(`val-${htmlId}`);
+    if (input) input.value = window.customWeights[key];
+    if (label) label.innerText = window.customWeights[key];
+  }
+
+  // Set default tab
+  switchRecSettingsTab('weights');
+
+  // Render simulation list
+  renderRecSimulationMatches();
+
+  modal.classList.add('visible');
+}
+
+function closeRecSettings() {
+  const modal = document.getElementById('rec-settings-modal');
+  if (modal) modal.classList.remove('visible');
+}
+
+function switchRecSettingsTab(tabName) {
+  const tabWeightsBtn = document.getElementById('tab-btn-weights');
+  const tabSimBtn = document.getElementById('tab-btn-simulation');
+  const tabWeightsContent = document.getElementById('settings-tab-weights');
+  const tabSimContent = document.getElementById('settings-tab-simulation');
+
+  if (tabName === 'weights') {
+    tabWeightsBtn.classList.add('active');
+    tabWeightsBtn.style.color = '#0088ff';
+    tabWeightsBtn.style.borderBottomColor = '#0088ff';
+    
+    tabSimBtn.classList.remove('active');
+    tabSimBtn.style.color = '#888';
+    tabSimBtn.style.borderBottomColor = 'transparent';
+
+    tabWeightsContent.classList.remove('hidden');
+    tabSimContent.classList.add('hidden');
+  } else {
+    tabSimBtn.classList.add('active');
+    tabSimBtn.style.color = '#0088ff';
+    tabSimBtn.style.borderBottomColor = '#0088ff';
+    
+    tabWeightsBtn.classList.remove('active');
+    tabWeightsBtn.style.color = '#888';
+    tabWeightsBtn.style.borderBottomColor = 'transparent';
+
+    tabSimContent.classList.remove('hidden');
+    tabWeightsContent.classList.add('hidden');
+  }
+}
+
+function updateSettingValue(id, value) {
+  const label = document.getElementById(`val-${id}`);
+  if (label) label.innerText = value;
+}
+
+function saveRecSettings() {
+  const mapping = {
+    'macro-ent': 'w_entretenimiento',
+    'macro-tac': 'w_tactica',
+    'macro-afec': 'w_afectivo',
+    'micro-esp': 'w_espectaculo',
+    'micro-fric': 'w_friccion',
+    'micro-testilo': 'w_tactica_estilo',
+    'micro-tcluster': 'w_tactica_cluster',
+    'micro-aclub': 'w_afectivo_club',
+    'micro-asel': 'w_afectivo_seleccion',
+    'micro-ajug': 'w_afectivo_jugador'
+  };
+
+  const custom = {};
+  for (const [htmlId, key] of Object.entries(mapping)) {
+    const input = document.getElementById(`input-${htmlId}`);
+    if (input) {
+      custom[key] = parseInt(input.value);
+    }
+  }
+
+  window.customWeights = custom;
+
+  closeRecSettings();
+
+  // Re-render recommended cards!
+  renderRecommendedCards();
+}
+
+function renderRecSimulationMatches() {
+  const listContainer = document.getElementById('rec-sim-matches-list');
+  if (!listContainer) return;
+
+  if (!cachedWcData || !cachedWcData.matches) {
+    listContainer.innerHTML = '<p style="text-align:center; color:#aaa; font-family:Outfit;">Cargando partidos...</p>';
+    return;
+  }
+
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const totalMatches = cachedWcData.matches.length;
+  const playedCount = Object.keys(simulatedScores).length;
+
+  const statusLabel = document.getElementById('rec-sim-status-label');
+  if (statusLabel) {
+    statusLabel.innerText = `Simulados: ${playedCount} / ${totalMatches}`;
+  }
+
+  const validMatches = cachedWcData.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
+  
+  let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
+  validMatches.forEach(m => {
+    const score = simulatedScores[m.match_number] || { home: '', away: '' };
+    const homeName = m.home_team.name;
+    const awayName = m.away_team.name;
+    const homeFlag = `https://flagcdn.com/w40/${getCountryIsoCode(m.home_team.fifa_code)}.png`;
+    const awayFlag = `https://flagcdn.com/w40/${getCountryIsoCode(m.away_team.fifa_code)}.png`;
+
+    html += `
+      <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03); font-size: 0.85rem; font-family: Outfit;">
+        <div style="flex: 1; color: #888; font-size: 0.75rem;">#${m.match_number} (${m.stage})</div>
+        <div style="flex: 2; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+          <span>${homeName}</span>
+          <img src="${homeFlag}" onerror="this.src='./img/placeholder_flag.png'" style="width: 20px; border-radius: 2px;">
+        </div>
+        <div style="display: flex; align-items: center; gap: 4px; margin: 0 10px;">
+          <input type="number" min="0" max="99" value="${score.home !== null && score.home !== undefined ? score.home : ''}" onchange="changeRecMatchScore(${m.match_number}, 'home', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
+          <span style="color:#555;">:</span>
+          <input type="number" min="0" max="99" value="${score.away !== null && score.away !== undefined ? score.away : ''}" onchange="changeRecMatchScore(${m.match_number}, 'away', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
+        </div>
+        <div style="flex: 2; display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
+          <img src="${awayFlag}" onerror="this.src='./img/placeholder_flag.png'" style="width: 20px; border-radius: 2px;">
+          <span>${awayName}</span>
+        </div>
+      </div>
+    `;
+  });
+  html += '</div>';
+
+  listContainer.innerHTML = html;
+}
+
+function changeRecMatchScore(matchNumber, team, val) {
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const current = simulatedScores[matchNumber] || { home: null, away: null };
+
+  if (val === '') {
+    current[team] = null;
+  } else {
+    current[team] = parseInt(val);
+  }
+
+  if (current.home === null || current.away === null || isNaN(current.home) || isNaN(current.away)) {
+    if (window.saveSimulatedScore) {
+      window.saveSimulatedScore(matchNumber, null, null);
+    } else {
+      delete simulatedScores[matchNumber];
+      localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+    }
+  } else {
+    if (window.saveSimulatedScore) {
+      window.saveSimulatedScore(matchNumber, current.home, current.away);
+    } else {
+      simulatedScores[matchNumber] = current;
+      localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+    }
+  }
+
+  if (window.recalculateTournamentState) window.recalculateTournamentState();
+  if (window.recalculateAndRender) window.recalculateAndRender();
+
+  // Re-render status label
+  const updatedSimulated = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const totalMatches = cachedWcData.matches.length;
+  const playedCount = Object.keys(updatedSimulated).length;
+  const statusLabel = document.getElementById('rec-sim-status-label');
+  if (statusLabel) {
+    statusLabel.innerText = `Simulados: ${playedCount} / ${totalMatches}`;
+  }
+}
+
+function runRecSimulation(action) {
+  if (action === 'reset') {
+    if (confirm('¿Estás seguro de que quieres borrar todos los marcadores simulados?')) {
+      if (window.clearAllSimulatedScores) {
+        window.clearAllSimulatedScores();
+      } else {
+        localStorage.removeItem('simulatedScores');
+      }
+      if (window.recalculateTournamentState) window.recalculateTournamentState();
+      if (window.recalculateAndRender) window.recalculateAndRender();
+      renderRecSimulationMatches();
+    }
+  } else if (action === 'j1') {
+    simulateRecRound(1);
+    renderRecSimulationMatches();
+  } else if (action === 'j2') {
+    simulateRecRound(2);
+    renderRecSimulationMatches();
+  } else if (action === 'j3') {
+    simulateRecRound(3);
+    renderRecSimulationMatches();
+  } else if (action === 'remaining') {
+    simulateRecRemainingMatches();
+    renderRecSimulationMatches();
+  }
+}
+
+function simulateRecRound(roundNumber) {
+  if (!cachedWcData || !cachedWcData.matches) return;
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  let count = 0;
+
+  if (window.recalculateTournamentState) window.recalculateTournamentState();
+
+  const sortedMatches = [...cachedWcData.matches].sort((a, b) => a.match_number - b.match_number);
+  let minMatch = 1;
+  let maxMatch = 72;
+  if (roundNumber === 1) {
+    minMatch = 1;
+    maxMatch = 24;
+  } else if (roundNumber === 2) {
+    minMatch = 25;
+    maxMatch = 48;
+  } else if (roundNumber === 3) {
+    minMatch = 49;
+    maxMatch = 72;
+  }
+
+  sortedMatches.forEach(m => {
+    if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
+    if (m.match_number < minMatch || m.match_number > maxMatch) return;
+    if (simulatedScores[m.match_number] !== undefined) return;
+
+    const hCode = m.home_team.fifa_code;
+    const aCode = m.away_team.fifa_code;
+    const eloH = (state.teamElos && state.teamElos[hCode]) || 1500;
+    const eloA = (state.teamElos && state.teamElos[aCode]) || 1500;
+
+    const diff = (eloH - eloA) / 400;
+    const We_h = 1 / (1 + Math.pow(10, -diff));
+    const P_draw = 0.26;
+    const P_home = 0.74 * We_h;
+    const r = Math.random();
+
+    let scoreHome = 0;
+    let scoreAway = 0;
+    if (r < P_home) {
+      scoreHome = Math.floor(Math.random() * 3) + 1;
+      scoreAway = Math.floor(Math.random() * scoreHome);
+    } else if (r < P_home + P_draw) {
+      scoreHome = Math.floor(Math.random() * 3);
+      scoreAway = scoreHome;
+    } else {
+      scoreAway = Math.floor(Math.random() * 3) + 1;
+      scoreHome = Math.floor(Math.random() * scoreAway);
+    }
+
+    simulatedScores[m.match_number] = { home: scoreHome, away: scoreAway };
+    count++;
+  });
+
+  if (count > 0) {
+    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+    if (window.recalculateTournamentState) window.recalculateTournamentState();
+    if (window.recalculateAndRender) window.recalculateAndRender();
+    alert(`¡Simulados con éxito ${count} partidos de la Jornada ${roundNumber} usando pesos ELO!`);
+  } else {
+    alert(`Todos los partidos de la Jornada ${roundNumber} ya tienen marcadores cargados.`);
+  }
+}
+
+function simulateRecRemainingMatches() {
+  if (!cachedWcData || !cachedWcData.matches) return;
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  let count = 0;
+
+  const sortedMatches = [...cachedWcData.matches].sort((a, b) => a.match_number - b.match_number);
+
+  sortedMatches.forEach(m => {
+    if (window.recalculateTournamentState) window.recalculateTournamentState();
+
+    if (m.home_team.is_placeholder || m.away_team.is_placeholder) return;
+    if (simulatedScores[m.match_number] !== undefined) return;
+
+    const hCode = m.home_team.fifa_code;
+    const aCode = m.away_team.fifa_code;
+    const eloH = (state.teamElos && state.teamElos[hCode]) || 1500;
+    const eloA = (state.teamElos && state.teamElos[aCode]) || 1500;
+
+    const diff = (eloH - eloA) / 400;
+    const We_h = 1 / (1 + Math.pow(10, -diff));
+    const P_draw = 0.26;
+    const P_home = 0.74 * We_h;
+    const r = Math.random();
+
+    let scoreHome = 0;
+    let scoreAway = 0;
+    if (r < P_home) {
+      scoreHome = Math.floor(Math.random() * 3) + 1;
+      scoreAway = Math.floor(Math.random() * scoreHome);
+    } else if (r < P_home + P_draw) {
+      scoreHome = Math.floor(Math.random() * 3);
+      scoreAway = scoreHome;
+    } else {
+      scoreAway = Math.floor(Math.random() * 3) + 1;
+      scoreHome = Math.floor(Math.random() * scoreAway);
+    }
+
+    if (m.stage !== 'Group Stage') {
+      if (scoreHome === scoreAway) {
+        const winnerWinner = Math.random() < We_h ? 'home' : 'away';
+        simulatedScores[m.match_number] = { home: scoreHome, away: scoreAway, winner: winnerWinner };
+      } else {
+        simulatedScores[m.match_number] = { home: scoreHome, away: scoreAway };
+      }
+    } else {
+      simulatedScores[m.match_number] = { home: scoreHome, away: scoreAway };
+    }
+    count++;
+  });
+
+  if (count > 0) {
+    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+    if (window.recalculateTournamentState) window.recalculateTournamentState();
+    if (window.recalculateAndRender) window.recalculateAndRender();
+    alert(`¡Simulados con éxito ${count} partidos restantes usando pesos ELO!`);
+  } else {
+    alert('Todos los partidos ya tienen marcadores cargados.');
+  }
+}
+
+// Bind modal functions to window object
+window.openRecSettings = openRecSettings;
+window.closeRecSettings = closeRecSettings;
+window.switchRecSettingsTab = switchRecSettingsTab;
+window.updateSettingValue = updateSettingValue;
+window.saveRecSettings = saveRecSettings;
+window.runRecSimulation = runRecSimulation;
+window.changeRecMatchScore = changeRecMatchScore;
   

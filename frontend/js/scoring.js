@@ -600,5 +600,15 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     }
   };
 
-  return parseFloat(Math.min(10.0, Math.max(0.0, combinedScore)).toFixed(1));
+  let score = combinedScore;
+  const rawFriction = userPref.friction ?? 50;
+  const fMultiplier = (Math.abs(rawFriction - 50) / 50) * 0.3;
+  if (fMultiplier > 0) {
+    const isCleanPlay = rawFriction > 50;
+    const effect = isCleanPlay ? (0.5 - dramaMatch) : (dramaMatch - 0.5);
+    const bonus = 2 * effect * fMultiplier;
+    score += bonus;
+  }
+
+  return parseFloat(Math.min(10.0, Math.max(1.0, score)).toFixed(1));
 }

@@ -80,6 +80,12 @@ window.updateSliderText = function(sliderId, value) {
     else if (val < 60) text = "Me duele bastante, pero trato de que no me arruine el día.";
     else if (val < 80) text = "Quedo cruzado de mal humor todo el fin de semana.";
     else text = "No quiero hablar con nadie, me arruina la semana entera.";
+  } else if (sliderId === 'neutral-interest') {
+    if (val < 20) text = "Solo miro si juega mi equipo o si hay una final súper importante.";
+    else if (val < 40) text = "Si no juegan los míos, prefiero hacer otra cosa.";
+    else if (val < 60) text = "Si el partido promete ser entretenido, me quedo viéndolo.";
+    else if (val < 80) text = "Cualquier partido del mundial me sirve para engancharme.";
+    else text = "Veo absolutamente todo, juegue quien juegue.";
   }
   
   textBox.innerText = text;
@@ -114,6 +120,7 @@ window.finishSurvey = function() {
   const results = {
     userType: currentSurveyType,
     passion: document.getElementById('slider-passion') ? document.getElementById('slider-passion').value : null,
+    neutralInterest: document.getElementById('slider-neutral-interest') ? document.getElementById('slider-neutral-interest').value : null,
     friction: document.getElementById('slider-friction') ? document.getElementById('slider-friction').value : null,
     goals: document.getElementById('slider-goals') ? document.getElementById('slider-goals').value : null,
     tactics: document.getElementById('slider-tactics') ? document.getElementById('slider-tactics').value : null,
