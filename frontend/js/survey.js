@@ -81,6 +81,12 @@ window.updateSliderText = function(sliderId, value) {
 window.finishSurvey = function() {
   window.surveyData = window.surveyData || {};
   const draftResults = window.draftState || { team: null, countries: [], players: [] };
+  const data = window.draftData || { teams: [], countries: [], players: [] };
+
+  // Resolve indices to actual names/codes using draftData
+  const resolvedPlayers = (draftResults.players || []).map(idx => data.players[idx]?.NAME).filter(Boolean);
+  const resolvedTeam = draftResults.team !== null && data.teams[draftResults.team] ? data.teams[draftResults.team].team : null;
+  const resolvedCountries = (draftResults.countries || []).map(idx => data.countries[idx]?.country).filter(Boolean);
 
   const results = {
     userType: currentSurveyType,
@@ -91,15 +97,13 @@ window.finishSurvey = function() {
     balance: document.getElementById('slider-balance') ? document.getElementById('slider-balance').value : null,
     q1_player_loyalty: window.surveyData['q1'] || null,
     q2_team_loyalty: window.surveyData['q2'] || null,
-    fav_player: draftResults.players,
-    fav_team: draftResults.team,
-    supported_nations: draftResults.countries
+    favoritePlayers: resolvedPlayers,
+    favoriteTeam: resolvedTeam,
+    supportedNations: resolvedCountries
   };
   
-  console.log("Encuesta finalizada. Datos del recomendador Antigravity:", results);
-  
-  // Aquí podemos mostrar las recomendaciones, pero por ahora mostramos un alert
-  console.log("¡Encuesta Completada! Revisar consola para ver el JSON generado.");
+  window.surveyRawResults = results; // Save for recommender.js
+  console.log("Encuesta finalizada. Datos guardados en window.surveyRawResults:", results);
   
   document.getElementById('antigravity-survey').classList.remove('visible');
   setTimeout(() => {

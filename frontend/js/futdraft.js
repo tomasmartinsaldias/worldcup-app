@@ -42,6 +42,7 @@ window.initDraftData = async function initDraftData() {
       .filter(p => p.NAME && p.Overall) // Filter valid players
       .sort((a, b) => b.Overall - a.Overall);
 
+    window.draftData = draftData;
     isDraftLoaded = true;
     renderDraftUI();
   } catch (error) {

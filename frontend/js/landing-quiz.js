@@ -130,44 +130,56 @@ function startQuiz(level) {
     }
 
     // --- RECOMENDACIONES ---
-    function showRecommendations() {
+    window.showRecommendations = async function() {
       window.appState = 'transition';
-      // Ocultar quizes
-      const casualQuiz = document.getElementById('casual-quiz');
-      if (casualQuiz) casualQuiz.classList.remove('visible');
-      const fanaticQuiz = document.getElementById('fanatic-quiz');
-      if (fanaticQuiz) fanaticQuiz.classList.remove('visible');
       
-      setTimeout(() => {
+      const survey = document.getElementById('antigravity-survey');
+      if (survey) survey.classList.remove('visible');
+      const draftOverlay = document.getElementById('draft-template');
+      if (draftOverlay) {
+        draftOverlay.classList.remove('visible');
+        draftOverlay.classList.add('hidden');
+      }
+      
+      setTimeout(async () => {
         document.getElementById('recommendations-overlay').classList.add('visible');
         window.appState = 'recommendations';
-        renderRecommendedCards();
+        await renderRecommendedCards();
       }, 500);
     }
 
     let cachedWcData = null;
     let allValidMatches = [];
+    window.scoredMatches = [];
     let showingAllRecs = false;
 
-    function renderRecommendedCards() {
+    async function renderRecommendedCards() {
       const carousel = document.getElementById('recommendations-carousel');
-      carousel.innerHTML = '<p>Cargando partidos recomendados...</p>';
+      carousel.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">⚽ Analizando tu perfil...</p>';
 
-      fetch('data/wc2026_data.json')
-        .then(res => res.json())
-        .then(data => {
-          cachedWcData = data;
-          
-          // Select valid matches
-          allValidMatches = data.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
-          
-          showingAllRecs = false;
-          updateCarouselUI();
-        })
-        .catch(err => {
-          console.error("Error fetching matches", err);
-          carousel.innerHTML = '<p>Error al cargar recomendaciones.</p>';
-        });
+      try {
+        const { mapSurveyToPreferences, generateRecommendations } = await import('./recommender.js');
+        
+        // Ensure data is loaded
+        if (!cachedWcData) {
+          const res = await fetch('data/wc2026_data.json');
+          cachedWcData = await res.json();
+          allValidMatches = cachedWcData.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
+        }
+
+        const rawResults = window.surveyRawResults || { userType: 'casual' };
+        const prefs = mapSurveyToPreferences(rawResults);
+        console.log('[Recommender] Preferences mapped:', prefs);
+
+        const scored = generateRecommendations(prefs);
+        window.scoredMatches = scored;
+        
+        showingAllRecs = false;
+        updateCarouselUI();
+      } catch (err) {
+        console.error("Error generating recommendations", err);
+        carousel.innerHTML = '<p>Error al calcular recomendaciones. Por favor reintenta.</p>';
+      }
     }
 
 
@@ -201,27 +213,19 @@ function startQuiz(level) {
       const carousel = document.getElementById('recommendations-carousel');
       carousel.innerHTML = '';
       
-      const matchesToShow = showingAllRecs ? allValidMatches : allValidMatches.slice(0, 4);
+      const matchesToShow = showingAllRecs ? window.scoredMatches : window.scoredMatches.slice(0, 4);
 
-      const explanations = [
-        "Coincide con tu equipo favorito",
-        "Similitud en estilo táctico",
-        "Duelo de alta posesión",
-        "Rivalidad histórica",
-        "Partidazo asegurado",
-        "Alta popularidad global"
-      ];
+      matchesToShow.forEach((item, index) => {
+        const { match, score, explanation } = item;
+        const displayScore = Math.min(100, Math.round(score * 10)); // Convert [0, 10] score to %
 
-      matchesToShow.forEach((match, index) => {
-        const exp = explanations[index % explanations.length];
-        const score = Math.max(70, 98 - (index % allValidMatches.length));
         const card = document.createElement('div');
         card.className = 'rec-card';
         card.innerHTML = `
           <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
           <div class="rec-content">
-            <div class="rec-score">${score}% AFINIDAD</div>
-            <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
+            <div class="rec-score">${displayScore}% AFINIDAD</div>
+            <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${explanation}</div>
             <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
             <p class="rec-type">${match.stage}</p>
             <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
@@ -233,18 +237,20 @@ function startQuiz(level) {
       
       // Duplicate for infinite scroll if showing all
       if (showingAllRecs) {
-        matchesToShow.forEach((match, index) => {
-          const exp = explanations[index % explanations.length];
-          const score = Math.max(70, 98 - (index % allValidMatches.length));
+        matchesToShow.forEach((item, index) => {
+          const { match, score, explanation } = item;
+          const displayScore = Math.min(100, Math.round(score * 10));
+
           const card = document.createElement('div');
           card.className = 'rec-card';
           card.innerHTML = `
             <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
             <div class="rec-content">
-              <div class="rec-score">${score}% AFINIDAD</div>
-              <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
+              <div class="rec-score">${displayScore}% AFINIDAD</div>
+              <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${explanation}</div>
               <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
               <p class="rec-type">${match.stage}</p>
+              <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
             </div>
           `;
           card.onclick = () => openMatchStats(match);
