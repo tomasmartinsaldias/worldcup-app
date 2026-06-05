@@ -55,7 +55,7 @@ export async function loadData() {
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
     try {
-      const finalRes = await fetch(`../data/data_frontend/players_final.json?t=${new Date().getTime()}`);
+      const finalRes = await fetch(`data/data_frontend/players_final.json?t=${new Date().getTime()}`);
       if (finalRes.ok) finalPhotosData = await finalRes.json();
     } catch (e) {
       console.error("Could not fetch players_final.json", e);

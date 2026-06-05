@@ -19,9 +19,9 @@ window.initDraftData = async function initDraftData() {
   if (isDraftLoaded) return;
   try {
     const [teamsRes, countriesRes, playersRes] = await Promise.all([
-      fetch('../data/data_frontend/teams.json'),
-      fetch('../data/data_frontend/countries.json'),
-      fetch('../data/data_frontend/players_final.json')
+      fetch('data/data_frontend/teams.json'),
+      fetch('data/data_frontend/countries.json'),
+      fetch('data/data_frontend/players_final.json')
     ]);
 
     const checkRes = async (res) => {
@@ -110,7 +110,7 @@ function renderTeams() {
     html += `
       <div class="draft-card ${isSelected}" data-type="team" data-id="${originalIndex}">
 
-        <img src="${t.crest}" alt="${t.team}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
+        <img src="${t.crest}" alt="${t.team}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='./img/placeholder_player.png';">
         <span class="name">${t.team}</span>
       </div>
     `;
@@ -138,7 +138,7 @@ function renderCountries() {
     html += `
       <div class="draft-card ${isSelected}" data-type="country" data-id="${originalIndex}">
 
-        <img src="${c.flag_url}" alt="${c.country}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
+        <img src="${c.flag_url}" alt="${c.country}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='./img/placeholder_player.png';">
         <span class="name">${c.country}</span>
       </div>
     `;
@@ -163,12 +163,12 @@ function renderPlayers() {
   paginated.forEach((p) => {
     const originalIndex = draftData.players.indexOf(p);
     const isSelected = draftState.players.includes(originalIndex) ? 'selected' : '';
-    const imgUrl = p._URL || '/frontend/img/placeholder_player.png';
+    const imgUrl = p._URL || './img/placeholder_player.png';
     html += `
       <div class="draft-card ${isSelected}" data-type="player" data-id="${originalIndex}">
 
         <div class="overall">${p.Overall}</div>
-        <img src="${imgUrl}" alt="${p.NAME}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='/frontend/img/placeholder_player.png';">
+        <img src="${imgUrl}" alt="${p.NAME}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='./img/placeholder_player.png';">
         <span class="name">${p.NAME}</span>
       </div>
     `;

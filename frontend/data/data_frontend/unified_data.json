@@ -1,0 +1,1268 @@
+[
+  {
+    "type": "Equipo",
+    "name": "AC Milan",
+    "image_url": "https://crests.football-data.org/98.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "AFC Bournemouth",
+    "image_url": "https://crests.football-data.org/bournemouth.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "AJ Auxerre",
+    "image_url": "https://crests.football-data.org/519.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "AS Monaco",
+    "image_url": "https://crests.football-data.org/548.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "AS Roma",
+    "image_url": "https://crests.football-data.org/100.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Ajax",
+    "image_url": "https://crests.football-data.org/678.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Angers SCO",
+    "image_url": "https://crests.football-data.org/532.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Arsenal",
+    "image_url": "https://crests.football-data.org/57.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Aston Villa",
+    "image_url": "https://crests.football-data.org/58.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Atalanta",
+    "image_url": "https://crests.football-data.org/102.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Atlético Madrid",
+    "image_url": "https://crests.football-data.org/78.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Atlético de Madrid",
+    "image_url": "https://crests.football-data.org/78.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Augsburgo",
+    "image_url": "https://crests.football-data.org/16.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Auxerre",
+    "image_url": "https://crests.football-data.org/519.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Barcelona",
+    "image_url": "https://crests.football-data.org/81.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Barnsley",
+    "image_url": "https://crests.football-data.org/328.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bayer Leverkusen",
+    "image_url": "https://crests.football-data.org/3.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bayern Munich",
+    "image_url": "https://crests.football-data.org/5.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bayern Múnich",
+    "image_url": "https://crests.football-data.org/5.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Benfica",
+    "image_url": "https://crests.football-data.org/1903.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Birmingham",
+    "image_url": "https://crests.football-data.org/332.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bodo Glimt",
+    "image_url": "https://crests.football-data.org/5721.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bologna",
+    "image_url": "https://crests.football-data.org/103.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Borussia Dortmund",
+    "image_url": "https://crests.football-data.org/4.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Borussia Mönchengladbach",
+    "image_url": "https://crests.football-data.org/18.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Botafogo",
+    "image_url": "https://crests.football-data.org/1770.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Bournemouth",
+    "image_url": "https://crests.football-data.org/bournemouth.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Braga",
+    "image_url": "https://crests.football-data.org/5613.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Brentford",
+    "image_url": "https://crests.football-data.org/402.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Brighton",
+    "image_url": "https://crests.football-data.org/397.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Burnley",
+    "image_url": "https://crests.football-data.org/328.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Cagliari",
+    "image_url": "https://crests.football-data.org/104.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Casa Pia",
+    "image_url": "https://crests.football-data.org/6618.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Charlton Athletic",
+    "image_url": "https://crests.football-data.org/348.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Chelsea",
+    "image_url": "https://crests.football-data.org/61.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Como",
+    "image_url": "https://crests.football-data.org/7397.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Corinthians",
+    "image_url": "https://crests.football-data.org/1779.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Coventry City",
+    "image_url": "https://crests.football-data.org/1076.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Cremonese",
+    "image_url": "https://crests.football-data.org/457.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Crystal Palace",
+    "image_url": "https://crests.football-data.org/354.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Derby County",
+    "image_url": "https://crests.football-data.org/342.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Eintracht Frankfurt",
+    "image_url": "https://crests.football-data.org/19.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Estrasburgo",
+    "image_url": "https://crests.football-data.org/576.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Estrela da Amadora",
+    "image_url": "https://crests.football-data.org/9136.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Everton",
+    "image_url": "https://crests.football-data.org/62.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC Augsburg",
+    "image_url": "https://crests.football-data.org/16.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC Barcelona",
+    "image_url": "https://crests.football-data.org/81.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC Nantes",
+    "image_url": "https://crests.football-data.org/543.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC St. Pauli",
+    "image_url": "https://crests.football-data.org/20.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC Twente",
+    "image_url": "https://crests.football-data.org/666.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "FC Volendam",
+    "image_url": "https://crests.football-data.org/1919.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "Feyenoord",
+    "image_url": "https://crests.football-data.org/675.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "Fiorentina",
+    "image_url": "https://crests.football-data.org/99.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Flamengo",
+    "image_url": "https://crests.football-data.org/1783.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Fluminense",
+    "image_url": "https://crests.football-data.org/1765.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Friburgo",
+    "image_url": "https://crests.football-data.org/17.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Fulham",
+    "image_url": "https://crests.football-data.org/63.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Galatasaray",
+    "image_url": "https://crests.football-data.org/610.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Genoa",
+    "image_url": "https://crests.football-data.org/107.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Gil Vicente",
+    "image_url": "https://crests.football-data.org/5533.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Gremio",
+    "image_url": "https://crests.football-data.org/1767.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Hamburger SV",
+    "image_url": "https://crests.football-data.org/7.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Hellas Verona",
+    "image_url": "https://crests.football-data.org/450.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Hoffenheim",
+    "image_url": "https://crests.football-data.org/2.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Hull City",
+    "image_url": "https://crests.football-data.org/322.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Inter",
+    "image_url": "https://crests.football-data.org/108.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Ipswich Town",
+    "image_url": "https://crests.football-data.org/349.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Juventus",
+    "image_url": "https://crests.football-data.org/109.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Le Havre",
+    "image_url": "https://crests.football-data.org/533.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Leeds",
+    "image_url": "https://crests.football-data.org/341.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Leeds United",
+    "image_url": "https://crests.football-data.org/341.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Leipzig",
+    "image_url": "https://crests.football-data.org/721.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Lens",
+    "image_url": "https://crests.football-data.org/546.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Lille",
+    "image_url": "https://crests.football-data.org/521.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Liverpool",
+    "image_url": "https://crests.football-data.org/64.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Lorient",
+    "image_url": "https://crests.football-data.org/525.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Mainz",
+    "image_url": "https://crests.football-data.org/15.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Mainz 05",
+    "image_url": "https://crests.football-data.org/15.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Manchester City",
+    "image_url": "https://crests.football-data.org/65.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Manchester United",
+    "image_url": "https://crests.football-data.org/65.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Marseille",
+    "image_url": "https://crests.football-data.org/516.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Marsella",
+    "image_url": "https://crests.football-data.org/516.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Middlesbrough",
+    "image_url": "https://crests.football-data.org/343.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Milan",
+    "image_url": "https://crests.football-data.org/98.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Millwall",
+    "image_url": "https://crests.football-data.org/384.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Monaco",
+    "image_url": "https://crests.football-data.org/548.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Mónaco",
+    "image_url": "https://crests.football-data.org/548.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Nacional",
+    "image_url": "https://crests.football-data.org/5529.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Napoli",
+    "image_url": "https://crests.football-data.org/113.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Newcastle",
+    "image_url": "https://crests.football-data.org/67.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Newcastle United",
+    "image_url": "https://crests.football-data.org/67.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Nice",
+    "image_url": "https://crests.football-data.org/522.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Norwich City",
+    "image_url": "https://crests.football-data.org/68.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Nottingham Forest",
+    "image_url": "https://crests.football-data.org/351.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Nottingham Forest F.C.",
+    "image_url": "https://crests.football-data.org/351.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "OGC Nice",
+    "image_url": "https://crests.football-data.org/522.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Olympiacos FC",
+    "image_url": "https://crests.football-data.org/654.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Olympique de Lyon",
+    "image_url": "https://crests.football-data.org/523.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Olympique de Marseille",
+    "image_url": "https://crests.football-data.org/516.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Olympique de Marsella",
+    "image_url": "https://crests.football-data.org/516.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "PEC Zwolle",
+    "image_url": "https://crests.football-data.org/684.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "PSG",
+    "image_url": "https://crests.football-data.org/524.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "PSV",
+    "image_url": "https://crests.football-data.org/674.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Palmeiras",
+    "image_url": "https://crests.football-data.org/1769.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Paranaense",
+    "image_url": "https://crests.football-data.org/1768.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Paris",
+    "image_url": "https://crests.football-data.org/524.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Paris Saint-Germain",
+    "image_url": "https://crests.football-data.org/524.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Parma",
+    "image_url": "https://crests.football-data.org/112.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Pisa",
+    "image_url": "https://crests.football-data.org/487.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Porto",
+    "image_url": "https://crests.football-data.org/503.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "RB Leipzig",
+    "image_url": "https://crests.football-data.org/721.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "RC Lens",
+    "image_url": "https://crests.football-data.org/546.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Racing Lens",
+    "image_url": "https://crests.football-data.org/546.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Rangers",
+    "image_url": "https://crests.football-data.org/69.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Real Madrid",
+    "image_url": "https://crests.football-data.org/86.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Roma",
+    "image_url": "https://crests.football-data.org/100.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Royale Union Saint-Gilloise",
+    "image_url": "https://crests.football-data.org/3929.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "S.S.C. Napoli",
+    "image_url": "https://crests.football-data.org/113.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Santos",
+    "image_url": "https://crests.football-data.org/6685.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sassuolo",
+    "image_url": "https://crests.football-data.org/471.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sheffield United",
+    "image_url": "https://crests.football-data.org/345.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sheffield United F.C.",
+    "image_url": "https://crests.football-data.org/345.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Slavia Praga",
+    "image_url": "https://crests.football-data.org/930.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sparta Rotterdam",
+    "image_url": "https://crests.football-data.org/6806.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sporting",
+    "image_url": "https://crests.football-data.org/498.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sporting Braga",
+    "image_url": "https://crests.football-data.org/5613.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sporting CP",
+    "image_url": "https://crests.football-data.org/498.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sporting de Portugal",
+    "image_url": "https://crests.football-data.org/498.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Stade Nyonnais",
+    "image_url": "https://crests.football-data.org/529.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Stade Rennais",
+    "image_url": "https://crests.football-data.org/529.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Stade de Reims",
+    "image_url": "https://crests.football-data.org/529.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Stoke City",
+    "image_url": "https://crests.football-data.org/70.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Strasbourg",
+    "image_url": "https://crests.football-data.org/576.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Stuttgart",
+    "image_url": "https://crests.football-data.org/10.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sunderland",
+    "image_url": "https://crests.football-data.org/71.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Sunderland AFC",
+    "image_url": "https://crests.football-data.org/71.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Swansea",
+    "image_url": "https://crests.football-data.org/72.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Swansea City A.F.C.",
+    "image_url": "https://crests.football-data.org/72.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "TSG Hoffenheim",
+    "image_url": "https://crests.football-data.org/2.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Telstar",
+    "image_url": "https://crests.football-data.org/1912.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "Tondela",
+    "image_url": "https://crests.football-data.org/1049.png",
+    "league_country": "Portugal"
+  },
+  {
+    "type": "Equipo",
+    "name": "Torino",
+    "image_url": "https://crests.football-data.org/586.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Tottenham",
+    "image_url": "https://crests.football-data.org/73.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Tottenham Hotspur",
+    "image_url": "https://crests.football-data.org/73.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Toulouse",
+    "image_url": "https://crests.football-data.org/511.png",
+    "league_country": "France"
+  },
+  {
+    "type": "Equipo",
+    "name": "Twente",
+    "image_url": "https://crests.football-data.org/666.png",
+    "league_country": "Netherlands"
+  },
+  {
+    "type": "Equipo",
+    "name": "US Sassuolo Calcio",
+    "image_url": "https://crests.football-data.org/471.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Udinese",
+    "image_url": "https://crests.football-data.org/115.png",
+    "league_country": "Italy"
+  },
+  {
+    "type": "Equipo",
+    "name": "Union Berlin",
+    "image_url": "https://crests.football-data.org/28.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Union Saint-Gilloise",
+    "image_url": "https://crests.football-data.org/3929.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Vasco da Gama",
+    "image_url": "https://crests.football-data.org/1780.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Villareal",
+    "image_url": "https://crests.football-data.org/94.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Villarreal",
+    "image_url": "https://crests.football-data.org/94.png",
+    "league_country": "Europe"
+  },
+  {
+    "type": "Equipo",
+    "name": "Vitória",
+    "image_url": "https://crests.football-data.org/1782.png",
+    "league_country": "Brazil"
+  },
+  {
+    "type": "Equipo",
+    "name": "Watford",
+    "image_url": "https://crests.football-data.org/346.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Werder Bremen",
+    "image_url": "https://crests.football-data.org/12.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "West Ham",
+    "image_url": "https://crests.football-data.org/563.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "West Ham United",
+    "image_url": "https://crests.football-data.org/563.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "West Ham United/Marsella",
+    "image_url": "https://crests.football-data.org/563.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Wolfsburg",
+    "image_url": "https://crests.football-data.org/11.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Wolfsburgo",
+    "image_url": "https://crests.football-data.org/11.png",
+    "league_country": "Germany"
+  },
+  {
+    "type": "Equipo",
+    "name": "Wolverhampton",
+    "image_url": "https://crests.football-data.org/76.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Equipo",
+    "name": "Wrexham",
+    "image_url": "https://crests.football-data.org/404.png",
+    "league_country": "England"
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Mexico",
+    "image_url": "https://flagcdn.com/w320/mx.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "South Africa",
+    "image_url": "https://flagcdn.com/w320/za.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "South Korea",
+    "image_url": "https://flagcdn.com/w320/kr.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Czech Republic",
+    "image_url": "https://flagcdn.com/w320/cz.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Canada",
+    "image_url": "https://flagcdn.com/w320/ca.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Bosnia and Herzegovina",
+    "image_url": "https://flagcdn.com/w320/ba.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Qatar",
+    "image_url": "https://flagcdn.com/w320/qa.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Switzerland",
+    "image_url": "https://flagcdn.com/w320/ch.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Brazil",
+    "image_url": "https://flagcdn.com/w320/br.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Morocco",
+    "image_url": "https://flagcdn.com/w320/ma.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Haiti",
+    "image_url": "https://flagcdn.com/w320/ht.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Scotland",
+    "image_url": "https://flagcdn.com/w320/gb-sct.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "USA",
+    "image_url": "https://flagcdn.com/w320/us.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Paraguay",
+    "image_url": "https://flagcdn.com/w320/py.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Australia",
+    "image_url": "https://flagcdn.com/w320/au.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Turkey",
+    "image_url": "https://flagcdn.com/w320/tr.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Germany",
+    "image_url": "https://flagcdn.com/w320/de.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Curaçao",
+    "image_url": "https://flagcdn.com/w320/cw.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Côte d'Ivoire",
+    "image_url": "https://flagcdn.com/w320/ci.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Ecuador",
+    "image_url": "https://flagcdn.com/w320/ec.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Netherlands",
+    "image_url": "https://flagcdn.com/w320/bq.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Japan",
+    "image_url": "https://flagcdn.com/w320/jp.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Sweden",
+    "image_url": "https://flagcdn.com/w320/se.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Tunisia",
+    "image_url": "https://flagcdn.com/w320/tn.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Belgium",
+    "image_url": "https://flagcdn.com/w320/be.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Egypt",
+    "image_url": "https://flagcdn.com/w320/eg.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "IR Iran",
+    "image_url": "https://flagcdn.com/w320/ir.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "New Zealand",
+    "image_url": "https://flagcdn.com/w320/nz.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Spain",
+    "image_url": "https://flagcdn.com/w320/es.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Cabo Verde",
+    "image_url": "https://flagcdn.com/w320/cv.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Saudi Arabia",
+    "image_url": "https://flagcdn.com/w320/sa.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Uruguay",
+    "image_url": "https://flagcdn.com/w320/uy.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "France",
+    "image_url": "https://flagcdn.com/w320/fr.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Senegal",
+    "image_url": "https://flagcdn.com/w320/sn.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "DR Congo",
+    "image_url": "https://flagcdn.com/w320/cd.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Norway",
+    "image_url": "https://flagcdn.com/w320/no.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Argentina",
+    "image_url": "https://flagcdn.com/w320/ar.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Algeria",
+    "image_url": "https://flagcdn.com/w320/dz.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Austria",
+    "image_url": "https://flagcdn.com/w320/at.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Jordan",
+    "image_url": "https://flagcdn.com/w320/jo.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Portugal",
+    "image_url": "https://flagcdn.com/w320/pt.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Iraq",
+    "image_url": "https://flagcdn.com/w320/iq.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Uzbekistan",
+    "image_url": "https://flagcdn.com/w320/uz.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Colombia",
+    "image_url": "https://flagcdn.com/w320/co.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "England",
+    "image_url": "https://flagcdn.com/w320/gb-eng.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Croatia",
+    "image_url": "https://flagcdn.com/w320/hr.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Ghana",
+    "image_url": "https://flagcdn.com/w320/gh.png",
+    "league_country": null
+  },
+  {
+    "type": "Selección nacional",
+    "name": "Panama",
+    "image_url": "https://flagcdn.com/w320/pa.png",
+    "league_country": null
+  }
+]

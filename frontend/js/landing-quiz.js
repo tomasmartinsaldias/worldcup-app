@@ -153,7 +153,7 @@ function startQuiz(level) {
       const carousel = document.getElementById('recommendations-carousel');
       carousel.innerHTML = '<p>Cargando partidos recomendados...</p>';
 
-      fetch('../data/wc2026_data.json')
+      fetch('data/wc2026_data.json')
         .then(res => res.json())
         .then(data => {
           cachedWcData = data;
@@ -375,13 +375,13 @@ function startQuiz(level) {
       document.getElementById('stats-body-content').innerHTML = `
         <div class="stats-teams">
           <div class="stats-team-flag">
-            <img src="${homeFlag}" onerror="this.src='../img/placeholder_flag.png'" alt="${match.home_team.name}">
+            <img src="${homeFlag}" onerror="this.src='./img/placeholder_flag.png'" alt="${match.home_team.name}">
             <p>${match.home_team.name}</p>
             <span>Grupo ${match.home_team.group}</span>
           </div>
           <div class="vs-badge">VS</div>
           <div class="stats-team-flag">
-            <img src="${awayFlag}" onerror="this.src='../img/placeholder_flag.png'" alt="${match.away_team.name}">
+            <img src="${awayFlag}" onerror="this.src='./img/placeholder_flag.png'" alt="${match.away_team.name}">
             <p>${match.away_team.name}</p>
             <span>Grupo ${match.away_team.group}</span>
           </div>
