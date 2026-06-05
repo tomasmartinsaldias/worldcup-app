@@ -171,24 +171,24 @@ function startQuiz(level) {
     }
 
 
-    // Mapa de estadios → fotos reales (Wikimedia Commons, dominio público)
+    // Mapa de estadios → fotos locales
     const STADIUM_IMAGES = {
-      'Estadio Azteca':          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Azteca_Stadium.jpg/800px-Azteca_Stadium.jpg',
-      'Estadio Akron':           'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Estadio_Akron_-_2018.jpg/800px-Estadio_Akron_-_2018.jpg',
-      'Estadio BBVA':            'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Estadio_BBVA_Bancomer_durante_la_inauguraci%C3%B3n.jpg/800px-Estadio_BBVA_Bancomer_durante_la_inauguraci%C3%B3n.jpg',
-      'MetLife Stadium':         'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/MetLife_Stadium_-_panoramio.jpg/800px-MetLife_Stadium_-_panoramio.jpg',
-      'SoFi Stadium':            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/SoFi_Stadium_aerial_view.jpg/800px-SoFi_Stadium_aerial_view.jpg',
-      'AT&T Stadium':            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/AT%26T_Stadium_-_Arlington%2C_TX.jpg/800px-AT%26T_Stadium_-_Arlington%2C_TX.jpg',
-      'Hard Rock Stadium':       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Hard_Rock_Stadium_-_2019.jpg/800px-Hard_Rock_Stadium_-_2019.jpg',
-      'Mercedes-Benz Stadium':   'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Mercedes-Benz_Stadium.jpg/800px-Mercedes-Benz_Stadium.jpg',
-      'Lumen Field':             'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Lumen_Field_aerial.jpg/800px-Lumen_Field_aerial.jpg',
-      'NRG Stadium':             'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/NRG_Stadium_interior.jpg/800px-NRG_Stadium_interior.jpg',
-      'Gillette Stadium':        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Gillette_Stadium_aerial.jpg/800px-Gillette_Stadium_aerial.jpg',
-      "Levi's Stadium":          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Levis_Stadium_2018.jpg/800px-Levis_Stadium_2018.jpg',
-      'Lincoln Financial Field': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lincoln_Financial_Field.jpg/800px-Lincoln_Financial_Field.jpg',
-      'Arrowhead Stadium':       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Arrowhead_Stadium_Full.jpg/800px-Arrowhead_Stadium_Full.jpg',
-      'BC Place':                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/BC_Place_-_2011.jpg/800px-BC_Place_-_2011.jpg',
-      'BMO Field':               'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/BMO_Field_2016_expansion.jpg/800px-BMO_Field_2016_expansion.jpg',
+      'Estadio Azteca':          'img/stadiums/Estadio_Azteca.jpg',
+      'Estadio Akron':           'img/stadiums/Estadio_Akron.jpg',
+      'Estadio BBVA':            'img/stadiums/Estadio_BBVA.jpg',
+      'MetLife Stadium':         'img/stadiums/MetLife_Stadium.jpg',
+      'SoFi Stadium':            'img/stadiums/SoFi_Stadium.jpg',
+      'AT&T Stadium':            'img/stadiums/ATandT_Stadium.jpg',
+      'Hard Rock Stadium':       'img/stadiums/Hard_Rock_Stadium.jpg',
+      'Mercedes-Benz Stadium':   'img/stadiums/Mercedes-Benz_Stadium.jpg',
+      'Lumen Field':             'img/stadiums/Lumen_Field.jpg',
+      'NRG Stadium':             'img/stadiums/NRG_Stadium.jpg',
+      'Gillette Stadium':        'img/stadiums/Gillette_Stadium.jpg',
+      "Levi's Stadium":          'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'Lincoln Financial Field': 'img/stadiums/Lincoln_Financial_Field.jpg',
+      'Arrowhead Stadium':       'img/stadiums/Arrowhead_Stadium.jpg',
+      'BC Place':                'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'BMO Field':               'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
     };
     const STADIUM_FALLBACK = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
 
