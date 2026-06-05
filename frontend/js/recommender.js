@@ -1,4 +1,4 @@
-import { state } from './futstate.js';
+import { state, recalculateTournamentState } from './futstate.js';
 import { calculateSmartScore } from './scoring.js';
 
 /**
@@ -140,6 +140,11 @@ export function generateRecommendations(userPreferences) {
     return [];
   }
 
+  // Ensure tournament state (knockout matches, positions, ELOs) is fully updated based on simulated scores
+  if (typeof recalculateTournamentState === 'function') {
+    recalculateTournamentState();
+  }
+
   // Apply preferences to state so scoring functions can read them
   Object.assign(state.userPreferences, userPreferences);
 
@@ -153,10 +158,15 @@ export function generateRecommendations(userPreferences) {
   // If no time ranges selected, assume available all day
   const hasTimeConstraint = Object.values(timeRanges).some(v => v === true);
 
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+
   const scored = [];
 
   state.appData.matches.forEach(match => {
     if (match.home_team.is_placeholder || match.away_team.is_placeholder) return;
+
+    // Skip matches that are already simulated (played)
+    if (simulatedScores[match.match_number] !== undefined) return;
 
     const score = calculateSmartScore(match, teams, tacticalVector);
     const explanation = getMatchExplanation(match, userPreferences, teams);
