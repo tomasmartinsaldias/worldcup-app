@@ -1,3 +1,22 @@
+
+#draft-template {
+  --draft-color-main: var(--draft-color-main);
+  --draft-color-glow: var(--draft-color-glow);
+  --draft-color-dark: var(--draft-color-dark);
+  --draft-color-light: var(--draft-color-light);
+  --draft-color-strong: var(--draft-color-strong);
+  --draft-color-faint: var(--draft-color-faint);
+}
+
+#draft-template.theme-intermedio {
+  --draft-color-main: #ff2a2a;
+  --draft-color-glow: rgba(255, 42, 42, 0.5);
+  --draft-color-dark: rgba(255, 0, 0, 0.3);
+  --draft-color-light: rgba(255, 42, 42, 0.3);
+  --draft-color-strong: rgba(255, 42, 42, 0.8);
+  --draft-color-faint: rgba(255, 42, 42, 0.4);
+}
+
 @keyframes relaxedFadeIn {
   from {
     opacity: 0;
@@ -70,8 +89,8 @@
 
 .archetype-card:hover {
   transform: translateY(-8px);
-  border-color: #0088ff;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 136, 255, 0.3);
+  border-color: var(--draft-color-main);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px var(--draft-color-light);
 }
 
 .arch-bg {
@@ -112,7 +131,7 @@
 
 .arch-tag {
   display: inline-block;
-  background: #0088ff;
+  background: var(--draft-color-main);
   color: #fff;
   font-size: 0.65rem;
   font-weight: 800;
@@ -420,10 +439,10 @@
   border-radius: 50px;
   background: black;
   color: white;
-  border: 2px solid #0088ff;
+  border: 2px solid var(--draft-color-main);
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 136, 255, 0.5);
+  box-shadow: 0 10px 30px var(--draft-color-glow);
   transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
   text-transform: uppercase;
 }
@@ -653,16 +672,16 @@
 
 .formation-card.active {
   background: rgba(4, 6, 12, 0.98);
-  border-color: #0088ff;
-  box-shadow: 0 0 40px rgba(0, 26, 255, 0.3) inset, 0 0 30px rgba(0, 136, 255, 0.5);
+  border-color: var(--draft-color-main);
+  box-shadow: 0 0 40px var(--draft-color-dark) inset, 0 0 30px var(--draft-color-glow);
 }
 
 .formation-card:hover,
 .formation-card.active:hover {
   transform: translateY(-8px);
-  border-color: #0088ff;
+  border-color: var(--draft-color-main);
   background: rgba(30, 40, 60, 0.95);
-  box-shadow: 0 0 30px rgba(0, 136, 255, 0.5) inset, 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 136, 255, 0.4);
+  box-shadow: 0 0 30px var(--draft-color-glow) inset, 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px var(--draft-color-faint);
 }
 
 .carousel-btn {
@@ -687,7 +706,7 @@
 
 .carousel-btn:hover {
   background: rgba(0, 136, 255, 0.6);
-  box-shadow: 0 0 15px rgba(0, 136, 255, 0.8);
+  box-shadow: 0 0 15px var(--draft-color-strong);
 }
 
 .carousel-btn.prev {
@@ -978,21 +997,21 @@
   padding: 1.2rem 3.5rem;
   background: #000;
   color: #fff;
-  border: 2px solid #0088ff;
+  border: 2px solid var(--draft-color-main);
   border-radius: 10px;
   font-family: 'Outfit', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(0, 136, 255, 0.5), 0 0 40px rgba(0, 136, 255, 0.2);
+  box-shadow: 0 0 20px var(--draft-color-glow), 0 0 40px rgba(0, 136, 255, 0.2);
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
 
 .btn-start-draft:hover {
-  background: #0088ff;
-  box-shadow: 0 0 30px rgba(0, 136, 255, 0.8), 0 0 60px rgba(0, 136, 255, 0.4);
+  background: var(--draft-color-main);
+  box-shadow: 0 0 30px var(--draft-color-strong), 0 0 60px var(--draft-color-faint);
   transform: scale(1.05);
 }
 
