@@ -1185,7 +1185,128 @@
 
 /* Ensure grid can scroll properly */
 .draft-grid {
-  height: 350px; /* Fixed height so it scrolls */
+  height: 320px; /* Base height */
+  max-height: 40vh; /* Max height relative to screen */
   overflow-y: auto;
   align-content: flex-start; /* Prevent stretching when few items */
+}
+
+/* Survey Step active flex layout to prevent overflow */
+.survey-container .quiz-step.active {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Compact padding for the container itself */
+.survey-container {
+  padding: 1.5rem 2rem !important;
+}
+
+/* Reduce headers and descriptors */
+.survey-container .quiz-question {
+  font-size: 1.4rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.survey-container .quiz-desc {
+  margin-bottom: 0.75rem !important;
+  font-size: 0.85rem !important;
+}
+
+/* Compact sliders step */
+.survey-container .sliders-group {
+  gap: 0.75rem !important;
+  margin: 0.75rem 0 !important;
+}
+
+.survey-container .slider-wrapper {
+  margin-bottom: 0.25rem;
+}
+
+.survey-container .main-slider-wrapper {
+  margin: 0.75rem 0 !important;
+}
+
+.survey-container .slider-labels {
+  font-size: 0.75rem !important;
+}
+
+.survey-container .dynamic-text-box {
+  margin-top: 0.5rem !important;
+  font-size: 0.9rem !important;
+  height: 1.25rem !important;
+}
+
+/* Compact visual question step (Step 3) */
+.survey-container .visual-question-block {
+  margin-top: 0.5rem !important;
+}
+
+.survey-container .visual-question-title {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.survey-container .visual-options-grid {
+  gap: 0.75rem !important;
+}
+
+.survey-container .visual-card {
+  height: 85px !important;
+}
+
+.survey-container .visual-card-overlay {
+  padding: 0.5rem !important;
+}
+
+.survey-container .visual-card span {
+  font-size: 0.75rem !important;
+}
+
+/* Compact cards inside the survey to fit nicely */
+.survey-container .draft-card {
+  padding: 8px 5px !important;
+  border-radius: 8px !important;
+}
+
+.survey-container .draft-card img {
+  width: 42px !important;
+  height: 42px !important;
+  margin-bottom: 4px !important;
+}
+
+.survey-container .draft-card .name {
+  font-size: 0.75rem !important;
+}
+
+.survey-container .draft-card .overall {
+  font-size: 0.65rem !important;
+  top: 4px !important;
+  right: 4px !important;
+  padding: 1px 3px !important;
+}
+
+/* Make search inputs and navigation fit nicely */
+.survey-container .draft-controls {
+  margin-bottom: 0.5rem !important;
+}
+
+.survey-container .draft-nav,
+.survey-container .quiz-btn-next {
+  margin-top: auto !important;
+  padding-top: 0.75rem !important;
+}
+
+.survey-container .draft-nav {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.survey-container .draft-grid {
+  height: auto !important;
+  max-height: none !important;
+  flex-grow: 1 !important;
+  min-height: 120px !important;
 }

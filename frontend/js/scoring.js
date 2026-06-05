@@ -570,5 +570,35 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   match.playstyleScore = parseFloat(playstyleScore.toFixed(1));
   match.friccionScore = parseFloat(displayFriccionScore.toFixed(1));
 
+  match.scoreBreakdown = {
+    w_sum,
+    W_ent,
+    W_tec,
+    W_af,
+    val_entretenimiento: parseFloat(x_ent.toFixed(1)),
+    val_tactica: parseFloat(playstyleScore.toFixed(1)),
+    val_afectivo: parseFloat(s_afectivo.toFixed(1)),
+    entertainment: {
+      w_esp,
+      w_fric,
+      val_espectaculo: parseFloat(spectacleScore.toFixed(1)),
+      val_friccion: parseFloat(displayFriccionScore.toFixed(1))
+    },
+    tactical: {
+      w_style: userPref.w_tactica_estilo ?? 5,
+      w_cluster: hasDraftedClusters ? (userPref.w_tactica_cluster ?? 5) : 0,
+      val_estilo: parseFloat(s_style.toFixed(1)),
+      val_cluster: hasDraftedClusters ? parseFloat((s_cluster * 10.0).toFixed(1)) : 0
+    },
+    affective: {
+      w_club: hasFavClubs ? w_club_sub : 0,
+      w_sel: hasFavTeams ? w_sel_sub : 0,
+      w_jug: hasFavPlayers ? w_jug_sub : 0,
+      val_club: parseFloat((s_club * 10.0).toFixed(1)),
+      val_sel: parseFloat((s_sel * 10.0).toFixed(1)),
+      val_jug: parseFloat((s_jug * 10.0).toFixed(1))
+    }
+  };
+
   return parseFloat(Math.min(10.0, Math.max(0.0, combinedScore)).toFixed(1));
 }

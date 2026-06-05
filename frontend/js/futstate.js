@@ -725,3 +725,6 @@ export const state = {
   get teamStatuses() { return teamStatuses; }
 };
 
+window.state = state;
+
+

@@ -82,6 +82,42 @@ window.finishSurvey = function() {
   window.surveyData = window.surveyData || {};
   const draftResults = window.draftState || { team: null, countries: [], players: [] };
 
+  // Map indices back to actual names/codes to prevent TypeErrors in scoring engine
+  let favClub = null;
+  let favPlayers = [];
+  let favNations = [];
+
+  const nameToFifa = {
+    "mexico": "MEX", "south africa": "RSA", "south korea": "KOR", "czech republic": "CZE", "canada": "CAN", 
+    "bosnia and herzegovina": "BIH", "qatar": "QAT", "switzerland": "SUI", "brazil": "BRA", "morocco": "MAR", 
+    "haiti": "HAI", "scotland": "SCO", "usa": "USA", "paraguay": "PAR", "australia": "AUS", "turkey": "TUR", 
+    "germany": "GER", "curaçao": "CUW", "cote d'ivoire": "CIV", "côte d'ivoire": "CIV", "ecuador": "ECU", 
+    "netherlands": "NED", "japan": "JPN", "sweden": "SWE", "tunisia": "TUN", "belgium": "BEL", "egypt": "EGY", 
+    "ir iran": "IRN", "new zealand": "NZL", "spain": "ESP", "cabo verde": "CPV", "saudi arabia": "KSA", 
+    "uruguay": "URU", "france": "FRA", "senegal": "SEN", "dr congo": "COD", "norway": "NOR", "argentina": "ARG", 
+    "algeria": "ALG", "austria": "AUT", "jordan": "JOR", "portugal": "POR", "iraq": "IRQ", "uzbekistan": "UZB", 
+    "colombia": "COL", "england": "ENG", "croatia": "CRO", "ghana": "GHA", "panama": "PAN"
+  };
+
+  if (window.draftData) {
+    if (draftResults.team !== null && window.draftData.teams[draftResults.team]) {
+      favClub = window.draftData.teams[draftResults.team].team;
+    }
+    if (draftResults.players && draftResults.players.length > 0) {
+      favPlayers = draftResults.players.map(idx => {
+        return window.draftData.players[idx] ? window.draftData.players[idx].NAME : null;
+      }).filter(Boolean);
+    }
+    if (draftResults.countries && draftResults.countries.length > 0) {
+      favNations = draftResults.countries.map(idx => {
+        const countryObj = window.draftData.countries[idx];
+        if (!countryObj) return null;
+        const nameNorm = countryObj.country.toLowerCase().trim();
+        return nameToFifa[nameNorm] || countryObj.country.toUpperCase().substring(0, 3);
+      }).filter(Boolean);
+    }
+  }
+
   const results = {
     userType: currentSurveyType,
     passion: document.getElementById('slider-passion') ? document.getElementById('slider-passion').value : null,
@@ -91,15 +127,43 @@ window.finishSurvey = function() {
     balance: document.getElementById('slider-balance') ? document.getElementById('slider-balance').value : null,
     q1_player_loyalty: window.surveyData['q1'] || null,
     q2_team_loyalty: window.surveyData['q2'] || null,
-    fav_player: draftResults.players,
-    fav_team: draftResults.team,
-    supported_nations: draftResults.countries
+    fav_player: favPlayers,
+    fav_team: favClub,
+    supported_nations: favNations
   };
   
   console.log("Encuesta finalizada. Datos del recomendador Antigravity:", results);
   
+  if (window.state && window.state.userPreferences) {
+    const prefs = window.state.userPreferences;
+    if (results.passion !== null) {
+      prefs.w_afectivo = Math.round(parseInt(results.passion) / 10);
+    }
+    if (results.friction !== null) {
+      const fricVal = parseInt(results.friction);
+      prefs.w_friccion = Math.round(fricVal / 10);
+      if (fricVal < 40) {
+        prefs.frictionPreference = 'tenso';
+      } else if (fricVal > 60) {
+        prefs.frictionPreference = 'fair_play';
+      } else {
+        prefs.frictionPreference = 'indiferente';
+      }
+    }
+    if (results.goals !== null) {
+      prefs.w_espectaculo = Math.round(parseInt(results.goals) / 10);
+    }
+    if (results.tactics !== null) {
+      prefs.w_tactica = Math.round(parseInt(results.tactics) / 10);
+    }
+    prefs.w_entretenimiento = Math.round((prefs.w_espectaculo + prefs.w_friccion) / 2);
+    prefs.favoriteTeams = results.supported_nations || [];
+    prefs.favoriteClubs = results.fav_team ? [results.fav_team] : [];
+    prefs.favoritePlayers = results.fav_player || [];
+  }
+
   // Aquí podemos mostrar las recomendaciones, pero por ahora mostramos un alert
-  console.log("¡Encuesta Completada! Revisar consola para ver el JSON generado.");
+  console.log("¡Encuesta Completada! Ajustes guardados en el estado.");
   
   document.getElementById('antigravity-survey').classList.remove('visible');
   setTimeout(() => {

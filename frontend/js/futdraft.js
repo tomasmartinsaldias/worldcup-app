@@ -11,6 +11,7 @@ let draftData = {
   countries: [],
   players: []
 };
+window.draftData = draftData;
 
 let isDraftLoaded = false;
 
