@@ -150,15 +150,15 @@ def calculate_cdif_for_all(db_path, results_csv, ranking_txt, teams_stats):
         if "world cup qual" in raw_tour:
             return ["FIFA World Cup qualification"]
         if "gold cup" in raw_tour:
-            return ["CONCACAF Gold Cup", "CONCACAF Gold Cup qualification"]
+            return ["Gold Cup", "Gold Cup qualification"]
         if "arab cup" in raw_tour:
             return ["Arab Cup"]
         if "asian cup" in raw_tour:
             return ["AFC Asian Cup", "AFC Asian Cup qualification"]
         if "africa cup of nations qual" in raw_tour:
-            return ["Africa Cup of Nations qualification"]
+            return ["African Cup of Nations qualification"]
         if "africa cup of nations" in raw_tour:
-            return ["Africa Cup of Nations", "Africa Cup of Nations qualification"]
+            return ["African Cup of Nations", "African Cup of Nations qualification"]
         return None
 
     df = pd.read_csv(results_csv)
