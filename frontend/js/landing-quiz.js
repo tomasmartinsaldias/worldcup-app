@@ -505,6 +505,15 @@ function closeMatchStats() {
   document.getElementById('stats-modal-overlay').classList.remove('visible');
 }
 
+function openMatchStatsById(id) {
+  const match = allValidMatches.find(m => String(m.id) === String(id));
+  if (match) {
+    openMatchStats(match);
+  } else {
+    console.error("Match not found for ID:", id);
+  }
+}
+
 // Bind to window to allow HTML inline onclick attributes to find them
 window.startQuiz = startQuiz;
 window.nextFanaticStep = nextFanaticStep;
@@ -513,5 +522,6 @@ window.finishQuiz = finishQuiz;
 window.showRecommendations = showRecommendations;
 window.toggleSeeMore = toggleSeeMore;
 window.openMatchStats = openMatchStats;
+window.openMatchStatsById = openMatchStatsById;
 window.closeMatchStats = closeMatchStats;
   
