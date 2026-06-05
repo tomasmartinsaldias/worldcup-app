@@ -691,11 +691,11 @@
 }
 
 .carousel-btn.prev {
-  left: 10px;
+  left: -60px;
 }
 
 .carousel-btn.next {
-  right: 10px;
+  right: -60px;
 }
 
 .formation-card h4 {
