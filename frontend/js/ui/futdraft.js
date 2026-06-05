@@ -1216,7 +1216,7 @@ function showPlayersForArchetype(slotId, groupName, clusterId) {
       <div class="fut-card-large-top">
         <div class="fut-card-large-pos">${slotId.toUpperCase().replace(/[0-9]/g, '')}</div>
       </div>
-      <img src="${photoUrl}" class="fut-card-large-face" onerror="this.src='https://cdn.sofifa.net/players/notfound_0_120.png'" alt="Face">
+      <img src="${photoUrl}" class="fut-card-large-face" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://cdn.sofifa.net/players/notfound_0_120.png';" alt="Face">
       <div class="fut-card-large-bottom">
         <div class="fut-card-large-name" title="${player.long_name}">${player.long_name.split(' ').slice(-1).join('')}</div>
       </div>
@@ -1246,7 +1246,7 @@ function selectPlayer(player) {
             <span class="fut-card-pos" style="font-size: 0.6rem;">${currentActiveSlot.toUpperCase().replace(/[0-9]/g, '')}</span>
           </div>
         </div>
-        <img src="${photoUrl}" class="fut-card-face" onerror="this.src='https://cdn.sofifa.net/players/notfound_0_120.png'">
+        <img src="${photoUrl}" class="fut-card-face" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://cdn.sofifa.net/players/notfound_0_120.png';">
         <div class="fut-card-bottom">
           <div class="fut-card-name" title="${player.long_name}">${player.long_name.split(' ').slice(-1).join('')}</div>
         </div>
