@@ -496,11 +496,18 @@ function closeMatchStats() {
 }
 
 function openMatchStatsById(id) {
-  const match = allValidMatches.find(m => String(m.id) === String(id));
-  if (match) {
+  const item = (window.scoredMatches || []).find(item => String(item.match.id) === String(id));
+  if (item) {
+    const match = item.match;
+    match.smartScore = item.score;
     openMatchStats(match);
   } else {
-    console.error("Match not found for ID:", id);
+    const match = allValidMatches.find(m => String(m.id) === String(id));
+    if (match) {
+      openMatchStats(match);
+    } else {
+      console.error("Match not found for ID:", id);
+    }
   }
 }
 
