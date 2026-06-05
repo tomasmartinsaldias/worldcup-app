@@ -1,4 +1,4 @@
-import { state, getSimulatedScores } from '../state.js';
+import { state, getSimulatedScores, fifaToSpanish } from '../state.js';
 import { createFlagElement, formatKickoff } from '../utils.js';
 import { openH2HModal } from './modal.js?v=5';
 
@@ -50,15 +50,31 @@ export function renderMatches() {
 
   // Filter matches
   const simulatedScores = getSimulatedScores();
+  
+  // Verify if all group stage matches (1 to 72) are simulated
+  let groupMatchesPlayed = 0;
+  for (let i = 1; i <= 72; i++) {
+    if (simulatedScores[i] !== undefined) groupMatchesPlayed++;
+  }
+  const isGroupStageFinished = groupMatchesPlayed === 72;
+
   const filtered = state.appData.matches.filter(m => {
     // Exclude matches that already have a simulated result
     if (simulatedScores[m.match_number] !== undefined) return false;
+
+    // Do not recommend knockout matches until the group stage is completely simulated
+    if (m.stage !== 'Group Stage' && !isGroupStageFinished) return false;
+
+    const spanishHome = (fifaToSpanish[m.home_team.fifa_code] || '').toLowerCase();
+    const spanishAway = (fifaToSpanish[m.away_team.fifa_code] || '').toLowerCase();
 
     // Search filter
     const matchesSearch =
       m.match_label.toLowerCase().includes(searchVal) ||
       m.home_team.name.toLowerCase().includes(searchVal) ||
       m.away_team.name.toLowerCase().includes(searchVal) ||
+      spanishHome.includes(searchVal) ||
+      spanishAway.includes(searchVal) ||
       (m.stadium && m.stadium.venue_name.toLowerCase().includes(searchVal)) ||
       (m.stadium && m.stadium.city_name.toLowerCase().includes(searchVal)) ||
       (m.home_team.group && `grupo ${m.home_team.group.toLowerCase()}`.includes(searchVal));
@@ -136,9 +152,7 @@ export function renderMatches() {
       if (m.smartScore >= 8.0) interestClass = 'high-interest';
       else if (m.smartScore >= 6.0) interestClass = 'medium-interest';
 
-      let injuredCount = 0;
-      if (!m.home_team.is_placeholder) injuredCount += state.appData.teams[m.home_team.fifa_code]?.squad.filter(p => p.is_injured).length || 0;
-      if (!m.away_team.is_placeholder) injuredCount += state.appData.teams[m.away_team.fifa_code]?.squad.filter(p => p.is_injured).length || 0;
+      
 
       const flagHome = createFlagElement(m.home_team);
       const flagAway = createFlagElement(m.away_team);
@@ -174,7 +188,6 @@ export function renderMatches() {
         <div class="match-metrics-preview">
           ${combVal > 0 ? `<div class="metric-pill value" title="Valor de plantilla combinado"><i class="fa-solid fa-coins"></i> ${combValStr}</div>` : ''}
           ${!m.home_team.is_placeholder && !m.away_team.is_placeholder ? `<div class="metric-pill cards" title="Tarjetas amarillas/rojas promedio combinadas"><i class="fa-solid fa-copy"></i> Fricción: ${getCombinedCards(m).toFixed(2)}</div>` : ''}
-          ${injuredCount > 0 ? `<div class="metric-pill injured" title="Jugadores lesionados o bajas"><i class="fa-solid fa-user-slash"></i> Bajas: ${injuredCount}</div>` : ''}
         </div>
         <div class="match-venue">
           <i class="fa-solid fa-location-dot"></i>

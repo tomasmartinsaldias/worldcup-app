@@ -1,4 +1,3 @@
-import re
 
 with open('frontend/css/styles.css', 'r', encoding='utf-8') as f:
     content = f.read()

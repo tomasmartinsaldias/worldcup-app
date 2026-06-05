@@ -30,7 +30,7 @@ REALISTIC_FORMATIONS = {
 def infer_lineup(team_data, team_code=""):
     """ Genera el 11 inicial combinando la táctica (real o simulada) con los valores de mercado. """
     squad = team_data.get('squad', [])
-    valid_players = [p for p in squad if not p.get('is_injured')]
+    valid_players = [p for p in squad]
     valid_players.sort(key=lambda x: x.get('market_value_eur') or 0, reverse=True)
 
     formation = REALISTIC_FORMATIONS.get(team_code)

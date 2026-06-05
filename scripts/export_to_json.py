@@ -86,13 +86,13 @@ def main():
         SELECT 
             ps.player_id, ps.player_name, ps.fifa_code, ps.position, ps.club, ps.age, ps.caps, ps.goals,
             ps.market_value_eur, ps.is_star_player, ps.is_injured, ps.cards_propensity,
-            ps.assists_recent, ps.minutes_recent
+            ps.assists_recent, ps.minutes_recent, ps.starts_recent
         FROM scraped_wc2026_probable_squads ps
         JOIN wc2026_teams t ON ps.fifa_code = t.fifa_code;
     """)
 
     for row in cursor.fetchall():
-        (pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec) = row
+        (pid, name, code, pos, club, age, caps, goals, val, star, injured, cards, assists_rec, mins_rec, starts_rec) = row
         if code in teams_dict:
             teams_dict[code]["squad"].append({
                 "id": pid,
@@ -106,7 +106,8 @@ def main():
                 "is_injured": bool(injured) if injured is not None else False,
                 "cards_propensity": cards,
                 "assists_recent": assists_rec,
-                "minutes_recent": mins_rec
+                "minutes_recent": mins_rec,
+                "starts_recent": starts_rec
             })
 
     # Ordenar planteles por nombre

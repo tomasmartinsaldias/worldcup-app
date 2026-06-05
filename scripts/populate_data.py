@@ -665,6 +665,7 @@ def main():
         cards_propensity REAL,
         assists_recent INTEGER,
         minutes_recent INTEGER,
+        starts_recent INTEGER,
         FOREIGN KEY (fifa_code) REFERENCES wc2026_teams (fifa_code)
     );
     """)

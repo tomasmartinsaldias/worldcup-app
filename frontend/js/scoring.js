@@ -45,40 +45,307 @@ export function calculateCosineSimilarity(v1, v2, keys = TACTICAL_KEYS) {
   return dotProduct / (Math.sqrt(norm1Sq) * Math.sqrt(norm2Sq));
 }
 
-/**
- * Helper to analyze player squad characteristics in a single iteration.
- * Optimizes CPU time and avoids redundant array traversals.
- */
-function analyzeSquad(team, userPreferences) {
-  let stars = 0;
-  let favPlayersBonus = 0;
-  let favClubBonus = 0;
-  let totalAge = 0;
-  let ageCount = 0;
+function getTeamMaxMarketValue(team) {
+  if (!team || !team.squad || team.squad.length === 0) return 0;
+  return Math.max(...team.squad.map(p => p.market_value_eur || 0));
+}
 
-  if (team && team.squad) {
-    const favPlayers = userPreferences?.favoritePlayers || [];
-    const favClubs = userPreferences?.favoriteClubs || [];
-    
-    for (let i = 0; i < team.squad.length; i++) {
-      const p = team.squad[i];
-      if (p.is_star_player) {
-        stars++;
+function robustNormalise(str) {
+  if (!str) return '';
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\u00f8/gi, 'o').replace(/\u00f0/gi, 'd').replace(/\u00fe/gi, 'th')
+    .replace(/\u00e6/gi, 'ae').replace(/\u0142/gi, 'l').replace(/\u00df/gi, 'ss').replace(/\u0153/gi, 'oe')
+    .replace(/[^\x00-\x7F]/g, '')
+    .toLowerCase().trim();
+}
+
+export function findClusterPlayer(playerName) {
+  if (!state.appData || !state.appData.clusters) return null;
+  const targetNorm = robustNormalise(playerName);
+  const targetParts = targetNorm.split(/\s+/).filter(p => p.length > 0);
+  
+  if (targetParts.length === 0) return null;
+  
+  const groups = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Wingers', 'Strikers'];
+  for (let i = 0; i < groups.length; i++) {
+    const groupName = groups[i];
+    const list = state.appData.clusters[groupName];
+    if (!list) continue;
+    for (let j = 0; j < list.length; j++) {
+      const cp = list[j];
+      const longNorm = robustNormalise(cp.long_name);
+      
+      // 1. Direct match or substring match
+      if (longNorm === targetNorm || longNorm.includes(targetNorm) || targetNorm.includes(longNorm)) {
+        return { cp, groupName };
       }
-      if (favPlayers.includes(p.name)) {
-        favPlayersBonus += 0.4;
+      
+      // 2. Parts match: check if every part in targetParts matches a part in longNorm (supporting initials)
+      const candidateParts = longNorm.split(/\s+/);
+      let matchCount = 0;
+      let lastCheckedIndex = -1;
+      
+      for (let pIdx = 0; pIdx < targetParts.length; pIdx++) {
+        const tp = targetParts[pIdx];
+        const isInitial = tp.length === 1 || (tp.length === 2 && tp[1] === '.');
+        const cleanTp = isInitial ? tp[0] : tp;
+        
+        for (let k = lastCheckedIndex + 1; k < candidateParts.length; k++) {
+          const cpPart = candidateParts[k];
+          if (isInitial) {
+            if (cpPart.startsWith(cleanTp)) {
+              matchCount++;
+              lastCheckedIndex = k;
+              break;
+            }
+          } else {
+            if (cpPart === cleanTp || cpPart.includes(cleanTp)) {
+              matchCount++;
+              lastCheckedIndex = k;
+              break;
+            }
+          }
+        }
       }
-      if (p.club && favClubs.includes(p.club)) {
-        favClubBonus += 0.15;
-      }
-      if (p.age) {
-        totalAge += p.age;
-        ageCount++;
+      
+      if (matchCount === targetParts.length) {
+        return { cp, groupName };
       }
     }
   }
+  return null;
+}
 
-  return { stars, favPlayersBonus, favClubBonus, totalAge, ageCount };
+export function getSeleccionTotalMinutes(teamCode) {
+  if (teamCode === 'CAN') return 360;
+  if (teamCode === 'MEX' || teamCode === 'USA') return 540;
+  const conmebol = ['ARG', 'BRA', 'URU', 'COL', 'ECU', 'PAR', 'CHI', 'VEN', 'BOL', 'PER'];
+  if (conmebol.includes(teamCode)) return 18 * 90; // 1620
+  return 10 * 90; // 900
+}
+
+export function calculatePJuego(player, teamCode, teamMaxVal) {
+  // Injured players contribute nothing to the score
+  if (player.is_injured) {
+    return 0.0;
+  }
+  if (player.is_star_player && !player.is_injured) {
+    return 1.0;
+  }
+  if (player.minutes_recent !== undefined && player.minutes_recent !== null && player.minutes_recent > 0) {
+    const totalMins = getSeleccionTotalMinutes(teamCode);
+    const nEquipo = totalMins / 90;
+    const nTitular = player.starts_recent || 0;
+    const mJugados = player.minutes_recent || 0;
+    
+    const densityTerm = Math.min(1.0, mJugados / (nEquipo * 90));
+    const iph = 0.7 * (nTitular / nEquipo) + 0.3 * densityTerm;
+    
+    // Sigmoid function: pJuego = 1 / (1 + e^-10(IPH - 0.55))
+    const pJuego = 1 / (1 + Math.exp(-10 * (iph - 0.55)));
+    return pJuego;
+  }
+  if (teamMaxVal && teamMaxVal > 0) {
+    return Math.min(1.0, (player.market_value_eur || 0) / teamMaxVal);
+  }
+  return 0.0;
+}
+
+export function calculateSClub(homeTeam, awayTeam, userPreferences) {
+  const favClubs = userPreferences?.favoriteClubs || [];
+  if (favClubs.length === 0) return 0.0;
+  
+  let xPartido = 0.0;
+  const processTeam = (team) => {
+    if (!team || !team.squad) return;
+    const maxVal = getTeamMaxMarketValue(team);
+    for (let i = 0; i < team.squad.length; i++) {
+      const p = team.squad[i];
+      if (p.club && favClubs.includes(p.club)) {
+        xPartido += calculatePJuego(p, team.fifa_code, maxVal);
+      }
+    }
+  };
+  
+  processTeam(homeTeam);
+  processTeam(awayTeam);
+  
+  const Z_club = 5.0; 
+  return Math.min(1.0, Math.log(1.0 + xPartido) / Math.log(1.0 + Z_club));
+}
+
+export function calculateSSel(homeCode, awayCode, userPreferences) {
+  const favTeams = userPreferences?.favoriteTeams || [];
+  if (favTeams.length === 0) return 0.0;
+  
+  const primary = favTeams[0];
+  const secondary = favTeams.slice(1, 4);
+  
+  let I_p = 0;
+  if (primary && (homeCode === primary || awayCode === primary)) {
+    I_p = 1;
+  }
+  
+  let n_m = 0;
+  secondary.forEach(code => {
+    if (code && (homeCode === code || awayCode === code)) {
+      n_m++;
+    }
+  });
+  
+  if (I_p === 1) {
+    return 1.0;
+  }
+  if (n_m > 0) {
+    return Math.min(1.0, 0.5 * n_m);
+  }
+  return 0.0;
+}
+
+export function calculateSJug(homeTeam, awayTeam, userPreferences) {
+  const draftedClusters = userPreferences?.draftedClusters || [];
+  
+  if (draftedClusters.length > 0) {
+    // 1. Calculate centroids dynamically for each cluster in each active group
+    const centroids = {};
+    const groups = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Wingers', 'Strikers'];
+    
+    groups.forEach(groupName => {
+      const list = state.appData.clusters?.[groupName];
+      if (!list) return;
+      
+      centroids[groupName] = {};
+      const totals = {};
+      const counts = {};
+      
+      list.forEach(p => {
+        const cid = p.cluster_id;
+        if (!p.position_vector) return;
+        if (!totals[cid]) {
+          totals[cid] = new Array(p.position_vector.length).fill(0);
+          counts[cid] = 0;
+        }
+        for (let i = 0; i < p.position_vector.length; i++) {
+          totals[cid][i] += p.position_vector[i];
+        }
+        counts[cid]++;
+      });
+      
+      Object.keys(totals).forEach(cid => {
+        centroids[groupName][cid] = totals[cid].map(sum => sum / counts[cid]);
+      });
+    });
+    
+    // Helper to calculate Euclidean distance
+    const getDistance = (v1, v2) => {
+      let sum = 0;
+      const len = Math.min(v1.length, v2.length);
+      for (let i = 0; i < len; i++) {
+        const diff = v1[i] - v2[i];
+        sum += diff * diff;
+      }
+      return Math.sqrt(sum);
+    };
+    
+    let J_draft = 0.0;
+    const a = 3.0; // Decay rate
+    
+    const processTeam = (team) => {
+      if (!team || !team.squad) return;
+      const maxVal = getTeamMaxMarketValue(team);
+      
+      team.squad.forEach(p => {
+        const pRes = findClusterPlayer(p.name);
+        if (pRes) {
+          const { cp, groupName } = pRes;
+          const isDrafted = draftedClusters.some(dc => dc.groupName === groupName && dc.clusterId == cp.cluster_id);
+          if (isDrafted) {
+            const centroid = centroids[groupName]?.[cp.cluster_id];
+            if (centroid && cp.position_vector) {
+              const dist = getDistance(cp.position_vector, centroid);
+              const contribution = Math.max(0.0, Math.min(1.0, (Math.exp(-a * dist) - Math.exp(-a)) / (1.0 - Math.exp(-a))));
+              const pJuego = calculatePJuego(p, team.fifa_code, maxVal);
+              J_draft += contribution * pJuego;
+            }
+          }
+        }
+      });
+    };
+    
+    processTeam(homeTeam);
+    processTeam(awayTeam);
+    
+    // Normalize J_draft: using log1p and normalizing over Z_draft = 5.0
+    return Math.min(1.0, Math.log1p(J_draft) / Math.log(1.0 + 5.0));
+  }
+  
+  // Traditional favorite players logic
+  const favPlayers = userPreferences?.favoritePlayers || [];
+  if (favPlayers.length === 0) return 0.0;
+  
+  const resolvedFavs = [];
+  favPlayers.forEach(fpName => {
+    const res = findClusterPlayer(fpName);
+    if (res) {
+      resolvedFavs.push({
+        name: fpName,
+        vector: res.cp.position_vector,
+        groupName: res.groupName
+      });
+    }
+  });
+  
+  let J_d = 0.0;
+  let J_s = 0.0;
+  const epsilon = 0.1; 
+  
+  const processTeam = (team) => {
+    if (!team || !team.squad) return;
+    const maxVal = getTeamMaxMarketValue(team);
+    
+    for (let i = 0; i < team.squad.length; i++) {
+      const p = team.squad[i];
+      const pNameNorm = robustNormalise(p.name);
+      const isDirectFav = favPlayers.some(fp => robustNormalise(fp) === pNameNorm);
+      const pJuego = calculatePJuego(p, team.fifa_code, maxVal);
+      
+      if (isDirectFav) {
+        J_d += pJuego;
+      } else if (resolvedFavs.length > 0) {
+        const pRes = findClusterPlayer(p.name);
+        if (pRes) {
+          let maxSim = 0.0;
+          resolvedFavs.forEach(rf => {
+            if (rf.groupName === pRes.groupName) {
+              const v1 = rf.vector || [];
+              const v2 = pRes.cp.position_vector || [];
+              let distSq = 0.0;
+              const len = Math.min(v1.length, v2.length);
+              for (let k = 0; k < len; k++) {
+                const diff = v1[k] - v2[k];
+                distSq += diff * diff;
+              }
+              const dist = Math.sqrt(distSq);
+              const sim = 1.0 / (dist + epsilon);
+              if (sim > maxSim) maxSim = sim;
+            }
+          });
+          J_s += maxSim * pJuego;
+        }
+      }
+    }
+  };
+  
+  processTeam(homeTeam);
+  processTeam(awayTeam);
+  
+  const lambdaVal = 0.5;
+  const term_d = Math.log1p(J_d) / Math.log(2.0);
+  const term_s = lambdaVal * Math.log1p(J_s);
+  const score = term_d + term_s;
+  return Math.min(1.0, score);
 }
 
 export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0.1) {
@@ -91,13 +358,6 @@ export function calculatePlaystyleScore(vectorA, vectorB, vectorU, lambdaVal = 0
   return matchPrincipal + interaccion;
 }
 
-/**
- * Calculates the Friction Score (Fricción) for a match.
- * Based purely on the average drama_norm (faltas + tarjetas) of both teams.
- * This is a static property of the match — the user's dramaBonus controls
- * whether it helps or hurts their SmartScore (see calculateSmartScore).
- * @returns {number} score in [1.0, 10.0]
- */
 export function calculateFriccionScore(match, teams) {
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) return 5.0;
 
@@ -109,13 +369,12 @@ export function calculateFriccionScore(match, teams) {
   const aParams = away.espectaculo_params || { drama_norm: 0.5 };
 
   const dramaMatch = ((hParams.drama_norm ?? 0.5) + (aParams.drama_norm ?? 0.5)) / 2;
-  // Scale [0,1] → [1,10]
   return parseFloat((1.0 + 9.0 * dramaMatch).toFixed(1));
 }
 
 export function calculateICEScore(match, teams) {
   if (match.home_team.is_placeholder || match.away_team.is_placeholder) {
-    return 5.0; // default for playoff TBD matches
+    return 5.0; 
   }
 
   const home = teams[match.home_team.fifa_code];
@@ -128,16 +387,12 @@ export function calculateICEScore(match, teams) {
   const hParams = home.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5, vuln_norm: 0.5 };
   const aParams = away.espectaculo_params || { ocasiones_norm: 0.5, contra_norm: 0.5, drama_norm: 0.5, vuln_norm: 0.5 };
 
-  const alpha = ICE_CONFIG.alpha; // weight for counter attacks
-  const DRAMA_BETA_FIXED = 0.2;   // fixed — drama is no longer a user param
+  const alpha = ICE_CONFIG.alpha; 
 
-  // 1. La Fusión de Vectores (El Entorno del Partido)
   const ocMatch = (hParams.ocasiones_norm + aParams.ocasiones_norm) / 2;
   const caMatch = (hParams.contra_norm + aParams.contra_norm) / 2;
-  const dramaMatch = (hParams.drama_norm + aParams.drama_norm) / 2;
   const vulnMatch = ((hParams.vuln_norm !== undefined ? hParams.vuln_norm : 0.5) + (aParams.vuln_norm !== undefined ? aParams.vuln_norm : 0.5)) / 2;
 
-  // 2. Dynamic Elo Ratings (incorporating star player count as a structural modifier)
   let homeStars = 0;
   if (home.squad) {
     for (let i = 0; i < home.squad.length; i++) {
@@ -154,35 +409,26 @@ export function calculateICEScore(match, teams) {
   const homeEloBase = (state.teamElos && state.teamElos[match.home_team.fifa_code]) || (home.metrics ? (home.metrics.elo_rating || 1500) : 1500);
   const awayEloBase = (state.teamElos && state.teamElos[match.away_team.fifa_code]) || (away.metrics ? (away.metrics.elo_rating || 1500) : 1500);
   
-  // Michaelis-Menten: techo +200, semisaturación k=3 → 3 estrellas aportan +100 Elo (vs. +37.5 anterior)
   const homeEloBoost = homeStars > 0 ? 200 * (homeStars / (homeStars + 3)) : 0;
   const awayEloBoost = awayStars > 0 ? 200 * (awayStars / (awayStars + 3)) : 0;
   
   const rHome = homeEloBase + homeEloBoost;
   const rAway = awayEloBase + awayEloBoost;
 
-  // 3. Penalizador Asimétrico (Brecha de Competitividad) — Curva Sigmoide usando diferencia de Elo Base
-  // La brecha competitiva pura depende de la paridad histórica, no de las estrellas del momento.
   const rankingDiff = Math.abs(homeEloBase - awayEloBase);
   const pBrecha = ICE_CONFIG.P_MAX / (1 + Math.exp(-ICE_CONFIG.K_STEEPNESS * (rankingDiff - ICE_CONFIG.R_MID)));
 
-  // 4. Ecuación Estructural del ICE (estático — sin término drama variable)
-  // El drama se calcula separadamente en calculateFriccionScore()
   const gamma = ICE_CONFIG.gamma;
-  const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch) + (DRAMA_BETA_FIXED * dramaMatch)) * (1 - pBrecha);
+  const ice = ((ocMatch * (1 + gamma * vulnMatch)) + (alpha * caMatch)) * (1 - pBrecha);
 
-  // 5. Normalización Final a [1.0, 10.0] con Techo Dinámico (sin dramaBeta variable)
   const ICE_min = ICE_CONFIG.ICE_min;
-  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha + DRAMA_BETA_FIXED);
+  const T = ICE_CONFIG.T_SCALE * (1.5 + alpha);
   let score = 1 + 9 * ((Math.max(ICE_min, Math.min(ice, T)) - ICE_min) / (T - ICE_min));
   
-  // Factor de Calidad Absoluta basado en el Elo dinámico promedio de ambas selecciones.
-  // Pivote: 1400 (mínimo real del torneo). Techo 1.0 se alcanza en Elo 2100 (amplitud = 700).
   const avgElo = (rHome + rAway) / 2;
   const qMatch = Math.max(0.60, Math.min(1.0, 0.60 + 0.40 * ((avgElo - 1400) / 700)));
   score = score * qMatch;
 
-  // Stake multiplier based on qualification statuses (only for Group Stage)
   if (match.stage === 'Group Stage') {
     const statuses = state.teamStatuses || {};
     const hStatus = statuses[match.home_team.fifa_code] || 'PLAYING_FOR_LIFE';
@@ -197,8 +443,6 @@ export function calculateICEScore(match, teams) {
     
     const mHome = statusMultipliers[hStatus] || 1.0;
     const mAway = statusMultipliers[aStatus] || 1.0;
-    // Media Armónica: dominada por el valor menor, penaliza severamente la asimetría.
-    // Caso (1.0 vs 0.60) → 0.750 < Caso (0.85 vs 0.70) → 0.767. Orden correcto.
     const matchStakeMultiplier = (2 * mHome * mAway) / (mHome + mAway);
     
     score = score * matchStakeMultiplier;
@@ -207,7 +451,7 @@ export function calculateICEScore(match, teams) {
   score = Math.min(Math.max(score, 1.0), 10.0);
   return parseFloat(score.toFixed(1));
 }
-
+ 
 export function calculateSmartScore(match, teams, tacticalVector) {
   const ice = calculateICEScore(match, teams);
 
@@ -228,82 +472,92 @@ export function calculateSmartScore(match, teams, tacticalVector) {
     return ice;
   }
 
-  // Single-pass squad analysis for both teams
-  const homeAnalysis = analyzeSquad(home, state.userPreferences);
-  const awayAnalysis = analyzeSquad(away, state.userPreferences);
+  const userPref = state.userPreferences || {};
 
-  let spectacleScore = ice;
+  const w_esp = userPref.w_espectaculo ?? 5;
+  const w_tac = userPref.w_tactica ?? 5;
+  const w_afec = userPref.w_afectivo ?? 5;
+  const w_fric = userPref.w_friccion ?? 5;
 
-  // Playstyle Score — compara tacticalVector del usuario con los vectores tácticos de los equipos
-  // El tacticalVector se configura directamente desde el quiz (Q6) o desde los sliders de Ajustes
-  const vectorU = tacticalVector || state.userPreferences?.tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+  const vectorU = tacticalVector || userPref.tacticalVector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
+  const isDefaultU = vectorU.defensa === 0 && vectorU.posesion === 0 && vectorU.ritmo === 0 && vectorU.ancho === 0;
+
+  const hasFavTeams = Array.isArray(userPref.favoriteTeams) && userPref.favoriteTeams.length > 0;
+  const hasFavClubs = Array.isArray(userPref.favoriteClubs) && userPref.favoriteClubs.length > 0;
+  const hasFavPlayers = Array.isArray(userPref.favoritePlayers) && userPref.favoritePlayers.length > 0;
+  const hasDraftedClusters = Array.isArray(userPref.draftedClusters) && userPref.draftedClusters.length > 0;
+
+  // Compute dramaMatch normalized [0, 1]
+  const hParams = home.espectaculo_params || { drama_norm: 0.5 };
+  const aParams = away.espectaculo_params || { drama_norm: 0.5 };
+  const dramaMatch = ((hParams.drama_norm ?? 0.5) + (aParams.drama_norm ?? 0.5)) / 2;
+
+  // Activation and transformation for friction component (needed for UI display only)
+  const frictionPreference = userPref.frictionPreference || 'indiferente';
+  let x_fric = dramaMatch;
+  if (frictionPreference === 'fair_play') {
+    x_fric = 1.0 - dramaMatch;
+  }
+  const displayFriccionScore = 1.0 + 9.0 * x_fric;
+
+  // Pre-calculate affective scores to see if this match has any relevant favorites
+  const s_club = calculateSClub(home, away, userPref);
+  const s_sel = calculateSSel(match.home_team.fifa_code, match.away_team.fifa_code, userPref);
+  const s_jug = calculateSJug(home, away, userPref);
+  
+  const hasMatchAffective = s_club > 0 || s_sel > 0 || s_jug > 0;
+
+  const spectacleScore = ice; 
+
   const vectorA = home.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const vectorB = away.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
-
-  const isDefaultU = vectorU.defensa === 0 && vectorU.posesion === 0 && vectorU.ritmo === 0 && vectorU.ancho === 0;
 
   let playstyleScore;
   if (isDefaultU) {
     playstyleScore = spectacleScore;
   } else {
     const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
-    // Linear scale from [-1.1, 1.1] to [1.0, 10.0]
-    playstyleScore = 1.0 + 9.0 * ((rawPlaystyle + 1.1) / 2.2);
-    playstyleScore = Math.min(Math.max(playstyleScore, 1.0), 10.0);
+    playstyleScore = 10.0 * ((rawPlaystyle + 1.1) / 2.2);
+    playstyleScore = Math.min(Math.max(playstyleScore, 0.0), 10.0);
   }
 
-  // Combine spectacle and playstyle scores using user weight
-  const wSpectacle = state.userPreferences?.spectacleWeight ?? 0.5;
-  const wPlaystyle = 1.0 - wSpectacle;
-  let combinedScore = wSpectacle * spectacleScore + wPlaystyle * playstyleScore;
+  // 1. Pesos Macro normalizados (3 componentes principales):
+  // El macro peso de Entretenimiento es la suma de w_esp + w_fric
+  const w_ent_raw = w_esp + w_fric;
+  const w_sum = w_ent_raw + w_tac + w_afec;
+  const W_ent = w_sum > 0 ? w_ent_raw / w_sum : 0.3333;
+  const W_tec = w_sum > 0 ? w_tac / w_sum : 0.3333;
+  const W_af = w_sum > 0 ? w_afec / w_sum : 0.3333;
 
-  // ── Fricción ──────────────────────────────────────────────────────────────
-  // FriccionScore es una propiedad estática del partido (drama_norm de ambos equipos).
-  // dramaBonus determina el SIGNO del efecto en SmartScore:
-  //   +1 → le gusta la fricción: partidos físicos suben en ranking
-  //   -1 → no le gusta: partidos físicos bajan en ranking
-  //    0 → indiferente: sin efecto
-  const friccionScore = calculateFriccionScore(match, teams); // [1.0, 10.0]
-  const dramaBonus = state.userPreferences?.dramaBonus ?? 0;
-  if (dramaBonus !== 0) {
-    const FRICCION_SCALE = 0.12; // impacto máximo: ±0.12 × 4.5 ≈ ±0.54 pts
-    combinedScore += dramaBonus * FRICCION_SCALE * (friccionScore - 5.5);
+  // 2. Micro componente de Entretenimiento (Espectáculo + Fricción):
+  const x_ent = w_ent_raw > 0 ? (w_esp * spectacleScore + w_fric * displayFriccionScore) / w_ent_raw : spectacleScore;
+
+  // 3. Componente Afectiva:
+  const m_club = hasFavClubs ? 1 : 0;
+  const m_sel = hasFavTeams ? 1 : 0;
+  const m_jug = (hasFavPlayers || hasDraftedClusters) ? 1 : 0;
+
+  const w_club_sub = 0.3;
+  const w_sel_sub = 0.4;
+  const w_jug_sub = 0.3;
+
+  const sub_sum = (m_club * w_club_sub) + (m_sel * w_sel_sub) + (m_jug * w_jug_sub);
+  let s_afectivo = 0.0;
+  if (sub_sum > 0) {
+    const x_af = ((m_club * w_club_sub * s_club) + (m_sel * w_sel_sub * s_sel) + (m_jug * w_jug_sub * s_jug)) / sub_sum;
+    s_afectivo = x_af * 10.0;
   }
 
-  // ── Bonuses por entidades favoritas ───────────────────────────────────────
-  let bonus = 0;
-
-  if (state.userPreferences?.favoriteTeams?.length > 0) {
-    if (state.userPreferences.favoriteTeams.includes(match.home_team.fifa_code) ||
-        state.userPreferences.favoriteTeams.includes(match.away_team.fifa_code)) {
-      bonus += 2.5;
-    }
-  }
-
-  const favPlayersBonus = homeAnalysis.favPlayersBonus + awayAnalysis.favPlayersBonus;
-  const favClubBonus = homeAnalysis.favClubBonus + awayAnalysis.favClubBonus;
-  const totalAge = homeAnalysis.totalAge + awayAnalysis.totalAge;
-  const playersCount = homeAnalysis.ageCount + awayAnalysis.ageCount;
-
-  bonus += Math.min(favPlayersBonus, 2.0);
-  bonus += Math.min(favClubBonus, 1.5);
-
-  // Age preference bonus
-  let ageBonus = 0;
-  if (playersCount > 0 && state.userPreferences?.agePreference !== undefined) {
-    const avgAge = totalAge / playersCount;
-    const mappedAge = Math.max(0, Math.min(100, (avgAge - 23) / 7 * 100));
-    const ageDiff = Math.abs(mappedAge - state.userPreferences.agePreference);
-    ageBonus = 0.5 - (ageDiff / 100);
-  }
-  bonus += ageBonus;
-
-  combinedScore += bonus;
-  combinedScore = Math.min(Math.max(combinedScore, 1.0), 10.0);
+  // 4. Score Final: Norma L2 tridimensional con pesos estables
+  const combinedScore = Math.sqrt(
+    W_ent * Math.pow(x_ent, 2) +
+    W_tec * Math.pow(playstyleScore, 2) +
+    W_af * Math.pow(s_afectivo, 2)
+  );
 
   match.spectacleScore = parseFloat(spectacleScore.toFixed(1));
   match.playstyleScore = parseFloat(playstyleScore.toFixed(1));
-  match.friccionScore = parseFloat(friccionScore.toFixed(1));
+  match.friccionScore = parseFloat(displayFriccionScore.toFixed(1));
 
-  return parseFloat(combinedScore.toFixed(1));
+  return parseFloat(Math.min(10.0, Math.max(0.0, combinedScore)).toFixed(1));
 }

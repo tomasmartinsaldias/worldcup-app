@@ -1,4 +1,4 @@
-import { state, recalculateTournamentState } from './state.js';
+import { state, recalculateTournamentState, fifaToSpanish } from './state.js';
 import { calculateSmartScore } from './scoring.js';
 import { renderMatches, filterMatches, sortMatchesList } from './ui/matches.js';
 import { renderGroups } from './ui/groups.js';
@@ -274,7 +274,7 @@ function mapTeamEstilos(appData) {
   });
   
   Object.values(appData.teams).forEach(team => {
-    const key = normalise(team.name);
+    const key = fifaToSpanish[team.fifa_code] || normalise(team.name);
     if (estiloMap[key]) {
       team.tactical_vector = estiloMap[key].vector;
       team.analisis_tactico = estiloMap[key].analisis_tactico;
@@ -306,24 +306,20 @@ function populateTeamPreference() {
 
 function setupPreferenceListeners() {
   const teamSelect = document.getElementById('pref-team');
-  const styleSelect = document.getElementById('pref-style');
-  const timeSelect = document.getElementById('pref-time');
   const playersInput = document.getElementById('pref-players');
 
   const updatePreferences = () => {
-    state.userPreferences.favoriteTeam = teamSelect.value;
-    state.userPreferences.matchStyle = styleSelect.value;
-    state.userPreferences.preferredTime = Array.from(timeSelect.selectedOptions).map(o => o.value);
-    state.userPreferences.favoritePlayers = playersInput.value.split(',').map(s => s.trim()).filter(s => s);
-    
-    // Recalculate scores
+    if (teamSelect) {
+      state.userPreferences.favoriteTeams = teamSelect.value ? [teamSelect.value] : [];
+    }
+    if (playersInput) {
+      state.userPreferences.favoritePlayers = playersInput.value.split(',').map(s => s.trim()).filter(s => s);
+    }
     recalculateAndRender();
   };
 
   if (teamSelect) teamSelect.addEventListener('change', updatePreferences);
-  if (styleSelect) styleSelect.addEventListener('change', updatePreferences);
-  if (timeSelect) timeSelect.addEventListener('change', updatePreferences);
-  if (playersInput) playersInput.addEventListener('input', updatePreferences);
+  if (playersInput) playersInput.addEventListener('change', updatePreferences);
 }
 
 let currentArchetypeIndex = 0;
@@ -353,33 +349,40 @@ function initTacticalUI() {
   if (btnOpenPreferences) {
     btnOpenPreferences.addEventListener('click', () => {
       switchTab('preferences');
-      // Sync drama/friction categorical choice to UI
-      const dramaValText = document.getElementById('val-drama-tab');
-      const prefFriccionGroup = document.getElementById('pref-friccion-group');
-      if (prefFriccionGroup && dramaValText) {
-        const val = state.userPreferences.dramaBonus !== undefined ? state.userPreferences.dramaBonus : 0;
-        let desc = 'Indiferente';
-        if (val === 1) desc = 'Máxima Fricción';
-        else if (val === -1) desc = 'Juego Limpio';
-        dramaValText.textContent = desc;
-        
-        prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
-          opt.classList.remove('selected');
-          if (parseInt(opt.getAttribute('data-value')) === val) {
-            opt.classList.add('selected');
-          }
-        });
+      
+      // Sync macro weights sliders
+      const macroEsp = document.getElementById('slider-macro-esp');
+      const macroTac = document.getElementById('slider-macro-tac');
+      const macroAfec = document.getElementById('slider-macro-afec');
+      
+      if (macroEsp) {
+        macroEsp.value = state.userPreferences.w_espectaculo ?? 5;
+        document.getElementById('val-macro-esp').textContent = macroEsp.value;
       }
-      const weightSlider = document.getElementById('slider-weight-tab');
-      const weightValText = document.getElementById('val-weight-tab');
-      if (weightSlider && weightValText) {
-        const val = state.userPreferences.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
-        weightSlider.value = val;
-        let desc = '';
-        if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
-        else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
-        else desc = 'Equilibrado (50/50)';
-        weightValText.textContent = desc;
+      if (macroTac) {
+        macroTac.value = state.userPreferences.w_tactica ?? 5;
+        document.getElementById('val-macro-tac').textContent = macroTac.value;
+      }
+      if (macroAfec) {
+        macroAfec.value = state.userPreferences.w_afectivo ?? 5;
+        document.getElementById('val-macro-afec').textContent = macroAfec.value;
+      }
+      const macroFric = document.getElementById('slider-macro-fric');
+      if (macroFric) {
+        macroFric.value = state.userPreferences.w_friccion ?? 5;
+        document.getElementById('val-macro-fric').textContent = macroFric.value;
+      }
+
+      // Sync friction preference dropdown to UI
+      const frictionSelect = document.getElementById('pref-friction');
+      if (frictionSelect) {
+        frictionSelect.value = state.userPreferences.frictionPreference || 'indiferente';
+      }
+
+      // Sync inputs for players & clubs
+      const playersInput = document.getElementById('pref-players');
+      if (playersInput) {
+        playersInput.value = (state.userPreferences.favoritePlayers || []).join(', ');
       }
     });
   }
@@ -392,6 +395,16 @@ function initTacticalUI() {
 
   if (btnApplyPreferences) {
     btnApplyPreferences.addEventListener('click', () => {
+      const playersInput = document.getElementById('pref-players');
+      if (playersInput) {
+        const names = playersInput.value.split(',').map(n => n.trim()).filter(n => n.length > 0);
+        const existing = state.userPreferences.favoritePlayers || [];
+        const isDifferent = names.length !== existing.length || names.some((n, idx) => n !== existing[idx]);
+        if (isDifferent) {
+          state.userPreferences.favoritePlayers = names;
+          state.userPreferences.draftedClusters = []; // Clear draft when manually testing custom players
+        }
+      }
       recalculateAndRender();
       switchTab('recommender');
     });
@@ -509,40 +522,44 @@ function initTacticalUI() {
     }
   });
 
-  // Connect Drama/Friction Categorical Buttons in Preferences Tab
-  const prefFriccionGroup = document.getElementById('pref-friccion-group');
-  const dramaValText = document.getElementById('val-drama-tab');
-  if (prefFriccionGroup) {
-    prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
-      opt.addEventListener('click', () => {
-        prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(o => o.classList.remove('selected'));
-        opt.classList.add('selected');
-        
-        const val = parseInt(opt.getAttribute('data-value'));
-        state.userPreferences.dramaBonus = val;
-        
-        let desc = 'Indiferente';
-        if (val === 1) desc = 'Máxima Fricción';
-        else if (val === -1) desc = 'Juego Limpio';
-        if (dramaValText) dramaValText.textContent = desc;
-      });
+  // Connect Friction Preference select box
+  const frictionSelect = document.getElementById('pref-friction');
+  if (frictionSelect) {
+    frictionSelect.addEventListener('change', (e) => {
+      state.userPreferences.frictionPreference = e.target.value;
     });
   }
 
-  // Connect Weight Slider
-  const weightSlider = document.getElementById('slider-weight-tab');
-  const weightValText = document.getElementById('val-weight-tab');
-  if (weightSlider && weightValText) {
-    weightSlider.addEventListener('input', (e) => {
-      const val = parseFloat(e.target.value);
-      state.userPreferences.spectacleWeight = val;
-      let desc = '';
-      if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
-      else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
-      else desc = 'Equilibrado (50/50)';
-      weightValText.textContent = desc;
+  // Connect Macro Component Weight Sliders
+  const macroEsp = document.getElementById('slider-macro-esp');
+  if (macroEsp) {
+    macroEsp.addEventListener('input', (e) => {
+      state.userPreferences.w_espectaculo = parseInt(e.target.value);
+      document.getElementById('val-macro-esp').textContent = e.target.value;
     });
   }
+  const macroTac = document.getElementById('slider-macro-tac');
+  if (macroTac) {
+    macroTac.addEventListener('input', (e) => {
+      state.userPreferences.w_tactica = parseInt(e.target.value);
+      document.getElementById('val-macro-tac').textContent = e.target.value;
+    });
+  }
+  const macroAfec = document.getElementById('slider-macro-afec');
+  if (macroAfec) {
+    macroAfec.addEventListener('input', (e) => {
+      state.userPreferences.w_afectivo = parseInt(e.target.value);
+      document.getElementById('val-macro-afec').textContent = e.target.value;
+    });
+  }
+  const macroFric = document.getElementById('slider-macro-fric');
+  if (macroFric) {
+    macroFric.addEventListener('input', (e) => {
+      state.userPreferences.w_friccion = parseInt(e.target.value);
+      document.getElementById('val-macro-fric').textContent = e.target.value;
+    });
+  }
+
 }
 
 function renderArchetypeSlide() {
@@ -700,35 +717,15 @@ function syncSliders(vector) {
     }
   });
 
-  // Sync Drama/Friction preference buttons
-  const dramaValText = document.getElementById('val-drama-tab');
-  const prefFriccionGroup = document.getElementById('pref-friccion-group');
-  if (prefFriccionGroup && dramaValText) {
-    const val = state.userPreferences.dramaBonus !== undefined ? state.userPreferences.dramaBonus : 0;
-    let desc = 'Indiferente';
-    if (val === 1) desc = 'Máxima Fricción';
-    else if (val === -1) desc = 'Juego Limpio';
-    dramaValText.textContent = desc;
-    
-    prefFriccionGroup.querySelectorAll('.quiz-radio-option').forEach(opt => {
-      opt.classList.remove('selected');
-      if (parseInt(opt.getAttribute('data-value')) === val) {
-        opt.classList.add('selected');
-      }
-    });
+  // Sync Friction select preference
+  const frictionSelect = document.getElementById('pref-friction');
+  if (frictionSelect) {
+    frictionSelect.value = state.userPreferences.frictionPreference || 'indiferente';
   }
-
-  // Sync Weight Slider
-  const weightSlider = document.getElementById('slider-weight-tab');
-  const weightValText = document.getElementById('val-weight-tab');
-  if (weightSlider && weightValText) {
-    const val = state.userPreferences.spectacleWeight !== undefined ? state.userPreferences.spectacleWeight : 0.5;
-    weightSlider.value = val;
-    let desc = '';
-    if (val > 0.6) desc = `Enfoque Espectáculo (${Math.round(val*100)}%)`;
-    else if (val < 0.4) desc = `Enfoque Táctico (${Math.round((1-val)*100)}%)`;
-    else desc = 'Equilibrado (50/50)';
-    weightValText.textContent = desc;
+  const macroFric = document.getElementById('slider-macro-fric');
+  if (macroFric) {
+    macroFric.value = state.userPreferences.w_friccion ?? 5;
+    document.getElementById('val-macro-fric').textContent = macroFric.value;
   }
 }
 

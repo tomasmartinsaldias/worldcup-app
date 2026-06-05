@@ -579,6 +579,10 @@ function showPlayersForArchetype(slotId, groupName, clusterId) {
 }
 
 function selectPlayer(player) {
+  const slot = formations[currentFormation].find(s => s.id === currentActiveSlot);
+  if (slot) {
+    player.groupName = slot.group;
+  }
   draftedPlayers[currentActiveSlot] = player;
   const photoUrl = getPlayerPhoto(player.long_name);
 
@@ -697,4 +701,11 @@ function completeDraft() {
       explanationText.innerHTML = `Tus jugadores tienen características muy variadas que no encajan en un arquetipo puro. Jugaremos con un Estilo Mixto.`;
     }
   }
+
+  // Guardar los 11 clusters drafteados en las preferencias del usuario
+  const draftedClusters = players.map(p => ({
+    groupName: p.groupName || '',
+    clusterId: p.cluster_id
+  }));
+  state.userPreferences.draftedClusters = draftedClusters;
 }

@@ -274,9 +274,9 @@ def calculate_tournament_difficulty(raw_stats, results_df_recent, code_to_names,
 
         rmed = statistics.median(ranks)
 
-        # SOVEREIGN ALGEBRAIC FORMULA: Softer Cdif formula to avoid double-penalizing UEFA teams
-        cdif = 1.0 - 0.5 * ((rmed - 1.0) / 209.0)
-        cdif = max(0.1, min(1.0, cdif))
+        # SOVEREIGN ALGEBRAIC FORMULA: Corrected Cdif formula to properly scale opponent difficulty
+        cdif = 0.5 + 0.5 * ((rmed - 1.0) / 209.0)
+        cdif = max(0.5, min(1.0, cdif))
 
         # SOVEREIGN ALGEBRAIC FORMULA: division for drama and vulnerability
         adjusted_stats[code] = {

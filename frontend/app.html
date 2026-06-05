@@ -335,41 +335,84 @@
       <div class="general-style-settings"
         style="max-width: 650px; margin: 0 auto; background: rgba(18, 18, 26, 0.65); backdrop-filter: blur(12px); border: 1.5px solid var(--border-glass); border-radius: 24px; padding: 3rem 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); text-align: left; display: flex; flex-direction: column; gap: 2rem;">
         
-        <!-- Drama/Roce Slider -->
+        <!-- Macro-Component: Espectáculo Weight Slider -->
         <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
           <div class="slider-header"
             style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-            <span>Fricción de Juego (Roce vs Fair Play)</span>
-            <span class="slider-value" id="val-drama-tab" style="color: var(--accent-cyan);">Equilibrada (0.20)</span>
+            <span>Peso: Espectáculo (ICE)</span>
+            <span class="slider-value" id="val-macro-esp" style="color: var(--accent-cyan);">5</span>
           </div>
-          <input type="range" min="0.0" max="0.6" step="0.025" value="0.2" class="tactical-slider"
-            id="slider-drama-tab" style="width: 100%; cursor: pointer;">
-          <div class="slider-labels"
-            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-            <span>Juego Limpio / Fair Play</span>
-            <span>Roce Físico / Intensidad</span>
-          </div>
+          <input type="range" min="1" max="10" step="1" value="5" class="tactical-slider"
+            id="slider-macro-esp" style="width: 100%; cursor: pointer;">
         </div>
 
-        <!-- Weight Slider (Espectáculo vs Estilo) -->
+        <!-- Macro-Component: Táctica Weight Slider -->
         <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
           <div class="slider-header"
             style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
-            <span>Enfoque de Recomendación (Táctica vs Espectáculo)</span>
-            <span class="slider-value" id="val-weight-tab" style="color: var(--accent-cyan);">Equilibrado (50/50)</span>
+            <span>Peso: Táctica (Estilo)</span>
+            <span class="slider-value" id="val-macro-tac" style="color: var(--accent-cyan);">5</span>
           </div>
-          <input type="range" min="0.0" max="1.0" step="0.05" value="0.5" class="tactical-slider"
-            id="slider-weight-tab" style="width: 100%; cursor: pointer;">
-          <div class="slider-labels"
-            style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
-            <span>100% Estilo Táctico</span>
-            <span>100% Espectáculo</span>
+          <input type="range" min="1" max="10" step="1" value="5" class="tactical-slider"
+            id="slider-macro-tac" style="width: 100%; cursor: pointer;">
+        </div>
+
+        <!-- Macro-Component: Afectivo Weight Slider -->
+        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="slider-header"
+            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
+            <span>Peso: Afectivo (Favoritos)</span>
+            <span class="slider-value" id="val-macro-afec" style="color: var(--accent-cyan);">5</span>
+          </div>
+          <input type="range" min="1" max="10" step="1" value="5" class="tactical-slider"
+            id="slider-macro-afec" style="width: 100%; cursor: pointer;">
+        </div>
+
+        <!-- Macro-Component: Fricción Weight Slider -->
+        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="slider-header"
+            style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold; color: var(--text-primary);">
+            <span>Peso: Fricción / Roce</span>
+            <span class="slider-value" id="val-macro-fric" style="color: var(--accent-cyan);">5</span>
+          </div>
+          <input type="range" min="1" max="10" step="1" value="5" class="tactical-slider"
+            id="slider-macro-fric" style="width: 100%; cursor: pointer;">
+        </div>
+
+        <!-- Friction Preference (Roce vs Fair Play Categorical) -->
+        <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label style="color: var(--text-primary); font-size: 1rem; font-weight: bold;">Preferencia de Fricción / Roce:</label>
+          <select id="pref-friction" class="filter-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: white; padding: 0.5rem; border-radius: 8px; width: 100%;">
+            <option value="indiferente">🤷 Indiferente</option>
+            <option value="fair_play">🕊️ Fair Play (Favorecer juegos limpios)</option>
+            <option value="tenso">🔥 Roce / Tenso (Favorecer partidos físicos)</option>
+          </select>
+        </div>
+
+        <!-- Favorite Selections Test Settings -->
+        <div style="border-top: 1px solid var(--border-glass); padding-top: 1.5rem;">
+          <h3 style="color: white; font-size: 1.1rem; margin-bottom: 1rem;">Favoritos para Testeo Afectivo</h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label style="color: var(--text-secondary); font-size: 0.85rem;">Jugadores Favoritos (ej: Lionel Messi, Jude Bellingham):</label>
+              <input type="text" id="pref-players" class="search-input" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: white; padding: 0.5rem 1rem; border-radius: 8px;" placeholder="Ingresa nombres separados por coma...">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+              <label style="color: var(--text-secondary); font-size: 0.85rem;">Selección Favorita:</label>
+              <select id="pref-team" class="filter-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: white; padding: 0.5rem; border-radius: 8px; width: 100%;">
+                <option value="">Ninguna</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.25rem; display: none;">
+              <select id="pref-time" multiple></select>
+            </div>
           </div>
         </div>
 
         <button class="btn-mundial btn-mundial--green" id="btn-apply-preferences"
           style="margin-top: 1rem; padding: 0.9rem 2rem; font-size: 1.15rem; font-weight: 800; width: 100%; box-shadow: var(--shadow-neon); border-radius: 50px;">Aplicar
           Ajustes</button>
+
       </div>
     </section>
 

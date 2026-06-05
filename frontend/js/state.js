@@ -3,15 +3,23 @@ let appData = null;
 let activeTab = localStorage.getItem('activeTab') || 'recommender';
 let selectedCountryCode = null;
 let userPreferences = {
-  favoriteTeam: '',
+  // Pesos macro-componentes de 1 a 10
+  w_espectaculo: 5,
+  w_tactica: 5,
+  w_afectivo: 5,
+  w_friccion: 5,
+  
+  // Configuración afectiva
+  favoriteTeams: [],      // Máximo 4 selecciones (Indice 0 es la principal)
+  favoriteClubs: [],      // Lista de clubes favoritos
+  favoritePlayers: [],    // Lista de jugadores favoritos
+  
+  // Nivel de fricción interna deseada (0.0: Fair play puro, 0.2: Normal, 0.6: Roce total)
+  dramaBeta: 0.2, 
+  
   matchStyle: 'all', // 'all', 'closed', 'chaotic'
-  favoritePlayers: [],
   preferredTime: [], // array of 'morning', 'afternoon', 'evening'
-  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 },
-  spectacleWeight: 0.5,
-  // dramaBonus: -1 (no gusta fricción) | 0 (indiferente) | +1 (gusta fricción)
-  // Controla si el FriccionScore suma o resta al SmartScore final
-  dramaBonus: 0
+  tacticalVector: { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 }
 };
 
 export async function loadData() {
@@ -113,6 +121,16 @@ export async function loadData() {
   }
 }
 
+export const fifaToSpanish = {
+  'ARG': 'argentina', 'BRA': 'brasil', 'FRA': 'francia', 'ENG': 'inglaterra', 'ESP': 'espana', 'GER': 'alemania', 'POR': 'portugal',
+  'URU': 'uruguay', 'NED': 'paises bajos', 'CRO': 'croacia', 'JPN': 'japon', 'USA': 'estados unidos', 'MEX': 'mexico', 'MAR': 'marruecos',
+  'COL': 'colombia', 'BEL': 'belgica', 'NOR': 'noruega', 'SEN': 'senegal', 'EGY': 'egipto', 'SWE': 'suecia', 'KOR': 'corea del sur',
+  'TUR': 'turquia', 'SUI': 'suiza', 'CAN': 'canada', 'ECU': 'ecuador', 'AUT': 'austria', 'ALG': 'argelia', 'CIV': 'costa de marfil',
+  'SCO': 'escocia', 'AUS': 'australia', 'GHA': 'ghana', 'KSA': 'arabia saudita', 'PAR': 'paraguay', 'CZE': 'republica checa', 'COD': 'republica democratica del congo',
+  'BIH': 'bosnia y herzegovina', 'CPV': 'cabo verde', 'TUN': 'tunez', 'IRQ': 'irak', 'RSA': 'sudafrica', 'UZB': 'uzbekistan', 'QAT': 'qatar',
+  'NZL': 'nueva zelanda', 'JOR': 'jordania', 'PAN': 'panama', 'HAI': 'haiti', 'CUR': 'curazao'
+};
+
 function mapTeamEstilos(appData) {
   if (!appData || !appData.teams || !appData.estilos) return;
   const normalise = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
@@ -123,7 +141,7 @@ function mapTeamEstilos(appData) {
   });
 
   Object.values(appData.teams).forEach(team => {
-    const key = normalise(team.name);
+    const key = fifaToSpanish[team.fifa_code] || normalise(team.name);
     if (estiloMap[key]) {
       team.tactical_vector = estiloMap[key].vector;
       team.analisis_tactico = estiloMap[key].analisis_tactico;

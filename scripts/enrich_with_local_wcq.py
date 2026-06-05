@@ -49,6 +49,7 @@ def main():
     add_column_if_not_exists(cursor, "scraped_team_metrics", "gnp_per_90", "REAL")
     add_column_if_not_exists(cursor, "scraped_team_metrics", "gc_per_90", "REAL")
     add_column_if_not_exists(cursor, "scraped_team_metrics", "drama_per_90", "REAL")
+    add_column_if_not_exists(cursor, "scraped_wc2026_probable_squads", "starts_recent", "INTEGER")
     conn.commit()
 
     # 2. Cargar mapeo de equipos para relacionar nombres de FBref con código FIFA
@@ -324,7 +325,7 @@ def main():
             # p[6]=MP, p[7]=Starts, p[8]=Min, p[9]=90s, p[10]=Gls, p[11]=Ast,
             # p[16]=CrdY, p[17]=CrdR
             # (The CONMEBOL file header is misleadingly offset but data rows are the same.)
-            IDX_MP, IDX_MIN, IDX_90S, IDX_GLS, IDX_AST, IDX_CRDY, IDX_CRDR = 6, 8, 9, 10, 11, 16, 17
+            IDX_MP, IDX_STARTS, IDX_MIN, IDX_90S, IDX_GLS, IDX_AST, IDX_CRDY, IDX_CRDR = 6, 7, 8, 9, 10, 11, 16, 17
 
             for line in lines:
                 if not line.strip() or line.startswith('Rk') or line.startswith('\t') or line.startswith(' '):
@@ -353,6 +354,7 @@ def main():
                         return default
 
                 mp = int(get_p_val(IDX_MP, 0.0))
+                starts = int(get_p_val(IDX_STARTS, 0.0))
                 minutes = int(get_p_val(IDX_MIN, 0.0))
                 nineties = get_p_val(IDX_90S, 0.0)
                 goals = int(get_p_val(IDX_GLS, 0.0))
@@ -363,6 +365,7 @@ def main():
                 norm_pname = normalize_name(player_name)
                 player_stats[(team_code, norm_pname)] = {
                     'mp': mp,
+                    'starts': starts,
                     'minutes': minutes,
                     'nineties': nineties,
                     'goals': goals,
@@ -414,9 +417,10 @@ def main():
                     goals = ?,
                     assists_recent = ?,
                     cards_propensity = ?,
-                    caps = ?
+                    caps = ?,
+                    starts_recent = ?
                 WHERE player_id = ?;
-            """, (p_data['minutes'], p_data['goals'], p_data['assists'], c_prop, mp, pid))
+            """, (p_data['minutes'], p_data['goals'], p_data['assists'], c_prop, mp, p_data['starts'], pid))
             updated_players_count += 1
 
     print(f"  Estadísticas de {updated_players_count} jugadores actualizadas con éxito.")
