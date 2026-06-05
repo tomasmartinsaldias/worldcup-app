@@ -31,3 +31,5 @@ Desktop.ini
 *.njsproj
 *.sln
 *.swp
+
+.obsidian/
