@@ -204,83 +204,84 @@ export function calculateSSel(homeCode, awayCode, userPreferences) {
   return 0.0;
 }
 
-export function calculateSJug(homeTeam, awayTeam, userPreferences) {
+export function calculateSCluster(homeTeam, awayTeam, userPreferences) {
   const draftedClusters = userPreferences?.draftedClusters || [];
+  if (draftedClusters.length === 0) return 0.0;
   
-  if (draftedClusters.length > 0) {
-    // 1. Calculate centroids dynamically for each cluster in each active group
-    const centroids = {};
-    const groups = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Wingers', 'Strikers'];
+  // 1. Calculate centroids dynamically for each cluster in each active group
+  const centroids = {};
+  const groups = ['Goalkeepers', 'Centerbacks', 'Fullbacks', 'Midfielders', 'Wingers', 'Strikers'];
+  
+  groups.forEach(groupName => {
+    const list = state.appData.clusters?.[groupName];
+    if (!list) return;
     
-    groups.forEach(groupName => {
-      const list = state.appData.clusters?.[groupName];
-      if (!list) return;
-      
-      centroids[groupName] = {};
-      const totals = {};
-      const counts = {};
-      
-      list.forEach(p => {
-        const cid = p.cluster_id;
-        if (!p.position_vector) return;
-        if (!totals[cid]) {
-          totals[cid] = new Array(p.position_vector.length).fill(0);
-          counts[cid] = 0;
-        }
-        for (let i = 0; i < p.position_vector.length; i++) {
-          totals[cid][i] += p.position_vector[i];
-        }
-        counts[cid]++;
-      });
-      
-      Object.keys(totals).forEach(cid => {
-        centroids[groupName][cid] = totals[cid].map(sum => sum / counts[cid]);
-      });
+    centroids[groupName] = {};
+    const totals = {};
+    const counts = {};
+    
+    list.forEach(p => {
+      const cid = p.cluster_id;
+      if (!p.position_vector) return;
+      if (!totals[cid]) {
+        totals[cid] = new Array(p.position_vector.length).fill(0);
+        counts[cid] = 0;
+      }
+      for (let i = 0; i < p.position_vector.length; i++) {
+        totals[cid][i] += p.position_vector[i];
+      }
+      counts[cid]++;
     });
     
-    // Helper to calculate Euclidean distance
-    const getDistance = (v1, v2) => {
-      let sum = 0;
-      const len = Math.min(v1.length, v2.length);
-      for (let i = 0; i < len; i++) {
-        const diff = v1[i] - v2[i];
-        sum += diff * diff;
-      }
-      return Math.sqrt(sum);
-    };
+    Object.keys(totals).forEach(cid => {
+      centroids[groupName][cid] = totals[cid].map(sum => sum / counts[cid]);
+    });
+  });
+  
+  // Helper to calculate Euclidean distance
+  const getDistance = (v1, v2) => {
+    let sum = 0;
+    const len = Math.min(v1.length, v2.length);
+    for (let i = 0; i < len; i++) {
+      const diff = v1[i] - v2[i];
+      sum += diff * diff;
+    }
+    return Math.sqrt(sum);
+  };
+  
+  let J_draft = 0.0;
+  const a = 3.0; // Decay rate
+  
+  const processTeam = (team) => {
+    if (!team || !team.squad) return;
+    const maxVal = getTeamMaxMarketValue(team);
     
-    let J_draft = 0.0;
-    const a = 3.0; // Decay rate
-    
-    const processTeam = (team) => {
-      if (!team || !team.squad) return;
-      const maxVal = getTeamMaxMarketValue(team);
-      
-      team.squad.forEach(p => {
-        const pRes = findClusterPlayer(p.name);
-        if (pRes) {
-          const { cp, groupName } = pRes;
-          const isDrafted = draftedClusters.some(dc => dc.groupName === groupName && dc.clusterId == cp.cluster_id);
-          if (isDrafted) {
-            const centroid = centroids[groupName]?.[cp.cluster_id];
-            if (centroid && cp.position_vector) {
-              const dist = getDistance(cp.position_vector, centroid);
-              const contribution = Math.max(0.0, Math.min(1.0, (Math.exp(-a * dist) - Math.exp(-a)) / (1.0 - Math.exp(-a))));
-              const pJuego = calculatePJuego(p, team.fifa_code, maxVal);
-              J_draft += contribution * pJuego;
-            }
+    team.squad.forEach(p => {
+      const pRes = findClusterPlayer(p.name);
+      if (pRes) {
+        const { cp, groupName } = pRes;
+        const isDrafted = draftedClusters.some(dc => dc.groupName === groupName && dc.clusterId == cp.cluster_id);
+        if (isDrafted) {
+          const centroid = centroids[groupName]?.[cp.cluster_id];
+          if (centroid && cp.position_vector) {
+            const dist = getDistance(cp.position_vector, centroid);
+            const contribution = Math.max(0.0, Math.min(1.0, (Math.exp(-a * dist) - Math.exp(-a)) / (1.0 - Math.exp(-a))));
+            const pJuego = calculatePJuego(p, team.fifa_code, maxVal);
+            J_draft += contribution * pJuego;
           }
         }
-      });
-    };
-    
-    processTeam(homeTeam);
-    processTeam(awayTeam);
-    
-    // Normalize J_draft: using log1p and normalizing over Z_draft = 5.0
-    return Math.min(1.0, Math.log1p(J_draft) / Math.log(1.0 + 5.0));
-  }
+      }
+    });
+  };
   
+  processTeam(homeTeam);
+  processTeam(awayTeam);
+  
+  // Normalize J_draft: using log1p and normalizing over Z_draft = 5.0
+  return Math.min(1.0, Math.log1p(J_draft) / Math.log(1.0 + 5.0));
+}
+
+export function calculateSJug(homeTeam, awayTeam, userPreferences) {
   // Traditional favorite players logic
   const favPlayers = userPreferences?.favoritePlayers || [];
   if (favPlayers.length === 0) return 0.0;
@@ -512,13 +513,22 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   const vectorA = home.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
   const vectorB = away.tactical_vector || { defensa: 0.0, posesion: 0.0, ritmo: 0.0, ancho: 0.0 };
 
-  let playstyleScore;
-  if (isDefaultU) {
-    playstyleScore = spectacleScore;
-  } else {
+  const s_style = isDefaultU ? spectacleScore : (() => {
     const rawPlaystyle = calculatePlaystyleScore(vectorA, vectorB, vectorU);
-    playstyleScore = 10.0 * ((rawPlaystyle + 1.1) / 2.2);
-    playstyleScore = Math.min(Math.max(playstyleScore, 0.0), 10.0);
+    const score = 10.0 * ((rawPlaystyle + 1.1) / 2.2);
+    return Math.min(Math.max(score, 0.0), 10.0);
+  })();
+
+  const s_cluster = calculateSCluster(home, away, userPref);
+
+  let playstyleScore = s_style;
+  if (hasDraftedClusters) {
+    const w_style = userPref.w_tactica_estilo ?? 5;
+    const w_cluster = userPref.w_tactica_cluster ?? 5;
+    const total_tactica_w = w_style + w_cluster;
+    if (total_tactica_w > 0) {
+      playstyleScore = (w_style * s_style + w_cluster * (s_cluster * 10.0)) / total_tactica_w;
+    }
   }
 
   // 1. Pesos Macro normalizados (3 componentes principales):
@@ -535,11 +545,11 @@ export function calculateSmartScore(match, teams, tacticalVector) {
   // 3. Componente Afectiva:
   const m_club = hasFavClubs ? 1 : 0;
   const m_sel = hasFavTeams ? 1 : 0;
-  const m_jug = (hasFavPlayers || hasDraftedClusters) ? 1 : 0;
+  const m_jug = hasFavPlayers ? 1 : 0;
 
-  const w_club_sub = 0.3;
-  const w_sel_sub = 0.4;
-  const w_jug_sub = 0.3;
+  const w_club_sub = userPref.w_afectivo_club ?? 3;
+  const w_sel_sub = userPref.w_afectivo_seleccion ?? 4;
+  const w_jug_sub = userPref.w_afectivo_jugador ?? 3;
 
   const sub_sum = (m_club * w_club_sub) + (m_sel * w_sel_sub) + (m_jug * w_jug_sub);
   let s_afectivo = 0.0;
