@@ -160,9 +160,32 @@ export function generateRecommendations(userPreferences) {
 
   const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
 
+  // Helper to check if a stage is fully simulated
+  const isStageFullySimulated = (startMatch, endMatch) => {
+    for (let i = startMatch; i <= endMatch; i++) {
+      if (simulatedScores[i] === undefined) return false;
+    }
+    return true;
+  };
+
+  const groupStageFullySimulated = isStageFullySimulated(1, 72);
+  const r32FullySimulated = isStageFullySimulated(73, 88);
+  const r16FullySimulated = isStageFullySimulated(89, 96);
+  const qfFullySimulated = isStageFullySimulated(97, 100);
+  const sfFullySimulated = isStageFullySimulated(101, 102);
+
   const scored = [];
 
   state.appData.matches.forEach(match => {
+    const num = match.match_number;
+    
+    // Skip knockout rounds if preceding stage isn't fully simulated
+    if (num >= 73 && num <= 88 && !groupStageFullySimulated) return;
+    if (num >= 89 && num <= 96 && !r32FullySimulated) return;
+    if (num >= 97 && num <= 100 && !r16FullySimulated) return;
+    if (num >= 101 && num <= 102 && !qfFullySimulated) return;
+    if (num >= 103 && num <= 104 && !sfFullySimulated) return;
+
     if (match.home_team.is_placeholder || match.away_team.is_placeholder) return;
 
     // Skip matches that are already simulated (played)
