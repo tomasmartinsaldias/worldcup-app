@@ -34,6 +34,13 @@ window.prevSurveyStep = function(stepIndex) {
 };
 
 function changeSurveyStep(stepIndex) {
+  if (stepIndex === 0) {
+    document.getElementById('antigravity-survey').classList.remove('visible');
+    document.getElementById('antigravity-survey').classList.add('hidden');
+    document.getElementById('spectator-selection').classList.add('visible');
+    return;
+  }
+
   document.querySelectorAll('.survey-step').forEach(step => {
     step.classList.remove('active');
   });
@@ -43,7 +50,7 @@ function changeSurveyStep(stepIndex) {
     targetStep.classList.add('active');
   }
   
-  const totalSteps = 6;
+  const totalSteps = 7;
   const progressPercent = (stepIndex / totalSteps) * 100;
   document.getElementById('survey-progress').style.width = `${progressPercent}%`;
   document.getElementById('survey-step-text').innerText = `PASO ${stepIndex} DE ${totalSteps}`;
@@ -78,45 +85,31 @@ window.updateSliderText = function(sliderId, value) {
   textBox.innerText = text;
 };
 
+window.selectedTimeRanges = {
+  morning: false,
+  noon: false,
+  afternoon: false,
+  night: false
+};
+
+window.toggleTimeRange = function(range, element) {
+  window.selectedTimeRanges[range] = !window.selectedTimeRanges[range];
+  if (window.selectedTimeRanges[range]) {
+    element.classList.add('selected');
+  } else {
+    element.classList.remove('selected');
+  }
+};
+
 window.finishSurvey = function() {
   window.surveyData = window.surveyData || {};
   const draftResults = window.draftState || { team: null, countries: [], players: [] };
+  const data = window.draftData || { teams: [], countries: [], players: [] };
 
-  // Map indices back to actual names/codes to prevent TypeErrors in scoring engine
-  let favClub = null;
-  let favPlayers = [];
-  let favNations = [];
-
-  const nameToFifa = {
-    "mexico": "MEX", "south africa": "RSA", "south korea": "KOR", "czech republic": "CZE", "canada": "CAN", 
-    "bosnia and herzegovina": "BIH", "qatar": "QAT", "switzerland": "SUI", "brazil": "BRA", "morocco": "MAR", 
-    "haiti": "HAI", "scotland": "SCO", "usa": "USA", "paraguay": "PAR", "australia": "AUS", "turkey": "TUR", 
-    "germany": "GER", "curaçao": "CUW", "cote d'ivoire": "CIV", "côte d'ivoire": "CIV", "ecuador": "ECU", 
-    "netherlands": "NED", "japan": "JPN", "sweden": "SWE", "tunisia": "TUN", "belgium": "BEL", "egypt": "EGY", 
-    "ir iran": "IRN", "new zealand": "NZL", "spain": "ESP", "cabo verde": "CPV", "saudi arabia": "KSA", 
-    "uruguay": "URU", "france": "FRA", "senegal": "SEN", "dr congo": "COD", "norway": "NOR", "argentina": "ARG", 
-    "algeria": "ALG", "austria": "AUT", "jordan": "JOR", "portugal": "POR", "iraq": "IRQ", "uzbekistan": "UZB", 
-    "colombia": "COL", "england": "ENG", "croatia": "CRO", "ghana": "GHA", "panama": "PAN"
-  };
-
-  if (window.draftData) {
-    if (draftResults.team !== null && window.draftData.teams[draftResults.team]) {
-      favClub = window.draftData.teams[draftResults.team].team;
-    }
-    if (draftResults.players && draftResults.players.length > 0) {
-      favPlayers = draftResults.players.map(idx => {
-        return window.draftData.players[idx] ? window.draftData.players[idx].NAME : null;
-      }).filter(Boolean);
-    }
-    if (draftResults.countries && draftResults.countries.length > 0) {
-      favNations = draftResults.countries.map(idx => {
-        const countryObj = window.draftData.countries[idx];
-        if (!countryObj) return null;
-        const nameNorm = countryObj.country.toLowerCase().trim();
-        return nameToFifa[nameNorm] || countryObj.country.toUpperCase().substring(0, 3);
-      }).filter(Boolean);
-    }
-  }
+  // Resolve indices to actual names/codes using draftData
+  const resolvedPlayers = (draftResults.players || []).map(idx => data.players[idx]?.NAME).filter(Boolean);
+  const resolvedTeam = draftResults.team !== null && data.teams[draftResults.team] ? data.teams[draftResults.team].team : null;
+  const resolvedCountries = (draftResults.countries || []).map(idx => data.countries[idx]?.country).filter(Boolean);
 
   const results = {
     userType: currentSurveyType,
@@ -127,43 +120,15 @@ window.finishSurvey = function() {
     balance: document.getElementById('slider-balance') ? document.getElementById('slider-balance').value : null,
     q1_player_loyalty: window.surveyData['q1'] || null,
     q2_team_loyalty: window.surveyData['q2'] || null,
-    fav_player: favPlayers,
-    fav_team: favClub,
-    supported_nations: favNations
+    favoritePlayers: resolvedPlayers,
+    favoriteTeam: resolvedTeam,
+    supportedNations: resolvedCountries,
+    availableTimeRanges: window.selectedTimeRanges
   };
-  
-  console.log("Encuesta finalizada. Datos del recomendador Antigravity:", results);
-  
-  if (window.state && window.state.userPreferences) {
-    const prefs = window.state.userPreferences;
-    if (results.passion !== null) {
-      prefs.w_afectivo = Math.round(parseInt(results.passion) / 10);
-    }
-    if (results.friction !== null) {
-      const fricVal = parseInt(results.friction);
-      prefs.w_friccion = Math.round(fricVal / 10);
-      if (fricVal < 40) {
-        prefs.frictionPreference = 'tenso';
-      } else if (fricVal > 60) {
-        prefs.frictionPreference = 'fair_play';
-      } else {
-        prefs.frictionPreference = 'indiferente';
-      }
-    }
-    if (results.goals !== null) {
-      prefs.w_espectaculo = Math.round(parseInt(results.goals) / 10);
-    }
-    if (results.tactics !== null) {
-      prefs.w_tactica = Math.round(parseInt(results.tactics) / 10);
-    }
-    prefs.w_entretenimiento = Math.round((prefs.w_espectaculo + prefs.w_friccion) / 2);
-    prefs.favoriteTeams = results.supported_nations || [];
-    prefs.favoriteClubs = results.fav_team ? [results.fav_team] : [];
-    prefs.favoritePlayers = results.fav_player || [];
-  }
 
-  // Aquí podemos mostrar las recomendaciones, pero por ahora mostramos un alert
-  console.log("¡Encuesta Completada! Ajustes guardados en el estado.");
+  
+  window.surveyRawResults = results; // Save for recommender.js
+  console.log("Encuesta finalizada. Datos guardados en window.surveyRawResults:", results);
   
   document.getElementById('antigravity-survey').classList.remove('visible');
   setTimeout(() => {

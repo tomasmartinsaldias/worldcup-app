@@ -105,257 +105,157 @@ function nextFanaticStep(currentStepNum, btn) {
   }, 500);
 }
 
-function selectOption(btn) {
-  const parent = btn.parentElement;
-  const options = parent.querySelectorAll('.quiz-option');
-  options.forEach(o => o.classList.remove('selected'));
-  btn.classList.add('selected');
-  
-  const step = btn.closest('.quiz-step');
-  const nextBtn = step.querySelector('.quiz-btn-next');
-  nextBtn.disabled = false;
-}
-
-function nextQuizStep(nextStepNum) {
-  const currentStep = document.querySelector('.quiz-step.active');
-  currentStep.classList.remove('active');
-  
-  const nextStep = document.getElementById(`cq-step-${nextStepNum}`);
-  if(nextStep) {
-    nextStep.classList.add('active');
-    document.getElementById('cq-step-text').innerText = `PASO ${nextStepNum} DE 3`;
-    document.getElementById('cq-progress').style.width = `${(nextStepNum / 3) * 100}%`;
-  }
-}
-
-function finishQuiz() {
-  showRecommendations();
-}
-
-// --- RECOMENDACIONES ---
-function showRecommendations() {
-  window.appState = 'transition';
-  // Ocultar quizes
-  const casualQuiz = document.getElementById('casual-quiz');
-  if (casualQuiz) {
-    casualQuiz.classList.remove('visible');
-    casualQuiz.classList.add('hidden');
-  }
-  const fanaticQuiz = document.getElementById('fanatic-quiz');
-  if (fanaticQuiz) {
-    fanaticQuiz.classList.remove('visible');
-    fanaticQuiz.classList.add('hidden');
-  }
-  
-  setTimeout(() => {
-    const overlay = document.getElementById('recommendations-overlay');
-    if (overlay) {
-      overlay.classList.remove('hidden');
-      overlay.classList.add('visible');
-    }
-    window.appState = 'recommendations';
-    renderRecommendedCards();
-  }, 500);
-}
-
-let cachedWcData = null;
-let allValidMatches = [];
-let showingAllRecs = false;
-
-function renderRecommendedCards() {
-  const carousel = document.getElementById('recommendations-carousel');
-  carousel.innerHTML = '<p>Cargando partidos recomendados...</p>';
-
-  fetch('data/wc2026_data.json')
-    .then(res => res.json())
-    .then(data => {
-      cachedWcData = data;
+    // --- RECOMENDACIONES ---
+    window.showRecommendations = async function() {
+      window.appState = 'transition';
       
-      // Select valid matches
-      allValidMatches = data.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
+      const survey = document.getElementById('antigravity-survey');
+      if (survey) survey.classList.remove('visible');
+      const draftOverlay = document.getElementById('draft-template');
+      if (draftOverlay) {
+        draftOverlay.classList.remove('visible');
+        draftOverlay.classList.add('hidden');
+      }
       
-      // Calculate dynamic smart score for each match based on userPreferences
-      allValidMatches.forEach(m => {
-        m.smartScore = calculateSmartScore(m, data.teams, state.userPreferences?.tacticalVector);
-      });
-      
-      // Sort by affinity descending
-      allValidMatches.sort((a, b) => b.smartScore - a.smartScore);
-      
-      showingAllRecs = false;
-      updateCarouselUI();
-    })
-    .catch(err => {
-      console.error("Error fetching matches", err);
-      carousel.innerHTML = '<p>Error al cargar recomendaciones.</p>';
-    });
-}
-
-
-// Mapa de estadios → fotos locales
-const STADIUM_IMAGES = {
-  'Estadio Azteca':          'img/stadiums/Estadio_Azteca.jpg',
-  'Estadio Akron':           'img/stadiums/Estadio_Akron.jpg',
-  'Estadio BBVA':            'img/stadiums/Estadio_BBVA.jpg',
-  'MetLife Stadium':         'img/stadiums/MetLife_Stadium.jpg',
-  'SoFi Stadium':            'img/stadiums/SoFi_Stadium.jpg',
-  'AT&T Stadium':            'img/stadiums/ATandT_Stadium.jpg',
-  'Hard Rock Stadium':       'img/stadiums/Hard_Rock_Stadium.jpg',
-  'Mercedes-Benz Stadium':   'img/stadiums/Mercedes-Benz_Stadium.jpg',
-  'Lumen Field':             'img/stadiums/Lumen_Field.jpg',
-  'NRG Stadium':             'img/stadiums/NRG_Stadium.jpg',
-  'Gillette Stadium':        'img/stadiums/Gillette_Stadium.jpg',
-  "Levi's Stadium":          'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
-  'Lincoln Financial Field': 'img/stadiums/Lincoln_Financial_Field.jpg',
-  'Arrowhead Stadium':       'img/stadiums/Arrowhead_Stadium.jpg',
-  'BC Place':                'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
-  'BMO Field':               'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
-};
-const STADIUM_FALLBACK = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
-
-function getStadiumImage(match) {
-  const venue = match.stadium && match.stadium.venue_name;
-  return STADIUM_IMAGES[venue] || STADIUM_FALLBACK;
-}
-
-function updateCarouselUI() {
-  const carousel = document.getElementById('recommendations-carousel');
-  carousel.innerHTML = '';
-  
-  const matchesToShow = showingAllRecs ? allValidMatches : allValidMatches.slice(0, 4);
-
-  matchesToShow.forEach((match, index) => {
-    // Affinity score shown in percent
-    const scorePercent = Math.round(match.smartScore * 10);
-    
-    // Dynamic explanation label based on breakdown values
-    let exp = "Partidazo recomendado";
-    if (match.scoreBreakdown) {
-      const bd = match.scoreBreakdown;
-      if (bd.val_afectivo > 6.0) exp = "Coincide con tus favoritos";
-      else if (bd.val_tactica > 6.0) exp = "Fiel a tu estilo táctico";
-      else if (bd.entertainment.val_espectaculo > 7.0) exp = "Espectáculo garantizado";
-      else if (bd.entertainment.val_friccion > 7.0) exp = "Juego físico e intenso";
+      setTimeout(async () => {
+        document.getElementById('recommendations-overlay').classList.add('visible');
+        window.appState = 'recommendations';
+        await renderRecommendedCards();
+      }, 500);
     }
 
-    const card = document.createElement('div');
-    card.className = 'rec-card';
-    card.innerHTML = `
-      <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
-      <div class="rec-content">
-        <div class="rec-score">${scorePercent}% AFINIDAD</div>
-        <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
-        <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
-        <p class="rec-type">${match.stage}</p>
-        <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
-      </div>
-    `;
-    card.onclick = () => openMatchStats(match);
-    carousel.appendChild(card);
-  });
-  
-  // Duplicate for infinite scroll if showing all
-  if (showingAllRecs) {
-    matchesToShow.forEach((match, index) => {
-      const scorePercent = Math.round(match.smartScore * 10);
-      let exp = "Partidazo recomendado";
-      if (match.scoreBreakdown) {
-        const bd = match.scoreBreakdown;
-        if (bd.val_afectivo > 6.0) exp = "Coincide con tus favoritos";
-        else if (bd.val_tactica > 6.0) exp = "Fiel a tu estilo táctico";
-        else if (bd.entertainment.val_espectaculo > 7.0) exp = "Espectáculo garantizado";
-        else if (bd.entertainment.val_friccion > 7.0) exp = "Juego físico e intenso";
+    let cachedWcData = null;
+    let allValidMatches = [];
+    window.scoredMatches = [];
+    let showingAllRecs = false;
+
+    async function renderRecommendedCards() {
+      const container = document.getElementById('recommendations-list');
+      if (container) {
+        container.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">⚽ Analizando tu perfil...</p>';
       }
 
-      const card = document.createElement('div');
-      card.className = 'rec-card';
-      card.innerHTML = `
-        <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
-        <div class="rec-content">
-          <div class="rec-score">${scorePercent}% AFINIDAD</div>
-          <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${exp}</div>
-          <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
-          <p class="rec-type">${match.stage}</p>
-        </div>
-      `;
-      card.onclick = () => openMatchStats(match);
-      carousel.appendChild(card);
-    });
-  }
-}
-
-    let autoScrollInterval = null;
-    let scrollSpeed = -1; 
-    
-    function startAutoScroll() {
-      const carousel = document.getElementById('recommendations-carousel');
-      stopAutoScroll();
-      
-      scrollSpeed = 1;
-
-      autoScrollInterval = setInterval(() => {
-        if (showingAllRecs && carousel.classList.contains('expanded-grid')) {
-          carousel.scrollTop += scrollSpeed;
-          
-          // Infinite scroll logic
-          const maxScroll = carousel.scrollHeight / 2;
-          if (carousel.scrollTop >= maxScroll) {
-            carousel.scrollTop -= maxScroll;
-          } else if (carousel.scrollTop <= 0 && scrollSpeed < 0) {
-            carousel.scrollTop += maxScroll;
-          }
-        }
-      }, 20); // Faster tick for smoother movement
-      
-      carousel.onmousemove = (e) => {
-        const rect = carousel.getBoundingClientRect();
-        const y = e.clientY - rect.top;
-        const height = rect.height;
+      try {
+        const { mapSurveyToPreferences, generateRecommendations } = await import('./recommender.js');
         
-        const normalizedY = (y / height) - 0.5; 
-        
-        if (Math.abs(normalizedY) < 0.1) {
-          scrollSpeed = 0;
-        } else {
-          scrollSpeed = normalizedY * 20; // Much faster scaling
+        // Ensure data is loaded
+        if (!cachedWcData) {
+          const res = await fetch('data/wc2026_data.json');
+          cachedWcData = await res.json();
+          allValidMatches = cachedWcData.matches.filter(m => !m.home_team.is_placeholder && !m.away_team.is_placeholder);
         }
-      };
-      
-      carousel.onmouseleave = () => {
-        scrollSpeed = -1; // Default moving up (scrolling to top)
-      };
+
+        const rawResults = window.surveyRawResults || { userType: 'casual' };
+        const prefs = mapSurveyToPreferences(rawResults);
+        console.log('[Recommender] Preferences mapped:', prefs);
+
+        const scored = generateRecommendations(prefs);
+        window.scoredMatches = scored;
+        
+        renderCategorizedResults();
+      } catch (err) {
+        console.error("Error generating recommendations", err);
+        const container = document.getElementById('recommendations-list');
+        if (container) {
+          container.innerHTML = '<p>Error al calcular recomendaciones. Por favor reintenta.</p>';
+        }
+      }
     }
 
-    function stopAutoScroll() {
-      if (autoScrollInterval) clearInterval(autoScrollInterval);
-    }
 
-    function toggleSeeMore() {
-      showingAllRecs = !showingAllRecs;
-      const carousel = document.getElementById('recommendations-carousel');
+    // Mapa de estadios → fotos locales
+    const STADIUM_IMAGES = {
+      'Estadio Azteca':          'img/stadiums/Estadio_Azteca.jpg',
+      'Estadio Akron':           'img/stadiums/Estadio_Akron.jpg',
+      'Estadio BBVA':            'img/stadiums/Estadio_BBVA.jpg',
+      'MetLife Stadium':         'img/stadiums/MetLife_Stadium.jpg',
+      'SoFi Stadium':            'img/stadiums/SoFi_Stadium.jpg',
+      'AT&T Stadium':            'img/stadiums/ATandT_Stadium.jpg',
+      'Hard Rock Stadium':       'img/stadiums/Hard_Rock_Stadium.jpg',
+      'Mercedes-Benz Stadium':   'img/stadiums/Mercedes-Benz_Stadium.jpg',
+      'Lumen Field':             'img/stadiums/Lumen_Field.jpg',
+      'NRG Stadium':             'img/stadiums/NRG_Stadium.jpg',
+      'Gillette Stadium':        'img/stadiums/Gillette_Stadium.jpg',
+      "Levi's Stadium":          'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'Lincoln Financial Field': 'img/stadiums/Lincoln_Financial_Field.jpg',
+      'Arrowhead Stadium':       'img/stadiums/Arrowhead_Stadium.jpg',
+      'BC Place':                'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+      'BMO Field':               'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop',
+    };
+    const STADIUM_FALLBACK = 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop';
+
+    function getStadiumImage(match) {
+      const venue = match.stadium && match.stadium.venue_name;
+      return STADIUM_IMAGES[venue] || STADIUM_FALLBACK;
+    }
+    function renderCategorizedResults() {
+      const container = document.getElementById('recommendations-list');
+      container.innerHTML = '';
       
-      // Smooth fade transition
-      carousel.style.opacity = 0;
-      
-      setTimeout(() => {
-        carousel.classList.toggle('expanded-grid', showingAllRecs);
-        const btn = document.getElementById('btn-see-more');
-        btn.innerText = showingAllRecs ? 'VER MENOS' : 'VER TODOS LOS PARTIDOS';
+      const imperdibleIn = [];
+      const imperdibleOut = [];
+      const valeLaPenaIn = [];
+      const valeLaPenaOut = [];
+      const resumenIn = [];
+      const resumenOut = [];
+
+      window.scoredMatches.forEach(item => {
+        const pct = Math.min(100, Math.round(item.score * 10));
         
-        updateCarouselUI();
-        
-        carousel.style.opacity = 1;
-        
-        if (showingAllRecs) {
-          // Start at bottom if default is scroll up, but let's just start at top
-          setTimeout(() => {
-            if (showingAllRecs) startAutoScroll();
-          }, 800);
+        if (pct >= 80) {
+          if (item.outOfSchedule) imperdibleOut.push(item);
+          else imperdibleIn.push(item);
+        } else if (pct >= 50) {
+          if (item.outOfSchedule) valeLaPenaOut.push(item);
+          else valeLaPenaIn.push(item);
         } else {
-          stopAutoScroll();
-          carousel.scrollTop = 0; // Reset scroll
+          if (item.outOfSchedule) resumenOut.push(item);
+          else resumenIn.push(item);
         }
-      }, 400); // Wait for fade out
+      });
+
+      const imperdible = [...imperdibleIn, ...imperdibleOut];
+      const valeLaPena = [...valeLaPenaIn, ...valeLaPenaOut];
+      const resumen = [...resumenIn, ...resumenOut];
+
+      const buildCard = (item) => {
+        const { match, score, explanation } = item;
+        const displayScore = Math.min(100, Math.round(score * 10));
+        const extraClass = item.outOfSchedule ? ' out-of-schedule-card' : '';
+        return `
+          <div class="rec-card${extraClass}" onclick="openMatchStatsById('${match.id}')">
+            <div class="rec-bg" style="background-image: url('${getStadiumImage(match)}')"></div>
+            <div class="rec-content">
+              <div class="rec-score">${displayScore}% AFINIDAD</div>
+              <div style="font-size: 0.8rem; color: #ccc; margin-top: -2px; margin-bottom: 8px;">${explanation}</div>
+              <h3 class="rec-teams">${match.home_team.name} vs ${match.away_team.name}</h3>
+              <p class="rec-type">${match.stage}</p>
+              <p style="font-size:0.75rem; color:#aaa; margin-top:4px;"><i class="fa-solid fa-location-dot"></i> ${match.stadium ? match.stadium.venue_name + ', ' + match.stadium.city_name : ''}</p>
+              ${item.outOfSchedule ? '<p style="font-size:0.75rem; color:#ff8888; margin-top:4px;"><i class="fa-solid fa-clock"></i> Fuera de tu horario</p>' : ''}
+            </div>
+          </div>
+        `;
+      };
+
+      const addSection = (title, icon, items, className) => {
+        if (items.length === 0) return;
+        const section = document.createElement('div');
+        section.className = `category-section ${className}`;
+        
+        const gridHtml = items.map(buildCard).join('');
+        
+        section.innerHTML = `
+          <h3 class="category-title"><i class="${icon}"></i> ${title}</h3>
+          <div class="matches-grid">
+            ${gridHtml}
+          </div>
+        `;
+        container.appendChild(section);
+      };
+
+      addSection('Imperdible', 'fa-solid fa-fire', imperdible, 'section-imperdible');
+      addSection('Vale la pena', 'fa-solid fa-thumbs-up', valeLaPena, 'section-valelapena');
+      addSection('Para ver el resumen', 'fa-solid fa-tv', resumen, 'section-resumen');
     }
 
     function openMatchStats(match) {
