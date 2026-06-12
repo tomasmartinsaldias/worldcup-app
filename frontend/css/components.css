@@ -7,11 +7,14 @@
       -webkit-backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      padding: 8vh 1.5rem 4rem 1.5rem;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.8s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .ui-overlay.visible {
       opacity: 1;
@@ -1262,7 +1265,8 @@
 .survey-container .dynamic-text-box {
   margin-top: 0.5rem !important;
   font-size: 0.9rem !important;
-  height: 1.25rem !important;
+  height: auto !important;
+  min-height: 1.5rem !important;
 }
 
 /* Compact visual question step (Step 3) */

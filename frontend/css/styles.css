@@ -1,12 +1,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    body {
+    html, body {
       background-color: #030303;
       color: #eaeaea;
       font-family: 'Inter', sans-serif;
-      overflow: hidden; /* Sin scroll para la experiencia landing pura */
-      width: 100vw;
-      height: 100vh;
+      overflow: hidden !important; /* Sin scroll para la experiencia landing pura */
+      width: 100%;
+      height: 100%;
     }
     
     /* Contenedor del canvas 3D y partículas */
@@ -847,3 +847,466 @@
     font-size: 0.75rem !important;
   }
 }
+
+/* ==========================================================================
+   NUEVAS REGLAS RESPONSIVE (MÓVIL Y TABLET)
+   ========================================================================== */
+
+/* Breakpoint para pantallas medianas (laptops pequeñas / tablets grandes) */
+@media (max-width: 1024px) {
+  .hero-ui {
+    padding: 0 4rem;
+  }
+  .epic-text {
+    font-size: 3rem;
+  }
+  .cards-grid {
+    gap: 1.5rem;
+    max-width: 90%;
+  }
+  .spectator-card {
+    width: 240px;
+    padding: 2rem 1.2rem;
+  }
+}
+
+/* Breakpoint para Tablets y Móviles en general */
+@media (max-width: 850px) {
+  /* Hacemos que la mesa de Draft tenga scroll si se queda angosta */
+  .draft-container {
+    height: auto !important;
+    max-height: 95vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 1rem !important;
+  }
+  #pitch-container {
+    min-width: 750px !important;
+    height: 50vh !important;
+    min-height: 420px !important;
+  }
+  .draft-slot {
+    width: 75px !important;
+    height: 105px !important;
+  }
+  .draft-slot-pos {
+    font-size: 0.75rem !important;
+  }
+  .draft-options-panel {
+    width: 95% !important;
+    padding: 1.5rem !important;
+  }
+  .draft-options-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+  .archetype-card {
+    min-height: 200px !important;
+  }
+  
+  /* Ajuste de botón continuar y navegación para evitar cortes y desaparición */
+  .draft-nav {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+    gap: 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+  .draft-nav button, .draft-nav .quiz-btn-next {
+    flex: 1 1 auto !important;
+    min-width: 90px !important;
+    max-width: 50% !important;
+    width: auto !important;
+    padding: 0.75rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    height: auto !important;
+  }
+  .quiz-btn-next {
+    width: auto !important;
+    min-width: 130px !important;
+    padding: 0.75rem 1.25rem !important;
+  }
+  
+  /* Evitar solapamiento de textos de sliders */
+  .survey-container .dynamic-text-box {
+    height: auto !important;
+    min-height: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Alinear etiquetas de extremos con los extremos reales del slider track y hacer que hagan salto de línea sin superar la mitad */
+  .slider-labels, .top-labels {
+    padding: 0 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  .slider-labels span, .top-labels span {
+    max-width: 48% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    display: inline-block !important;
+    font-size: 0.65rem !important;
+  }
+  .slider-labels .label-left {
+    text-align: left !important;
+  }
+  .slider-labels .label-right {
+    text-align: right !important;
+  }
+  
+  /* Reducir el botón de Empezar Draft en móviles */
+  .btn-start-draft {
+    font-size: 1.1rem !important;
+    padding: 0.8rem 1.8rem !important;
+    border-radius: 30px !important;
+  }
+
+  /* Ajustar tarjetas de opciones de draft (estilos de juego) en móviles */
+  .archetype-selection-card {
+    max-width: 100% !important;
+  }
+  .archetype-title {
+    font-size: 0.95rem !important;
+  }
+  .archetype-desc {
+    font-size: 0.7rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* Breakpoint para Móviles (Vertical) */
+@media (max-width: 768px) {
+  /* Hero UI: apilar elementos y centrar */
+  .hero-ui {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem 1.5rem 6rem 1.5rem;
+  }
+  .hero-text-block {
+    text-align: center;
+    max-width: 100%;
+  }
+  .epic-text {
+    font-size: 2.3rem;
+  }
+  .epic-text-right {
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  .scroll-indicator {
+    bottom: 25px;
+  }
+
+  /* Overlays generales: permitimos scroll y reducimos titles */
+  .ui-overlay {
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+  .overlay-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .overlay-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Tarjetas Espectador (Casual, Intermedio, Fanático) en columna */
+  .cards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .spectator-card {
+    width: 100%;
+    max-width: 340px;
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+  }
+  .spectator-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Contenedores de Encuesta (Cuestionario) */
+  .survey-container {
+    width: 95% !important;
+    height: auto !important;
+    max-height: 92vh !important;
+    padding: 1.25rem 1rem !important;
+    overflow-y: auto !important;
+  }
+  .survey-container .draft-nav {
+    position: sticky !important;
+    bottom: -1.25rem !important; /* Se alinea con el padding inferior de la tarjeta */
+    background: rgba(10, 12, 16, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 10 !important;
+    padding: 1rem 0 !important;
+    margin-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 100% !important;
+  }
+  
+  .btn-back-minimal {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  .survey-container .quiz-question {
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+  }
+  .survey-container .quiz-desc {
+    font-size: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Preguntas con sliders */
+  .survey-container .sliders-group {
+    gap: 1.25rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  .slider-wrapper {
+    margin-top: 0.5rem !important;
+  }
+  .slider-labels span, .top-labels span {
+    max-width: 48% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    display: inline-block !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Preguntas visuales (Tarjetas de 3 columnas a 2 columnas) */
+  .visual-options-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .visual-card {
+    height: 90px !important;
+  }
+  .visual-card span {
+    font-size: 0.8rem !important;
+  }
+
+  /* Recomendaciones de Partidos */
+  .recommendations-list-container {
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding: 10px 5px;
+  }
+  .category-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Ajuste de Botones en el flujo de Recomendaciones (sin absolutos, centrando texto) */
+  #recommendations-overlay .btn-back-minimal,
+  #recommendations-overlay .btn-settings-minimal {
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px 18px !important;
+    font-size: 0.8rem !important;
+    border-radius: 30px !important;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+
+/* Ajustes de cancha para pantallas verticales (Portrait) */
+@media (max-width: 768px) and (orientation: portrait), (max-width: 600px) {
+  #pitch-container {
+    width: 100% !important;
+    min-width: auto !important; /* Eliminamos el scroll horizontal porque ahora la cancha es vertical */
+    height: 55vh !important;
+    min-height: 480px !important;
+    background: linear-gradient(180deg, #1A7A3C 0%, #145C2C 100%); /* Color verde inicial */
+  }
+
+  /* Respetar el oscurecimiento del césped cuando el draft se activa */
+  #pitch-container.draft-active-mode {
+    background: linear-gradient(180deg, #2c332e 0%, #1e2420 100%) !important;
+  }
+  
+  .draft-slot {
+    width: 68px !important;
+    height: 98px !important;
+  }
+  
+  /* Ocultamos banner de resumen o lo ajustamos para que no tape */
+  #draft-summary-banner {
+    padding: 1.5rem 1rem 1rem !important;
+  }
+  #draft-summary-banner h2 {
+    font-size: 1.6rem !important;
+  }
+  #draft-summary-banner p {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+  #draft-summary-banner button {
+    padding: 0.7rem 1.5rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Breakpoint para pantallas extra pequeñas */
+@media (max-width: 480px) {
+  .epic-text {
+    font-size: 1.9rem;
+  }
+  .overlay-title {
+    font-size: 1.7rem;
+    margin-top: 1.5rem !important; /* El título fluye normalmente debajo de los botones */
+  }
+  
+  /* Los botones se apilan en columna en celulares muy angostos para que quepa todo el texto */
+  .rec-action-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+  }
+  #recommendations-overlay .btn-back-minimal,
+  #recommendations-overlay .btn-settings-minimal {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px 12px !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Todo en 1 columna en celulares muy angostos */
+  .time-range-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .visual-options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+  }
+  .visual-card {
+    height: 70px !important;
+  }
+  .visual-card span {
+    font-size: 0.75rem !important;
+  }
+  .matches-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+  .rec-card {
+    min-width: 100% !important;
+    height: 200px !important;
+  }
+  .draft-container {
+    padding: 1rem 0.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   VERTICAL SOCCER PITCH LINES (PORTRAIT DRAFT)
+   ========================================================================== */
+
+/* Cuando la clase .pitch-vertical está activa (cancha de fútbol parada) */
+.pitch-vertical .pitch-center-line {
+  left: 0 !important;
+  right: 0 !important;
+  top: 50% !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 2px !important;
+  transform: translateY(-50%) !important;
+}
+
+.pitch-vertical .pitch-penalty-area {
+  left: 50% !important;
+  top: auto !important;
+  width: 260px !important;
+  height: 120px !important;
+  transform: translateX(-50%) !important;
+}
+
+.pitch-vertical .pitch-penalty-area.left {
+  bottom: 0 !important;
+  border-bottom: none !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.pitch-vertical .pitch-penalty-area.right {
+  top: 0 !important;
+  border-top: none !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.pitch-vertical .pitch-goal-area {
+  left: 50% !important;
+  top: auto !important;
+  width: 110px !important;
+  height: 40px !important;
+  transform: translateX(-50%) !important;
+}
+
+.pitch-vertical .pitch-penalty-area.left .pitch-goal-area {
+  bottom: 0 !important;
+  border-bottom: none !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.pitch-vertical .pitch-penalty-area.right .pitch-goal-area {
+  top: 0 !important;
+  border-top: none !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.pitch-vertical .pitch-penalty-arc {
+  left: 50% !important;
+  top: auto !important;
+  width: 80px !important;
+  height: 80px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 50% !important;
+}
+
+.pitch-vertical .pitch-penalty-area.left .pitch-penalty-arc {
+  top: -40px !important;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%) !important;
+}
+
+.pitch-vertical .pitch-penalty-area.right .pitch-penalty-arc {
+  bottom: -40px !important;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%) !important;
+}
+

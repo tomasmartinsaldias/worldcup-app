@@ -114,11 +114,7 @@
           </div>
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(0)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(2)">CONTINUAR</button>
-        </div>
+
       </div>
 
 <!-- Paso 1: Pasión vs Espectáculo -->
@@ -154,11 +150,7 @@
           </div>
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(1)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(3)">CONTINUAR</button>
-        </div>
+
       </div>
 
       <!-- Paso 2: ADN del Partido -->
@@ -169,43 +161,45 @@
         <div class="sliders-group">
           <!-- Fricción -->
           <div class="slider-wrapper">
-            <div class="slider-labels top-labels">
-              <span><i class="fa-solid fa-shield-halved"></i> Muchas patadas/juego trabado</span>
-              <span>Fluido / Limpio <i class="fa-solid fa-wand-magic-sparkles"></i></span>
-            </div>
+            <div style="font-size:0.9rem; color:#aaa; margin-bottom: 6px; font-weight: bold; font-family: Outfit;">ESTILO DE JUEGO Y FRICCIÓN</div>
+            <p style="font-size:0.75rem; color:#888; margin-top:0; margin-bottom:12px; font-family: Inter;">¿Prefieres un duelo físico y disputado o uno limpio y dinámico?</p>
             <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction"
               oninput="updateSliderText('friction', this.value)">
+            <div class="slider-labels">
+              <span class="label-left" style="font-size:0.75rem;"><i class="fa-solid fa-shield-halved"></i> JUEGO TRABADO</span>
+              <span class="label-right" style="font-size:0.75rem;">FLUIDO / LIMPIO <i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            </div>
             <div class="dynamic-text-box" id="text-friction" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Indiferente, lo físico y lo lírico importan por igual.</div>
           </div>
 
           <!-- Goles -->
           <div class="slider-wrapper" style="margin-top: 2rem;">
-            <div class="slider-labels top-labels">
-              <span><i class="fa-solid fa-lock"></i> Cerrado y Táctico</span>
-              <span>Festival de Goles <i class="fa-solid fa-futbol"></i></span>
-            </div>
+            <div style="font-size:0.9rem; color:#aaa; margin-bottom: 6px; font-weight: bold; font-family: Outfit;">APERTURA DEL MARCADOR</div>
+            <p style="font-size:0.75rem; color:#888; margin-top:0; margin-bottom:12px; font-family: Inter;">¿Qué te genera más emoción: el ajedrez táctico defensivo o una lluvia de goles?</p>
             <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals"
               oninput="updateSliderText('goals', this.value)">
+            <div class="slider-labels">
+              <span class="label-left" style="font-size:0.75rem;"><i class="fa-solid fa-lock"></i> CERRADO Y TÁCTICO</span>
+              <span class="label-right" style="font-size:0.75rem;">FESTIVAL DE GOLES <i class="fa-solid fa-futbol"></i></span>
+            </div>
             <div class="dynamic-text-box" id="text-goals" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Equilibrio entre solidez defensiva y ambición ofensiva.</div>
           </div>
+
           <!-- Táctica vs Talento -->
           <div class="slider-wrapper" id="tactics-slider-wrapper" style="margin-top: 2rem;">
-            <div class="slider-labels top-labels">
-              <span><i class="fa-solid fa-chess-board"></i> Prioridad al DT</span>
-              <span>Talento individual <i class="fa-solid fa-users"></i></span>
-            </div>
+            <div style="font-size:0.9rem; color:#aaa; margin-bottom: 6px; font-weight: bold; font-family: Outfit;">FILOSOFÍA DE JUEGO</div>
+            <p style="font-size:0.75rem; color:#888; margin-top:0; margin-bottom:12px; font-family: Inter;">¿Crees que el fútbol se gana desde el pizarrón técnico o por la magia del jugador?</p>
             <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-tactics"
               oninput="updateSliderText('tactics', this.value)">
+            <div class="slider-labels">
+              <span class="label-left" style="font-size:0.75rem;"><i class="fa-solid fa-chess-board"></i> PRIORIDAD AL DT</span>
+              <span class="label-right" style="font-size:0.75rem;">TALENTO INDIVIDUAL <i class="fa-solid fa-users"></i></span>
+            </div>
             <div class="dynamic-text-box" id="text-tactics" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Equilibrio entre el plan del DT y la rebeldía del jugador.</div>
           </div>
-
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(2)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(4)">CONTINUAR</button>
-        </div>
+
       </div>
 
       <!-- Paso 3: Preguntas Visuales -->
@@ -263,11 +257,7 @@
           </div>
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(3)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(5)">CONTINUAR</button>
-        </div>
+
       </div>
 
       <!-- Paso 4: Jugador Favorito -->
@@ -284,11 +274,7 @@
           <!-- JS injects here -->
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(4)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(6)">CONTINUAR</button>
-        </div>
+
       </div>
 
       <!-- Paso 5: Equipo Favorito -->
@@ -305,11 +291,7 @@
           <!-- JS injects here -->
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(5)">ATRÁS</button>
-          <button class="quiz-btn-next" onclick="nextSurveyStep(7)">CONTINUAR</button>
-        </div>
+
       </div>
 
       <!-- Paso 6: Selecciones que Apoya -->
@@ -326,13 +308,14 @@
           <!-- JS injects here -->
         </div>
 
-        <div class="draft-nav" style="display: flex; justify-content: space-between; margin-top: 2rem;">
-          <button class="btn-back-minimal" style="position:relative; top:0; left:0; display:inline-flex;"
-            onclick="prevSurveyStep(6)">ATRÁS</button>
-          <button class="quiz-btn-next btn-glow-pulse" onclick="finishSurvey()">CALCULAR MI DESTINO</button>
-        </div>
       </div>
 
+    </div>
+    
+    <!-- Unified Navigation OUTSIDE the card, below it -->
+    <div class="draft-nav" id="survey-global-nav" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 95%; max-width: 800px; margin-top: 1.5rem; margin-bottom: 1.5rem; box-sizing: border-box;">
+      <button class="btn-back-minimal" onclick="surveyGoBack()" style="position: static !important; display: inline-flex; align-items: center; justify-content: center; width: auto; font-family: 'Outfit';">ATRÁS</button>
+      <button class="quiz-btn-next" id="survey-btn-next-global" onclick="surveyGoNext()" style="width: auto; min-width: 130px; font-family: 'Outfit';">CONTINUAR</button>
     </div>
   </div>
 
@@ -341,13 +324,15 @@
 
   <!-- OVERLAY DE RECOMENDACIONES -->
   <div id="recommendations-overlay" class="ui-overlay hidden">
-    <button class="btn-back-minimal" onclick="redoSurvey()">
-      <i class="fa-solid fa-rotate-right"></i> REHACER TEST
-    </button>
-    <button class="btn-settings-minimal" onclick="openRecSettings()" style="position: absolute; right: 2rem; top: 2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-family: 'Outfit'; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; z-index: 10;">
-      <i class="fa-solid fa-gear"></i> AJUSTES DE ALGORITMO
-    </button>
-    <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center;">
+    <div class="recommendations-container" style="max-width: 1200px; width: 90%; text-align: center; display: flex; flex-direction: column;">
+      <div class="rec-action-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 2rem; margin-top: 1rem; gap: 1rem;">
+        <button class="btn-back-minimal" onclick="redoSurvey()" style="position: static !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: auto;">
+          <i class="fa-solid fa-rotate-right"></i> <span>REHACER TEST</span>
+        </button>
+        <button class="btn-settings-minimal" onclick="openRecSettings()" style="position: static !important; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-family: 'Outfit'; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; width: auto;">
+          <i class="fa-solid fa-gear"></i> <span>AJUSTES DE ALGORITMO</span>
+        </button>
+      </div>
       <h2 class="overlay-title" style="font-size: 2.2rem;">TU DESTINO MUNDIALISTA</h2>
       <p class="overlay-subtitle" style="margin-bottom: 2rem;">Basado en tu perfil táctico y pasional, estos son los
         partidos que no puedes perderte.</p>

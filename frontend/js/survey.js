@@ -1,4 +1,5 @@
 let currentSurveyType = 'casual';
+let currentStep = 1;
 
 window.openSurvey = function(type) {
   currentSurveyType = type;
@@ -25,6 +26,27 @@ window.openSurvey = function(type) {
   changeSurveyStep(1);
 };
 
+window.surveyGoBack = function() {
+  if (currentStep > 1) {
+    changeSurveyStep(currentStep - 1);
+  } else {
+    // Go back to level selection
+    changeSurveyStep(0);
+  }
+};
+
+window.surveyGoNext = function() {
+  const totalSteps = 7;
+  if (currentStep < totalSteps) {
+    changeSurveyStep(currentStep + 1);
+  } else {
+    // Last step: finish survey
+    if (typeof window.finishSurvey === 'function') {
+      window.finishSurvey();
+    }
+  }
+};
+
 window.nextSurveyStep = function(stepIndex) {
   changeSurveyStep(stepIndex);
 };
@@ -39,6 +61,20 @@ function changeSurveyStep(stepIndex) {
     document.getElementById('antigravity-survey').classList.add('hidden');
     document.getElementById('spectator-selection').classList.add('visible');
     return;
+  }
+
+  currentStep = stepIndex;
+
+  // Actualizar texto y comportamiento del botón Siguiente
+  const nextBtn = document.getElementById('survey-btn-next-global');
+  if (nextBtn) {
+    if (currentStep === 7) {
+      nextBtn.textContent = 'CALCULAR MI DESTINO';
+      nextBtn.classList.add('btn-glow-pulse');
+    } else {
+      nextBtn.textContent = 'CONTINUAR';
+      nextBtn.classList.remove('btn-glow-pulse');
+    }
   }
 
   document.querySelectorAll('.survey-step').forEach(step => {

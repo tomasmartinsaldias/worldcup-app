@@ -838,7 +838,14 @@ export function startDraft(isInitial = false, type = null) {
   const pitch = document.getElementById('pitch-container');
   if (!pitch) return;
   
-  pitch.classList.add('draft-active-mode');
+  const isVerticalScreen = window.innerWidth < window.innerHeight;
+  if (isVerticalScreen) {
+    pitch.classList.add('pitch-vertical');
+    pitch.classList.add('draft-active-mode');
+  } else {
+    pitch.classList.remove('pitch-vertical');
+    pitch.classList.add('draft-active-mode');
+  }
 
   pitch.innerHTML = `
     <div class="pitch-lines-overlay">
@@ -859,13 +866,25 @@ export function startDraft(isInitial = false, type = null) {
   layout.forEach(slot => {
     const el = document.createElement('div');
     el.className = 'draft-slot';
-    el.style.top = slot.top;
-    el.style.left = slot.left;
+    
+    if (isVerticalScreen) {
+      // Convert coordinates: new_top = 100 - left%, new_left = top%
+      const numericLeft = parseFloat(slot.left);
+      const numericTop = parseFloat(slot.top);
+      el.style.top = `${100 - numericLeft}%`;
+      el.style.left = `${numericTop}%`;
+    } else {
+      el.style.top = slot.top;
+      el.style.left = slot.left;
+    }
+    
     el.dataset.id = slot.id;
     el.dataset.group = slot.group;
     // Start invisible for sequential reveal
     el.style.opacity = '0';
-    el.style.transform = 'translate(-50%, -50%) scale(0.6)';
+    el.style.transform = isVerticalScreen 
+      ? 'translate(-50%, -50%) scale(0.6)' 
+      : 'translate(-50%, -50%) scale(0.6)';
     el.style.filter = 'blur(8px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.6s ease';
 
