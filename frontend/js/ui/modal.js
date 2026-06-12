@@ -1,6 +1,7 @@
 import { state } from '../futstate.js';
 import { createFlagElement } from '../utils.js';
 import { getCombinedValue } from './matches.js';
+import { getProsCons } from '../scoring.js';
 
 // 6. H2H Modal Management
 export function openH2HModal(match) {
@@ -11,18 +12,39 @@ export function openH2HModal(match) {
   document.getElementById('modal-match-title').textContent = `Partido #${match.match_number} &bull; ${match.stage}`;
   document.getElementById('modal-match-score').textContent = match.smartScore.toFixed(1);
 
-  // Set sub-scores
-  document.getElementById('modal-spectacle-score').textContent = match.spectacleScore ? match.spectacleScore.toFixed(1) : '5.0';
-  document.getElementById('modal-playstyle-score').textContent = match.playstyleScore ? match.playstyleScore.toFixed(1) : '5.0';
-  document.getElementById('modal-friccion-score').textContent = match.friccionScore ? match.friccionScore.toFixed(1) : '5.5';
+  const teamsData = (state.appData && state.appData.teams) || {};
+  const reasons = getProsCons(match, state.userPreferences, teamsData);
+  const prosConsContainer = document.getElementById('modal-pros-cons');
+  if (prosConsContainer) {
+    if (reasons.length > 0) {
+      const typeOrder = { 'pro': 1, 'neutral': 2, 'con': 3 };
+      const sortedReasons = [...reasons].sort((a, b) => typeOrder[a.type] - typeOrder[b.type]);
+      const itemsHtml = sortedReasons.map(r => {
+        let color = '#f1c40f'; // neutral
+        if (r.type === 'pro') {
+          color = '#2ecc71';
+        } else if (r.type === 'con') {
+          color = '#e74c3c';
+        }
+        return `
+          <li style="margin-bottom: 8px; font-size: 0.82rem; list-style: none; position: relative; padding-left: 18px; line-height: 1.4;">
+            <span style="position: absolute; left: 0; top: 6px; width: 8px; height: 8px; background-color: ${color}; border-radius: 50%; display: inline-block;"></span>
+            <span style="color: rgba(255, 255, 255, 0.9);">${r.text}</span>
+          </li>
+        `;
+      }).join('');
 
-  // Dynamic percentages for labels
-  const wSpectacle = state.userPreferences?.spectacleWeight ?? 0.5;
-  const wPlaystyle = 1.0 - wSpectacle;
-  const specLbl = document.getElementById('modal-spectacle-lbl');
-  const styleLbl = document.getElementById('modal-playstyle-lbl');
-  if (specLbl) specLbl.textContent = `Espectáculo (${Math.round(wSpectacle * 100)}%)`;
-  if (styleLbl) styleLbl.textContent = `Estilo de Juego (${Math.round(wPlaystyle * 100)}%)`;
+      prosConsContainer.innerHTML = `
+        <div style="background: rgba(255, 255, 255, 0.01); border: 1px dashed var(--border-glass); border-radius: 10px; padding: 1.2rem; text-align: left;">
+          <ul style="padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            ${itemsHtml}
+          </ul>
+        </div>
+      `;
+    } else {
+      prosConsContainer.innerHTML = '';
+    }
+  }
 
   // Set rank interest (out of 104 matches)
   if (state.appData && state.appData.matches) {
@@ -38,8 +60,8 @@ export function openH2HModal(match) {
   const homeBlock = document.getElementById('modal-team-home');
   const awayBlock = document.getElementById('modal-team-away');
 
-  const homeTeamInfo = state.appData.teams[match.home_team.fifa_code];
-  const awayTeamInfo = state.appData.teams[match.away_team.fifa_code];
+  const homeTeamInfo = teamsData[match.home_team.fifa_code];
+  const awayTeamInfo = teamsData[match.away_team.fifa_code];
 
   homeBlock.innerHTML = `
     <div onclick="if(${!match.home_team.is_placeholder}) { window.closeModal(); window.openCountrySquad('${match.home_team.fifa_code}', state.activeTab); }" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">

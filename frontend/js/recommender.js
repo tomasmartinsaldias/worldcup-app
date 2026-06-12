@@ -24,74 +24,57 @@ export function mapSurveyToPreferences(surveyResults) {
   const tactics = parseInt(surveyResults.tactics) || 50;
   const isCasual = surveyResults.userType === 'casual';
 
-  // 1. Passion → w_afectivo (how much they care about THEIR teams/players)
-  let w_afectivo;
-  if (passion < 30) w_afectivo = 2;
-  else if (passion < 70) w_afectivo = 5;
-  else w_afectivo = 8;
+  // 1. Passion → w_afectivo (continuous mapping from 2.0 to 10.0)
+  const w_afectivo = parseFloat((2.0 + 8.0 * (passion / 100)).toFixed(1));
 
-  // 2. Friction → frictionPreference + w_friccion
-  let frictionPreference;
-  let w_friccion;
-  if (friction < 40) {
+  // 2. Friction → frictionPreference (discretized boundary) + w_friccion (continuous weight capped at 4.0)
+  let frictionPreference = 'indiferente';
+  if (friction < 45) {
     frictionPreference = 'trabado';
-    w_friccion = 7;
-  } else if (friction <= 60) {
-    frictionPreference = 'indiferente';
-    w_friccion = 2;
-  } else {
+  } else if (friction > 55) {
     frictionPreference = 'fair_play';
-    w_friccion = 7;
   }
+  const w_friccion = parseFloat((4.0 * (Math.abs(friction - 50) / 50)).toFixed(1));
 
-  // 3. Goals → w_espectaculo (ICE score weight)
-  let w_espectaculo;
-  if (goals < 30) w_espectaculo = 3;
-  else if (goals < 70) w_espectaculo = 5;
-  else w_espectaculo = 8;
+  // 3. Goals → w_espectaculo (continuous mapping from 2.0 to 10.0)
+  let w_espectaculo = 2.0 + 8.0 * (goals / 100);
 
   // 4. Q2 adjustments to espectaculo and seleccion weights (Restored)
-  let w_afectivo_seleccion = 4;
+  let w_afectivo_seleccion = 4.0;
   if (surveyResults.q2_team_loyalty === 'team_always') {
-    w_afectivo_seleccion = 7;
-    w_espectaculo = Math.max(1, w_espectaculo - 1);
+    w_afectivo_seleccion = 7.0;
+    w_espectaculo = Math.max(1.0, w_espectaculo - 1.0);
   } else if (surveyResults.q2_team_loyalty === 'spectacle') {
-    w_afectivo_seleccion = 2;
-    w_espectaculo = Math.min(10, w_espectaculo + 1);
+    w_afectivo_seleccion = 2.0;
+    w_espectaculo = Math.min(10.0, w_espectaculo + 1.0);
   }
+  w_espectaculo = parseFloat(w_espectaculo.toFixed(1));
 
-  // 4.5. Neutral Interest Slider -> w_entretenimiento
+  // 4.5. Neutral Interest Slider -> w_entretenimiento (continuous mapping from 2.0 to 10.0)
   const neutralInterest = parseInt(surveyResults.neutralInterest) || 50;
-  let w_entretenimiento = 5;
-  if (neutralInterest < 30) w_entretenimiento = 2;
-  else if (neutralInterest < 70) w_entretenimiento = 5;
-  else w_entretenimiento = 8;
+  const w_entretenimiento = parseFloat((2.0 + 8.0 * (neutralInterest / 100)).toFixed(1));
 
   // 5. Q1 → w_afectivo_jugador (player loyalty)
-  let w_afectivo_jugador = 3;
+  let w_afectivo_jugador = 3.0;
   if (surveyResults.q1_player_loyalty === 'always') {
-    w_afectivo_jugador = 5;
+    w_afectivo_jugador = 5.0;
   } else if (surveyResults.q1_player_loyalty === 'none') {
-    w_afectivo_jugador = 1;
+    w_afectivo_jugador = 1.0;
   }
 
   // 6. Tactics slider → w_tactica_estilo vs w_tactica_cluster
-  let w_tactica_estilo = 5;
-  let w_tactica_cluster = 5;
-  let w_tactica = 5;
+  let w_tactica_estilo = 5.0;
+  let w_tactica_cluster = 5.0;
+  let w_tactica = 5.0;
 
   if (!isCasual) {
-    if (tactics < 40) {
-      w_tactica_estilo = 8;
-      w_tactica_cluster = 2;
-    } else if (tactics > 60) {
-      w_tactica_estilo = 2;
-      w_tactica_cluster = 8;
-    }
+    w_tactica = parseFloat((2.0 + 8.0 * (tactics / 100)).toFixed(1));
+    w_tactica_estilo = parseFloat((10.0 * (1.0 - tactics / 100)).toFixed(1));
+    w_tactica_cluster = parseFloat((10.0 * (tactics / 100)).toFixed(1));
   } else {
     // Casual: no clustering at all, no tactical weight at all
-    w_tactica_cluster = 0;
-    w_tactica = 0;
+    w_tactica_cluster = 0.0;
+    w_tactica = 0.0;
   }
 
   // Build preferences object
@@ -158,7 +141,7 @@ export function generateRecommendations(userPreferences) {
   // If no time ranges selected, assume available all day
   const hasTimeConstraint = Object.values(timeRanges).some(v => v === true);
 
-  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || {};
 
   // Helper to check if a stage is fully simulated
   const isStageFullySimulated = (startMatch, endMatch) => {
@@ -190,6 +173,16 @@ export function generateRecommendations(userPreferences) {
 
     // Skip matches that are already simulated (played)
     if (simulatedScores[match.match_number] !== undefined) return;
+
+    // Skip matches in the past (already played) based on user's current local time
+    if (match.kickoff_at) {
+      let dateStr = match.kickoff_at.replace(' ', 'T');
+      if (dateStr.length === 22) dateStr += ':00'; // Append minutes to timezone if missing
+      const dateObj = new Date(dateStr);
+      if (!isNaN(dateObj.getTime()) && dateObj < new Date()) {
+        return; // Skip matches whose kickoff time has already passed
+      }
+    }
 
     const score = calculateSmartScore(match, teams, tacticalVector);
     const explanation = getMatchExplanation(match, userPreferences, teams);

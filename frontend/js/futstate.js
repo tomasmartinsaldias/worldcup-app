@@ -26,7 +26,10 @@ let userPreferences = {
 
 export async function loadData() {
   try {
-    const [mainRes, logosRes, estiloRes, arquetiposRes] = await Promise.all([
+    const [
+      mainRes, logosRes, estiloRes, arquetiposRes, photosRes,
+      gkRes, cbRes, fbRes, midRes, wingRes, stRes
+    ] = await Promise.all([
       fetch(`data/wc2026_data.json?t=${new Date().getTime()}`),
       fetch(`data/club_logos.json?t=${new Date().getTime()}`),
       fetch(`data/estilos-de-juego/selecciones_estilo?t=${new Date().getTime()}`),
@@ -57,6 +60,22 @@ export async function loadData() {
     state.appData.estilos = estiloData.response;
     state.appData.arquetipos = arquetiposData.archetypes;
 
+    const gkData = await parseJSON(gkRes) || [];
+    const cbData = await parseJSON(cbRes) || [];
+    const fbData = await parseJSON(fbRes) || [];
+    const midData = await parseJSON(midRes) || [];
+    const wingData = await parseJSON(wingRes) || [];
+    const stData = await parseJSON(stRes) || [];
+
+    console.log('[futstate] Parsed cluster lengths:', {
+      gkData: gkData.length,
+      cbData: cbData.length,
+      fbData: fbData.length,
+      midData: midData.length,
+      wingData: wingData.length,
+      stData: stData.length
+    });
+
     // Fetch players_final.json for fallback faces
     let finalPhotosData = [];
     try {
@@ -76,6 +95,66 @@ export async function loadData() {
         .replace(/\u00e6/gi, 'ae').replace(/\u0142/gi, 'l').replace(/\u00df/gi, 'ss').replace(/\u0153/gi, 'oe')
         .replace(/[^\x00-\x7F]/g, '')
         .toLowerCase().trim();
+    };
+
+    const findVector = (name, list) => {
+      const targetNorm = robustNormalise(name);
+      if (!targetNorm) return null;
+
+      // 1. Direct or substring match
+      for (let i = 0; i < list.length; i++) {
+        const cp = list[i];
+        const longNorm = robustNormalise(cp.long_name);
+        if (longNorm === targetNorm || longNorm.includes(targetNorm) || targetNorm.includes(longNorm)) {
+          return cp.position_vector;
+        }
+      }
+
+      // 2. Parts match
+      const targetParts = targetNorm.split(/\s+/).filter(pt => pt.length > 0);
+      for (let i = 0; i < list.length; i++) {
+        const cp = list[i];
+        const longNorm = robustNormalise(cp.long_name);
+        const candidateParts = longNorm.split(/\s+/);
+        let matchCount = 0;
+        let lastCheckedIndex = -1;
+
+        for (let pIdx = 0; pIdx < targetParts.length; pIdx++) {
+          const tp = targetParts[pIdx];
+          const isInitial = tp.length === 1 || (tp.length === 2 && tp[1] === '.');
+          const cleanTp = isInitial ? tp[0] : tp;
+
+          for (let k = lastCheckedIndex + 1; k < candidateParts.length; k++) {
+            const cpPart = candidateParts[k];
+            if (isInitial) {
+              if (cpPart.startsWith(cleanTp)) {
+                matchCount++;
+                lastCheckedIndex = k;
+                break;
+              }
+            } else {
+              if (cpPart === cleanTp || cpPart.includes(cleanTp)) {
+                matchCount++;
+                lastCheckedIndex = k;
+                break;
+              }
+            }
+          }
+        }
+        if (matchCount === targetParts.length) {
+          return cp.position_vector;
+        }
+      }
+      return null;
+    };
+
+    const posDataMap = {
+      Goalkeepers: gkData,
+      Centerbacks: cbData,
+      Fullbacks: fbData,
+      Midfielders: midData,
+      Wingers: wingData,
+      Strikers: stData
     };
 
     state.appData.clusters = {
@@ -102,14 +181,25 @@ export async function loadData() {
       }
 
       if (p.Posicion && posMap[p.Posicion]) {
-        state.appData.clusters[posMap[p.Posicion]].push({
+        const groupName = posMap[p.Posicion];
+        const groupData = posDataMap[groupName] || [];
+        const vector = findVector(p.NAME, groupData);
+        state.appData.clusters[groupName].push({
           long_name: p.NAME,
           overall: p.Overall,
           cluster_id: p.Cluster_id,
           photoUrl: url,
+          position_vector: vector
         });
       }
     });
+
+    console.log('[futstate] Cluster vector matching stats:', Object.fromEntries(
+      Object.entries(state.appData.clusters).map(([k, v]) => [
+        k,
+        v.filter(p => p.position_vector !== null && p.position_vector !== undefined).length + '/' + v.length
+      ])
+    ));
 
     // Map estilos to teams
     mapTeamEstilos(state.appData);
@@ -142,7 +232,18 @@ function mapTeamEstilos(appData) {
   });
 }
 
-let simulatedScores = JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+const OFFICIAL_RESULTS = {
+  // Agrega aquí los marcadores reales definitivos de los partidos que ya se jugaron.
+  1: { home: 2, away: 0 },
+};
+
+// Clean up legacy simulatedScores if they exist in the browser
+localStorage.removeItem('simulatedScores');
+
+let simulatedScores = {
+  ...JSON.parse(localStorage.getItem('realScores') || '{}'),
+  ...OFFICIAL_RESULTS
+};
 let teamElos = {};
 let teamStatuses = {};
 
@@ -371,21 +472,26 @@ export function getSimulatedScores() {
 }
 
 export function saveSimulatedScore(matchNumber, homeScore, awayScore) {
+  const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
   if (homeScore === null || awayScore === null || homeScore === "" || awayScore === "") {
     delete simulatedScores[matchNumber];
+    delete realScores[matchNumber];
   } else {
-    simulatedScores[matchNumber] = {
+    const scoreObj = {
       home: parseInt(homeScore),
       away: parseInt(awayScore)
     };
+    simulatedScores[matchNumber] = scoreObj;
+    realScores[matchNumber] = scoreObj;
   }
-  localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+  localStorage.setItem('realScores', JSON.stringify(realScores));
+  localStorage.removeItem('simulatedScores'); // cleanup if exists
   recalculateTournamentState();
 }
 
 export function clearAllSimulatedScores() {
-  simulatedScores = {};
-  localStorage.removeItem('simulatedScores');
+  const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
+  simulatedScores = { ...realScores, ...OFFICIAL_RESULTS };
   recalculateTournamentState();
 }
 
@@ -726,5 +832,8 @@ export const state = {
 };
 
 window.state = state;
-
+window.getSimulatedScores = getSimulatedScores;
+window.saveSimulatedScore = saveSimulatedScore;
+window.clearAllSimulatedScores = clearAllSimulatedScores;
+window.recalculateTournamentState = recalculateTournamentState;
 

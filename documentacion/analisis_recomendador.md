@@ -32,7 +32,7 @@ Calcula el Índice de Competitividad y Espectáculo objetivo del cruce:
 * **Fusión de Métricas:** Promedia las métricas normalizadas de los contendientes (`ocasiones_norm`, `contra_norm`, `drama_norm`, `vuln_norm`).
 * **Amplificación por Vulnerabilidad:** El peligro generado por ocasiones claras se escala según la debilidad defensiva promedio de ambos equipos.
 * **Penalización por Brecha Competitiva ($p_{Brecha}$):** Aplica una curva sigmoide logística sobre la diferencia de sus Elo Ratings base (reduciendo hasta un 60% la valoración si el encuentro es muy disparejo).
-* **Factor de Calidad Absoluta ($Q_{match}$):** Escala linealmente el score final basándose en el promedio de los Elo ratings dinámicos (que integran la presencia de estrellas convocadas).
+* **Factor de Calidad Absoluta ($Q_{match}$):** Escala el score final basándose en una combinación ponderada del promedio de los Elo ratings base (65%) y el valor de mercado combinado de los planteles (35%), normalizado contra un techo de 1200 M€. Esto penaliza partidos entre equipos con alto ELO táctico pero bajo valor/atractivo de estrellas (como Congo vs Noruega), de manera dinámica y puramente objetiva sin recurrir a diccionarios estáticos de popularidad.
 
 ### 3. Fase 2: Afinamiento por Estilo de Juego (Playstyle)
 Compara el estilo preferido del usuario contra la propuesta táctica de los equipos:
@@ -88,8 +88,21 @@ $$S_{\text{afectivo}} = (0.3 \cdot S_{\text{club}} + 0.4 \cdot S_{\text{sel}} + 
     $$w_j = \frac{1}{d_j + \epsilon}$$
 
 
-#### 4.4. Cálculo del Score Final
-$$SmartScore = w_{\text{esp\_norm}} S_{\text{espectáculo}} + w_{\text{tác\_norm}} S_{\text{táctica}} + w_{\text{afec\_norm}} S_{\text{afectivo}}$$
+#### 4.4. Cálculo del Score Final (Modelo de Boosting)
+El recomendador utiliza un enfoque de multiplicadores sobre una base del nivel de entretenimiento futbolístico:
+
+$$SmartScore = S_{\text{entretenimiento}} \times M_{\text{táctica}} \times M_{\text{afectiva}}$$
+
+Donde:
+1.  **Score de Entretenimiento ($S_{\text{entretenimiento}}$):** Espectáculo modificado sutilmente por la preferencia de fricción:
+    $$S_{\text{entretenimiento}} = S_{\text{espectáculo}} + 0.20 \cdot w_{\text{fricción}} \cdot \left(\frac{S_{\text{fricción}} - 5.0}{5.0}\right)$$
+2.  **Multiplicador Táctico ($M_{\text{táctica}}$):** Escala el score según la afinidad del estilo de juego (vectores tácticos) y el peso macro de táctica:
+    $$M_{\text{táctica}} = 1.0 + \alpha \cdot \left(\frac{S_{\text{táctica}} - 5.0}{5.0}\right) \quad \text{donde } \alpha = 0.02 \cdot w_{\text{táctica}}$$
+3.  **Multiplicador Afectivo ($M_{\text{afectiva}}$):** Aumenta el score si juega tu selección, club o jugadores favoritos, ponderado según los pesos de las categorías activas y regulado por la pasión del usuario:
+    $$M_{\text{afectiva}} = 1.0 + \beta \cdot \left(\frac{S_{\text{afectivo}}}{10.0}\right) \quad \text{donde } \beta = 0.06 \cdot w_{\text{afectivo}} \cdot \left(\frac{\text{Pasión}}{100}\right)$$
+    Y el $S_{\text{afectivo}}$ se calcula como el promedio ponderado de las afinidades presentes normalizado únicamente entre las categorías configuradas en el perfil:
+    $$S_{\text{afectivo}} = \frac{\sum_{c \in \text{Activas}} w_c S_c}{\sum_{c \in \text{Activas}} w_c} \times 10$$
+
 El valor resultante se acota estrictamente en el intervalo `[1.0, 10.0]` y se redondea a un decimal.
 
 ---

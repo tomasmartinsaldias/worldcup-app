@@ -86,6 +86,24 @@ window.updateSliderText = function(sliderId, value) {
     else if (val < 60) text = "Si el partido promete ser entretenido, me quedo viéndolo.";
     else if (val < 80) text = "Cualquier partido del mundial me sirve para engancharme.";
     else text = "Veo absolutamente todo, juegue quien juegue.";
+  } else if (sliderId === 'friction') {
+    if (val < 20) text = "Fútbol físico, trabado, mucha intensidad y rose.";
+    else if (val < 40) text = "Un juego con roce pero sin cortar demasiado el ritmo.";
+    else if (val < 60) text = "Indiferente, lo físico y lo lírico importan por igual.";
+    else if (val < 80) text = "Juego limpio y fluido, con ritmo y pocas faltas.";
+    else text = "Fútbol lírico total, sin cortes y muy dinámico.";
+  } else if (sliderId === 'goals') {
+    if (val < 20) text = "Ajedrez táctico absoluto, partidos muy cerrados de pocos goles.";
+    else if (val < 40) text = "Partidos disputados, donde un gol vale oro.";
+    else if (val < 60) text = "Equilibrio entre solidez defensiva y ambición ofensiva.";
+    else if (val < 80) text = "Juego abierto, propuestas ofensivas con llegadas.";
+    else text = "Festival ofensivo constante, palo a palo sin defensas.";
+  } else if (sliderId === 'tactics') {
+    if (val < 20) text = "La pizarra del DT decide todo, orden estricto.";
+    else if (val < 40) text = "Sistemas tácticos marcados pero con libertad individual.";
+    else if (val < 60) text = "Equilibrio entre el plan del DT y la rebeldía del jugador.";
+    else if (val < 80) text = "Fútbol de asociación y libertad para el talento.";
+    else text = "Improvisación pura, que el talento individual resuelva solo.";
   }
   
   textBox.innerText = text;
@@ -135,7 +153,8 @@ window.finishSurvey = function() {
 
   
   window.surveyRawResults = results; // Save for recommender.js
-  console.log("Encuesta finalizada. Datos guardados en window.surveyRawResults:", results);
+  localStorage.setItem('savedSurveyResults', JSON.stringify(results));
+  console.log("Encuesta finalizada. Datos guardados en window.surveyRawResults y localStorage:", results);
   
   document.getElementById('antigravity-survey').classList.remove('visible');
   setTimeout(() => {

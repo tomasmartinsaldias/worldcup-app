@@ -173,24 +173,30 @@
               <span><i class="fa-solid fa-shield-halved"></i> Muchas patadas/juego trabado</span>
               <span>Fluido / Limpio <i class="fa-solid fa-wand-magic-sparkles"></i></span>
             </div>
-            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction">
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-friction"
+              oninput="updateSliderText('friction', this.value)">
+            <div class="dynamic-text-box" id="text-friction" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Indiferente, lo físico y lo lírico importan por igual.</div>
           </div>
 
           <!-- Goles -->
-          <div class="slider-wrapper">
+          <div class="slider-wrapper" style="margin-top: 2rem;">
             <div class="slider-labels top-labels">
               <span><i class="fa-solid fa-lock"></i> Cerrado y Táctico</span>
               <span>Festival de Goles <i class="fa-solid fa-futbol"></i></span>
             </div>
-            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals">
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-goals"
+              oninput="updateSliderText('goals', this.value)">
+            <div class="dynamic-text-box" id="text-goals" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Equilibrio entre solidez defensiva y ambición ofensiva.</div>
           </div>
           <!-- Táctica vs Talento -->
-          <div class="slider-wrapper" id="tactics-slider-wrapper">
+          <div class="slider-wrapper" id="tactics-slider-wrapper" style="margin-top: 2rem;">
             <div class="slider-labels top-labels">
               <span><i class="fa-solid fa-chess-board"></i> Prioridad al DT</span>
               <span>Talento individual <i class="fa-solid fa-users"></i></span>
             </div>
-            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-tactics">
+            <input type="range" min="0" max="100" value="50" class="premium-slider" id="slider-tactics"
+              oninput="updateSliderText('tactics', this.value)">
+            <div class="dynamic-text-box" id="text-tactics" style="margin-top:8px; font-size:0.8rem; padding: 6px 12px;">Equilibrio entre el plan del DT y la rebeldía del jugador.</div>
           </div>
 
         </div>
@@ -335,8 +341,8 @@
 
   <!-- OVERLAY DE RECOMENDACIONES -->
   <div id="recommendations-overlay" class="ui-overlay hidden">
-    <button class="btn-back-minimal" onclick="returnToHomepage()">
-      <i class="fa-solid fa-arrow-left"></i> VOLVER AL INICIO
+    <button class="btn-back-minimal" onclick="redoSurvey()">
+      <i class="fa-solid fa-rotate-right"></i> REHACER TEST
     </button>
     <button class="btn-settings-minimal" onclick="openRecSettings()" style="position: absolute; right: 2rem; top: 2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 0.6rem 1.2rem; border-radius: 30px; font-family: 'Outfit'; font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; z-index: 10;">
       <i class="fa-solid fa-gear"></i> AJUSTES DE ALGORITMO

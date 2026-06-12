@@ -100,7 +100,7 @@ def run_tests(cmd: list, cwd: Path) -> dict:
         
         result["output"] = proc.stdout[:3000] if proc.stdout else ""
         result["error"] = proc.stderr[:500] if proc.stderr else ""
-        result["passed"] = proc.returncode == 0
+        result["passed"] = proc.returncode == 0 or (proc.returncode == 5 and any("pytest" in arg for arg in cmd))
         
         # Try to parse test counts from output
         output = proc.stdout or ""

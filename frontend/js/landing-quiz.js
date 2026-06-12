@@ -1,5 +1,6 @@
 import { state } from './futstate.js';
-import { calculateSmartScore } from './scoring.js';
+import { calculateSmartScore, getProsCons } from './scoring.js';
+import { getCountryIsoCode } from './utils.js';
 
 function startQuiz(level) {
   if(level === 'casual') {
@@ -293,105 +294,42 @@ function nextFanaticStep(currentStepNum, btn) {
   const [xgA, xgB] = computeBar(mHome.xg, mAway.xg);
   const [popA, popB] = computeBar(mHome.pop, mAway.pop);
 
-  // Calculate Segmented Score Breakdown HTML dynamically
-  const bd = match.scoreBreakdown;
+  // Calculate Pros & Cons Analysis HTML dynamically
+  const reasons = getProsCons(match, window.surveyRawResults || state.userPreferences, cachedWcData.teams);
+
   let breakdownHtml = '';
-  if (bd) {
-    const segments = [];
-    if (bd.W_ent > 0 && bd.val_entretenimiento > 0) {
-      segments.push({
-        name: 'Entretenimiento',
-        class: 'ent',
-        weight: bd.W_ent,
-        val: bd.val_entretenimiento,
-        color: '#e74c3c',
-        icon: '🍿',
-        details: [
-          { label: 'Espectáculo (ICE)', val: bd.entertainment.val_espectaculo, w: bd.entertainment.w_esp },
-          { label: 'Fricción', val: bd.entertainment.val_friccion, w: bd.entertainment.w_fric }
-        ]
-      });
-    }
-    if (bd.W_tec > 0 && bd.val_tactica > 0) {
-      segments.push({
-        name: 'Táctica',
-        class: 'tac',
-        weight: bd.W_tec,
-        val: bd.val_tactica,
-        color: '#0088ff',
-        icon: '🧠',
-        details: [
-          { label: 'Estilo de Juego', val: bd.tactical.val_estilo, w: bd.tactical.w_style },
-          ...(bd.tactical.w_cluster > 0 ? [{ label: 'Borrador (Cluster)', val: bd.tactical.val_cluster, w: bd.tactical.w_cluster }] : [])
-        ]
-      });
-    }
-    if (bd.W_af > 0 && bd.val_afectivo > 0) {
-      segments.push({
-        name: 'Afectivo',
-        class: 'afec',
-        weight: bd.W_af,
-        val: bd.val_afectivo,
-        color: '#f5d061',
-        icon: '❤️',
-        details: [
-          ...(bd.affective.w_club > 0 ? [{ label: 'Club Favorito', val: bd.affective.val_club, w: bd.affective.w_club }] : []),
-          ...(bd.affective.w_sel > 0 ? [{ label: 'Selección Favorita', val: bd.affective.val_sel, w: bd.affective.w_sel }] : []),
-          ...(bd.affective.w_jug > 0 ? [{ label: 'Jugador Favorito', val: bd.affective.val_jug, w: bd.affective.w_jug }] : [])
-        ]
-      });
-    }
-
-    const activeWeightSum = segments.reduce((sum, s) => sum + s.weight, 0);
-    if (segments.length > 0) {
-      const barSegmentsHtml = segments.map(s => {
-        const percent = activeWeightSum > 0 ? (s.weight / activeWeightSum) * 100 : 0;
-        return `
-          <div class="bar-segment ${s.class}" style="width: ${percent}%; background: ${s.color}; position: relative;">
-            <span class="segment-label">${s.icon} ${Math.round(percent)}%</span>
-            
-            <div class="segment-tooltip">
-              <div class="tooltip-header">
-                <strong>${s.name}</strong>
-                <span>Score: ${s.val.toFixed(1)}/10</span>
-              </div>
-              <div class="tooltip-divider"></div>
-              <div class="tooltip-micro-list">
-                ${s.details.map(d => `
-                  <div class="tooltip-micro-item">
-                    <span>${d.label} (peso ${d.w}):</span>
-                    <strong>${d.val.toFixed(1)}/10</strong>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      const legendHtml = segments.map(s => `
-        <div class="legend-item">
-          <span class="legend-color-dot" style="background: ${s.color};"></span>
-          <span>${s.name}: <strong>${s.val.toFixed(1)}/10</strong></span>
-        </div>
-      `).join('');
-
-      breakdownHtml = `
-        <div class="score-breakdown-container">
-          <div class="score-breakdown-header">
-            <h4>AFINIDAD DE SCORE: <span class="affinity-number">${(match.smartScore).toFixed(1)} / 10</span></h4>
-          </div>
-          
-          <div class="segmented-bar">
-            ${barSegmentsHtml}
-          </div>
-          
-          <div class="segmented-bar-legend">
-            ${legendHtml}
-          </div>
-        </div>
+  if (reasons.length > 0) {
+    const typeOrder = { 'pro': 1, 'neutral': 2, 'con': 3 };
+    const sortedReasons = [...reasons].sort((a, b) => typeOrder[a.type] - typeOrder[b.type]);
+    const itemsHtml = sortedReasons.map(r => {
+      let color = '#f1c40f'; // neutral
+      if (r.type === 'pro') {
+        color = '#2ecc71';
+      } else if (r.type === 'con') {
+        color = '#e74c3c';
+      }
+      return `
+        <li style="margin-bottom: 8px; font-size: 0.85rem; list-style: none; position: relative; padding-left: 18px; line-height: 1.4;">
+          <span style="position: absolute; left: 0; top: 6px; width: 8px; height: 8px; background-color: ${color}; border-radius: 50%; display: inline-block;"></span>
+          <span style="color: rgba(255,255,255,0.9);">${r.text}</span>
+        </li>
       `;
-    }
+    }).join('');
+
+    breakdownHtml = `
+      <div class="score-breakdown-container" style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1); margin-top: 1rem; margin-bottom: 1.5rem;">
+        <h4 style="font-family: 'Outfit'; font-size: 1.15rem; color: #fff; margin-top: 0; margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+          <span>🔍 ANÁLISIS DE RECOMENDACIÓN</span>
+          <span style="color: #0088ff; font-weight: 800; background: rgba(0,136,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; letter-spacing: 0.5px;">${(match.smartScore).toFixed(1)} / 10 AFINIDAD</span>
+        </h4>
+        
+        <div style="text-align: left;">
+          <ul style="padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 4px;">
+            ${itemsHtml}
+          </ul>
+        </div>
+      </div>
+    `;
   }
 
   document.getElementById('stats-body-content').innerHTML = `
@@ -485,11 +423,7 @@ function nextFanaticStep(currentStepNum, btn) {
   `;
 }
 
-// Helper flag iso mapping simple (would normally be full map)
-function getCountryIsoCode(fifaCode) {
-  const map = { 'ARG': 'ar', 'FRA': 'fr', 'BRA': 'br', 'ENG': 'gb-eng', 'ESP': 'es', 'GER': 'de', 'MEX': 'mx', 'USA': 'us', 'NOR': 'no', 'SEN': 'sn' };
-  return map[fifaCode] || fifaCode.toLowerCase().substring(0, 2);
-}
+// Using imported getCountryIsoCode from utils.js
 
 function closeMatchStats() {
   document.getElementById('stats-modal-overlay').classList.remove('visible');
@@ -651,7 +585,8 @@ function renderRecSimulationMatches() {
     return;
   }
 
-  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || {};
+  const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
   const totalMatches = cachedWcData.matches.length;
   const playedCount = Object.keys(simulatedScores).length;
 
@@ -665,22 +600,29 @@ function renderRecSimulationMatches() {
   let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
   validMatches.forEach(m => {
     const score = simulatedScores[m.match_number] || { home: '', away: '' };
+    const isReal = realScores[m.match_number] !== undefined;
     const homeName = m.home_team.name;
     const awayName = m.away_team.name;
     const homeFlag = `https://flagcdn.com/w40/${getCountryIsoCode(m.home_team.fifa_code)}.png`;
     const awayFlag = `https://flagcdn.com/w40/${getCountryIsoCode(m.away_team.fifa_code)}.png`;
 
+    const realLabelHtml = isReal 
+      ? `<span style="color: #2ecc71; font-weight: bold; font-size: 0.7rem; border: 1px solid #2ecc71; padding: 1px 4px; border-radius: 3px; margin-left: 6px; text-shadow: 0 0 4px rgba(46, 204, 113, 0.4);"><i class="fa-solid fa-lock"></i> REAL</span>` 
+      : '';
+
     html += `
-      <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.02); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.03); font-size: 0.85rem; font-family: Outfit;">
-        <div style="flex: 1; color: #888; font-size: 0.75rem;">#${m.match_number} (${m.stage})</div>
+      <div style="display: flex; align-items: center; justify-content: space-between; background: ${isReal ? 'rgba(46, 204, 113, 0.05)' : 'rgba(255,255,255,0.02)'}; padding: 8px 12px; border-radius: 6px; border: 1px solid ${isReal ? 'rgba(46, 204, 113, 0.2)' : 'rgba(255,255,255,0.03)'}; font-size: 0.85rem; font-family: Outfit;">
+        <div style="flex: 1; color: #888; font-size: 0.75rem; display: flex; align-items: center;">
+          #${m.match_number} (${m.stage})${realLabelHtml}
+        </div>
         <div style="flex: 2; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
           <span>${homeName}</span>
           <img src="${homeFlag}" onerror="this.src='./img/placeholder_flag.png'" style="width: 20px; border-radius: 2px;">
         </div>
         <div style="display: flex; align-items: center; gap: 4px; margin: 0 10px;">
-          <input type="number" min="0" max="99" value="${score.home !== null && score.home !== undefined ? score.home : ''}" onchange="changeRecMatchScore(${m.match_number}, 'home', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
+          <input type="number" min="0" max="99" value="${score.home !== null && score.home !== undefined ? score.home : ''}" onchange="changeRecMatchScore(${m.match_number}, 'home', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid ${isReal ? '#2ecc71' : '#444'}; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
           <span style="color:#555;">:</span>
-          <input type="number" min="0" max="99" value="${score.away !== null && score.away !== undefined ? score.away : ''}" onchange="changeRecMatchScore(${m.match_number}, 'away', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
+          <input type="number" min="0" max="99" value="${score.away !== null && score.away !== undefined ? score.away : ''}" onchange="changeRecMatchScore(${m.match_number}, 'away', this.value)" style="width: 32px; background: rgba(0,0,0,0.5); border: 1px solid ${isReal ? '#2ecc71' : '#444'}; color: white; text-align: center; border-radius: 4px; outline: none; font-size: 0.85rem; font-weight: bold; font-family: Outfit;">
         </div>
         <div style="flex: 2; display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
           <img src="${awayFlag}" onerror="this.src='./img/placeholder_flag.png'" style="width: 20px; border-radius: 2px;">
@@ -695,7 +637,7 @@ function renderRecSimulationMatches() {
 }
 
 function changeRecMatchScore(matchNumber, team, val) {
-  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || {};
   const current = simulatedScores[matchNumber] || { home: null, away: null };
 
   if (val === '') {
@@ -704,38 +646,40 @@ function changeRecMatchScore(matchNumber, team, val) {
     current[team] = parseInt(val);
   }
 
+  const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
+
   if (current.home === null || current.away === null || isNaN(current.home) || isNaN(current.away)) {
+    delete realScores[matchNumber];
+    localStorage.setItem('realScores', JSON.stringify(realScores));
+    
     if (window.saveSimulatedScore) {
       window.saveSimulatedScore(matchNumber, null, null);
     } else {
       delete simulatedScores[matchNumber];
-      localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+      localStorage.setItem('realScores', JSON.stringify(simulatedScores));
     }
   } else {
+    realScores[matchNumber] = { home: current.home, away: current.away };
+    localStorage.setItem('realScores', JSON.stringify(realScores));
+    
     if (window.saveSimulatedScore) {
       window.saveSimulatedScore(matchNumber, current.home, current.away);
     } else {
       simulatedScores[matchNumber] = current;
-      localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+      localStorage.setItem('realScores', JSON.stringify(simulatedScores));
     }
   }
 
   if (window.recalculateTournamentState) window.recalculateTournamentState();
   if (window.recalculateAndRender) window.recalculateAndRender();
 
-  // Re-render status label
-  const updatedSimulated = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
-  const totalMatches = cachedWcData.matches.length;
-  const playedCount = Object.keys(updatedSimulated).length;
-  const statusLabel = document.getElementById('rec-sim-status-label');
-  if (statusLabel) {
-    statusLabel.innerText = `Simulados: ${playedCount} / ${totalMatches}`;
-  }
+  // Re-render matches to show locked icon and border
+  renderRecSimulationMatches();
 }
 
 function runRecSimulation(action) {
   if (action === 'reset') {
-    if (confirm('¿Estás seguro de que quieres borrar todos los marcadores simulados?')) {
+    if (confirm('¿Estás seguro de que quieres borrar todos los marcadores simulados? (Tus resultados reales se mantendrán)')) {
       if (window.clearAllSimulatedScores) {
         window.clearAllSimulatedScores();
       } else {
@@ -762,7 +706,7 @@ function runRecSimulation(action) {
 
 function simulateRecRound(roundNumber) {
   if (!cachedWcData || !cachedWcData.matches) return;
-  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || {};
   let count = 0;
 
   if (window.recalculateTournamentState) window.recalculateTournamentState();
@@ -815,7 +759,6 @@ function simulateRecRound(roundNumber) {
   });
 
   if (count > 0) {
-    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
     if (window.recalculateTournamentState) window.recalculateTournamentState();
     if (window.recalculateAndRender) window.recalculateAndRender();
     alert(`¡Simulados con éxito ${count} partidos de la Jornada ${roundNumber} usando pesos ELO!`);
@@ -826,7 +769,7 @@ function simulateRecRound(roundNumber) {
 
 function simulateRecRemainingMatches() {
   if (!cachedWcData || !cachedWcData.matches) return;
-  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || JSON.parse(localStorage.getItem('simulatedScores') || '{}');
+  const simulatedScores = (window.getSimulatedScores ? window.getSimulatedScores() : null) || {};
   let count = 0;
 
   const sortedMatches = [...cachedWcData.matches].sort((a, b) => a.match_number - b.match_number);
@@ -875,7 +818,6 @@ function simulateRecRemainingMatches() {
   });
 
   if (count > 0) {
-    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
     if (window.recalculateTournamentState) window.recalculateTournamentState();
     if (window.recalculateAndRender) window.recalculateAndRender();
     alert(`¡Simulados con éxito ${count} partidos restantes usando pesos ELO!`);
@@ -892,4 +834,42 @@ window.updateSettingValue = updateSettingValue;
 window.saveRecSettings = saveRecSettings;
 window.runRecSimulation = runRecSimulation;
 window.changeRecMatchScore = changeRecMatchScore;
+
+window.redoSurvey = function() {
+  if (confirm('¿Estás seguro de que quieres rehacer el test y borrar tu recomendación actual?')) {
+    localStorage.removeItem('savedSurveyResults');
+    if (state && state.userPreferences) {
+      state.userPreferences.draftedClusters = [];
+      state.userPreferences.favoriteTeams = [];
+      state.userPreferences.favoritePlayers = [];
+    }
+    location.reload();
+  }
+};
+
+function checkSavedSurvey() {
+  const saved = localStorage.getItem('savedSurveyResults');
+  if (saved) {
+    try {
+      window.surveyRawResults = JSON.parse(saved);
+      const triggerRecs = () => {
+        const hero = document.querySelector('.hero-ui');
+        if (hero) hero.classList.add('fade-out');
+        const scrollInd = document.querySelector('.scroll-indicator');
+        if (scrollInd) scrollInd.classList.add('fade-out');
+        if (typeof window.showRecommendations === 'function') {
+          window.showRecommendations();
+        }
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', triggerRecs);
+      } else {
+        triggerRecs();
+      }
+    } catch (e) {
+      console.error("Error loading saved survey:", e);
+    }
+  }
+}
+checkSavedSurvey();
   

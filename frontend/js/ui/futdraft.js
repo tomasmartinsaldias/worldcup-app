@@ -1339,6 +1339,15 @@ function completeDraft() {
   // Push drafted players to favoritePlayers so the recommender can find them
   state.userPreferences.favoritePlayers = Object.values(draftedPlayers).map(p => p.long_name);
 
+  // Save drafted clusters
+  state.userPreferences.draftedClusters = Object.entries(draftedPlayers).map(([slotId, p]) => {
+    const slot = formations[currentFormation].find(s => s.id === slotId);
+    return {
+      groupName: slot ? slot.group : '',
+      clusterId: p.cluster_id
+    };
+  }).filter(dc => dc.groupName);
+
   if (bestArch) {
     resultBadge.textContent = `${bestArch.title}`;
     state.userPreferences.tacticalVector = bestArch.vector;

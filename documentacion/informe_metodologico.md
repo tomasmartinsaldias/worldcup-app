@@ -147,7 +147,7 @@ El cálculo del estilo de los jugadores opera mediante agrupamiento no supervisa
 ### 3.3. Integración en el Cliente (Frontend)
 El motor de ejecución reside enteramente en el lado del cliente, garantizando la escalabilidad del sistema y su costo cero de infraestructura:
 *   **`state.js`:** Centraliza las preferencias de usuario, pesos asignados, marcadores simulados por el usuario (`simulatedScores`) y dispara de forma secuencial la recalculación de las tablas de posiciones y los Elo dinámicos.
-*   **`scoring.js`:** Ejecuta en tiempo real la combinación ponderada de los scores de espectáculo (ICE) y tácticos de afinidad (Playstyle), sumando las bonificaciones aditivas configuradas por el usuario (club favorito, jugadores favoritos, etc.).
+*   **`scoring.js`:** Ejecuta en tiempo real la combinación de los scores de espectáculo (ICE) y tácticos de afinidad (Playstyle) a través de un modelo de multiplicadores (boosting), aplicando amplificaciones afectivas basadas en afinidades configuradas (club favorito, selección favorita, jugadores favoritos) sin penalizar los encuentros neutrales.
 *   **`results.js` y `groups.js`:** Interfaces de usuario diseñadas en CSS puro que renderizan la interacción, permitiendo ingresar goles en vivo y ejecutar simulaciones probabilísticas con base en el diferencial de Elo en un solo clic.
 
 ---

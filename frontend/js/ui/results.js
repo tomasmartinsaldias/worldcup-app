@@ -488,7 +488,6 @@ function simulateRemainingMatches() {
   });
 
   if (count > 0) {
-    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
     recalculateTournamentState();
     if (window.recalculateAndRender) window.recalculateAndRender();
     renderResults();
@@ -563,7 +562,6 @@ function simulateRound(roundNumber) {
   });
 
   if (count > 0) {
-    localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
     recalculateTournamentState();
     if (window.recalculateAndRender) window.recalculateAndRender();
     renderResults();
@@ -726,7 +724,11 @@ function renderKnockoutContent() {
         if (winner) {
           const updatedScores = getSimulatedScores();
           updatedScores[mNum].winner = winner;
-          localStorage.setItem('simulatedScores', JSON.stringify(updatedScores));
+          const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
+          if (realScores[mNum]) {
+            realScores[mNum].winner = winner;
+            localStorage.setItem('realScores', JSON.stringify(realScores));
+          }
         }
       }
 
@@ -753,7 +755,11 @@ function renderKnockoutContent() {
       const simulatedScores = getSimulatedScores();
       if (simulatedScores[mNum]) {
         simulatedScores[mNum].winner = winner;
-        localStorage.setItem('simulatedScores', JSON.stringify(simulatedScores));
+        const realScores = JSON.parse(localStorage.getItem('realScores') || '{}');
+        if (realScores[mNum]) {
+          realScores[mNum].winner = winner;
+          localStorage.setItem('realScores', JSON.stringify(realScores));
+        }
         if (window.recalculateAndRender) window.recalculateAndRender();
         renderKnockoutContent();
       }
