@@ -133,7 +133,7 @@ function nextFanaticStep(currentStepNum, btn) {
     async function renderRecommendedCards() {
       const container = document.getElementById('recommendations-list');
       if (container) {
-        container.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">⚽ Analizando tu perfil...</p>';
+        container.innerHTML = '<p style="text-align:center; font-family:Outfit; margin-top:50px;">Analizando tu perfil...</p>';
       }
 
       try {
@@ -319,8 +319,8 @@ function nextFanaticStep(currentStepNum, btn) {
     breakdownHtml = `
       <div class="score-breakdown-container" style="background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.1); margin-top: 1rem; margin-bottom: 1.5rem;">
         <h4 style="font-family: 'Outfit'; font-size: 1.15rem; color: #fff; margin-top: 0; margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
-          <span>🔍 ANÁLISIS DE RECOMENDACIÓN</span>
-          <span style="color: #0088ff; font-weight: 800; background: rgba(0,136,255,0.1); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; letter-spacing: 0.5px;">${(match.smartScore).toFixed(1)} / 10 AFINIDAD</span>
+          <span>ANÁLISIS DE RECOMENDACIÓN</span>
+          <span style="color: #f5d061; font-weight: 800; background: rgba(245,208,97,0.1); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; letter-spacing: 0.5px;">${(match.smartScore).toFixed(1)} / 10 AFINIDAD</span>
         </h4>
         
         <div style="text-align: left;">
@@ -518,8 +518,8 @@ function switchRecSettingsTab(tabName) {
 
   if (tabName === 'weights') {
     tabWeightsBtn.classList.add('active');
-    tabWeightsBtn.style.color = '#0088ff';
-    tabWeightsBtn.style.borderBottomColor = '#0088ff';
+    tabWeightsBtn.style.color = '#f5d061';
+    tabWeightsBtn.style.borderBottomColor = '#f5d061';
     
     tabSimBtn.classList.remove('active');
     tabSimBtn.style.color = '#888';
@@ -529,8 +529,8 @@ function switchRecSettingsTab(tabName) {
     tabSimContent.classList.add('hidden');
   } else {
     tabSimBtn.classList.add('active');
-    tabSimBtn.style.color = '#0088ff';
-    tabSimBtn.style.borderBottomColor = '#0088ff';
+    tabSimBtn.style.color = '#f5d061';
+    tabSimBtn.style.borderBottomColor = '#f5d061';
     
     tabWeightsBtn.classList.remove('active');
     tabWeightsBtn.style.color = '#888';

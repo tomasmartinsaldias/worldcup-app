@@ -647,7 +647,7 @@ function renderArchetypeSlide() {
   const dynamicGraphicContainer = document.getElementById('archetype-graphic-container');
   if (dynamicGraphicContainer) {
     dynamicGraphicContainer.innerHTML = svgMap[arch.id] || `
-      <div style="font-size: 3.5rem; text-shadow: 0 0 10px rgba(251,191,36,0.3);">⚽</div>
+      <div style="font-size: 3.5rem; text-shadow: 0 0 10px rgba(251,191,36,0.3); color: var(--accent-gold);"><i class="fa-solid fa-futbol"></i></div>
     `;
   }
   

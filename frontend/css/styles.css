@@ -724,7 +724,7 @@
 }
 
 .settings-tab-btn:hover {
-  color: #0088ff !important;
+  color: #f5d061 !important;
 }
 
 .slider-group input[type="range"] {
@@ -745,9 +745,9 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #0088ff;
+  background: #f5d061;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 136, 255, 0.5);
+  box-shadow: 0 0 10px rgba(245, 208, 97, 0.5);
   transition: transform 0.1s;
 }
 .slider-group input[type="range"]::-webkit-slider-thumb:hover {
@@ -789,4 +789,61 @@
 /* Hide inactive settings tab contents */
 .settings-tab-content.hidden {
   display: none !important;
+}
+
+/* Media query for small screen heights to scale down test boxes */
+@media (max-height: 780px) {
+  .survey-container {
+    height: 86vh !important;
+    padding: 1rem 1.5rem !important;
+  }
+  .time-range-card {
+    padding: 0.75rem !important;
+    gap: 0.25rem !important;
+  }
+  .time-range-card i {
+    font-size: 1.35rem !important;
+  }
+  .time-range-card span {
+    font-size: 0.9rem !important;
+  }
+  .time-range-card small {
+    font-size: 0.75rem !important;
+  }
+  .visual-card {
+    height: 85px !important;
+  }
+  .visual-question-block {
+    margin-top: 0.75rem !important;
+  }
+  .sliders-group {
+    gap: 0.75rem !important;
+    margin: 0.75rem 0 !important;
+  }
+  .slider-wrapper {
+    margin-top: 0.75rem !important;
+  }
+  .draft-grid {
+    gap: 0.6rem !important;
+    margin: 0.6rem 0 !important;
+    max-height: 25vh !important;
+  }
+  .draft-card {
+    padding: 8px 4px !important;
+  }
+  .draft-card img {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 4px !important;
+  }
+  .draft-card .name {
+    font-size: 0.7rem !important;
+  }
+  .draft-controls {
+    margin-bottom: 0.4rem !important;
+  }
+  .draft-search-input {
+    padding: 0.35rem 0.7rem !important;
+    font-size: 0.75rem !important;
+  }
 }

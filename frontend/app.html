@@ -97,7 +97,7 @@
 
         <!-- Panel B: Modo Swipe -->
         <div class="panel-mode panel-mode--swipe">
-          <div class="panel-mode__badge panel-mode__badge--beta">⚡ Beta</div>
+          <div class="panel-mode__badge panel-mode__badge--beta">Beta</div>
           <h2 class="panel-mode__title">Modo Swipe</h2>
           <p class="panel-mode__desc">Deslizá para elegir los partidos que más te interesan. Rápido y divertido.</p>
           <a href="recommender.html" class="btn-mundial btn-mundial--swipe">
@@ -383,9 +383,9 @@
         <div class="slider-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
           <label style="color: var(--text-primary); font-size: 1rem; font-weight: bold;">Preferencia de Fricción / Roce:</label>
           <select id="pref-friction" class="filter-select" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: white; padding: 0.5rem; border-radius: 8px; width: 100%;">
-            <option value="indiferente">🤷 Indiferente</option>
-            <option value="fair_play">🕊️ Fair Play (Favorecer juegos limpios)</option>
-            <option value="tenso">🔥 Roce / Tenso (Favorecer partidos físicos)</option>
+            <option value="indiferente">Indiferente</option>
+            <option value="fair_play">Fair Play (Favorecer juegos limpios)</option>
+            <option value="tenso">Roce / Tenso (Favorecer partidos físicos)</option>
           </select>
         </div>
 
@@ -836,19 +836,19 @@
 
           <div class="quiz-cards-grid">
             <div class="quiz-card-option" data-value="morning">
-              <div class="quiz-card-option__icon">🌅</div>
+              <div class="quiz-card-option__icon" style="color: var(--accent-gold);"><i class="fa-solid fa-cloud-sun"></i></div>
               <div class="quiz-card-option__label">9:00 a 12:00</div>
             </div>
             <div class="quiz-card-option" data-value="early_afternoon">
-              <div class="quiz-card-option__icon">☀️</div>
+              <div class="quiz-card-option__icon" style="color: var(--accent-gold);"><i class="fa-solid fa-sun"></i></div>
               <div class="quiz-card-option__label">12:00 a 16:00</div>
             </div>
             <div class="quiz-card-option" data-value="late_afternoon">
-              <div class="quiz-card-option__icon">🌆</div>
+              <div class="quiz-card-option__icon" style="color: var(--accent-gold);"><i class="fa-solid fa-cloud-moon"></i></div>
               <div class="quiz-card-option__label">16:00 a 20:00</div>
             </div>
             <div class="quiz-card-option" data-value="evening">
-              <div class="quiz-card-option__icon">🌙</div>
+              <div class="quiz-card-option__icon" style="color: var(--accent-gold);"><i class="fa-solid fa-moon"></i></div>
               <div class="quiz-card-option__label">20:00 en adelante</div>
             </div>
           </div>
@@ -862,23 +862,23 @@
           <div class="quiz-radio-group">
             <div class="quiz-radio-option" data-value="goleada">
               <div class="quiz-radio-dot"></div>
-              <span>🔥 <b>Goleada épica:</b> Muchos goles y arcos abiertos</span>
+              <span><b>Goleada épica:</b> Muchos goles y arcos abiertos</span>
             </div>
             <div class="quiz-radio-option" data-value="tactico">
               <div class="quiz-radio-dot"></div>
-              <span>🧠 <b>Duelo táctico cerrado:</b> Un 1-0 con máxima tensión e inteligencia</span>
+              <span><b>Duelo táctico cerrado:</b> Un 1-0 con máxima tensión e inteligencia</span>
             </div>
             <div class="quiz-radio-option" data-value="frenetico">
               <div class="quiz-radio-dot"></div>
-              <span>⚡ <b>Ida y vuelta frenético:</b> Contraataques y transiciones rápidas</span>
+              <span><b>Ida y vuelta frenético:</b> Contraataques y transiciones rápidas</span>
             </div>
             <div class="quiz-radio-option" data-value="estrellas">
               <div class="quiz-radio-dot"></div>
-              <span>✨ <b>Show de estrellas:</b> Jugadas mágicas y regates individuales</span>
+              <span><b>Show de estrellas:</b> Jugadas mágicas y regates individuales</span>
             </div>
             <div class="quiz-radio-option" data-value="fisico">
               <div class="quiz-radio-dot"></div>
-              <span>💪 <b>Batalla física:</b> Choque de fuerzas, faltas, intensidad al límite</span>
+              <span><b>Batalla física:</b> Choque de fuerzas, faltas, intensidad al límite</span>
             </div>
           </div>
         </div>
@@ -927,9 +927,9 @@
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-possession">
             <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🏃 Contra rápida</span>
-              <span>⚖️ Equilibrado</span>
-              <span>🔄 Tiki-taka total</span>
+              <span>Contra rápida</span>
+              <span>Equilibrado</span>
+              <span>Tiki-taka total</span>
             </div>
           </div>
         </div>
@@ -942,9 +942,9 @@
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-intensity">
             <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🕊️ Fair play puro</span>
-              <span>⚖️ Equilibrado</span>
-              <span>🔥 Roce total (Faltas)</span>
+              <span>Fair play puro</span>
+              <span>Equilibrado</span>
+              <span>Roce total (Faltas)</span>
             </div>
           </div>
         </div>
@@ -957,9 +957,9 @@
           <div class="quiz-slider-wrapper" style="margin-top: 2rem;">
             <input type="range" min="0" max="100" value="50" class="quiz-range-slider" id="quiz-slider-age">
             <div class="quiz-slider-labels" style="display: flex; justify-content: space-between; margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.85rem;">
-              <span>🌱 Jóvenes promesas</span>
-              <span>⚖️ Mixto</span>
-              <span>👑 Leyendas veteranas</span>
+              <span>Jóvenes promesas</span>
+              <span>Mixto</span>
+              <span>Leyendas veteranas</span>
             </div>
           </div>
         </div>

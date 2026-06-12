@@ -752,7 +752,7 @@ export function initDraft() {
         `;
         loadingOverlay.innerHTML = `
           <div style="text-align:center;">
-            <div style="font-size:3.5rem; margin-bottom:1.5rem; animation: spinAnim 1.2s linear infinite; display:inline-block;">⚽</div>
+            <div style="font-size:3.5rem; margin-bottom:1.5rem; color:var(--accent-gold); animation: spinAnim 1.2s linear infinite; display:inline-block;"><i class="fa-solid fa-futbol"></i></div>
             <div style="font-family:'Outfit',sans-serif; font-size:1.6rem; font-weight:700; color:#fff; letter-spacing:2px; margin-bottom:0.5rem;">
               Reiniciando Draft
             </div>

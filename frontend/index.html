@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=13">
-  <link rel="stylesheet" href="css/components.css?v=12">
+  <link rel="stylesheet" href="css/components.css?v=14">
   <link rel="stylesheet" href="draft.css?v=13">
 </head>
 
@@ -360,18 +360,18 @@
 
   <!-- MODAL DE CONFIGURACIÓN DE RECOMENDACIONES -->
   <div id="rec-settings-modal" class="ui-overlay hidden" style="z-index: 30;">
-    <div class="stats-modal" style="background: #11141a; border: 1px solid #2a2e35; padding: 2.5rem; border-radius: 16px; max-width: 800px; width: 95%; position: relative; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;">
+    <div class="stats-modal" style="background: #070b12; border: 1.5px solid rgba(245, 208, 97, 0.35); padding: 2.5rem; border-radius: 16px; max-width: 800px; width: 95%; position: relative; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 30px rgba(245, 208, 97, 0.15);">
       <button class="stats-close" onclick="closeRecSettings()" style="position: absolute; right: 20px; top: 20px; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer;">✕</button>
       
-      <div class="stats-header" style="margin-bottom: 1.5rem; border-bottom: 1px solid #2a2e35; padding-bottom: 1rem;">
+      <div class="stats-header" style="margin-bottom: 1.5rem; border-bottom: 1px solid rgba(245, 208, 97, 0.2); padding-bottom: 1rem;">
         <h2 style="font-family: 'Outfit'; font-size: 1.6rem; color: #fff; display: flex; align-items: center; gap: 10px; margin: 0;">
-          <i class="fa-solid fa-gears" style="color: #0088ff;"></i> Personalizar Recomendaciones
+          <i class="fa-solid fa-gears" style="color: #f5d061;"></i> Personalizar Recomendaciones
         </h2>
       </div>
 
       <!-- Settings Tabs Navigation -->
       <div class="settings-tabs" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.5rem;">
-        <button class="settings-tab-btn active" onclick="switchRecSettingsTab('weights')" id="tab-btn-weights" style="background: transparent; border: none; color: #0088ff; font-family: 'Outfit'; font-size: 1rem; font-weight: bold; cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid #0088ff; transition: all 0.3s;">
+        <button class="settings-tab-btn active" onclick="switchRecSettingsTab('weights')" id="tab-btn-weights" style="background: transparent; border: none; color: #f5d061; font-family: 'Outfit'; font-size: 1rem; font-weight: bold; cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid #f5d061; transition: all 0.3s;">
           <i class="fa-solid fa-sliders"></i> Pesos de Algoritmo
         </button>
         <button class="settings-tab-btn" onclick="switchRecSettingsTab('simulation')" id="tab-btn-simulation" style="background: transparent; border: none; color: #888; font-family: 'Outfit'; font-size: 1rem; font-weight: bold; cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid transparent; transition: all 0.3s;">
@@ -382,49 +382,49 @@
       <!-- Tab Content: Weights -->
       <div id="settings-tab-weights" class="settings-tab-content" style="flex-grow: 1; overflow-y: auto; padding-right: 5px;">
         <!-- Macros -->
-        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #0088ff; margin-top: 0; margin-bottom: 1rem;">PESOS MACRO (Afinidad General)</h3>
+        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #f5d061; margin-top: 0; margin-bottom: 1rem;">PESOS MACRO (Afinidad General)</h3>
         <div style="display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-bottom: 2rem; background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
-              <span style="color: #eee;">🍿 Entretenimiento (Espectáculo/Fricción):</span>
-              <strong id="val-macro-ent">5</strong>
+              <span style="color: #eee;">Entretenimiento (Espectáculo/Fricción):</span>
+              <strong id="val-macro-ent" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-macro-ent" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-ent', this.value)" style="width: 100%;">
+            <input type="range" id="input-macro-ent" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('macro-ent', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
-              <span style="color: #eee;">🧠 Táctica (Estilo/Clusters):</span>
-              <strong id="val-macro-tac">5</strong>
+              <span style="color: #eee;">Táctica (Estilo/Clusters):</span>
+              <strong id="val-macro-tac" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-macro-tac" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-tac', this.value)" style="width: 100%;">
+            <input type="range" id="input-macro-tac" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('macro-tac', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
-              <span style="color: #eee;">❤️ Afectivo (Clubes/Selecciones/Jugadores):</span>
-              <strong id="val-macro-afec">5</strong>
+              <span style="color: #eee;">Afectivo (Clubes/Selecciones/Jugadores):</span>
+              <strong id="val-macro-afec" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-macro-afec" min="0" max="10" step="1" value="5" oninput="updateSettingValue('macro-afec', this.value)" style="width: 100%;">
+            <input type="range" id="input-macro-afec" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('macro-afec', this.value)">
           </div>
         </div>
 
         <!-- Micros -->
-        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #0088ff; margin-bottom: 1rem;">PESOS MICRO (Detalle de Componentes)</h3>
+        <h3 style="font-family: 'Outfit'; font-size: 1.1rem; color: #f5d061; margin-bottom: 1rem;">PESOS MICRO (Detalle de Componentes)</h3>
         <div style="display: grid; grid-template-columns: 1fr; gap: 1.2rem; background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
           <!-- Entretenimiento Sub-weights -->
           <div style="font-weight: bold; font-size: 0.85rem; color: #888; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 4px;">Sub-pesos Entretenimiento</div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Goles/Ocasiones (Espectáculo):</span>
-              <strong id="val-micro-esp">5</strong>
+              <strong id="val-micro-esp" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-micro-esp" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-esp', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-esp" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('micro-esp', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Fricción (Tarjetas/Intensidad):</span>
-              <strong id="val-micro-fric">2</strong>
+              <strong id="val-micro-fric" style="color: #f5d061;">2</strong>
             </div>
-            <input type="range" id="input-micro-fric" min="0" max="10" step="1" value="2" oninput="updateSettingValue('micro-fric', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-fric" min="0" max="10" step="1" value="2" class="premium-slider" oninput="updateSettingValue('micro-fric', this.value)">
           </div>
 
           <!-- Táctica Sub-weights -->
@@ -432,16 +432,16 @@
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Estilo de Juego (Vectores):</span>
-              <strong id="val-micro-testilo">5</strong>
+              <strong id="val-micro-testilo" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-micro-testilo" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-testilo', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-testilo" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('micro-testilo', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Similitud de Clusters:</span>
-              <strong id="val-micro-tcluster">5</strong>
+              <strong id="val-micro-tcluster" style="color: #f5d061;">5</strong>
             </div>
-            <input type="range" id="input-micro-tcluster" min="0" max="10" step="1" value="5" oninput="updateSettingValue('micro-tcluster', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-tcluster" min="0" max="10" step="1" value="5" class="premium-slider" oninput="updateSettingValue('micro-tcluster', this.value)">
           </div>
 
           <!-- Afectivo Sub-weights -->
@@ -449,23 +449,23 @@
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Club Favorito:</span>
-              <strong id="val-micro-aclub">3</strong>
+              <strong id="val-micro-aclub" style="color: #f5d061;">3</strong>
             </div>
-            <input type="range" id="input-micro-aclub" min="0" max="10" step="1" value="3" oninput="updateSettingValue('micro-aclub', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-aclub" min="0" max="10" step="1" value="3" class="premium-slider" oninput="updateSettingValue('micro-aclub', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Selección Favorita:</span>
-              <strong id="val-micro-asel">4</strong>
+              <strong id="val-micro-asel" style="color: #f5d061;">4</strong>
             </div>
-            <input type="range" id="input-micro-asel" min="0" max="10" step="1" value="4" oninput="updateSettingValue('micro-asel', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-asel" min="0" max="10" step="1" value="4" class="premium-slider" oninput="updateSettingValue('micro-asel', this.value)">
           </div>
           <div class="slider-group">
             <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.85rem;">
               <span>Jugador Favorito:</span>
-              <strong id="val-micro-ajug">3</strong>
+              <strong id="val-micro-ajug" style="color: #f5d061;">3</strong>
             </div>
-            <input type="range" id="input-micro-ajug" min="0" max="10" step="1" value="3" oninput="updateSettingValue('micro-ajug', this.value)" style="width: 100%;">
+            <input type="range" id="input-micro-ajug" min="0" max="10" step="1" value="3" class="premium-slider" oninput="updateSettingValue('micro-ajug', this.value)">
           </div>
         </div>
       </div>
@@ -477,7 +477,7 @@
           <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j1')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J1</button>
           <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j2')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J2</button>
           <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('j3')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #27ae60; border-color: #27ae60; color: white;">Simular J3</button>
-          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('remaining')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #0088ff; border-color: #0088ff; color: #fff;">Simular Restantes</button>
+          <button class="btn-mundial btn-mundial--green" onclick="runRecSimulation('remaining')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; font-weight: bold; background: #0d44a0; border-color: #f5d061; color: #fff;">Simular Restantes</button>
           <button class="btn-mundial btn-mundial--outline" onclick="runRecSimulation('reset')" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 20px; cursor: pointer; border-color: rgba(232, 35, 26, 0.4); color: #ff3b30; font-weight: bold; background: transparent;">Limpiar</button>
           <span style="margin-left: auto; display: flex; align-items: center; font-size: 0.8rem; color: #aaa;" id="rec-sim-status-label">Simulados: 0 / 104</span>
         </div>
@@ -489,9 +489,9 @@
       </div>
 
       <!-- Action Footer -->
-      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid #2a2e35; padding-top: 1.2rem;">
+      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid rgba(245, 208, 97, 0.2); padding-top: 1.2rem;">
         <button class="btn-mundial btn-mundial--outline" onclick="closeRecSettings()" style="padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: bold; cursor: pointer; background: transparent; color: white; border-color: #555;">Cancelar</button>
-        <button class="btn-mundial btn-mundial--green" onclick="saveRecSettings()" style="padding: 0.6rem 2rem; border-radius: 30px; font-weight: bold; background: #0088ff; border-color: #0088ff; color: #fff; cursor: pointer;">Guardar y Recalcular</button>
+        <button class="btn-mundial btn-glow-pulse" onclick="saveRecSettings()" style="padding: 0.6rem 2rem; border-radius: 30px; font-weight: bold; background: #f5d061; border: 1px solid #f5d061; color: #000; cursor: pointer;">Guardar y Recalcular</button>
       </div>
     </div>
   </div>
