@@ -235,6 +235,28 @@ function mapTeamEstilos(appData) {
 const OFFICIAL_RESULTS = {
   // Agrega aquí los marcadores reales definitivos de los partidos que ya se jugaron.
   1: { home: 2, away: 0 },
+  2: { home: 2, away: 1 },
+  3: { home: 1, away: 1 },
+  4: { home: 4, away: 1 },
+  5: { home: 1, away: 1 },
+  6: { home: 1, away: 1 },
+  7: { home: 0, away: 1 },
+  8: { home: 2, away: 1 },
+  9: { home: 2, away: 0 },
+  10: { home: 7, away: 1 },
+  11: { home: 2, away: 2 },
+  12: { home: 5, away: 1 },
+  13: { home: 0, away: 0 },
+  14: { home: 1, away: 1 },
+  15: { home: 1, away: 1 },
+  16: { home: 2, away: 2 },
+  17: { home: 3, away: 1 },
+  18: { home: 1, away: 4 },
+  19: { home: 3, away: 0 },
+  20: { home: 3, away: 1 },
+  21: { home: 1, away: 1 },
+  22: { home: 1, away: 0 },
+  23: { home: 1, away: 3 },
 };
 
 // Clean up legacy simulatedScores if they exist in the browser
